@@ -17,7 +17,7 @@ function initApp() {
         const linkHref = link.getAttribute('href');
         // Check if link matches current page OR if it's the home link on root
         if (linkHref === pageName || 
-           (linkHref === 'index.html' && (currentPath === '/' || currentPath.endsWith('/')))) {
+           (linkHref === 'index.html' && (currentPath === '/' || currentPath.endsWith('/') || currentPath.endsWith('index.html')))) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -29,25 +29,27 @@ function initApp() {
     window.toggleMenu = function() { 
         const menu = document.getElementById('navMenu'); 
         const icon = document.querySelector('.mobile-toggle i'); 
-        menu.classList.toggle('active'); 
-        if(menu.classList.contains('active')) { 
-            icon.classList.remove('fa-bars'); 
-            icon.classList.add('fa-xmark'); 
-        } else { 
-            icon.classList.remove('fa-xmark'); 
-            icon.classList.add('fa-bars'); 
-        } 
+        if (menu && icon) {
+            menu.classList.toggle('active'); 
+            if(menu.classList.contains('active')) { 
+                icon.classList.remove('fa-bars'); 
+                icon.classList.add('fa-xmark'); 
+            } else { 
+                icon.classList.remove('fa-xmark'); 
+                icon.classList.add('fa-bars'); 
+            } 
+        }
     }
     
-    window.toggleLang = function() { document.getElementById('langMenu').classList.toggle('show'); }
+    window.toggleLang = function() { 
+        const langMenu = document.getElementById('langMenu');
+        if (langMenu) langMenu.classList.toggle('show'); 
+    }
     
     window.changeLanguage = function(langCode) { 
-        var selectField = document.querySelector(".goog-te-combo"); 
-        if(selectField) { 
-            selectField.value = langCode; 
-            selectField.dispatchEvent(new Event("change")); 
-        } 
+        // Logic for Google Translate (if implemented) or just placeholder
         document.getElementById('langMenu').classList.remove('show'); 
+        // Reload or redirect logic would go here
     }
     
     // Close language menu if clicking outside
@@ -59,13 +61,14 @@ function initApp() {
 
     // --- 3. Scroll Progress & Sticky Navbar ---
     window.onscroll = function() {
+        // Progress Bar
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         let scrolled = (winScroll / height) * 100;
-        
         const progBar = document.getElementById("page-progress");
         if(progBar) progBar.style.width = scrolled + "%";
         
+        // Sticky Navbar
         const nav = document.getElementById('navbar'); 
         if(nav) {
             if (window.scrollY > 50) nav.classList.add('scrolled'); 
@@ -76,16 +79,23 @@ function initApp() {
     // --- 4. Live Forex (with Fallback) ---
     async function fetchLiveForex() {
         try {
+            // Using a free API (Frankfurter)
             const response = await fetch('https://api.frankfurter.app/latest?from=USD&to=INR,EUR,GBP'); 
             const data = await response.json();
+            
             if(data && data.rates) {
                 const usdInr = data.rates.INR; 
+                
+                // Fetch EUR to INR
                 const resEur = await fetch('https://api.frankfurter.app/latest?from=EUR&to=INR'); 
                 const dataEur = await resEur.json(); 
                 const eurInr = dataEur.rates.INR; 
+                
+                // Fetch GBP to INR
                 const resGbp = await fetch('https://api.frankfurter.app/latest?from=GBP&to=INR'); 
                 const dataGbp = await resGbp.json(); 
                 const gbpInr = dataGbp.rates.INR;
+
                 updateTickerDOM('fx-usd', 'USD/INR', usdInr); 
                 updateTickerDOM('fx-eur', 'EUR/INR', eurInr); 
                 updateTickerDOM('fx-gbp', 'GBP/INR', gbpInr);
@@ -101,7 +111,7 @@ function initApp() {
     
     function updateTickerDOM(id, label, value) { 
         const el = document.getElementById(id);
-        if(el) el.innerHTML = `${label} <span class="forex-up">${value.toFixed(2)} ▲</span>`; 
+        if(el && value) el.innerHTML = `${label} <span class="forex-up">${value.toFixed(2)} ▲</span>`; 
     }
 
     fetchLiveForex();
@@ -134,12 +144,15 @@ function initApp() {
     const track = document.getElementById('certTrack'); 
     const container = document.getElementById('certSlider');
     if(track && container) {
+        // Clone items for infinite loop
         Array.from(track.children).forEach(item => { const clone = item.cloneNode(true); track.appendChild(clone); });
+        
         let position = 0, speed = 0.5, isDragging = false, startX, prevTranslate = 0, animationID;
         
         function animate() { 
             if(!isDragging) { 
                 position -= speed; 
+                // Reset when half way (since we duplicated items)
                 if (Math.abs(position) >= (track.scrollWidth / 2)) { position = 0; } 
                 track.style.transform = `translateX(${position}px)`; 
             } 
@@ -188,9 +201,10 @@ function initApp() {
         document.querySelectorAll('.stat-item').forEach(el => statsObserver.observe(el)); 
     }, 500);
 
-    // --- 7. Initial Load & Hero Slider ---
-    // Location based welcome message
+    // --- 7. Initial Load & Preloader ---
     const welcomeText = document.getElementById('welcome-msg');
+    
+    // Only fetch IP if on the Home/Index page (where welcome-msg exists)
     if(welcomeText) {
         fetch('https://ipapi.co/json/')
             .then(response => response.json())
@@ -200,7 +214,7 @@ function initApp() {
             })
             .catch(() => {})
             .finally(() => { 
-                // Preloader fade out logic
+                // Fade out preloader
                 setTimeout(() => { 
                     const preloader = document.getElementById('preloader'); 
                     if(preloader) {
@@ -210,17 +224,17 @@ function initApp() {
                 }, 2500); 
             });
     } else {
-        // Fallback if welcomeText missing (e.g. on About page)
+        // Generic fallback for other pages (faster load)
         const preloader = document.getElementById('preloader');
         if(preloader) {
              setTimeout(() => { 
                 preloader.style.opacity = '0'; 
                 setTimeout(() => { preloader.style.display = 'none'; }, 1000);
-            }, 1500);
+            }, 1000);
         }
     }
 
-    // Hero Slider (Only runs if slider elements exist)
+    // --- 8. Hero Slider (Index Only) ---
     let slideIndex = 0; 
     window.setSlide = function(n) { slideIndex = n; updateSlider(); resetTimer(); } 
     
@@ -244,11 +258,14 @@ function initApp() {
         dots[slideIndex].classList.add('active'); 
     } 
     
-    let slideTimer = setInterval(nextSlide, 5000); 
-    function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
+    // Only start slider if slides exist
+    if(document.querySelectorAll('.hero-slide').length > 0) {
+        let slideTimer = setInterval(nextSlide, 5000); 
+        function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
+    }
 
-    // --- 8. Scroll Animations (Reveal) ---
-    const observer = new IntersectionObserver((entries) => { 
+    // --- 9. Scroll Animations (Reveal) ---
+    const revealObserver = new IntersectionObserver((entries) => { 
         entries.forEach(entry => { 
             if (entry.isIntersecting) { 
                 entry.target.classList.add('active'); 
@@ -260,24 +277,25 @@ function initApp() {
             } 
         }); 
     }, { threshold: 0.15 }); 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     
-    // --- 9. Network Map Logic ---
-    const networkNodes = [ 
-        { region: "African Continent", icon: "fa-ship", desc: "Bulk rice supplier to 15+ African nations.", countries: [{name:"Benin",type:"Parboiled"},{name:"Togo",type:"Rice"}] }, 
-        { region: "Europe (EU)", icon: "fa-euro-sign", desc: "Certified Organic Spices & Grains.", countries: [{name:"UK",type:"Basmati"},{name:"Germany",type:"Spices"}] }, 
-        { region: "Middle East", icon: "fa-mosque", desc: "Premier exporter of Basmati and Spices.", countries: [{name:"UAE",type:"1121 Rice"},{name:"Saudi",type:"Basmati"}] }, 
-        { region: "Russia & CIS", icon: "fa-snowflake", desc: "Supply partner for Northern markets.", countries: [{name:"Moscow",type:"Rice"},{name:"St. Petersburg",type:"Spices"}] }, 
-        { region: "Sri Lanka", icon: "fa-anchor", desc: "Direct supply route to Colombo Hub.", countries: [{name:"Colombo",type:"Rice"}] }, 
-        { region: "SE Asia", icon: "fa-map-location-dot", desc: "Expanding footprint in Asian markets.", countries: [{name:"Vietnam",type:"Grains"}] } 
-    ];
-    
+    // --- 10. Network Map Logic (Index Only) ---
     const netContainer = document.getElementById('jft_nodes_container'); 
     const svgLayer = document.getElementById('jft_svg_lines'); 
-    const hubX = 500; const hubY = 325; 
-    const nodeCoords = [{x:100,y:50}, {x:900,y:50}, {x:50,y:310}, {x:950,y:310}, {x:100,y:580}, {x:900,y:580}];
     
     if(netContainer && svgLayer) { 
+        const networkNodes = [ 
+            { region: "African Continent", icon: "fa-ship", desc: "Bulk rice supplier to 15+ African nations.", countries: [{name:"Benin",type:"Parboiled"},{name:"Togo",type:"Rice"}] }, 
+            { region: "Europe (EU)", icon: "fa-euro-sign", desc: "Certified Organic Spices & Grains.", countries: [{name:"UK",type:"Basmati"},{name:"Germany",type:"Spices"}] }, 
+            { region: "Middle East", icon: "fa-mosque", desc: "Premier exporter of Basmati and Spices.", countries: [{name:"UAE",type:"1121 Rice"},{name:"Saudi",type:"Basmati"}] }, 
+            { region: "Russia & CIS", icon: "fa-snowflake", desc: "Supply partner for Northern markets.", countries: [{name:"Moscow",type:"Rice"},{name:"St. Petersburg",type:"Spices"}] }, 
+            { region: "Sri Lanka", icon: "fa-anchor", desc: "Direct supply route to Colombo Hub.", countries: [{name:"Colombo",type:"Rice"}] }, 
+            { region: "SE Asia", icon: "fa-map-location-dot", desc: "Expanding footprint in Asian markets.", countries: [{name:"Vietnam",type:"Grains"}] } 
+        ];
+        
+        const hubX = 500; const hubY = 325; 
+        const nodeCoords = [{x:100,y:50}, {x:900,y:50}, {x:50,y:310}, {x:950,y:310}, {x:100,y:580}, {x:900,y:580}];
+
         networkNodes.forEach((node, index) => { 
             const div = document.createElement('div'); 
             div.className = `export-node node-${index} reveal`; 
@@ -311,7 +329,8 @@ function initApp() {
                 svgLayer.appendChild(path); 
             } 
         }); 
+        
         // Observe new nodes for animation
-        document.querySelectorAll('.export-node').forEach(el => observer.observe(el)); 
+        document.querySelectorAll('.export-node').forEach(el => revealObserver.observe(el)); 
     }
 }
