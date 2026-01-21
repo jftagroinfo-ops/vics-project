@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Trade & Privacy | JFT Agro Overseas</title>
+    <meta name="theme-color" content="#1a3c34">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- GLOBAL VARIABLES --- */
+        :root { --jft-primary: #4e8c3e; --jft-dark: #3e2b22; --jft-gold: #eebf45; --jft-navy: #1a3c34; --jft-light: #f5f1e6; --jft-border: #dcd6cb; --font-head: 'Merriweather', serif; --font-sub: 'Montserrat', sans-serif; --font-body: 'Lato', sans-serif; --radius-sm: 8px; --radius-md: 16px; --shadow-subtle: 0 4px 15px rgba(78, 140, 62, 0.08); --transition: all 0.3s ease; }
+        body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #4a4a4a; background: #fdfbf7; scroll-behavior: smooth; } * { box-sizing: border-box; }
+        
+        /* Navbar & Footer Global Styles (Minified for brevity as they match previous pages) */
+        h1, h2, h3, h4 { font-family: var(--font-head); margin: 0; color: var(--jft-navy); } 
+        a { text-decoration: none; color: inherit; transition: var(--transition); } 
+        img { max-width: 100%; display: block; }
+        .jft-navbar { position: fixed; top: 0; left: 0; width: 100%; height: 90px; z-index: 1000; background: rgba(255, 255, 255, 0.98); box-shadow: 0 5px 20px rgba(0,0,0,0.05); display: flex; align-items: center; }
+        .nav-logo-img { height: 60px; width: auto; }
+        .nav-menu { display: flex; gap: 40px; margin-left: auto; align-items: center; }
+        .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; letter-spacing: 1px; }
+        .nav-link:hover { color: var(--jft-primary); }
+        .mobile-toggle { display: none; }
+        .jft-wide-container { max-width: 1350px; margin: 0 auto; padding: 0 40px; }
+
+        /* --- PAGE HEADER --- */
+        .page-header { height: 40vh; background: #1a3c34; position: relative; display: flex; align-items: center; justify-content: center; margin-top: 90px; }
+        .ph-content { position: relative; z-index: 2; text-align: center; color: #fff; }
+        .ph-title { font-size: 3rem; margin-bottom: 10px; }
+        .ph-breadcrumb { font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--jft-gold); font-size: 0.9rem; }
+
+        /* --- LEGAL LAYOUT --- */
+        .legal-layout { display: flex; gap: 60px; padding: 80px 0; position: relative; align-items: flex-start; }
+        
+        /* Sidebar */
+        .legal-sidebar { width: 300px; position: sticky; top: 120px; flex-shrink: 0; background: #fff; padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); border: 1px solid var(--jft-border); }
+        .ls-title { font-family: var(--font-sub); font-weight: 800; text-transform: uppercase; margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1px; color: var(--jft-navy); }
+        .ls-nav { display: flex; flex-direction: column; gap: 5px; }
+        .ls-link { padding: 12px 15px; font-family: var(--font-sub); font-size: 0.85rem; font-weight: 600; color: #666; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; }
+        .ls-link:hover { background: #f5f5f5; color: var(--jft-primary); }
+        .ls-link.active { background: var(--jft-primary); color: #fff; box-shadow: 0 4px 10px rgba(78, 140, 62, 0.3); }
+        .ls-link.active::after { content: '\f054'; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 0.7rem; }
+
+        /* Content */
+        .legal-content { flex: 1; background: #fff; padding: 60px; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); border: 1px solid #eee; }
+        .legal-section { margin-bottom: 60px; scroll-margin-top: 140px; border-bottom: 1px solid #eee; padding-bottom: 40px; }
+        .legal-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        
+        .ls-heading { font-size: 1.8rem; color: var(--jft-navy); margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+        .ls-heading i { color: var(--jft-gold); font-size: 1.4rem; }
+        .ls-text { font-size: 1rem; color: #555; line-height: 1.8; margin-bottom: 20px; }
+        .ls-list { list-style: none; padding: 0; margin-bottom: 20px; }
+        .ls-list li { position: relative; padding-left: 25px; margin-bottom: 12px; font-size: 0.95rem; color: #444; line-height: 1.6; }
+        .ls-list li::before { content: '\f00c'; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 3px; color: var(--jft-primary); font-size: 0.8rem; }
+        
+        .important-box { background: #fffbeb; border-left: 4px solid var(--jft-gold); padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .important-box h5 { margin: 0 0 10px 0; color: #92400e; font-family: var(--font-sub); text-transform: uppercase; font-size: 0.8rem; }
+        .important-box p { margin: 0; color: #92400e; font-size: 0.9rem; }
+
+        /* Footer (Minified) */
+        .footer-section { background: var(--jft-navy); color: #fff; padding: 60px 0 20px 0; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; margin-top: 40px; font-size: 0.8rem; color: #888; }
+
+        @media (max-width: 1024px) {
+            .legal-layout { flex-direction: column; }
+            .legal-sidebar { width: 100%; position: relative; top: 0; }
+            .legal-content { padding: 30px; }
+            .jft-navbar { display: none; } /* Simplified for mobile view of legal page */
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="jft-navbar">
+        <div class="jft-wide-container" style="display:flex; width:100%; align-items:center;">
+            <a href="index.html"><img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" class="nav-logo-img" alt="JFT"></a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="contact.html" class="nav-link" style="color:var(--jft-primary);">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="ph-content">
+            <h1 class="ph-title">Trade Framework</h1>
+            <div class="ph-breadcrumb">Terms of Business & Privacy Policy</div>
+        </div>
+    </header>
+
+    <div class="jft-wide-container">
+        <div class="legal-layout">
+            
+            <aside class="legal-sidebar">
+                <div class="ls-title">Table of Contents</div>
+                <div class="ls-nav">
+                    <a href="#payment" class="ls-link active">Payment Terms</a>
+                    <a href="#delivery" class="ls-link">Shipping & Delivery</a>
+                    <a href="#quality" class="ls-link">Quality Guarantee</a>
+                    <a href="#privacy" class="ls-link">Privacy Policy</a>
+                    <a href="#dispute" class="ls-link">Dispute Resolution</a>
+                </div>
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+                    <p style="font-size:0.8rem; color:#888; margin-bottom:10px;">Need clarification?</p>
+                    <a href="contact.html" style="color:var(--jft-primary); font-weight:700; font-size:0.9rem;"><i class="fa-solid fa-envelope"></i> Contact Legal Dept</a>
+                </div>
+            </aside>
+
+            <main class="legal-content">
+                
+                <div id="payment" class="legal-section">
+                    <h2 class="ls-heading"><i class="fa-solid fa-file-invoice-dollar"></i> Payment Terms</h2>
+                    <p class="ls-text">At JFT Agro Overseas LLP, we adhere to strict international banking standards to ensure the safety of funds for both parties. Our accepted modes of payment are:</p>
+                    <ul class="ls-list">
+                        <li><strong>Letter of Credit (LC):</strong> 100% Irrevocable, Confirmed LC at Sight from a prime bank.</li>
+                        <li><strong>Telegraphic Transfer (TT):</strong> 30% Advance Payment at the time of order confirmation, and the balance 70% against the scanned copy of original shipping documents (Bill of Lading).</li>
+                        <li><strong>Cash Against Documents (CAD):</strong> Available only for long-term partners with a proven credit history.</li>
+                    </ul>
+                    <div class="important-box">
+                        <h5>Fraud Alert</h5>
+                        <p>We never ask for payments into personal accounts. All transfers must be made to "JFT Agro Overseas LLP" accounts in HDFC Bank, India. Verify details via video call before transferring.</p>
+                    </div>
+                </div>
+
+                <div id="delivery" class="legal-section">
+                    <h2 class="ls-heading"><i class="fa-solid fa-ship"></i> Shipping & Delivery</h2>
+                    <p class="ls-text">We operate under Incoterms 2020. Our standard delivery timelines are:</p>
+                    <ul class="ls-list">
+                        <li><strong>FOB (Free On Board):</strong> Cargo handed over to the shipping line within 10-14 days of order confirmation.</li>
+                        <li><strong>CIF (Cost, Insurance, Freight):</strong> We handle insurance and freight up to the destination port. Transit times vary by region (e.g., Middle East: 8-12 days, Europe: 25-30 days).</li>
+                    </ul>
+                    <p class="ls-text"><strong>Demurrage Free Days:</strong> We negotiate 14-21 days of free detention time at the destination port to facilitate smooth customs clearance for our buyers.</p>
+                </div>
+
+                <div id="quality" class="legal-section">
+                    <h2 class="ls-heading"><i class="fa-solid fa-certificate"></i> Quality Guarantee</h2>
+                    <p class="ls-text">Quality is the cornerstone of our export house status. Our guarantee includes:</p>
+                    <ul class="ls-list">
+                        <li><strong>Third-Party Inspection:</strong> We authorize SGS, Bureau Veritas, or Cotecna to inspect weight and quality at the time of loading.</li>
+                        <li><strong>Lab Reports:</strong> Every container carries a Certificate of Analysis (COA) for moisture, broken percentage, and purity.</li>
+                        <li><strong>Sample Retention:</strong> A sealed sample of every shipment is retained at our facility for 90 days for verification purposes.</li>
+                    </ul>
+                </div>
+
+                <div id="privacy" class="legal-section">
+                    <h2 class="ls-heading"><i class="fa-solid fa-user-shield"></i> Privacy Policy</h2>
+                    <p class="ls-text">We respect your business confidentiality. Data collected through our RFQ forms (Name, Email, Phone) is used strictly for:</p>
+                    <ul class="ls-list">
+                        <li>Generating Proforma Invoices and Export Documentation.</li>
+                        <li>Updating you on shipment status via WhatsApp/Email.</li>
+                        <li>We <strong>do not</strong> sell or share your data with third-party marketing agencies.</li>
+                    </ul>
+                </div>
+
+                <div id="dispute" class="legal-section">
+                    <h2 class="ls-heading"><i class="fa-solid fa-scale-balanced"></i> Dispute Resolution</h2>
+                    <p class="ls-text">In the unlikely event of a quality claim, the buyer must notify JFT Agro within 7 days of cargo arrival. Claims must be supported by a survey report from an independent agency (like SGS). All legal disputes are subject to the jurisdiction of Mumbai Courts, India.</p>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer-section">
+        <div class="jft-wide-container">
+            <div class="footer-bottom">
+                &copy; 2026 JFT Agro Overseas LLP. All Rights Reserved. <br>
+                Government Recognized Star Export House.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- SCROLL SPY LOGIC ---
+        const sections = document.querySelectorAll('.legal-section');
+        const navLinks = document.querySelectorAll('.ls-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

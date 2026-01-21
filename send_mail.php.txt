@@ -1,0 +1,64 @@
+<?php
+// send_mail.php
+// Configure your email here
+$to_email = "export@jftagro.com"; 
+$site_name = "JFT Agro Overseas";
+
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Sanitize inputs
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $company = filter_var($_POST['company'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
+    $product = filter_var($_POST['product'], FILTER_SANITIZE_STRING);
+    $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+
+    // Email Subject
+    $subject = "New Export Inquiry from " . $name . " (" . $company . ")";
+
+    // Email Body (HTML)
+    $body = "
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .header { background: #1a3c34; color: #fff; padding: 15px; text-align: center; }
+            .content { padding: 20px; border: 1px solid #ddd; background: #f9f9f9; }
+            .label { font-weight: bold; color: #4e8c3e; }
+        </style>
+    </head>
+    <body>
+        <div class='header'>
+            <h2>New RFQ Received</h2>
+        </div>
+        <div class='content'>
+            <p><span class='label'>Client Name:</span> $name</p>
+            <p><span class='label'>Company:</span> $company</p>
+            <p><span class='label'>Email:</span> $email</p>
+            <p><span class='label'>Phone/WhatsApp:</span> $phone</p>
+            <hr>
+            <p><span class='label'>Interested Product:</span> $product</p>
+            <p><span class='label'>Requirement Details:</span><br>$message</p>
+        </div>
+    </body>
+    </html>
+    ";
+
+    // Headers
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: Website Inquiry <no-reply@jftagro.com>" . "\r\n";
+    $headers .= "Reply-To: $email" . "\r\n";
+
+    // Send
+    if (mail($to_email, $subject, $body, $headers)) {
+        // Redirect to Thank You page
+        header("Location: thank-you.html");
+        exit();
+    } else {
+        echo "Error sending email. Please contact us directly at $to_email";
+    }
+}
+?>
