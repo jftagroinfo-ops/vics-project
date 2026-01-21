@@ -4,31 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found | JFT Agro Overseas</title>
-    <meta name="theme-color" content="#1a3c34">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { margin: 0; height: 100vh; background: #1a3c34; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .bg-text { position: absolute; font-size: 30vw; font-weight: 900; color: rgba(255,255,255,0.03); z-index: 0; pointer-events: none; }
+        .content { position: relative; z-index: 1; text-align: center; max-width: 600px; padding: 20px; }
+        h2 { font-size: 2rem; margin: 0 0 20px 0; color: #eebf45; text-transform: uppercase; letter-spacing: 2px; }
+        p { font-size: 1.1rem; line-height: 1.6; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+        .btn { display: inline-block; padding: 15px 35px; background: #eebf45; color: #1a3c34; text-decoration: none; font-weight: 700; border-radius: 50px; text-transform: uppercase; transition: 0.3s; }
+        .btn:hover { background: #fff; transform: scale(1.05); }
+    </style>
 </head>
 <body>
-
-    <div id="jft-header-container"></div>
-
-    <section class="error-section">
-        <div class="error-bg-text">404</div>
-        <div class="error-content reveal active">
-            <h2 class="error-title">Wrong Turn</h2>
-            <p class="error-desc">It seems the page you are looking for has been moved or does not exist. However, our export lines are open and active.</p>
-            <a href="index.html" class="btn-primary" style="background: var(--jft-gold); color: var(--jft-navy); border-color: var(--jft-gold);">Back to Home</a>
-        </div>
-    </section>
-
-    <div id="jft-footer-container"></div>
-
-    <script src="js/layout.js"></script>
-    <script src="js/main.js"></script>
+    <div class="bg-text">404</div>
+    <div class="content">
+        <h2>Wrong Turn</h2>
+        <p>It seems the page you are looking for has been moved or does not exist. However, our export lines are open and active.</p>
+        <a href="index.html" class="btn">Back to Home</a>
+    </div>
 </body>
 </html>
