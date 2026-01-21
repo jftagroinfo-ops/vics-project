@@ -35,7 +35,7 @@ const JFT_HEADER = `
                 <div class="forex-item" id="fx-eur">EUR/INR <span>..</span></div>
                 <div class="forex-item desktop-only" id="fx-gbp">GBP/INR <span>..</span></div>
             </div>
-            <a href="#contact" class="visit-plan"><i class="fa-solid fa-plane-departure"></i> MEET US AT GULFOOD DUBAI</a>
+            <a href="contact.html" class="visit-plan"><i class="fa-solid fa-plane-departure"></i> MEET US AT GULFOOD DUBAI</a>
         </div>
     </div>
 
@@ -47,22 +47,22 @@ const JFT_HEADER = `
 
     <nav class="jft-navbar" id="navbar">
         <div class="jft-wide-container nav-flex">
-            <a href="index.html#home" class="nav-logo-link"><img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Agro Overseas" class="nav-logo-img"></a>
+            <a href="index.html" class="nav-logo-link"><img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Agro Overseas" class="nav-logo-img"></a>
             <div class="nav-menu" id="navMenu">
-                <a href="index.html#home" class="nav-link" onclick="toggleMenu()">Home</a>
-                <a href="index.html#about" class="nav-link" onclick="toggleMenu()">About</a>
-                <a href="index.html#products" class="nav-link" onclick="toggleMenu()">Products</a>
-                <a href="index.html#infrastructure" class="nav-link" onclick="toggleMenu()">Infra</a>
+                <a href="index.html" class="nav-link" onclick="toggleMenu()">Home</a>
+                <a href="about.html" class="nav-link" onclick="toggleMenu()">About</a>
+                <a href="products.html" class="nav-link" onclick="toggleMenu()">Products</a>
+                <a href="infrastructure.html" class="nav-link" onclick="toggleMenu()">Infra</a>
                 <a href="index.html#global-reach" class="nav-link" onclick="toggleMenu()">Network</a>
-                <a href="#contact" class="nav-link" onclick="toggleMenu()">Contact</a>
-                <a href="#contact" class="nav-btn-action desktop-only" onclick="toggleMenu()">Get Quote</a>
+                <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
+                <a href="contact.html" class="nav-btn-action desktop-only" onclick="toggleMenu()">Get Quote</a>
             </div>
             <div class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
         </div>
     </nav>
 
     <a href="https://wa.me/919800000000" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-    <div class="sticky-quote"><a href="#contact" class="sticky-btn">Request Export Quote</a></div>
+    <div class="sticky-quote"><a href="contact.html" class="sticky-btn">Request Export Quote</a></div>
 `;
 
 const JFT_FOOTER = `
@@ -82,11 +82,11 @@ const JFT_FOOTER = `
                 <div class="f-col">
                     <h4>Quick Links</h4>
                     <ul class="f-links">
-                        <li><a href="index.html#home">Home</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="index.html#products">Our Products</a></li>
-                        <li><a href="index.html#infrastructure">Infrastructure</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Our Products</a></li>
+                        <li><a href="infrastructure.html">Infrastructure</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
 
@@ -102,7 +102,7 @@ const JFT_FOOTER = `
                 <div class="f-col">
                     <h4>Export Inquiry</h4>
                     <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Get our latest product catalogue and export price list directly to your inbox.</p>
-                    <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Thank you! Our export manager will contact you shortly.');">
+                    <form class="f-newsletter" action="thank-you.html">
                         <input type="email" class="f-input" placeholder="Enter Official Email ID" required>
                         <button type="submit" class="f-btn-full">Request Price List</button>
                     </form>
@@ -110,15 +110,18 @@ const JFT_FOOTER = `
             </div>
 
             <div class="footer-bottom">
-                <span>&copy; <script>document.write(new Date().getFullYear())</script> JFT Agro Overseas LLP. All Rights Reserved. | <a href="#" style="color: var(--jft-gold);">Privacy Policy</a> | <a href="#" style="color: var(--jft-gold);">Terms of Trade</a></span>
+                <span>&copy; <script>document.write(new Date().getFullYear())</script> JFT Agro Overseas LLP. All Rights Reserved. | <a href="legal.html" style="color: var(--jft-gold);">Privacy Policy</a> | <a href="legal.html" style="color: var(--jft-gold);">Terms of Trade</a> | <a href="sitemap.html" style="color: var(--jft-gold);">Sitemap</a></span>
             </div>
         </div>
     </footer>
 `;
 
-// Inject Header and Footer
-document.getElementById('jft-header-container').innerHTML = JFT_HEADER;
-document.getElementById('jft-footer-container').innerHTML = JFT_FOOTER;
+// Inject Header and Footer if the containers exist
+const headerContainer = document.getElementById('jft-header-container');
+if (headerContainer) headerContainer.innerHTML = JFT_HEADER;
+
+const footerContainer = document.getElementById('jft-footer-container');
+if (footerContainer) footerContainer.innerHTML = JFT_FOOTER;
 
 // Dispatch event to signal layout is ready so main.js can run
 document.dispatchEvent(new Event('layoutLoaded'));
