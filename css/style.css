@@ -625,3 +625,71 @@ img { max-width: 100%; display: block; border-radius: var(--radius-sm); }
 }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes dropIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+/* =========================================
+   ADD THESE TO THE BOTTOM OF STYLE.CSS
+   (Styles for Infrastructure Page)
+   ========================================= */
+
+/* --- Infrastructure Page Header --- */
+/* (Reuses .page-header from About/Products, but ensures background sizing) */
+
+/* --- Partners Strip --- */
+.partners-strip { background: #fdfbf7; padding: 40px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; text-align: center; }
+.partner-grid { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; align-items: center; opacity: 0.7; }
+.partner-logo { height: 40px; filter: grayscale(100%); transition: 0.3s; }
+.partner-logo:hover { filter: grayscale(0); transform: scale(1.1); opacity: 1; }
+
+/* --- Unit Sections (General) --- */
+.unit-layout { display: flex; align-items: center; gap: 80px; }
+.unit-layout.reverse { flex-direction: row-reverse; }
+.unit-text { flex: 1; position: relative; z-index: 2; }
+.unit-visual { flex: 1; position: relative; }
+.unit-img-container { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 5px solid rgba(255,255,255,0.1); }
+.unit-img-container img { width: 100%; transition: transform 0.5s; display: block; }
+.unit-img-container:hover img { transform: scale(1.05); }
+.tech-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(238, 191, 69, 0.1); border: 1px solid var(--jft-gold); color: var(--jft-gold); padding: 8px 15px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; }
+
+/* Spec Grid (Stats per unit) */
+.spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; }
+.spec-box { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; border-left: 3px solid var(--jft-primary); transition: 0.3s; }
+.spec-box:hover { background: rgba(255,255,255,0.1); transform: translateX(5px); }
+.spec-val { display: block; font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+.spec-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- Rice Unit (Dark Theme) --- */
+.unit-section-rice { background: var(--jft-navy); color: #fff; position: relative; overflow: hidden; }
+.unit-bg-pattern { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); pointer-events: none; }
+
+/* --- Wheat Unit (Light Theme) --- */
+.unit-section-wheat { background: #fff; position: relative; }
+.unit-section-wheat .section-title { color: var(--jft-navy); }
+.unit-section-wheat .section-desc { color: #555; }
+.unit-section-wheat .spec-box { background: #f9f9f9; border-left-color: var(--jft-gold); }
+.unit-section-wheat .spec-val { color: var(--jft-navy); }
+.unit-section-wheat .spec-label { color: #888; }
+.unit-section-wheat .tech-badge { background: #eafbe7; color: var(--jft-primary); border-color: var(--jft-primary); }
+
+/* --- Process Flow Chart --- */
+.process-wrapper { margin-top: 50px; position: relative; padding: 20px 0; }
+.process-track { display: flex; justify-content: space-between; position: relative; }
+.process-line { position: absolute; top: 40px; left: 0; width: 100%; height: 2px; background: rgba(255,255,255,0.2); z-index: 0; }
+.wheat-line .process-line { background: #eee; }
+
+.process-node { position: relative; z-index: 2; text-align: center; width: 14%; }
+.node-icon { width: 80px; height: 80px; background: var(--jft-navy); border: 2px solid var(--jft-gold); color: var(--jft-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 15px auto; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+.wheat-node .node-icon { background: #fff; color: var(--jft-primary); border-color: var(--jft-primary); }
+.process-node:hover .node-icon { transform: scale(1.1) rotate(10deg); background: var(--jft-gold); color: var(--jft-navy); }
+.node-title { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #fff; }
+.wheat-node .node-title { color: var(--jft-navy); }
+
+/* --- Responsive Updates for Infrastructure --- */
+@media (max-width: 1024px) {
+    .unit-layout { flex-direction: column; gap: 40px; }
+    .unit-layout.reverse { flex-direction: column; }
+    .spec-grid { grid-template-columns: 1fr; }
+    
+    .process-track { flex-direction: column; gap: 30px; position: relative; }
+    .process-line { width: 2px; height: 100%; left: 40px; top: 0; }
+    .process-node { display: flex; align-items: center; gap: 20px; width: 100%; text-align: left; }
+    .node-icon { margin: 0; flex-shrink: 0; }
+}
