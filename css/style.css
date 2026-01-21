@@ -758,3 +758,50 @@ img { max-width: 100%; display: block; border-radius: var(--radius-sm); }
     .form-grid { grid-template-columns: 1fr; }
     .map-tabs { flex-wrap: wrap; }
 }
+
+/* =========================================
+   ADD THESE TO THE BOTTOM OF STYLE.CSS
+   (Styles for Legal / Terms Page)
+   ========================================= */
+
+/* --- Legal Page Header --- */
+/* Reuse .page-header from previous pages, but we can override height if needed */
+.page-header-legal { height: 40vh; background: #1a3c34; position: relative; display: flex; align-items: center; justify-content: center; margin-top: 80px; }
+.page-header-legal::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 20px 20px; opacity: 0.3; }
+
+/* --- Legal Layout (Sidebar + Content) --- */
+.legal-layout { display: flex; gap: 60px; padding: 80px 0; position: relative; align-items: flex-start; }
+
+/* Sidebar Navigation */
+.legal-sidebar { width: 300px; position: sticky; top: 120px; flex-shrink: 0; background: #fff; padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); border: 1px solid var(--jft-border); }
+.ls-title { font-family: var(--font-sub); font-weight: 800; text-transform: uppercase; margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1px; color: var(--jft-navy); }
+.ls-nav { display: flex; flex-direction: column; gap: 5px; }
+.ls-link { padding: 12px 15px; font-family: var(--font-sub); font-size: 0.85rem; font-weight: 600; color: #666; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; cursor: pointer; }
+.ls-link:hover { background: #f5f5f5; color: var(--jft-primary); }
+.ls-link.active { background: var(--jft-primary); color: #fff; box-shadow: 0 4px 10px rgba(78, 140, 62, 0.3); }
+.ls-link.active::after { content: '\f054'; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 0.7rem; }
+
+/* Content Area */
+.legal-content { flex: 1; background: #fff; padding: 60px; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); border: 1px solid #eee; }
+.legal-section { margin-bottom: 60px; scroll-margin-top: 140px; border-bottom: 1px solid #eee; padding-bottom: 40px; }
+.legal-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.ls-heading { font-size: 1.8rem; color: var(--jft-navy); margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-family: var(--font-head); font-weight: 700; }
+.ls-heading i { color: var(--jft-gold); font-size: 1.4rem; }
+.ls-text { font-size: 1rem; color: #555; line-height: 1.8; margin-bottom: 20px; font-family: var(--font-body); }
+.ls-list { list-style: none; padding: 0; margin-bottom: 20px; }
+.ls-list li { position: relative; padding-left: 25px; margin-bottom: 12px; font-size: 0.95rem; color: #444; line-height: 1.6; }
+.ls-list li::before { content: '\f00c'; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 3px; color: var(--jft-primary); font-size: 0.8rem; }
+
+/* Alert Box */
+.important-box { background: #fffbeb; border-left: 4px solid var(--jft-gold); padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+.important-box h5 { margin: 0 0 10px 0; color: #92400e; font-family: var(--font-sub); text-transform: uppercase; font-size: 0.8rem; font-weight: 700; }
+.important-box p { margin: 0; color: #92400e; font-size: 0.9rem; line-height: 1.6; }
+
+/* --- Responsive Updates for Legal --- */
+@media (max-width: 1024px) {
+    .legal-layout { flex-direction: column; }
+    .legal-sidebar { width: 100%; position: relative; top: 0; z-index: 10; }
+    .legal-content { padding: 30px; }
+    .page-header-legal { margin-top: 40px; }
+}
