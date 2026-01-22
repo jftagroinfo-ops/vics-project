@@ -13,49 +13,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root { 
-            --jft-primary: #4e8c3e; 
-            --jft-dark: #3e2b22; 
-            --jft-gold: #eebf45; 
-            --jft-navy: #1a3c34; 
-            --jft-light: #f5f1e6; 
-            --jft-border: #dcd6cb; 
-            
-            --font-head: 'Merriweather', serif; 
-            --font-sub: 'Montserrat', sans-serif; 
-            --font-body: 'Lato', sans-serif; 
-            
-            --radius-sm: 8px; 
-            --radius-md: 16px; 
-            
-            --shadow-subtle: 0 4px 15px rgba(78, 140, 62, 0.08); 
-            --shadow-hover: 0 20px 30px -5px rgba(26, 60, 52, 0.15); 
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-        }
+    <link rel="stylesheet" href="style.css">
 
-        /* --- Reset & Core --- */
-        body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #4a4a4a; background: #fdfbf7; -webkit-font-smoothing: antialiased; } 
-        * { box-sizing: border-box; } 
-        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-        
-        h1, h2, h3, h4 { font-family: var(--font-head); margin: 0; color: var(--jft-navy); letter-spacing: -0.5px; } 
-        p { line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.1rem; color: #5c5c5c; } 
-        a { text-decoration: none; color: inherit; transition: var(--transition); } 
-        ul { list-style: none; padding: 0; margin: 0; } 
-        img { max-width: 100%; display: block; border-radius: var(--radius-sm); }
-        
+    <style>
+        /* Note: Variables (:root), Body Reset, Preloader, and Common Utils 
+           are now loaded from style.css. Only page-specific styles remain here. */
+
         /* --- Scroll Progress Bar --- */
         #page-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--jft-gold); z-index: 9999; width: 0%; transition: width 0.1s; }
 
-        /* --- Layout & Utilities --- */
-        .jft-wide-container { max-width: 1350px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 5; }
-        .section-padding { padding: 110px 0; } 
+        /* --- Page Specific Utilities --- */
         .bg-light { background-color: var(--jft-light); } 
         .text-center { text-align: center; }
         .bg-pattern { background-color: #F0EFE9; background-image: radial-gradient(#D6D1C4 1px, transparent 1px); background-size: 20px 20px; }
 
-        /* --- Global Elements (Titles, Buttons) --- */
+        /* --- Global Elements (Titles, Buttons - Specific to Sections) --- */
         .section-header { margin-bottom: 60px; max-width: 800px; } 
         .center-header { margin-left: auto; margin-right: auto; text-align: center; }
         .brand-tag { display: inline-block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; background: rgba(78, 140, 62, 0.1); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(78, 140, 62, 0.2); }
@@ -204,7 +176,7 @@
         .node-0 .country-list-reveal, .node-2 .country-list-reveal, .node-4 .country-list-reveal { left: 90px; top: 100%; } 
         .node-1 .country-list-reveal, .node-3 .country-list-reveal, .node-5 .country-list-reveal { right: 90px; top: 100%; }
 
-        /* --- Sliders & Footer --- */
+        /* --- Sliders & Footer Elements --- */
         .cert-container { width: 100%; overflow: hidden; position: relative; padding: 50px 0; border-bottom: 1px solid var(--jft-border); cursor: grab; } 
         .cert-container:active { cursor: grabbing; } 
         .cert-track { display: flex; align-items: center; width: max-content; will-change: transform; } 
@@ -225,10 +197,8 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
         .mobile-swipe-hint { display: none; }
         
-        /* --- Responsive --- */
+        /* --- Responsive (Additional Page Specific) --- */
         @media (max-width: 1024px) {
-            .td-utilities, .visit-plan, .desktop-only, .sticky-quote { display: none; }
-            .ticker-label { font-size: 0.6rem; padding: 0 10px; }
             .hero-title { font-size: 3.5rem; }
             .stats-grid, .features-grid, .infra-layout, .footer-grid, .log-grid, .testi-grid { grid-template-columns: 1fr; }
             .about-grid, .india-layout, .steps-container { flex-direction: column; display: flex; }
