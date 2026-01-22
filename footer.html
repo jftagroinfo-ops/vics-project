@@ -5,9 +5,9 @@
                 <img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Agro" style="width: 180px; filter: brightness(0) invert(1); margin-bottom: 25px;">
                 <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6;">Government Recognized <strong>Star Export House</strong>. Bridging the gap between fertile Indian farms and global markets with integrity, quality, and trust.</p>
                 <div class="td-social" style="padding: 0; background: none; justify-content: flex-start;">
-                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
 
@@ -46,3 +46,113 @@
         </div>
     </div>
 </footer>
+
+<script>
+    // Navigation Toggle
+    function toggleMenu() { 
+        const menu = document.getElementById('navMenu'); 
+        const icon = document.querySelector('.mobile-toggle i'); 
+        menu.classList.toggle('active'); 
+        if(menu.classList.contains('active')) { 
+            icon.classList.remove('fa-bars'); 
+            icon.classList.add('fa-xmark'); 
+        } else { 
+            icon.classList.remove('fa-xmark'); 
+            icon.classList.add('fa-bars'); 
+        } 
+    }
+
+    // Language Toggle
+    function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
+    function changeLanguage(langCode) { 
+        var selectField = document.querySelector(".goog-te-combo"); 
+        if(selectField) { 
+            selectField.value = langCode; 
+            selectField.dispatchEvent(new Event("change")); 
+        } 
+        document.getElementById('langMenu').classList.remove('show'); 
+    }
+    window.onclick = function(e) { if (!e.target.closest('.lang-btn')) document.getElementById('langMenu').classList.remove('show'); }
+
+    // Scroll Progress & Navbar Effect
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        const progressBar = document.getElementById("page-progress");
+        if(progressBar) progressBar.style.width = scrolled + "%";
+        
+        const nav = document.getElementById('navbar'); 
+        if (window.scrollY > 50) nav.classList.add('scrolled'); 
+        else nav.classList.remove('scrolled');
+    };
+
+    // Live Forex Logic
+    async function fetchLiveForex() {
+        try {
+            const response = await fetch('https://api.frankfurter.app/latest?from=USD&to=INR,EUR,GBP'); 
+            const data = await response.json();
+            if(data && data.rates) {
+                const usdInr = data.rates.INR; 
+                const resEur = await fetch('https://api.frankfurter.app/latest?from=EUR&to=INR'); 
+                const dataEur = await resEur.json(); 
+                const eurInr = dataEur.rates.INR; 
+                const resGbp = await fetch('https://api.frankfurter.app/latest?from=GBP&to=INR'); 
+                const dataGbp = await resGbp.json(); 
+                const gbpInr = dataGbp.rates.INR;
+                updateTickerDOM('fx-usd', 'USD/INR', usdInr); 
+                updateTickerDOM('fx-eur', 'EUR/INR', eurInr); 
+                const gbpEl = document.getElementById('fx-gbp');
+                if(gbpEl) updateTickerDOM('fx-gbp', 'GBP/INR', gbpInr);
+            }
+        } catch (e) { 
+            const usdEl = document.getElementById('fx-usd');
+            if(usdEl) usdEl.innerHTML = 'USD/INR <span class="forex-up">83.50 ▲</span>'; 
+            const eurEl = document.getElementById('fx-eur');
+            if(eurEl) eurEl.innerHTML = 'EUR/INR <span class="forex-up">90.50 ▲</span>';
+        }
+    }
+    function updateTickerDOM(id, label, value) { 
+        const el = document.getElementById(id);
+        if(el) el.innerHTML = `${label} <span class="forex-up">${value.toFixed(2)} ▲</span>`; 
+    }
+
+    // Global Initialization
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchLiveForex();
+        const dateSpan = document.getElementById('forex-date'); 
+        if(dateSpan) dateSpan.innerText = "RATES AS OF " + new Date().toLocaleDateString('en-GB');
+        
+        const tickerContainer = document.getElementById('dynamic-ticker');
+        if(tickerContainer) {
+            const today = new Date();
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            let dailyHeadline = "Global Markets Steady";
+            if(today.getDay() === 1) dailyHeadline = "Market Opening: Strong Demand in Asia"; 
+            else if(today.getDay() === 5) dailyHeadline = "Weekly Wrap: Rice Exports Surge 15%";
+            
+            const fullNews = [ 
+                `<div class="t-item daily-flash"><i class="fa-solid fa-calendar-day"></i><span>${days[today.getDay()]}, ${today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}:</span> ${dailyHeadline}</div>`, 
+                `<div class="t-item"><i class="fa-solid fa-ship"></i><span>UPDATE:</span> Exports to West Africa Operating Normally</div>`, 
+                `<div class="t-item"><i class="fa-solid fa-leaf"></i><span>SPICES:</span> New Turmeric Harvest Arriving</div>`, 
+                `<div class="t-item"><i class="fa-solid fa-wheat"></i><span>GRAINS:</span> Wheat Export Quota Open</div>`,
+                `<div class="t-item"><i class="fa-solid fa-cube"></i><span>SUGAR:</span> Indian Production Outlook Positive</div>`
+            ];
+            tickerContainer.innerHTML = fullNews.join('') + fullNews.join(''); 
+        }
+
+        // Global Reveal Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { 
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active'); 
+                    if (entry.target.classList.contains('timeline-wrapper')) { 
+                        const progLine = document.getElementById('progressLine');
+                        if(progLine) progLine.style.width = '100%'; 
+                    } 
+                } 
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+</script>
