@@ -1,0 +1,61 @@
+<div id="page-progress"></div>
+
+<div class="top-dashboard">
+    <div class="td-row-1">
+        <div class="td-social">
+            <span>Follow Us:</span>
+            <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <div class="td-news-ticker">
+            <div class="ticker-label"><div class="live-dot"></div> MARKET FEED</div>
+            <div class="ticker-track" id="dynamic-ticker"></div>
+        </div>
+        <div class="td-utilities desktop-only">
+            <div class="lang-dropdown">
+                <button onclick="toggleLang()" class="lang-btn"><i class="fa-solid fa-globe"></i> Global (EN) <i class="fa-solid fa-caret-down"></i></button>
+                <div class="lang-menu" id="langMenu">
+                    <a onclick="changeLanguage('en')">English</a>
+                    <a onclick="changeLanguage('hi')">हिन्दी (Hindi)</a>
+                    <a onclick="changeLanguage('zh-CN')">中文 (Mandarin)</a>
+                    <a onclick="changeLanguage('es')">Español (Spanish)</a>
+                    <a onclick="changeLanguage('ar')">العربية (Arabic)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="td-row-2">
+        <div class="forex-group">
+            <span id="forex-date" style="font-size:0.7rem; color:#888; text-transform:uppercase;"></span>
+            <div class="forex-item" id="fx-usd">USD/INR <span>..</span></div>
+            <div class="forex-item" id="fx-eur">EUR/INR <span>..</span></div>
+            <div class="forex-item desktop-only" id="fx-gbp">GBP/INR <span>..</span></div>
+        </div>
+        <a href="#contact" class="visit-plan"><i class="fa-solid fa-plane-departure"></i> MEET US AT GULFOOD DUBAI</a>
+    </div>
+</div>
+
+<div id="google_translate_element"></div>
+
+<div id="preloader">
+    <img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Loading" class="loader-logo-img">
+    <div class="loader-text" id="welcome-msg">Connecting Global Markets...</div>
+    <div class="loader-track"><div class="loader-fill"></div></div>
+</div>
+
+<nav class="jft-navbar" id="navbar">
+    <div class="jft-wide-container nav-flex">
+        <a href="#home" class="nav-logo-link"><img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Agro Overseas" class="nav-logo-img"></a>
+        <div class="nav-menu" id="navMenu">
+            <a href="#home" class="nav-link" onclick="toggleMenu()">Home</a>
+            <a href="#about" class="nav-link" onclick="toggleMenu()">About</a>
+            <a href="#products" class="nav-link" onclick="toggleMenu()">Products</a>
+            <a href="#infrastructure" class="nav-link" onclick="toggleMenu()">Infra</a>
+            <a href="#global-reach" class="nav-link" onclick="toggleMenu()">Network</a>
+            <a href="#contact" class="nav-link" onclick="toggleMenu()">Contact</a>
+            <a href="#contact" class="nav-btn-action desktop-only" onclick="toggleMenu()">Get Quote</a>
+        </div>
+        <div class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+    </div>
+</nav>
