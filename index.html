@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* [KEEP YOUR ORIGINAL CSS HERE - IT IS PERFECT] */
         :root { 
             --jft-primary: #4e8c3e; 
             --jft-dark: #3e2b22; 
@@ -625,7 +626,7 @@
                 const element = document.getElementById(id);
                 element.innerHTML = data;
                 
-                // Execute Scripts
+                // Execute Scripts Found in Loaded Component
                 const scripts = element.querySelectorAll('script');
                 scripts.forEach(script => {
                     const newScript = document.createElement('script');
@@ -650,10 +651,19 @@
                         if(homeLink) homeLink.classList.add('active');
                     }
                 }
-            });
+                
+                // Update Year in Footer Safely
+                if(id === 'site-footer') {
+                    const yearSpan = document.getElementById('copyright-year');
+                    if(yearSpan) yearSpan.innerText = new Date().getFullYear();
+                }
+            })
+            .catch(err => console.error('Error loading component:', err));
         }
-        loadComponent('site-header', 'components/header.html');
-        loadComponent('site-footer', 'components/footer.html');
+        
+        // FIXED: Removed 'components/' prefix to work with flat file structure
+        loadComponent('site-header', 'header.html');
+        loadComponent('site-footer', 'footer.html');
     </script>
     
     <script>
