@@ -15,10 +15,10 @@
     .live-dot { width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: livePulse 1.5s infinite; }
     @keyframes livePulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
     
-    .ticker-track { display: flex; animation: scrollText 60s linear infinite; white-space: nowrap; padding-left: 10px; } 
+    /* Adjusted speed for 30 items to be readable */
+    .ticker-track { display: flex; animation: scrollText 180s linear infinite; white-space: nowrap; padding-left: 10px; } 
     .td-news-ticker:hover .ticker-track { animation-play-state: paused; }
     
-    /* Updated Ticker Item Styling for Links */
     .t-item { margin-right: 60px; font-family: var(--font-body); font-size: 0.85rem; display: flex; align-items: center; color: rgba(255,255,255,0.9); } 
     .t-item a { display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; transition: 0.3s; }
     .t-item a:hover { color: var(--jft-gold); text-decoration: underline; }
@@ -79,17 +79,13 @@
     }
 
     @media (max-width: 1024px) {
-        /* Re-structuring Top Dashboard for Mobile Visibility */
-        .top-dashboard { position: relative; } /* Unfix on mobile if content overflows */
+        .top-dashboard { position: relative; } 
         .td-row-1 { height: auto; flex-wrap: wrap; padding: 5px 0; background: var(--jft-navy); }
         .td-social { padding: 5px 15px; background: none; font-size: 0.9rem; flex: 1; justify-content: center; }
-        .td-social span { display: none; } /* Hide label on small screens */
-        
+        .td-social span { display: none; } 
         .td-utilities { flex: 1; justify-content: center; background: none; border-left: 1px solid rgba(255,255,255,0.1); }
-        
         .td-news-ticker { width: 100%; order: 3; border-top: 1px solid rgba(255,255,255,0.1); height: 35px; }
         .ticker-label { font-size: 0.65rem; padding: 0 10px; width: auto; clip-path: none; background: rgba(255,255,255,0.1); }
-        
         .td-row-2 { height: auto; flex-wrap: wrap; padding: 0; }
         .forex-group { width: 100%; justify-content: center; padding: 8px; flex-wrap: wrap; gap: 15px; border-bottom: 1px solid #eee; background: #fbfbfb; }
         .visit-plan { width: 100%; clip-path: none; justify-content: center; height: 40px; }
@@ -98,7 +94,6 @@
         .jft-navbar { top: 0; position: sticky; height: 70px; margin-top: 0; }
         .jft-navbar.scrolled { top: 0; height: 70px; }
         .nav-logo-img { height: 50px; } .jft-navbar.scrolled .nav-logo-img { height: 45px; }
-        
         .nav-menu { position: fixed; top: 0; right: -100%; width: 85%; height: 100vh; background: var(--jft-navy); flex-direction: column; justify-content: flex-start; padding-top: 80px; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.2); gap: 0; z-index: 1001; }
         .nav-menu.active { right: 0; }
         .nav-link { font-size: 1.1rem; color: #fff !important; width: 100%; text-align: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); } 
@@ -258,48 +253,102 @@
     setInterval(fetchLiveForex, 5000);
     fetchLiveForex();
 
-    /* --- 3. MARKET FEED LINKING TO NEWSUPDATE.HTML --- */
-    function getLiveAgroNews() {
+    /* --- 3. MARKET FEED (30 Items + Full Content Generation) --- */
+    function generateDailyNews() {
         const today = new Date();
+        const dateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+        const fullDateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
         const yyyy = today.getFullYear();
-        const dateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-        const month = today.getMonth(); 
         
-        let seasonNews = "";
-        if(month >= 5 && month <= 8) seasonNews = "Monsoon sowing gains momentum across key Indian states";
-        else if(month >= 9 && month <= 11) seasonNews = "Kharif harvest arrivals begin reaching major mandis";
-        else seasonNews = "Rabi crop outlook positive amidst favorable weather conditions";
-
-        // Current News Data
-        const newsItems = [
-            { cat: "MARKET FLASH", icon: "fa-calendar-day", text: `Global agro-commodity trade volume steady: ${dateStr}` },
-            { cat: "RICE", icon: "fa-bowl-rice", text: `Indian Non-Basmati export demand remains high in ${yyyy}` },
-            { cat: "WHEAT", icon: "fa-wheat", text: `Global Wheat Index: Prices stabilizing as of ${dateStr}` },
-            { cat: "LOGISTICS", icon: "fa-ship", text: `Freight rates for container shipping to EU/US updated for ${today.toLocaleString('default', { month: 'long' })}` },
-            { cat: "SPICES", icon: "fa-pepper-hot", text: "Fresh Cardamom & Black Pepper auction prices up by 2%" },
-            { cat: "SUGAR", icon: "fa-cubes", text: `India's sugar production estimate revised for ${yyyy}-${yyyy+1} season` },
-            { cat: "PULSES", icon: "fa-seedling", text: "Import duty changes expected to boost domestic supply" },
-            { cat: "SEASONAL", icon: "fa-cloud-sun", text: seasonNews }
+        // Data Pools
+        const commodities = [
+            { name: "Non-Basmati Rice", icon: "fa-bowl-rice" }, { name: "Basmati Rice", icon: "fa-bowl-rice" },
+            { name: "Wheat", icon: "fa-wheat" }, { name: "Maize (Corn)", icon: "fa-seedling" },
+            { name: "Yellow Maize", icon: "fa-seedling" }, { name: "Sugar", icon: "fa-cubes" },
+            { name: "Raw Sugar", icon: "fa-cubes" }, { name: "Cardamom", icon: "fa-pepper-hot" },
+            { name: "Black Pepper", icon: "fa-pepper-hot" }, { name: "Red Chilli", icon: "fa-pepper-hot" },
+            { name: "Cumin Seeds", icon: "fa-leaf" }, { name: "Turmeric", icon: "fa-mortar-pestle" },
+            { name: "Soybean Meal", icon: "fa-plant-wilt" }, { name: "Mustard Oil", icon: "fa-bottle-droplet" },
+            { name: "Chickpeas", icon: "fa-circle" }, { name: "Lentils", icon: "fa-circle" },
+            { name: "Barley", icon: "fa-wheat-awn" }, { name: "Millet", icon: "fa-wheat-awn" },
+            { name: "Sorghum", icon: "fa-wheat-awn" }, { name: "Cotton", icon: "fa-shirt" },
+            { name: "Jute", icon: "fa-rug" }, { name: "Tea", icon: "fa-mug-hot" },
+            { name: "Coffee", icon: "fa-mug-saucer" }, { name: "Rubber", icon: "fa-tree" },
+            { name: "Cashew", icon: "fa-cookie" }, { name: "Raisins", icon: "fa-cookie-bite" },
+            { name: "Onions", icon: "fa-basket-shopping" }, { name: "Potatoes", icon: "fa-basket-shopping" },
+            { name: "Animal Feed", icon: "fa-cow" }, { name: "Bio-Fertilizer", icon: "fa-flask" }
         ];
 
-        // *** CORE UPDATE: Save daily news to Storage so newsupdate.html can read it ***
-        localStorage.setItem('jft_daily_news', JSON.stringify(newsItems));
+        const actions = ["exports surge", "prices stabilize", "demand peaks", "production estimates rise", "harvest begins", "trading volume high", "global inquiries up", "auction rates firm", "supply chain robust", "quality output reported"];
+        const regions = ["in Asian markets", "across Middle East", "for European buyers", "in domestic mandis", "at major ports", "in Gujarat & Maharashtra", "in African trade zones", "globally", "in Southern India", "due to festive demand"];
+        
+        let newsList = [];
 
-        // Return Link-wrapped Ticker Items
-        return newsItems.map(item => 
-            `<div class="t-item"><a href="newsupdate.html"><i class="fa-solid ${item.icon}"></i><span>${item.cat}:</span> ${item.text}</a></div>`
-        ).join('');
+        // 1. Mandatory Flash News (Fixed)
+        newsList.push({
+            cat: "MARKET FLASH", icon: "fa-calendar-day",
+            headline: `Global Agro-Commodity Trade Volume Steady: ${dateStr}`,
+            fullStory: `As of ${fullDateStr}, global agricultural trade volumes remain robust. Market analysts report steady movement across key shipping lanes connecting Asia to Europe and the Americas. Despite minor fluctuations in currency exchange rates, demand for staple grains and spices continues to drive the sector forward.`
+        });
+        
+        newsList.push({
+            cat: "LOGISTICS", icon: "fa-ship",
+            headline: `Freight Rates for Container Shipping Updated for ${today.toLocaleString('default', { month: 'long' })}`,
+            fullStory: `Ocean freight rates have seen a periodic adjustment for the month of ${today.toLocaleString('default', { month: 'long' })}. Shipping lines serving routes to West Africa and the Mediterranean have rationalized surcharges. Exporters are advised to book containers 12-15 days in advance to secure optimal pricing and slot availability.`
+        });
+
+        // 2. Generate remaining items to reach 30
+        for(let i=0; i < 28; i++) {
+            const comm = commodities[i % commodities.length]; // Cycle through commodities
+            const act = actions[Math.floor(Math.random() * actions.length)];
+            const reg = regions[Math.floor(Math.random() * regions.length)];
+            
+            // Build unique headline
+            const headline = `${comm.name} ${act} ${reg}`;
+            
+            // Build REALISTIC FULL STORY
+            const story = `
+                <strong>${comm.name} Market Update (${fullDateStr}):</strong><br><br>
+                Significant activity has been observed regarding ${comm.name} ${reg}. 
+                Latest reports indicate that ${act}, driven by changing seasonal patterns and international inventory requirements. 
+                <br><br>
+                Traders and exporters are witnessing consistent inquiries, particularly from key buyer demographics. 
+                Quality parameters for the current ${yyyy} crop are meeting stringent export standards, ensuring smooth clearances at customs. 
+                Market experts predict this trend to continue for the next quarter.
+            `;
+
+            newsList.push({
+                cat: comm.name.toUpperCase().split(' ')[0], // Short category
+                icon: comm.icon,
+                headline: headline,
+                fullStory: story
+            });
+        }
+
+        return newsList;
     }
 
     (function(){
+        // Date Display
         const dateOptions = { day: 'numeric', month: 'short', year: 'numeric' }; 
         const today = new Date();
         const dateSpan = document.getElementById('forex-date'); 
         if(dateSpan) dateSpan.innerText = "LIVE RATES: " + today.toLocaleDateString('en-GB', dateOptions);
 
+        // Generate Data
+        const newsItems = generateDailyNews();
+
+        // *** SAVE TO STORAGE FOR NEWSUPDATE.HTML TO READ ***
+        localStorage.setItem('jft_daily_news', JSON.stringify(newsItems));
+
+        // Inject Headlines into Ticker
         const tickerContainer = document.getElementById('dynamic-ticker');
         if(tickerContainer) {
-            const feedHtml = getLiveAgroNews();
+            const feedHtml = newsItems.map(item => 
+                `<div class="t-item"><a href="newsupdate.html"><i class="fa-solid ${item.icon}"></i><span>${item.cat}:</span> ${item.headline}</a></div>`
+            ).join('');
+            
+            // Double for infinite scroll
             tickerContainer.innerHTML = feedHtml + feedHtml; 
         }
     })();
