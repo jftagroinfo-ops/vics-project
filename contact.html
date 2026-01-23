@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & RFQ | JFT Agro Overseas</title>
+    <meta name="description" content="Request a Quote for Indian Rice, Spices, and Grains. Contact our Export Division.">
+    <meta name="theme-color" content="#1a3c34">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- GLOBAL VARIABLES (Matches Previous Pages) --- */
+        :root { --jft-primary: #4e8c3e; --jft-dark: #3e2b22; --jft-gold: #eebf45; --jft-navy: #1a3c34; --jft-light: #f5f1e6; --jft-border: #dcd6cb; --font-head: 'Merriweather', serif; --font-sub: 'Montserrat', sans-serif; --font-body: 'Lato', sans-serif; --radius-sm: 8px; --radius-md: 16px; --shadow-subtle: 0 4px 15px rgba(78, 140, 62, 0.08); --shadow-hover: 0 20px 30px -5px rgba(26, 60, 52, 0.15); --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #4a4a4a; background: #fdfbf7; -webkit-font-smoothing: antialiased; } * { box-sizing: border-box; } html { scroll-behavior: smooth; }
+        
+        h1, h2, h3, h4 { font-family: var(--font-head); margin: 0; color: var(--jft-navy); letter-spacing: -0.5px; } p { line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.1rem; color: #5c5c5c; } a { text-decoration: none; color: inherit; transition: var(--transition); } ul { list-style: none; padding: 0; } img { max-width: 100%; display: block; border-radius: var(--radius-sm); }
+        
+        /* Utility Classes */
+        .jft-wide-container { max-width: 1350px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 5; }
+        .section-padding { padding: 110px 0; } .bg-light { background-color: var(--jft-light); }
+        .brand-tag { display: inline-block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; background: rgba(78, 140, 62, 0.1); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(78, 140, 62, 0.2); }
+        .section-title { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; color: var(--jft-navy); } 
+        .section-title span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; }
+        .section-title span::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-gold); opacity: 0.3; z-index: -1; }
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--jft-primary); color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); border: 2px solid var(--jft-primary); box-shadow: 0 4px 10px rgba(78, 140, 62, 0.3); cursor: pointer; } 
+        .btn-primary:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+
+        /* --- PAGE HEADER --- */
+        .page-header { height: 50vh; position: relative; display: flex; align-items: center; justify-content: center; margin-top: 80px; background-attachment: fixed; background-position: center; background-size: cover; }
+        .page-header::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(26, 60, 52, 0.95) 0%, rgba(26, 60, 52, 0.7) 100%); z-index: 1; }
+        .ph-content { position: relative; z-index: 2; text-align: center; color: #fff; transform: translateY(20px); opacity: 0; animation: fadeUp 1s ease forwards; animation-delay: 0.2s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .ph-title { font-size: clamp(3rem, 5vw, 4.5rem); font-family: var(--font-head); font-weight: 700; margin-bottom: 10px; color: #fff; }
+        .ph-breadcrumb { font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--jft-gold); font-size: 0.9rem; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 50px; display: inline-block; }
+
+        /* --- CONTACT LAYOUT --- */
+        .contact-layout { display: flex; gap: 60px; margin-top: -80px; position: relative; z-index: 10; align-items: flex-start; }
+        
+        /* Left: Info Cards */
+        .contact-info-col { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+        .c-card { background: #fff; padding: 35px; border-radius: var(--radius-md); box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid var(--jft-border); position: relative; overflow: hidden; transition: 0.3s; }
+        .c-card:hover { transform: translateY(-5px); border-color: var(--jft-gold); }
+        .c-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--jft-primary); }
+        .c-icon { width: 50px; height: 50px; background: rgba(78, 140, 62, 0.1); color: var(--jft-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 20px; transition: 0.3s; }
+        .c-card:hover .c-icon { background: var(--jft-primary); color: #fff; }
+        .c-title { font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; color: var(--jft-navy); }
+        .c-text { font-size: 0.95rem; color: #666; margin-bottom: 5px; display: block; }
+        .c-text strong { color: var(--jft-dark); }
+        .c-link { color: var(--jft-primary); font-weight: 600; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+        .c-link:hover { border-bottom-color: var(--jft-primary); }
+
+        /* Timezone Clocks */
+        .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+        .time-box { text-align: center; background: #f9f9f9; padding: 10px; border-radius: 8px; border: 1px solid #eee; }
+        .time-val { font-family: var(--font-sub); font-weight: 700; font-size: 1rem; color: var(--jft-navy); }
+        .time-loc { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+        /* Right: RFQ Form */
+        .contact-form-col { flex: 1.4; background: #fff; padding: 50px; border-radius: var(--radius-md); box-shadow: 0 20px 60px rgba(0,0,0,0.1); border-top: 5px solid var(--jft-gold); }
+        .form-header { margin-bottom: 30px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .form-group { margin-bottom: 5px; }
+        .form-label { display: block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-navy); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-input, .form-select, .form-textarea { width: 100%; padding: 14px; background: #fdfbf7; border: 1px solid #ddd; border-radius: 6px; font-family: var(--font-body); color: #333; transition: 0.3s; font-size: 0.95rem; }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--jft-primary); background: #fff; box-shadow: 0 4px 15px rgba(78, 140, 62, 0.1); }
+        .full-width { grid-column: 1 / -1; }
+        .form-check { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 0.9rem; color: #666; }
+        .form-check input { width: 18px; height: 18px; accent-color: var(--jft-primary); }
+
+        /* --- MAP SECTION --- */
+        .map-section { margin-top: 80px; position: relative; }
+        .map-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
+        .map-btn { padding: 12px 30px; border: 2px solid var(--jft-border); background: #fff; border-radius: 50px; font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #666; cursor: pointer; transition: 0.3s; font-size: 0.8rem; }
+        .map-btn.active, .map-btn:hover { background: var(--jft-navy); color: #fff; border-color: var(--jft-navy); }
+        .map-frame-wrapper { height: 500px; width: 100%; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-subtle); position: relative; }
+        .map-iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.2); }
+
+        /* --- FAQ --- */
+        .faq-section { background: #fff; border-top: 1px solid #eee; }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-question { padding: 25px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--jft-navy); transition: 0.3s; }
+        .faq-question:hover { color: var(--jft-primary); }
+        .faq-icon { width: 30px; height: 30px; border: 1px solid #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #888; transition: 0.3s; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); background: var(--jft-primary); color: #fff; border-color: var(--jft-primary); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); color: #666; line-height: 1.7; font-size: 1rem; }
+        .faq-item.active .faq-answer { padding-bottom: 25px; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .page-header { margin-top: 40px; }
+            .contact-layout { flex-direction: column-reverse; margin-top: 0; gap: 40px; }
+            .contact-form-col { margin-top: -60px; z-index: 10; padding: 30px; width: 100%; }
+            .form-grid { grid-template-columns: 1fr; }
+            .map-tabs { flex-wrap: wrap; }
+        }
+
+        /* Preloader */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #112621 0%, #1a3c34 50%, #29574c 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 1s; }
+        .loader-logo-img { width: 220px; margin-bottom: 30px; filter: brightness(0) invert(1); animation: logoFloat 3s ease-in-out infinite; }
+        .loader-text { font-family: var(--font-head); font-size: 0.95rem; color: rgba(255,255,255,0.8); font-weight: 400; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 3px; }
+        .loader-track { width: 200px; height: 2px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; border-radius: 2px; }
+        .loader-fill { width: 100%; height: 100%; background: var(--jft-gold); transform: translateX(-100%); animation: goldLineAnim 2s cubic-bezier(0.85, 0, 0.15, 1) forwards; }
+        @keyframes logoFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes goldLineAnim { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); } .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Loading" class="loader-logo-img">
+        <div class="loader-text">Loading Trade Desk...</div>
+        <div class="loader-track"><div class="loader-fill"></div></div>
+    </div>
+
+    <div id="header-placeholder"></div>
+
+    <header class="page-header" id="header-bg" style="background-image: url('https://images.unsplash.com/photo-1596766624467-33e73b22b7a9?q=80&w=2070&auto=format&fit=crop');">
+        <div class="ph-content reveal active">
+            <h1 class="ph-title">Global Trade Desk</h1>
+            <div class="ph-breadcrumb"><a href="index.html">Home</a>  /  <span style="color:var(--jft-gold);">Contact</span></div>
+        </div>
+    </header>
+
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="jft-wide-container">
+            <div class="contact-layout">
+                
+                <div class="contact-form-col reveal">
+                    <div class="form-header">
+                        <span class="brand-tag">Request Quote</span>
+                        <h2 class="section-title">Start Your <br><span>Import Inquiry</span></h2>
+                        <p style="margin-top: 10px; font-size: 0.95rem;">Our export managers typically respond with a proforma invoice within 24 hours.</p>
+                    </div>
+                    <form onsubmit="event.preventDefault(); alert('Inquiry Sent Successfully! Reference #JFT-2026-X49');">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-input" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company Name</label>
+                                <input type="text" class="form-input" placeholder="Global Impex Ltd" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Official Email</label>
+                                <input type="email" class="form-input" placeholder="procurement@company.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">WhatsApp / Phone</label>
+                                <input type="tel" class="form-input" placeholder="+1 (555) 000-0000" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Select Product</label>
+                                <select class="form-select">
+                                    <option>Basmati Rice (1121/1509)</option>
+                                    <option>Non-Basmati Rice (IR64/PR11)</option>
+                                    <option>Indian Sugar (S-30)</option>
+                                    <option>Spices (Turmeric/Chilli/Cumin)</option>
+                                    <option>Wheat / Maize</option>
+                                    <option>Animal Feed</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Quantity (MT)</label>
+                                <input type="number" class="form-input" placeholder="Min 24 MT (1 Container)" min="24">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Port of Discharge</label>
+                                <input type="text" class="form-input" placeholder="e.g., Jebel Ali, Felixstowe" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Incoterms</label>
+                                <select class="form-select">
+                                    <option>FOB (Free On Board)</option>
+                                    <option>CIF (Cost, Insurance, Freight)</option>
+                                    <option>CNF (Cost & Freight)</option>
+                                    <option>Ex-Mill (Factory Gate)</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">Specific Requirements (Packing, Specs)</label>
+                                <textarea class="form-textarea" rows="4" placeholder="e.g., 50kg PP Bags, 2% Broken max..."></textarea>
+                            </div>
+                            <div class="form-group full-width">
+                                <button type="submit" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1rem;">Send Request for Quote</button>
+                                <div class="form-check">
+                                    <input type="checkbox" required> <span>I agree to the Terms of Trade & Privacy Policy.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact-info-col reveal" style="animation-delay: 0.2s;">
+                    <div class="c-card">
+                        <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <h3 class="c-title">Head Office</h3>
+                        <span class="c-text">123, Commodity Exchange, Sector 19,</span>
+                        <span class="c-text">Vashi, Navi Mumbai - 400705</span>
+                        <span class="c-text" style="margin-top:10px;"><strong>Export Division:</strong> 4th Floor, Times Square, Andheri East, Mumbai.</span>
+                        <div style="margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 15px;">
+                            <div style="font-size:0.8rem; font-weight:700; color:var(--jft-primary); text-transform:uppercase; margin-bottom:10px;">Open Now</div>
+                            <div class="time-grid">
+                                <div class="time-box"><div class="time-val" id="time-in">--:--</div><div class="time-loc">India</div></div>
+                                <div class="time-box"><div class="time-val" id="time-ae">--:--</div><div class="time-loc">Dubai</div></div>
+                                <div class="time-box"><div class="time-val" id="time-uk">--:--</div><div class="time-loc">London</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-card">
+                        <div class="c-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                        <h3 class="c-title">Direct Line</h3>
+                        <span class="c-text"><strong>Sales:</strong> +91 98960 55555</span>
+                        <span class="c-text"><strong>Logistics:</strong> +91 22 4545 6767</span>
+                        <span class="c-text"><strong>Email:</strong> <a href="mailto:export@jftagro.com" class="c-link">export@jftagro.com</a></span>
+                        <a href="https://wa.me/919896055555" class="btn-primary" style="margin-top: 20px; width: 100%; background: #25d366; border-color: #25d366;"><i class="fa-brands fa-whatsapp" style="margin-right: 10px;"></i> Chat on WhatsApp</a>
+                    </div>
+
+                    <div class="c-card" style="background: var(--jft-navy); color: #fff; border:none;">
+                        <h3 class="c-title" style="color:#fff;">Bank Details</h3>
+                        <span class="c-text" style="color: rgba(255,255,255,0.7);"><strong>Bank:</strong> HDFC Bank Ltd</span>
+                        <span class="c-text" style="color: rgba(255,255,255,0.7);"><strong>Branch:</strong> Forex Dept, Mumbai</span>
+                        <span class="c-text" style="color: rgba(255,255,255,0.7);"><strong>SWIFT:</strong> HDFCCINBB</span>
+                        <div style="margin-top: 15px; font-size: 0.75rem; color: var(--jft-gold);"><i class="fa-solid fa-lock"></i> Official accounts only. Verify via video call before transfer.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding map-section">
+        <div class="jft-wide-container">
+            <div class="map-tabs reveal">
+                <button class="map-btn active" onclick="changeMap('vashi')">Head Office (Mumbai)</button>
+                <button class="map-btn" onclick="changeMap('kandla')">Kandla Port Unit</button>
+                <button class="map-btn" onclick="changeMap('karnal')">Rice Mill (Haryana)</button>
+            </div>
+            <div class="map-frame-wrapper reveal">
+                <iframe id="gmap" class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.826227978252!2d72.99676531490104!3d19.07137498709051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c14a796e6259%3A0xc30a7d775670f032!2sAPMC%20Market%2C%20Vashi%2C%20Navi%20Mumbai!5e0!3m2!1sen!2sin!4v1675123456789!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding faq-section">
+        <div class="jft-wide-container">
+            <div class="section-header center-header reveal">
+                <span class="brand-tag">Help Center</span>
+                <h2 class="section-title">Trade <span>FAQ</span></h2>
+                <p style="text-align: center; color: #666; margin-top: 15px;">Common questions about ordering, shipping, and payments.</p>
+            </div>
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <div class="faq-question">What are your standard Payment Terms? <div class="faq-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    <div class="faq-answer">We typically work on 30% Advance + 70% against Scan BL (Bill of Lading). For established clients, we accept 100% Irrevocable LC at sight from top-tier banks.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is your Minimum Order Quantity (MOQ)? <div class="faq-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    <div class="faq-answer">Our MOQ is generally one 20ft Full Container Load (FCL), which is approx 24-26 Metric Tons depending on the product and packing.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you provide SGS Inspection? <div class="faq-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    <div class="faq-answer">Yes, we encourage third-party inspections (SGS, Bureau Veritas, Cotecna) at the time of loading to ensure quality and quantity transparency.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can you do Private Labeling (OEM)? <div class="faq-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    <div class="faq-answer">Absolutely. We have in-house design capabilities to print your brand on PP bags, Non-Woven bags, or Jute bags as per your artwork specifications.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load Header and Footer
+        async function loadComponent(id, file) {
+            try {
+                const response = await fetch(file);
+                const content = await response.text();
+                document.getElementById(id).innerHTML = content;
+                // Re-execute scripts within the fetched HTML (if any)
+                const scripts = document.getElementById(id).querySelectorAll("script");
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
+            } catch (err) {
+                console.error(`Error loading ${file}:`, err);
+            }
+        }
+        
+        loadComponent('header-placeholder', 'header.html');
+        loadComponent('footer-placeholder', 'footer.html');
+
+        /* --- Map Switcher Logic --- */
+        function changeMap(loc) {
+            const iframe = document.getElementById('gmap');
+            const btns = document.querySelectorAll('.map-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if(loc === 'vashi') {
+                iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.826227978252!2d72.99676531490104!3d19.07137498709051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c14a796e6259%3A0xc30a7d775670f032!2sAPMC%20Market%2C%20Vashi%2C%20Navi%20Mumbai!5e0!3m2!1sen!2sin";
+            } else if(loc === 'kandla') {
+                iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117763.5516245365!2d70.00334285820312!3d23.006322999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3950b8eb4776882f%3A0x6273062335f63908!2sDeendayal%20Port%20Trust%20(Kandla%20Port)!5e0!3m2!1sen!2sin";
+            } else if(loc === 'karnal') {
+                iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110860.17066986673!2d76.92135645!3d29.68026775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e6c46c072c479%3A0x269222622c83226!2sKarnal%2C%20Haryana!5e0!3m2!1sen!2sin";
+            }
+        }
+
+        /* --- FAQ Accordion --- */
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                
+                const answer = parent.querySelector('.faq-answer');
+                if (parent.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    item.querySelector('.faq-icon').style.transform = "rotate(45deg)";
+                } else {
+                    answer.style.maxHeight = "0";
+                    item.querySelector('.faq-icon').style.transform = "rotate(0deg)";
+                }
+            });
+        });
+
+        /* --- Global Clock --- */
+        function updateClocks() {
+            const now = new Date();
+            const options = { hour: '2-digit', minute: '2-digit', hour12: false };
+            
+            document.getElementById('time-in').innerText = now.toLocaleTimeString('en-US', { ...options, timeZone: 'Asia/Kolkata' });
+            document.getElementById('time-ae').innerText = now.toLocaleTimeString('en-US', { ...options, timeZone: 'Asia/Dubai' });
+            document.getElementById('time-uk').innerText = now.toLocaleTimeString('en-US', { ...options, timeZone: 'Europe/London' });
+        }
+        setInterval(updateClocks, 1000);
+        updateClocks();
+
+        /* --- Window Load & Preloader --- */
+        window.addEventListener('load', () => {
+            setTimeout(() => { document.getElementById('preloader').style.display = 'none'; }, 1000);
+            
+            const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
