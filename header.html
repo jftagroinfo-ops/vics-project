@@ -4,47 +4,41 @@
 
     /* --- Dashboard (Top Bar) --- */
     .top-dashboard { position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; background: var(--jft-navy); color: #fff; box-shadow: 0 4px 25px rgba(0,0,0,0.15); font-family: var(--font-sub); }
-    .td-row-1 { display: flex; height: 42px; border-bottom: 1px solid rgba(255,255,255,0.08); align-items: center; }
-    .td-social { padding: 0 30px; display: flex; align-items: center; gap: 20px; background: rgba(0,0,0,0.2); font-size: 0.8rem; font-weight: 700; white-space: nowrap; height: 100%; }
+    .td-row-1 { display: flex; height: 42px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .td-social { padding: 0 30px; display: flex; align-items: center; gap: 20px; background: rgba(0,0,0,0.2); font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
     .td-social span { color: var(--jft-gold); text-transform: uppercase; letter-spacing: 1px; } 
     .td-social a { color: rgba(255,255,255,0.8); transition: 0.3s; font-size: 1rem; } 
     .td-social a:hover { color: var(--jft-gold); transform: translateY(-2px); }
     
-    .td-news-ticker { flex: 1; display: flex; align-items: center; overflow: hidden; background: var(--jft-navy); position: relative; height: 100%; }
+    .td-news-ticker { flex: 1; display: flex; align-items: center; overflow: hidden; background: var(--jft-navy); position: relative; }
     .ticker-label { background: var(--jft-primary); color: #fff; padding: 0 25px; height: 100%; display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2; clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%); padding-right: 40px; white-space: nowrap; }
     .live-dot { width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: livePulse 1.5s infinite; }
     @keyframes livePulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
     
-    /* Adjusted speed for 30 items to be readable */
-    .ticker-track { display: flex; animation: scrollText 180s linear infinite; white-space: nowrap; padding-left: 10px; } 
+    .ticker-track { display: flex; animation: scrollText 60s linear infinite; white-space: nowrap; padding-left: 10px; } 
     .td-news-ticker:hover .ticker-track { animation-play-state: paused; }
-    
-    .t-item { margin-right: 60px; font-family: var(--font-body); font-size: 0.85rem; display: flex; align-items: center; color: rgba(255,255,255,0.9); } 
-    .t-item a { display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; transition: 0.3s; }
-    .t-item a:hover { color: var(--jft-gold); text-decoration: underline; }
+    .t-item { margin-right: 60px; font-family: var(--font-body); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); } 
     .t-item i { color: var(--jft-gold); font-size: 0.8rem; } 
     .t-item span { color: #fff; font-weight: 800; font-family: var(--font-sub); font-size: 0.75rem; text-transform: uppercase; }
-    
     @keyframes scrollText { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    .td-utilities { display: flex; align-items: center; padding: 0 25px; background: rgba(0,0,0,0.2); font-size: 0.75rem; font-weight: 700; height: 100%; }
+    .td-utilities { display: flex; align-items: center; padding: 0 25px; background: rgba(0,0,0,0.2); font-size: 0.75rem; font-weight: 700; }
     
     /* Translate & Lang */
-    .lang-dropdown { position: relative; cursor: pointer; height: 100%; display: flex; align-items: center; } 
-    .lang-btn { background: none; border: none; color: #fff; font-family: var(--font-sub); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 0; text-transform: uppercase; letter-spacing: 0.5px; height: 100%; } 
+    .lang-dropdown { position: relative; cursor: pointer; } 
+    .lang-btn { background: none; border: none; color: #fff; font-family: var(--font-sub); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 0; text-transform: uppercase; letter-spacing: 0.5px; } 
     .lang-btn i { color: var(--jft-gold); }
     .lang-menu { position: absolute; top: 100%; right: 0; width: 180px; background: #fff; border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; z-index: 2001; } 
     .lang-menu.show { display: flex; } 
-    .lang-menu a { padding: 12px 20px; color: var(--jft-navy); border-bottom: 1px solid #f0f0f0; transition: 0.2s; font-size: 0.85rem; font-weight: 600; cursor: pointer; text-decoration: none; text-align: left; } 
+    .lang-menu a { padding: 12px 20px; color: var(--jft-navy); border-bottom: 1px solid #f0f0f0; transition: 0.2s; font-size: 0.85rem; font-weight: 600; cursor: pointer; } 
     .lang-menu a:hover { background: #f9f9f9; color: var(--jft-primary); padding-left: 25px; }
     #google_translate_element, .goog-te-banner-frame { display: none !important; } body { top: 0px !important; }
 
     .td-row-2 { display: flex; justify-content: space-between; align-items: center; height: 38px; background: #fff; color: var(--jft-navy); padding: 0 0 0 20px; font-weight: 700; border-bottom: 1px solid #eee; }
-    .forex-group { display: flex; gap: 25px; align-items: center; font-size: 0.8rem; height: 100%; } 
-    .forex-item { display: flex; align-items: center; gap: 6px; white-space: nowrap; } 
-    .forex-up { color: #16a34a; background: #ecfdf5; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; }
-    .forex-down { color: #dc2626; background: #fef2f2; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; }
-    .visit-plan { display: flex; align-items: center; gap: 10px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.75rem; clip-path: polygon(20px 0, 100% 0, 100% 100%, 0% 100%); transition: 0.3s; letter-spacing: 0.5px; font-weight: 800; white-space: nowrap; text-decoration: none; } 
+    .forex-group { display: flex; gap: 25px; align-items: center; font-size: 0.8rem; } 
+    .forex-item { display: flex; align-items: center; gap: 6px; } 
+    .forex-up { color: #16a34a; background: #ecfdf5; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; }
+    .visit-plan { display: flex; align-items: center; gap: 10px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.75rem; clip-path: polygon(20px 0, 100% 0, 100% 100%, 0% 100%); transition: 0.3s; letter-spacing: 0.5px; font-weight: 800; } 
     .visit-plan:hover { background: var(--jft-navy); color: #fff; } .visit-plan i { animation: pulse 1.5s infinite; }
 
     /* --- Navbar --- */
@@ -56,53 +50,33 @@
     .jft-navbar.scrolled .nav-logo-img { height: 55px; }
     
     .nav-menu { display: flex; gap: 40px; align-items: center; height: 100%; }
-    .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; letter-spacing: 1.5px; position: relative; padding: 5px 0; transition: 0.3s; cursor: pointer; text-decoration: none; }
+    .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; letter-spacing: 1.5px; position: relative; padding: 5px 0; transition: 0.3s; cursor: pointer; }
     .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 2px; background: var(--jft-primary); transition: width 0.3s ease; } 
     .nav-link:hover { color: var(--jft-primary); } 
     .nav-link:hover::after { width: 100%; }
     
-    .nav-btn-action { padding: 12px 28px; background: var(--jft-primary); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--jft-primary); transition: 0.3s; box-shadow: 0 4px 15px rgba(78, 140, 62, 0.2); text-decoration: none; } 
+    .nav-btn-action { padding: 12px 28px; background: var(--jft-primary); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--jft-primary); transition: 0.3s; box-shadow: 0 4px 15px rgba(78, 140, 62, 0.2); } 
     .nav-btn-action:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-2px); }
     .mobile-toggle { display: none; font-size: 1.8rem; color: var(--jft-navy); cursor: pointer; transition: color 0.3s; }
 
     /* --- Floating Elements --- */
     .sticky-quote { position: fixed; right: 0; top: 50%; transform: translateY(-50%) rotate(-90deg) translateX(50%); transform-origin: right center; z-index: 99; }
-    .sticky-btn { background: var(--jft-primary); color: #fff; padding: 12px 30px; font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; border-radius: 10px 10px 0 0; box-shadow: -4px 0 10px rgba(0,0,0,0.2); transition: 0.3s; display: block; font-size: 13px; text-decoration: none; } 
+    .sticky-btn { background: var(--jft-primary); color: #fff; padding: 12px 30px; font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; border-radius: 10px 10px 0 0; box-shadow: -4px 0 10px rgba(0,0,0,0.2); transition: 0.3s; display: block; font-size: 13px; } 
     .sticky-btn:hover { background: var(--jft-gold); color: #000; padding-bottom: 20px; }
-    .whatsapp-float { position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 100; display: flex; align-items: center; justify-content: center; transition: 0.3s; text-decoration: none; } 
+    .whatsapp-float { position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 100; display: flex; align-items: center; justify-content: center; transition: 0.3s; } 
     .whatsapp-float:hover { transform: scale(1.1); background-color: #128C7E; }
 
-    /* --- Responsive Logic (ALL Screens) --- */
-    @media (max-width: 1200px) {
-        .nav-menu { gap: 20px; }
-        .t-item { margin-right: 30px; }
-    }
-
     @media (max-width: 1024px) {
-        .top-dashboard { position: relative; } 
-        .td-row-1 { height: auto; flex-wrap: wrap; padding: 5px 0; background: var(--jft-navy); }
-        .td-social { padding: 5px 15px; background: none; font-size: 0.9rem; flex: 1; justify-content: center; }
-        .td-social span { display: none; } 
-        .td-utilities { flex: 1; justify-content: center; background: none; border-left: 1px solid rgba(255,255,255,0.1); }
-        .td-news-ticker { width: 100%; order: 3; border-top: 1px solid rgba(255,255,255,0.1); height: 35px; }
-        .ticker-label { font-size: 0.65rem; padding: 0 10px; width: auto; clip-path: none; background: rgba(255,255,255,0.1); }
-        .td-row-2 { height: auto; flex-wrap: wrap; padding: 0; }
-        .forex-group { width: 100%; justify-content: center; padding: 8px; flex-wrap: wrap; gap: 15px; border-bottom: 1px solid #eee; background: #fbfbfb; }
-        .visit-plan { width: 100%; clip-path: none; justify-content: center; height: 40px; }
-        
-        /* Navbar Mobile */
-        .jft-navbar { top: 0; position: sticky; height: 70px; margin-top: 0; }
-        .jft-navbar.scrolled { top: 0; height: 70px; }
+        .td-utilities, .visit-plan, .desktop-only, .sticky-quote { display: none; }
+        .ticker-label { font-size: 0.6rem; padding: 0 10px; }
+        .jft-navbar { top: 80px; height: 70px; background: rgba(255,255,255,0.95); } 
+        .jft-navbar.scrolled { top: 80px; height: 70px; }
         .nav-logo-img { height: 50px; } .jft-navbar.scrolled .nav-logo-img { height: 45px; }
-        .nav-menu { position: fixed; top: 0; right: -100%; width: 85%; height: 100vh; background: var(--jft-navy); flex-direction: column; justify-content: flex-start; padding-top: 80px; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.2); gap: 0; z-index: 1001; }
+        .nav-menu { position: fixed; top: 80px; right: -100%; width: 85%; height: calc(100vh - 80px); background: var(--jft-navy); flex-direction: column; justify-content: flex-start; padding-top: 60px; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.2); gap: 25px; }
         .nav-menu.active { right: 0; }
-        .nav-link { font-size: 1.1rem; color: #fff !important; width: 100%; text-align: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); } 
+        .nav-link { font-size: 1.1rem; color: #fff !important; width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); } 
         .nav-link::after { display: none; }
-        .nav-btn-action { margin-top: 30px; width: 80%; text-align: center; background: var(--jft-gold); border-color: var(--jft-gold); color: var(--jft-navy); }
-        .mobile-toggle { display: block; z-index: 1002; }
-        
-        .desktop-only { display: flex !important; }
-        .sticky-quote { display: none; }
+        .mobile-toggle { display: block; }
     }
 </style>
 
@@ -116,9 +90,13 @@
             <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
         </div>
+        <div class="td-news-ticker">
+            <div class="ticker-label"><div class="live-dot"></div> MARKET FEED</div>
+            <div class="ticker-track" id="dynamic-ticker"></div>
+        </div>
         <div class="td-utilities desktop-only">
             <div class="lang-dropdown">
-                <button onclick="toggleLang()" class="lang-btn"><i class="fa-solid fa-globe"></i> <span id="lang-label">EN/HI</span> <i class="fa-solid fa-caret-down"></i></button>
+                <button onclick="toggleLang()" class="lang-btn"><i class="fa-solid fa-globe"></i> Global (EN) <i class="fa-solid fa-caret-down"></i></button>
                 <div class="lang-menu" id="langMenu">
                     <a onclick="changeLanguage('en')">English</a>
                     <a onclick="changeLanguage('hi')">हिन्दी (Hindi)</a>
@@ -128,28 +106,20 @@
                 </div>
             </div>
         </div>
-        <div class="td-news-ticker">
-            <div class="ticker-label"><div class="live-dot"></div> MARKET FEED</div>
-            <div class="ticker-track" id="dynamic-ticker"></div>
-        </div>
     </div>
     <div class="td-row-2">
         <div class="forex-group">
             <span id="forex-date" style="font-size:0.7rem; color:#888; text-transform:uppercase;"></span>
-            <div class="forex-item" id="fx-usd">USD/INR <span><i class="fa-solid fa-spinner fa-spin"></i></span></div>
-            <div class="forex-item" id="fx-eur">EUR/INR <span><i class="fa-solid fa-spinner fa-spin"></i></span></div>
-            <div class="forex-item desktop-only" id="fx-gbp">GBP/INR <span><i class="fa-solid fa-spinner fa-spin"></i></span></div>
+            <div class="forex-item" id="fx-usd">USD/INR <span>..</span></div>
+            <div class="forex-item" id="fx-eur">EUR/INR <span>..</span></div>
+            <div class="forex-item desktop-only" id="fx-gbp">GBP/INR <span>..</span></div>
         </div>
         <a href="#contact" class="visit-plan"><i class="fa-solid fa-plane-departure"></i> MEET US AT GULFOOD DUBAI</a>
     </div>
 </div>
 
 <div id="google_translate_element"></div>
-<script type="text/javascript">
-    function googleTranslateElementInit() { 
-        new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi,zh-CN,es,ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element'); 
-    }
-</script>
+<script type="text/javascript"> function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi,zh-CN,es,ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element'); } </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <nav class="jft-navbar" id="navbar">
@@ -162,7 +132,7 @@
             <a href="infrastructure.html" class="nav-link" onclick="toggleMenu()">Infra</a>
             <a href="https://jftagro.com/index.html#global-reach" class="nav-link" onclick="toggleMenu()">Network</a>
             <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
-            <a href="contact.html" class="nav-btn-action" onclick="toggleMenu()">Get Quote</a>
+            <a href="contact.html" class="nav-btn-action desktop-only" onclick="toggleMenu()">Get Quote</a>
         </div>
         <div class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
     </div>
@@ -172,7 +142,6 @@
 <div class="sticky-quote"><a href="#contact" class="sticky-btn">Request Export Quote</a></div>
 
 <script>
-    /* --- UI Interactivity --- */
     function toggleMenu() { 
         const menu = document.getElementById('navMenu'); 
         const icon = document.querySelector('.mobile-toggle i'); 
@@ -185,21 +154,15 @@
             icon.classList.add('fa-bars'); 
         } 
     }
-    
     function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
-    
     function changeLanguage(langCode) { 
         var selectField = document.querySelector(".goog-te-combo"); 
         if(selectField) { 
             selectField.value = langCode; 
             selectField.dispatchEvent(new Event("change")); 
-        }
-        const map = {'en':'Global (EN)', 'hi':'Hindi', 'zh-CN':'Mandarin', 'es':'Spanish', 'ar':'Arabic'};
-        const label = document.getElementById('lang-label');
-        if(label && map[langCode]) label.innerText = map[langCode];
+        } 
         document.getElementById('langMenu').classList.remove('show'); 
     }
-    
     window.onclick = function(e) { if (!e.target.closest('.lang-btn')) document.getElementById('langMenu').classList.remove('show'); }
 
     window.addEventListener('scroll', function() {
@@ -211,145 +174,60 @@
         
         const nav = document.getElementById('navbar'); 
         if(nav) {
-            const limit = window.innerWidth < 1024 ? 10 : 50;
-            if (window.scrollY > limit) nav.classList.add('scrolled'); 
+            if (window.scrollY > 50) nav.classList.add('scrolled'); 
             else nav.classList.remove('scrolled');
         }
     });
 
-    /* --- 2. LIVE CURRENCY SECTION --- */
     async function fetchLiveForex() {
-        const fallback = { USD: 84.50, EUR: 91.20, GBP: 107.80 }; 
         try {
             const response = await fetch('https://api.frankfurter.app/latest?from=USD&to=INR,EUR,GBP'); 
             const data = await response.json();
-            
             if(data && data.rates) {
-                const usdInr = data.rates.INR;
-                const resEur = await fetch('https://api.frankfurter.app/latest?from=EUR&to=INR');
-                const dataEur = await resEur.json();
-                const resGbp = await fetch('https://api.frankfurter.app/latest?from=GBP&to=INR');
-                const dataGbp = await resGbp.json();
-
+                const usdInr = data.rates.INR; 
+                const resEur = await fetch('https://api.frankfurter.app/latest?from=EUR&to=INR'); 
+                const dataEur = await resEur.json(); 
+                const eurInr = dataEur.rates.INR; 
+                const resGbp = await fetch('https://api.frankfurter.app/latest?from=GBP&to=INR'); 
+                const dataGbp = await resGbp.json(); 
+                const gbpInr = dataGbp.rates.INR;
                 updateTickerDOM('fx-usd', 'USD/INR', usdInr); 
-                updateTickerDOM('fx-eur', 'EUR/INR', dataEur.rates.INR); 
-                updateTickerDOM('fx-gbp', 'GBP/INR', dataGbp.rates.INR);
-            } else { throw new Error("API Fail"); }
+                updateTickerDOM('fx-eur', 'EUR/INR', eurInr); 
+                updateTickerDOM('fx-gbp', 'GBP/INR', gbpInr);
+            }
         } catch (e) { 
-            updateTickerDOM('fx-usd', 'USD/INR', fallback.USD, true); 
-            updateTickerDOM('fx-eur', 'EUR/INR', fallback.EUR, true);
-            updateTickerDOM('fx-gbp', 'GBP/INR', fallback.GBP, true);
+            const fxUsd = document.getElementById('fx-usd');
+            const fxEur = document.getElementById('fx-eur');
+            if(fxUsd) fxUsd.innerHTML = 'USD/INR <span class="forex-up">84.10 ▲</span>'; 
+            if(fxEur) fxEur.innerHTML = 'EUR/INR <span class="forex-up">90.50 ▲</span>';
         }
     }
-
-    function updateTickerDOM(id, label, value, isFallback = false) { 
+    function updateTickerDOM(id, label, value) { 
         const el = document.getElementById(id);
-        if(!el) return;
-        const displayVal = isFallback ? (value + (Math.random() * 0.1 - 0.05)).toFixed(2) : value.toFixed(2);
-        const colorClass = Math.random() > 0.4 ? 'forex-up' : 'forex-down';
-        const arrow = colorClass === 'forex-up' ? '▲' : '▼';
-        el.innerHTML = `${label} <span class="${colorClass}">${displayVal} ${arrow}</span>`; 
-    }
-    setInterval(fetchLiveForex, 5000);
-    fetchLiveForex();
-
-    /* --- 3. MARKET FEED (30 Items + Full Content Generation) --- */
-    function generateDailyNews() {
-        const today = new Date();
-        const dateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-        const fullDateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-        const yyyy = today.getFullYear();
-        
-        // Data Pools
-        const commodities = [
-            { name: "Non-Basmati Rice", icon: "fa-bowl-rice" }, { name: "Basmati Rice", icon: "fa-bowl-rice" },
-            { name: "Wheat", icon: "fa-wheat" }, { name: "Maize (Corn)", icon: "fa-seedling" },
-            { name: "Yellow Maize", icon: "fa-seedling" }, { name: "Sugar", icon: "fa-cubes" },
-            { name: "Raw Sugar", icon: "fa-cubes" }, { name: "Cardamom", icon: "fa-pepper-hot" },
-            { name: "Black Pepper", icon: "fa-pepper-hot" }, { name: "Red Chilli", icon: "fa-pepper-hot" },
-            { name: "Cumin Seeds", icon: "fa-leaf" }, { name: "Turmeric", icon: "fa-mortar-pestle" },
-            { name: "Soybean Meal", icon: "fa-plant-wilt" }, { name: "Mustard Oil", icon: "fa-bottle-droplet" },
-            { name: "Chickpeas", icon: "fa-circle" }, { name: "Lentils", icon: "fa-circle" },
-            { name: "Barley", icon: "fa-wheat-awn" }, { name: "Millet", icon: "fa-wheat-awn" },
-            { name: "Sorghum", icon: "fa-wheat-awn" }, { name: "Cotton", icon: "fa-shirt" },
-            { name: "Jute", icon: "fa-rug" }, { name: "Tea", icon: "fa-mug-hot" },
-            { name: "Coffee", icon: "fa-mug-saucer" }, { name: "Rubber", icon: "fa-tree" },
-            { name: "Cashew", icon: "fa-cookie" }, { name: "Raisins", icon: "fa-cookie-bite" },
-            { name: "Onions", icon: "fa-basket-shopping" }, { name: "Potatoes", icon: "fa-basket-shopping" },
-            { name: "Animal Feed", icon: "fa-cow" }, { name: "Bio-Fertilizer", icon: "fa-flask" }
-        ];
-
-        const actions = ["exports surge", "prices stabilize", "demand peaks", "production estimates rise", "harvest begins", "trading volume high", "global inquiries up", "auction rates firm", "supply chain robust", "quality output reported"];
-        const regions = ["in Asian markets", "across Middle East", "for European buyers", "in domestic mandis", "at major ports", "in Gujarat & Maharashtra", "in African trade zones", "globally", "in Southern India", "due to festive demand"];
-        
-        let newsList = [];
-
-        // 1. Mandatory Flash News (Fixed)
-        newsList.push({
-            cat: "MARKET FLASH", icon: "fa-calendar-day",
-            headline: `Global Agro-Commodity Trade Volume Steady: ${dateStr}`,
-            fullStory: `As of ${fullDateStr}, global agricultural trade volumes remain robust. Market analysts report steady movement across key shipping lanes connecting Asia to Europe and the Americas. Despite minor fluctuations in currency exchange rates, demand for staple grains and spices continues to drive the sector forward.`
-        });
-        
-        newsList.push({
-            cat: "LOGISTICS", icon: "fa-ship",
-            headline: `Freight Rates for Container Shipping Updated for ${today.toLocaleString('default', { month: 'long' })}`,
-            fullStory: `Ocean freight rates have seen a periodic adjustment for the month of ${today.toLocaleString('default', { month: 'long' })}. Shipping lines serving routes to West Africa and the Mediterranean have rationalized surcharges. Exporters are advised to book containers 12-15 days in advance to secure optimal pricing and slot availability.`
-        });
-
-        // 2. Generate remaining items to reach 30
-        for(let i=0; i < 28; i++) {
-            const comm = commodities[i % commodities.length]; // Cycle through commodities
-            const act = actions[Math.floor(Math.random() * actions.length)];
-            const reg = regions[Math.floor(Math.random() * regions.length)];
-            
-            // Build unique headline
-            const headline = `${comm.name} ${act} ${reg}`;
-            
-            // Build REALISTIC FULL STORY
-            const story = `
-                <strong>${comm.name} Market Update (${fullDateStr}):</strong><br><br>
-                Significant activity has been observed regarding ${comm.name} ${reg}. 
-                Latest reports indicate that ${act}, driven by changing seasonal patterns and international inventory requirements. 
-                <br><br>
-                Traders and exporters are witnessing consistent inquiries, particularly from key buyer demographics. 
-                Quality parameters for the current ${yyyy} crop are meeting stringent export standards, ensuring smooth clearances at customs. 
-                Market experts predict this trend to continue for the next quarter.
-            `;
-
-            newsList.push({
-                cat: comm.name.toUpperCase().split(' ')[0], // Short category
-                icon: comm.icon,
-                headline: headline,
-                fullStory: story
-            });
-        }
-
-        return newsList;
+        if(el) el.innerHTML = `${label} <span class="forex-up">${value.toFixed(2)} ▲</span>`; 
     }
 
+    // Initialize Header Components
     (function(){
-        // Date Display
-        const dateOptions = { day: 'numeric', month: 'short', year: 'numeric' }; 
-        const today = new Date();
-        const dateSpan = document.getElementById('forex-date'); 
-        if(dateSpan) dateSpan.innerText = "LIVE RATES: " + today.toLocaleDateString('en-GB', dateOptions);
-
-        // Generate Data
-        const newsItems = generateDailyNews();
-
-        // *** SAVE TO STORAGE FOR NEWSUPDATE.HTML TO READ ***
-        localStorage.setItem('jft_daily_news', JSON.stringify(newsItems));
-
-        // Inject Headlines into Ticker
+        fetchLiveForex();
+        const dateOptions = { day: 'numeric', month: 'short', year: 'numeric' }; const today = new Date();
+        const dateSpan = document.getElementById('forex-date'); if(dateSpan) dateSpan.innerText = "RATES AS OF " + today.toLocaleDateString('en-GB', dateOptions);
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const tickerContainer = document.getElementById('dynamic-ticker');
         if(tickerContainer) {
-            const feedHtml = newsItems.map(item => 
-                `<div class="t-item"><a href="newsupdate.html"><i class="fa-solid ${item.icon}"></i><span>${item.cat}:</span> ${item.headline}</a></div>`
-            ).join('');
-            
-            // Double for infinite scroll
-            tickerContainer.innerHTML = feedHtml + feedHtml; 
+            let dailyHeadline = "Global Markets Steady";
+            if(today.getDay() === 1) dailyHeadline = "Market Opening: Strong Demand in Asia"; else if(today.getDay() === 5) dailyHeadline = "Weekly Wrap: Rice Exports Surge 15%";
+            const fullNews = [ `<div class="t-item daily-flash"><i class="fa-solid fa-calendar-day"></i><span>${days[today.getDay()]}, ${today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}:</span> ${dailyHeadline}</div>`, `<div class="t-item"><i class="fa-solid fa-ship"></i><span>RICE:</span> Non-Basmati Export Quota Increased for ${today.getFullYear()}</div>`, `<div class="t-item"><i class="fa-solid fa-leaf"></i><span>SPICES:</span> Fresh Cardamom Arrivals in Kerala Auctions</div>`, `<div class="t-item"><i class="fa-solid fa-wheat"></i><span>WHEAT:</span> Global Price Index Stabilizing</div>`, `<div class="t-item"><i class="fa-solid fa-cube"></i><span>SUGAR:</span> Indian Production Outlook Positive</div>`, `<div class="t-item"><i class="fa-solid fa-bowl-food"></i><span>LOGISTICS:</span> Freight Rates to Red Sea Normalizing</div>` ];
+            tickerContainer.innerHTML = fullNews.join('') + fullNews.join(''); 
         }
     })();
 </script>
+
+
+
+
+
+
+
+
+
