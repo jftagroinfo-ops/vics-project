@@ -52,18 +52,15 @@
         .text-center { text-align: center; }
         .bg-pattern { background-color: #F0EFE9; background-image: radial-gradient(#D6D1C4 1px, transparent 1px); background-size: 20px 20px; }
 
-        /* --- Enhanced Branding Preloader --- */
-        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1); }
-        .loader-brand-container { position: relative; width: 300px; height: 300px; display: flex; align-items: center; justify-content: center; }
-        .loader-bg-gif { position: absolute; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; opacity: 0.6; filter: brightness(0.8) contrast(1.2); border: 1px solid rgba(238, 191, 69, 0.3); }
-        .loader-glass { position: absolute; width: 100%; height: 100%; background: radial-gradient(circle, rgba(26, 60, 52, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%); border-radius: 50%; z-index: 2; }
-        .loader-logo-img { width: 180px; position: relative; z-index: 10; filter: brightness(0) invert(1); animation: logoPulse 2.5s ease-in-out infinite; }
-        .loader-info { margin-top: 40px; text-align: center; z-index: 10; }
-        .loader-text { font-family: var(--font-head); font-size: 0.85rem; color: var(--jft-gold); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 4px; }
-        .loader-track { width: 200px; height: 3px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; border-radius: 4px; margin: 0 auto; }
-        .loader-fill { width: 100%; height: 100%; background: var(--jft-gold); transform: translateX(-100%); animation: goldLineAnim 2.5s cubic-bezier(0.85, 0, 0.15, 1) forwards; }
+        /* --- Preloader --- */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #112621 0%, #1a3c34 50%, #29574c 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1); }
+        #preloader::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(238, 191, 69, 0.2) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.2; pointer-events: none; }
+        .loader-logo-img { width: 220px; margin-bottom: 30px; filter: brightness(0) invert(1); animation: logoFloat 3s ease-in-out infinite; }
+        .loader-text { font-family: var(--font-head); font-size: 0.95rem; color: rgba(255,255,255,0.8); font-weight: 400; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 3px; }
+        .loader-track { width: 200px; height: 2px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; border-radius: 2px; }
+        .loader-fill { width: 100%; height: 100%; background: var(--jft-gold); transform: translateX(-100%); animation: goldLineAnim 2s cubic-bezier(0.85, 0, 0.15, 1) forwards; }
         @keyframes goldLineAnim { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } } 
-        @keyframes logoPulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.05); opacity: 1; } }
+        @keyframes logoFloat { 0%, 100% { transform: translateY(0); opacity: 0.9; } 50% { transform: translateY(-5px); opacity: 1; } }
 
         /* --- Global Elements (Titles, Buttons) --- */
         .section-header { margin-bottom: 60px; max-width: 800px; } 
@@ -122,6 +119,41 @@
         .india-visual img:hover { transform: scale(1.15); }
         .origin-badge { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; background: var(--jft-light); border: 1px solid var(--jft-border); border-radius: 50px; font-family: var(--font-sub); font-weight: 600; font-size: 0.9rem; color: var(--jft-navy); margin-right: 10px; margin-top: 20px; } 
         .origin-badge i { color: #ff9933; }
+
+        /* --- VMV Section (Tabs) --- */
+        .jft-vmv-section { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; min-height: 100vh; display: flex; align-items: center; background: radial-gradient(circle at 20% 20%, #fdfbf7, #f5f1e6); font-family: var(--font-body); overflow: hidden; padding: 0; }
+        .jft-full-width-wrapper { width: 100%; height: 100%; display: flex; flex-wrap: wrap; }
+        .vmv-half { flex: 1 1 50%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 5; }
+        .vmv-left { align-items: flex-start; background: rgba(255,255,255,0.4); backdrop-filter: blur(5px); padding-left: 5%; padding-right: 20px; padding-top: 100px; }
+        .vmv-right { align-items: center; background: radial-gradient(circle at 50% 50%, rgba(78, 140, 62, 0.05), transparent 70%); padding-right: 0; padding-left: 20px; justify-content: center; padding-top: 0; }
+        .rotating-wrapper { width: 100%; max-width: 800px; height: auto; position: relative; transition: transform 0.1s linear; will-change: transform; transform-origin: center center; margin-right: -50px; } 
+        .rotating-wrapper img { width: 100%; height: auto; display: block; filter: drop-shadow(20px 20px 60px rgba(0,0,0,0.15)); }
+        .visual-shadow { width: 50%; height: 40px; background: radial-gradient(ellipse, rgba(0,0,0,0.2), transparent); margin-top: 40px; border-radius: 50%; filter: blur(15px); }
+        .content-inner { width: 100%; max-width: 800px; padding-left: 0; }
+        .tab-wrapper { position: relative; min-height: 700px; }
+        .tab-nav { display: flex; gap: 15px; border-bottom: none; margin-bottom: 45px; width: 100%; }
+        .tab-btn { font-family: var(--font-sub); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 14px 28px; border-radius: 50px; cursor: pointer; transition: 0.4s; display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--jft-primary); border: 2px solid var(--jft-primary); }
+        .tab-btn:hover, .tab-btn.active { background: var(--jft-primary); color: #ffffff; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(78, 140, 62, 0.3); } 
+        .tab-btn:hover i, .tab-btn.active i { color: #ffffff; }
+        
+        .pane-heading { font-family: var(--font-head); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; margin: 0 0 30px 0; color: var(--jft-navy); line-height: 1.2; }
+        .highlight { color: var(--jft-primary); position: relative; } 
+        .highlight::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-gold); opacity: 0.3; z-index: -1; }
+        
+        .vmv-list { display: flex; flex-direction: column; gap: 15px; }
+        .vmv-row { display: flex; gap: 25px; padding: 25px; background: #fff; border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.03); border-left: 5px solid transparent; box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: 0.3s ease; align-items: flex-start; width: 100%; opacity: 0; transform: translateY(20px); }
+        .vmv-row:hover { transform: translateX(10px) !important; border-left-color: var(--jft-gold); box-shadow: 0 15px 35px rgba(78, 140, 62, 0.12); }
+        .row-badge { flex-shrink: 0; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; line-height: 1; font-size: 24px; color: var(--jft-primary); background: #f0f7ec; border: 1px solid rgba(78, 140, 62, 0.2); transition: 0.3s; }
+        .vmv-row:hover .row-badge { background: var(--jft-gold); color: #fff; border-color: var(--jft-gold); transform: rotateY(360deg); }
+        .row-text h3 { font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--jft-navy); margin: 0 0 6px 0; letter-spacing: -0.5px; } 
+        .row-text p { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: #666; margin: 0; }
+        @keyframes dropIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        .active-pane .vmv-row { animation: dropIn 0.5s ease forwards; } 
+        .active-pane .vmv-row:nth-child(1) { animation-delay: 0.1s; } 
+        .active-pane .vmv-row:nth-child(2) { animation-delay: 0.2s; } 
+        .active-pane .vmv-row:nth-child(3) { animation-delay: 0.3s; }
+        
+        .tab-pane { display: none; } .tab-pane.active-pane { display: block; }
 
         /* --- Products --- */
         .prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
@@ -255,15 +287,9 @@
 </head>
 <body>
     <div id="preloader">
-        <div class="loader-brand-container">
-            <img src="JFT Global Reach.gif" alt="Global Reach" class="loader-bg-gif">
-            <div class="loader-glass"></div>
-            <img src="images/jft logo.png" alt="JFT Loading" class="loader-logo-img">
-        </div>
-        <div class="loader-info">
-            <div class="loader-text" id="welcome-msg">Connecting Global Markets...</div>
-            <div class="loader-track"><div class="loader-fill"></div></div>
-        </div>
+        <img src="images/jft logo.png" alt="JFT Loading" class="loader-logo-img">
+        <div class="loader-text" id="welcome-msg">Connecting Global Markets...</div>
+        <div class="loader-track"><div class="loader-fill"></div></div>
     </div>
 
     <div id="header-placeholder"></div>
@@ -327,7 +353,7 @@
                     </ul>
                 </div>
                 <div class="manu-img reveal" style="flex: 1;">
-                    <img src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&q=80" alt="Rice Factory Mumbai" loading="lazy" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 5px solid rgba(255,255,255,0.1); width: 100%;">
+                    <img src="images/rice-factory.jpg" alt="Rice Factory Mumbai" loading="lazy" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 5px solid rgba(255,255,255,0.1); width: 100%;">
                 </div>
             </div>
         </div>
@@ -336,7 +362,8 @@
     <section class="section-padding section-india bg-pattern" id="origin">
         <div class="jft-wide-container">
             <div class="india-layout">
-                <div class="india-visual reveal"><img src="https://jftagro.com/wp-content/uploads/2026/01/Farm-PNG-HD-Isolated.png" alt="India Map Sourcing" class="static-map"></div>
+                <div class="india-visual reveal"><img src="images
+/Farm.png" alt="India Map Sourcing" class="static-map"></div>
                 <div class="india-text reveal">
                     <span class="brand-tag">Origin Guarantee</span>
                     <h2 class="section-title">The "Golden Bird" <br><span>Legacy</span></h2>
@@ -375,7 +402,7 @@
                 <div class="prod-card">
                     <div class="prod-inner">
                         <div class="prod-front"><img src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?auto=format&fit=crop&q=80&w=600" alt="Indian White Sugar" loading="lazy"><div class="prod-overlay"><span>Commodity</span><h3>Indian White Sugar</h3></div></div>
-                        <div class="prod-back"><h3>Indian White Sugar</h3><p>Grade S-30 / M-30. Sparkling white, ICUMSA &lt;100.</p><p><strong>Packing:</strong> 50kg PP Bags with Liner</p><a href="#contact" class="view-btn">Request Quote</a></div>
+                        <div class="prod-back"><h3>Indian White Sugar</h3><p>Grade S-30 / M-30. Sparkling white, ICUMSA <100.</p><p><strong>Packing:</strong> 50kg PP Bags with Liner</p><a href="#contact" class="view-btn">Request Quote</a></div>
                     </div>
                 </div>
                 <div class="prod-card">
@@ -502,6 +529,7 @@
                 const text = await res.text();
                 document.getElementById(id).innerHTML = text;
                 
+                // Execute scripts in injected HTML
                 const scripts = document.getElementById(id).querySelectorAll("script");
                 scripts.forEach(oldScript => {
                     const newScript = document.createElement("script");
@@ -509,7 +537,9 @@
                     newScript.appendChild(document.createTextNode(oldScript.innerHTML));
                     oldScript.parentNode.replaceChild(newScript, oldScript);
                 });
-            } catch (err) { console.error(err); }
+            } catch (err) {
+                console.error(err);
+            }
         }
         document.addEventListener("DOMContentLoaded", () => {
             loadComponent("header-placeholder", "header.html");
@@ -570,3 +600,7 @@
     </script>
 </body>
 </html>
+
+
+
+
