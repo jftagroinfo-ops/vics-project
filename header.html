@@ -7,83 +7,97 @@
     
     .td-row-1 { display: flex; height: 42px; border-bottom: 1px solid rgba(255,255,255,0.08); order: 1; }
     .td-social { padding: 0 30px; display: flex; align-items: center; gap: 20px; background: rgba(0,0,0,0.2); font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
-    .td-social span { color: var(--jft-gold); text-transform: uppercase; letter-spacing: 1px; } 
-    .td-social a { color: rgba(255,255,255,0.8); transition: 0.3s; font-size: 1rem; } 
     
+    /* FAST TICKER (Requirement 1 & 8) */
     .td-news-ticker { flex: 1; display: flex; align-items: center; overflow: hidden; background: var(--jft-navy); position: relative; }
-    .ticker-label { background: var(--jft-primary); color: #fff; padding: 0 25px; height: 100%; display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2; clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%); padding-right: 40px; white-space: nowrap; }
-    
-    /* FAST TICKER ANIMATION */
-    .ticker-track { display: flex; animation: scrollText 25s linear infinite; white-space: nowrap; padding-left: 10px; } 
+    .ticker-label { background: var(--jft-primary); color: #fff; padding: 0 25px; height: 100%; display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; z-index: 2; clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%); white-space: nowrap; }
+    .ticker-track { display: flex; animation: scrollText 25s linear infinite; white-space: nowrap; } 
     @keyframes scrollText { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-    .t-item { margin-right: 60px; font-family: var(--font-body); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); } 
-    .t-item i { color: var(--jft-gold); font-size: 0.8rem; } 
-    .t-item span { color: #fff; font-weight: 800; font-family: var(--font-sub); font-size: 0.75rem; text-transform: uppercase; }
+    .t-item { margin-right: 60px; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); } 
 
     .td-row-2 { display: flex; justify-content: space-between; align-items: center; height: 38px; background: #fff; color: var(--jft-navy); padding: 0 0 0 20px; font-weight: 700; border-bottom: 1px solid #eee; order: 2; }
     .forex-group { display: flex; gap: 25px; align-items: center; font-size: 0.8rem; } 
-    .forex-up { color: #16a34a; background: #ecfdf5; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; }
-    .visit-plan { display: flex; align-items: center; gap: 10px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.75rem; clip-path: polygon(20px 0, 100% 0, 100% 100%, 0% 100%); transition: 0.3s; letter-spacing: 0.5px; font-weight: 800; text-decoration: none; } 
+    .visit-plan { display: flex; align-items: center; gap: 10px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.75rem; clip-path: polygon(20px 0, 100% 0, 100% 100%, 0% 100%); transition: 0.3s; font-weight: 800; text-decoration: none; } 
 
-    /* --- Navbar --- */
-    .jft-navbar { position: fixed; top: 80px; left: 0; width: 100%; height: 90px; z-index: 1000; transition: 0.4s; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); display: flex; align-items: center; }
+    /* --- Navbar (Main Menu Bar) --- */
+    .jft-navbar { position: fixed; top: 80px; left: 0; width: 100%; height: 90px; z-index: 2100; transition: 0.4s; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
     .nav-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; padding: 0 5%; }
-    .nav-logo-img { height: 75px; transition: 0.4s; } 
-    .nav-menu { display: flex; gap: 40px; align-items: center; }
+    .nav-logo-img { height: 75px; transition: 0.4s; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); } 
+    .nav-menu { display: flex; gap: 35px; align-items: center; }
     .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; text-decoration: none; }
-    .nav-btn-action { padding: 12px 28px; background: var(--jft-primary); color: #fff; border-radius: 50px; font-weight: 700; text-decoration: none; } 
+    .nav-btn-action { padding: 12px 28px; background: var(--jft-primary); color: #fff; border-radius: 50px; text-decoration: none; font-weight: 700; } 
+    .mobile-only { display: none; }
 
     /* --- MOBILE REARRANGEMENT (BELOW 1024PX) --- */
     @media (max-width: 1024px) {
-        body { padding-top: 190px !important; } /* Push Hero Banner down for 4-line header */
+        body { padding-top: 190px !important; }
+
+        /* Elevation Shadow for Mobile Header (Requirement 8) */
+        .top-dashboard, .jft-navbar { box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
 
         /* Line 1: Dubai Visit */
         .td-row-2 { order: 1; height: 42px; background: var(--jft-gold); padding: 0; border: none; }
-        .visit-plan { clip-path: none; width: 100%; justify-content: center; font-size: 0.7rem; }
-        .forex-group { display: none; }
+        .visit-plan { clip-path: none; width: 100%; justify-content: center; font-size: 0.75rem; }
 
         /* Line 2: Market Feed */
-        .td-row-1 { order: 2; height: 38px; }
+        .td-row-1 { order: 2; height: 38px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .td-social { display: none; }
 
-        /* Line 3: Currency & Social (Container for visibility) */
-        .mobile-utility-bar { order: 3; display: flex; height: 40px; background: #f8f9fa; border-bottom: 1px solid #ddd; align-items: center; justify-content: space-between; padding: 0 15px; }
-        .m-currency { display: flex; gap: 10px; font-size: 0.7rem; font-weight: 800; color: var(--jft-navy); }
-        .m-currency span { color: #16a34a; }
-        .m-social { display: flex; gap: 15px; font-size: 1rem; color: var(--jft-navy); }
+        /* Line 3: Currency & Social */
+        .mobile-utility-bar { order: 3; display: flex; height: 40px; background: #ffffff; border-bottom: 1px solid #e0e0e0; align-items: center; justify-content: space-between; padding: 0 20px; }
+        .m-currency { display: flex; gap: 15px; font-size: 0.75rem; font-weight: 800; color: var(--jft-navy); }
+        .m-social { display: flex; gap: 18px; font-size: 1.2rem; }
         .m-social a { color: var(--jft-navy); }
 
-        /* Line 4: Main Menu Bar (Constant while scrolling) */
-        .jft-navbar { top: 120px; height: 70px; border-bottom: 1px solid #eee; z-index: 2100; position: fixed; }
-        .nav-logo-img { height: 48px; }
-        .mobile-toggle { display: block; font-size: 1.5rem; color: var(--jft-navy); z-index: 2200; }
+        /* Line 4: Navbar (Constant on Scroll) */
+        .jft-navbar { top: 120px; height: 70px; position: fixed; background: #fff; border-bottom: 1px solid #eee; }
+        .nav-logo-img { height: 55px; } /* Slightly larger logo for mobile (Requirement 8) */
+        .mobile-toggle { display: block; font-size: 1.6rem; color: var(--jft-navy); cursor: pointer; }
 
-        /* MENU CONTENT - Opens BELOW main menu */
+        /* SLIDE-DOWN MENU (Requirement 2 & 4) */
         .nav-menu { 
-            position: fixed; top: 190px; right: -100%; width: 100%; 
+            position: fixed; top: 190px; left: 0; width: 100%; 
             height: calc(100vh - 190px); background: var(--jft-navy); 
             flex-direction: column; justify-content: flex-start; align-items: center;
-            transition: 0.4s ease-in-out; gap: 0; z-index: 2050; padding-top: 20px;
-            overflow-y: auto;
+            transform: translateY(-130%); 
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+            z-index: 2050; padding: 0; overflow-y: auto; display: flex;
         }
-        .nav-menu.active { right: 0; }
+        .nav-menu.active { transform: translateY(0); }
 
-        /* Social Icons INSIDE Menu Top */
-        .menu-social-header { width: 100%; display: flex; justify-content: center; gap: 25px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 10px; }
-        .menu-social-header a { color: var(--jft-gold); font-size: 1.4rem; }
+        /* STAGGERED FADE-IN (Requirement 9) */
+        .nav-menu.active .nav-link, 
+        .nav-menu.active .menu-social-header,
+        .nav-menu.active .nav-btn-action {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .menu-social-header, .nav-link, .nav-btn-action {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        /* Stagger Timing */
+        .menu-social-header { transition-delay: 0.15s; }
+        .nav-link:nth-child(2) { transition-delay: 0.20s; }
+        .nav-link:nth-child(3) { transition-delay: 0.25s; }
+        .nav-link:nth-child(4) { transition-delay: 0.30s; }
+        .nav-link:nth-child(5) { transition-delay: 0.35s; }
+        .nav-link:nth-child(6) { transition-delay: 0.40s; }
+        .nav-link:nth-child(7) { transition-delay: 0.45s; }
+        .nav-btn-action { transition-delay: 0.50s; }
+
+        /* Menu Content Styling */
+        .menu-social-header { width: 100%; display: flex; justify-content: center; gap: 30px; padding: 25px 0; background: rgba(0,0,0,0.15); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .menu-social-header a { color: var(--jft-gold); font-size: 1.6rem; }
 
         .nav-link { 
-            font-size: 1.1rem; color: #fff !important; width: 100%; text-align: center; 
-            padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05); 
+            font-size: 1.2rem; color: #fff !important; width: 100%; text-align: center; 
+            padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
-        .nav-link:hover { background: rgba(255,255,255,0.03); color: var(--jft-gold) !important; }
-        .nav-btn-action { margin: 30px 0; width: 80%; text-align: center; background: var(--jft-gold); color: var(--jft-navy); }
-    }
-
-    /* Desktop overrides to keep original design */
-    @media (min-width: 1025px) {
-        .mobile-utility-bar, .menu-social-header { display: none; }
+        .nav-btn-action { margin: 35px 0; width: 85%; text-align: center; background: var(--jft-gold); color: var(--jft-navy); border-radius: 8px; font-size: 1rem; }
     }
 </style>
 
@@ -113,53 +127,54 @@
 
     <div class="mobile-utility-bar mobile-only">
         <div class="m-currency">
-            <div>USD/INR <span>84.15 ▲</span></div>
-            <div>EUR/INR <span>91.02 ▲</span></div>
+            <div>USD/INR <span>84.25 ▲</span></div>
+            <div>EUR/INR <span>91.18 ▲</span></div>
         </div>
         <div class="m-social">
             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </div>
 </div>
 
 <nav class="jft-navbar" id="navbar">
     <div class="nav-flex">
-        <a href="index.html" class="nav-logo-link"><img src="images/jft logo.png" alt="Logo" class="nav-logo-img"></a>
+        <a href="index.html" class="nav-logo-link"><img src="images/jft logo.png" alt="JFT Agro" class="nav-logo-img"></a>
         
         <div class="nav-menu" id="navMenu">
             <div class="menu-social-header mobile-only">
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
             
             <a href="index.html" class="nav-link" onclick="toggleMenu()">Home</a>
             <a href="about.html" class="nav-link" onclick="toggleMenu()">About Us</a>
             <a href="products.html" class="nav-link" onclick="toggleMenu()">Products</a>
-            <a href="infrastructure.html" class="nav-link" onclick="toggleMenu()">Infra</a>
-            <a href="contact.html" class="nav-link" onclick="toggleMenu()">Network</a>
-            <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
-            <a href="contact.html" class="nav-btn-action" onclick="toggleMenu()">Get A Quote</a>
+            <a href="infrastructure.html" class="nav-link" onclick="toggleMenu()">Infrastructure</a>
+            <a href="contact.html" class="nav-link" onclick="toggleMenu()">Global Network</a>
+            <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact Us</a>
+            <a href="contact.html" class="nav-btn-action" onclick="toggleMenu()">Request Export Quote</a>
         </div>
 
-        <div class="mobile-toggle mobile-only" onclick="toggleMenu()"><i class="fa-solid fa-bars-staggered" id="menuIcon"></i></div>
+        <div class="mobile-toggle mobile-only" onclick="toggleMenu()"><i class="fa-solid fa-bars-staggered" id="mIcon"></i></div>
     </div>
 </nav>
 
-<a href="https://wa.me/918425057274" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="https://wa.me/918425057274" class="whatsapp-float" target="_blank" aria-label="WhatsApp Contact"><i class="fa-brands fa-whatsapp"></i></a>
 
 <script>
     function toggleMenu() { 
         const menu = document.getElementById('navMenu'); 
-        const icon = document.getElementById('menuIcon'); 
+        const icon = document.getElementById('mIcon'); 
         menu.classList.toggle('active'); 
         
         if(menu.classList.contains('active')) {
+            // Requirement 3: Close Button UI
             icon.classList.replace('fa-bars-staggered', 'fa-xmark');
-            icon.style.color = '#c5a059'; // Gold color when open
+            icon.style.color = '#c5a059'; 
             document.body.style.overflow = 'hidden'; 
         } else {
             icon.classList.replace('fa-xmark', 'fa-bars-staggered');
@@ -168,12 +183,11 @@
         }
     }
 
-    // Ticker content
     (function init() {
         const ticker = document.getElementById('dynamic-ticker');
         if(ticker) {
-            const news = `<div class="t-item"><span>RICE:</span> Non-Basmati Quota Active</div><div class="t-item"><span>SPICES:</span> Market Opening Steady</div>`;
-            ticker.innerHTML = news + news + news;
+            const feed = `<div class="t-item"><span>SHIPMENT:</span> Fresh batch of Basmati dispatched to Port Said</div><div class="t-item"><span>QUALITY:</span> 100% Organic Sourcing certified for 2024</div>`;
+            ticker.innerHTML = feed + feed + feed;
         }
     })();
 </script>
