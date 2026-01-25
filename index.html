@@ -72,6 +72,12 @@
         .section-title span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; }
         .section-title span::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-gold); opacity: 0.3; z-index: -1; }
         
+        /* Highlight for Manufacturing Title (Exact Match) */
+        .manu-highlight::after {
+            background: var(--jft-gold) !important;
+            opacity: 0.3 !important; 
+        }
+
         .section-desc { font-size: clamp(1rem, 1.5vw, 1.15rem); max-width: 700px; margin-top: 20px; color: #6b6b6b; font-weight: 400; }
         
         .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--jft-primary); color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); border: 2px solid var(--jft-primary); box-shadow: 0 4px 10px rgba(78, 140, 62, 0.3); text-align: center; cursor: pointer;} 
@@ -80,11 +86,17 @@
         .btn-outline:hover { background: #fff; color: var(--jft-primary); border-color: #fff; }
         
         /* --- Replaced Hero CSS --- */
-        .jft-hero-banner { position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: #000; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; }
-        
-        /* --- DESKTOP ONLY PADDING --- */
+        .jft-hero-banner { position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: #000; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; cursor: grab; }
+        .jft-hero-banner:active { cursor: grabbing; }
+
+        /* --- POINT 3: RESPONSIVE TOP PADDING (Desktop vs Others) --- */
         @media (min-width: 1025px) {
             .jft-hero-banner { padding-top: 130px; }
+        }
+        @media (max-width: 1024px) {
+            .jft-hero-banner { 
+                padding-top: 100px; /* Added spacing for Tablet/Mobile */
+            }
         }
 
         .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; visibility: hidden; transition: opacity 1.5s ease-in-out; background-size: cover; background-position: center; }
@@ -93,8 +105,9 @@
         .hero-grid-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 40px 40px; z-index: 2; pointer-events: none; }
         
         /* Wrapper for the content slides logic */
-        .hero-content-wrapper { position: relative; width: 100%; max-width: 1400px; margin: 0 auto; z-index: 10; padding: 20px 40px; }
-        
+        .hero-content-wrapper { position: relative; width: 100%; max-width: 1400px; margin: 0 auto; z-index: 10; padding: 20px 40px; pointer-events: none; }
+        .hero-content-wrapper * { pointer-events: auto; } /* Re-enable pointer events for buttons/links */
+
         /* Individual Content Slide */
         .hero-content-slide { display: none; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; width: 100%; }
         .hero-content-slide.active { display: flex; animation: slideContentFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
@@ -113,6 +126,7 @@
         .hero-desc-modern { font-size: clamp(1rem, 1.5vw, 1.25rem); max-width: 600px; color: #dbece5; margin-bottom: 45px; font-weight: 300; line-height: 1.7; font-family: 'Lato', sans-serif; }
         .hero-actions { display: flex; gap: 20px; flex-wrap: wrap; }
         
+        /* POINT 1: Hover logic specifically on this container */
         .hero-visual-card { flex: 0 0 450px; display: flex; justify-content: flex-end; perspective: 2500px; max-width: 100%; }
         .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; width: 100%; height: 500px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg); transition: transform 0.3s ease-out; position: relative; overflow: hidden; will-change: transform; }
         .glass-card img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
@@ -120,6 +134,36 @@
         .slider-controls { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; z-index: 20; }
         .control-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.5); cursor: pointer; transition: 0.3s; background: transparent; }
         .control-dot.active { background: #eebf45; border-color: #eebf45; transform: scale(1.2); }
+
+        /* --- POINT 2: SLIDER ARROWS --- */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 30;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .slider-arrow:hover { background: var(--jft-gold); border-color: var(--jft-gold); color: var(--jft-navy); }
+        .prev-arrow { left: 30px; }
+        .next-arrow { right: 30px; }
+        /* Hide arrows on very small screens to avoid clutter */
+        @media (max-width: 600px) {
+            .slider-arrow { width: 40px; height: 40px; font-size: 1rem; }
+            .prev-arrow { left: 10px; }
+            .next-arrow { right: 10px; }
+        }
 
         /* --- Back to Top Button --- */
         #backToTop { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--jft-gold); color: var(--jft-navy); border: none; border-radius: 50%; cursor: pointer; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; opacity: 0; visibility: hidden; transition: all 0.4s ease; transform: translateY(20px); }
@@ -195,12 +239,11 @@
         .logistics-title span { color: var(--jft-gold); position: relative; display: inline-block; z-index: 1; }
         .logistics-title span::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-primary); opacity: 0.6; z-index: -1; }
         
-        /* UPDATED PARAGRAPH STYLE - Matching .log-stat p */
         .logistics-desc { 
             font-size: clamp(1rem, 2vw, 1.1rem); 
             margin-top: 20px; 
-            color: #dbece5; /* Soft blue-grey */
-            font-weight: 300; /* Light weight like Rapid Port Clearance */
+            color: #dbece5; 
+            font-weight: 300; 
             line-height: 1.6; 
             max-width: 800px; 
             margin-left: auto; 
@@ -238,7 +281,6 @@
         .step-marker::after { content: attr(data-num); position: absolute; top: 0; right: 0; width: 26px; height: 26px; background: var(--jft-gold); color: #000; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
         
         /* --- POINT 1: NETWORK SECTION FIXES --- */
-        /* Changed overflow from hidden to visible so popups can go outside */
         .jft-network-section { position: relative; padding: 110px 0; overflow: visible; width: 100%; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; }
         
         .network-header { text-align: center; margin-bottom: 60px; position: relative; z-index: 10; padding: 0 20px; }
@@ -254,7 +296,6 @@
         .pr-2 { animation: hubPulse 4s infinite 2s; } 
         @keyframes hubPulse { 0% { transform: scale(0.9); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
         
-        /* Added transition to z-index for stacking order */
         .export-node { position: absolute; display: flex; align-items: center; gap: 20px; width: 320px; transition: 0.4s ease-in-out; cursor: pointer; z-index: 20; }
         
         /* POINT 1: High Z-Index on Hover */
@@ -423,6 +464,9 @@
         <div class="hero-grid-overlay"></div>
         
         <div class="hero-content-wrapper">
+            <div class="slider-arrow prev-arrow" onclick="setSlide((slideIndex - 1 + 6) % 6)"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="slider-arrow next-arrow" onclick="setSlide((slideIndex + 1) % 6)"><i class="fa-solid fa-chevron-right"></i></div>
+
             <div class="hero-content-slide active">
                 <div class="hero-text-box">
                     <span class="hero-tag-modern"><i class="fa-solid fa-globe"></i> ISO 9001:2015 CERTIFIED</span>
@@ -627,7 +671,7 @@
             <div class="manu-layout">
                 <div class="manu-content" style="flex: 1;">
                     <span class="brand-tag" style="background: rgba(255,255,255,0.1); color: var(--jft-gold); border-color: var(--jft-gold);">Direct Manufacturer</span>
-                    <h2 class="section-title" style="color: #fff; margin-bottom: 25px;">Leading Rice Exporter <br><span style="color: var(--jft-primary);">With Unit in Mumbai</span></h2>
+                    <h2 class="section-title" style="color: #fff; margin-bottom: 25px;">Leading Rice Exporter <br><span style="color: var(--jft-primary);" class="manu-highlight">With Unit in Mumbai</span></h2>
                     <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; line-height: 1.8;">Unlike many competitors who trade, <strong>JFT Agro manufactures.</strong> Located in the strategic hub of Mumbai, our state-of-the-art rice milling unit gives us total control over quality, pricing, and timeline. Being a leading rice exporter in India, we ensure that every grain meets international standards before it leaves our facility.</p>
                     <ul style="margin: 30px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <li style="display: flex; align-items: center; gap: 10px; color: #fff;"><i class="fa-solid fa-industry" style="color: var(--jft-gold);"></i> 500 MT/Day Capacity</li>
@@ -1001,7 +1045,14 @@
 
         // --- UPDATED: Hero Logic for 6 Content Slides ---
         let slideIndex = 0; 
-        function setSlide(n) { slideIndex = n; updateSlider(); resetTimer(); } 
+        let sliderInterval; // Variable to store the interval ID
+
+        function setSlide(n) { 
+            slideIndex = n; 
+            updateSlider(); 
+            resetTimer(); 
+        } 
+
         function nextSlide() { 
             const slides = document.querySelectorAll('.hero-slide'); 
             if(slides.length > 0) { 
@@ -1009,6 +1060,18 @@
                 updateSlider(); 
             } 
         } 
+
+        // Function to start/restart the automatic slideshow
+        function startSlider() {
+            // Clear any existing interval to prevent multiple intervals running
+            if (sliderInterval) clearInterval(sliderInterval);
+            sliderInterval = setInterval(nextSlide, 5000); 
+        }
+
+        function resetTimer() { 
+            startSlider(); // This clears the old interval and starts a new one
+        }
+
         function updateSlider() { 
             const slides = document.querySelectorAll('.hero-slide'); 
             const contents = document.querySelectorAll('.hero-content-slide'); 
@@ -1024,30 +1087,101 @@
             if(contents[slideIndex]) contents[slideIndex].classList.add('active'); 
             dots[slideIndex].classList.add('active'); 
         } 
-        let slideTimer = setInterval(nextSlide, 5000); 
-        function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
+
+        // Start the slider initially
+        startSlider();
+
+        // --- Drag/Swipe Logic for Hero Banner ---
+        const heroBanner = document.querySelector('.jft-hero-banner');
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let isDragging = false;
+
+        if(heroBanner) {
+            // Touch Events
+            heroBanner.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            heroBanner.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+
+            // Mouse Events
+            heroBanner.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                touchStartX = e.screenX;
+                heroBanner.style.cursor = 'grabbing';
+            });
+
+            heroBanner.addEventListener('mouseup', (e) => {
+                if(!isDragging) return;
+                isDragging = false;
+                touchEndX = e.screenX;
+                heroBanner.style.cursor = 'grab';
+                handleSwipe();
+            });
+
+            heroBanner.addEventListener('mouseleave', () => {
+                isDragging = false;
+                heroBanner.style.cursor = 'grab';
+            });
+        }
+
+        function handleSwipe() {
+            const threshold = 50; // Minimum distance for a swipe
+            if (touchEndX < touchStartX - threshold) {
+                // Swiped Left -> Next Slide
+                nextSlide();
+                resetTimer();
+            }
+            if (touchEndX > touchStartX + threshold) {
+                // Swiped Right -> Previous Slide
+                // Calculate previous index correctly handling negative modulo
+                const slides = document.querySelectorAll('.hero-slide');
+                if(slides.length > 0) {
+                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+                    updateSlider();
+                    resetTimer();
+                }
+            }
+        }
+
 
         // --- Tilt Card Logic ---
         document.addEventListener('mousemove', (e) => {
             if (window.innerWidth <= 1024) return;
             const activeSlide = document.querySelector('.hero-content-slide.active');
             if(!activeSlide) return;
+            
+            // Limit tilt logic to hovering the visual card wrapper
+            const visualCard = activeSlide.querySelector('.hero-visual-card');
             const card = activeSlide.querySelector('.tilt-card');
-            if(card) {
-                const rect = card.getBoundingClientRect();
-                const cardX = rect.left + rect.width / 2;
-                const cardY = rect.top + rect.height / 2;
-                const angleX = (cardY - e.clientY) / 35; 
-                const angleY = (e.clientX - cardX) / 35; 
-                card.style.transition = "none";
-                card.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+            
+            if(visualCard && card) {
+                const rect = visualCard.getBoundingClientRect();
+                
+                // Check if mouse is inside the visual card area
+                if (e.clientX >= rect.left && e.clientX <= rect.right && 
+                    e.clientY >= rect.top && e.clientY <= rect.bottom) {
+                        
+                    const cardRect = card.getBoundingClientRect();
+                    const cardX = cardRect.left + cardRect.width / 2;
+                    const cardY = cardRect.top + cardRect.height / 2;
+                    
+                    // Reduced sensitivity for smoother effect
+                    const angleX = (cardY - e.clientY) / 25; 
+                    const angleY = (e.clientX - cardX) / 25; 
+                    
+                    card.style.transition = "none";
+                    card.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+                } else {
+                    // Reset if mouse moves out while still on document
+                    card.style.transition = "transform 0.5s ease-out";
+                    card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+                }
             }
-        });
-        document.querySelectorAll('.tilt-card').forEach(card => {
-            card.addEventListener('mouseleave', () => {
-                card.style.transition = "transform 0.5s ease-out";
-                card.style.transform = `rotateX(0deg) rotateY(0deg)`; 
-            });
         });
 
         // --- Network & Intersection Observer ---
