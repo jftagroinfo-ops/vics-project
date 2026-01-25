@@ -67,12 +67,12 @@
         .center-header { margin-left: auto; margin-right: auto; text-align: center; }
         .brand-tag { display: inline-block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; background: rgba(78, 140, 62, 0.1); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(78, 140, 62, 0.2); }
         
-        /* STANDARD SECTION TITLE */
+        /* STANDARD SECTION TITLE (Reference Style) */
         .section-title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; color: var(--jft-navy); } 
         .section-title span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; }
         .section-title span::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-gold); opacity: 0.3; z-index: -1; }
         
-        /* Highlight for Manufacturing Title */
+        /* Highlight for Manufacturing Title (Exact Match Logic) */
         .manu-highlight::after {
             background: var(--jft-gold) !important;
             opacity: 0.3 !important; 
@@ -97,8 +97,20 @@
         /* Mobile Spacing */
         @media (max-width: 1024px) {
             .jft-hero-banner { 
-                padding-top: 210px !important; /* Maintained 50px increase from 160px */
+                padding-top: 160px !important; 
                 align-items: flex-start; 
+            }
+            
+            /* Tablet/Laptop Hero Dash Adjustment */
+            .hero-title-modern span::after { 
+                bottom: 4px; 
+                height: 8px; 
+            }
+
+            /* POINT 1: Manufacturing Highlight Dash Adjustment for Smaller Screens */
+            .manu-highlight::after {
+                height: 6px !important;
+                bottom: 2px !important;
             }
         }
 
@@ -134,16 +146,16 @@
         
         .hero-title-modern span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; font-weight: 700; -webkit-text-stroke: 0; }
         
-        /* --- POINT 1: Hero Dash Styling --- */
+        /* Default Desktop Dash Style */
         .hero-title-modern span::after { 
             content: ''; 
             position: absolute; 
-            bottom: 8px; /* Standard Position */
+            bottom: 8px; 
             left: 0; 
             width: 100%; 
-            height: 12px; /* Standard Height */
+            height: 12px; 
             background: var(--jft-gold); 
-            opacity: 0.3; /* Standard Opacity */
+            opacity: 0.3; 
             z-index: -1; 
         }
         
@@ -432,10 +444,10 @@
         @media (max-width: 480px) {
             /* POINT 2: Mobile Text Clamp Adjustment for Small Screens */
             .hero-title-modern { font-size: 2rem; }
-            /* Mobile dash adjustment */
+            /* POINT 1: Mobile Dash Adjustment */
             .hero-title-modern span::after { 
-                bottom: 4px; /* Slightly lower on mobile to clear descenders */
-                height: 8px; /* Slightly thinner on mobile */
+                bottom: 2px; 
+                height: 6px; 
             }
             .cert-slide { flex: 0 0 80vw; }
             .export-node { flex: 0 0 90%; }
