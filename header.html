@@ -24,7 +24,6 @@
 
     .td-utilities { display: flex; align-items: center; padding: 0 25px; background: rgba(0,0,0,0.2); font-size: 0.75rem; font-weight: 700; }
     
-    /* Translate & Lang */
     .lang-dropdown { position: relative; cursor: pointer; } 
     .lang-btn { background: none; border: none; color: #fff; font-family: var(--font-sub); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 0; text-transform: uppercase; letter-spacing: 0.5px; } 
     .lang-btn i { color: var(--jft-gold); }
@@ -66,17 +65,71 @@
     .whatsapp-float { position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 100; display: flex; align-items: center; justify-content: center; transition: 0.3s; } 
     .whatsapp-float:hover { transform: scale(1.1); background-color: #128C7E; }
 
+    /* Mobile specific Menu items */
+    .menu-social-mobile, .menu-close-btn, .menu-footer-btn { display: none; }
+
+    /* --- MOBILE RESPONSIVE CHANGES --- */
     @media (max-width: 1024px) {
-        .td-utilities, .visit-plan, .desktop-only, .sticky-quote { display: none; }
+        .td-utilities, .desktop-only, .sticky-quote { display: none; }
+        
+        /* Dashboard Layout Adjustments */
+        .top-dashboard { display: flex; flex-direction: column; height: auto; }
+        
+        /* 1st Line: Socials Left, Gulfood Right */
+        .td-row-1 { height: 40px; justify-content: space-between; align-items: center; padding: 0 15px; }
+        .td-social { background: none; padding: 0; }
+        .td-social span { display: none; } /* Remove "Follow Us" text */
+        
+        .visit-plan { 
+            display: flex !important; /* Force display for mobile line 1 */
+            clip-path: none; 
+            height: 100%; 
+            padding: 0 15px; 
+            font-size: 0.65rem; 
+            background: var(--jft-gold); 
+        }
+
+        /* 2nd Line: Market Feed Only */
+        .td-row-1-news { height: 35px; border-bottom: 1px solid rgba(255,255,255,0.08); background: var(--jft-navy); }
         .ticker-label { font-size: 0.6rem; padding: 0 10px; }
-        .jft-navbar { top: 80px; height: 70px; background: rgba(255,255,255,0.95); } 
-        .jft-navbar.scrolled { top: 80px; height: 70px; }
-        .nav-logo-img { height: 50px; } .jft-navbar.scrolled .nav-logo-img { height: 45px; }
-        .nav-menu { position: fixed; top: 80px; right: -100%; width: 85%; height: calc(100vh - 80px); background: var(--jft-navy); flex-direction: column; justify-content: flex-start; padding-top: 60px; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.2); gap: 25px; }
+        
+        /* 3rd Line: Currencies Only (No Date) */
+        .td-row-2 { height: 35px; justify-content: center; padding: 0; }
+        #forex-date { display: none; } /* Remove "Rates as of" */
+        .forex-group { gap: 15px; width: 100%; justify-content: center; }
+        .forex-item { font-size: 0.7rem; }
+
+        /* Navbar Position Adjustment */
+        .jft-navbar { top: 110px; height: 70px; background: rgba(255,255,255,0.95); } 
+        .jft-navbar.scrolled { top: 110px; }
+        .nav-logo-img { height: 50px; }
+        
+        /* Menu Sidebar */
+        .nav-menu { 
+            position: fixed; 
+            top: 110px; /* Start immediately after navbar */
+            right: -100%; 
+            width: 85%; 
+            height: calc(100vh - 110px); 
+            background: var(--jft-navy); 
+            flex-direction: column; 
+            justify-content: flex-start; 
+            padding: 40px 20px; 
+            transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); 
+            box-shadow: -10px 0 30px rgba(0,0,0,0.2); 
+            gap: 15px; 
+        }
         .nav-menu.active { right: 0; }
-        .nav-link { font-size: 1.1rem; color: #fff !important; width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); } 
+        .nav-link { font-size: 1rem; color: #fff !important; width: 100%; text-align: left; padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); } 
         .nav-link::after { display: none; }
         .mobile-toggle { display: block; }
+
+        /* New Menu Elements */
+        .menu-close-btn { display: block; align-self: flex-end; color: #fff; font-size: 1.5rem; margin-bottom: 10px; cursor: pointer; }
+        .menu-social-mobile { display: flex; gap: 20px; padding: 20px 10px; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: center; }
+        .menu-social-mobile span { font-size: 0.8rem; color: var(--jft-gold); font-weight: 700; text-transform: uppercase; }
+        .menu-footer-btn { display: block; width: 100%; margin-top: 20px; text-align: center; }
+        .menu-footer-btn .nav-btn-action { display: block; width: 100%; }
     }
 </style>
 
@@ -85,55 +138,54 @@
 <div class="top-dashboard">
     <div class="td-row-1">
         <div class="td-social">
-            <span>Follow Us:</span>
-            <a href="https://in.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <span>Follow Us:</span> <a href="https://in.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
             <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
         </div>
-        <div class="td-news-ticker">
-            <div class="ticker-label"><div class="live-dot"></div> MARKET FEED</div>
-            <div class="ticker-track" id="dynamic-ticker"></div>
-        </div>
-        <div class="td-utilities desktop-only">
-            <div class="lang-dropdown">
-                <button onclick="toggleLang()" class="lang-btn"><i class="fa-solid fa-globe"></i> Global (EN) <i class="fa-solid fa-caret-down"></i></button>
-                <div class="lang-menu" id="langMenu">
-                    <a onclick="changeLanguage('en')">English</a>
-                    <a onclick="changeLanguage('hi')">हिन्दी (Hindi)</a>
-                    <a onclick="changeLanguage('zh-CN')">中文 (Mandarin)</a>
-                    <a onclick="changeLanguage('es')">Español (Spanish)</a>
-                    <a onclick="changeLanguage('ar')">العربية (Arabic)</a>
-                </div>
-            </div>
-        </div>
+        <a href="#contact" class="visit-plan"><i class="fa-solid fa-plane-departure"></i> MEET US AT GULFOOD DUBAI</a>
     </div>
+
+    <div class="td-news-ticker td-row-1-news">
+        <div class="ticker-label"><div class="live-dot"></div> MARKET FEED</div>
+        <div class="ticker-track" id="dynamic-ticker"></div>
+    </div>
+
     <div class="td-row-2">
         <div class="forex-group">
             <span id="forex-date" style="font-size:0.7rem; color:#888; text-transform:uppercase;"></span>
             <div class="forex-item" id="fx-usd">USD/INR <span>..</span></div>
             <div class="forex-item" id="fx-eur">EUR/INR <span>..</span></div>
-            <div class="forex-item desktop-only" id="fx-gbp">GBP/INR <span>..</span></div>
+            <div class="forex-item" id="fx-gbp">GBP/INR <span>..</span></div>
         </div>
-        <a href="#contact" class="visit-plan"><i class="fa-solid fa-plane-departure"></i> MEET US AT GULFOOD DUBAI</a>
     </div>
 </div>
-
-<div id="google_translate_element"></div>
-<script type="text/javascript"> function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi,zh-CN,es,ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element'); } </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <nav class="jft-navbar" id="navbar">
     <div class="jft-wide-container nav-flex">
         <a href="index.html" class="nav-logo-link"><img src="images/jft logo.png" alt="JFT Agro Overseas" class="nav-logo-img"></a>
+        
         <div class="nav-menu" id="navMenu">
+            <div class="menu-close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></div>
+            
+            <div class="menu-social-mobile">
+                <span>Follow Us:</span>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+
             <a href="index.html" class="nav-link" onclick="toggleMenu()">Home</a>
             <a href="about.html" class="nav-link" onclick="toggleMenu()">About</a>
             <a href="products.html" class="nav-link" onclick="toggleMenu()">Products</a>
             <a href="infrastructure.html" class="nav-link" onclick="toggleMenu()">Infra</a>
             <a href="https://jftagro.com/index.html#global-reach" class="nav-link" onclick="toggleMenu()">Network</a>
             <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
-            <a href="contact.html" class="nav-btn-action desktop-only" onclick="toggleMenu()">Get Quote</a>
+            
+            <div class="menu-footer-btn">
+                <a href="contact.html" class="nav-btn-action" onclick="toggleMenu()">Get Quote</a>
+            </div>
         </div>
+        
         <div class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
     </div>
 </nav>
@@ -144,26 +196,8 @@
 <script>
     function toggleMenu() { 
         const menu = document.getElementById('navMenu'); 
-        const icon = document.querySelector('.mobile-toggle i'); 
         menu.classList.toggle('active'); 
-        if(menu.classList.contains('active')) { 
-            icon.classList.remove('fa-bars'); 
-            icon.classList.add('fa-xmark'); 
-        } else { 
-            icon.classList.remove('fa-xmark'); 
-            icon.classList.add('fa-bars'); 
-        } 
     }
-    function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
-    function changeLanguage(langCode) { 
-        var selectField = document.querySelector(".goog-te-combo"); 
-        if(selectField) { 
-            selectField.value = langCode; 
-            selectField.dispatchEvent(new Event("change")); 
-        } 
-        document.getElementById('langMenu').classList.remove('show'); 
-    }
-    window.onclick = function(e) { if (!e.target.closest('.lang-btn')) document.getElementById('langMenu').classList.remove('show'); }
 
     window.addEventListener('scroll', function() {
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -174,6 +208,8 @@
         
         const nav = document.getElementById('navbar'); 
         if(nav) {
+            // Updated threshold for mobile top positioning
+            const threshold = window.innerWidth <= 1024 ? 110 : 80;
             if (window.scrollY > 50) nav.classList.add('scrolled'); 
             else nav.classList.remove('scrolled');
         }
@@ -196,10 +232,9 @@
                 updateTickerDOM('fx-gbp', 'GBP/INR', gbpInr);
             }
         } catch (e) { 
-            const fxUsd = document.getElementById('fx-usd');
-            const fxEur = document.getElementById('fx-eur');
-            if(fxUsd) fxUsd.innerHTML = 'USD/INR <span class="forex-up">84.10 ▲</span>'; 
-            if(fxEur) fxEur.innerHTML = 'EUR/INR <span class="forex-up">90.50 ▲</span>';
+            updateTickerDOM('fx-usd', 'USD/INR', 84.10); 
+            updateTickerDOM('fx-eur', 'EUR/INR', 90.50);
+            updateTickerDOM('fx-gbp', 'GBP/INR', 106.20);
         }
     }
     function updateTickerDOM(id, label, value) { 
@@ -207,28 +242,15 @@
         if(el) el.innerHTML = `${label} <span class="forex-up">${value.toFixed(2)} ▲</span>`; 
     }
 
-    // Initialize Header Components
     (function(){
         fetchLiveForex();
         const dateOptions = { day: 'numeric', month: 'short', year: 'numeric' }; const today = new Date();
         const dateSpan = document.getElementById('forex-date'); if(dateSpan) dateSpan.innerText = "RATES AS OF " + today.toLocaleDateString('en-GB', dateOptions);
-        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const tickerContainer = document.getElementById('dynamic-ticker');
         if(tickerContainer) {
-            let dailyHeadline = "Global Markets Steady";
-            if(today.getDay() === 1) dailyHeadline = "Market Opening: Strong Demand in Asia"; else if(today.getDay() === 5) dailyHeadline = "Weekly Wrap: Rice Exports Surge 15%";
-            const fullNews = [ `<div class="t-item daily-flash"><i class="fa-solid fa-calendar-day"></i><span>${days[today.getDay()]}, ${today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}:</span> ${dailyHeadline}</div>`, `<div class="t-item"><i class="fa-solid fa-ship"></i><span>RICE:</span> Non-Basmati Export Quota Increased for ${today.getFullYear()}</div>`, `<div class="t-item"><i class="fa-solid fa-leaf"></i><span>SPICES:</span> Fresh Cardamom Arrivals in Kerala Auctions</div>`, `<div class="t-item"><i class="fa-solid fa-wheat"></i><span>WHEAT:</span> Global Price Index Stabilizing</div>`, `<div class="t-item"><i class="fa-solid fa-cube"></i><span>SUGAR:</span> Indian Production Outlook Positive</div>`, `<div class="t-item"><i class="fa-solid fa-bowl-food"></i><span>LOGISTICS:</span> Freight Rates to Red Sea Normalizing</div>` ];
+            const dailyHeadline = "Global Markets Steady";
+            const fullNews = [ `<div class="t-item"><i class="fa-solid fa-ship"></i><span>RICE:</span> Non-Basmati Export Quota Increased</div>`, `<div class="t-item"><i class="fa-solid fa-leaf"></i><span>SPICES:</span> Cardamom Arrivals Steady</div>`, `<div class="t-item"><i class="fa-solid fa-wheat"></i><span>WHEAT:</span> Price Index Stabilizing</div>` ];
             tickerContainer.innerHTML = fullNews.join('') + fullNews.join(''); 
         }
     })();
 </script>
-
-
-
-
-
-
-
-
-
-
