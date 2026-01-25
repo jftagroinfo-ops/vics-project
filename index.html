@@ -107,7 +107,7 @@
                 height: 8px; 
             }
 
-            /* Manufacturing Highlight Dash Adjustment for Smaller Screens */
+            /* Manufacturing Highlight Dash Adjustment */
             .manu-highlight::after {
                 height: 6px !important;
                 bottom: 2px !important;
@@ -287,7 +287,6 @@
         .step-node:hover .step-marker { border-color: var(--jft-primary); background: var(--jft-primary); color: #fff; transform: scale(1.1); }
         .step-marker::after { content: attr(data-num); position: absolute; top: 0; right: 0; width: 26px; height: 26px; background: var(--jft-gold); color: #000; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
         
-        /* --- POINT 1: NETWORK SECTION FIXES --- */
         .jft-network-section { position: relative; padding: 110px 0; overflow: visible; width: 100%; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; }
         
         .network-header { text-align: center; margin-bottom: 60px; position: relative; z-index: 10; padding: 0 20px; }
@@ -305,7 +304,6 @@
         
         .export-node { position: absolute; display: flex; align-items: center; gap: 20px; width: 320px; transition: 0.4s ease-in-out; cursor: pointer; z-index: 20; }
         
-        /* POINT 1: High Z-Index on Hover */
         .export-node:hover { z-index: 100; }
 
         .node-portal { width: 80px; height: 80px; background: #fff; border-radius: 0 40px 0 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-subtle); border: 1px solid var(--jft-border); transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); } 
@@ -315,12 +313,11 @@
         .node-info h3 { margin: 0; font-family: var(--font-head); font-size: 1.2rem; color: var(--jft-navy); font-weight: 700; letter-spacing: -0.5px; } 
         .node-info p { margin: 5px 0 0 0; font-family: var(--font-body); font-size: 0.9rem; color: #666; line-height: 1.4; }
         
-        /* --- UPDATED: Limit visible items to approx 4 (185px) --- */
         .country-list-reveal { 
             position: absolute; 
             width: 220px; 
-            max-height: 185px; /* Restricts height to approx 4 items */
-            overflow-y: auto; /* Enables scrolling */
+            max-height: 185px; 
+            overflow-y: auto; 
             display: flex; 
             flex-direction: column; 
             gap: 6px; 
@@ -344,22 +341,12 @@
         .node-0 .country-list-reveal, .node-2 .country-list-reveal, .node-4 .country-list-reveal { left: 90px; top: 100%; } 
         .node-1 .country-list-reveal, .node-3 .country-list-reveal, .node-5 .country-list-reveal { right: 90px; top: 100%; }
         
-        /* --- CERTIFICATION SLIDER --- */
         .cert-container { width: 100%; overflow: hidden; position: relative; padding: 50px 0; border-bottom: 1px solid var(--jft-border); cursor: grab; } 
         .cert-container:active { cursor: grabbing; } 
         .cert-track { display: flex; align-items: center; width: max-content; will-change: transform; } 
         .cert-slide { flex: 0 0 25vw; display: flex; justify-content: center; align-items: center; padding: 0 20px; box-sizing: border-box; }
         .cert-logo { height: 75px; width: auto; object-fit: contain; filter: grayscale(100%) contrast(0.8); opacity: 0.7; transition: 0.3s; pointer-events: none; max-width: 100%; } 
         .cert-slide:hover .cert-logo { filter: grayscale(0) contrast(1); opacity: 1; transform: scale(1.05); }
-        
-        .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 80px; }
-        .testi-card { background: #fff; padding: 45px; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); position: relative; overflow: hidden; height: 100%; } 
-        .testi-card::before { content: '\201C'; position: absolute; top: -10px; right: 20px; font-size: 8rem; color: #f2f2f2; font-family: serif; z-index: 0; }
-        .testi-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; position: relative; z-index: 1; } 
-        .flag-icon { font-size: 1.8rem; }
-        .testi-auth h4 { font-size: 1.1rem; margin: 0; font-family: var(--font-head); color: var(--jft-navy); } 
-        .testi-auth span { font-size: 0.85rem; color: var(--jft-primary); font-family: var(--font-sub); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .testi-text { font-style: italic; color: #555; font-size: 1.05rem; position: relative; z-index: 1; font-family: var(--font-head); }
         
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); } 
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -378,6 +365,47 @@
             margin-bottom: 20px;
         }
         @keyframes hintPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+        /* --- TESTIMONIAL MARQUEE CSS --- */
+        .testi-scroll-container { width: 100%; overflow: hidden; position: relative; }
+        .testi-track { display: flex; gap: 30px; width: max-content; animation: scrollTesti 40s linear infinite; padding: 20px 0; }
+        .testi-track:hover { animation-play-state: paused; }
+        
+        @keyframes scrollTesti { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(-50%); } /* Shift by half because content is doubled */
+        }
+        
+        .testi-card { 
+            width: 350px; 
+            background: #fff; 
+            padding: 40px; 
+            border-radius: var(--radius-md); 
+            box-shadow: var(--shadow-subtle); 
+            position: relative; 
+            overflow: hidden; 
+            flex-shrink: 0;
+            border: 1px solid transparent;
+            transition: all 0.4s ease;
+        }
+        
+        /* --- POINT 3: HOVER ANIMATION --- */
+        .testi-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--jft-primary);
+            box-shadow: 0 15px 30px rgba(78, 140, 62, 0.15);
+        }
+
+        .testi-card::before { content: '\201C'; position: absolute; top: -10px; right: 20px; font-size: 8rem; color: #f2f2f2; font-family: serif; z-index: 0; }
+        .testi-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; position: relative; z-index: 1; } 
+        .flag-icon { font-size: 1.8rem; }
+        .testi-auth h4 { font-size: 1.1rem; margin: 0; font-family: var(--font-head); color: var(--jft-navy); } 
+        .testi-auth span { font-size: 0.85rem; color: var(--jft-primary); font-family: var(--font-sub); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .testi-text { font-style: italic; color: #555; font-size: 1.05rem; position: relative; z-index: 1; font-family: var(--font-head); line-height: 1.6; }
+
+        @media (max-width: 600px) {
+            .testi-card { width: 300px; padding: 30px; }
+        }
 
         /* --- RESPONSIVE LOGIC --- */
         @media (max-width: 1024px) {
@@ -428,7 +456,7 @@
             .hero-actions { flex-direction: column; }
             .btn-primary, .btn-outline { width: 100%; }
             .prod-grid { grid-template-columns: 1fr; }
-            .testi-grid { grid-template-columns: 1fr; }
+            /* .testi-grid removed for marquee */
             
             .features-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 15px; }
             .feature-card { padding: 20px; }
@@ -445,11 +473,7 @@
         @media (max-width: 480px) {
             .section-title { font-size: 2rem; }
             .hero-title-modern { font-size: 2rem; }
-            /* POINT 1: Mobile Dash Adjustment for Manufacturing */
-            .manu-highlight::after {
-                height: 6px !important;
-                bottom: 2px !important;
-            }
+            .manu-highlight::after { height: 6px !important; bottom: 2px !important; }
             .cert-slide { flex: 0 0 80vw; }
             .export-node { flex: 0 0 90%; }
         }
@@ -989,10 +1013,57 @@
 
     <section class="section-padding" style="margin-bottom: 60px;">
         <div class="jft-wide-container">
-            <div class="testi-grid reveal" style="margin-top: 20px;">
-                <div class="testi-card"><div class="testi-header"><span class="flag-icon">🇧🇯</span><div class="testi-auth"><h4>Abdoulaye Diallo</h4><span>Importer, Benin</span></div></div><p class="testi-text">"JFT's IR-64 parboiled rice consistency is the best we have received from India. 50 containers delivered without a single quality claim."</p></div>
-                <div class="testi-card"><div class="testi-header"><span class="flag-icon">🇦🇪</span><div class="testi-auth"><h4>Al-Futtaim Trading</h4><span>Distributor, Dubai</span></div></div><p class="testi-text">"Professional documentation and logistics. They understand the urgency of the Middle East market during Ramadan."</p></div>
-                <div class="testi-card"><div class="testi-header"><span class="flag-icon">🇬🇧</span><div class="testi-auth"><h4>Sarah Jenkins</h4><span>Procurement, UK</span></div></div><p class="testi-text">"We rely on JFT for organic certified spices. Their lab reports match our European stringent standards perfectly."</p></div>
+            <div class="section-header center-header reveal">
+                <span class="brand-tag">Testimonials</span>
+                <h2 class="section-title">Trusted by <br><span>Global Partners</span></h2>
+                <p class="section-desc text-center">Voices of confidence from across the continents.</p>
+            </div>
+
+            <div class="testi-scroll-container reveal">
+                <div class="testi-track" id="testiTrack">
+                    <div class="testi-card">
+                        <div class="testi-header">
+                            <span class="flag-icon">🇧🇯</span>
+                            <div class="testi-auth"><h4>Abdoulaye Diallo</h4><span>Importer, Benin</span></div>
+                        </div>
+                        <p class="testi-text">"JFT's IR-64 parboiled rice consistency is the best we have received from India. 50 containers delivered without a single quality claim."</p>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-header">
+                            <span class="flag-icon">🇦🇪</span>
+                            <div class="testi-auth"><h4>Al-Futtaim Trading</h4><span>Distributor, Dubai</span></div>
+                        </div>
+                        <p class="testi-text">"Professional documentation and logistics. They understand the urgency of the Middle East market during Ramadan."</p>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-header">
+                            <span class="flag-icon">🇬🇧</span>
+                            <div class="testi-auth"><h4>Sarah Jenkins</h4><span>Procurement, UK</span></div>
+                        </div>
+                        <p class="testi-text">"We rely on JFT for organic certified spices. Their lab reports match our European stringent standards perfectly."</p>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-header">
+                            <span class="flag-icon">🇻🇳</span>
+                            <div class="testi-auth"><h4>Nguyen Van Minh</h4><span>Trader, Vietnam</span></div>
+                        </div>
+                        <p class="testi-text">"JFT's supply chain transparency is unmatched. We track every shipment in real-time, ensuring our inventory is always stocked."</p>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-header">
+                            <span class="flag-icon">🇸🇦</span>
+                            <div class="testi-auth"><h4>Khalid Al-Saud</h4><span>Retail Chain, Saudi Arabia</span></div>
+                        </div>
+                        <p class="testi-text">"The Basmati aroma was authentic and premium. Our customers in Riyadh are very satisfied with the 1121 Sella quality."</p>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-header">
+                            <span class="flag-icon">🇺🇸</span>
+                            <div class="testi-auth"><h4>Michael Ross</h4><span>Whole Foods, USA</span></div>
+                        </div>
+                        <p class="testi-text">"Strict adherence to FDA standards. JFT is our reliable partner for organic spices, delivering consistency every time."</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1035,6 +1106,19 @@
             function drag(e) { if(isDragging) { const currentPosition = getPositionX(e); const diff = currentPosition - startX; position = prevTranslate + diff; track.style.transform = `translateX(${position}px)`; } }
             function endDrag() { if(isDragging) { isDragging = false; animate(); } }
             function getPositionX(event) { return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX; }
+        });
+        
+        // --- TESTIMONIAL MARQUEE LOGIC ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const track = document.getElementById('testiTrack');
+            if (track) {
+                // Clone items to ensure seamless infinite scroll
+                const items = Array.from(track.children);
+                items.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    track.appendChild(clone);
+                });
+            }
         });
 
         // --- Stats Counter (Exactly as provided) ---
@@ -1213,22 +1297,18 @@
             const container = document.getElementById('jft_nodes_container'); const svgLayer = document.getElementById('jft_svg_lines'); const hubX = 500; const hubY = 325; const nodeCoords = [{x:100,y:50}, {x:900,y:50}, {x:50,y:310}, {x:950,y:310}, {x:100,y:580}, {x:900,y:580}];
             
             if(container && svgLayer) { 
+                const networkSection = document.querySelector('#global-reach');
+                
                 networkNodes.forEach((node, index) => { 
                     const div = document.createElement('div'); 
                     div.className = `export-node node-${index} reveal`; 
-                    
-                    // --- UPDATED CLICK LOGIC: OPEN ALL ---
                     div.onclick = function(e) { 
                         if(window.innerWidth <= 1024) { 
                             if(e.target.closest('.country-list-reveal')) return; 
-                            
-                            // Select ALL nodes
                             const allNodes = document.querySelectorAll('.export-node');
-                            // Add active class to ALL nodes simultaneously
                             allNodes.forEach(n => n.classList.add('active-mobile')); 
                         } 
                     }; 
-                    
                     let listHTML = ""; 
                     if(node.countries) { 
                         listHTML = `<div class="country-list-reveal">`; 
@@ -1249,20 +1329,18 @@
                     } 
                 }); 
                 document.querySelectorAll('.export-node').forEach(el => observer.observe(el)); 
-            }
-
-            // --- AUTO CLOSE OBSERVER ---
-            const closeObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        // Section has left the screen -> Close all lists
-                        document.querySelectorAll('.export-node').forEach(n => n.classList.remove('active-mobile'));
-                    }
-                });
-            }, { threshold: 0 }); // Trigger when 0% is visible (completely out)
-            
-            if(networkSection) {
-                closeObserver.observe(networkSection);
+                
+                const closeObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            document.querySelectorAll('.export-node').forEach(n => n.classList.remove('active-mobile'));
+                        }
+                    });
+                }, { threshold: 0 });
+                
+                if(networkSection) {
+                    closeObserver.observe(networkSection);
+                }
             }
         });
 
