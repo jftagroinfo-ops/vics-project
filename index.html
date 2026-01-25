@@ -89,13 +89,15 @@
         .jft-hero-banner { position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: #000; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; cursor: grab; }
         .jft-hero-banner:active { cursor: grabbing; }
 
-        /* --- POINT 3: RESPONSIVE TOP PADDING (Desktop vs Others) --- */
+        /* --- RESPONSIVE TOP PADDING (Desktop vs Others) --- */
         @media (min-width: 1025px) {
             .jft-hero-banner { padding-top: 130px; }
         }
+        
+        /* POINT 2: Increase Top Gap for Smaller Screens */
         @media (max-width: 1024px) {
             .jft-hero-banner { 
-                padding-top: 100px; /* Added spacing for Tablet/Mobile */
+                padding-top: 160px; /* Increased to clear main menu comfortably */
             }
         }
 
@@ -106,7 +108,7 @@
         
         /* Wrapper for the content slides logic */
         .hero-content-wrapper { position: relative; width: 100%; max-width: 1400px; margin: 0 auto; z-index: 10; padding: 20px 40px; pointer-events: none; }
-        .hero-content-wrapper * { pointer-events: auto; } /* Re-enable pointer events for buttons/links */
+        .hero-content-wrapper * { pointer-events: auto; }
 
         /* Individual Content Slide */
         .hero-content-slide { display: none; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; width: 100%; }
@@ -120,13 +122,25 @@
         /* UPDATED HERO TITLE */
         .hero-title-modern { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; margin: 0 0 25px 0; color: #fff; letter-spacing: -0.5px; }
         .hero-title-modern span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; font-weight: 700; -webkit-text-stroke: 0; }
-        .hero-title-modern span::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-gold); opacity: 0.3; z-index: -1; }
+        
+        /* POINT 3: Decrease Dash Height */
+        .hero-title-modern span::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 4px; /* Lowered slightly */
+            left: 0; 
+            width: 100%; 
+            height: 6px; /* Decreased from 12px */
+            background: var(--jft-gold); 
+            opacity: 0.5; /* Slight opacity bump for visibility */
+            z-index: -1; 
+        }
+        
         .hero-title-modern strong { color: #eebf45; font-family: 'Merriweather', serif; font-weight: 400; font-style: italic; text-transform: none; display: block; font-size: 0.8em; margin-top: 10px; }
         
         .hero-desc-modern { font-size: clamp(1rem, 1.5vw, 1.25rem); max-width: 600px; color: #dbece5; margin-bottom: 45px; font-weight: 300; line-height: 1.7; font-family: 'Lato', sans-serif; }
         .hero-actions { display: flex; gap: 20px; flex-wrap: wrap; }
         
-        /* POINT 1: Hover logic specifically on this container */
         .hero-visual-card { flex: 0 0 450px; display: flex; justify-content: flex-end; perspective: 2500px; max-width: 100%; }
         .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; width: 100%; height: 500px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg); transition: transform 0.3s ease-out; position: relative; overflow: hidden; will-change: transform; }
         .glass-card img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
@@ -135,7 +149,7 @@
         .control-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.5); cursor: pointer; transition: 0.3s; background: transparent; }
         .control-dot.active { background: #eebf45; border-color: #eebf45; transform: scale(1.2); }
 
-        /* --- POINT 2: SLIDER ARROWS --- */
+        /* --- SLIDER ARROWS --- */
         .slider-arrow {
             position: absolute;
             top: 50%;
@@ -151,14 +165,16 @@
             color: #fff;
             font-size: 1.2rem;
             cursor: pointer;
-            z-index: 30;
+            z-index: 50;
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
         }
         .slider-arrow:hover { background: var(--jft-gold); border-color: var(--jft-gold); color: var(--jft-navy); }
-        .prev-arrow { left: 30px; }
-        .next-arrow { right: 30px; }
-        /* Hide arrows on very small screens to avoid clutter */
+        
+        /* POINT 1: Move arrows outside text area */
+        .prev-arrow { left: 40px; }
+        .next-arrow { right: 40px; }
+        
         @media (max-width: 600px) {
             .slider-arrow { width: 40px; height: 40px; font-size: 1rem; }
             .prev-arrow { left: 10px; }
@@ -280,7 +296,6 @@
         .step-node:hover .step-marker { border-color: var(--jft-primary); background: var(--jft-primary); color: #fff; transform: scale(1.1); }
         .step-marker::after { content: attr(data-num); position: absolute; top: 0; right: 0; width: 26px; height: 26px; background: var(--jft-gold); color: #000; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
         
-        /* --- POINT 1: NETWORK SECTION FIXES --- */
         .jft-network-section { position: relative; padding: 110px 0; overflow: visible; width: 100%; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; }
         
         .network-header { text-align: center; margin-bottom: 60px; position: relative; z-index: 10; padding: 0 20px; }
@@ -298,7 +313,6 @@
         
         .export-node { position: absolute; display: flex; align-items: center; gap: 20px; width: 320px; transition: 0.4s ease-in-out; cursor: pointer; z-index: 20; }
         
-        /* POINT 1: High Z-Index on Hover */
         .export-node:hover { z-index: 100; }
 
         .node-portal { width: 80px; height: 80px; background: #fff; border-radius: 0 40px 0 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-subtle); border: 1px solid var(--jft-border); transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); } 
@@ -308,12 +322,11 @@
         .node-info h3 { margin: 0; font-family: var(--font-head); font-size: 1.2rem; color: var(--jft-navy); font-weight: 700; letter-spacing: -0.5px; } 
         .node-info p { margin: 5px 0 0 0; font-family: var(--font-body); font-size: 0.9rem; color: #666; line-height: 1.4; }
         
-        /* --- UPDATED: Limit visible items to approx 4 (185px) --- */
         .country-list-reveal { 
             position: absolute; 
             width: 220px; 
-            max-height: 185px; /* Restricts height to approx 4 items */
-            overflow-y: auto; /* Enables scrolling */
+            max-height: 185px; 
+            overflow-y: auto; 
             display: flex; 
             flex-direction: column; 
             gap: 6px; 
@@ -1087,67 +1100,8 @@
             if(contents[slideIndex]) contents[slideIndex].classList.add('active'); 
             dots[slideIndex].classList.add('active'); 
         } 
-
-        // Start the slider initially
-        startSlider();
-
-        // --- Drag/Swipe Logic for Hero Banner ---
-        const heroBanner = document.querySelector('.jft-hero-banner');
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let isDragging = false;
-
-        if(heroBanner) {
-            // Touch Events
-            heroBanner.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, {passive: true});
-
-            heroBanner.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, {passive: true});
-
-            // Mouse Events
-            heroBanner.addEventListener('mousedown', (e) => {
-                isDragging = true;
-                touchStartX = e.screenX;
-                heroBanner.style.cursor = 'grabbing';
-            });
-
-            heroBanner.addEventListener('mouseup', (e) => {
-                if(!isDragging) return;
-                isDragging = false;
-                touchEndX = e.screenX;
-                heroBanner.style.cursor = 'grab';
-                handleSwipe();
-            });
-
-            heroBanner.addEventListener('mouseleave', () => {
-                isDragging = false;
-                heroBanner.style.cursor = 'grab';
-            });
-        }
-
-        function handleSwipe() {
-            const threshold = 50; // Minimum distance for a swipe
-            if (touchEndX < touchStartX - threshold) {
-                // Swiped Left -> Next Slide
-                nextSlide();
-                resetTimer();
-            }
-            if (touchEndX > touchStartX + threshold) {
-                // Swiped Right -> Previous Slide
-                // Calculate previous index correctly handling negative modulo
-                const slides = document.querySelectorAll('.hero-slide');
-                if(slides.length > 0) {
-                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-                    updateSlider();
-                    resetTimer();
-                }
-            }
-        }
-
+        let slideTimer = setInterval(nextSlide, 5000); 
+        function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
 
         // --- Tilt Card Logic ---
         document.addEventListener('mousemove', (e) => {
@@ -1182,6 +1136,12 @@
                     card.style.transform = `rotateX(0deg) rotateY(0deg)`;
                 }
             }
+        });
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mouseleave', () => {
+                card.style.transition = "transform 0.5s ease-out";
+                card.style.transform = `rotateX(0deg) rotateY(0deg)`; 
+            });
         });
 
         // --- Network & Intersection Observer ---
