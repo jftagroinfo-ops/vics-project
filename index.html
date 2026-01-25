@@ -66,35 +66,37 @@
         .section-header { margin-bottom: 60px; max-width: 800px; } 
         .center-header { margin-left: auto; margin-right: auto; text-align: center; }
         .brand-tag { display: inline-block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; background: rgba(78, 140, 62, 0.1); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(78, 140, 62, 0.2); }
-        
         .section-title { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; color: var(--jft-navy); } 
         .section-title span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; }
         .section-title span::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-gold); opacity: 0.3; z-index: -1; }
-        
         .section-desc { font-size: 1.15rem; max-width: 700px; margin-top: 20px; color: #6b6b6b; font-weight: 400; }
-        
         .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--jft-primary); color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); border: 2px solid var(--jft-primary); box-shadow: 0 4px 10px rgba(78, 140, 62, 0.3); } 
         .btn-primary:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
         .btn-outline { display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 2px solid #fff; color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); } 
         .btn-outline:hover { background: #fff; color: var(--jft-primary); border-color: #fff; }
         
-        /* --- Hero --- */
-        .jft-hero-banner { position: relative; height: 100vh; width: 100vw; overflow: hidden; background: #000; }
-        .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; visibility: hidden; transition: opacity 1.5s ease-in-out; background-size: cover; background-position: center; } 
+        /* --- Replaced Hero CSS --- */
+        .jft-hero-banner { position: relative; height: 100vh; width: 100vw; overflow: hidden; background: #000; font-family: 'Montserrat', sans-serif; }
+        .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; visibility: hidden; transition: opacity 1.5s ease-in-out; background-size: cover; background-position: center; }
         .hero-slide.active { opacity: 1; visibility: visible; }
-        .hero-slide::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(26, 60, 52, 0.9) 0%, rgba(26, 60, 52, 0.5) 60%, rgba(238, 191, 69, 0.1) 100%); z-index: 1; }
-        
-        .hero-content { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); width: 100%; max-width: 1350px; padding: 0 40px; z-index: 10; color: #fff; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
-        .hero-tag { font-family: var(--font-sub); color: var(--jft-gold); font-weight: 700; letter-spacing: 3px; font-size: 14px; text-transform: uppercase; margin-bottom: 20px; display: inline-block; border-bottom: 2px solid var(--jft-gold); padding-bottom: 5px; }
-        .hero-title { font-size: clamp(3rem, 5.5vw, 5.5rem); line-height: 1.2; font-weight: 700; margin-bottom: 30px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); font-family: var(--font-head); }
-        .hero-desc { font-size: 1.35rem; max-width: 650px; color: #e2e8f0; margin-bottom: 45px; font-weight: 300; border-left: 4px solid var(--jft-primary); padding-left: 25px; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .hero-slide::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(17, 38, 33, 0.95) 0%, rgba(26, 60, 52, 0.8) 40%, rgba(26, 60, 52, 0.2) 100%); z-index: 1; }
+        .hero-grid-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 40px 40px; z-index: 2; pointer-events: none; }
+        .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; max-width: 1400px; padding: 0 40px; z-index: 10; color: #fff; display: flex; align-items: center; justify-content: space-between; gap: 40px; box-sizing: border-box; }
+        .hero-text-box { flex: 1.2; max-width: 750px; }
+        .hero-tag-modern { font-family: 'Montserrat', sans-serif; color: #1a3c34; background: #eebf45; font-weight: 700; letter-spacing: 2px; font-size: 13px; text-transform: uppercase; padding: 6px 14px; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 25px; box-shadow: 0 0 20px rgba(238, 191, 69, 0.4); }
+        .hero-title-modern { font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.1; font-weight: 800; margin: 0 0 25px 0; color: #fff; letter-spacing: -1px; text-transform: uppercase; }
+        .hero-title-modern span { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.8); display: block; font-weight: 900; }
+        .hero-title-modern strong { color: #eebf45; font-family: 'Merriweather', serif; font-weight: 400; font-style: italic; text-transform: none; display: block; font-size: 0.8em; margin-top: 5px; }
+        .hero-desc-modern { font-size: 1.25rem; max-width: 600px; color: #dbece5; margin-bottom: 45px; font-weight: 300; line-height: 1.7; font-family: 'Lato', sans-serif; }
         .hero-actions { display: flex; gap: 20px; }
-        
-        .slider-controls { position: absolute; bottom: 50px; right: 50px; display: flex; gap: 15px; z-index: 20; }
-        .control-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.5); cursor: pointer; transition: 0.3s; background: transparent; } 
-        .control-dot.active { background: var(--jft-gold); border-color: var(--jft-gold); transform: scale(1.2); }
+        .hero-visual-card { flex: 0.8; display: flex; justify-content: flex-end; perspective: 2500px; }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; width: 100%; max-width: 450px; height: 500px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg); transition: transform 0.3s ease-out; position: relative; overflow: hidden; will-change: transform; }
+        .glass-card img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+        .slider-controls { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; z-index: 20; }
+        .control-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.5); cursor: pointer; transition: 0.3s; background: transparent; }
+        .control-dot.active { background: #eebf45; border-color: #eebf45; transform: scale(1.2); }
 
-        /* --- Identity Section --- */
+        /* --- Replaced Remaining CSS (Strictly as provided) --- */
         .identity-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 40px; }
         .identity-card { background: #fff; padding: 40px 20px; text-align: center; border-radius: var(--radius-md); border: 1px solid var(--jft-border); transition: var(--transition); position: relative; overflow: hidden; }
         .identity-card:hover { transform: translateY(-10px); border-color: var(--jft-primary); box-shadow: var(--shadow-hover); }
@@ -103,14 +105,11 @@
         .identity-card p { font-size: 0.85rem; line-height: 1.5; margin: 0; color: #777; }
         .identity-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: var(--jft-gold); transform: scaleX(0); transition: transform 0.4s ease; }
         .identity-card:hover::after { transform: scaleX(1); }
-
-        /* --- Stats & About --- */
         .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; border-top: 1px solid var(--jft-border); border-bottom: 1px solid var(--jft-border); padding: 60px 0; margin-bottom: 80px; }
         .stat-item { position: relative; text-align: center; overflow: hidden; padding: 10px 0; }
         .stat-item h3 { font-size: 3.5rem; color: var(--jft-primary); font-weight: 700; line-height: 1; font-family: var(--font-sub); margin: 0; position: relative; z-index: 2; }
         .stat-item p { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #888; letter-spacing: 1px; margin: 10px 0 0 0; position: relative; z-index: 2; }
         .stat-item::before { content: attr(data-count); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8rem; color: rgba(78, 140, 62, 0.05); font-weight: 900; font-family: var(--font-sub); z-index: 0; line-height: 0; white-space: nowrap; }
-        
         .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
         .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
         .feature-card { background: #fff; padding: 35px; border: 1px solid transparent; border-radius: var(--radius-md); transition: var(--transition); box-shadow: var(--shadow-subtle); } 
@@ -118,8 +117,6 @@
         .feat-icon { font-size: 28px; color: var(--jft-primary); margin-bottom: 20px; } 
         .feat-title { font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: var(--jft-navy); } 
         .feat-text { font-size: 1rem; margin: 0; color: #666; }
-
-        /* --- Manufacturing & Origin --- */
         .manu-layout { display: flex; align-items: center; gap: 80px; }
         .section-india { position: relative; overflow: hidden; } 
         .india-layout { display: flex; align-items: center; gap: 80px; } 
@@ -129,43 +126,6 @@
         .india-visual img:hover { transform: scale(1.15); }
         .origin-badge { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; background: var(--jft-light); border: 1px solid var(--jft-border); border-radius: 50px; font-family: var(--font-sub); font-weight: 600; font-size: 0.9rem; color: var(--jft-navy); margin-right: 10px; margin-top: 20px; } 
         .origin-badge i { color: #ff9933; }
-
-        /* --- VMV Section (Tabs) --- */
-        .jft-vmv-section { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; min-height: 100vh; display: flex; align-items: center; background: radial-gradient(circle at 20% 20%, #fdfbf7, #f5f1e6); font-family: var(--font-body); overflow: hidden; padding: 0; }
-        .jft-full-width-wrapper { width: 100%; height: 100%; display: flex; flex-wrap: wrap; }
-        .vmv-half { flex: 1 1 50%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 5; }
-        .vmv-left { align-items: flex-start; background: rgba(255,255,255,0.4); backdrop-filter: blur(5px); padding-left: 5%; padding-right: 20px; padding-top: 100px; }
-        .vmv-right { align-items: center; background: radial-gradient(circle at 50% 50%, rgba(78, 140, 62, 0.05), transparent 70%); padding-right: 0; padding-left: 20px; justify-content: center; padding-top: 0; }
-        .rotating-wrapper { width: 100%; max-width: 800px; height: auto; position: relative; transition: transform 0.1s linear; will-change: transform; transform-origin: center center; margin-right: -50px; } 
-        .rotating-wrapper img { width: 100%; height: auto; display: block; filter: drop-shadow(20px 20px 60px rgba(0,0,0,0.15)); }
-        .visual-shadow { width: 50%; height: 40px; background: radial-gradient(ellipse, rgba(0,0,0,0.2), transparent); margin-top: 40px; border-radius: 50%; filter: blur(15px); }
-        .content-inner { width: 100%; max-width: 800px; padding-left: 0; }
-        .tab-wrapper { position: relative; min-height: 700px; }
-        .tab-nav { display: flex; gap: 15px; border-bottom: none; margin-bottom: 45px; width: 100%; }
-        .tab-btn { font-family: var(--font-sub); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 14px 28px; border-radius: 50px; cursor: pointer; transition: 0.4s; display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--jft-primary); border: 2px solid var(--jft-primary); }
-        .tab-btn:hover, .tab-btn.active { background: var(--jft-primary); color: #ffffff; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(78, 140, 62, 0.3); } 
-        .tab-btn:hover i, .tab-btn.active i { color: #ffffff; }
-        
-        .pane-heading { font-family: var(--font-head); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; margin: 0 0 30px 0; color: var(--jft-navy); line-height: 1.2; }
-        .highlight { color: var(--jft-primary); position: relative; } 
-        .highlight::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-gold); opacity: 0.3; z-index: -1; }
-        
-        .vmv-list { display: flex; flex-direction: column; gap: 15px; }
-        .vmv-row { display: flex; gap: 25px; padding: 25px; background: #fff; border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.03); border-left: 5px solid transparent; box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: 0.3s ease; align-items: flex-start; width: 100%; opacity: 0; transform: translateY(20px); }
-        .vmv-row:hover { transform: translateX(10px) !important; border-left-color: var(--jft-gold); box-shadow: 0 15px 35px rgba(78, 140, 62, 0.12); }
-        .row-badge { flex-shrink: 0; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; line-height: 1; font-size: 24px; color: var(--jft-primary); background: #f0f7ec; border: 1px solid rgba(78, 140, 62, 0.2); transition: 0.3s; }
-        .vmv-row:hover .row-badge { background: var(--jft-gold); color: #fff; border-color: var(--jft-gold); transform: rotateY(360deg); }
-        .row-text h3 { font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--jft-navy); margin: 0 0 6px 0; letter-spacing: -0.5px; } 
-        .row-text p { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: #666; margin: 0; }
-        @keyframes dropIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
-        .active-pane .vmv-row { animation: dropIn 0.5s ease forwards; } 
-        .active-pane .vmv-row:nth-child(1) { animation-delay: 0.1s; } 
-        .active-pane .vmv-row:nth-child(2) { animation-delay: 0.2s; } 
-        .active-pane .vmv-row:nth-child(3) { animation-delay: 0.3s; }
-        
-        .tab-pane { display: none; } .tab-pane.active-pane { display: block; }
-
-        /* --- Products --- */
         .prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
         .prod-card { perspective: 1000px; cursor: pointer; height: 450px; }
         .prod-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; } 
@@ -179,8 +139,6 @@
         .prod-back h3 { color: var(--jft-gold); margin-bottom: 20px; font-size: 1.8rem; }
         .view-btn { padding: 12px 30px; background: var(--jft-gold); color: var(--jft-navy); border-radius: 50px; font-family: var(--font-sub); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; margin-top: 25px; font-weight: 700; border: none; } 
         .view-btn:hover { background: #fff; color: var(--jft-navy); }
-
-        /* --- Logistics --- */
         .logistics-banner { background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop'); background-attachment: fixed; background-size: cover; background-position: center; padding: 160px 0; position: relative; color: #fff; text-align: center; overflow: hidden; }
         .overlay-dark { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(26, 60, 52, 0.95) 0%, rgba(11, 28, 44, 0.9) 100%); z-index: 1; }
         .overlay-dark::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 40px 40px; z-index: 1; pointer-events: none; }
@@ -190,8 +148,6 @@
         .log-stat i { font-size: 2.5rem; color: var(--jft-gold); margin-bottom: 20px; } 
         .log-stat h4 { color: #fff; font-size: 1.5rem; margin-bottom: 10px; font-family: var(--font-head); } 
         .log-stat p { color: #dbece5; font-weight: 300; }
-
-        /* --- Infrastructure --- */
         .infra-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .infra-item { background: #fff; padding: 60px; display: flex; flex-direction: column; justify-content: space-between; min-height: 400px; position: relative; overflow: hidden; transition: 0.4s; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); border: 1px solid var(--jft-border); } 
         .infra-item:hover { transform: translateY(-5px); border-color: var(--jft-primary); }
@@ -202,8 +158,6 @@
         .infra-item:hover .infra-cap { color: rgba(78, 140, 62, 0.3); }
         .infra-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 500; color: var(--jft-dark); } 
         .infra-list li i { color: var(--jft-primary); background: #eafbe7; padding: 5px; border-radius: 50%; font-size: 0.8rem; }
-        
-        /* --- Timeline --- */
         .timeline-wrapper { position: relative; padding: 60px 0; }
         .timeline-line { position: absolute; top: 40px; left: 0; width: 100%; height: 4px; background: #e0e0e0; z-index: 1; border-radius: 4px; }
         .timeline-progress { position: absolute; top: 40px; left: 0; height: 4px; background: var(--jft-primary); width: 0; transition: width 2s ease; z-index: 1; border-radius: 4px; }
@@ -212,8 +166,6 @@
         .step-marker { width: 80px; height: 80px; background: #fff; border: 2px solid var(--jft-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px auto; font-size: 1.5rem; color: var(--jft-navy); transition: 0.4s; position: relative; box-shadow: var(--shadow-subtle); } 
         .step-node:hover .step-marker { border-color: var(--jft-primary); background: var(--jft-primary); color: #fff; transform: scale(1.1); }
         .step-marker::after { content: attr(data-num); position: absolute; top: 0; right: 0; width: 26px; height: 26px; background: var(--jft-gold); color: #000; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
-
-        /* --- Network --- */
         .jft-network-section { position: relative; padding: 110px 0; overflow: hidden; width: 100%; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; }
         .network-header { text-align: center; margin-bottom: 60px; position: relative; z-index: 10; }
         .network-visual { position: relative; height: 750px; width: 100%; display: flex; align-items: center; justify-content: center; perspective: 1000px; }
@@ -221,20 +173,17 @@
         .trade-lines-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 6; pointer-events: none; }
         .trade-path { fill: none; stroke: var(--jft-primary); stroke-width: 2; stroke-dasharray: 6, 8; stroke-linecap: round; opacity: 0.5; animation: flowTrade 4s linear infinite; } 
         @keyframes flowTrade { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
-        
         .central-hub { position: relative; z-index: 10; width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; }
         .hub-circle-container { width: 100%; height: 100%; background: #fff; border-radius: 50%; padding: 25px; box-shadow: 0 10px 40px rgba(78, 140, 62, 0.15); display: flex; align-items: center; justify-content: center; border: 4px solid #fff; position: relative; z-index: 12; }
         .pulse-ring { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--jft-primary); opacity: 0; z-index: 5; } 
         .pr-1 { animation: hubPulse 4s infinite; } 
         .pr-2 { animation: hubPulse 4s infinite 2s; } 
         @keyframes hubPulse { 0% { transform: scale(0.9); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
-        
         .export-node { position: absolute; display: flex; align-items: center; gap: 20px; width: 320px; transition: 0.4s ease-in-out; cursor: pointer; z-index: 20; }
         .node-portal { width: 80px; height: 80px; background: #fff; border-radius: 0 40px 0 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-subtle); border: 1px solid var(--jft-border); transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); } 
         .node-portal i { font-size: 28px; color: var(--jft-primary); transition: 0.4s; } 
         .export-node:hover .node-portal { background: var(--jft-primary); transform: rotateY(180deg); box-shadow: var(--shadow-hover); border-color: var(--jft-primary); } 
         .export-node:hover .node-portal i { color: #fff; }
-        
         .node-info h3 { margin: 0; font-family: var(--font-head); font-size: 1.2rem; color: var(--jft-navy); font-weight: 700; letter-spacing: -0.5px; } 
         .node-info p { margin: 5px 0 0 0; font-family: var(--font-body); font-size: 0.9rem; color: #666; line-height: 1.4; }
         .country-list-reveal { position: absolute; width: 220px; max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; opacity: 0; visibility: hidden; transition: 0.4s ease; transform: translateY(-10px); z-index: 30; padding-top: 10px; } 
@@ -242,22 +191,18 @@
         .country-item { background: #fff; color: var(--jft-navy); padding: 10px 15px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 3px solid var(--jft-gold); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-sub); transition: 0.2s; } 
         .country-item:hover { transform: translateX(5px); } 
         .country-item span { color: var(--jft-primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700; }
-        
         .node-0 { top: 5%; left: 5%; } .node-2 { top: 40%; left: 0%; } .node-4 { top: 75%; left: 5%; } 
         .node-1 { top: 5%; right: 5%; flex-direction: row-reverse; text-align: right; } 
         .node-3 { top: 40%; right: 0%; flex-direction: row-reverse; text-align: right; } 
         .node-5 { top: 75%; right: 5%; flex-direction: row-reverse; text-align: right; }
         .node-0 .country-list-reveal, .node-2 .country-list-reveal, .node-4 .country-list-reveal { left: 90px; top: 100%; } 
         .node-1 .country-list-reveal, .node-3 .country-list-reveal, .node-5 .country-list-reveal { right: 90px; top: 100%; }
-
-        /* --- Sliders --- */
         .cert-container { width: 100%; overflow: hidden; position: relative; padding: 50px 0; border-bottom: 1px solid var(--jft-border); cursor: grab; } 
         .cert-container:active { cursor: grabbing; } 
         .cert-track { display: flex; align-items: center; width: max-content; will-change: transform; } 
         .cert-slide { flex: 0 0 25vw; display: flex; justify-content: center; align-items: center; padding: 0 20px; box-sizing: border-box; }
         .cert-logo { height: 75px; width: auto; object-fit: contain; filter: grayscale(100%) contrast(0.8); opacity: 0.7; transition: 0.3s; pointer-events: none; } 
         .cert-slide:hover .cert-logo { filter: grayscale(0) contrast(1); opacity: 1; transform: scale(1.05); }
-        
         .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .testi-card { background: #fff; padding: 45px; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); position: relative; overflow: hidden; } 
         .testi-card::before { content: '\201C'; position: absolute; top: -10px; right: 20px; font-size: 8rem; color: #f2f2f2; font-family: serif; z-index: 0; }
@@ -266,12 +211,9 @@
         .testi-auth h4 { font-size: 1.1rem; margin: 0; font-family: var(--font-head); color: var(--jft-navy); } 
         .testi-auth span { font-size: 0.85rem; color: var(--jft-primary); font-family: var(--font-sub); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
         .testi-text { font-style: italic; color: #555; font-size: 1.05rem; position: relative; z-index: 1; font-family: var(--font-head); }
-        
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); } 
         .reveal.active { opacity: 1; transform: translateY(0); }
         .mobile-swipe-hint { display: none; }
-        
-        /* --- Responsive --- */
         @media (max-width: 1024px) {
             .hero-title { font-size: 3.5rem; }
             .stats-grid, .features-grid, .infra-layout, .log-grid, .testi-grid { grid-template-columns: 1fr; }
@@ -312,18 +254,40 @@
 
     <section class="jft-hero-banner" id="home">
         <div id="hero-slides-container">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1494412519320-aa613df4c596?auto=format&fit=crop&q=80&w=1920');"></div>
-            <div class="hero-slide" style="background-image: url('images/img_2.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('images/all-spices.webp');"></div>
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1542702969-a844b2098677?auto=format&fit=crop&q=80&w=2070');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1595839089001-c889f899e436?auto=format&fit=crop&q=80&w=2070');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1616432043562-3671ea2e5242?auto=format&fit=crop&q=80&w=2070');"></div>
         </div>
+        
+        <div class="hero-grid-overlay"></div>
         <div class="hero-content">
-            <span class="hero-tag reveal active" id="hero-tag">Since 1980</span>
-            <h1 class="hero-title reveal active" style="transition-delay: 0.2s;">Exporting the <br><span>Industrial Power</span> of India</h1>
-            <div class="hero-desc reveal active" style="transition-delay: 0.4s;">Premier Government Recognized Star Export House. Delivering 20,000+ MT of premium Rice, Spices, and Agro-commodities to global markets annually.</div>
-            <div class="hero-actions reveal active" style="transition-delay: 0.6s;"><a href="#products" class="btn-primary">View Product Catalogue</a><a href="#infrastructure" class="btn-outline">Our Infrastructure</a></div>
+            <div class="hero-text-box">
+                <span class="hero-tag-modern"><i class="fa-solid fa-globe"></i> ISO 9001:2015 CERTIFIED</span>
+                <h1 class="hero-title-modern">
+                    Global Export<br>
+                    <span>COMMAND CENTER</span>
+                    <strong>Powered by Indian Agriculture</strong>
+                </h1>
+                <div class="hero-desc-modern">
+                    Seamlessly bridging the gap between India's fertile lands and 25+ international markets with state-of-the-art logistics and precision quality control.
+                </div>
+                <div class="hero-actions">
+                    <a href="#products" class="btn-primary">View Product Catalogue</a>
+                    <a href="#infrastructure" class="btn-outline">Our Infrastructure</a>
+                </div>
+            </div>
+
+            <div class="hero-visual-card">
+                <div class="glass-card" id="tiltCard">
+                    <img src="https://images.unsplash.com/photo-1536633340742-1979435e02c2?auto=format&fit=crop&q=80&w=800" alt="JFT Agro Premium Logistics">
+                </div>
+            </div>
         </div>
+
         <div class="slider-controls" id="hero-dots-container">
-            <div class="control-dot active" onclick="setSlide(0)"></div><div class="control-dot" onclick="setSlide(1)"></div><div class="control-dot" onclick="setSlide(2)"></div>
+            <div class="control-dot active" onclick="setSlide(0)"></div>
+            <div class="control-dot" onclick="setSlide(1)"></div>
+            <div class="control-dot" onclick="setSlide(2)"></div>
         </div>
     </section>
 
@@ -363,31 +327,11 @@
             </div>
             
             <div class="identity-grid reveal">
-                <div class="identity-card">
-                    <i class="fa-solid fa-industry"></i>
-                    <h3>Manufacturer</h3>
-                    <p>In-house milling units with 500 MT/Day capacity.</p>
-                </div>
-                <div class="identity-card">
-                    <i class="fa-solid fa-ship"></i>
-                    <h3>Exporter</h3>
-                    <p>Star Export House shipping to 25+ countries worldwide.</p>
-                </div>
-                <div class="identity-card">
-                    <i class="fa-solid fa-truck-ramp-box"></i>
-                    <h3>Importer</h3>
-                    <p>Global sourcing of premium seeds and agro-inputs.</p>
-                </div>
-                <div class="identity-card">
-                    <i class="fa-solid fa-handshake"></i>
-                    <h3>Trader</h3>
-                    <p>Strategic market arbitrage and commodity trading.</p>
-                </div>
-                <div class="identity-card">
-                    <i class="fa-solid fa-warehouse"></i>
-                    <h3>Stockist</h3>
-                    <p>Massive moisture-controlled storage for year-round supply.</p>
-                </div>
+                <div class="identity-card"><i class="fa-solid fa-industry"></i><h3>Manufacturer</h3><p>In-house milling units with 500 MT/Day capacity.</p></div>
+                <div class="identity-card"><i class="fa-solid fa-ship"></i><h3>Exporter</h3><p>Star Export House shipping to 25+ countries worldwide.</p></div>
+                <div class="identity-card"><i class="fa-solid fa-truck-ramp-box"></i><h3>Importer</h3><p>Global sourcing of premium seeds and agro-inputs.</p></div>
+                <div class="identity-card"><i class="fa-solid fa-handshake"></i><h3>Trader</h3><p>Strategic market arbitrage and commodity trading.</p></div>
+                <div class="identity-card"><i class="fa-solid fa-warehouse"></i><h3>Stockist</h3><p>Massive moisture-controlled storage for year-round supply.</p></div>
             </div>
         </div>
     </section>
@@ -560,7 +504,6 @@
                     <div class="cert-slide"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Spices_Board_India_logo.svg/1200px-Spices_Board_India_logo.svg.png" class="cert-logo" alt="Spices Board" loading="lazy"></div>
                     <div class="cert-slide"><img src="https://upload.wikimedia.org/wikipedia/en/5/5b/Coconut_Development_Board_logo.svg" class="cert-logo" alt="Coconut Board" loading="lazy"></div>
                     <div class="cert-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Authorized_Economic_Operator_logo.svg" class="cert-logo" alt="AEO" loading="lazy"></div>
-                    <div class="cert-slide"><div class="cert-logo" style="display:flex; align-items:center; justify-content:center; border:2px solid #ddd; border-radius:8px; width:120px; font-size:12px; font-weight:bold; color:#666; text-align:center;">IOPEPC<br>(Oil Seeds)</div></div>
                 </div>
             </div>
             <div class="testi-grid reveal" style="margin-top: 80px;">
@@ -574,14 +517,13 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        // --- Include Logic for Universal Files ---
+        // --- Universal File Loading (Exactly as provided) ---
         async function loadComponent(id, file) {
             try {
                 const res = await fetch(file);
                 if (!res.ok) throw new Error(`Failed to load ${file}`);
                 const text = await res.text();
                 document.getElementById(id).innerHTML = text;
-                
                 const scripts = document.getElementById(id).querySelectorAll("script");
                 scripts.forEach(oldScript => {
                     const newScript = document.createElement("script");
@@ -589,16 +531,14 @@
                     newScript.appendChild(document.createTextNode(oldScript.innerHTML));
                     oldScript.parentNode.replaceChild(newScript, oldScript);
                 });
-            } catch (err) {
-                console.error(err);
-            }
+            } catch (err) { console.error(err); }
         }
         document.addEventListener("DOMContentLoaded", () => {
             loadComponent("header-placeholder", "header.html");
             loadComponent("footer-placeholder", "footer.html");
         });
 
-        // --- Certification Slider Logic ---
+        // --- Certification Slider (Exactly as provided) ---
         document.addEventListener("DOMContentLoaded", () => {
             const track = document.getElementById('certTrack'); const container = document.getElementById('certSlider');
             if(!track || !container) return;
@@ -614,7 +554,7 @@
             function getPositionX(event) { return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX; }
         });
 
-        // --- Stats Counter ---
+        // --- Stats Counter (Exactly as provided) ---
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => { 
                 if(entry.isIntersecting) { 
@@ -629,18 +569,41 @@
         }, { threshold: 0.5 });
         setTimeout(() => { document.querySelectorAll('.stat-item').forEach(el => statsObserver.observe(el)); }, 500);
 
-        // --- Initial Load & Hero Slider ---
+        // --- Preloader & IpAPI (Exactly as provided) ---
         window.addEventListener('load', function() {
             const welcomeText = document.getElementById('welcome-msg');
             fetch('https://ipapi.co/json/').then(response => response.json()).then(data => { if (data.city) { welcomeText.innerHTML = `Connecting with <span style="color:#eebf45;">${data.city}</span>...`; } else { welcomeText.innerText = "Establishing Global Trade Links..."; } }).catch(() => {}).finally(() => { setTimeout(() => { const preloader = document.getElementById('preloader'); preloader.style.opacity = '0'; setTimeout(() => { preloader.style.display = 'none'; }, 1000); }, 2500); });
         });
 
-        let slideIndex = 0; function setSlide(n) { slideIndex = n; updateSlider(); resetTimer(); } 
+        // --- Integrated New Hero Logic ---
+        let slideIndex = 0; 
+        function setSlide(n) { slideIndex = n; updateSlider(); resetTimer(); } 
         function nextSlide() { const slides = document.querySelectorAll('.hero-slide'); if(slides.length > 0) { slideIndex = (slideIndex + 1) % slides.length; updateSlider(); } } 
         function updateSlider() { const slides = document.querySelectorAll('.hero-slide'); const dots = document.querySelectorAll('.control-dot'); if(slides.length === 0) return; slides.forEach(s => s.classList.remove('active')); dots.forEach(d => d.classList.remove('active')); slides[slideIndex].classList.add('active'); dots[slideIndex].classList.add('active'); } 
-        let slideTimer = setInterval(nextSlide, 5000); function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
+        let slideTimer = setInterval(nextSlide, 5000); 
+        function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
 
-        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); if (entry.target.classList.contains('timeline-wrapper')) { document.getElementById('progressLine').style.width = '100%'; } } }); }, { threshold: 0.15 }); document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        const card = document.getElementById('tiltCard');
+        if(card) {
+            card.addEventListener('mousemove', (e) => {
+                if (window.innerWidth <= 1024) return; 
+                const rect = card.getBoundingClientRect();
+                const cardX = rect.left + rect.width / 2;
+                const cardY = rect.top + rect.height / 2;
+                const angleX = (cardY - e.clientY) / 35; 
+                const angleY = (e.clientX - cardX) / 35; 
+                card.style.transition = "none";
+                card.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transition = "transform 0.5s ease-out";
+                card.style.transform = `rotateX(0deg) rotateY(0deg)`; 
+            });
+        }
+
+        // --- Network & Intersection Observer (Exactly as provided) ---
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); if (entry.target.classList.contains('timeline-wrapper')) { document.getElementById('progressLine').style.width = '100%'; } } }); }, { threshold: 0.15 }); 
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         
         document.addEventListener("DOMContentLoaded", () => {
             const networkNodes = [ { region: "African Continent", icon: "fa-ship", desc: "Bulk rice supplier to 15+ African nations.", countries: [{name:"Benin",type:"Parboiled"},{name:"Togo",type:"Rice"}] }, { region: "Europe (EU)", icon: "fa-euro-sign", desc: "Certified Organic Spices & Grains.", countries: [{name:"UK",type:"Basmati"},{name:"Germany",type:"Spices"}] }, { region: "Middle East", icon: "fa-mosque", desc: "Premier exporter of Basmati and Spices.", countries: [{name:"UAE",type:"1121 Rice"},{name:"Saudi",type:"Basmati"}] }, { region: "Russia & CIS", icon: "fa-snowflake", desc: "Supply partner for Northern markets.", countries: [{name:"Moscow",type:"Rice"},{name:"St. Petersburg",type:"Spices"}] }, { region: "Sri Lanka", icon: "fa-anchor", desc: "Direct supply route to Colombo Hub.", countries: [{name:"Colombo",type:"Rice"}] }, { region: "SE Asia", icon: "fa-map-location-dot", desc: "Expanding footprint in Asian markets.", countries: [{name:"Vietnam",type:"Grains"}] } ];
@@ -650,9 +613,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
