@@ -1,10 +1,7 @@
 <style>
     /* --- Audit Correction: Global Mobile Variables --- */
     :root {
-        --mobile-header-h12: 80px; 
-        --mobile-header-h3: 40px;  
-        --mobile-header-h4: 70px;  
-        --total-mobile-offset: 190px;
+        --total-mobile-offset: 175px; /* Reduced to bring Hero Banner closer */
     }
 
     /* --- Scroll Progress Bar --- */
@@ -13,7 +10,7 @@
     /* --- Dashboard (Top Bar) --- */
     .top-dashboard { position: fixed; top: 0; left: 0; width: 100%; z-index: 2100; background: var(--jft-navy); color: #fff; box-shadow: 0 4px 25px rgba(0,0,0,0.15); font-family: var(--font-sub); display: flex; flex-direction: column; }
     
-    .td-row-1 { display: flex; height: 42px; border-bottom: 1px solid rgba(255,255,255,0.08); order: 2; } /* Reordered for Mobile stacking */
+    .td-row-1 { display: flex; height: 42px; border-bottom: 1px solid rgba(255,255,255,0.08); order: 2; }
     
     /* FAST TICKER */
     .td-news-ticker { flex: 1; display: flex; align-items: center; overflow: hidden; background: var(--jft-navy); position: relative; }
@@ -23,82 +20,69 @@
     .t-item { margin-right: 60px; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); } 
 
     .td-row-2 { display: flex; justify-content: space-between; align-items: center; height: 38px; background: #fff; color: var(--jft-navy); padding: 0 0 0 20px; font-weight: 700; border-bottom: 1px solid #eee; order: 1; }
-    .forex-group { display: flex; gap: 25px; align-items: center; font-size: 0.8rem; } 
-    .visit-plan { display: flex; align-items: center; gap: 10px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.75rem; transition: 0.3s; font-weight: 800; text-decoration: none; position: relative; } 
+    .visit-plan { display: flex; align-items: center; gap: 10px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.75rem; font-weight: 800; text-decoration: none; position: relative; } 
     .countdown-timer { font-family: monospace; background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 4px; margin-left: 8px; font-size: 0.7rem; }
 
     /* --- Navbar (Main Menu Bar) --- */
     .jft-navbar { position: fixed; top: 80px; left: 0; width: 100%; height: 90px; z-index: 2101; transition: 0.4s; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
     .nav-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; padding: 0 5%; }
-    .nav-logo-img { height: 75px; transition: 0.4s; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); } 
+    .nav-logo-img { height: 75px; transition: 0.4s; } 
     .nav-menu { display: flex; gap: 35px; align-items: center; }
-    .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; text-decoration: none; position: relative; }
+    .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; text-decoration: none; }
     .nav-btn-action { padding: 12px 28px; background: var(--jft-primary); color: #fff; border-radius: 50px; text-decoration: none; font-weight: 700; } 
     .mobile-only { display: none; }
 
-    /* --- MOBILE AUDIT & COUNTDOWN ADJUSTMENTS --- */
+    /* --- MOBILE OPTIMIZATIONS (BELOW 1024PX) --- */
     @media (max-width: 1024px) {
         body { padding-top: var(--total-mobile-offset) !important; }
 
-        /* Elevation Shadow */
-        .top-dashboard, .jft-navbar { box-shadow: 0 5px 20px rgba(0,0,0,0.12); }
+        .top-dashboard, .jft-navbar { box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
 
-        /* Line 1: Dubai Visit + Countdown */
-        .td-row-2 { order: 1; height: 42px; background: var(--jft-gold); padding: 0; border: none; }
-        .visit-plan { clip-path: none; width: 100%; justify-content: center; font-size: 0.65rem; padding: 0 10px; }
-        .forex-group { display: none; }
+        /* Line 1: Visit Dubai */
+        .td-row-2 { order: 1; height: 40px; background: var(--jft-gold); padding: 0; border: none; }
+        .visit-plan { width: 100%; justify-content: center; font-size: 0.65rem; padding: 0; }
 
         /* Line 2: Market Feed */
-        .td-row-1 { order: 2; height: 38px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .td-social { display: none; }
-        .ticker-label { font-size: 0.6rem; padding: 0 10px; clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%); }
+        .td-row-1 { order: 2; height: 35px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ticker-label { font-size: 0.6rem; padding: 0 10px; }
 
         /* Line 3: Currency & Social */
-        .mobile-utility-bar { order: 3; display: flex; height: var(--mobile-header-h3); background: #ffffff; border-bottom: 1px solid #e0e0e0; align-items: center; justify-content: space-between; padding: 0 20px; }
-        .m-currency { display: flex; gap: 12px; font-size: 0.7rem; font-weight: 800; color: var(--jft-navy); }
-        .m-currency span { color: #16a34a; }
-        .m-social { display: flex; gap: 15px; font-size: 1.1rem; }
+        .mobile-utility-bar { order: 3; display: flex; height: 35px; background: #ffffff; border-bottom: 1px solid #e0e0e0; align-items: center; justify-content: space-between; padding: 0 20px; }
+        .m-currency { display: flex; gap: 12px; font-size: 0.65rem; font-weight: 800; color: var(--jft-navy); }
+        .m-social { display: flex; gap: 15px; font-size: 1rem; }
         .m-social a { color: var(--jft-navy); }
 
-        /* Line 4: Navbar */
-        .jft-navbar { top: 120px; height: var(--mobile-header-h4); position: fixed; background: #fff; z-index: 2200; }
-        .nav-logo-img { height: 55px; } 
-        .mobile-toggle { display: block; font-size: 1.6rem; color: var(--jft-navy); cursor: pointer; }
+        /* Line 4: Navbar (Constant) */
+        .jft-navbar { top: 110px; height: 65px; position: fixed; background: #fff; z-index: 2200; }
+        .nav-logo-img { height: 48px; } 
+        .mobile-toggle { display: block; font-size: 1.5rem; color: var(--jft-navy); cursor: pointer; }
 
-        /* SLIDE-DOWN MENU */
+        /* SCROLLABLE SLIDE-DOWN MENU (Requirement: Activate only on tick) */
         .nav-menu { 
-            position: fixed; top: var(--total-mobile-offset); left: 0; width: 100%; 
-            height: calc(100vh - var(--total-mobile-offset)); background: var(--jft-navy); 
+            display: none; /* Menu is inactive until toggled */
+            position: fixed; top: 175px; left: 0; width: 100%; 
+            height: calc(100vh - 175px); background: var(--jft-navy); 
             flex-direction: column; justify-content: flex-start; align-items: center;
-            transform: translateY(-130%); 
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
-            z-index: 2050; padding: 0; overflow-y: auto; display: flex;
+            z-index: 2050; padding: 0; 
+            overflow-y: auto; /* Requirement: Scrollable */
+            -webkit-overflow-scrolling: touch;
         }
-        .nav-menu.active { transform: translateY(0); }
-
-        /* STAGGERED FADE-IN */
-        .nav-menu.active .nav-link, .nav-menu.active .menu-social-header, .nav-menu.active .nav-btn-action {
-            opacity: 1; transform: translateY(0);
-        }
-        .menu-social-header, .nav-link, .nav-btn-action {
-            opacity: 0; transform: translateY(15px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+        .nav-menu.active { 
+            display: flex; /* Activate on click */
+            animation: slideDownFade 0.4s ease forwards;
         }
 
-        /* Delay Timings */
-        .menu-social-header { transition-delay: 0.1s; }
-        .nav-link:nth-child(2) { transition-delay: 0.15s; }
-        .nav-link:nth-child(3) { transition-delay: 0.20s; }
-        .nav-link:nth-child(4) { transition-delay: 0.25s; }
-        .nav-link:nth-child(5) { transition-delay: 0.30s; }
-        .nav-link:nth-child(6) { transition-delay: 0.35s; }
-        .nav-link:nth-child(7) { transition-delay: 0.40s; }
-        .nav-btn-action { transition-delay: 0.45s; }
+        @keyframes slideDownFade {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-        .menu-social-header { width: 100%; display: flex; justify-content: center; gap: 30px; padding: 25px 0; background: rgba(0,0,0,0.15); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .menu-social-header a { color: var(--jft-gold); font-size: 1.6rem; }
+        /* Social Icons in Menu */
+        .menu-social-header { width: 100%; display: flex; justify-content: center; gap: 25px; padding: 20px 0; background: rgba(0,0,0,0.1); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .menu-social-header a { color: var(--jft-gold); font-size: 1.4rem; }
+
         .nav-link { font-size: 1.1rem; color: #fff !important; width: 100%; text-align: center; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .nav-btn-action { margin: 30px 0; width: 85%; text-align: center; background: var(--jft-gold); color: var(--jft-navy); border-radius: 5px; padding: 15px; }
+        .nav-btn-action { margin: 25px 0 40px; width: 80%; text-align: center; background: var(--jft-gold); color: var(--jft-navy); border-radius: 5px; padding: 14px; }
     }
 </style>
 
@@ -106,28 +90,17 @@
 
 <div class="top-dashboard">
     <div class="td-row-2">
-        <div class="forex-group desktop-only">
-            <span id="forex-date"></span>
-            <div class="forex-item" id="fx-usd">USD/INR <span>..</span></div>
-        </div>
         <a href="#contact" class="visit-plan">
             <i class="fa-solid fa-plane-departure"></i> GULFOOD DUBAI: STAND S1-A32 
             <span class="countdown-timer" id="dubai-countdown">00d 00h 00m</span>
         </a>
     </div>
-
     <div class="td-row-1">
-        <div class="td-social desktop-only">
-            <span>Follow Us:</span>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        </div>
         <div class="td-news-ticker">
             <div class="ticker-label"><div class="live-dot"></div> MARKET FEED</div>
             <div class="ticker-track" id="dynamic-ticker"></div>
         </div>
     </div>
-
     <div class="mobile-utility-bar mobile-only">
         <div class="m-currency">
             <div>USD/INR <span>84.28 ▲</span></div>
@@ -143,7 +116,7 @@
 
 <nav class="jft-navbar" id="navbar">
     <div class="nav-flex">
-        <a href="index.html" class="nav-logo-link"><img src="images/jft logo.png" alt="JFT Agro" class="nav-logo-img"></a>
+        <a href="index.html" class="nav-logo-link"><img src="images/jft logo.png" alt="JFT" class="nav-logo-img"></a>
         <div class="nav-menu" id="navMenu">
             <div class="menu-social-header mobile-only">
                 <a href="#"><i class="fa-brands fa-linkedin"></i></a>
@@ -154,7 +127,7 @@
             <a href="index.html" class="nav-link" onclick="toggleMenu()">Home</a>
             <a href="about.html" class="nav-link" onclick="toggleMenu()">About Us</a>
             <a href="products.html" class="nav-link" onclick="toggleMenu()">Products</a>
-            <a href="infrastructure.html" class="nav-link" onclick="toggleMenu()">Infra</a>
+            <a href="infrastructure.html" class="nav-link" onclick="toggleMenu()">Infrastructure</a>
             <a href="contact.html" class="nav-link" onclick="toggleMenu()">Network</a>
             <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
             <a href="contact.html" class="nav-btn-action" onclick="toggleMenu()">Request Quote</a>
@@ -177,16 +150,13 @@
         }
     }
 
-    // Dubai Countdown Logic (Event Date: Feb 17, 2026)
     function updateCountdown() {
         const eventDate = new Date("Feb 17, 2026 09:00:00").getTime();
         const now = new Date().getTime();
         const diff = eventDate - now;
-        
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        
         document.getElementById("dubai-countdown").innerText = `${days}d ${hours}h ${minutes}m`;
     }
 
