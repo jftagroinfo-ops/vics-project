@@ -1,63 +1,73 @@
 <style>
+    /* --- Audit Correction: Global Mobile Variables --- */
+    :root {
+        --mobile-header-h12: 80px; /* Dubai + Ticker */
+        --mobile-header-h3: 40px;  /* Currency Bar */
+        --mobile-header-h4: 70px;  /* Navbar */
+        --total-mobile-offset: 190px;
+    }
+
     /* --- Scroll Progress Bar --- */
     #page-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--jft-gold); z-index: 9999; width: 0%; transition: width 0.1s; }
 
     /* --- Dashboard (Top Bar) --- */
-    .top-dashboard { position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; background: var(--jft-navy); color: #fff; box-shadow: 0 4px 25px rgba(0,0,0,0.15); font-family: var(--font-sub); display: flex; flex-direction: column; }
+    .top-dashboard { position: fixed; top: 0; left: 0; width: 100%; z-index: 2100; background: var(--jft-navy); color: #fff; box-shadow: 0 4px 25px rgba(0,0,0,0.15); font-family: var(--font-sub); display: flex; flex-direction: column; }
     
     .td-row-1 { display: flex; height: 42px; border-bottom: 1px solid rgba(255,255,255,0.08); order: 1; }
-    .td-social { padding: 0 30px; display: flex; align-items: center; gap: 20px; background: rgba(0,0,0,0.2); font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
     
-    /* FAST TICKER (Requirement 1 & 8) */
+    /* FAST TICKER (25s Speed) */
     .td-news-ticker { flex: 1; display: flex; align-items: center; overflow: hidden; background: var(--jft-navy); position: relative; }
-    .ticker-label { background: var(--jft-primary); color: #fff; padding: 0 25px; height: 100%; display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; z-index: 2; clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%); white-space: nowrap; }
+    .ticker-label { background: var(--jft-primary); color: #fff; padding: 0 25px; height: 100%; display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; z-index: 2; clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%); white-space: nowrap; }
     .ticker-track { display: flex; animation: scrollText 25s linear infinite; white-space: nowrap; } 
     @keyframes scrollText { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .t-item { margin-right: 60px; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); } 
 
     .td-row-2 { display: flex; justify-content: space-between; align-items: center; height: 38px; background: #fff; color: var(--jft-navy); padding: 0 0 0 20px; font-weight: 700; border-bottom: 1px solid #eee; order: 2; }
     .forex-group { display: flex; gap: 25px; align-items: center; font-size: 0.8rem; } 
-    .visit-plan { display: flex; align-items: center; gap: 10px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.75rem; clip-path: polygon(20px 0, 100% 0, 100% 100%, 0% 100%); transition: 0.3s; font-weight: 800; text-decoration: none; } 
+    .visit-plan { display: flex; align-items: center; gap: 10px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.75rem; transition: 0.3s; font-weight: 800; text-decoration: none; clip-path: polygon(15px 0, 100% 0, 100% 100%, 0% 100%); } 
 
     /* --- Navbar (Main Menu Bar) --- */
-    .jft-navbar { position: fixed; top: 80px; left: 0; width: 100%; height: 90px; z-index: 2100; transition: 0.4s; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .jft-navbar { position: fixed; top: 80px; left: 0; width: 100%; height: 90px; z-index: 2101; transition: 0.4s; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
     .nav-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; padding: 0 5%; }
-    .nav-logo-img { height: 75px; transition: 0.4s; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); } 
+    .nav-logo-img { height: 75px; transition: 0.4s; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); } 
     .nav-menu { display: flex; gap: 35px; align-items: center; }
-    .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; text-decoration: none; }
+    .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; text-decoration: none; position: relative; }
     .nav-btn-action { padding: 12px 28px; background: var(--jft-primary); color: #fff; border-radius: 50px; text-decoration: none; font-weight: 700; } 
     .mobile-only { display: none; }
 
-    /* --- MOBILE REARRANGEMENT (BELOW 1024PX) --- */
+    /* --- MOBILE AUDIT CORRECTIONS (BELOW 1024PX) --- */
     @media (max-width: 1024px) {
-        body { padding-top: 190px !important; }
+        body { padding-top: var(--total-mobile-offset) !important; }
 
-        /* Elevation Shadow for Mobile Header (Requirement 8) */
-        .top-dashboard, .jft-navbar { box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+        /* Correction: Stronger Visual Separation */
+        .top-dashboard, .jft-navbar { box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
 
-        /* Line 1: Dubai Visit */
+        /* Line 1: Visit Dubai (Order Refined) */
         .td-row-2 { order: 1; height: 42px; background: var(--jft-gold); padding: 0; border: none; }
-        .visit-plan { clip-path: none; width: 100%; justify-content: center; font-size: 0.75rem; }
+        .visit-plan { clip-path: none; width: 100%; justify-content: center; font-size: 0.72rem; letter-spacing: 0.5px; }
+        .forex-group { display: none; }
 
         /* Line 2: Market Feed */
         .td-row-1 { order: 2; height: 38px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .td-social { display: none; }
+        .ticker-label { font-size: 0.65rem; padding: 0 10px; clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%); }
 
-        /* Line 3: Currency & Social */
-        .mobile-utility-bar { order: 3; display: flex; height: 40px; background: #ffffff; border-bottom: 1px solid #e0e0e0; align-items: center; justify-content: space-between; padding: 0 20px; }
-        .m-currency { display: flex; gap: 15px; font-size: 0.75rem; font-weight: 800; color: var(--jft-navy); }
-        .m-social { display: flex; gap: 18px; font-size: 1.2rem; }
+        /* Line 3: Currency & Social (Correction: Fluid height) */
+        .mobile-utility-bar { order: 3; display: flex; height: var(--mobile-header-h3); background: #ffffff; border-bottom: 1px solid #e0e0e0; align-items: center; justify-content: space-between; padding: 0 15px; }
+        .m-currency { display: flex; gap: 12px; font-size: 0.72rem; font-weight: 800; color: var(--jft-navy); }
+        .m-currency span { color: #16a34a; margin-left: 2px; }
+        .m-social { display: flex; gap: 15px; font-size: 1.1rem; }
         .m-social a { color: var(--jft-navy); }
 
-        /* Line 4: Navbar (Constant on Scroll) */
-        .jft-navbar { top: 120px; height: 70px; position: fixed; background: #fff; border-bottom: 1px solid #eee; }
-        .nav-logo-img { height: 55px; } /* Slightly larger logo for mobile (Requirement 8) */
-        .mobile-toggle { display: block; font-size: 1.6rem; color: var(--jft-navy); cursor: pointer; }
+        /* Line 4: Navbar (Correction: Fixed Top Anchor) */
+        .jft-navbar { top: 80px; height: var(--mobile-header-h4); position: fixed; background: #fff; z-index: 2200; border-bottom: 1px solid #eee; }
+        .nav-logo-img { height: 52px; } /* Audit: Increased size for brand impact */
+        .mobile-toggle { display: block; font-size: 1.6rem; color: var(--jft-navy); cursor: pointer; padding: 5px; }
 
-        /* SLIDE-DOWN MENU (Requirement 2 & 4) */
+        /* MENU CONTENT (Correction: Dynamic Offset) */
         .nav-menu { 
-            position: fixed; top: 190px; left: 0; width: 100%; 
-            height: calc(100vh - 190px); background: var(--jft-navy); 
+            position: fixed; top: var(--total-mobile-offset); left: 0; width: 100%; 
+            height: calc(100vh - var(--total-mobile-offset)); background: var(--jft-navy); 
             flex-direction: column; justify-content: flex-start; align-items: center;
             transform: translateY(-130%); 
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
@@ -65,39 +75,33 @@
         }
         .nav-menu.active { transform: translateY(0); }
 
-        /* STAGGERED FADE-IN (Requirement 9) */
+        /* STAGGERED FADE-IN ANIMATION */
         .nav-menu.active .nav-link, 
         .nav-menu.active .menu-social-header,
         .nav-menu.active .nav-btn-action {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1; transform: translateY(0);
         }
-
         .menu-social-header, .nav-link, .nav-btn-action {
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 0; transform: translateY(15px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        /* Stagger Timing */
-        .menu-social-header { transition-delay: 0.15s; }
-        .nav-link:nth-child(2) { transition-delay: 0.20s; }
-        .nav-link:nth-child(3) { transition-delay: 0.25s; }
-        .nav-link:nth-child(4) { transition-delay: 0.30s; }
-        .nav-link:nth-child(5) { transition-delay: 0.35s; }
-        .nav-link:nth-child(6) { transition-delay: 0.40s; }
-        .nav-link:nth-child(7) { transition-delay: 0.45s; }
-        .nav-btn-action { transition-delay: 0.50s; }
+        /* Logic: Delays for premium feel */
+        .menu-social-header { transition-delay: 0.1s; }
+        .nav-link:nth-child(2) { transition-delay: 0.15s; }
+        .nav-link:nth-child(3) { transition-delay: 0.20s; }
+        .nav-link:nth-child(4) { transition-delay: 0.25s; }
+        .nav-link:nth-child(5) { transition-delay: 0.30s; }
+        .nav-link:nth-child(6) { transition-delay: 0.35s; }
+        .nav-link:nth-child(7) { transition-delay: 0.40s; }
+        .nav-btn-action { transition-delay: 0.45s; }
 
-        /* Menu Content Styling */
+        /* Menu Internals */
         .menu-social-header { width: 100%; display: flex; justify-content: center; gap: 30px; padding: 25px 0; background: rgba(0,0,0,0.15); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .menu-social-header a { color: var(--jft-gold); font-size: 1.6rem; }
 
-        .nav-link { 
-            font-size: 1.2rem; color: #fff !important; width: 100%; text-align: center; 
-            padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); 
-        }
-        .nav-btn-action { margin: 35px 0; width: 85%; text-align: center; background: var(--jft-gold); color: var(--jft-navy); border-radius: 8px; font-size: 1rem; }
+        .nav-link { font-size: 1.15rem; color: #fff !important; width: 100%; text-align: center; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-btn-action { margin: 30px 0; width: 85%; text-align: center; background: var(--jft-gold); color: var(--jft-navy); border-radius: 5px; padding: 15px; }
     }
 </style>
 
@@ -127,13 +131,13 @@
 
     <div class="mobile-utility-bar mobile-only">
         <div class="m-currency">
-            <div>USD/INR <span>84.25 ▲</span></div>
-            <div>EUR/INR <span>91.18 ▲</span></div>
+            <div>USD/INR <span>84.28 ▲</span></div>
+            <div>EUR/INR <span>91.22 ▲</span></div>
         </div>
         <div class="m-social">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </div>
 </div>
@@ -144,10 +148,10 @@
         
         <div class="nav-menu" id="navMenu">
             <div class="menu-social-header mobile-only">
-                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
             
             <a href="index.html" class="nav-link" onclick="toggleMenu()">Home</a>
@@ -155,15 +159,13 @@
             <a href="products.html" class="nav-link" onclick="toggleMenu()">Products</a>
             <a href="infrastructure.html" class="nav-link" onclick="toggleMenu()">Infrastructure</a>
             <a href="contact.html" class="nav-link" onclick="toggleMenu()">Global Network</a>
-            <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact Us</a>
-            <a href="contact.html" class="nav-btn-action" onclick="toggleMenu()">Request Export Quote</a>
+            <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
+            <a href="contact.html" class="nav-btn-action" onclick="toggleMenu()">Request Quote</a>
         </div>
 
         <div class="mobile-toggle mobile-only" onclick="toggleMenu()"><i class="fa-solid fa-bars-staggered" id="mIcon"></i></div>
     </div>
 </nav>
-
-<a href="https://wa.me/918425057274" class="whatsapp-float" target="_blank" aria-label="WhatsApp Contact"><i class="fa-brands fa-whatsapp"></i></a>
 
 <script>
     function toggleMenu() { 
@@ -172,7 +174,6 @@
         menu.classList.toggle('active'); 
         
         if(menu.classList.contains('active')) {
-            // Requirement 3: Close Button UI
             icon.classList.replace('fa-bars-staggered', 'fa-xmark');
             icon.style.color = '#c5a059'; 
             document.body.style.overflow = 'hidden'; 
@@ -186,7 +187,7 @@
     (function init() {
         const ticker = document.getElementById('dynamic-ticker');
         if(ticker) {
-            const feed = `<div class="t-item"><span>SHIPMENT:</span> Fresh batch of Basmati dispatched to Port Said</div><div class="t-item"><span>QUALITY:</span> 100% Organic Sourcing certified for 2024</div>`;
+            const feed = `<div class="t-item"><span>SHIPMENT:</span> Fresh Basmati Rice loading for Dubai</div><div class="t-item"><span>MARKET:</span> Non-Basmati export quota increased</div>`;
             ticker.innerHTML = feed + feed + feed;
         }
     })();
