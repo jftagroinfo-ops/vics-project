@@ -67,12 +67,12 @@
         .center-header { margin-left: auto; margin-right: auto; text-align: center; }
         .brand-tag { display: inline-block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; background: rgba(78, 140, 62, 0.1); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(78, 140, 62, 0.2); }
         
-        /* STANDARD SECTION TITLE (Reference Style) */
+        /* STANDARD SECTION TITLE (Reference Style for "To Global Ports") */
         .section-title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; color: var(--jft-navy); } 
         .section-title span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; }
         .section-title span::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-gold); opacity: 0.3; z-index: -1; }
         
-        /* Highlight for Manufacturing Title */
+        /* Highlight for Manufacturing Title (Exact Match) */
         .manu-highlight::after {
             background: var(--jft-gold) !important;
             opacity: 0.3 !important; 
@@ -94,10 +94,10 @@
             .jft-hero-banner { padding-top: 130px; }
         }
         
-        /* POINT 3: Increased Top Gap for Smaller Screens */
+        /* POINT 2: Increased Top Gap for Smaller Screens (160px + 50px buffer) */
         @media (max-width: 1024px) {
             .jft-hero-banner { 
-                padding-top: 180px; /* Increased to ensure banner starts clearly after menu */
+                padding-top: 210px; 
             }
         }
 
@@ -123,16 +123,16 @@
         .hero-title-modern { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; margin: 0 0 25px 0; color: #fff; letter-spacing: -0.5px; }
         .hero-title-modern span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; font-weight: 700; -webkit-text-stroke: 0; }
         
-        /* POINT 2: Increase Dash Height & Alignment */
+        /* POINT 1: Dash Identical to "To Global Ports" */
         .hero-title-modern span::after { 
             content: ''; 
             position: absolute; 
-            bottom: 3px; /* Strictly below text */
+            bottom: 8px; /* Matching Section Title */
             left: 0; 
             width: 100%; 
-            height: 9px; /* Increased height */
+            height: 12px; /* Matching Section Title */
             background: var(--jft-gold); 
-            opacity: 0.5; 
+            opacity: 0.3; /* Matching Section Title */
             z-index: -1; 
         }
         
@@ -264,6 +264,7 @@
         .step-node:hover .step-marker { border-color: var(--jft-primary); background: var(--jft-primary); color: #fff; transform: scale(1.1); }
         .step-marker::after { content: attr(data-num); position: absolute; top: 0; right: 0; width: 26px; height: 26px; background: var(--jft-gold); color: #000; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
         
+        /* --- POINT 1: NETWORK SECTION FIXES --- */
         .jft-network-section { position: relative; padding: 110px 0; overflow: visible; width: 100%; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; }
         
         .network-header { text-align: center; margin-bottom: 60px; position: relative; z-index: 10; padding: 0 20px; }
@@ -281,6 +282,7 @@
         
         .export-node { position: absolute; display: flex; align-items: center; gap: 20px; width: 320px; transition: 0.4s ease-in-out; cursor: pointer; z-index: 20; }
         
+        /* POINT 1: High Z-Index on Hover */
         .export-node:hover { z-index: 100; }
 
         .node-portal { width: 80px; height: 80px; background: #fff; border-radius: 0 40px 0 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-subtle); border: 1px solid var(--jft-border); transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); } 
@@ -290,11 +292,12 @@
         .node-info h3 { margin: 0; font-family: var(--font-head); font-size: 1.2rem; color: var(--jft-navy); font-weight: 700; letter-spacing: -0.5px; } 
         .node-info p { margin: 5px 0 0 0; font-family: var(--font-body); font-size: 0.9rem; color: #666; line-height: 1.4; }
         
+        /* --- UPDATED: Limit visible items to approx 4 (185px) --- */
         .country-list-reveal { 
             position: absolute; 
             width: 220px; 
-            max-height: 185px; 
-            overflow-y: auto; 
+            max-height: 185px; /* Restricts height to approx 4 items */
+            overflow-y: auto; /* Enables scrolling */
             display: flex; 
             flex-direction: column; 
             gap: 6px; 
@@ -1067,6 +1070,64 @@
         } 
         let slideTimer = setInterval(nextSlide, 5000); 
         function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
+
+        // --- Drag/Swipe Logic for Hero Banner ---
+        const heroBanner = document.querySelector('.jft-hero-banner');
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let isDragging = false;
+
+        if(heroBanner) {
+            // Touch Events
+            heroBanner.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            heroBanner.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+
+            // Mouse Events
+            heroBanner.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                touchStartX = e.screenX;
+                heroBanner.style.cursor = 'grabbing';
+            });
+
+            heroBanner.addEventListener('mouseup', (e) => {
+                if(!isDragging) return;
+                isDragging = false;
+                touchEndX = e.screenX;
+                heroBanner.style.cursor = 'grab';
+                handleSwipe();
+            });
+
+            heroBanner.addEventListener('mouseleave', () => {
+                isDragging = false;
+                heroBanner.style.cursor = 'grab';
+            });
+        }
+
+        function handleSwipe() {
+            const threshold = 50; // Minimum distance for a swipe
+            if (touchEndX < touchStartX - threshold) {
+                // Swiped Left -> Next Slide
+                nextSlide();
+                resetTimer();
+            }
+            if (touchEndX > touchStartX + threshold) {
+                // Swiped Right -> Previous Slide
+                // Calculate previous index correctly handling negative modulo
+                const slides = document.querySelectorAll('.hero-slide');
+                if(slides.length > 0) {
+                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+                    updateSlider();
+                    resetTimer();
+                }
+            }
+        }
+
 
         // --- Tilt Card Logic ---
         document.addEventListener('mousemove', (e) => {
