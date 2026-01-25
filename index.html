@@ -72,7 +72,7 @@
         .section-title span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; }
         .section-title span::after { content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px; background: var(--jft-gold); opacity: 0.3; z-index: -1; }
         
-        /* Highlight for Manufacturing Title (Exact Match) */
+        /* Highlight for Manufacturing Title */
         .manu-highlight::after {
             background: var(--jft-gold) !important;
             opacity: 0.3 !important; 
@@ -89,15 +89,15 @@
         .jft-hero-banner { position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: #000; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; cursor: grab; }
         .jft-hero-banner:active { cursor: grabbing; }
 
-        /* --- RESPONSIVE TOP PADDING (Desktop vs Others) --- */
+        /* --- RESPONSIVE TOP PADDING --- */
         @media (min-width: 1025px) {
             .jft-hero-banner { padding-top: 130px; }
         }
         
-        /* POINT 2: Increase Top Gap for Smaller Screens */
+        /* POINT 3: Increased Top Gap for Smaller Screens */
         @media (max-width: 1024px) {
             .jft-hero-banner { 
-                padding-top: 160px; /* Increased to clear main menu comfortably */
+                padding-top: 180px; /* Increased to ensure banner starts clearly after menu */
             }
         }
 
@@ -123,16 +123,16 @@
         .hero-title-modern { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; margin: 0 0 25px 0; color: #fff; letter-spacing: -0.5px; }
         .hero-title-modern span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; font-weight: 700; -webkit-text-stroke: 0; }
         
-        /* POINT 3: Decrease Dash Height */
+        /* POINT 2: Increase Dash Height & Alignment */
         .hero-title-modern span::after { 
             content: ''; 
             position: absolute; 
-            bottom: 4px; /* Lowered slightly */
+            bottom: 3px; /* Strictly below text */
             left: 0; 
             width: 100%; 
-            height: 6px; /* Decreased from 12px */
+            height: 9px; /* Increased height */
             background: var(--jft-gold); 
-            opacity: 0.5; /* Slight opacity bump for visibility */
+            opacity: 0.5; 
             z-index: -1; 
         }
         
@@ -148,38 +148,6 @@
         .slider-controls { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; z-index: 20; }
         .control-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.5); cursor: pointer; transition: 0.3s; background: transparent; }
         .control-dot.active { background: #eebf45; border-color: #eebf45; transform: scale(1.2); }
-
-        /* --- SLIDER ARROWS --- */
-        .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            z-index: 50;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-        .slider-arrow:hover { background: var(--jft-gold); border-color: var(--jft-gold); color: var(--jft-navy); }
-        
-        /* POINT 1: Move arrows outside text area */
-        .prev-arrow { left: 40px; }
-        .next-arrow { right: 40px; }
-        
-        @media (max-width: 600px) {
-            .slider-arrow { width: 40px; height: 40px; font-size: 1rem; }
-            .prev-arrow { left: 10px; }
-            .next-arrow { right: 10px; }
-        }
 
         /* --- Back to Top Button --- */
         #backToTop { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--jft-gold); color: var(--jft-navy); border: none; border-radius: 50%; cursor: pointer; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; opacity: 0; visibility: hidden; transition: all 0.4s ease; transform: translateY(20px); }
@@ -477,9 +445,6 @@
         <div class="hero-grid-overlay"></div>
         
         <div class="hero-content-wrapper">
-            <div class="slider-arrow prev-arrow" onclick="setSlide((slideIndex - 1 + 6) % 6)"><i class="fa-solid fa-chevron-left"></i></div>
-            <div class="slider-arrow next-arrow" onclick="setSlide((slideIndex + 1) % 6)"><i class="fa-solid fa-chevron-right"></i></div>
-
             <div class="hero-content-slide active">
                 <div class="hero-text-box">
                     <span class="hero-tag-modern"><i class="fa-solid fa-globe"></i> ISO 9001:2015 CERTIFIED</span>
