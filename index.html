@@ -63,7 +63,7 @@
         @keyframes logoFloat { 0%, 100% { transform: translateY(0); opacity: 0.9; } 50% { transform: translateY(-5px); opacity: 1; } }
 
         /* --- Global Elements (Titles, Buttons) --- */
-        .section-header { margin-bottom: clamp(40px, 6vw, 60px); max-width: 800px; width: 100%; } 
+        .section-header { margin-bottom: clamp(30px, 6vw, 60px); max-width: 800px; width: 100%; } 
         .center-header { margin-left: auto; margin-right: auto; text-align: center; }
         .brand-tag { display: inline-block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; background: rgba(78, 140, 62, 0.1); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(78, 140, 62, 0.2); }
         
@@ -80,9 +80,9 @@
 
         .section-desc { font-size: clamp(1rem, 1.5vw, 1.15rem); max-width: 700px; margin-top: 20px; color: #6b6b6b; font-weight: 400; }
         
-        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--jft-primary); color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); border: 2px solid var(--jft-primary); box-shadow: 0 4px 10px rgba(78, 140, 62, 0.3); text-align: center; cursor: pointer;} 
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--jft-primary); color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); border: 2px solid var(--jft-primary); box-shadow: 0 4px 10px rgba(78, 140, 62, 0.3); text-align: center; cursor: pointer; white-space: nowrap; } 
         .btn-primary:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-        .btn-outline { display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 2px solid #fff; color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); text-align: center; cursor: pointer;} 
+        .btn-outline { display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 2px solid #fff; color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); text-align: center; cursor: pointer; white-space: nowrap; } 
         .btn-outline:hover { background: #fff; color: var(--jft-primary); border-color: #fff; }
         
         /* --- Replaced Hero CSS --- */
@@ -99,15 +99,13 @@
             .jft-hero-banner { 
                 padding-top: 160px !important; 
                 align-items: flex-start; 
+                min-height: auto;
+                padding-bottom: 60px;
             }
-            
-            /* Tablet/Laptop Hero Dash Adjustment */
             .hero-title-modern span::after { 
                 bottom: 4px; 
                 height: 8px; 
             }
-
-            /* Manufacturing Highlight Dash Adjustment */
             .manu-highlight::after {
                 height: 6px !important;
                 bottom: 2px !important;
@@ -348,6 +346,48 @@
         .cert-logo { height: 75px; width: auto; object-fit: contain; filter: grayscale(100%) contrast(0.8); opacity: 0.7; transition: 0.3s; pointer-events: none; max-width: 100%; } 
         .cert-slide:hover .cert-logo { filter: grayscale(0) contrast(1); opacity: 1; transform: scale(1.05); }
         
+        .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 80px; }
+        .testi-card { background: #fff; padding: 45px; border-radius: var(--radius-md); box-shadow: var(--shadow-subtle); position: relative; overflow: hidden; height: 100%; } 
+        .testi-card::before { content: '\201C'; position: absolute; top: -10px; right: 20px; font-size: 8rem; color: #f2f2f2; font-family: serif; z-index: 0; }
+        .testi-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; position: relative; z-index: 1; } 
+        .flag-icon { font-size: 1.8rem; }
+        .testi-auth h4 { font-size: 1.1rem; margin: 0; font-family: var(--font-head); color: var(--jft-navy); } 
+        .testi-auth span { font-size: 0.85rem; color: var(--jft-primary); font-family: var(--font-sub); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .testi-text { font-style: italic; color: #555; font-size: 1.05rem; position: relative; z-index: 1; font-family: var(--font-head); line-height: 1.6; }
+
+        /* --- TESTIMONIAL MARQUEE CSS --- */
+        .testi-scroll-container { width: 100%; overflow: hidden; position: relative; }
+        .testi-track { display: flex; gap: 30px; width: max-content; animation: scrollTesti 40s linear infinite; padding: 20px 0; }
+        .testi-track:hover { animation-play-state: paused; }
+        
+        @keyframes scrollTesti { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(-50%); } 
+        }
+        
+        .testi-card { 
+            width: 350px; 
+            background: #fff; 
+            padding: 40px; 
+            border-radius: var(--radius-md); 
+            box-shadow: var(--shadow-subtle); 
+            position: relative; 
+            overflow: hidden; 
+            flex-shrink: 0;
+            border: 1px solid transparent;
+            transition: all 0.4s ease;
+        }
+        
+        .testi-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--jft-primary);
+            box-shadow: 0 15px 30px rgba(78, 140, 62, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            .testi-card { width: 300px; padding: 30px; }
+        }
+
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); } 
         .reveal.active { opacity: 1; transform: translateY(0); }
         
@@ -365,47 +405,6 @@
             margin-bottom: 20px;
         }
         @keyframes hintPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
-
-        /* --- TESTIMONIAL MARQUEE CSS --- */
-        .testi-scroll-container { width: 100%; overflow: hidden; position: relative; }
-        .testi-track { display: flex; gap: 30px; width: max-content; animation: scrollTesti 40s linear infinite; padding: 20px 0; }
-        .testi-track:hover { animation-play-state: paused; }
-        
-        @keyframes scrollTesti { 
-            0% { transform: translateX(0); } 
-            100% { transform: translateX(-50%); } /* Shift by half because content is doubled */
-        }
-        
-        .testi-card { 
-            width: 350px; 
-            background: #fff; 
-            padding: 40px; 
-            border-radius: var(--radius-md); 
-            box-shadow: var(--shadow-subtle); 
-            position: relative; 
-            overflow: hidden; 
-            flex-shrink: 0;
-            border: 1px solid transparent;
-            transition: all 0.4s ease;
-        }
-        
-        /* --- POINT 3: HOVER ANIMATION --- */
-        .testi-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--jft-primary);
-            box-shadow: 0 15px 30px rgba(78, 140, 62, 0.15);
-        }
-
-        .testi-card::before { content: '\201C'; position: absolute; top: -10px; right: 20px; font-size: 8rem; color: #f2f2f2; font-family: serif; z-index: 0; }
-        .testi-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; position: relative; z-index: 1; } 
-        .flag-icon { font-size: 1.8rem; }
-        .testi-auth h4 { font-size: 1.1rem; margin: 0; font-family: var(--font-head); color: var(--jft-navy); } 
-        .testi-auth span { font-size: 0.85rem; color: var(--jft-primary); font-family: var(--font-sub); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .testi-text { font-style: italic; color: #555; font-size: 1.05rem; position: relative; z-index: 1; font-family: var(--font-head); line-height: 1.6; }
-
-        @media (max-width: 600px) {
-            .testi-card { width: 300px; padding: 30px; }
-        }
 
         /* --- RESPONSIVE LOGIC --- */
         @media (max-width: 1024px) {
@@ -430,6 +429,9 @@
             .node-portal { margin-bottom: 15px; }
             .logistics-banner { background-attachment: scroll !important; background-position: center center !important; }
             .cert-slide { flex: 0 0 33vw; }
+            
+            .about-grid { grid-template-columns: 1fr; } /* Force stacked About on tablet+mobile */
+            .stats-grid { grid-template-columns: repeat(2, 1fr); } /* 2x2 stats on tablet */
         }
 
         @media (max-width: 900px) {
@@ -437,6 +439,10 @@
             .manu-content, .manu-img, .india-text, .india-visual { width: 100%; flex: auto; max-width: 100%; }
             .manu-img { margin-top: 30px; }
             .india-visual { margin-bottom: 30px; }
+            
+            /* Responsive Manufacturing/Origin Layouts */
+            .manu-layout { flex-direction: column-reverse; } /* Image top on mobile */
+            .india-layout { flex-direction: column-reverse; } 
         }
 
         @media (max-width: 768px) {
@@ -456,12 +462,13 @@
             .hero-actions { flex-direction: column; }
             .btn-primary, .btn-outline { width: 100%; }
             .prod-grid { grid-template-columns: 1fr; }
-            /* .testi-grid removed for marquee */
             
-            .features-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 15px; }
+            .features-grid { grid-template-columns: 1fr; gap: 15px; } /* Stack features 1-col on small mobile */
             .feature-card { padding: 20px; }
             .feat-title { font-size: 1rem; }
             .feat-text { font-size: 0.9rem; }
+            
+            .stats-grid { grid-template-columns: 1fr; } /* 1-col stats on mobile */
 
             .identity-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; gap: 15px; -webkit-overflow-scrolling: touch; }
             .identity-grid::-webkit-scrollbar { display: none; }
@@ -501,6 +508,7 @@
         <div class="hero-grid-overlay"></div>
         
         <div class="hero-content-wrapper">
+
             <div class="hero-content-slide active">
                 <div class="hero-text-box">
                     <span class="hero-tag-modern"><i class="fa-solid fa-globe"></i> ISO 9001:2015 CERTIFIED</span>
@@ -1112,7 +1120,6 @@
         document.addEventListener("DOMContentLoaded", () => {
             const track = document.getElementById('testiTrack');
             if (track) {
-                // Clone items to ensure seamless infinite scroll
                 const items = Array.from(track.children);
                 items.forEach(item => {
                     const clone = item.cloneNode(true);
