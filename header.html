@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>JFT Agro Overseas</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -18,7 +18,15 @@
 
     /* --- GLOBAL RESET & RESPONSIVE BASE --- */
     * { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
-    body { margin: 0; padding: 0; font-family: var(--font-body); overflow-x: hidden; width: 100%; }
+    
+    /* CHANGE 4: Fix Horizontal Scroll / Wobble */
+    html, body { 
+        margin: 0; padding: 0; 
+        font-family: var(--font-body); 
+        overflow-x: hidden; /* STRICTLY PREVENTS LEFT/RIGHT MOVEMENT */
+        width: 100%; 
+        position: relative;
+    }
     a { text-decoration: none; color: inherit; }
 
     /* --- SCROLL PROGRESS BAR --- */
@@ -111,7 +119,10 @@
     .nav-btn-action:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-2px); }
     
     /* Special Gulfood Button for Mobile Navbar */
-    .nav-mobile-gulfood { display: none; } /* Hidden by default */
+    .nav-mobile-gulfood { display: none; } 
+
+    /* New Mobile Social Links (Hidden on Desktop) */
+    .mobile-social-menu { display: none; }
 
     .mobile-toggle { display: none; font-size: 1.5rem; color: var(--jft-navy); cursor: pointer; transition: color 0.3s; padding: 10px; z-index: 2002; }
 
@@ -136,20 +147,18 @@
         /* Hide Desktop Elements */
         .td-utilities, .visit-plan, .desktop-only, .sticky-quote { display: none !important; }
 
-        /* CHANGE 1: Simplify Ticker Label */
-        .market-text { display: none; } /* Hides "MARKET" text */
+        /* Ticker Simplification */
+        .market-text { display: none; } 
         .ticker-label { font-size: 0.7rem; padding: 0 15px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
-        
-        /* CHANGE 2: Hide Forex Date */
         #forex-date { display: none !important; } 
 
-        /* Adjust Header Heights */
+        /* Header Heights */
         .jft-navbar { top: 80px; height: 70px; background: rgba(255,255,255,0.96); } 
         .jft-navbar.scrolled { top: 80px; height: 70px; }
         .nav-logo-img { height: 50px; } 
         .jft-navbar.scrolled .nav-logo-img { height: 45px; }
 
-        /* CHANGE 3: Enable Navbar Gulfood Box (Between Logo and Menu) */
+        /* Navbar Gulfood Box */
         .nav-mobile-gulfood { 
             display: flex; align-items: center; gap: 6px;
             background: var(--jft-gold); color: var(--jft-navy);
@@ -160,18 +169,45 @@
         }
         .nav-mobile-gulfood i { font-size: 0.8rem; }
         
-        /* Mobile Menu (Slide Out) */
+        /* CHANGE 2: Mobile Menu Gap Fix */
         .nav-menu { 
-            position: fixed; top: 80px; right: -100%; width: 300px; height: calc(100vh - 80px); 
-            background: var(--jft-navy); flex-direction: column; justify-content: flex-start; 
-            padding: 40px 0; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); 
-            box-shadow: -10px 0 30px rgba(0,0,0,0.2); gap: 0; overflow-y: auto; 
+            position: fixed; 
+            top: 100%; /* Attaches exactly to bottom of navbar relative to its fixed position */
+            right: -100%; 
+            width: 300px; 
+            height: calc(100vh - 70px); /* Fill remaining height */
+            background: var(--jft-navy); 
+            flex-direction: column; 
+            justify-content: flex-start; 
+            padding: 20px 0 50px 0; 
+            transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); 
+            box-shadow: -10px 10px 30px rgba(0,0,0,0.2); 
+            gap: 0; 
+            overflow-y: auto; 
+            z-index: 999;
         }
         .nav-menu.active { right: 0; }
         .nav-link { font-size: 0.95rem; color: #fff !important; width: 100%; text-align: left; padding: 20px 40px; border-bottom: 1px solid rgba(255,255,255,0.05); letter-spacing: 2px; } 
         .nav-link:hover { background: rgba(255,255,255,0.05); padding-left: 50px; }
         .nav-link::after { display: none; }
         
+        /* CHANGE 1: Social Icons inside Mobile Menu */
+        .mobile-social-menu { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            padding: 30px 0; 
+            margin-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+        }
+        .mobile-social-menu a {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+        .mobile-social-menu a:hover { color: var(--jft-gold); transform: scale(1.1); }
+
         .mobile-toggle { display: block; }
         .nav-flex { padding: 0 20px; }
     }
@@ -186,22 +222,16 @@
 
     /* SMALL PHONES (Max 480px) */
     @media (max-width: 480px) {
-        /* Ticker Adjust */
         .ticker-label { font-size: 0.65rem; padding: 0 10px; width: auto; max-width: 80px; }
         .td-social { padding: 0 10px; }
         .td-social a { font-size: 0.9rem; }
         
-        /* Mobile Gulfood Box Optimization (Space Saver) */
         .nav-mobile-gulfood { padding: 5px 10px; font-size: 0.65rem; margin-right: 10px; }
-        .nav-mobile-gulfood span.extra-text { display: none; } /* Hides "DUBAI" on tiny screens */
+        .nav-mobile-gulfood span.extra-text { display: none; }
 
-        /* Forex Adjust */
         .forex-item { font-size: 0.7rem; }
         .forex-up { font-size: 0.65rem; padding: 1px 4px; }
-
-        /* Floating Button Adjust */
         .whatsapp-float { width: 50px; height: 50px; bottom: 20px; left: 20px; font-size: 24px; padding-bottom: env(safe-area-inset-bottom); }
-        
         .nav-logo-img { max-width: 140px; height: 40px; }
         .mobile-toggle { font-size: 1.3rem; padding: 5px; }
         .nav-menu { width: 100%; max-width: 100%; }
@@ -276,6 +306,13 @@
             <a href="https://jftagro.com/index.html#global-reach" class="nav-link" onclick="toggleMenu()">Network</a>
             <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
             <a href="contact.html" class="nav-btn-action desktop-only" onclick="toggleMenu()">Get Quote</a>
+
+            <div class="mobile-social-menu">
+                <a href="https://in.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="mailto:info@jftagro.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
         </div>
         <div class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
     </div>
@@ -288,17 +325,26 @@
     function toggleMenu() { 
         const menu = document.getElementById('navMenu'); 
         const icon = document.querySelector('.mobile-toggle i'); 
+        const body = document.body;
+        
         menu.classList.toggle('active'); 
+        
         if(menu.classList.contains('active')) { 
             icon.classList.remove('fa-bars'); 
             icon.classList.add('fa-xmark'); 
-            document.body.style.overflow = 'hidden';
+            // CHANGE 3: Strictly disable background scrolling
+            body.style.overflow = 'hidden';
+            body.style.height = '100vh'; 
+            body.style.touchAction = 'none'; // Disables touch scroll on body
         } else { 
             icon.classList.remove('fa-xmark'); 
             icon.classList.add('fa-bars'); 
-            document.body.style.overflow = 'auto';
+            body.style.overflow = 'auto';
+            body.style.height = 'auto';
+            body.style.touchAction = 'auto';
         } 
     }
+    
     function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
     function changeLanguage(langCode) { 
         var selectField = document.querySelector(".goog-te-combo"); 
