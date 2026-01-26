@@ -37,7 +37,14 @@
         /* --- Reset & Core --- */
         body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #4a4a4a; background: #fdfbf7; -webkit-font-smoothing: antialiased; width: 100%; } 
         * { box-sizing: border-box; } 
-        html { scroll-behavior: smooth; scroll-padding-top: 100px; overflow-x: hidden; }
+        
+        /* UPDATED: Added scrollbar-gutter: stable */
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 100px; 
+            overflow-x: hidden; 
+            scrollbar-gutter: stable; 
+        }
         
         h1, h2, h3, h4 { font-family: var(--font-head); margin: 0; color: var(--jft-navy); letter-spacing: -0.5px; word-wrap: break-word; } 
         p { line-height: 1.8; margin-bottom: 1.5rem; font-size: clamp(1rem, 2vw, 1.1rem); color: #5c5c5c; } 
@@ -63,7 +70,7 @@
         @keyframes logoFloat { 0%, 100% { transform: translateY(0); opacity: 0.9; } 50% { transform: translateY(-5px); opacity: 1; } }
 
         /* --- Global Elements (Titles, Buttons) --- */
-        .section-header { margin-bottom: clamp(30px, 6vw, 60px); max-width: 800px; width: 100%; } 
+        .section-header { margin-bottom: clamp(40px, 6vw, 60px); max-width: 800px; width: 100%; } 
         .center-header { margin-left: auto; margin-right: auto; text-align: center; }
         .brand-tag { display: inline-block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; background: rgba(78, 140, 62, 0.1); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(78, 140, 62, 0.2); }
         
@@ -80,9 +87,9 @@
 
         .section-desc { font-size: clamp(1rem, 1.5vw, 1.15rem); max-width: 700px; margin-top: 20px; color: #6b6b6b; font-weight: 400; }
         
-        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--jft-primary); color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); border: 2px solid var(--jft-primary); box-shadow: 0 4px 10px rgba(78, 140, 62, 0.3); text-align: center; cursor: pointer; white-space: nowrap; } 
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--jft-primary); color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); border: 2px solid var(--jft-primary); box-shadow: 0 4px 10px rgba(78, 140, 62, 0.3); text-align: center; cursor: pointer;} 
         .btn-primary:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-        .btn-outline { display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 2px solid #fff; color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); text-align: center; cursor: pointer; white-space: nowrap; } 
+        .btn-outline { display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 2px solid #fff; color: #fff; padding: 16px 40px; font-family: var(--font-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; border-radius: 50px; transition: var(--transition); text-align: center; cursor: pointer;} 
         .btn-outline:hover { background: #fff; color: var(--jft-primary); border-color: #fff; }
         
         /* --- Replaced Hero CSS --- */
@@ -99,13 +106,15 @@
             .jft-hero-banner { 
                 padding-top: 160px !important; 
                 align-items: flex-start; 
-                min-height: auto;
-                padding-bottom: 60px;
             }
+            
+            /* Tablet/Laptop Hero Dash Adjustment */
             .hero-title-modern span::after { 
                 bottom: 4px; 
                 height: 8px; 
             }
+
+            /* Manufacturing Highlight Dash Adjustment */
             .manu-highlight::after {
                 height: 6px !important;
                 bottom: 2px !important;
@@ -285,6 +294,7 @@
         .step-node:hover .step-marker { border-color: var(--jft-primary); background: var(--jft-primary); color: #fff; transform: scale(1.1); }
         .step-marker::after { content: attr(data-num); position: absolute; top: 0; right: 0; width: 26px; height: 26px; background: var(--jft-gold); color: #000; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
         
+        /* --- POINT 1: NETWORK SECTION FIXES --- */
         .jft-network-section { position: relative; padding: 110px 0; overflow: visible; width: 100%; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; }
         
         .network-header { text-align: center; margin-bottom: 60px; position: relative; z-index: 10; padding: 0 20px; }
@@ -302,6 +312,7 @@
         
         .export-node { position: absolute; display: flex; align-items: center; gap: 20px; width: 320px; transition: 0.4s ease-in-out; cursor: pointer; z-index: 20; }
         
+        /* POINT 1: High Z-Index on Hover */
         .export-node:hover { z-index: 100; }
 
         .node-portal { width: 80px; height: 80px; background: #fff; border-radius: 0 40px 0 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-subtle); border: 1px solid var(--jft-border); transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); } 
@@ -311,11 +322,12 @@
         .node-info h3 { margin: 0; font-family: var(--font-head); font-size: 1.2rem; color: var(--jft-navy); font-weight: 700; letter-spacing: -0.5px; } 
         .node-info p { margin: 5px 0 0 0; font-family: var(--font-body); font-size: 0.9rem; color: #666; line-height: 1.4; }
         
+        /* --- UPDATED: Limit visible items to approx 4 (185px) --- */
         .country-list-reveal { 
             position: absolute; 
             width: 220px; 
-            max-height: 185px; 
-            overflow-y: auto; 
+            max-height: 185px; /* Restricts height to approx 4 items */
+            overflow-y: auto; /* Enables scrolling */
             display: flex; 
             flex-direction: column; 
             gap: 6px; 
@@ -338,6 +350,48 @@
         .node-5 { top: 75%; right: 5%; flex-direction: row-reverse; text-align: right; }
         .node-0 .country-list-reveal, .node-2 .country-list-reveal, .node-4 .country-list-reveal { left: 90px; top: 100%; } 
         .node-1 .country-list-reveal, .node-3 .country-list-reveal, .node-5 .country-list-reveal { right: 90px; top: 100%; }
+        
+        /* --- NEW PARTNERS GRID CSS --- */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        .partner-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--jft-border);
+            transition: var(--transition);
+        }
+        .partner-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--jft-primary);
+            box-shadow: var(--shadow-hover);
+        }
+        .partner-flag {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .partner-country {
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+            color: var(--jft-navy);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .partner-type {
+            font-family: var(--font-sub);
+            font-size: 0.85rem;
+            color: var(--jft-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         
         .cert-container { width: 100%; overflow: hidden; position: relative; padding: 50px 0; border-bottom: 1px solid var(--jft-border); cursor: grab; } 
         .cert-container:active { cursor: grabbing; } 
@@ -1015,6 +1069,54 @@
                 <div class="central-hub"><div class="pulse-ring pr-1"></div><div class="pulse-ring pr-2"></div><div class="hub-circle-container"><img src="images/jft logo.png" alt="JFT" class="hub-logo" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-leaf\' style=\'font-size:40px; color:var(--jft-primary)\'></i>'"></div></div>
                 <div class="mobile-swipe-hint"><i class="fa-solid fa-left-right"></i> Swipe & Tap Portals</div>
                 <div class="nodes-container" id="jft_nodes_container"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="partners">
+        <div class="jft-wide-container">
+            <div class="section-header center-header reveal">
+                <span class="brand-tag">Our Global Footprint</span>
+                <h2 class="section-title">Strategic <br><span>Strongholds</span></h2>
+                <p class="section-desc text-center">Direct presence and partner networks ensuring seamless supply chain management.</p>
+            </div>
+            
+            <div class="partners-grid reveal">
+                <div class="partner-card">
+                    <span class="partner-flag">🇷🇺</span>
+                    <h4 class="partner-country">Russia</h4>
+                    <span class="partner-type">Direct Supply</span>
+                </div>
+                <div class="partner-card">
+                    <span class="partner-flag">🇻🇳</span>
+                    <h4 class="partner-country">Vietnam</h4>
+                    <span class="partner-type">Trading Hub</span>
+                </div>
+                <div class="partner-card">
+                    <span class="partner-flag">🇱🇰</span>
+                    <h4 class="partner-country">Sri Lanka</h4>
+                    <span class="partner-type">Distribution Partner</span>
+                </div>
+                <div class="partner-card">
+                    <span class="partner-flag">🇦🇪</span>
+                    <h4 class="partner-country">Dubai (UAE)</h4>
+                    <span class="partner-type">Strategic Hub</span>
+                </div>
+                <div class="partner-card">
+                    <span class="partner-flag">🇧🇯</span>
+                    <h4 class="partner-country">Benin</h4>
+                    <span class="partner-type">Logistics Base</span>
+                </div>
+                <div class="partner-card">
+                    <span class="partner-flag">🇿🇲</span>
+                    <h4 class="partner-country">Zambia</h4>
+                    <span class="partner-type">Regional Office</span>
+                </div>
+                <div class="partner-card">
+                    <span class="partner-flag">🇰🇪</span>
+                    <h4 class="partner-country">Kenya</h4>
+                    <span class="partner-type">Key Partner</span>
+                </div>
             </div>
         </div>
     </section>
