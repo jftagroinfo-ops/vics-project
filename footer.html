@@ -1,23 +1,134 @@
 <style>
-    /* --- Footer --- */
-    .footer-section { background: var(--jft-navy); color: #fff; padding: 80px 0 30px 0; border-top: 10px solid var(--jft-primary); }
-    .footer-grid { display: grid; grid-template-columns: 1.4fr 0.8fr 1fr 1.2fr; gap: 50px; margin-bottom: 40px; }
-    .f-col h4 { font-family: var(--font-sub); font-size: 1.1rem; margin-bottom: 25px; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
-    .f-links li { margin-bottom: 12px; }
-    .f-links a { color: rgba(255,255,255,0.7); font-size: 0.9rem; transition: 0.3s; }
-    .f-links a:hover { color: var(--jft-gold); padding-left: 5px; }
-    .f-contact li { display: flex; gap: 15px; margin-bottom: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
-    .f-contact i { color: var(--jft-gold); margin-top: 5px; }
-    .f-input { width: 100%; padding: 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; margin-bottom: 10px; font-family: var(--font-body); }
-    .f-input:focus { outline: none; border-color: var(--jft-gold); }
-    .f-btn-full { width: 100%; padding: 14px; background: var(--jft-primary); color: #fff; border: none; border-radius: 4px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; cursor: pointer; transition: 0.3s; letter-spacing: 1px; }
-    .f-btn-full:hover { background: var(--jft-gold); color: var(--jft-navy); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    /* --- Footer Core Styles --- */
+    .footer-section { 
+        background: var(--jft-navy); 
+        color: #fff; 
+        padding: 80px 0 30px 0; 
+        border-top: 10px solid var(--jft-primary);
+        /* Ensure container fits properly */
+        width: 100%;
+        box-sizing: border-box; 
+    }
     
+    /* Grid Logic: Default Desktop (Asymmetric 4-Col) */
+    .footer-grid { 
+        display: grid; 
+        grid-template-columns: 1.4fr 0.8fr 1fr 1.2fr; 
+        gap: 50px; 
+        margin-bottom: 40px; 
+        align-items: start;
+    }
+
+    /* Column & Typography */
+    .f-col h4 { 
+        font-family: var(--font-sub); 
+        font-size: 1.1rem; 
+        margin-bottom: 25px; 
+        color: #fff; 
+        text-transform: uppercase; 
+        letter-spacing: 1px; 
+    }
+    .f-links li { margin-bottom: 12px; }
+    .f-links a { 
+        color: rgba(255,255,255,0.7); 
+        font-size: 0.9rem; 
+        text-decoration: none;
+        transition: 0.3s; 
+        display: inline-block;
+    }
+    .f-links a:hover { color: var(--jft-gold); padding-left: 5px; }
+
+    /* Contact Details */
+    .f-contact li { 
+        display: flex; 
+        gap: 15px; 
+        margin-bottom: 20px; 
+        font-size: 0.9rem; 
+        color: rgba(255,255,255,0.8); 
+        line-height: 1.5; 
+        align-items: flex-start;
+    }
+    .f-contact i { color: var(--jft-gold); margin-top: 5px; flex-shrink: 0; }
+
+    /* Form Elements */
+    .f-input { 
+        width: 100%; 
+        padding: 14px; 
+        background: rgba(255,255,255,0.05); 
+        border: 1px solid rgba(255,255,255,0.1); 
+        border-radius: 4px; 
+        color: #fff; 
+        margin-bottom: 10px; 
+        font-family: var(--font-body); 
+        box-sizing: border-box;
+    }
+    .f-input:focus { outline: none; border-color: var(--jft-gold); }
+    
+    .f-btn-full { 
+        width: 100%; 
+        padding: 14px; 
+        background: var(--jft-primary); 
+        color: #fff; 
+        border: none; 
+        border-radius: 4px; 
+        font-weight: 700; 
+        text-transform: uppercase; 
+        font-size: 0.85rem; 
+        cursor: pointer; 
+        transition: 0.3s; 
+        letter-spacing: 1px; 
+    }
+    .f-btn-full:hover { background: var(--jft-gold); color: var(--jft-navy); }
+
+    /* Social Icons */
+    .td-social {
+        padding: 0; 
+        background: none; 
+        display: flex;
+        gap: 15px;
+        justify-content: flex-start;
+    }
+    .td-social a { color: rgba(255,255,255,0.7); font-size: 1.2rem; transition: 0.3s; }
+    .td-social a:hover { color: var(--jft-gold); }
+
+    /* Bottom Copyright */
+    .footer-bottom { 
+        border-top: 1px solid rgba(255,255,255,0.1); 
+        padding-top: 30px; 
+        text-align: center; 
+        font-size: 0.85rem; 
+        color: rgba(255,255,255,0.5); 
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    /* --- RESPONSIVE LOGIC --- */
+
+    /* Tablet / Small Laptop (1024px and below) */
+    /* Changes 4 columns to 2 columns for better readability */
     @media (max-width: 1024px) {
-        .footer-grid { grid-template-columns: 1fr; }
-        .footer-bottom { flex-direction: column; text-align: center; gap: 10px; } 
-        .footer-section { text-align: left; }
+        .footer-section { padding: 60px 0 30px 0; }
+        .footer-grid { 
+            grid-template-columns: 1fr 1fr; /* 2x2 Grid */
+            gap: 40px; 
+        }
+        .footer-bottom { flex-direction: column; gap: 10px; }
+    }
+
+    /* Mobile Devices (600px and below) */
+    /* Stacks everything in 1 column, reduces padding */
+    @media (max-width: 600px) {
+        .footer-section { padding: 45px 0 25px 0; text-align: left; }
+        .footer-grid { 
+            grid-template-columns: 1fr; /* 1 Column Stack */
+            gap: 35px; 
+        }
+        .f-col img { max-width: 150px; } /* Slightly smaller logo on mobile */
+        
+        /* Ensure inputs and buttons remain tappable but fit */
+        .f-input, .f-btn-full { font-size: 16px; /* Prevents iOS zoom on focus */ }
     }
 </style>
 
@@ -25,9 +136,9 @@
     <div class="jft-wide-container">
         <div class="footer-grid">
             <div class="f-col">
-                <img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Agro" style="width: 180px; filter: brightness(0) invert(1); margin-bottom: 25px;">
+                <img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Agro" style="width: 180px; filter: brightness(0) invert(1); margin-bottom: 25px; max-width: 100%;">
                 <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6;">Government Recognized <strong>Star Export House</strong>. Bridging the gap between fertile Indian farms and global markets with integrity, quality, and trust.</p>
-                <div class="td-social" style="padding: 0; background: none; justify-content: flex-start;">
+                <div class="td-social">
                     <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
@@ -65,10 +176,12 @@
         </div>
 
         <div class="footer-bottom">
-            <span>&copy; <span id="current-year"></span> JFT Agro Overseas LLP. All Rights Reserved. | <a href="#" style="color: var(--jft-gold);">Privacy Policy</a> | <a href="#" style="color: var(--jft-gold);">Terms of Trade</a></span>
+            <span>&copy; <span id="current-year"></span> JFT Agro Overseas LLP. All Rights Reserved.</span>
+            <span>| <a href="#" style="color: var(--jft-gold); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--jft-gold); text-decoration: none;">Terms of Trade</a></span>
         </div>
     </div>
 </footer>
+
 <script>
     document.getElementById('current-year').innerText = new Date().getFullYear();
 </script>
