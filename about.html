@@ -369,15 +369,6 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        // Load Header and Footer
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('header-placeholder').innerHTML = data);
-
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
-
         /* ========================================================================
             🟢 EDITABLE CONTENT STARTS HERE
             Change the text inside the quotes "..." to update your website.
@@ -448,7 +439,7 @@
 
         // Function to Inject Content
         function loadContent() {
-            // Header
+            // Header Background Image
             document.getElementById('header-bg').style.backgroundImage = `url('${CONTENT_CONFIG.images.headerBackground}')`;
             document.getElementById('loader-txt').innerText = CONTENT_CONFIG.header.loaderText;
             document.getElementById('page-title').innerText = CONTENT_CONFIG.header.pageTitle;
@@ -465,10 +456,8 @@
             const tlContainer = document.getElementById('timeline-container');
             let tlHTML = '';
             CONTENT_CONFIG.timeline.forEach((item, index) => {
-                const isEven = index % 2 !== 0; // 0, 2 are odd visual index but array index starts at 0
-                // Logic: Index 0 (1980) -> Year Right. Index 1 (1995) -> Year Left.
+                const isEven = index % 2 !== 0; 
                 if(!isEven) {
-                    // Left Content, Right Year
                     tlHTML += `
                     <div class="growth-item reveal">
                         <div class="growth-marker"></div>
@@ -476,7 +465,6 @@
                         <div class="growth-right"><div class="g-year-text">${item.year}</div></div>
                     </div>`;
                 } else {
-                    // Right Content, Left Year
                     tlHTML += `
                     <div class="growth-item reveal">
                         <div class="growth-marker"></div>
@@ -520,6 +508,32 @@
 
         // Run Content Loader Immediately
         loadContent();
+
+        // 2. JAVASCRIPT CONFIGURATION (Component Loader)
+        // --- Universal File Loading ---
+        async function loadComponent(id, file) {
+            try {
+                const res = await fetch(file);
+                if (!res.ok) throw new Error(`Failed to load ${file}`);
+                const text = await res.text();
+                document.getElementById(id).innerHTML = text;
+                
+                // This block ensures scripts inside the loaded header/footer actually run
+                const scripts = document.getElementById(id).querySelectorAll("script");
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
+            } catch (err) { console.error(err); }
+        }
+
+        // Trigger the load when the page is ready
+        document.addEventListener("DOMContentLoaded", () => {
+            loadComponent("header-placeholder", "header.html");
+            loadComponent("footer-placeholder", "footer.html");
+        });
 
         // Scroll Progress Bar
         window.onscroll = function() {
