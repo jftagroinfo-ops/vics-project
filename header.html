@@ -7,18 +7,23 @@
 <link rel="icon" type="image/png" href="images/jft logo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-    /* --- VISUAL THEME & DESIGN SYSTEM --- */
+    /* --- VISUAL IDENTITY & DESIGN SYSTEM --- */
     :root {
-        /* Navy Blue: Trust & Corporate Stability (Top Bar, Mobile Menu) */
-        --jft-navy: #0a192f;
+        /* Primary: Deep Forest Green (Top Bar, Mobile Menu background) - "Earthy but Corporate" */
+        --jft-navy: #1a3c34; 
         
-        /* Gold: Premium Quality (Icons, Hover, Scrollbar, Visit Plan CTA) */
-        --jft-gold: #c5a059;
+        /* Accent: Luxury Gold (Icons, Hover, Scrollbar, Highlights) */
+        --jft-gold: #eebf45; 
         
-        /* Green: Agriculture/Freshness (Ticker Label, Action Buttons) */
-        --jft-primary: #16a34a;
+        /* Secondary: Leaf Green (Action Buttons, Ticker Label) */
+        --jft-primary: #4e8c3e; 
         
-        --jft-dark: #14532d;
+        /* Hover State (Darker Green) */
+        --jft-dark: #142923; 
+
+        /* Background: Off-white/Cream (Reading Sections) */
+        --jft-cream: #f5f1e6;
+        
         --font-sub: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
@@ -26,20 +31,21 @@
     /* --- GLOBAL RESET & RESPONSIVE BASE --- */
     * { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
     
-    /* Fix Horizontal Scroll / Wobble */
+    /* Fix Horizontal Scroll / Wobble & Set Background */
     html, body { 
         margin: 0; padding: 0; 
         font-family: var(--font-body); 
+        background-color: var(--jft-cream); /* Cream Background */
         overflow-x: hidden; 
         width: 100%; 
         position: relative;
     }
     a { text-decoration: none; color: inherit; }
 
-    /* --- SCROLL PROGRESS BAR (Gold) --- */
+    /* --- SCROLL PROGRESS BAR (Luxury Gold) --- */
     #page-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--jft-gold); z-index: 9999; width: 0%; transition: width 0.1s; }
 
-    /* --- TOP DASHBOARD (Navy Background) --- */
+    /* --- TOP DASHBOARD (Deep Forest Green) --- */
     .top-dashboard { 
         position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; 
         background: var(--jft-navy); color: #fff; 
@@ -67,7 +73,7 @@
         flex: 1; display: flex; align-items: center; overflow: hidden; 
         background: var(--jft-navy); position: relative; height: 100%; min-width: 0; 
     }
-    /* Ticker Label (Green Background) */
+    /* Ticker Label (Leaf Green) */
     .ticker-label { 
         background: var(--jft-primary); color: #fff; padding: 0 20px; height: 100%; 
         display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 0.75rem; 
@@ -100,9 +106,9 @@
     .forex-group { display: flex; gap: 25px; align-items: center; font-size: 0.8rem; flex: 1; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; white-space: nowrap; height: 100%; padding-right: 15px; } 
     .forex-group::-webkit-scrollbar { display: none; }
     .forex-item { display: flex; align-items: center; gap: 6px; } 
-    .forex-up { color: #16a34a; background: #ecfdf5; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; }
+    .forex-up { color: #4e8c3e; background: #ecfdf5; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; }
     
-    /* Desktop Top CTA Button (Gold Background) */
+    /* Desktop Top CTA Button (Luxury Gold) */
     .visit-plan { display: flex; align-items: center; gap: 10px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 25px 0 40px; font-size: 0.72rem; clip-path: polygon(20px 0, 100% 0, 100% 100%, 0% 100%); transition: 0.3s; letter-spacing: 0.5px; font-weight: 800; white-space: nowrap; text-decoration: none; flex-shrink: 0; } 
     .visit-plan:hover { background: var(--jft-navy); color: #fff; } 
     .visit-plan i { animation: pulse 1.5s infinite; }
@@ -132,11 +138,11 @@
     .nav-link:hover { color: var(--jft-primary); } 
     .nav-link:hover::after { width: 100%; }
     
-    /* Action Buttons (Green Background) */
+    /* Action Buttons (Leaf Green) */
     .nav-btn-action { padding: 12px 24px; background: var(--jft-primary); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--jft-primary); transition: 0.3s; box-shadow: 0 4px 15px rgba(78, 140, 62, 0.2); text-decoration: none; white-space: nowrap; } 
     .nav-btn-action:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-2px); }
     
-    /* Special Gulfood Button for Mobile Navbar (Gold) */
+    /* Special Gulfood Button for Mobile Navbar (Luxury Gold) */
     .nav-mobile-gulfood { display: none; } 
 
     /* New Mobile Social Links (Hidden on Desktop) */
@@ -147,7 +153,7 @@
     /* --- FLOATING UTILITIES --- */
     .sticky-quote { position: fixed; right: 0; top: 50%; transform: translateY(-50%) rotate(-90deg) translateX(50%); transform-origin: right center; z-index: 99; }
     
-    /* Sticky Button (Green Background) */
+    /* Sticky Button (Leaf Green) */
     .sticky-btn { background: var(--jft-primary); color: #fff; padding: 12px 30px; font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; border-radius: 10px 10px 0 0; box-shadow: -4px 0 10px rgba(0,0,0,0.2); transition: 0.3s; display: block; font-size: 13px; text-decoration: none; white-space: nowrap; } 
     .sticky-btn:hover { background: var(--jft-gold); color: #000; padding-bottom: 20px; }
     
@@ -191,7 +197,7 @@
         }
         .nav-mobile-gulfood i { font-size: 0.8rem; }
         
-        /* Mobile Menu (Navy Background) */
+        /* Mobile Menu (Deep Forest Green Background) */
         .nav-menu { 
             position: fixed; 
             top: 100%; 
