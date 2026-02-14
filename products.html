@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Product Catalogue | JFT Agro Overseas - Star Export House</title>
     <meta name="description" content="Exporting Premium Basmati Rice, Spices, Grains, and Animal Feed. Detailed Specifications and Loading Capacity.">
+    
+    <link rel="canonical" href="https://jftagro.com/products.html">
+    <meta property="og:title" content="JFT Agro Product Catalogue - Star Export House">
+    <meta property="og:description" content="Premium Basmati Rice, Spices, and Grains for Global Export. View detailed specs and live market verdicts.">
+    <meta property="og:image" content="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png">
+    <meta property="og:type" content="website">
     <meta name="theme-color" content="#1a3c34">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,23 +18,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 
     <style>
         /* --- GLOBAL VARIABLES --- */
         :root { 
-            /* Color Palette (Preserved) */
-            --jft-primary: #4e8c3e; /* Leaf Green */
-            --jft-dark: #1a3c34;    /* Deep Forest Green */
-            --jft-navy: #1a3c34;    /* Deep Forest Green */
-            --jft-gold: #eebf45;    /* Luxury Gold */
-            --jft-light: #f5f1e6;   /* Off-white/Cream */
+            /* Color Palette */
+            --jft-primary: #4e8c3e; 
+            --jft-dark: #1a3c34;    
+            --jft-navy: #1a3c34;    
+            --jft-gold: #eebf45;    
+            --jft-gold-text: #c59d35; /* Darker gold for better text contrast */
+            --jft-light: #f5f1e6;   
             --jft-border: #dcd6cb;
             
             /* Typography System */
-            --font-head: 'Merriweather', serif;       
-            --font-sub: 'Montserrat', sans-serif;     
-            --font-body: 'Lato', sans-serif;          
+            --font-head: 'Merriweather', serif;        
+            --font-sub: 'Montserrat', sans-serif;      
+            --font-body: 'Lato', sans-serif;           
             
             --radius-sm: 8px; 
             --radius-md: 16px; 
@@ -38,29 +45,36 @@
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
         }
         
-        /* FIX: Changed overflow-x: hidden to clip to fix Sticky Menu Bar */
-        body { margin: 0; padding: 0; overflow-x: clip; font-family: var(--font-body); color: #4a4a4a; background: var(--jft-light); -webkit-font-smoothing: antialiased; } 
+        /* Premium Gradient Background Alignment */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: clip; 
+            font-family: var(--font-body); 
+            color: #4a4a4a; 
+            background: linear-gradient(180deg, #ffffff 0%, #f1f5ee 100%);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased; 
+            min-height: 100vh;
+        } 
+        /* Lock body scroll when modal is open */
+        body.modal-open { overflow: hidden; }
+
         * { box-sizing: border-box; } 
         
-        /* Updated: Added scrollbar-gutter: stable */
         html { scroll-behavior: smooth; scrollbar-gutter: stable; }
         
-        /* Typography Responsiveness */
         h1, h2, h3, h4 { font-family: var(--font-head); margin: 0; color: var(--jft-navy); letter-spacing: -0.5px; } 
         p { line-height: 1.8; margin-bottom: 1.5rem; font-size: clamp(0.95rem, 2vw, 1.1rem); color: #5c5c5c; } 
         a { text-decoration: none; color: inherit; transition: var(--transition); } 
         ul { list-style: none; padding: 0; } 
         img { max-width: 100%; display: block; border-radius: var(--radius-sm); }
         
-        /* Scroll Progress */
         #page-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--jft-gold); z-index: 9999; width: 0%; transition: width 0.1s; }
 
-        /* Container & Layout Responsiveness */
         .jft-wide-container { max-width: 1350px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 5; }
         .section-padding { padding: clamp(60px, 8vw, 110px) 0; } 
         .bg-light { background-color: var(--jft-light); }
-        
-        .brand-tag { display: inline-block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; background: rgba(78, 140, 62, 0.1); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(78, 140, 62, 0.2); }
         
         .section-title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; color: var(--jft-navy); text-align: center; } 
         .section-title span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; } 
@@ -78,7 +92,7 @@
         .ph-breadcrumb { font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--jft-gold); font-size: clamp(0.7rem, 2vw, 0.9rem); background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 50px; display: inline-block; }
 
         /* --- Brand Strip --- */
-        .brand-strip { background: #fff; border-bottom: 1px solid #eee; padding: 20px 0; margin-top: -5px; position: relative; z-index: 4; }
+        .brand-strip { background: #fff; border-bottom: 1px solid #eee; padding: 20px 0; margin-top: -5px; position: relative; z-index: 4; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
         .bs-grid { display: flex; justify-content: center; gap: clamp(20px, 4vw, 50px); flex-wrap: wrap; }
         .bs-item { display: flex; align-items: center; gap: 10px; opacity: 0.7; transition: 0.3s; }
         .bs-item:hover { opacity: 1; transform: translateY(-2px); }
@@ -88,13 +102,12 @@
         /* --- Search & Tabs --- */
         .search-wrapper { max-width: 600px; width: 100%; margin: 40px auto 30px auto; position: relative; z-index: 12; padding: 0 20px; }
         .search-input-box { position: relative; width: 100%; }
-        .search-input { width: 100%; padding: 15px 50px 15px 25px; border-radius: 50px; border: 1px solid #ddd; font-family: var(--font-body); font-size: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); outline: none; transition: 0.3s; }
-        .search-input:focus { box-shadow: 0 15px 40px rgba(78, 140, 62, 0.15); border-color: var(--jft-primary); }
+        .search-input { width: 100%; padding: 15px 50px 15px 25px; border-radius: 50px; border: 1px solid #ddd; font-family: var(--font-body); font-size: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); outline: none; transition: 0.3s; background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); }
+        .search-input:focus { box-shadow: 0 15px 40px rgba(78, 140, 62, 0.15); border-color: var(--jft-primary); background: #fff; }
         .search-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: var(--jft-primary); font-size: 1.2rem; pointer-events: none; }
 
-        /* FIX: Increased z-index to 999 to fix layering issues */
         .tab-wrapper { position: sticky; top: 90px; max-width: 1300px; margin: 0 auto 30px auto; z-index: 999; display: flex; align-items: center; padding: 10px 20px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; transition: 0.3s; }
-        .cat-scroll-view { overflow-x: auto; display: flex; gap: 10px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 5px; width: 100%; cursor: grab; }
+        .cat-scroll-view { overflow-x: auto; display: flex; gap: 10px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 5px; width: 100%; cursor: grab; scroll-snap-type: x mandatory; }
         .cat-scroll-view:active { cursor: grabbing; }
         .cat-scroll-view::-webkit-scrollbar { display: none; }
         
@@ -102,7 +115,7 @@
         .tab-arrow:hover { background: var(--jft-gold); color: var(--jft-navy); transform: scale(1.1); }
         .tab-left { margin-right: 10px; } .tab-right { margin-left: 10px; }
         
-        .cat-btn { flex: 0 0 auto; padding: 10px 20px; background: transparent; border: 1px solid #eee; border-radius: 50px; font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #555; cursor: pointer; transition: all 0.3s ease; font-size: 0.75rem; white-space: nowrap; pointer-events: auto; }
+        .cat-btn { flex: 0 0 auto; padding: 10px 20px; background: transparent; border: 1px solid #eee; border-radius: 50px; font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #555; cursor: pointer; transition: all 0.3s ease; font-size: 0.75rem; white-space: nowrap; pointer-events: auto; scroll-snap-align: start; }
         .cat-btn:hover { background: rgba(78, 140, 62, 0.05); color: var(--jft-primary); border-color: rgba(78, 140, 62, 0.3); transform: scale(1.05); }
         .cat-btn.active { background: var(--jft-primary); color: #fff; box-shadow: 0 8px 20px rgba(78, 140, 62, 0.3); border-color: var(--jft-primary); transform: scale(1.05); }
         .cat-btn.import-tab { color: #d97706; border-color: rgba(217, 119, 6, 0.2); }
@@ -117,10 +130,10 @@
         /* --- Product Grid --- */
         .product-catalogue-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: start; }
         
-        .p-item { background: #fff; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--jft-border); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; display: flex; flex-direction: column; }
+        .p-item { background: #fff; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--jft-border); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; display: flex; flex-direction: column; contain: content; }
         .p-item:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(26, 60, 52, 0.1); border-color: var(--jft-gold); }
         .p-img-box { height: 260px; overflow: hidden; position: relative; background: #f4f4f4; }
-        .p-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .p-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; aspect-ratio: 290/260; }
         .p-item:hover .p-img-box img { transform: scale(1.1); }
         
         .p-content { padding: clamp(20px, 5vw, 30px); flex-grow: 1; display: flex; flex-direction: column; }
@@ -135,6 +148,7 @@
         .p-table-shared td:last-child { text-align: right; font-family: var(--font-sub); font-weight: 600; color: #444; }
         
         .p-specs-scrollable { max-height: 145px; overflow-y: auto; overflow-x: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); border-bottom: none; cursor: grab; padding-bottom: 30px; }
+        .p-specs-scrollable:focus { outline: 2px solid var(--jft-gold); outline-offset: -2px; }
         .p-specs-scrollable:active { cursor: grabbing; }
         .p-specs-scrollable.expanded { max-height: 700px; }
         .p-specs-scrollable::-webkit-scrollbar { width: 4px; }
@@ -202,7 +216,7 @@
         .m-news-box { background: #fff; padding: 20px; border-radius: 12px; border-left: 4px solid var(--jft-primary); margin-bottom: 30px; box-shadow: var(--shadow-subtle); }
         .m-news-item { margin-bottom: 12px; font-size: 0.9rem; color: #444; display: flex; flex-direction: column; gap: 2px; align-items: flex-start; }
         @media(min-width: 600px) { .m-news-item { flex-direction: row; gap: 10px; align-items: baseline; } }
-        .m-news-date { color: var(--jft-gold); font-weight: 700; font-size: 0.75rem; white-space: nowrap; font-family: var(--font-sub); }
+        .m-news-date { color: var(--jft-gold-text); font-weight: 700; font-size: 0.75rem; white-space: nowrap; font-family: var(--font-sub); }
         .m-verdict-box { background: var(--jft-navy); color: #fff; padding: 25px; border-radius: 12px; text-align: center; margin-top: 30px; box-shadow: 0 10px 30px rgba(26, 60, 52, 0.2); }
         .m-verdict-title { font-family: var(--font-sub); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.8; margin-bottom: 10px; }
         .m-verdict-val { font-family: var(--font-head); font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 700; color: var(--jft-gold); }
@@ -211,6 +225,7 @@
         .m-wc-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
         .m-wc-icon { width: 40px; height: 40px; background: var(--jft-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
         .m-wc-text { font-size: 0.9rem; color: #555; line-height: 1.5; }
+        
         .mobile-floating-close { display: none; }
 
         /* --- Media Queries --- */
@@ -225,11 +240,10 @@
             .bs-grid { gap: 20px; justify-content: space-around; padding: 0 20px; }
             .bs-item { font-size: 0.7rem; }
             
-            .mobile-floating-close { display: flex; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--jft-navy); color: #fff; padding: 12px 30px; border-radius: 50px; z-index: 4000; box-shadow: 0 10px 20px rgba(0,0,0,0.3); font-weight: 700; border: 2px solid var(--jft-gold); align-items: center; gap: 10px; cursor: pointer; white-space: nowrap; }
+            .mobile-floating-close { display: flex; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(26, 60, 52, 0.9); backdrop-filter: blur(5px); color: #fff; padding: 15px 40px; border-radius: 50px; z-index: 4000; box-shadow: 0 10px 20px rgba(0,0,0,0.3); font-weight: 700; border: 2px solid var(--jft-gold); align-items: center; gap: 10px; cursor: pointer; white-space: nowrap; }
         }
 
         @media (max-width: 600px) {
-            /* FIX: Adjusted sticky top position for mobile to prevent large gaps */
             .tab-wrapper { top: 60px; padding: 10px 15px; border-radius: 0; border-left: none; border-right: none; }
             
             .p-img-box { height: 200px; }
@@ -280,18 +294,18 @@
         </div>
     </div>
 
-    <section class="section-padding" style="background: var(--jft-light); padding-top: 0;">
+    <section class="section-padding" style="background: transparent; padding-top: 0;">
         <div class="jft-wide-container">
             <div class="search-wrapper reveal">
                 <div class="search-input-box">
-                    <input type="text" id="prod-search" class="search-input" placeholder="Search by Product Name or Category..." onkeyup="performSearch()">
+                    <input type="text" id="prod-search" class="search-input" placeholder="Search by Product Name or Category..." onkeyup="performSearch()" aria-label="Search Products">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 </div>
             </div>
 
             <div class="tab-wrapper reveal">
                 <div class="tab-arrow tab-left" onclick="scrollTabs(-200)"><i class="fa-solid fa-chevron-left"></i></div>
-                <div class="cat-scroll-view" id="tab-container">
+                <div class="cat-scroll-view" id="tab-container" tabindex="0">
                     <button class="cat-btn active" onclick="filterProducts('all')">All</button>
                     <button class="cat-btn" onclick="filterProducts('rice')">Rice</button>
                     <button class="cat-btn" onclick="filterProducts('spices')">Spices</button>
@@ -359,7 +373,7 @@
                     <h2 class="modal-title" id="m-title">Product Name</h2>
                 </div>
                 <div class="modal-actions">
-                    <button class="btn-primary" style="padding: 8px 20px; font-size:0.75rem;" onclick="closeModal()"><i class="fa-solid fa-xmark"></i> Close</button>
+                    <button class="btn-primary" style="padding: 8px 20px; font-size:0.75rem;" onclick="closeModal()" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i> Close</button>
                     <button class="btn-primary" style="background:var(--jft-dark); border-color:var(--jft-dark);" onclick="downloadPDF()"><i class="fa-solid fa-download"></i> PDF Report</button>
                 </div>
             </div>
@@ -385,15 +399,15 @@
                             <h4 class="m-section-title" style="margin-top:0; border:none; padding:0; margin-bottom:15px;">Why JFT Agro?</h4>
                             <div class="m-wc-item">
                                 <div class="m-wc-icon"><i class="fa-solid fa-globe"></i></div>
-                                <div class="m-wc-text"><strong>Global Reach</strong> Exporting to 20+ countries with established logistics.</div>
+                                <div class="m-wc-text"><strong>Global Reach</strong> Exporting to 20+ countries with established logistics partners (Maersk, MSC).</div>
                             </div>
                             <div class="m-wc-item">
                                 <div class="m-wc-icon"><i class="fa-solid fa-check-circle"></i></div>
-                                <div class="m-wc-text"><strong>Certified Quality</strong> ISO, APEDA, FSSAI compliant production.</div>
+                                <div class="m-wc-text"><strong>Certified Quality</strong> SGS Inspection, Phyto Sanitary, Origin Certificate, and Lab Reports provided.</div>
                             </div>
                             <div class="m-wc-item">
                                 <div class="m-wc-icon"><i class="fa-solid fa-handshake"></i></div>
-                                <div class="m-wc-text"><strong>Direct Source</strong> No middlemen. Farm to Port direct supply.</div>
+                                <div class="m-wc-text"><strong>Direct Source</strong> Farm to Port direct supply. Transparent BL and Invoice documentation.</div>
                             </div>
                         </div>
                     </div>
@@ -402,9 +416,9 @@
                         <h4 class="m-section-title">Technical Specifications & Load</h4>
                         <table class="m-data-table" id="m-specs"></table>
                         
-                        <h4 class="m-section-title">Major Importing Companies</h4>
+                        <h4 class="m-section-title">Top Export Markets</h4>
                         <table class="m-data-table">
-                            <tr><td>Top Buyers</td><td id="m-importers">...</td></tr>
+                            <tr><td>Major Importers</td><td id="m-importers">...</td></tr>
                         </table>
                         
                         <h4 class="m-section-title">3-Year Production History</h4>
@@ -417,6 +431,7 @@
                              <h4 class="m-section-title" style="margin:0;">Price Trend Analysis</h4>
                              <div style="font-size:0.75rem; color:#888;" id="chart-updated"></div>
                         </div>
+                        <div style="font-size:0.7rem; color:#666; margin-bottom:10px; font-style:italic;">*Index based on daily APMC Mandi arrivals</div>
                         
                         <div style="display:flex; gap:10px; margin-bottom:10px;">
                             <button class="sub-cat-btn" id="btn-30" onclick="updateChart(30)">30 Days</button>
@@ -432,7 +447,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mobile-floating-close" onclick="closeModal()">
+            <div class="mobile-floating-close" onclick="closeModal()" aria-label="Close Modal">
                 <i class="fa-solid fa-xmark"></i> Close Report
             </div>
         </div>
@@ -440,121 +455,118 @@
 
     <script>
         const PRODUCT_DATA = [
-            // --- RICE (Basmati) - Harvest: Oct, Nov, Dec (10, 11, 12) ---
-            { c: 'rice', t: '1121 Golden Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','8.35mm Avg'],['Moisture','12.5% Max'],['Broken','1% Max'],['Purity','95% Min'],['Damage','1% Max'],['Discolor','1% Max'],['Foreign Matter','0.1% Max'],['Paddy','Nil'],['Sortex','100%'],['Crop','Current Year']], l: '25-26 MT in 20ft', p: '10, 20, 40kg PP/Non-Woven', f: ['Saudi Arabia', 'Iran', 'Iraq', 'UAE', 'Kuwait'], k: ['Basmati Rice Exporter', 'Golden Sella Rice', 'Indian Basmati', 'JFT Agro Rice', 'Bulk Rice Exporter'] },
-            { c: 'rice', t: '1121 Raw Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','8.35mm Avg'],['Moisture','12% Max'],['Broken','1% Max'],['Texture','Soft & Fluffy'],['Chalky','3% Max'],['Foreign Matter','Nil'],['Purity','95%'],['Origin','Punjab/Haryana'],['Taste','Sweet'],['Aroma','High']], l: '24 MT in 20ft', p: '5kg, 10kg, 20kg, 40kg Bags', f: ['Europe', 'USA', 'Australia', 'Canada', 'Kuwait'], k: ['Raw Basmati Exporter', 'White Basmati Rice', 'Premium Rice India', 'JFT Agro', 'Aromatic Rice'] },
-            { c: 'rice', t: '1121 Steam Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Length','8.35mm Avg'],['Color','White'],['Broken','1% Max'],['Moisture','12.5% Max'],['Purity','95%'],['Damage','1% Max'],['Grain','Slender'],['Sortex','100%'],['Cook','Elongates 2.5x'],['Admixture','Nil']], l: '24-25 MT in 20ft', p: '10kg, 25kg, 40kg PP Bags', f: ['UAE', 'Qatar', 'Kuwait', 'Oman', 'Bahrain'], k: ['Steam Basmati Rice', '1121 Steam Rice', 'Rice Supplier UAE', 'JFT Rice', 'Long Grain Rice'] },
-            { c: 'rice', t: '1121 White Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Length','8.35mm Avg'],['Color','Creamy'],['Broken','1% Max'],['Moisture','12.5% Max'],['Hardness','Hard'],['Cook','Non-Sticky'],['Foreign Matter','Nil'],['Paddy','Nil'],['Sortex','100%'],['Grain','Extra Long']], l: '25-26 MT in 20ft', p: '10kg, 20kg, 40kg Bags', f: ['Saudi Arabia', 'Turkey', 'Jordan', 'Egypt', 'Syria'], k: ['White Sella Basmati', 'Parboiled Basmati', 'Creamy Sella', 'Rice Exporter Saudi', 'JFT Agro'] },
-            
-            { c: 'rice', t: '1401 Sella Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','7.70mm Avg'],['Moisture','12.5% Max'],['Broken','1% Max'],['Purity','95%'],['Damage','1% Max'],['Red Streak','Nil'],['Milling','Sortex'],['Crop','New'],['Texture','Firm'],['Aroma','Mild']], l: '25-26 MT in 20ft', p: 'Jute, PP, Non-Woven', f: ['Egypt', 'Syria', 'Lebanon', 'Turkey', 'Iraq'], k: ['1401 Basmati Rice', 'Pusa Basmati', 'Sella Rice Exporter', 'Indian Rice Supplier', 'JFT Products'] },
-            { c: 'rice', t: '1401 Golden Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','7.70mm Avg'],['Color','Golden'],['Broken','1% Max'],['Moisture','13% Max'],['Discolor','1% Max'],['Foreign Matter','Nil'],['Paddy','Nil'],['Sortex','100%'],['Process','Parboiled'],['Grain','Long']], l: '25-26 MT in 20ft', p: '10kg, 20kg, 40kg Bags', f: ['Iran', 'Iraq', 'Saudi Arabia', 'Kuwait', 'Bahrain'], k: ['1401 Golden Sella', 'Pusa Golden Rice', 'Rice Exporter Iran', 'Bulk Basmati', 'JFT Agro'] },
-            { c: 'rice', t: '1401 Steam Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','7.70mm Avg'],['Aroma','High'],['Purity','95%'],['Moisture','12% Max'],['Broken','2% Max'],['Chalky','Nil'],['Grain','Extra Long'],['Origin','India'],['Sortex','100%'],['Cook','Fluffy']], l: '24-25 MT in 20ft', p: '5kg, 10kg, 25kg Bags', f: ['UK', 'Canada', 'USA', 'Europe', 'Australia'], k: ['1401 Steam Rice', 'Pusa Steam Basmati', 'Rice Exporter UK', 'Premium Steam Rice', 'JFT Basmati'] },
+            // --- RICE (Basmati) ---
+            { c: 'rice', t: '1121 Golden Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','8.35mm Avg'],['Moisture','12.5% Max'],['Broken','1% Max'],['Purity','95% Min'],['Damage','1% Max'],['Discolor','1% Max'],['Foreign Matter','0.1% Max'],['Paddy','Nil'],['Sortex','100%'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '25-26 MT in 20ft', p: '10, 20, 40kg PP/Non-Woven', f: ['Saudi Arabia', 'Iran', 'Iraq', 'UAE', 'Kuwait'], k: ['Basmati Rice Exporter', 'Golden Sella Rice', 'Indian Basmati', 'JFT Agro Rice', 'Bulk Rice Exporter'] },
+            { c: 'rice', t: '1121 Raw Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','8.35mm Avg'],['Moisture','12% Max'],['Broken','1% Max'],['Texture','Soft & Fluffy'],['Chalky','3% Max'],['Foreign Matter','Nil'],['Purity','95%'],['Origin','Punjab/Haryana'],['Taste','Sweet'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '5kg, 10kg, 20kg, 40kg Bags', f: ['Europe', 'USA', 'Australia', 'Canada', 'Kuwait'], k: ['Raw Basmati Exporter', 'White Basmati Rice', 'Premium Rice India', 'JFT Agro', 'Aromatic Rice'] },
+            { c: 'rice', t: '1121 Steam Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Length','8.35mm Avg'],['Color','White'],['Broken','1% Max'],['Moisture','12.5% Max'],['Purity','95%'],['Damage','1% Max'],['Grain','Slender'],['Sortex','100%'],['Cook','Elongates 2.5x'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '24-25 MT in 20ft', p: '10kg, 25kg, 40kg PP Bags', f: ['UAE', 'Qatar', 'Kuwait', 'Oman', 'Bahrain'], k: ['Steam Basmati Rice', '1121 Steam Rice', 'Rice Supplier UAE', 'JFT Rice', 'Long Grain Rice'] },
+            { c: 'rice', t: '1121 White Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Length','8.35mm Avg'],['Color','Creamy'],['Broken','1% Max'],['Moisture','12.5% Max'],['Hardness','Hard'],['Cook','Non-Sticky'],['Foreign Matter','Nil'],['Paddy','Nil'],['Sortex','100%'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '25-26 MT in 20ft', p: '10kg, 20kg, 40kg Bags', f: ['Saudi Arabia', 'Turkey', 'Jordan', 'Egypt', 'Syria'], k: ['White Sella Basmati', 'Parboiled Basmati', 'Creamy Sella', 'Rice Exporter Saudi', 'JFT Agro'] },
+            { c: 'rice', t: '1401 Sella Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','7.70mm Avg'],['Moisture','12.5% Max'],['Broken','1% Max'],['Purity','95%'],['Damage','1% Max'],['Red Streak','Nil'],['Milling','Sortex'],['Crop','New'],['Texture','Firm'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '25-26 MT in 20ft', p: 'Jute, PP, Non-Woven', f: ['Egypt', 'Syria', 'Lebanon', 'Turkey', 'Iraq'], k: ['1401 Basmati Rice', 'Pusa Basmati', 'Sella Rice Exporter', 'Indian Rice Supplier', 'JFT Products'] },
+            { c: 'rice', t: '1401 Golden Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','7.70mm Avg'],['Color','Golden'],['Broken','1% Max'],['Moisture','13% Max'],['Discolor','1% Max'],['Foreign Matter','Nil'],['Paddy','Nil'],['Sortex','100%'],['Process','Parboiled'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '25-26 MT in 20ft', p: '10kg, 20kg, 40kg Bags', f: ['Iran', 'Iraq', 'Saudi Arabia', 'Kuwait', 'Bahrain'], k: ['1401 Golden Sella', 'Pusa Golden Rice', 'Rice Exporter Iran', 'Bulk Basmati', 'JFT Agro'] },
+            { c: 'rice', t: '1401 Steam Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','7.70mm Avg'],['Aroma','High'],['Purity','95%'],['Moisture','12% Max'],['Broken','2% Max'],['Chalky','Nil'],['Grain','Extra Long'],['Origin','India'],['Sortex','100%'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '24-25 MT in 20ft', p: '5kg, 10kg, 25kg Bags', f: ['UK', 'Canada', 'USA', 'Europe', 'Australia'], k: ['1401 Steam Rice', 'Pusa Steam Basmati', 'Rice Exporter UK', 'Premium Steam Rice', 'JFT Basmati'] },
+            { c: 'rice', t: '1509 Golden Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','8.40mm Avg'],['Grain','Thick'],['Moisture','13% Max'],['Broken','1% Max'],['Damage','1.5% Max'],['Foreign Matter','0.2% Max'],['Purity','95%'],['Sortex','100%'],['Color','Golden'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '25-26 MT in 20ft', p: '25kg, 40kg, 50kg PP Bags', f: ['Iran', 'Turkey', 'Azerbaijan', 'Iraq', 'Russia'], k: ['1509 Golden Sella', 'Golden Rice Exporter', 'Catering Rice', 'Bulk Rice Supplier', 'JFT Agro Rice'] },
+            { c: 'rice', t: '1509 Steam Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','8.40mm Avg'],['Color','White'],['Cook','Elongates'],['Moisture','12.5% Max'],['Broken','2% Max'],['Chalky','3% Max'],['Purity','95%'],['Taste','Good'],['Grain','Thick'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '25 MT in 20ft', p: '10kg, 40kg BOPP', f: ['UAE', 'Kuwait', 'Oman', 'Qatar', 'Bahrain'], k: ['1509 Steam Rice', 'Long Grain Steam', 'Rice Supplier Kuwait', 'JFT Export', 'Budget Basmati'] },
+            { c: 'rice', t: '1718 Golden Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','8.30mm Avg'],['Yield','High'],['Color','Gold'],['Broken','1% Max'],['Moisture','13% Max'],['Damage','1% Max'],['Purity','95%'],['Sortex','100%'],['Grain','Slender'],['Origin','Haryana'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '25-26 MT in 20ft', p: 'PP Bag, Jute Bag', f: ['Iran', 'Iraq', 'Saudi Arabia', 'Kuwait', 'UAE'], k: ['1718 Golden Sella', 'Modified Basmati', 'Rice Exporter Iraq', 'JFT Agro', 'Golden Parboiled'] },
+            { c: 'rice', t: '1718 Steam Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','8.30mm Avg'],['White','Yes'],['Aroma','Mild'],['Moisture','12% Max'],['Broken','2% Max'],['Chalky','Nil'],['Cooking','Long'],['Origin','Haryana'],['Sortex','100%'],['Taste','Authentic'],['HS Code','10063020'],['MOQ','1 FCL (20ft)']], l: '24-25 MT in 20ft', p: '5kg - 40kg Bags', f: ['UAE', 'USA', 'Canada', 'Australia', 'UK'], k: ['1718 Steam Rice', 'Modified Steam Basmati', 'Rice Exporter USA', 'JFT Rice', 'Indian Rice'] },
 
-            { c: 'rice', t: '1509 Golden Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','8.40mm Avg'],['Grain','Thick'],['Moisture','13% Max'],['Broken','1% Max'],['Damage','1.5% Max'],['Foreign Matter','0.2% Max'],['Purity','95%'],['Sortex','100%'],['Color','Golden'],['Use','Catering']], l: '25-26 MT in 20ft', p: '25kg, 40kg, 50kg PP Bags', f: ['Iran', 'Turkey', 'Azerbaijan', 'Iraq', 'Russia'], k: ['1509 Golden Sella', 'Golden Rice Exporter', 'Catering Rice', 'Bulk Rice Supplier', 'JFT Agro Rice'] },
-            { c: 'rice', t: '1509 Steam Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','8.40mm Avg'],['Color','White'],['Cook','Elongates'],['Moisture','12.5% Max'],['Broken','2% Max'],['Chalky','3% Max'],['Purity','95%'],['Taste','Good'],['Grain','Thick'],['Aroma','Medium']], l: '25 MT in 20ft', p: '10kg, 40kg BOPP', f: ['UAE', 'Kuwait', 'Oman', 'Qatar', 'Bahrain'], k: ['1509 Steam Rice', 'Long Grain Steam', 'Rice Supplier Kuwait', 'JFT Export', 'Budget Basmati'] },
+            // --- RICE (Non-Basmati) ---
+            { c: 'rice', t: '5% Silky Sortex White', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Length','6mm Avg'],['Broken','5% Max'],['Polish','Silky'],['Moisture','14% Max'],['Sortex','100%'],['Chalky','3% Max'],['Damage','1% Max'],['Admixture','Nil'],['Color','White'],['HS Code','10063090'],['MOQ','1 FCL (20ft)']], l: '26 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Benin', 'Togo', 'Ivory Coast', 'Senegal', 'Ghana'], k: ['Long Grain White Rice', 'Non Basmati Rice', 'Rice Exporter Africa', 'IR64 White Rice', 'JFT Agro'] },
+            { c: 'rice', t: '25% Silky Sortex White', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Length','5.8mm Avg'],['Broken','25% Max'],['Polish','Silky'],['Moisture','14% Max'],['Discolor','2% Max'],['Foreign Matter','0.5% Max'],['Crop','Current'],['Use','Table Rice'],['Sortex','100%'],['HS Code','10063090'],['MOQ','1 FCL (20ft)']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Senegal', 'Guinea', 'Cameroon', 'Liberia', 'Ivory Coast'], k: ['25% Broken Rice', 'White Rice Supplier', 'Rice Exporter Senegal', 'Bulk Rice', 'JFT Rice'] },
+            { c: 'rice', t: '5% Parboiled Rice (IR-64)', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Length','6mm Avg'],['Type','Parboiled'],['Broken','5% Max'],['Color','Yellowish/Creamy'],['Moisture','14% Max'],['Sortex','100%'],['Black Grain','Nil'],['Cook','Separate'],['Crop','New'],['HS Code','10063010'],['MOQ','1 FCL (20ft)']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Benin', 'Liberia', 'Sierra Leone', 'Nigeria', 'Togo'], k: ['IR64 Parboiled Rice', 'Long Grain Parboiled', 'Rice Exporter Benin', 'Boiled Rice India', 'JFT Agro'] },
+            { c: 'rice', t: '10% Parboiled Rice (IR-64)', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Length','6mm Avg'],['Type','Parboiled'],['Broken','10% Max'],['Color','Yellowish/Creamy'],['Moisture','14% Max'],['Sortex','100%'],['Black Grain','0.5% Max'],['Cook','Separate'],['Crop','New'],['HS Code','10063010'],['MOQ','1 FCL (20ft)']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Benin', 'Togo', 'Ivory Coast', 'Nigeria'], k: ['IR64 10% Broken', 'Parboiled Rice', 'African Market Rice'] },
+            { c: 'rice', t: '5% Silky Sortex Short Grain', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Length','< 5.5mm'],['Broken','5% Max'],['Polish','Silky'],['Moisture','14% Max'],['Chalky','4% Max'],['Foreign Matter','0.5% Max'],['Type','Round Grain'],['Origin','West Bengal/AP'],['HS Code','10063090'],['MOQ','1 FCL (20ft)']], l: '26 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Philippines', 'Indonesia', 'Africa', 'Vietnam'], k: ['Short Grain Rice', 'White Rice', 'Sushi Rice Substitute'] },
+            { c: 'rice', t: '25% Silky Sortex Short Grain', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Length','< 5.5mm'],['Broken','25% Max'],['Polish','Silky'],['Moisture','14% Max'],['Discolor','2% Max'],['Foreign Matter','0.5% Max'],['Type','Round Grain'],['Origin','India'],['HS Code','10063090'],['MOQ','1 FCL (20ft)']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Senegal', 'Ivory Coast', 'Gambia', 'Cameroon'], k: ['Short Grain 25%', 'Broken Rice', 'Budget Rice'] },
+            { c: 'rice', t: '100% Broken Rice', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Type','Raw/Boiled'],['Size','Small'],['Broken','100%'],['Moisture','14% Max'],['Admixture','1% Max'],['Foreign Matter','1% Max'],['Use','Porridge/Feed/Industry'],['Origin','India'],['Sortex','Clean'],['HS Code','10064000'],['MOQ','1 FCL (20ft)']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Senegal', 'Gambia', 'Vietnam', 'China', 'Benin'], k: ['100% Broken Rice', 'Broken Rice Exporter', 'Feed Grade Rice', 'Industrial Rice', 'JFT Products'] },
+            { c: 'rice', t: 'Samba Rice', h: [1,2,8,9], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Shape','Oval/Round'],['Broken','5% Max'],['Moisture','13% Max'],['Taste','Unique'],['Origin','South India'],['Polish','Single'],['Sortex','Clean'],['Crop','New'],['Color','White'],['HS Code','10063090'],['MOQ','1 FCL (20ft)']], l: '24-25 MT in 20ft', p: '25kg, 50kg Bags', f: ['Sri Lanka', 'Singapore', 'Malaysia', 'UAE', 'Saudi Arabia'], k: ['Samba Rice', 'Short Grain Rice', 'South Indian Rice', 'Rice Exporter Sri Lanka', 'JFT Agro'] },
+            { c: 'rice', t: 'PR 11 Rice', h: [10,11], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','6.8mm Avg'],['Type','Steam'],['Broken','2% Max'],['Moisture','12.5% Max'],['Cook','Non-Sticky'],['Purity','95%'],['Damage','Nil'],['Sortex','100%'],['Use','Catering'],['HS Code','10063090'],['MOQ','1 FCL (20ft)']], l: '25-26 MT in 20ft', p: '25kg, 50kg Bags', f: ['Philippines', 'Indonesia', 'UAE', 'Saudi Arabia', 'Kuwait'], k: ['PR 11 Rice', 'Long Grain Steam', 'Non-Basmati Steam', 'Rice Supplier Indonesia', 'JFT Rice'] },
             
-            { c: 'rice', t: '1718 Golden Sella Basmati', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596547609652-9cf5d8d71321', s: [['Length','8.30mm Avg'],['Yield','High'],['Color','Gold'],['Broken','1% Max'],['Moisture','13% Max'],['Damage','1% Max'],['Purity','95%'],['Sortex','100%'],['Grain','Slender'],['Origin','Haryana']], l: '25-26 MT in 20ft', p: 'PP Bag, Jute Bag', f: ['Iran', 'Iraq', 'Saudi Arabia', 'Kuwait', 'UAE'], k: ['1718 Golden Sella', 'Modified Basmati', 'Rice Exporter Iraq', 'JFT Agro', 'Golden Parboiled'] },
-            { c: 'rice', t: '1718 Steam Basmati Rice', h: [10,11,12], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','8.30mm Avg'],['White','Yes'],['Aroma','Mild'],['Moisture','12% Max'],['Broken','2% Max'],['Chalky','Nil'],['Cooking','Long'],['Origin','Haryana'],['Sortex','100%'],['Taste','Authentic']], l: '24-25 MT in 20ft', p: '5kg - 40kg Bags', f: ['UAE', 'USA', 'Canada', 'Australia', 'UK'], k: ['1718 Steam Rice', 'Modified Steam Basmati', 'Rice Exporter USA', 'JFT Rice', 'Indian Rice'] },
-
-            // --- RICE (Non-Basmati) - Harvest: Oct-Jan (10,11,12,1) ---
-            { c: 'rice', t: '5% Silky Sortex White', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Length','6mm Avg'],['Broken','5% Max'],['Polish','Silky'],['Moisture','14% Max'],['Sortex','100%'],['Chalky','3% Max'],['Damage','1% Max'],['Admixture','Nil'],['Color','White'],['Crop','New']], l: '26 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Benin', 'Togo', 'Ivory Coast', 'Senegal', 'Ghana'], k: ['Long Grain White Rice', 'Non Basmati Rice', 'Rice Exporter Africa', 'IR64 White Rice', 'JFT Agro'] },
-            { c: 'rice', t: '25% Silky Sortex White', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Length','5.8mm Avg'],['Broken','25% Max'],['Polish','Silky'],['Moisture','14% Max'],['Discolor','2% Max'],['Foreign Matter','0.5% Max'],['Crop','Current'],['Use','Table Rice'],['Sortex','100%'],['Grain','Long']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Senegal', 'Guinea', 'Cameroon', 'Liberia', 'Ivory Coast'], k: ['25% Broken Rice', 'White Rice Supplier', 'Rice Exporter Senegal', 'Bulk Rice', 'JFT Rice'] },
-            { c: 'rice', t: '5% Parboiled Rice (IR-64)', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Length','6mm Avg'],['Type','Parboiled'],['Broken','5% Max'],['Color','Yellowish/Creamy'],['Moisture','14% Max'],['Sortex','100%'],['Black Grain','Nil'],['Cook','Separate'],['Crop','New'],['Origin','India']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Benin', 'Liberia', 'Sierra Leone', 'Nigeria', 'Togo'], k: ['IR64 Parboiled Rice', 'Long Grain Parboiled', 'Rice Exporter Benin', 'Boiled Rice India', 'JFT Agro'] },
-            { c: 'rice', t: '10% Parboiled Rice (IR-64)', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Length','6mm Avg'],['Type','Parboiled'],['Broken','10% Max'],['Color','Yellowish/Creamy'],['Moisture','14% Max'],['Sortex','100%'],['Black Grain','0.5% Max'],['Cook','Separate'],['Crop','New'],['Origin','India']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Benin', 'Togo', 'Ivory Coast', 'Nigeria'], k: ['IR64 10% Broken', 'Parboiled Rice', 'African Market Rice'] },
-            { c: 'rice', t: '5% Silky Sortex Short Grain', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Length','< 5.5mm'],['Broken','5% Max'],['Polish','Silky'],['Moisture','14% Max'],['Chalky','4% Max'],['Foreign Matter','0.5% Max'],['Type','Round Grain'],['Origin','West Bengal/AP']], l: '26 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Philippines', 'Indonesia', 'Africa', 'Vietnam'], k: ['Short Grain Rice', 'White Rice', 'Sushi Rice Substitute'] },
-            { c: 'rice', t: '25% Silky Sortex Short Grain', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Length','< 5.5mm'],['Broken','25% Max'],['Polish','Silky'],['Moisture','14% Max'],['Discolor','2% Max'],['Foreign Matter','0.5% Max'],['Type','Round Grain'],['Origin','India']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Senegal', 'Ivory Coast', 'Gambia', 'Cameroon'], k: ['Short Grain 25%', 'Broken Rice', 'Budget Rice'] },
-            { c: 'rice', t: '100% Broken Rice', h: [10,11,12,1], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Type','Raw/Boiled'],['Size','Small'],['Broken','100%'],['Moisture','14% Max'],['Admixture','1% Max'],['Foreign Matter','1% Max'],['Use','Porridge/Feed/Industry'],['Origin','India'],['Sortex','Clean'],['Color','White']], l: '26 MT in 20ft', p: '50kg PP Bags', f: ['Senegal', 'Gambia', 'Vietnam', 'China', 'Benin'], k: ['100% Broken Rice', 'Broken Rice Exporter', 'Feed Grade Rice', 'Industrial Rice', 'JFT Products'] },
-            { c: 'rice', t: 'Samba Rice', h: [1,2,8,9], i: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906', s: [['Shape','Oval/Round'],['Broken','5% Max'],['Moisture','13% Max'],['Taste','Unique'],['Origin','South India'],['Polish','Single'],['Sortex','Clean'],['Crop','New'],['Color','White'],['Cook','Soft']], l: '24-25 MT in 20ft', p: '25kg, 50kg Bags', f: ['Sri Lanka', 'Singapore', 'Malaysia', 'UAE', 'Saudi Arabia'], k: ['Samba Rice', 'Short Grain Rice', 'South Indian Rice', 'Rice Exporter Sri Lanka', 'JFT Agro'] },
-            { c: 'rice', t: 'PR 11 Rice', h: [10,11], i: 'https://images.unsplash.com/photo-1586201375761-83865001e31c', s: [['Length','6.8mm Avg'],['Type','Steam'],['Broken','2% Max'],['Moisture','12.5% Max'],['Cook','Non-Sticky'],['Purity','95%'],['Damage','Nil'],['Sortex','100%'],['Use','Catering'],['Color','Creamy']], l: '25-26 MT in 20ft', p: '25kg, 50kg Bags', f: ['Philippines', 'Indonesia', 'UAE', 'Saudi Arabia', 'Kuwait'], k: ['PR 11 Rice', 'Long Grain Steam', 'Non-Basmati Steam', 'Rice Supplier Indonesia', 'JFT Rice'] },
-            
-            // --- SPICES - Harvest varies ---
-            { c: 'spices', t: 'Turmeric Finger & Powder', h: [2,3,4], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Curcumin','2-5%'],['Polish','Double Polished/Unpolished'],['Moisture','10% Max'],['Ash','7% Max'],['Lead (Pb)','2.5 PPM Max'],['Chromate','Negative'],['Origin','Salem/Nizamabad'],['Type','Bulb/Finger'],['Sortex','Clean'],['Aroma','Earthy']], l: '14 MT (Finger) / 18 MT (Powder)', p: '25kg, 50kg Jute/PP/Kraft', f: ['USA', 'Japan', 'Germany', 'UK', 'UAE'], k: ['Turmeric Finger', 'Curcumin Powder', 'Spices Exporter India', 'Haldi Supplier', 'JFT Spices'] },
-            { c: 'spices', t: 'Dry Ginger & Powder', h: [12,1,2], i: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5', s: [['Type','Bleached/Unbleached'],['Moisture','12% Max'],['Volatile Oil','1.5% Min'],['Ash','8% Max'],['Acid Insoluble','1% Max'],['Flavor','Pungent'],['Mold','Nil'],['Origin','Kerala/Karnataka'],['Clean','Machine Clean'],['Size','Bold']], l: '13 MT in 20ft', p: '25kg, 50kg PP/Jute Bags', f: ['Morocco', 'Saudi Arabia', 'USA', 'UK', 'Germany'], k: ['Dry Ginger', 'Ginger Powder', 'Cochin Ginger', 'Spices Supplier', 'JFT Agro'] },
-            { c: 'spices', t: 'Fennel Seeds (Sounff)', h: [3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% / 98%'],['Color','Bright Green'],['Moisture','10% Max'],['Total Ash','9% Max'],['Volatile Oil','1.5% Min'],['Admixture','1% Max'],['Size','Medium/Bold'],['Origin','Gujarat/Rajasthan'],['Clean','Machine Clean'],['Use','Mouthfresh/Spice']], l: '13 MT in 20ft', p: '25kg, 50kg Bags', f: ['UK', 'USA', 'Singapore', 'Malaysia', 'UAE'], k: ['Fennel Seeds', 'Saunf Exporter', 'Indian Spices', 'JFT Fennel', 'Green Fennel'] },
-            { c: 'spices', t: 'Fenugreek Seeds (Methi)', h: [3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Total Ash','5% Max'],['Acid Insoluble','1.5% Max'],['Salmonella','Absent'],['Color','Caramel/Yellow'],['Size','Bold'],['Origin','Rajasthan/Gujarat'],['Aroma','Bitter'],['Type','Whole']], l: '22 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Japan', 'South Korea', 'Europe', 'USA', 'UAE'], k: ['Fenugreek Seeds', 'Methi Supplier', 'Spices Exporter', 'JFT Agro Spices', 'Indian Fenugreek'] },
-            { c: 'spices', t: 'Coriander Seeds', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Whole/Split'],['Color','Greenish/Brown'],['Moisture','10% Max'],['Purity','98% / 99%'],['Split','5% Max'],['Volatile Oil','0.5% Min'],['Ash','7% Max'],['Origin','Rajasthan/Gujarat'],['Clean','Machine Clean'],['Size','Medium']], l: '10-11 MT in 20ft', p: '20kg, 25kg, 40kg Bags', f: ['Malaysia', 'UAE', 'USA', 'Sri Lanka', 'Saudi Arabia'], k: ['Coriander Seeds', 'Dhaniya Exporter', 'Eagle Quality Coriander', 'JFT Spices', 'Whole Spices'] },
-            { c: 'spices', t: 'Cumin Seeds (Jeera)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1599940824399-b87987ced72a', s: [['Purity','99% / 99.5%'],['Type','Singapore/Europe Quality'],['Moisture','9% Max'],['Volatile Oil','2-4% Min'],['Ash','8% Max'],['Acid Insoluble','1.5% Max'],['Color','Brown'],['Origin','Gujarat/Rajasthan'],['Clean','Machine Clean'],['Size','Bold']], l: '13-14 MT in 20ft', p: '25kg, 50kg Bags', f: ['USA', 'Brazil', 'UK', 'Vietnam', 'Bangladesh'], k: ['Cumin Seeds', 'Jeera Exporter', 'Singapore Quality Cumin', 'JFT Agro', 'Indian Cumin'] },
-            { c: 'spices', t: 'Dry Red Chilli', h: [1,2,3], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Variety','S17 Teja / S4 Sanam'],['SHU (Heat)','20k - 100k'],['Color','ASTA 40-60'],['Moisture','12% Max'],['Broken','3% Max'],['Loose Seeds','2% Max'],['Foreign Matter','1% Max'],['Aflatoxin','B.D.L.'],['Origin','Guntur'],['Stem','With/Without']], l: '14 MT in 40ft', p: '5kg, 10kg, 25kg Jute/Carton', f: ['China', 'Thailand', 'Sri Lanka', 'USA', 'Malaysia'], k: ['Dry Red Chilli', 'Teja Chilli', 'S17 Chilli', 'Spices Exporter India', 'JFT Chilli'] },
-            { c: 'spices', t: 'Tamarind', h: [2,3,4], i: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5', s: [['Type','With Seed / Seedless'],['Moisture','15% Max'],['Acid','9-12%'],['Color','Brown/Black'],['Form','Slab / Cake / Paste'],['Foreign Matter','1% Max'],['Origin','India'],['Purity','99%'],['Flavor','Sour'],['Clean','Hand Picked']], l: '20-22 MT in 20ft', p: '200g, 500g, 1kg Slab/Carton', f: ['Egypt', 'Saudi Arabia', 'USA', 'Syria', 'Jordan'], k: ['Tamarind Slab', 'Seedless Tamarind', 'Imli Exporter', 'JFT Products', 'Indian Tamarind'] },
-            { c: 'spices', t: 'Ajwain Seeds & Powder', h: [1,2,3], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Volatile Oil','2% Min'],['Ash','8% Max'],['Admixture','1% Max'],['Color','Greyish Brown'],['Origin','Gujarat/Rajasthan']], l: '14 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Canada', 'UK', 'Middle East'], k: ['Ajwain Seeds', 'Carom Seeds', 'Indian Spices'] },
-            { c: 'spices', t: 'Bay Leaf', h: [2,3,4], i: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5', s: [['Type','Whole Leaf'],['Color','Greenish/Brown'],['Moisture','13% Max'],['Volatile Oil','1% Min'],['Foreign Matter','1% Max'],['Origin','India'],['Grade','Hand Selected']], l: '6-7 MT in 20ft', p: '10kg, 20kg Bale/Carton', f: ['USA', 'Europe', 'Middle East', 'Russia'], k: ['Bay Leaf', 'Tej Patta', 'Whole Spices'] },
-            { c: 'spices', t: 'Whole Nutmeg & Powder', h: [6,7,8], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','With Shell / Without Shell'],['Grade','ABCD / Sound / Shriveled'],['Moisture','10% Max'],['Volatile Oil','5% Min'],['Aflatoxin','Negative'],['Origin','Kerala']], l: '14-15 MT in 20ft', p: '25kg, 50kg Jute/PP Bags', f: ['Europe', 'USA', 'UAE', 'China'], k: ['Nutmeg', 'Jaiphal', 'Whole Spices'] },
-            { c: 'spices', t: 'Black Pepper & Powder', h: [12,1,2,3], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Density','GL 500 / 550 / 570'],['Moisture','11% Max'],['Admixture','1% Max'],['Mold','Nil'],['Salmonella','Absent'],['Origin','Kerala/Karnataka/Vietnam']], l: '15 MT in 20ft', p: '25kg, 50kg PP/Jute Bags', f: ['USA', 'Europe', 'Vietnam', 'Japan'], k: ['Black Pepper', 'Kali Mirch', 'Peppercorns'] },
-            { c: 'spices', t: 'Curry Powder', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Type','Mild / Hot / Madras'],['Ingredients','Coriander, Turmeric, Cumin, etc.'],['Moisture','10% Max'],['Ash','7% Max'],['Additives','None'],['Origin','India']], l: '18 MT in 20ft', p: '1kg, 5kg, 10kg, 25kg Bags', f: ['UK', 'Japan', 'USA', 'Australia'], k: ['Curry Powder', 'Indian Curry Blend', 'Masala'] },
-            { c: 'spices', t: 'Celery Seeds & Powder', h: [3,4,5], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% / 99.5%'],['Moisture','10% Max'],['Volatile Oil','1.5% Min'],['Ash','9% Max'],['Acid Insoluble','2% Max'],['Origin','Punjab']], l: '14 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Europe', 'Japan', 'Russia'], k: ['Celery Seeds', 'Radhuni', 'Indian Spices'] },
-            { c: 'spices', t: 'Dill Seeds & Powder', h: [3,4,5], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','98% / 99%'],['Moisture','10% Max'],['Split','1% Max'],['Admixture','1% Max'],['Origin','Rajasthan/Gujarat'],['Grade','Machine Clean']], l: '13 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Europe', 'USA', 'Middle East'], k: ['Dill Seeds', 'Sowa', 'Indian Spices'] },
-            { c: 'spices', t: 'Mustard Seeds & Powder', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Black / Yellow'],['Size','Micro / Small / Bold'],['Oil Content','38% - 42%'],['Moisture','8% Max'],['Admixture','1% Max'],['Origin','Rajasthan/Gujarat']], l: '20 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Bangladesh', 'Nepal', 'USA', 'Canada'], k: ['Mustard Seeds', 'Sarson', 'Rai'] },
-            { c: 'spices', t: 'Green Cardamom', h: [8,9,10,11,12,1], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Size','6mm / 7mm / 8mm'],['Grade','AGEB / ALLEPPEY / LG'],['Moisture','11% Max'],['Color','Deep Green'],['Origin','Kerala'],['Immature','5% Max']], l: '12 MT in 20ft', p: '5kg, 10kg Carton Box', f: ['Saudi Arabia', 'UAE', 'Kuwait', 'USA'], k: ['Green Cardamom', 'Elaichi', 'Queen of Spices'] },
+            // --- SPICES ---
+            { c: 'spices', t: 'Turmeric Finger & Powder', h: [2,3,4], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Curcumin','2-5%'],['Polish','Double Polished/Unpolished'],['Moisture','10% Max'],['Ash','7% Max'],['Lead (Pb)','2.5 PPM Max'],['Chromate','Negative'],['Origin','Salem/Nizamabad'],['Type','Bulb/Finger'],['Sortex','Clean'],['HS Code','09103020'],['MOQ','1 FCL (20ft)']], l: '14 MT (Finger) / 18 MT (Powder)', p: '25kg, 50kg Jute/PP/Kraft', f: ['USA', 'Japan', 'Germany', 'UK', 'UAE'], k: ['Turmeric Finger', 'Curcumin Powder', 'Spices Exporter India', 'Haldi Supplier', 'JFT Spices'] },
+            { c: 'spices', t: 'Dry Ginger & Powder', h: [12,1,2], i: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5', s: [['Type','Bleached/Unbleached'],['Moisture','12% Max'],['Volatile Oil','1.5% Min'],['Ash','8% Max'],['Acid Insoluble','1% Max'],['Flavor','Pungent'],['Mold','Nil'],['Origin','Kerala/Karnataka'],['Clean','Machine Clean'],['HS Code','09101110'],['MOQ','1 FCL (20ft)']], l: '13 MT in 20ft', p: '25kg, 50kg PP/Jute Bags', f: ['Morocco', 'Saudi Arabia', 'USA', 'UK', 'Germany'], k: ['Dry Ginger', 'Ginger Powder', 'Cochin Ginger', 'Spices Supplier', 'JFT Agro'] },
+            { c: 'spices', t: 'Fennel Seeds (Sounff)', h: [3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% / 98%'],['Color','Bright Green'],['Moisture','10% Max'],['Total Ash','9% Max'],['Volatile Oil','1.5% Min'],['Admixture','1% Max'],['Size','Medium/Bold'],['Origin','Gujarat/Rajasthan'],['Clean','Machine Clean'],['HS Code','09095011'],['MOQ','1 FCL (20ft)']], l: '13 MT in 20ft', p: '25kg, 50kg Bags', f: ['UK', 'USA', 'Singapore', 'Malaysia', 'UAE'], k: ['Fennel Seeds', 'Saunf Exporter', 'Indian Spices', 'JFT Fennel', 'Green Fennel'] },
+            { c: 'spices', t: 'Fenugreek Seeds (Methi)', h: [3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Total Ash','5% Max'],['Acid Insoluble','1.5% Max'],['Salmonella','Absent'],['Color','Caramel/Yellow'],['Size','Bold'],['Origin','Rajasthan/Gujarat'],['Aroma','Bitter'],['HS Code','09109912'],['MOQ','1 FCL (20ft)']], l: '22 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Japan', 'South Korea', 'Europe', 'USA', 'UAE'], k: ['Fenugreek Seeds', 'Methi Supplier', 'Spices Exporter', 'JFT Agro Spices', 'Indian Fenugreek'] },
+            { c: 'spices', t: 'Coriander Seeds', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Whole/Split'],['Color','Greenish/Brown'],['Moisture','10% Max'],['Purity','98% / 99%'],['Split','5% Max'],['Volatile Oil','0.5% Min'],['Ash','7% Max'],['Origin','Rajasthan/Gujarat'],['Clean','Machine Clean'],['HS Code','09092110'],['MOQ','1 FCL (20ft)']], l: '10-11 MT in 20ft', p: '20kg, 25kg, 40kg Bags', f: ['Malaysia', 'UAE', 'USA', 'Sri Lanka', 'Saudi Arabia'], k: ['Coriander Seeds', 'Dhaniya Exporter', 'Eagle Quality Coriander', 'JFT Spices', 'Whole Spices'] },
+            { c: 'spices', t: 'Cumin Seeds (Jeera)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1599940824399-b87987ced72a', s: [['Purity','99% / 99.5%'],['Type','Singapore/Europe Quality'],['Moisture','9% Max'],['Volatile Oil','2-4% Min'],['Ash','8% Max'],['Acid Insoluble','1.5% Max'],['Color','Brown'],['Origin','Gujarat/Rajasthan'],['Clean','Machine Clean'],['HS Code','09093129'],['MOQ','1 FCL (20ft)']], l: '13-14 MT in 20ft', p: '25kg, 50kg Bags', f: ['USA', 'Brazil', 'UK', 'Vietnam', 'Bangladesh'], k: ['Cumin Seeds', 'Jeera Exporter', 'Singapore Quality Cumin', 'JFT Agro', 'Indian Cumin'] },
+            { c: 'spices', t: 'Dry Red Chilli', h: [1,2,3], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Variety','S17 Teja / S4 Sanam'],['SHU (Heat)','20k - 100k'],['Color','ASTA 40-60'],['Moisture','12% Max'],['Broken','3% Max'],['Loose Seeds','2% Max'],['Foreign Matter','1% Max'],['Aflatoxin','B.D.L.'],['Origin','Guntur'],['HS Code','09042110'],['MOQ','1 FCL (40ft)']], l: '14 MT in 40ft', p: '5kg, 10kg, 25kg Jute/Carton', f: ['China', 'Thailand', 'Sri Lanka', 'USA', 'Malaysia'], k: ['Dry Red Chilli', 'Teja Chilli', 'S17 Chilli', 'Spices Exporter India', 'JFT Chilli'] },
+            { c: 'spices', t: 'Tamarind', h: [2,3,4], i: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5', s: [['Type','With Seed / Seedless'],['Moisture','15% Max'],['Acid','9-12%'],['Color','Brown/Black'],['Form','Slab / Cake / Paste'],['Foreign Matter','1% Max'],['Origin','India'],['Purity','99%'],['Flavor','Sour'],['HS Code','08134010'],['MOQ','1 FCL (20ft)']], l: '20-22 MT in 20ft', p: '200g, 500g, 1kg Slab/Carton', f: ['Egypt', 'Saudi Arabia', 'USA', 'Syria', 'Jordan'], k: ['Tamarind Slab', 'Seedless Tamarind', 'Imli Exporter', 'JFT Products', 'Indian Tamarind'] },
+            { c: 'spices', t: 'Ajwain Seeds & Powder', h: [1,2,3], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Volatile Oil','2% Min'],['Ash','8% Max'],['Admixture','1% Max'],['Color','Greyish Brown'],['Origin','Gujarat/Rajasthan'],['HS Code','09109914'],['MOQ','1 FCL (20ft)']], l: '14 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Canada', 'UK', 'Middle East'], k: ['Ajwain Seeds', 'Carom Seeds', 'Indian Spices'] },
+            { c: 'spices', t: 'Bay Leaf', h: [2,3,4], i: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5', s: [['Type','Whole Leaf'],['Color','Greenish/Brown'],['Moisture','13% Max'],['Volatile Oil','1% Min'],['Foreign Matter','1% Max'],['Origin','India'],['Grade','Hand Selected'],['HS Code','09109990'],['MOQ','1 FCL (20ft)']], l: '6-7 MT in 20ft', p: '10kg, 20kg Bale/Carton', f: ['USA', 'Europe', 'Middle East', 'Russia'], k: ['Bay Leaf', 'Tej Patta', 'Whole Spices'] },
+            { c: 'spices', t: 'Whole Nutmeg & Powder', h: [6,7,8], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','With Shell / Without Shell'],['Grade','ABCD / Sound / Shriveled'],['Moisture','10% Max'],['Volatile Oil','5% Min'],['Aflatoxin','Negative'],['Origin','Kerala'],['HS Code','09081110'],['MOQ','1 FCL (20ft)']], l: '14-15 MT in 20ft', p: '25kg, 50kg Jute/PP Bags', f: ['Europe', 'USA', 'UAE', 'China'], k: ['Nutmeg', 'Jaiphal', 'Whole Spices'] },
+            { c: 'spices', t: 'Black Pepper & Powder', h: [12,1,2,3], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Density','GL 500 / 550 / 570'],['Moisture','11% Max'],['Admixture','1% Max'],['Mold','Nil'],['Salmonella','Absent'],['Origin','Kerala/Karnataka/Vietnam'],['HS Code','09041130'],['MOQ','1 FCL (20ft)']], l: '15 MT in 20ft', p: '25kg, 50kg PP/Jute Bags', f: ['USA', 'Europe', 'Vietnam', 'Japan'], k: ['Black Pepper', 'Kali Mirch', 'Peppercorns'] },
+            { c: 'spices', t: 'Curry Powder', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Type','Mild / Hot / Madras'],['Ingredients','Coriander, Turmeric, Cumin, etc.'],['Moisture','10% Max'],['Ash','7% Max'],['Additives','None'],['Origin','India'],['HS Code','09109919'],['MOQ','1 FCL (20ft)']], l: '18 MT in 20ft', p: '1kg, 5kg, 10kg, 25kg Bags', f: ['UK', 'Japan', 'USA', 'Australia'], k: ['Curry Powder', 'Indian Curry Blend', 'Masala'] },
+            { c: 'spices', t: 'Celery Seeds & Powder', h: [3,4,5], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% / 99.5%'],['Moisture','10% Max'],['Volatile Oil','1.5% Min'],['Ash','9% Max'],['Acid Insoluble','2% Max'],['Origin','Punjab'],['HS Code','09109913'],['MOQ','1 FCL (20ft)']], l: '14 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Europe', 'Japan', 'Russia'], k: ['Celery Seeds', 'Radhuni', 'Indian Spices'] },
+            { c: 'spices', t: 'Dill Seeds & Powder', h: [3,4,5], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','98% / 99%'],['Moisture','10% Max'],['Split','1% Max'],['Admixture','1% Max'],['Origin','Rajasthan/Gujarat'],['Grade','Machine Clean'],['HS Code','09109915'],['MOQ','1 FCL (20ft)']], l: '13 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Europe', 'USA', 'Middle East'], k: ['Dill Seeds', 'Sowa', 'Indian Spices'] },
+            { c: 'spices', t: 'Mustard Seeds & Powder', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Black / Yellow'],['Size','Micro / Small / Bold'],['Oil Content','38% - 42%'],['Moisture','8% Max'],['Admixture','1% Max'],['Origin','Rajasthan/Gujarat'],['HS Code','12075010'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Bangladesh', 'Nepal', 'USA', 'Canada'], k: ['Mustard Seeds', 'Sarson', 'Rai'] },
+            { c: 'spices', t: 'Green Cardamom', h: [8,9,10,11,12,1], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Size','6mm / 7mm / 8mm'],['Grade','AGEB / ALLEPPEY / LG'],['Moisture','11% Max'],['Color','Deep Green'],['Origin','Kerala'],['Immature','5% Max'],['HS Code','09083110'],['MOQ','500 kg']], l: '12 MT in 20ft', p: '5kg, 10kg Carton Box', f: ['Saudi Arabia', 'UAE', 'Kuwait', 'USA'], k: ['Green Cardamom', 'Elaichi', 'Queen of Spices'] },
 
             // --- HERBS ---
-            { c: 'herbs', t: 'Senna Leaves', h: [2,3,4,9,10,11], i: 'https://images.unsplash.com/photo-1629196914375-f7e48f477b6d?q=80&w=2000', s: [['Purity','99% / 98%'],['Sennoside Content','2.5% Min'],['Moisture','10% Max'],['Color','Light Green'],['Origin','Rajasthan/Gujarat'],['Grade','Prime No. 1 / 2 / 3']], l: '13 MT in 20ft', p: '50kg, 80kg, 100kg Bales', f: ['China', 'USA', 'Germany', 'Japan'], k: ['Senna Leaves', 'Cassia Angustifolia', 'Medicinal Herbs'] },
-            { c: 'herbs', t: 'Senna Pods', h: [2,3,4,9,10,11], i: 'https://plus.unsplash.com/premium_photo-1675237626068-78c6b772c72b', s: [['Purity','98% / 99%'],['Sennoside Content','3% Min'],['Moisture','10% Max'],['Color','Greenish Brown'],['Origin','Rajasthan/Gujarat'],['Type','Hand Picked']], l: '10 MT in 20ft', p: '50kg, 80kg Bales', f: ['Europe', 'USA', 'China', 'Vietnam'], k: ['Senna Pods', 'Cassia Pods', 'Herbal Laxative'] },
-            { c: 'herbs', t: 'Asaliya Seeds', h: [1,2,3], i: 'https://images.unsplash.com/photo-1615485925691-2b0e6e737c35', s: [['Purity','99% / 99.5%'],['Moisture','6% Max'],['Admixture','1% Max'],['Color','Reddish Brown'],['Origin','India'],['Grade','Machine Clean']], l: '18 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Europe', 'Middle East'], k: ['Asaliya Seeds', 'Garden Cress Seeds', 'Halim Seeds'] },
-            { c: 'herbs', t: 'Black Himaj', h: [11,12,1,2], i: 'https://images.unsplash.com/photo-1599940824399-b87987ced72a', s: [['Type','Whole Dried Fruit'],['Size','Small / Medium'],['Moisture','10% Max'],['Foreign Matter','1% Max'],['Origin','Madhya Pradesh'],['Color','Black']], l: '15 MT in 20ft', p: '25kg, 50kg Bags', f: ['Southeast Asia', 'Middle East', 'USA'], k: ['Black Himaj', 'Kali Harad', 'Terminalia Chebula'] },
-            { c: 'herbs', t: 'Basil Seeds', h: [2,3,4], i: 'https://images.unsplash.com/photo-1515543904379-3d757afe72e3', s: [['Purity','99.9% Premium'],['Swelling Factor','High'],['Moisture','8% Max'],['Color','Black'],['Origin','India'],['Admixture','0.1% Max']], l: '18 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Europe', 'Thailand', 'Vietnam'], k: ['Basil Seeds', 'Tukmaria', 'Sweet Basil Seeds'] },
-            { c: 'herbs', t: 'Cassia Tora Seeds', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Foreign Matter','1% Max'],['Color','Brown/Greenish'],['Origin','Uttar Pradesh/MP'],['Grade','Bold']], l: '20 MT in 20ft', p: '50kg PP Bags', f: ['China', 'Japan', 'USA', 'Korea'], k: ['Cassia Tora', 'Sickle Senna', 'Foetid Cassia'] },
-            { c: 'herbs', t: 'Galangal Root', h: [1,2,3], i: 'https://images.unsplash.com/photo-1599940824399-b87987ced72a', s: [['Form','Whole Dried / Slices'],['Moisture','12% Max'],['Ash','8% Max'],['Foreign Matter','1% Max'],['Origin','India'],['Color','Reddish Brown']], l: '12 MT in 20ft', p: '25kg, 50kg Jute/PP Bags', f: ['Middle East', 'Europe', 'Southeast Asia'], k: ['Galangal Root', 'Kulanjan', 'Thai Ginger'] },
-            { c: 'herbs', t: 'Akarkara Root', h: [3,4,5], i: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5', s: [['Type','Dried Root'],['Thickness','5-10mm'],['Moisture','10% Max'],['Foreign Matter','2% Max'],['Origin','India'],['Grade','A Grade']], l: '10 MT in 20ft', p: '25kg, 50kg Bags', f: ['Middle East', 'USA', 'Europe'], k: ['Akarkara', 'Pellitory Root', 'Anacyclus Pyrethrum'] },
-            { c: 'herbs', t: 'Cassia Tora Meal', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Protein','30% Min'],['Profat','35% Min'],['Moisture','10% Max'],['Sand/Silica','1% Max'],['Fiber','12% Max'],['Origin','India']], l: '22 MT in 20ft', p: '50kg PP Bags', f: ['Korea', 'China', 'Vietnam', 'Taiwan'], k: ['Cassia Tora Meal', 'Cattle Feed', 'Cassia Splits'] },
-            { c: 'herbs', t: 'Moringa Leaves', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1632806622340-96697b09337e', s: [['Type','Dried Leaves'],['Color','Green'],['Moisture','8% Max'],['Foreign Matter','Nil'],['Origin','Tamil Nadu/Gujarat'],['Drying','Shadow Dried']], l: '6-7 MT in 20ft', p: '10kg, 20kg Carton/Bags', f: ['USA', 'Europe', 'Japan', 'Canada'], k: ['Moringa Leaves', 'Drumstick Leaves', 'Superfood'] },
-            { c: 'herbs', t: 'Moringa Powder', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1611075385623-28773e32b005', s: [['Mesh Size','80-100 Mesh'],['Color','Bright Green'],['Moisture','8% Max'],['Ash','10% Max'],['Additives','None'],['Origin','India']], l: '14 MT in 20ft', p: '25kg Drum/Bag', f: ['USA', 'Germany', 'UK', 'Australia'], k: ['Moringa Powder', 'Green Superfood', 'Moringa Oleifera'] },
-            { c: 'herbs', t: 'Psyllium Husk', h: [3,4,5], i: 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9', s: [['Purity','99% / 98% / 95%'],['Swell Volume','50ml/g Min'],['Moisture','12% Max'],['Ash','4% Max'],['Color','White to Light Yellow'],['Origin','Gujarat/Rajasthan']], l: '9-10 MT in 20ft', p: '25kg, 40kg Paper/PP Bags', f: ['USA', 'Europe', 'Australia', 'China'], k: ['Psyllium Husk', 'Isabgol', 'Dietary Fiber'] },
-            { c: 'herbs', t: 'Henna Leaves', h: [4,5,6,10,11], i: 'https://images.unsplash.com/photo-1563116999-6332847a9740', s: [['Lawson Content','2% Min'],['Moisture','10% Max'],['Color','Green'],['Foreign Matter','2% Max'],['Origin','Sojat, Rajasthan'],['Type','Dried Leaves']], l: '7-8 MT in 20ft', p: '40kg, 50kg Bales', f: ['Middle East', 'North Africa', 'Europe'], k: ['Henna Leaves', 'Mehndi Leaves', 'Natural Dye'] },
-            { c: 'herbs', t: 'Henna Powder', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1550583724-b2692b85b150', s: [['Mesh','Cloth Filtered / Triple Sifted'],['Lawson Content','2.5% Min'],['Moisture','10% Max'],['Color','Greenish'],['Origin','Sojat'],['Additives','None']], l: '15 MT in 20ft', p: '20kg, 25kg, 50kg Bags', f: ['Middle East', 'USA', 'Europe', 'Malaysia'], k: ['Henna Powder', 'Mehndi Powder', 'Hair Dye'] },
-            { c: 'herbs', t: 'Wheat Grass Powder', h: [2,3], i: 'https://images.unsplash.com/photo-1584589167171-541ce45f1eea', s: [['Mesh','100-200 Mesh'],['Color','Green'],['Moisture','6% Max'],['Protein','20% Min'],['Origin','India'],['Type','Organic/Conventional']], l: '12 MT in 20ft', p: '25kg Drum/Carton', f: ['USA', 'Europe', 'Australia', 'Japan'], k: ['Wheat Grass Powder', 'Superfood', 'Detox'] },
+            { c: 'herbs', t: 'Senna Leaves', h: [2,3,4,9,10,11], i: 'https://images.unsplash.com/photo-1629196914375-f7e48f477b6d?q=80&w=2000', s: [['Purity','99% / 98%'],['Sennoside Content','2.5% Min'],['Moisture','10% Max'],['Color','Light Green'],['Origin','Rajasthan/Gujarat'],['Grade','Prime No. 1 / 2 / 3'],['HS Code','12119022'],['MOQ','1 FCL (20ft)']], l: '13 MT in 20ft', p: '50kg, 80kg, 100kg Bales', f: ['China', 'USA', 'Germany', 'Japan'], k: ['Senna Leaves', 'Cassia Angustifolia', 'Medicinal Herbs'] },
+            { c: 'herbs', t: 'Senna Pods', h: [2,3,4,9,10,11], i: 'https://plus.unsplash.com/premium_photo-1675237626068-78c6b772c72b', s: [['Purity','98% / 99%'],['Sennoside Content','3% Min'],['Moisture','10% Max'],['Color','Greenish Brown'],['Origin','Rajasthan/Gujarat'],['Type','Hand Picked'],['HS Code','12119022'],['MOQ','1 FCL (20ft)']], l: '10 MT in 20ft', p: '50kg, 80kg Bales', f: ['Europe', 'USA', 'China', 'Vietnam'], k: ['Senna Pods', 'Cassia Pods', 'Herbal Laxative'] },
+            { c: 'herbs', t: 'Asaliya Seeds', h: [1,2,3], i: 'https://images.unsplash.com/photo-1615485925691-2b0e6e737c35', s: [['Purity','99% / 99.5%'],['Moisture','6% Max'],['Admixture','1% Max'],['Color','Reddish Brown'],['Origin','India'],['Grade','Machine Clean'],['HS Code','12119099'],['MOQ','1 FCL (20ft)']], l: '18 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Europe', 'Middle East'], k: ['Asaliya Seeds', 'Garden Cress Seeds', 'Halim Seeds'] },
+            { c: 'herbs', t: 'Black Himaj', h: [11,12,1,2], i: 'https://images.unsplash.com/photo-1599940824399-b87987ced72a', s: [['Type','Whole Dried Fruit'],['Size','Small / Medium'],['Moisture','10% Max'],['Foreign Matter','1% Max'],['Origin','Madhya Pradesh'],['Color','Black'],['HS Code','12119099'],['MOQ','1 FCL (20ft)']], l: '15 MT in 20ft', p: '25kg, 50kg Bags', f: ['Southeast Asia', 'Middle East', 'USA'], k: ['Black Himaj', 'Kali Harad', 'Terminalia Chebula'] },
+            { c: 'herbs', t: 'Basil Seeds', h: [2,3,4], i: 'https://images.unsplash.com/photo-1515543904379-3d757afe72e3', s: [['Purity','99.9% Premium'],['Swelling Factor','High'],['Moisture','8% Max'],['Color','Black'],['Origin','India'],['Admixture','0.1% Max'],['HS Code','12119099'],['MOQ','1 FCL (20ft)']], l: '18 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Europe', 'Thailand', 'Vietnam'], k: ['Basil Seeds', 'Tukmaria', 'Sweet Basil Seeds'] },
+            { c: 'herbs', t: 'Cassia Tora Seeds', h: [10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Foreign Matter','1% Max'],['Color','Brown/Greenish'],['Origin','Uttar Pradesh/MP'],['Grade','Bold'],['HS Code','09109939'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '50kg PP Bags', f: ['China', 'Japan', 'USA', 'Korea'], k: ['Cassia Tora', 'Sickle Senna', 'Foetid Cassia'] },
+            { c: 'herbs', t: 'Galangal Root', h: [1,2,3], i: 'https://images.unsplash.com/photo-1599940824399-b87987ced72a', s: [['Form','Whole Dried / Slices'],['Moisture','12% Max'],['Ash','8% Max'],['Foreign Matter','1% Max'],['Origin','India'],['Color','Reddish Brown'],['HS Code','12119050'],['MOQ','1 FCL (20ft)']], l: '12 MT in 20ft', p: '25kg, 50kg Jute/PP Bags', f: ['Middle East', 'Europe', 'Southeast Asia'], k: ['Galangal Root', 'Kulanjan', 'Thai Ginger'] },
+            { c: 'herbs', t: 'Akarkara Root', h: [3,4,5], i: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5', s: [['Type','Dried Root'],['Thickness','5-10mm'],['Moisture','10% Max'],['Foreign Matter','2% Max'],['Origin','India'],['Grade','A Grade'],['HS Code','12119099'],['MOQ','500 kg']], l: '10 MT in 20ft', p: '25kg, 50kg Bags', f: ['Middle East', 'USA', 'Europe'], k: ['Akarkara', 'Pellitory Root', 'Anacyclus Pyrethrum'] },
+            { c: 'herbs', t: 'Cassia Tora Meal', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Protein','30% Min'],['Profat','35% Min'],['Moisture','10% Max'],['Sand/Silica','1% Max'],['Fiber','12% Max'],['Origin','India'],['HS Code','13023290'],['MOQ','1 FCL (20ft)']], l: '22 MT in 20ft', p: '50kg PP Bags', f: ['Korea', 'China', 'Vietnam', 'Taiwan'], k: ['Cassia Tora Meal', 'Cattle Feed', 'Cassia Splits'] },
+            { c: 'herbs', t: 'Moringa Leaves', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1632806622340-96697b09337e', s: [['Type','Dried Leaves'],['Color','Green'],['Moisture','8% Max'],['Foreign Matter','Nil'],['Origin','Tamil Nadu/Gujarat'],['Drying','Shadow Dried'],['HS Code','07129090'],['MOQ','1 FCL (20ft)']], l: '6-7 MT in 20ft', p: '10kg, 20kg Carton/Bags', f: ['USA', 'Europe', 'Japan', 'Canada'], k: ['Moringa Leaves', 'Drumstick Leaves', 'Superfood'] },
+            { c: 'herbs', t: 'Moringa Powder', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1611075385623-28773e32b005', s: [['Mesh Size','80-100 Mesh'],['Color','Bright Green'],['Moisture','8% Max'],['Ash','10% Max'],['Additives','None'],['Origin','India'],['HS Code','07129090'],['MOQ','1 FCL (20ft)']], l: '14 MT in 20ft', p: '25kg Drum/Bag', f: ['USA', 'Germany', 'UK', 'Australia'], k: ['Moringa Powder', 'Green Superfood', 'Moringa Oleifera'] },
+            { c: 'herbs', t: 'Psyllium Husk', h: [3,4,5], i: 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9', s: [['Purity','99% / 98% / 95%'],['Swell Volume','50ml/g Min'],['Moisture','12% Max'],['Ash','4% Max'],['Color','White to Light Yellow'],['Origin','Gujarat/Rajasthan'],['HS Code','12119032'],['MOQ','1 FCL (20ft)']], l: '9-10 MT in 20ft', p: '25kg, 40kg Paper/PP Bags', f: ['USA', 'Europe', 'Australia', 'China'], k: ['Psyllium Husk', 'Isabgol', 'Dietary Fiber'] },
+            { c: 'herbs', t: 'Henna Leaves', h: [4,5,6,10,11], i: 'https://images.unsplash.com/photo-1563116999-6332847a9740', s: [['Lawson Content','2% Min'],['Moisture','10% Max'],['Color','Green'],['Foreign Matter','2% Max'],['Origin','Sojat, Rajasthan'],['Type','Dried Leaves'],['HS Code','14041011'],['MOQ','1 FCL (20ft)']], l: '7-8 MT in 20ft', p: '40kg, 50kg Bales', f: ['Middle East', 'North Africa', 'Europe'], k: ['Henna Leaves', 'Mehndi Leaves', 'Natural Dye'] },
+            { c: 'herbs', t: 'Henna Powder', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1550583724-b2692b85b150', s: [['Mesh','Cloth Filtered / Triple Sifted'],['Lawson Content','2.5% Min'],['Moisture','10% Max'],['Color','Greenish'],['Origin','Sojat'],['Additives','None'],['HS Code','14041019'],['MOQ','1 FCL (20ft)']], l: '15 MT in 20ft', p: '20kg, 25kg, 50kg Bags', f: ['Middle East', 'USA', 'Europe', 'Malaysia'], k: ['Henna Powder', 'Mehndi Powder', 'Hair Dye'] },
+            { c: 'herbs', t: 'Wheat Grass Powder', h: [2,3], i: 'https://images.unsplash.com/photo-1584589167171-541ce45f1eea', s: [['Mesh','100-200 Mesh'],['Color','Green'],['Moisture','6% Max'],['Protein','20% Min'],['Origin','India'],['Type','Organic/Conventional'],['HS Code','11043000'],['MOQ','500 kg']], l: '12 MT in 20ft', p: '25kg Drum/Carton', f: ['USA', 'Europe', 'Australia', 'Japan'], k: ['Wheat Grass Powder', 'Superfood', 'Detox'] },
 
             // --- OIL SEEDS ---
-            { c: 'oilseeds', t: 'Natural White Sesame Seeds', h: [10,11,5,6], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99.95% / 99.90%'],['Type','Natural / Hulled'],['Moisture','5% Max'],['Oil Content','48% Min'],['FFA','1.5% Max'],['Admixture','0.05% Max'],['Origin','Gujarat/MP']], l: '19 MT in 20ft', p: '25kg, 50kg Paper/PP Bags', f: ['Korea', 'USA', 'China', 'Europe'], k: ['Sesame Seeds', 'Til', 'Gingelly'] },
-            { c: 'oilseeds', t: 'Peanut (Groundnut) Kernels', h: [10,11,12], i: 'https://images.unsplash.com/photo-1567426685603-93633d7b4202', s: [['Type','Bold / Java'],['Counts','40/50, 50/60, 60/70'],['Moisture','7% Max'],['Admixture','1% Max'],['Aflatoxin','Negative (As per EU)'],['Oil Content','45% - 50%'],['Origin','Gujarat/Andhra']], l: '19 MT in 20ft', p: '25kg Vacuum / 50kg Jute', f: ['Indonesia', 'Vietnam', 'Philippines', 'Malaysia'], k: ['Peanuts', 'Groundnuts', 'Java Peanuts', 'Bold Peanuts'] },
-            { c: 'oilseeds', t: 'Niger Seeds', h: [11,12,1], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Admixture','1% Max'],['Oil Content','32% - 35%'],['Foreign Matter','1% Max'],['Origin','India'],['Use','Bird Feed / Oil']], l: '20 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Europe', 'Singapore', 'Canada'], k: ['Niger Seeds', 'Bird Feed', 'Ram Til'] },
-            { c: 'oilseeds', t: 'Flax Seeds (Linseed)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1621886637467-333e387c264c', s: [['Purity','99% / 99.5%'],['Moisture','10% Max'],['Oil Content','38% Min'],['Protein','20% Min'],['Admixture','1% Max'],['Color','Brown'],['Origin','MP/Rajasthan']], l: '20 MT in 20ft', p: '25kg, 50kg PP/Paper Bags', f: ['Europe', 'USA', 'China', 'Turkey'], k: ['Flax Seeds', 'Linseeds', 'Alsi', 'Omega 3'] },
-            { c: 'oilseeds', t: 'Black Cumin Seeds (Nigella)', h: [3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Ash','7% Max'],['Volatile Oil','1% Min'],['Admixture','1% Max'],['Color','Black'],['Origin','India']], l: '16 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Middle East', 'USA', 'Europe', 'Malaysia'], k: ['Black Cumin', 'Nigella Sativa', 'Kalwanji'] },
+            { c: 'oilseeds', t: 'Natural White Sesame Seeds', h: [10,11,5,6], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99.95% / 99.90%'],['Type','Natural / Hulled'],['Moisture','5% Max'],['Oil Content','48% Min'],['FFA','1.5% Max'],['Admixture','0.05% Max'],['Origin','Gujarat/MP'],['HS Code','12074090'],['MOQ','1 FCL (20ft)']], l: '19 MT in 20ft', p: '25kg, 50kg Paper/PP Bags', f: ['Korea', 'USA', 'China', 'Europe'], k: ['Sesame Seeds', 'Til', 'Gingelly'] },
+            { c: 'oilseeds', t: 'Peanut (Groundnut) Kernels', h: [10,11,12], i: 'https://images.unsplash.com/photo-1567426685603-93633d7b4202', s: [['Type','Bold / Java'],['Counts','40/50, 50/60, 60/70'],['Moisture','7% Max'],['Admixture','1% Max'],['Aflatoxin','Negative (As per EU)'],['Oil Content','45% - 50%'],['Origin','Gujarat/Andhra'],['HS Code','12024210'],['MOQ','1 FCL (20ft)']], l: '19 MT in 20ft', p: '25kg Vacuum / 50kg Jute', f: ['Indonesia', 'Vietnam', 'Philippines', 'Malaysia'], k: ['Peanuts', 'Groundnuts', 'Java Peanuts', 'Bold Peanuts'] },
+            { c: 'oilseeds', t: 'Niger Seeds', h: [11,12,1], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Admixture','1% Max'],['Oil Content','32% - 35%'],['Foreign Matter','1% Max'],['Origin','India'],['Use','Bird Feed / Oil'],['HS Code','12079950'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Europe', 'Singapore', 'Canada'], k: ['Niger Seeds', 'Bird Feed', 'Ram Til'] },
+            { c: 'oilseeds', t: 'Flax Seeds (Linseed)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1621886637467-333e387c264c', s: [['Purity','99% / 99.5%'],['Moisture','10% Max'],['Oil Content','38% Min'],['Protein','20% Min'],['Admixture','1% Max'],['Color','Brown'],['Origin','MP/Rajasthan'],['HS Code','12040090'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '25kg, 50kg PP/Paper Bags', f: ['Europe', 'USA', 'China', 'Turkey'], k: ['Flax Seeds', 'Linseeds', 'Alsi', 'Omega 3'] },
+            { c: 'oilseeds', t: 'Black Cumin Seeds (Nigella)', h: [3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Purity','99% Machine Clean'],['Moisture','10% Max'],['Ash','7% Max'],['Volatile Oil','1% Min'],['Admixture','1% Max'],['Color','Black'],['Origin','India'],['HS Code','09093129'],['MOQ','1 FCL (20ft)']], l: '16 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Middle East', 'USA', 'Europe', 'Malaysia'], k: ['Black Cumin', 'Nigella Sativa', 'Kalwanji'] },
 
             // --- ANIMAL FEED ---
-            { c: 'feed', t: 'Yellow Maize (Corn)', h: [10,11,3,4], i: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076', s: [['Moisture','14% Max'],['Admixture','2% Max'],['Broken','2% Max'],['Damage','2% Max'],['Aflatoxin','20 PPB Max'],['Type','Human / Animal Feed'],['Origin','Bihar/Maharashtra']], l: '24 MT in 20ft', p: '50kg PP Bag / Bulk', f: ['Vietnam', 'Malaysia', 'UAE', 'Bangladesh'], k: ['Yellow Maize', 'Corn', 'Cattle Feed', 'Poultry Feed'] },
-            { c: 'feed', t: 'White Sorghum (Jowar)', h: [10,11,12], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Moisture','12% Max'],['Protein','10% Min'],['Admixture','2% Max'],['Foreign Matter','1% Max'],['Type','White / Yellow'],['Origin','Maharashtra/Karnataka']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Saudi Arabia', 'UAE', 'China', 'Africa'], k: ['Sorghum', 'Jowar', 'Animal Feed'] },
-            { c: 'feed', t: 'Green Millet (Bajra)', h: [10,11], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Moisture','12% Max'],['Purity','99% / 98%'],['Protein','12% Min'],['Admixture','1% Max'],['Origin','Rajasthan/Gujarat'],['Grade','Machine Clean']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Middle East', 'Africa', 'Philippines'], k: ['Green Millet', 'Bajra', 'Bird Feed'] },
-            { c: 'feed', t: 'Safflower Seeds', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Moisture','10% Max'],['Oil Content','28% - 30%'],['Admixture','2% Max'],['Foreign Matter','1% Max'],['Origin','Maharashtra'],['Use','Bird Feed']], l: '19 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Europe', 'USA', 'China'], k: ['Safflower Seeds', 'Kardi Seeds', 'Bird Feed'] },
-            { c: 'feed', t: 'Sunflower Seeds', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Black / Striped'],['Moisture','9% Max'],['Admixture','1% Max'],['Oil Content','38% - 40%'],['Origin','India'],['Grade','Bird Feed Grade']], l: '20 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Philippines', 'Europe', 'Middle East'], k: ['Sunflower Seeds', 'Bird Feed'] },
-            { c: 'feed', t: 'Maize Grits', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076', s: [['Mesh','16-24 / 24-60'],['Moisture','12% Max'],['Fat','1% Max'],['Color','Yellow'],['Origin','India'],['Use','Snacks / Brewery']], l: '24 MT in 20ft', p: '25kg, 50kg Bags', f: ['Sri Lanka', 'Africa', 'Nepal'], k: ['Maize Grits', 'Corn Grits'] },
-            { c: 'feed', t: 'Soybean Meal (DOC)', h: [10,11,12,1,2], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Protein','46% - 48%'],['Fiber','6% Max'],['Moisture','12% Max'],['Sand/Silica','2% Max'],['Activity','Urease Checked'],['Origin','MP/Maharashtra']], l: '20-22 MT in 20ft', p: '50kg PP Bag / Bulk', f: ['Bangladesh', 'Vietnam', 'Iran', 'Nepal'], k: ['Soybean Meal', 'Soya Doc', 'Poultry Feed'] },
-            { c: 'feed', t: 'Deoiled Rice Bran (DORB)', h: [11,12,1,2,3], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Protein','15% - 16%'],['Fiber','12% - 14%'],['Moisture','11% Max'],['Sand/Silica','4% - 5%'],['Origin','India'],['Form','Pellet / Powder']], l: '20 MT in 20ft', p: '50kg PP Bag / Bulk', f: ['Vietnam', 'Bangladesh', 'Thailand'], k: ['Rice Bran', 'DORB', 'Cattle Feed'] },
-            { c: 'feed', t: 'Groundnut Oil Cake', h: [10,11,12], i: 'https://images.unsplash.com/photo-1567426685603-93633d7b4202', s: [['Protein','45% - 50%'],['Moisture','10% Max'],['Oil Content','1% - 8%'],['Fiber','8% Max'],['Aflatoxin','Checked'],['Origin','Gujarat']], l: '20 MT in 20ft', p: '50kg Jute/PP Bag', f: ['Indonesia', 'Philippines', 'Vietnam'], k: ['Peanut Cake', 'Groundnut Meal', 'Cattle Feed'] },
-            { c: 'feed', t: 'Barley Seeds', h: [3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Moisture','12% Max'],['Protein','10% Min'],['Purity','98% Min'],['Foreign Matter','2% Max'],['Weight','62 kg/hl'],['Origin','Rajasthan/UP']], l: '22-24 MT in 20ft', p: '50kg PP Bag / Bulk', f: ['Middle East', 'Saudi Arabia', 'Jordan'], k: ['Barley', 'Feed Barley', 'Jau'] },
-            { c: 'feed', t: 'Corn Gluten Meal', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076', s: [['Protein','60% Min'],['Moisture','10% Max'],['Fat','3% Max'],['Fiber','3% Max'],['Appearance','Golden Yellow Powder'],['Origin','India']], l: '20 MT in 20ft', p: '50kg PP Bag', f: ['Vietnam', 'Indonesia', 'Sri Lanka'], k: ['Corn Gluten Meal', 'CGM', 'Poultry Feed'] },
-            { c: 'feed', t: 'Cotton Seed Oil Cake', h: [10,11,12,1,2], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Protein','22% - 24%'],['Oil Content','6% - 7%'],['Moisture','10% Max'],['Fiber','24% Max'],['Sand/Silica','2.5% Max'],['Origin','Gujarat/Maharashtra']], l: '20 MT in 20ft', p: '50kg PP Bag', f: ['South Korea', 'China', 'Pakistan'], k: ['Cotton Seed Cake', 'Cattle Feed', 'Kapasia Khali'] },
-            { c: 'feed', t: 'Buckwheat', h: [10,11], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Moisture','14% Max'],['Admixture','1% Max'],['Foreign Matter','2% Max'],['Color','Brown/Black'],['Origin','India'],['Use','Bird Feed / Flour']], l: '20 MT in 20ft', p: '25kg, 50kg PP Bag', f: ['Europe', 'Japan', 'USA'], k: ['Buckwheat', 'Kuttu', 'Bird Feed'] },
-            { c: 'feed', t: 'Grey Millet', h: [10,11], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Moisture','12% Max'],['Purity','99%'],['Protein','11% Min'],['Foreign Matter','1% Max'],['Color','Grey'],['Origin','India']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Middle East', 'Africa'], k: ['Grey Millet', 'Bajra', 'Bird Feed'] },
-            { c: 'feed', t: 'Red Millet', h: [10,11], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Moisture','12% Max'],['Purity','98% / 99%'],['Protein','10% Min'],['Admixture','1% Max'],['Color','Red'],['Origin','India']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Europe', 'USA', 'Middle East'], k: ['Red Millet', 'Bird Feed', 'Finger Millet'] },
+            { c: 'feed', t: 'Yellow Maize (Corn)', h: [10,11,3,4], i: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076', s: [['Moisture','14% Max'],['Admixture','2% Max'],['Broken','2% Max'],['Damage','2% Max'],['Aflatoxin','20 PPB Max'],['Type','Human / Animal Feed'],['Origin','Bihar/Maharashtra'],['HS Code','10059000'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag / Bulk', f: ['Vietnam', 'Malaysia', 'UAE', 'Bangladesh'], k: ['Yellow Maize', 'Corn', 'Cattle Feed', 'Poultry Feed'] },
+            { c: 'feed', t: 'White Sorghum (Jowar)', h: [10,11,12], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Moisture','12% Max'],['Protein','10% Min'],['Admixture','2% Max'],['Foreign Matter','1% Max'],['Type','White / Yellow'],['Origin','Maharashtra/Karnataka'],['HS Code','10079000'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Saudi Arabia', 'UAE', 'China', 'Africa'], k: ['Sorghum', 'Jowar', 'Animal Feed'] },
+            { c: 'feed', t: 'Green Millet (Bajra)', h: [10,11], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Moisture','12% Max'],['Purity','99% / 98%'],['Protein','12% Min'],['Admixture','1% Max'],['Origin','Rajasthan/Gujarat'],['Grade','Machine Clean'],['HS Code','10082920'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Middle East', 'Africa', 'Philippines'], k: ['Green Millet', 'Bajra', 'Bird Feed'] },
+            { c: 'feed', t: 'Safflower Seeds', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Moisture','10% Max'],['Oil Content','28% - 30%'],['Admixture','2% Max'],['Foreign Matter','1% Max'],['Origin','Maharashtra'],['Use','Bird Feed'],['HS Code','12076010'],['MOQ','1 FCL (20ft)']], l: '19 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Europe', 'USA', 'China'], k: ['Safflower Seeds', 'Kardi Seeds', 'Bird Feed'] },
+            { c: 'feed', t: 'Sunflower Seeds', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Black / Striped'],['Moisture','9% Max'],['Admixture','1% Max'],['Oil Content','38% - 40%'],['Origin','India'],['Grade','Bird Feed Grade'],['HS Code','12060090'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Philippines', 'Europe', 'Middle East'], k: ['Sunflower Seeds', 'Bird Feed'] },
+            { c: 'feed', t: 'Maize Grits', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076', s: [['Mesh','16-24 / 24-60'],['Moisture','12% Max'],['Fat','1% Max'],['Color','Yellow'],['Origin','India'],['Use','Snacks / Brewery'],['HS Code','11031300'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '25kg, 50kg Bags', f: ['Sri Lanka', 'Africa', 'Nepal'], k: ['Maize Grits', 'Corn Grits'] },
+            { c: 'feed', t: 'Soybean Meal (DOC)', h: [10,11,12,1,2], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Protein','46% - 48%'],['Fiber','6% Max'],['Moisture','12% Max'],['Sand/Silica','2% Max'],['Activity','Urease Checked'],['Origin','MP/Maharashtra'],['HS Code','23040020'],['MOQ','1 FCL (20ft)']], l: '20-22 MT in 20ft', p: '50kg PP Bag / Bulk', f: ['Bangladesh', 'Vietnam', 'Iran', 'Nepal'], k: ['Soybean Meal', 'Soya Doc', 'Poultry Feed'] },
+            { c: 'feed', t: 'Deoiled Rice Bran (DORB)', h: [11,12,1,2,3], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Protein','15% - 16%'],['Fiber','12% - 14%'],['Moisture','11% Max'],['Sand/Silica','4% - 5%'],['Origin','India'],['Form','Pellet / Powder'],['HS Code','23024000'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '50kg PP Bag / Bulk', f: ['Vietnam', 'Bangladesh', 'Thailand'], k: ['Rice Bran', 'DORB', 'Cattle Feed'] },
+            { c: 'feed', t: 'Groundnut Oil Cake', h: [10,11,12], i: 'https://images.unsplash.com/photo-1567426685603-93633d7b4202', s: [['Protein','45% - 50%'],['Moisture','10% Max'],['Oil Content','1% - 8%'],['Fiber','8% Max'],['Aflatoxin','Checked'],['Origin','Gujarat'],['HS Code','23050020'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '50kg Jute/PP Bag', f: ['Indonesia', 'Philippines', 'Vietnam'], k: ['Peanut Cake', 'Groundnut Meal', 'Cattle Feed'] },
+            { c: 'feed', t: 'Barley Seeds', h: [3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Moisture','12% Max'],['Protein','10% Min'],['Purity','98% Min'],['Foreign Matter','2% Max'],['Weight','62 kg/hl'],['Origin','Rajasthan/UP'],['HS Code','10039000'],['MOQ','1 FCL (20ft)']], l: '22-24 MT in 20ft', p: '50kg PP Bag / Bulk', f: ['Middle East', 'Saudi Arabia', 'Jordan'], k: ['Barley', 'Feed Barley', 'Jau'] },
+            { c: 'feed', t: 'Corn Gluten Meal', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076', s: [['Protein','60% Min'],['Moisture','10% Max'],['Fat','3% Max'],['Fiber','3% Max'],['Appearance','Golden Yellow Powder'],['Origin','India'],['HS Code','23031000'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '50kg PP Bag', f: ['Vietnam', 'Indonesia', 'Sri Lanka'], k: ['Corn Gluten Meal', 'CGM', 'Poultry Feed'] },
+            { c: 'feed', t: 'Cotton Seed Oil Cake', h: [10,11,12,1,2], i: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3', s: [['Protein','22% - 24%'],['Oil Content','6% - 7%'],['Moisture','10% Max'],['Fiber','24% Max'],['Sand/Silica','2.5% Max'],['Origin','Gujarat/Maharashtra'],['HS Code','23061020'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '50kg PP Bag', f: ['South Korea', 'China', 'Pakistan'], k: ['Cotton Seed Cake', 'Cattle Feed', 'Kapasia Khali'] },
+            { c: 'feed', t: 'Buckwheat', h: [10,11], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Moisture','14% Max'],['Admixture','1% Max'],['Foreign Matter','2% Max'],['Color','Brown/Black'],['Origin','India'],['Use','Bird Feed / Flour'],['HS Code','10081000'],['MOQ','1 FCL (20ft)']], l: '20 MT in 20ft', p: '25kg, 50kg PP Bag', f: ['Europe', 'Japan', 'USA'], k: ['Buckwheat', 'Kuttu', 'Bird Feed'] },
+            { c: 'feed', t: 'Grey Millet', h: [10,11], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Moisture','12% Max'],['Purity','99%'],['Protein','11% Min'],['Foreign Matter','1% Max'],['Color','Grey'],['Origin','India'],['HS Code','10082120'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Middle East', 'Africa'], k: ['Grey Millet', 'Bajra', 'Bird Feed'] },
+            { c: 'feed', t: 'Red Millet', h: [10,11], i: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec', s: [['Moisture','12% Max'],['Purity','98% / 99%'],['Protein','10% Min'],['Admixture','1% Max'],['Color','Red'],['Origin','India'],['HS Code','10082120'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Europe', 'USA', 'Middle East'], k: ['Red Millet', 'Bird Feed', 'Finger Millet'] },
 
-            // --- FLOUR (Chakki Atta, Maida, Semolina, Corn Flour, Corn Starch) ---
-            { c: 'flour', t: 'Wheat Flour (Chakki Fresh Atta)', h: [4,5,6,10,11], i: 'https://images.unsplash.com/photo-1509440159596-0249088772ff', s: [['Ash','1.5% Max'],['Protein','11% Min'],['Moisture','12% Max'],['Gluten','9% Min'],['Color','Creamy White'],['Type','Whole Wheat'],['Origin','MP/Punjab']], l: '22-24 MT in 20ft', p: '5kg, 10kg, 25kg, 50kg Bags', f: ['UAE', 'Saudi Arabia', 'USA', 'UK'], k: ['Atta', 'Whole Wheat Flour', 'Chakki Atta', 'Roti Flour'] },
-            { c: 'flour', t: 'Maida (Refined Wheat Flour)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9', s: [['Ash','0.55% Max'],['Gluten','28% Min'],['Protein','11% Min'],['Moisture','13% Max'],['Color','Super White'],['Sedimentation','25ml Min'],['Origin','India']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Somalia', 'UAE', 'Yemen', 'Sri Lanka'], k: ['Maida', 'Refined Flour', 'Bakery Flour', 'All Purpose Flour'] },
-            { c: 'flour', t: 'Semolina (Sooji / Rava)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9', s: [['Particle Size','Coarse / Fine'],['Moisture','13% Max'],['Ash','0.8% Max'],['Gluten','26% Min'],['Protein','10% Min'],['Color','Creamy Yellow'],['Origin','India']], l: '24 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Africa', 'Middle East', 'Asia'], k: ['Sooji', 'Rava', 'Semolina', 'Durum Semolina'] },
-            { c: 'flour', t: 'Corn Flour (Maize Flour)', h: [1,2,3,4,10,11,12], i: 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9', s: [['Type','Yellow / White'],['Moisture','12% Max'],['Protein','8% Min'],['Fat','3% Max'],['Ash','1.5% Max'],['Fineness','90% passing 40 mesh'],['Origin','India']], l: '22 MT in 20ft', p: '25kg, 50kg Bags', f: ['Malaysia', 'Vietnam', 'Sri Lanka'], k: ['Makki Atta', 'Maize Flour', 'Corn Meal'] },
-            { c: 'flour', t: 'Corn Starch', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076', s: [['Appearance','White Fine Powder'],['Moisture','12% Max'],['Starch Content','98% Min'],['Ash','0.15% Max'],['Protein','0.4% Max'],['PH','5-7'],['SO2','30 PPM Max']], l: '22 MT in 20ft', p: '25kg Paper/PP Bags', f: ['Sri Lanka', 'Bangladesh', 'Kenya', 'Nigeria', 'UAE'], k: ['Corn Starch', 'Maize Starch', 'Food Grade Starch'] },
+            // --- FLOUR ---
+            { c: 'flour', t: 'Wheat Flour (Chakki Fresh Atta)', h: [4,5,6,10,11], i: 'https://images.unsplash.com/photo-1509440159596-0249088772ff', s: [['Ash','1.5% Max'],['Protein','11% Min'],['Moisture','12% Max'],['Gluten','9% Min'],['Color','Creamy White'],['Type','Whole Wheat'],['Origin','MP/Punjab'],['HS Code','11010000'],['MOQ','1 FCL (20ft)']], l: '22-24 MT in 20ft', p: '5kg, 10kg, 25kg, 50kg Bags', f: ['UAE', 'Saudi Arabia', 'USA', 'UK'], k: ['Atta', 'Whole Wheat Flour', 'Chakki Atta', 'Roti Flour'] },
+            { c: 'flour', t: 'Maida (Refined Wheat Flour)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9', s: [['Ash','0.55% Max'],['Gluten','28% Min'],['Protein','11% Min'],['Moisture','13% Max'],['Color','Super White'],['Sedimentation','25ml Min'],['Origin','India'],['HS Code','11010000'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Somalia', 'UAE', 'Yemen', 'Sri Lanka'], k: ['Maida', 'Refined Flour', 'Bakery Flour', 'All Purpose Flour'] },
+            { c: 'flour', t: 'Semolina (Sooji / Rava)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9', s: [['Particle Size','Coarse / Fine'],['Moisture','13% Max'],['Ash','0.8% Max'],['Gluten','26% Min'],['Protein','10% Min'],['Color','Creamy Yellow'],['Origin','India'],['HS Code','11031110'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Africa', 'Middle East', 'Asia'], k: ['Sooji', 'Rava', 'Semolina', 'Durum Semolina'] },
+            { c: 'flour', t: 'Corn Flour (Maize Flour)', h: [1,2,3,4,10,11,12], i: 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9', s: [['Type','Yellow / White'],['Moisture','12% Max'],['Protein','8% Min'],['Fat','3% Max'],['Ash','1.5% Max'],['Fineness','90% passing 40 mesh'],['Origin','India'],['HS Code','11022000'],['MOQ','1 FCL (20ft)']], l: '22 MT in 20ft', p: '25kg, 50kg Bags', f: ['Malaysia', 'Vietnam', 'Sri Lanka'], k: ['Makki Atta', 'Maize Flour', 'Corn Meal'] },
+            { c: 'flour', t: 'Corn Starch', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076', s: [['Appearance','White Fine Powder'],['Moisture','12% Max'],['Starch Content','98% Min'],['Ash','0.15% Max'],['Protein','0.4% Max'],['PH','5-7'],['SO2','30 PPM Max'],['HS Code','11081200'],['MOQ','1 FCL (20ft)']], l: '22 MT in 20ft', p: '25kg Paper/PP Bags', f: ['Sri Lanka', 'Bangladesh', 'Kenya', 'Nigeria', 'UAE'], k: ['Corn Starch', 'Maize Starch', 'Food Grade Starch'] },
 
             // --- WHEAT ---
-            { c: 'wheat', t: 'Milling Wheat', h: [3,4], i: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b', s: [['Protein','11.5% - 12.5%'],['Gluten','26% Min'],['Moisture','12% Max'],['Falling Number','300 sec'],['Hectoliter','77 Kg/hl'],['Foreign Matter','1.5% Max'],['Damaged','2% Max'],['Shrunken','3% Max'],['Origin','MP/Gujarat'],['Crop','Recent']], l: '24-25 MT in 20ft', p: 'Bulk or 50kg Bag', f: ['Bangladesh', 'Yemen', 'Nepal', 'UAE', 'Sri Lanka'], k: ['Milling Wheat', 'Indian Wheat', 'Lokwan Wheat', 'Wheat Exporter India', 'JFT Wheat'] },
+            { c: 'wheat', t: 'Milling Wheat', h: [3,4], i: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b', s: [['Protein','11.5% - 12.5%'],['Gluten','26% Min'],['Moisture','12% Max'],['Falling Number','300 sec'],['Hectoliter','77 Kg/hl'],['Foreign Matter','1.5% Max'],['Damaged','2% Max'],['Shrunken','3% Max'],['Origin','MP/Gujarat'],['Crop','Recent'],['HS Code','10019910'],['MOQ','1 FCL (20ft)']], l: '24-25 MT in 20ft', p: 'Bulk or 50kg Bag', f: ['Bangladesh', 'Yemen', 'Nepal', 'UAE', 'Sri Lanka'], k: ['Milling Wheat', 'Indian Wheat', 'Lokwan Wheat', 'Wheat Exporter India', 'JFT Wheat'] },
 
-            // --- SUGAR (Year Round) ---
-            { c: 'sugar', t: 'Sugar S-30', h: [1,2,3,4,11,12], i: 'https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f', s: [['ICUMSA','<100'],['Polarization','99.80% Min'],['Moisture','0.04% Max'],['Ash','0.04% Max'],['Solubility','100%'],['Color','Sparkling White'],['Granulation','Fine'],['Origin','Maharashtra'],['Reducing Sugar','0.05% Max'],['Radiation','Normal']], l: '26 MT in 20ft', p: '50kg PP Bag', f: ['Sudan', 'Somalia', 'Indonesia', 'Sri Lanka', 'Bangladesh'], k: ['Sugar S30', 'White Sugar', 'Indian Sugar Exporter', 'ICUMSA 100', 'JFT Sugar'] },
+            // --- SUGAR ---
+            { c: 'sugar', t: 'Sugar S-30', h: [1,2,3,4,11,12], i: 'https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f', s: [['ICUMSA','<100'],['Polarization','99.80% Min'],['Moisture','0.04% Max'],['Ash','0.04% Max'],['Solubility','100%'],['Color','Sparkling White'],['Granulation','Fine'],['Origin','Maharashtra'],['Reducing Sugar','0.05% Max'],['Radiation','Normal'],['HS Code','17019990'],['MOQ','1 FCL (20ft)']], l: '26 MT in 20ft', p: '50kg PP Bag', f: ['Sudan', 'Somalia', 'Indonesia', 'Sri Lanka', 'Bangladesh'], k: ['Sugar S30', 'White Sugar', 'Indian Sugar Exporter', 'ICUMSA 100', 'JFT Sugar'] },
             
             // --- RAISINS ---
-            { c: 'raisins', t: 'Black Raisins (Seedless)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Seedless Black'],['Moisture','15-16% Max'],['Size','Medium / Bold'],['Sugar Content','65% Min'],['Admixture','0.5% Max'],['Origin','Nashik/Sangli'],['Count','250-300 per 100g']], l: '18-20 MT in 20ft', p: '10kg Carton Box', f: ['Europe', 'Russia', 'Middle East', 'USA'], k: ['Black Raisins', 'Kali Kishmish', 'Dried Grapes'] },
-            { c: 'raisins', t: 'Brown Raisins (Malayar)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Malayar Round/Long'],['Color','Light/Dark Brown'],['Moisture','15% Max'],['Size','Medium'],['Count','300-400 per 100g'],['Origin','Sangli/Tasgaon'],['Taste','Sweet']], l: '18-20 MT in 20ft', p: '10kg, 15kg Carton Box', f: ['Russia', 'UAE', 'Saudi Arabia', 'Poland'], k: ['Brown Raisins', 'Malayar Raisins', 'Indian Kishmish'] },
-            { c: 'raisins', t: 'Golden Raisins (Nashik)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Golden Long/Round'],['Color','Golden Yellow'],['Moisture','15% Max'],['Treatment','Sulfur Treated'],['Size','Bold / Medium'],['Origin','Nashik'],['Count','200-250 per 100g']], l: '18-20 MT in 20ft', p: '5kg, 10kg Carton Box', f: ['Europe', 'Japan', 'Canada', 'UK'], k: ['Golden Raisins', 'Yellow Raisins', 'Nashik Raisins'] },
+            { c: 'raisins', t: 'Black Raisins (Seedless)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Seedless Black'],['Moisture','15-16% Max'],['Size','Medium / Bold'],['Sugar Content','65% Min'],['Admixture','0.5% Max'],['Origin','Nashik/Sangli'],['Count','250-300 per 100g'],['HS Code','08062010'],['MOQ','1 FCL (20ft)']], l: '18-20 MT in 20ft', p: '10kg Carton Box', f: ['Europe', 'Russia', 'Middle East', 'USA'], k: ['Black Raisins', 'Kali Kishmish', 'Dried Grapes'] },
+            { c: 'raisins', t: 'Brown Raisins (Malayar)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Malayar Round/Long'],['Color','Light/Dark Brown'],['Moisture','15% Max'],['Size','Medium'],['Count','300-400 per 100g'],['Origin','Sangli/Tasgaon'],['Taste','Sweet'],['HS Code','08062010'],['MOQ','1 FCL (20ft)']], l: '18-20 MT in 20ft', p: '10kg, 15kg Carton Box', f: ['Russia', 'UAE', 'Saudi Arabia', 'Poland'], k: ['Brown Raisins', 'Malayar Raisins', 'Indian Kishmish'] },
+            { c: 'raisins', t: 'Golden Raisins (Nashik)', h: [2,3,4], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Golden Long/Round'],['Color','Golden Yellow'],['Moisture','15% Max'],['Treatment','Sulfur Treated'],['Size','Bold / Medium'],['Origin','Nashik'],['Count','200-250 per 100g'],['HS Code','08062010'],['MOQ','1 FCL (20ft)']], l: '18-20 MT in 20ft', p: '5kg, 10kg Carton Box', f: ['Europe', 'Japan', 'Canada', 'UK'], k: ['Golden Raisins', 'Yellow Raisins', 'Nashik Raisins'] },
             
             // --- WE IMPORT (PULSES) ---
-            { c: 'pulses', t: 'Yellow Peas (Dry Peas)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Moisture','14% Max'],['Admixture','1% Max'],['Split','2% Max'],['Damage','3% Max'],['Color','Yellow'],['Origin','Canada/Russia']], l: '24 MT in 20ft', p: 'Bulk in Container / 50kg Bags', f: ['Canada', 'Russia', 'Ukraine'], k: ['Yellow Peas', 'Matar', 'Dry Peas'] },
-            { c: 'pulses', t: 'Masur (Red Lentils)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Whole / Split'],['Moisture','12% Max'],['Foreign Matter','1% Max'],['Purity','99% Min'],['Origin','Canada/Australia']], l: '24 MT in 20ft', p: '50kg PP Bags / Bulk', f: ['Canada', 'Australia', 'Turkey'], k: ['Masur', 'Lentils', 'Red Lentils'] },
-            { c: 'pulses', t: 'Tur / Arhar (Pigeon Pea)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Whole Lemon'],['Moisture','12% Max'],['Foreign Matter','1% Max'],['Weevilled','Nil'],['Origin','Myanmar/Africa']], l: '24 MT in 20ft', p: '50kg PP Bags', f: ['Myanmar', 'Mozambique', 'Tanzania'], k: ['Tur', 'Arhar', 'Pigeon Pea'] },
-            { c: 'pulses', t: 'Urad (Black Gram)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','FAQ / SQ'],['Moisture','12% Max'],['Admixture','1% Max'],['Weevilled Seeds','3% Max'],['Origin','Myanmar']], l: '24 MT in 20ft', p: '50kg PP Bags', f: ['Myanmar', 'Brazil'], k: ['Urad', 'Black Gram', 'Black Matpe'] },
-            { c: 'pulses', t: 'Moong (Green Gram)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Size','3mm - 4mm'],['Moisture','12% Max'],['Admixture','1% Max'],['Damaged','3% Max'],['Origin','Africa/Myanmar']], l: '24 MT in 20ft', p: '50kg PP Bags', f: ['Kenya', 'Tanzania', 'Myanmar'], k: ['Moong', 'Green Gram', 'Green Mung'] },
-            { c: 'pulses', t: 'Chickpeas (Desi Chana)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Desi'],['Moisture','12% Max'],['Admixture','1% Max'],['Count','Small / Medium'],['Origin','Australia/Russia']], l: '24 MT in 20ft', p: 'Bulk / 50kg Bags', f: ['Australia', 'Russia', 'Tanzania'], k: ['Chickpeas', 'Chana', 'Desi Chickpeas'] },
-            { c: 'pulses', t: 'Kabuli Chana (White Chickpeas)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Size','7mm / 8mm / 9mm+'],['Moisture','12% Max'],['Admixture','1% Max'],['Broken','2% Max'],['Origin','Russia/Mexico']], l: '23 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Russia', 'Mexico', 'Sudan'], k: ['Kabuli Chana', 'White Chickpeas', 'Garbanzo'] },
-            { c: 'pulses', t: 'Dry Field Peas (Green)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Color','Green'],['Moisture','14% Max'],['Bleached','3% Max'],['Admixture','1% Max'],['Origin','Canada/USA']], l: '24 MT in 20ft', p: 'Bulk / 50kg Bags', f: ['Canada', 'USA', 'France'], k: ['Green Peas', 'Dry Peas', 'Field Peas'] },
-            { c: 'pulses', t: 'Toor Dal (Split Pigeon Pea)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Oily / Non-Oily'],['Moisture','12% Max'],['Admixture','1% Max'],['Broken','2% Max'],['Origin','Africa/Myanmar']], l: '24 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Malawi', 'Myanmar', 'Sudan'], k: ['Toor Dal', 'Split Pigeon Pea', 'Processed Dal'] },
+            { c: 'pulses', t: 'Yellow Peas (Dry Peas)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Moisture','14% Max'],['Admixture','1% Max'],['Split','2% Max'],['Damage','3% Max'],['Color','Yellow'],['Origin','Canada/Russia'],['HS Code','07131000'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: 'Bulk in Container / 50kg Bags', f: ['Canada', 'Russia', 'Ukraine'], k: ['Yellow Peas', 'Matar', 'Dry Peas'] },
+            { c: 'pulses', t: 'Masur (Red Lentils)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Whole / Split'],['Moisture','12% Max'],['Foreign Matter','1% Max'],['Purity','99% Min'],['Origin','Canada/Australia'],['HS Code','07134000'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bags / Bulk', f: ['Canada', 'Australia', 'Turkey'], k: ['Masur', 'Lentils', 'Red Lentils'] },
+            { c: 'pulses', t: 'Tur / Arhar (Pigeon Pea)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Whole Lemon'],['Moisture','12% Max'],['Foreign Matter','1% Max'],['Weevilled','Nil'],['Origin','Myanmar/Africa'],['HS Code','07136000'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bags', f: ['Myanmar', 'Mozambique', 'Tanzania'], k: ['Tur', 'Arhar', 'Pigeon Pea'] },
+            { c: 'pulses', t: 'Urad (Black Gram)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','FAQ / SQ'],['Moisture','12% Max'],['Admixture','1% Max'],['Weevilled Seeds','3% Max'],['Origin','Myanmar'],['HS Code','07133100'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bags', f: ['Myanmar', 'Brazil'], k: ['Urad', 'Black Gram', 'Black Matpe'] },
+            { c: 'pulses', t: 'Moong (Green Gram)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Size','3mm - 4mm'],['Moisture','12% Max'],['Admixture','1% Max'],['Damaged','3% Max'],['Origin','Africa/Myanmar'],['HS Code','07133100'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bags', f: ['Kenya', 'Tanzania', 'Myanmar'], k: ['Moong', 'Green Gram', 'Green Mung'] },
+            { c: 'pulses', t: 'Chickpeas (Desi Chana)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Desi'],['Moisture','12% Max'],['Admixture','1% Max'],['Count','Small / Medium'],['Origin','Australia/Russia'],['HS Code','07132000'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: 'Bulk / 50kg Bags', f: ['Australia', 'Russia', 'Tanzania'], k: ['Chickpeas', 'Chana', 'Desi Chickpeas'] },
+            { c: 'pulses', t: 'Kabuli Chana (White Chickpeas)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Size','7mm / 8mm / 9mm+'],['Moisture','12% Max'],['Admixture','1% Max'],['Broken','2% Max'],['Origin','Russia/Mexico'],['HS Code','07132000'],['MOQ','1 FCL (20ft)']], l: '23 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Russia', 'Mexico', 'Sudan'], k: ['Kabuli Chana', 'White Chickpeas', 'Garbanzo'] },
+            { c: 'pulses', t: 'Dry Field Peas (Green)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Color','Green'],['Moisture','14% Max'],['Bleached','3% Max'],['Admixture','1% Max'],['Origin','Canada/USA'],['HS Code','07131000'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: 'Bulk / 50kg Bags', f: ['Canada', 'USA', 'France'], k: ['Green Peas', 'Dry Peas', 'Field Peas'] },
+            { c: 'pulses', t: 'Toor Dal (Split Pigeon Pea)', h: [1,2,3,4,5,6,7,8,9,10,11,12], i: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d', s: [['Type','Oily / Non-Oily'],['Moisture','12% Max'],['Admixture','1% Max'],['Broken','2% Max'],['Origin','Africa/Myanmar'],['HS Code','07136000'],['MOQ','1 FCL (20ft)']], l: '24 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Malawi', 'Myanmar', 'Sudan'], k: ['Toor Dal', 'Split Pigeon Pea', 'Processed Dal'] },
         ];
 
         const HEADER_BG = "https://images.unsplash.com/photo-1471193945509-9adadd0974ce?q=80&w=2070&auto=format&fit=crop";
@@ -598,20 +610,23 @@
                     });
                 }
 
+                // Performance Optimization: Eager load first 6 images, lazy load rest
+                const loadingAttr = index < 6 ? 'eager' : 'lazy';
+
                 const html = `
                 <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="lazy"></div>
+                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
                     <div class="p-content">
                         <div class="p-cat">${p.c.toUpperCase()}</div>
                         <h3 class="p-title">${p.t}</h3>
                         
                         <div class="p-specs-wrapper">
-                            <div class="p-specs-scrollable" id="${uniqueId}">
+                            <div class="p-specs-scrollable" id="${uniqueId}" tabindex="0">
                                 <table class="p-table-shared">${allSpecsHTML}</table>
                             </div>
                             
                             <div class="p-toggle-overlay">
-                                <div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)"><i class="fa-solid fa-chevron-down"></i></div>
+                                <div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle Specifications" aria-expanded="false"><i class="fa-solid fa-chevron-down"></i></div>
                             </div>
                         </div>
 
@@ -659,6 +674,7 @@
                 const uniqueId = `specs-search-${index}`;
                 // Correctly find the index in the global array
                 const globalIndex = PRODUCT_DATA.indexOf(p);
+                const loadingAttr = index < 6 ? 'eager' : 'lazy';
 
                 let allSpecsHTML = '';
                 p.s.forEach(s => { allSpecsHTML += `<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`; });
@@ -671,13 +687,13 @@
 
                 const html = `
                 <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="lazy"></div>
+                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
                     <div class="p-content">
                         <div class="p-cat">${p.c.toUpperCase()}</div>
                         <h3 class="p-title">${p.t}</h3>
                         <div class="p-specs-wrapper">
-                            <div class="p-specs-scrollable" id="${uniqueId}"><table class="p-table-shared">${allSpecsHTML}</table></div>
-                            <div class="p-toggle-overlay"><div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)"><i class="fa-solid fa-chevron-down"></i></div></div>
+                            <div class="p-specs-scrollable" id="${uniqueId}" tabindex="0"><table class="p-table-shared">${allSpecsHTML}</table></div>
+                            <div class="p-toggle-overlay"><div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle Specifications"><i class="fa-solid fa-chevron-down"></i></div></div>
                         </div>
                         <div class="p-flags-area"><div class="p-flag-label">Top Importers</div><div class="p-market-list">${marketHTML}</div></div>
                         <div class="p-tags-container">${tagsHTML}</div>
@@ -738,13 +754,17 @@
                     const parent = el.closest('.p-specs-wrapper');
                     if(parent) {
                         const toggle = parent.querySelector('.p-toggle-btn');
-                        if(toggle) toggle.classList.remove('rotated');
+                        if(toggle) {
+                            toggle.classList.remove('rotated');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
                     }
                 }
             });
             const targetDiv = document.getElementById(id);
-            targetDiv.classList.toggle('expanded');
+            const isExpanded = targetDiv.classList.toggle('expanded');
             btn.classList.toggle('rotated');
+            btn.setAttribute('aria-expanded', isExpanded);
         }
 
         // --- MARKET INTELLIGENCE MODAL FUNCTIONS ---
@@ -753,6 +773,9 @@
         function openModal(index) {
             const p = PRODUCT_DATA[index];
             const modal = document.getElementById('product-modal');
+            
+            // UX Fix: Lock body scroll
+            document.body.classList.add('modal-open');
             
             const today = new Date();
             const dateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -772,6 +795,9 @@
             document.getElementById('m-title').innerText = p.t;
             document.getElementById('m-img').src = p.i;
             document.getElementById('m-desc').innerText = `Premium quality ${p.t} sourced directly from the best farms in India. Processed in state-of-the-art facilities to ensure purity and hygiene. Ideal for international markets requiring strict quality control.`;
+            
+            // Dynamic Title Update for History
+            document.title = `${p.t} | JFT Agro Catalogue`;
             
             let states = "Punjab, Haryana";
             let cult = "Kharif (June-Nov)";
@@ -793,10 +819,12 @@
             p.f.forEach(buyer => { importersHTML += `<div>• ${buyer}</div>`; });
             document.getElementById('m-importers').innerHTML = importersHTML;
 
+            // Logic Fix: Dynamic Years
+            const currentYear = today.getFullYear();
             document.getElementById('m-prod-body').innerHTML = `
-                <tr><td>2023</td><td>14,500</td></tr>
-                <tr><td>2024</td><td>15,200</td></tr>
-                <tr><td>2025</td><td>16,100 (Est)</td></tr>
+                <tr><td>${currentYear - 2}</td><td>14,500</td></tr>
+                <tr><td>${currentYear - 1}</td><td>15,200</td></tr>
+                <tr><td>${currentYear}</td><td>16,100 (Est)</td></tr>
             `;
 
             document.getElementById('m-news').innerHTML = `
@@ -812,6 +840,10 @@
 
         function closeModal() {
             const modal = document.getElementById('product-modal');
+            // UX Fix: Unlock body scroll
+            document.body.classList.remove('modal-open');
+            document.title = "Product Catalogue | JFT Agro Overseas - Star Export House";
+            
             modal.classList.remove('open');
             setTimeout(() => modal.style.display = "none", 300);
         }
@@ -880,7 +912,10 @@
                         const parent = expandedSpec.closest('.p-specs-wrapper');
                         if (parent) {
                             const toggle = parent.querySelector('.p-toggle-btn');
-                            if(toggle) toggle.classList.remove('rotated');
+                            if(toggle) {
+                                toggle.classList.remove('rotated');
+                                toggle.setAttribute('aria-expanded', 'false');
+                            }
                         }
                     }
                 }
@@ -918,6 +953,7 @@
                 const uniqueId = `specs-${index}`;
                 // Correctly find the index in the global array
                 const globalIndex = PRODUCT_DATA.indexOf(p);
+                const loadingAttr = index < 6 ? 'eager' : 'lazy';
 
                 let allSpecsHTML = '';
                 p.s.forEach(s => { allSpecsHTML += `<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`; });
@@ -930,13 +966,13 @@
 
                 const html = `
                 <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="lazy"></div>
+                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
                     <div class="p-content">
                         <div class="p-cat">${p.c.toUpperCase()}</div>
                         <h3 class="p-title">${p.t}</h3>
                         <div class="p-specs-wrapper">
-                            <div class="p-specs-scrollable" id="${uniqueId}"><table class="p-table-shared">${allSpecsHTML}</table></div>
-                            <div class="p-toggle-overlay"><div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)"><i class="fa-solid fa-chevron-down"></i></div></div>
+                            <div class="p-specs-scrollable" id="${uniqueId}" tabindex="0"><table class="p-table-shared">${allSpecsHTML}</table></div>
+                            <div class="p-toggle-overlay"><div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle Specifications"><i class="fa-solid fa-chevron-down"></i></div></div>
                         </div>
                         <div class="p-flags-area"><div class="p-flag-label">Top Importers</div><div class="p-market-list">${marketHTML}</div></div>
                         <div class="p-tags-container">${tagsHTML}</div>
