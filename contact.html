@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Contact & RFQ | JFT Agro Overseas</title>
     <meta name="description" content="Request a Quote for Indian Rice, Spices, and Grains. Contact our Export Division.">
+    <link rel="canonical" href="https://jftagro.com/contact.html">
+    <meta property="og:title" content="Contact Global Trade Desk | JFT Agro">
+    <meta property="og:description" content="Start your import inquiry for premium Indian commodities.">
+    <meta property="og:image" content="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png">
+    <meta property="og:type" content="website">
+    
     <meta name="theme-color" content="#1a3c34">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +24,9 @@
         /* --- GLOBAL VARIABLES --- */
         :root { 
             /* TYPOGRAPHY SETTINGS */
-            --font-head: 'Merriweather', serif;       
-            --font-sub: 'Montserrat', sans-serif;     
-            --font-body: 'Lato', sans-serif;          
+            --font-head: 'Merriweather', serif;        
+            --font-sub: 'Montserrat', sans-serif;      
+            --font-body: 'Lato', sans-serif;           
 
             /* COLOR THEME */
             --jft-primary: #4e8c3e; /* Leaf Green */
@@ -40,10 +48,9 @@
             --section-padding: clamp(60px, 8vw, 110px);
         }
 
-        body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #4a4a4a; background: var(--jft-light); -webkit-font-smoothing: antialiased; } 
+        body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #4a4a4a; background-color: var(--jft-light); -webkit-font-smoothing: antialiased; } 
         * { box-sizing: border-box; } 
         
-        /* Updated: Added scrollbar-gutter */
         html { scroll-behavior: smooth; scrollbar-gutter: stable; }
         
         h1, h2, h3, h4 { font-family: var(--font-head); margin: 0; color: var(--jft-navy); letter-spacing: -0.5px; } 
@@ -57,6 +64,7 @@
         .jft-wide-container { max-width: 1350px; margin: 0 auto; padding: 0 var(--container-padding); position: relative; z-index: 5; }
         .section-padding { padding: var(--section-padding) 0; } 
         .bg-light { background-color: var(--jft-light); }
+        .bg-white { background-color: #ffffff; }
         
         /* Tags */
         .brand-tag { display: inline-block; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; background: rgba(78, 140, 62, 0.1); padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(78, 140, 62, 0.2); }
@@ -84,7 +92,7 @@
         .contact-layout { display: flex; gap: 60px; margin-top: -80px; position: relative; z-index: 10; align-items: flex-start; }
         
         /* Left: Info Cards */
-        .contact-info-col { flex: 1; display: flex; flex-direction: column; gap: 20px; min-width: 0; /* Prevents overflow in flex items */ }
+        .contact-info-col { flex: 1; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
         .c-card { background: #fff; padding: 35px; border-radius: var(--radius-md); box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid var(--jft-border); position: relative; overflow: hidden; transition: 0.3s; }
         .c-card:hover { transform: translateY(-5px); border-color: var(--jft-gold); }
         .c-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--jft-primary); }
@@ -113,11 +121,22 @@
         .form-input, .form-select, .form-textarea { width: 100%; padding: 14px; background: #fdfbf7; border: 1px solid #ddd; border-radius: 6px; font-family: var(--font-body); color: #333; transition: 0.3s; font-size: 0.95rem; appearance: none; -webkit-appearance: none; }
         .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--jft-primary); background: #fff; box-shadow: 0 4px 15px rgba(78, 140, 62, 0.1); }
         .full-width { grid-column: 1 / -1; }
-        .form-check { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 0.9rem; color: #666; flex-wrap: wrap; }
-        .form-check input { width: 18px; height: 18px; accent-color: var(--jft-primary); flex-shrink: 0; }
+        .form-check { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 0.9rem; color: #666; flex-wrap: wrap; cursor: pointer; }
+        .form-check input { width: 18px; height: 18px; accent-color: var(--jft-primary); flex-shrink: 0; margin: 0; }
+
+        /* --- NEW SECTION: TRADE WORKFLOW --- */
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; position: relative; margin-top: 40px; }
+        .p-step { position: relative; padding: 10px; }
+        .p-icon { width: 80px; height: 80px; background: #fff; border: 2px solid var(--jft-gold); color: var(--jft-navy); border-radius: 50%; font-family: var(--font-head); font-weight: 700; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; position: relative; z-index: 2; transition: 0.3s; box-shadow: var(--shadow-subtle); }
+        .p-step:hover .p-icon { background: var(--jft-primary); color: #fff; border-color: var(--jft-primary); transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .p-title { font-family: var(--font-head); font-size: 1.15rem; margin-bottom: 10px; color: var(--jft-navy); font-weight: 700; }
+        .p-desc { font-size: 0.95rem; color: #666; line-height: 1.6; }
+        
+        /* Dashed Line Connecting Steps */
+        .process-grid::after { content: ''; position: absolute; top: 40px; left: 12%; width: 76%; height: 2px; border-top: 2px dashed #e0e0e0; z-index: 1; }
 
         /* --- MAP SECTION --- */
-        .map-section { margin-top: 80px; position: relative; }
+        .map-section { margin-top: 0; position: relative; background-color: var(--jft-light); border-top: 1px solid rgba(0,0,0,0.05); }
         .map-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
         .map-btn { padding: 12px 30px; border: 2px solid var(--jft-border); background: #fff; border-radius: 50px; font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #666; cursor: pointer; transition: 0.3s; font-size: 0.8rem; white-space: nowrap; }
         .map-btn.active, .map-btn:hover { background: var(--jft-navy); color: #fff; border-color: var(--jft-navy); }
@@ -125,7 +144,7 @@
         .map-iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.2); }
 
         /* --- FAQ --- */
-        .faq-section { background: var(--jft-light); border-top: 1px solid #eee; }
+        .faq-section { background: #fff; border-top: 1px solid rgba(0,0,0,0.05); }
         .faq-container { max-width: 900px; margin: 0 auto; width: 100%; }
         .faq-item { border-bottom: 1px solid rgba(0,0,0,0.1); }
         .faq-question { padding: 25px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.1rem); font-weight: 700; color: var(--jft-navy); transition: 0.3s; gap: 15px; }
@@ -137,27 +156,28 @@
 
         /* --- ADVANCED RESPONSIVE MEDIA QUERIES --- */
         
-        /* Tablet Landscape & Small Laptops (Max 1024px) */
         @media (max-width: 1024px) {
             .page-header { margin-top: 40px; }
-            /* Break layout to column-reverse (Form on top) */
             .contact-layout { flex-direction: column-reverse; margin-top: 0; gap: 40px; }
-            /* Adjust negative margin to pull form up slightly over header */
             .contact-form-col { margin-top: -60px; z-index: 10; width: 100%; padding: 40px; }
             .form-grid { grid-template-columns: 1fr 1fr; }
         }
 
-        /* Tablet Portrait (Max 768px) */
         @media (max-width: 768px) {
             .contact-form-col { padding: 30px; margin-top: -40px; }
-            .form-grid { grid-template-columns: 1fr; gap: 15px; } /* Stack form fields */
+            .form-grid { grid-template-columns: 1fr; gap: 15px; } 
             .c-card { padding: 25px; }
+            
+            /* Process Section Mobile */
+            .process-grid { grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
+            .process-grid::after { display: none; } /* Hide line on mobile */
+            .p-icon { margin-bottom: 15px; width: 60px; height: 60px; font-size: 1.2rem; }
+            
             .map-frame-wrapper { height: 350px; }
-            .map-btn { width: 100%; margin-bottom: 5px; text-align: center; } /* Stack map buttons */
+            .map-btn { width: 100%; margin-bottom: 5px; text-align: center; } 
             .map-tabs { gap: 10px; }
         }
 
-        /* Mobile Devices (Max 480px) */
         @media (max-width: 480px) {
             .page-header { min-height: 300px; }
             .contact-form-col { padding: 25px 20px; border-top-width: 3px; }
@@ -170,7 +190,7 @@
 
         /* Preloader */
         #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #112621 0%, #1a3c34 50%, #29574c 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 1s; }
-        .loader-logo-img { width: 220px; max-width: 80%; margin-bottom: 30px; filter: brightness(0) invert(1); animation: logoFloat 3s ease-in-out infinite; }
+        .loader-logo-img { width: 220px; height: auto; max-width: 80%; margin-bottom: 30px; filter: brightness(0) invert(1); animation: logoFloat 3s ease-in-out infinite; }
         .loader-text { font-family: var(--font-head); font-size: 0.95rem; color: rgba(255,255,255,0.8); font-weight: 400; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 3px; text-align: center; padding: 0 20px; }
         .loader-track { width: 200px; height: 2px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; border-radius: 2px; }
         .loader-fill { width: 100%; height: 100%; background: var(--jft-gold); transform: translateX(-100%); animation: goldLineAnim 2s cubic-bezier(0.85, 0, 0.15, 1) forwards; }
@@ -182,12 +202,12 @@
 <body>
 
     <div id="preloader">
-        <img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Loading" class="loader-logo-img">
+        <img src="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png" alt="JFT Loading" class="loader-logo-img" width="220" height="80">
         <div class="loader-text">Loading Trade Desk...</div>
         <div class="loader-track"><div class="loader-fill"></div></div>
     </div>
 
-    <div id="header-placeholder"></div>
+    <div id="header-placeholder" style="min-height:80px;">Loading Navigation...</div>
 
     <header class="page-header" id="header-bg" style="background-image: url('https://images.unsplash.com/photo-1596766624467-33e73b22b7a9?q=80&w=2070&auto=format&fit=crop');">
         <div class="ph-content reveal active">
@@ -209,58 +229,58 @@
                     <form onsubmit="event.preventDefault(); alert('Inquiry Sent Successfully! Reference #JFT-2026-X49');">
                         <div class="form-grid">
                             <div class="form-group">
-                                <label class="form-label">Full Name</label>
-                                <input type="text" class="form-input" placeholder="John Doe" required>
+                                <label class="form-label" for="full_name">Full Name</label>
+                                <input type="text" id="full_name" name="full_name" class="form-input" placeholder="John Doe" autocomplete="name" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Company Name</label>
-                                <input type="text" class="form-input" placeholder="Global Impex Ltd" required>
+                                <label class="form-label" for="company">Company Name</label>
+                                <input type="text" id="company" name="company" class="form-input" placeholder="Global Impex Ltd" autocomplete="organization" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Official Email</label>
-                                <input type="email" class="form-input" placeholder="procurement@company.com" required>
+                                <label class="form-label" for="email">Official Email</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="procurement@company.com" autocomplete="email" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">WhatsApp / Phone</label>
-                                <input type="tel" class="form-input" placeholder="+1 (555) 000-0000" required>
+                                <label class="form-label" for="phone">WhatsApp / Phone</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" autocomplete="tel" inputmode="tel" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Select Product</label>
-                                <select class="form-select">
-                                    <option>Basmati Rice (1121/1509)</option>
-                                    <option>Non-Basmati Rice (IR64/PR11)</option>
-                                    <option>Indian Sugar (S-30)</option>
-                                    <option>Spices (Turmeric/Chilli/Cumin)</option>
-                                    <option>Wheat / Maize</option>
-                                    <option>Animal Feed</option>
+                                <label class="form-label" for="product">Select Product</label>
+                                <select id="product" name="product" class="form-select">
+                                    <option value="Basmati Rice">Basmati Rice (1121/1509)</option>
+                                    <option value="Non-Basmati Rice">Non-Basmati Rice (IR64/PR11)</option>
+                                    <option value="Sugar">Indian Sugar (S-30)</option>
+                                    <option value="Spices">Spices (Turmeric/Chilli/Cumin)</option>
+                                    <option value="Grains">Wheat / Maize</option>
+                                    <option value="Animal Feed">Animal Feed</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Quantity (MT)</label>
-                                <input type="number" class="form-input" placeholder="Min 24 MT (1 Container)" min="24">
+                                <label class="form-label" for="quantity">Quantity (MT)</label>
+                                <input type="number" id="quantity" name="quantity" class="form-input" placeholder="Min 24 MT (1 Container)" min="24" inputmode="numeric">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Port of Discharge</label>
-                                <input type="text" class="form-input" placeholder="e.g., Jebel Ali, Felixstowe" required>
+                                <label class="form-label" for="port">Port of Discharge</label>
+                                <input type="text" id="port" name="port" class="form-input" placeholder="e.g., Jebel Ali, Felixstowe" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Incoterms</label>
-                                <select class="form-select">
-                                    <option>FOB (Free On Board)</option>
-                                    <option>CIF (Cost, Insurance, Freight)</option>
-                                    <option>CNF (Cost & Freight)</option>
-                                    <option>Ex-Mill (Factory Gate)</option>
+                                <label class="form-label" for="incoterms">Incoterms</label>
+                                <select id="incoterms" name="incoterms" class="form-select">
+                                    <option value="FOB">FOB (Free On Board)</option>
+                                    <option value="CIF">CIF (Cost, Insurance, Freight)</option>
+                                    <option value="CNF">CNF (Cost & Freight)</option>
+                                    <option value="Ex-Mill">Ex-Mill (Factory Gate)</option>
                                 </select>
                             </div>
                             <div class="form-group full-width">
-                                <label class="form-label">Specific Requirements (Packing, Specs)</label>
-                                <textarea class="form-textarea" rows="4" placeholder="e.g., 50kg PP Bags, 2% Broken max..."></textarea>
+                                <label class="form-label" for="requirements">Specific Requirements (Packing, Specs)</label>
+                                <textarea id="requirements" name="requirements" class="form-textarea" rows="4" placeholder="e.g., 50kg PP Bags, 2% Broken max..."></textarea>
                             </div>
                             <div class="form-group full-width">
                                 <button type="submit" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1rem;">Send Request for Quote</button>
-                                <div class="form-check">
-                                    <input type="checkbox" required> <span>I agree to the Terms of Trade & Privacy Policy.</span>
-                                </div>
+                                <label class="form-check">
+                                    <input type="checkbox" name="terms" required> <span>I agree to the Terms of Trade & Privacy Policy.</span>
+                                </label>
                             </div>
                         </div>
                     </form>
@@ -289,7 +309,7 @@
                         <span class="c-text"><strong>Sales:</strong> +91 98960 55555</span>
                         <span class="c-text"><strong>Logistics:</strong> +91 22 4545 6767</span>
                         <span class="c-text"><strong>Email:</strong> <a href="mailto:export@jftagro.com" class="c-link">export@jftagro.com</a></span>
-                        <a href="https://wa.me/919896055555" class="btn-primary" style="margin-top: 20px; width: 100%; background: #25d366; border-color: #25d366; color:#fff;"><i class="fa-brands fa-whatsapp" style="margin-right: 10px;"></i> Chat on WhatsApp</a>
+                        <a href="https://wa.me/919896055555" target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Chat on WhatsApp" style="margin-top: 20px; width: 100%; background: #25d366; border-color: #25d366; color:#fff;"><i class="fa-brands fa-whatsapp" style="margin-right: 10px;"></i> Chat on WhatsApp</a>
                     </div>
 
                     <div class="c-card" style="background: var(--jft-navy); color: #fff; border:none;">
@@ -305,6 +325,38 @@
         </div>
     </section>
 
+    <section class="section-padding bg-white" style="border-top: 1px solid rgba(0,0,0,0.05);">
+        <div class="jft-wide-container">
+            <div class="section-header center-header reveal" style="text-align: center; margin-bottom: 50px;">
+                <span class="brand-tag">Workflow</span>
+                <h2 class="section-title">How We <span>Deliver</span></h2>
+                <p style="text-align: center; color: #666; margin-top: 15px;">A streamlined 4-step process for international buyers.</p>
+            </div>
+            <div class="process-grid reveal">
+                <div class="p-step">
+                    <div class="p-icon">1</div>
+                    <h3 class="p-title">Submit Inquiry</h3>
+                    <p class="p-desc">Send your requirements via our RFQ form or WhatsApp. We review specs immediately.</p>
+                </div>
+                <div class="p-step">
+                    <div class="p-icon">2</div>
+                    <h3 class="p-title">Receive Quote</h3>
+                    <p class="p-desc">Get a detailed Proforma Invoice (PI) with best rates and delivery timelines within 24 hours.</p>
+                </div>
+                <div class="p-step">
+                    <div class="p-icon">3</div>
+                    <h3 class="p-title">Confirm Order</h3>
+                    <p class="p-desc">Sign the contract and initiate payment (Advance/LC). We begin processing your goods.</p>
+                </div>
+                <div class="p-step">
+                    <div class="p-icon">4</div>
+                    <h3 class="p-title">Shipment</h3>
+                    <p class="p-desc">Goods are inspected, loaded, and shipped. You receive tracking and Scan BL copy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section-padding map-section">
         <div class="jft-wide-container">
             <div class="map-tabs reveal">
@@ -313,7 +365,7 @@
                 <button class="map-btn" onclick="changeMap('karnal')">Rice Mill (Haryana)</button>
             </div>
             <div class="map-frame-wrapper reveal">
-                <iframe id="gmap" class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.826227978252!2d72.99676531490104!3d19.07137498709051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c14a796e6259%3A0xc30a7d775670f032!2sAPMC%20Market%2C%20Vashi%2C%20Navi%20Mumbai!5e0!3m2!1sen!2sin!4v1675123456789!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                <iframe id="gmap" class="map-iframe" src="https://maps.google.com/maps?q=Sector%2019%20Vashi%20Navi%20Mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -346,18 +398,16 @@
         </div>
     </section>
 
-    <div id="footer-placeholder"></div>
+    <div id="footer-placeholder" style="min-height:50px;"></div>
 
     <script>
-        /* --- Universal File Loading (Updated Configuration) --- */
+        /* --- Universal File Loading --- */
         async function loadComponent(id, file) {
             try {
                 const res = await fetch(file);
                 if (!res.ok) throw new Error(`Failed to load ${file}`);
                 const text = await res.text();
                 document.getElementById(id).innerHTML = text;
-                
-                // This block ensures scripts inside the loaded header/footer actually run
                 const scripts = document.getElementById(id).querySelectorAll("script");
                 scripts.forEach(oldScript => {
                     const newScript = document.createElement("script");
@@ -368,7 +418,6 @@
             } catch (err) { console.error(err); }
         }
 
-        // Trigger the load when the page is ready
         document.addEventListener("DOMContentLoaded", () => {
             loadComponent("header-placeholder", "header.html");
             loadComponent("footer-placeholder", "footer.html");
@@ -382,11 +431,11 @@
             event.target.classList.add('active');
 
             if(loc === 'vashi') {
-                iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.826227978252!2d72.99676531490104!3d19.07137498709051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c14a796e6259%3A0xc30a7d775670f032!2sAPMC%20Market%2C%20Vashi%2C%20Navi%20Mumbai!5e0!3m2!1sen!2sin";
+                iframe.src = "https://maps.google.com/maps?q=Sector%2019%20Vashi%20Navi%20Mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed";
             } else if(loc === 'kandla') {
-                iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117763.5516245365!2d70.00334285820312!3d23.006322999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3950b8eb4776882f%3A0x6273062335f63908!2sDeendayal%20Port%20Trust%20(Kandla%20Port)!5e0!3m2!1sen!2sin";
+                iframe.src = "https://maps.google.com/maps?q=Kandla%20Port&t=&z=13&ie=UTF8&iwloc=&output=embed";
             } else if(loc === 'karnal') {
-                iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110860.17066986673!2d76.92135645!3d29.68026775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e6c46c072c479%3A0x269222622c83226!2sKarnal%2C%20Haryana!5e0!3m2!1sen!2sin";
+                iframe.src = "https://maps.google.com/maps?q=Karnal%20Haryana&t=&z=13&ie=UTF8&iwloc=&output=embed";
             }
         }
 
@@ -395,7 +444,6 @@
             item.addEventListener('click', event => {
                 const parent = item.parentElement;
                 parent.classList.toggle('active');
-                
                 const answer = parent.querySelector('.faq-answer');
                 if (parent.classList.contains('active')) {
                     answer.style.maxHeight = answer.scrollHeight + "px";
@@ -411,7 +459,6 @@
         function updateClocks() {
             const now = new Date();
             const options = { hour: '2-digit', minute: '2-digit', hour12: false };
-            
             document.getElementById('time-in').innerText = now.toLocaleTimeString('en-US', { ...options, timeZone: 'Asia/Kolkata' });
             document.getElementById('time-ae').innerText = now.toLocaleTimeString('en-US', { ...options, timeZone: 'Asia/Dubai' });
             document.getElementById('time-uk').innerText = now.toLocaleTimeString('en-US', { ...options, timeZone: 'Europe/London' });
@@ -422,7 +469,6 @@
         /* --- Window Load & Preloader --- */
         window.addEventListener('load', () => {
             setTimeout(() => { document.getElementById('preloader').style.display = 'none'; }, 1000);
-            
             const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); });
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
