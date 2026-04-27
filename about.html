@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | JFT Agro Overseas - Star Export House</title>
-    <meta name="description" content="Government Recognized Star Export House. Premier manufacturer of Indian Rice, Spices, and Sugar.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://translate.googleapis.com; frame-src https://www.google.com https://maps.google.com;">
+    <title>About JFT Agro Overseas | Government Recognized Star Export House India</title>
+    <meta name="description" content="Learn about JFT Agro Overseas, a leading manufacturer and exporter of Indian Rice and Spices. 40+ years of legacy in global agro-commodity trading and processing.">
     <meta name="theme-color" content="#1a3c34">
     
     <link rel="canonical" href="https://jftagro.com/about-us.html">
@@ -57,6 +58,10 @@
         
         /* ACCESSIBILITY: Visible Focus State for Keyboard Navigation */
         a:focus-visible, button:focus-visible { outline: 3px solid var(--jft-gold); outline-offset: 2px; }
+
+        /* CLS Fix: Min-height for dynamic components */
+        #header-placeholder { min-height: 80px; display: block; }
+        #footer-placeholder { min-height: 400px; display: block; background: var(--jft-navy); }
 
         ul { list-style: none; padding: 0; } 
         img { max-width: 100%; height: auto; display: block; border-radius: var(--radius-sm); }
@@ -391,7 +396,40 @@
                 <div class="qc-card"><div class="qc-step">01</div><i class="fa-solid fa-microscope qc-icon"></i><h4>Lab Analysis</h4><p>Raw material tested for moisture (12-14%), admixture, and pesticide residue levels (MRL).</p></div>
                 <div class="qc-card"><div class="qc-step">02</div><i class="fa-solid fa-filter qc-icon"></i><h4>Sortex Purification</h4><p>Advanced Buhler Sortex machines remove discolored grains, glass, and impurities.</p></div>
                 <div class="qc-card"><div class="qc-step">03</div><i class="fa-solid fa-clipboard-check qc-icon"></i><h4>SGS / Intertek</h4><p>Third-party surveyors inspect cargo during loading for weight, quantity, and quality.</p></div>
-                <div class="qc-card"><div class="qc-step">04</div><i class="fa-solid fa-box-open qc-icon"></i><h4>Fumigation</h4><p>Mandatory Methyl Bromide / Phosphine fumigation to ensure pest-free arrival.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white" id="buyer-guide">
+        <div class="jft-wide-container">
+            <div class="section-header reveal">
+                <span class="brand-tag">Educational Hub</span>
+                <h2 class="section-title">Importing from India: <span>The Buyer's Guide</span></h2>
+                <p class="section-desc">We simplify the complex world of agro-commodity imports for our global partners.</p>
+            </div>
+            
+            <div class="guide-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+                <div class="guide-card" style="background: #fdfbf7; padding: 40px; border-radius: 20px; border: 1px solid rgba(26, 60, 52, 0.1);">
+                    <div style="font-size: 2.5rem; color: var(--jft-gold); margin-bottom: 20px;"><i class="fa-solid fa-file-contract"></i></div>
+                    <h3 style="font-family: var(--font-head); margin-bottom: 15px; color: var(--jft-navy);">1. Documentation</h3>
+                    <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Understand the essential documents: Bill of Lading, Phyto-sanitary Certificate, Certificate of Origin (COO), and Health Certificates required for your specific region.</p>
+                </div>
+                
+                <div class="guide-card" style="background: #fdfbf7; padding: 40px; border-radius: 20px; border: 1px solid rgba(26, 60, 52, 0.1);">
+                    <div style="font-size: 2.5rem; color: var(--jft-gold); margin-bottom: 20px;"><i class="fa-solid fa-microscope"></i></div>
+                    <h3 style="font-family: var(--font-head); margin-bottom: 15px; color: var(--jft-navy);">2. Quality Grading</h3>
+                    <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Learn how to differentiate between 1121 Sella, Steam, and Raw Rice grades, or the Curcumin levels in Turmeric to ensure you get the right value for your market.</p>
+                </div>
+                
+                <div class="guide-card" style="background: #fdfbf7; padding: 40px; border-radius: 20px; border: 1px solid rgba(26, 60, 52, 0.1);">
+                    <div style="font-size: 2.5rem; color: var(--jft-gold); margin-bottom: 20px;"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3 style="font-family: var(--font-head); margin-bottom: 15px; color: var(--jft-navy);">3. Logistics Choice</h3>
+                    <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Compare FOB vs CIF terms. We help you choose the best shipping lines (Maersk, MSC, CMA CGM) to optimize transit time and container safety.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="contact.html" class="btn-primary" style="background: var(--jft-navy); border-color: var(--jft-navy);">Download Full Import Checklist <i class="fa-solid fa-download" style="margin-left: 10px;"></i></a>
             </div>
         </div>
     </section>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | JFT Agro Overseas</title>
+    <meta name="description" content="Privacy Policy and Data Protection guidelines for JFT Agro Overseas. Understanding how we handle your export inquiries and personal data.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --jft-navy: #1a3c34; --jft-gold: #dfa015; --jft-primary: #4e8c3e; }
+        body { font-family: 'Lato', sans-serif; line-height: 1.8; color: #333; margin: 0; padding: 0; background: #fdfcf8; }
+        .legal-header { background: var(--jft-navy); color: #fff; padding: 100px 0 60px 0; text-align: center; }
+        .container { max-width: 900px; margin: 60px auto; padding: 0 20px; background: #fff; padding: 60px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { font-family: 'Merriweather', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        h2 { font-family: 'Montserrat', sans-serif; color: var(--jft-navy); margin-top: 40px; border-bottom: 2px solid var(--jft-gold); display: inline-block; padding-bottom: 5px; }
+        p { margin-bottom: 20px; }
+        .back-home { display: inline-flex; align-items: center; gap: 10px; color: var(--jft-primary); text-decoration: none; font-weight: 700; margin-bottom: 40px; }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <div class="legal-header">
+        <h1>Privacy Policy</h1>
+        <p>Last Updated: April 2026</p>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        
+        <p>JFT Agro Overseas LLP ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website and use our export services.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>We collect information that you provide directly to us through our Request for Quote (RFQ) forms, newsletter signups, and contact requests. This may include:</p>
+        <ul>
+            <li>Name and Company Name</li>
+            <li>Contact Information (Email, Phone, WhatsApp)</li>
+            <li>Import/Export Requirements and Port of Destination</li>
+            <li>Business VAT/Tax IDs (if provided for documentation)</li>
+        </ul>
+
+        <h2>2. How We Use Your Data</h2>
+        <p>Your data is primarily used to facilitate international trade operations. We use it to:</p>
+        <ul>
+            <li>Prepare custom Proforma Invoices (PI) and quotes.</li>
+            <li>Manage shipping logistics and documentation.</li>
+            <li>Send trade insights and product price updates (if opted-in).</li>
+            <li>Comply with DGFT and Customs regulations in India.</li>
+        </ul>
+
+        <h2>3. Data Protection (GDPR Compliance)</h2>
+        <p>For our partners in the European Union, we adhere to GDPR standards. We do not sell your business data to third-party marketing firms. Your information is only shared with authorized logistics partners (shipping lines/CHA) necessary to complete your export orders.</p>
+
+        <h2>4. Cookies</h2>
+        <p>We use cookies to analyze site traffic and improve our user experience. You can manage your cookie preferences via the banner on our homepage.</p>
+
+        <h2>5. Contact Us</h2>
+        <p>If you have any questions regarding your data, please contact our Data Compliance Officer at <strong>jftagro.info@gmail.com</strong>.</p>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponent(id, file) {
+            try {
+                const res = await fetch(file);
+                const text = await res.text();
+                document.getElementById(id).innerHTML = text;
+            } catch (err) { console.error(err); }
+        }
+        loadComponent('header-placeholder', 'header.html');
+        loadComponent('footer-placeholder', 'footer.html');
+    </script>
+</body>
+</html>

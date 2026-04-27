@@ -2,15 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Product Catalogue | JFT Agro Overseas - Star Export House</title>
-    <meta name="description" content="Exporting Premium Basmati Rice, Spices, Grains, and Animal Feed. Detailed Specifications and Loading Capacity.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://translate.googleapis.com; frame-src https://www.google.com https://maps.google.com;">
+    <title>Indian Basmati Rice & Spices Product Catalogue | JFT Agro Overseas</title>
+    <meta name="description" content="Explore our export-grade catalogue of 1121 Basmati Rice, Indian Spices (Turmeric, Chilli, Cumin), Sugar S-30, and Grains. View detailed specs and loading capacities.">
     
     <link rel="canonical" href="https://jftagro.com/products.html">
+    
+    <!-- Performance: Preload critical LCP asset -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1471193945509-9adadd0974ce?q=80&w=2070&auto=format&fit=crop" fetchpriority="high">
     <meta property="og:title" content="JFT Agro Product Catalogue - Star Export House">
     <meta property="og:description" content="Premium Basmati Rice, Spices, and Grains for Global Export. View detailed specs and live market verdicts.">
     <meta property="og:image" content="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png">
     <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Product Catalogue | JFT Agro Overseas">
+    <meta property="twitter:description" content="Explore our premium range of Indian Basmati Rice, Spices, Grains, and Sugar. Export quality guaranteed.">
+
+    <!-- Product List Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Basmati Rice",
+          "description": "Premium 1121 Sella, Steam, and Raw Basmati Rice varieties."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Non-Basmati Rice",
+          "description": "IR64, PR11, and Swarna varieties for global markets."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Indian Spices",
+          "description": "Export quality Turmeric, Chilli, Cumin, and Cardamom."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Grains & Pulses",
+          "description": "Premium Wheat, Maize, and various Indian pulses."
+        }
+      ]
+    }
+    </script>
     <meta name="theme-color" content="#1a3c34">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,6 +118,10 @@
         .jft-wide-container { max-width: 1350px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 5; }
         .section-padding { padding: clamp(60px, 8vw, 110px) 0; } 
         .bg-light { background-color: var(--jft-light); }
+        
+        /* CLS Fix: Min-height for dynamic components */
+        #header-placeholder { min-height: 80px; display: block; }
+        #footer-placeholder { min-height: 400px; display: block; background: var(--jft-navy); }
         
         .section-title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; color: var(--jft-navy); text-align: center; } 
         .section-title span { color: var(--jft-primary); position: relative; display: inline-block; z-index: 1; } 
@@ -209,6 +256,34 @@
         .m-section-title { font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; color: var(--jft-navy); border-bottom: 2px solid var(--jft-gold); padding-bottom: 5px; margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1px; margin-top: 30px; }
         .m-section-title:first-child { margin-top: 0; }
         
+        .m-cert-badges { position: absolute; bottom: 20px; left: 20px; display: flex; gap: 10px; z-index: 5; }
+        .m-cert-icon { width: 45px; height: 45px; background: rgba(255,255,255,0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1.5px solid var(--jft-gold); font-size: 0.8rem; font-weight: 800; color: var(--jft-navy); transition: 0.3s; }
+        .m-cert-icon:hover { transform: translateY(-5px) scale(1.1); background: #fff; }
+        
+        .m-hs-code { display: inline-block; padding: 6px 15px; background: #f0f0f0; border-radius: 4px; font-family: var(--font-sub); font-size: 0.8rem; font-weight: 700; color: #666; margin-bottom: 15px; border-left: 3px solid var(--jft-primary); }
+        .m-hs-code span { color: var(--jft-navy); }
+        
+        .m-pro-badges { margin-top: 30px; display: flex; flex-direction: column; gap: 20px; }
+        .m-wc-item { display: flex; gap: 15px; align-items: flex-start; }
+        .m-wc-icon { width: 40px; height: 40px; background: rgba(78, 140, 62, 0.1); color: var(--jft-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+        .m-wc-text { font-size: 0.9rem; line-height: 1.5; color: #555; }
+        .m-wc-text strong { display: block; color: var(--jft-navy); margin-bottom: 3px; font-family: var(--font-sub); }
+        
+        .m-logistics-box { background: #fdfbf7; border: 1px solid var(--jft-border); border-radius: 12px; padding: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .m-log-item { display: flex; flex-direction: column; gap: 5px; }
+        .m-log-label { font-family: var(--font-sub); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #888; font-weight: 700; }
+        .m-log-val { font-size: 1rem; font-weight: 700; color: var(--jft-navy); }
+        
+        .m-section-header-pro { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; margin-bottom: 20px; padding-bottom: 10px; }
+        .m-section-header-pro .m-section-title { border: none; padding: 0; margin: 0; }
+        
+        .m-market-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+        .m-m-tag { padding: 5px 15px; background: #fff; border: 1px solid #eee; border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: #555; }
+        
+        @media (max-width: 768px) {
+            .m-logistics-box { grid-template-columns: 1fr; gap: 15px; }
+        }
+
         .m-data-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #eee; }
         .m-data-table td { padding: 12px 20px; border-bottom: 1px solid #f5f5f5; font-size: 0.9rem; }
         .m-data-table td:first-child { font-weight: 700; color: var(--jft-navy); width: 40%; background: #fcfcfc; border-right: 1px solid #eee; }
@@ -394,56 +469,28 @@
                             <div class="m-verdict-title">JFT Market Verdict</div>
                             <div class="m-verdict-val" id="m-verdict">...</div>
                         </div>
-
-                        <div class="m-why-choose">
-                            <h4 class="m-section-title" style="margin-top:0; border:none; padding:0; margin-bottom:15px;">Why JFT Agro?</h4>
-                            <div class="m-wc-item">
-                                <div class="m-wc-icon"><i class="fa-solid fa-globe"></i></div>
-                                <div class="m-wc-text"><strong>Global Reach</strong> Exporting to 20+ countries with established logistics partners (Maersk, MSC).</div>
-                            </div>
-                            <div class="m-wc-item">
-                                <div class="m-wc-icon"><i class="fa-solid fa-check-circle"></i></div>
-                                <div class="m-wc-text"><strong>Certified Quality</strong> SGS Inspection, Phyto Sanitary, Origin Certificate, and Lab Reports provided.</div>
-                            </div>
-                            <div class="m-wc-item">
-                                <div class="m-wc-icon"><i class="fa-solid fa-handshake"></i></div>
-                                <div class="m-wc-text"><strong>Direct Source</strong> Farm to Port direct supply. Transparent BL and Invoice documentation.</div>
-                            </div>
-                        </div>
                     </div>
                     
                     <div class="modal-right">
-                        <h4 class="m-section-title">Technical Specifications & Load</h4>
+                        <h4 class="m-section-title">Technical Specifications</h4>
                         <table class="m-data-table" id="m-specs"></table>
+                        
+                        <h4 class="m-section-title">Logistics & Load Matrix</h4>
+                        <div class="m-logistics-box">
+                            <div class="m-log-item"><span class="m-log-label">20FT Container</span><span class="m-log-val" id="m-load">...</span></div>
+                            <div class="m-log-item"><span class="m-log-label">Packing Options</span><span class="m-log-val" id="m-packing">...</span></div>
+                        </div>
                         
                         <h4 class="m-section-title">Top Export Markets</h4>
                         <table class="m-data-table">
                             <tr><td>Major Importers</td><td id="m-importers">...</td></tr>
                         </table>
                         
-                        <h4 class="m-section-title">3-Year Production History</h4>
-                        <table class="m-data-table" id="m-production-history">
-                            <thead><tr style="background:#f9f9f9; font-weight:700;"><td>Year</td><td>Volume (MT)</td></tr></thead>
-                            <tbody id="m-prod-body"></tbody>
-                        </table>
-                        
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                             <h4 class="m-section-title" style="margin:0;">Price Trend Analysis</h4>
-                             <div style="font-size:0.75rem; color:#888;" id="chart-updated"></div>
-                        </div>
+                        <h4 class="m-section-title">Price Trend Analysis</h4>
                         <div style="font-size:0.7rem; color:#666; margin-bottom:10px; font-style:italic;">*Index based on daily APMC Mandi arrivals</div>
-                        
-                        <div style="display:flex; gap:10px; margin-bottom:10px;">
-                            <button class="sub-cat-btn" id="btn-30" onclick="updateChart(30)">30 Days</button>
-                            <button class="sub-cat-btn" id="btn-180" onclick="updateChart(180)">6 Mo</button>
-                            <button class="sub-cat-btn active" id="btn-365" onclick="updateChart(365)">1 Year</button>
-                        </div>
                         <div class="m-chart-box">
                             <canvas id="priceChart"></canvas>
                         </div>
-                        
-                        <h4 class="m-section-title">Daily Market News</h4>
-                        <div class="m-news-box" id="m-news"></div>
                     </div>
                 </div>
             </div>
@@ -665,7 +712,8 @@
             });
 
             if(filtered.length === 0) {
-                container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #888;">No products found matching "${query}"</div>`;
+                const safeQuery = query.replace(/[<>]/g, ''); // Simple sanitization
+                container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #888;">No products found matching "${safeQuery}"</div>`;
                 return;
             }
 
@@ -772,7 +820,7 @@
 
         function openModal(index) {
             const p = PRODUCT_DATA[index];
-            const modal = document.getElementById('product-modal');
+            const modal = document.getElementById('productModal');
             
             // UX Fix: Lock body scroll
             document.body.classList.add('modal-open');
@@ -782,68 +830,51 @@
             const timeStr = today.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
             const fullDateTime = `${dateStr}, ${timeStr}`;
 
-            // UPDATED VERDICT LOGIC
-            const currentMonth = today.getMonth() + 1; // 1-12
-            let isHarvest = false;
-            if(p.h && p.h.includes(currentMonth)) {
-                isHarvest = true;
-            }
-
-            const verdict = isHarvest ? "BUY NOW (Harvest Season)" : "WAIT (Prices High)";
-            const verdictColor = isHarvest ? "#4e8c3e" : "#d97706";
-            
             document.getElementById('m-title').innerText = p.t;
             document.getElementById('m-img').src = p.i;
-            document.getElementById('m-desc').innerText = `Premium quality ${p.t} sourced directly from the best farms in India. Processed in state-of-the-art facilities to ensure purity and hygiene. Ideal for international markets requiring strict quality control.`;
-            
-            // Dynamic Title Update for History
             document.title = `${p.t} | JFT Agro Catalogue`;
             
-            let states = "Punjab, Haryana";
-            let cult = "Kharif (June-Nov)";
-            if(p.c === 'spices') { states = "Kerala, Andhra Pradesh"; cult = "Year Round"; }
-            if(p.c === 'wheat') { states = "Madhya Pradesh, Gujarat"; cult = "Rabi (Oct-April)"; }
+            // Extract HS Code
+            const hsSpec = p.s.find(s => s[0] === 'HS Code');
+            document.getElementById('m-hs-code').innerText = hsSpec ? hsSpec[1] : 'TBA';
             
-            document.getElementById('m-states').innerText = states;
-            document.getElementById('m-cultivation').innerText = cult;
-            document.getElementById('m-verdict').innerText = verdict;
-            document.getElementById('m-verdict').style.color = verdictColor;
+            // Cert Badges Logic
+            let certsHTML = '<div class="m-cert-icon">ISO</div>';
+            if(p.c === 'rice' || p.c === 'spices' || p.c === 'flour') {
+                certsHTML += '<div class="m-cert-icon">HALAL</div>';
+                certsHTML += '<div class="m-cert-icon">GMP</div>';
+            }
+            if(p.c === 'spices') certsHTML += '<div class="m-cert-icon">KOSHER</div>';
+            document.getElementById('m-cert-badges').innerHTML = certsHTML;
 
             let specsHTML = '';
-            p.s.forEach(s => { specsHTML += `<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`; });
-            specsHTML += `<tr><td>Load (20ft)</td><td>${p.l}</td></tr>`;
-            specsHTML += `<tr><td>Packing</td><td>${p.p}</td></tr>`;
+            p.s.forEach(s => { 
+                if(s[0] !== 'HS Code') {
+                    specsHTML += `<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`; 
+                }
+            });
             document.getElementById('m-specs').innerHTML = specsHTML;
 
+            document.getElementById('m-load').innerText = p.l;
+            document.getElementById('m-packing').innerText = p.p;
+
             let importersHTML = "";
-            p.f.forEach(buyer => { importersHTML += `<div>• ${buyer}</div>`; });
+            p.f.forEach(buyer => { importersHTML += `<div class="m-m-tag">${buyer}</div>`; });
             document.getElementById('m-importers').innerHTML = importersHTML;
 
-            // Logic Fix: Dynamic Years
-            const currentYear = today.getFullYear();
-            document.getElementById('m-prod-body').innerHTML = `
-                <tr><td>${currentYear - 2}</td><td>14,500</td></tr>
-                <tr><td>${currentYear - 1}</td><td>15,200</td></tr>
-                <tr><td>${currentYear}</td><td>16,100 (Est)</td></tr>
-            `;
-
-            document.getElementById('m-news').innerHTML = `
-                <div class="m-news-item"><div class="m-news-date">${dateStr}:</div> Export demand for ${p.t} rises by 5% this week due to global shortage.</div>
-                <div class="m-news-item"><div class="m-news-date">${dateStr}:</div> New government policy supports agro exports from India, stabilizing prices.</div>
-            `;
+            let tagsHTML = "";
+            p.k.slice(0, 4).forEach(tag => { tagsHTML += `<span class="p-tag">${tag}</span>`; });
+            document.getElementById('m-tags').innerHTML = tagsHTML;
             
-            document.getElementById('chart-updated').innerText = `Last Updated: ${fullDateTime}`;
             updateChart(365);
             modal.style.display = "flex";
             setTimeout(() => modal.classList.add('open'), 10);
         }
 
         function closeModal() {
-            const modal = document.getElementById('product-modal');
-            // UX Fix: Unlock body scroll
+            const modal = document.getElementById('productModal');
             document.body.classList.remove('modal-open');
             document.title = "Product Catalogue | JFT Agro Overseas - Star Export House";
-            
             modal.classList.remove('open');
             setTimeout(() => modal.style.display = "none", 300);
         }

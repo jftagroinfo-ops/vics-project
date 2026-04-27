@@ -3,14 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://translate.googleapis.com; frame-src https://www.google.com https://maps.google.com;">
     
-    <title>Contact & RFQ | JFT Agro Overseas</title>
-    <meta name="description" content="Request a Quote for Indian Rice, Spices, and Grainshed. Contact our Export Division.">
+    <title>Contact JFT Agro | Global Export Trade Desk & RFQ</title>
+    <meta name="description" content="Get a quote for Indian Basmati Rice, Spices, and Grains. Contact the JFT Agro Overseas export division for international trade inquiries and logistics.">
     <link rel="canonical" href="https://jftagro.com/contact.html">
     <meta property="og:title" content="Contact Global Trade Desk | JFT Agro">
     <meta property="og:description" content="Start your import inquiry for premium Indian commodities.">
     <meta property="og:image" content="https://jftagro.com/wp-content/uploads/2023/01/jft-final-02-scaled.png">
     <meta property="og:type" content="website">
+    
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "JFT Agro Overseas",
+      "image": "https://jftagro.com/images/jft%20logo.png",
+      "@id": "https://jftagro.com/#organization",
+      "url": "https://jftagro.com/contact.html",
+      "telephone": "+91-84250-57274",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Godown N-2, APMC Market, Danabunder, Phase II, Sector 19, Vashi",
+        "addressLocality": "Navi Mumbai",
+        "postalCode": "400705",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 19.0760,
+        "longitude": 73.0076
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "10:00",
+        "closes": "19:00"
+      }
+    }
+    </script>
     
     <meta name="theme-color" content="#1a3c34">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -59,6 +98,10 @@
         a { text-decoration: none; color: inherit; transition: var(--transition); } 
         ul { list-style: none; padding: 0; } 
         img { max-width: 100%; display: block; border-radius: var(--radius-sm); }
+        
+        /* CLS Fix: Min-height for dynamic components */
+        #header-placeholder { min-height: 80px; display: block; }
+        #footer-placeholder { min-height: 400px; display: block; background: var(--jft-navy); }
         
         /* Utility Classes */
         .jft-wide-container { max-width: 1350px; margin: 0 auto; padding: 0 var(--container-padding); position: relative; z-index: 5; }
@@ -222,11 +265,16 @@
                 
                 <div class="contact-form-col reveal">
                     <div class="form-header">
-                        <span class="brand-tag">Request Quote</span>
+                        <span class="brand-tag">Secure Trade Desk</span>
                         <h2 class="section-title">Start Your <br><span>Import Inquiry</span></h2>
-                        <p style="margin-top: 10px; font-size: 0.95rem;">Our export managers typically respond with a proforma invoice within 24 hours.</p>
+                        <div class="form-trust-badges" style="display: flex; gap: 15px; margin: 15px 0; opacity: 0.7;">
+                            <img src="/images/homepage/FSSAI.webp" alt="FSSAI" height="30" style="filter: grayscale(1);">
+                            <img src="/images/homepage/APEDA.webp" alt="APEDA" height="30" style="filter: grayscale(1);">
+                            <img src="/images/homepage/STAR HOUSE.webp" alt="Star House" height="30" style="filter: grayscale(1);">
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.95rem; line-height: 1.5;">Direct from India. Verified Star Export House quality. <br>Our managers respond with a Proforma Invoice (PI) within 24 hours.</p>
                     </div>
-                    <form onsubmit="event.preventDefault(); alert('Inquiry Sent Successfully! Reference #JFT-2026-X49');">
+                    <form onsubmit="handleRFQSubmit(event)">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label class="form-label" for="full_name">Full Name</label>
@@ -255,9 +303,14 @@
                                     <option value="Animal Feed">Animal Feed</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label" for="quantity">Quantity (MT)</label>
-                                <input type="number" id="quantity" name="quantity" class="form-input" placeholder="Min 24 MT (1 Container)" min="24" inputmode="numeric">
+                            <div class="form-group" id="qty-group">
+                                <label class="form-label" for="quantity">Quantity (Metric Tons)</label>
+                                <input type="number" id="quantity" name="quantity" class="form-input" placeholder="Min 24 MT (1 Container)" min="1" value="24" inputmode="numeric">
+                                <div style="margin-top: 8px;">
+                                    <label style="font-size: 0.75rem; color: var(--jft-primary); cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                                        <input type="checkbox" id="is-sample" onchange="toggleSample(this)"> Request Sample (Low MOQ)
+                                    </label>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="port">Port of Discharge</label>
@@ -277,9 +330,13 @@
                                 <textarea id="requirements" name="requirements" class="form-textarea" rows="4" placeholder="e.g., 50kg PP Bags, 2% Broken max..."></textarea>
                             </div>
                             <div class="form-group full-width">
-                                <button type="submit" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1rem;">Send Request for Quote</button>
-                                <label class="form-check">
-                                    <input type="checkbox" name="terms" required> <span>I agree to the Terms of Trade & Privacy Policy.</span>
+                                <button type="submit" class="btn-primary" style="width: 100%; padding: 20px; font-size: 1.1rem; background: var(--jft-gold); color: var(--jft-navy); border: none;">Get My Export Quote Now</button>
+                                <div style="text-align: center; margin-top: 10px; font-size: 0.8rem; color: #777;">
+                                    <i class="fa-solid fa-lock"></i> 256-bit Secure Inquiry Encryption
+                                </div>
+                                <label class="form-check" style="display: flex; align-items: flex-start; gap: 10px; margin-top: 15px; cursor: pointer; font-size: 0.85rem; color: #666;">
+                                    <input type="checkbox" name="terms" required style="margin-top: 3px;"> 
+                                    <span>I agree to the <a href="terms.html" target="_blank" style="color: var(--jft-primary); font-weight: 700;">Terms of Trade</a> and <a href="privacy.html" target="_blank" style="color: var(--jft-primary); font-weight: 700;">Privacy Policy</a> of JFT Agro Overseas.</span>
                                 </label>
                             </div>
                         </div>
@@ -457,6 +514,41 @@
                 }
             });
         });
+
+        function handleRFQSubmit(e) {
+            e.preventDefault();
+            
+            // --- Analytics Conversion Tracking ---
+            if(typeof trackEvent === 'function') {
+                trackEvent('generate_lead', {
+                    'form_name': 'RFQ_Contact_Form',
+                    'submission_type': document.getElementById('is_sample').checked ? 'sample' : 'bulk'
+                });
+            }
+
+            alert('Inquiry Sent! Your custom quote is being prepared. Your JFT Introduction PDF will download automatically now.');
+            
+            // Trigger automatic download of Introduction PDF
+            const link = document.createElement('a');
+            link.href = 'assets/JFT_Agro_Introduction.pdf'; 
+            link.download = 'JFT_Agro_Introduction.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function toggleSample(checkbox) {
+            const qtyInput = document.getElementById('quantity');
+            if(checkbox.checked) {
+                qtyInput.value = 1;
+                qtyInput.min = 1;
+                qtyInput.placeholder = "Sample Quantity (kg/bags)";
+            } else {
+                qtyInput.value = 24;
+                qtyInput.min = 24;
+                qtyInput.placeholder = "Min 24 MT (1 Container)";
+            }
+        }
 
         /* --- Global Clock --- */
         function updateClocks() {

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://translate.googleapis.com; frame-src https://www.google.com https://maps.google.com;">
+    <title>Trade Insights & Blog | JFT Agro Overseas</title>
+    <meta name="description" content="Stay updated with the latest trends in Indian Rice, Spices, and Grains export. Market analysis and trade insights from JFT Agro Overseas.">
+    
+    <link rel="canonical" href="https://jftagro.com/blog.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jftagro.com/blog.html">
+    <meta property="og:title" content="Trade Insights & Market Analysis | JFT Agro Overseas">
+    <meta property="og:description" content="Stay updated with the latest trends in Indian Rice and Spices export. Professional analysis for global trade partners.">
+    <meta property="og:image" content="https://jftagro.com/images/homepage/hero-1.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Trade Insights | JFT Agro">
+    <meta property="twitter:description" content="Expert market analysis for the global agro-commodity sector.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { 
+            --font-head: 'Merriweather', serif;
+            --font-sub:  'Montserrat', sans-serif;
+            --font-body: 'Lato', sans-serif;
+            --jft-primary: #4e8c3e;
+            --jft-navy: #1a3c34;
+            --jft-gold: #eebf45;
+            --jft-light: #f5f1e6;
+            --radius-md: 16px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #333; background: #fdfcf8; } 
+        * { box-sizing: border-box; } 
+        
+        .page-header { 
+            height: 400px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background-size: cover; 
+            background-position: center; 
+            position: relative; 
+            color: #fff; 
+            text-align: center; 
+        }
+        .page-header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 60, 52, 0.7); }
+        .ph-content { position: relative; z-index: 2; padding: 0 20px; }
+        .ph-title { font-family: var(--font-head); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 15px; }
+        
+        .section-padding { padding: 80px 0; }
+        .jft-wide-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .blog-card { background: #fff; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition); border: 1px solid #eee; display: flex; flex-direction: column; }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        
+        .blog-img { width: 100%; height: 240px; overflow: hidden; position: relative; }
+        .blog-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .blog-card:hover .blog-img img { transform: scale(1.1); }
+        
+        .blog-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-meta { font-family: var(--font-sub); font-size: 0.75rem; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-weight: 700; }
+        .blog-title { font-family: var(--font-head); font-size: 1.4rem; color: var(--jft-navy); margin-bottom: 15px; line-height: 1.4; }
+        .blog-excerpt { font-size: 1rem; color: #666; line-height: 1.6; margin-bottom: 20px; }
+        
+        .read-more { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .read-more i { transition: 0.3s; }
+        .read-more:hover { color: var(--jft-primary); }
+        .read-more:hover i { transform: translateX(5px); }
+
+        #header-placeholder { min-height: 80px; display: block; }
+        #footer-placeholder { min-height: 400px; display: block; background: var(--jft-navy); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1454165833767-027ffea9e7a7?q=80&w=2070&auto=format&fit=crop');">
+        <div class="ph-content">
+            <h1 class="ph-title">Trade Insights</h1>
+            <p>Latest updates, market analysis, and global trade trends.</p>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="jft-wide-container">
+            <div class="blog-grid">
+                
+                <article class="blog-card reveal">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800" alt="Basmati Rice Market">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">Market Analysis • April 2026</div>
+                        <h2 class="blog-title">Basmati Rice: Global Market Trends & Forecast 2026</h2>
+                        <p class="blog-excerpt">Exploring the rising demand for premium Basmati in Europe and the impact of new export policies on global pricing.</p>
+                        <a href="#" class="read-more">Read Full Insight <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card reveal" style="animation-delay: 0.1s;">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=800" alt="Indian Spices Export">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">Export Trends • March 2026</div>
+                        <h2 class="blog-title">The Future of Indian Spices in the European Union</h2>
+                        <p class="blog-excerpt">Understanding the new EU safety standards for spice imports and how JFT Agro ensures 100% compliance.</p>
+                        <a href="#" class="read-more">Read Full Insight <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card reveal" style="animation-delay: 0.2s;">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" alt="Supply Chain Logistics">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">Logistics • February 2026</div>
+                        <h2 class="blog-title">Navigating Global Shipping Challenges in 2026</h2>
+                        <p class="blog-excerpt">How strategic partnerships help us maintain stable freight rates for our global partners despite maritime shifts.</p>
+                        <a href="#" class="read-more">Read Full Insight <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card reveal" style="animation-delay: 0.3s;">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1594911772125-07fc7a2d8d9f?auto=format&fit=crop&q=80&w=800" alt="Organic Agro Trade">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">Organic • January 2026</div>
+                        <h2 class="blog-title">Organic Rice & Spices: Meeting the EU Demand</h2>
+                        <p class="blog-excerpt">A deep dive into our organic sourcing network and the rigorous certification process for premium European importers.</p>
+                        <a href="#" class="read-more">Read Full Insight <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card reveal" style="animation-delay: 0.5s;">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800" alt="Indian Crop Report">
+                        <div class="blog-badge">Market Intelligence</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">Trade Insights • April 2026</div>
+                        <h2 class="blog-title">April 2026 Crop Report: Rice & Spices Outlook</h2>
+                        <p class="blog-excerpt">Our monthly intelligence report on harvest volumes, Mandi arrivals, and price forecasts for the Q2 export season.</p>
+                        <a href="#" class="read-more">Download Full Report <i class="fa-solid fa-file-pdf"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponent(id, file) {
+            try {
+                const res = await fetch(file);
+                const text = await res.text();
+                document.getElementById(id).innerHTML = text;
+                const scripts = document.getElementById(id).querySelectorAll("script");
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
+            } catch (err) { console.error(err); }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadComponent("header-placeholder", "header.html");
+            loadComponent("footer-placeholder", "footer.html");
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

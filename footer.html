@@ -1,197 +1,207 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-
 <style>
-    /* --- Themed Variables (Earthy/Corporate + New Typography) --- */
-    :root {
-        /* Colors */
-        --jft-navy: #1a3c34;     /* Deep Forest Green */
-        --jft-primary: #4e8c3e;  /* Leaf Green */
-        --jft-gold: #eebf45;     /* Luxury Gold */
-        
-        /* Typography Mapping */
-        --font-heading: 'Merriweather', serif;  /* For Section Headings */
-        --font-sub: 'Montserrat', sans-serif;   /* For Buttons/Sub-elements */
-        --font-body: 'Lato', sans-serif;        /* For Body Text */
-    }
-
     /* --- Footer Core Styles --- */
     .footer-section { 
         background: var(--jft-navy); 
         color: #fff; 
         padding: 80px 0 30px 0; 
-        border-top: 10px solid var(--jft-primary);
+        border-top: 5px solid var(--jft-gold); /* Thinner, more elegant gold border */
         width: 100%;
         box-sizing: border-box;
-        /* Apply global body font to footer container to catch inheritance */
         font-family: var(--font-body);
     }
     
-    /* Grid Logic */
     .footer-grid { 
         display: grid; 
-        grid-template-columns: 1.4fr 0.8fr 1fr 1.2fr; 
-        gap: 50px; 
-        margin-bottom: 40px; 
+        grid-template-columns: 1.2fr 0.7fr 1.1fr 1fr; 
+        gap: 60px; 
+        margin-bottom: 50px; 
         align-items: start;
     }
 
-    /* Headings: Merriweather (Trust) */
     .f-col h4 { 
         font-family: var(--font-heading); 
-        font-size: 1.2rem; /* Slightly larger for Serif impact */
+        font-size: 1.1rem;
         margin-bottom: 25px; 
-        color: #fff; 
-        text-transform: capitalize; /* Serifs look better capitalized, not uppercase */
-        letter-spacing: 0.5px; 
+        color: var(--jft-gold); 
+        text-transform: uppercase;
+        letter-spacing: 1.5px; 
         font-weight: 700;
+        position: relative;
+    }
+    .f-col h4::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: var(--jft-primary);
     }
 
-    /* Links & Body: Lato (Readability) */
-    .f-links li { margin-bottom: 12px; }
+    .f-links li { margin-bottom: 12px; list-style: none; }
+    .f-links { padding: 0; margin: 0; }
     .f-links a { 
-        font-family: var(--font-body);
-        color: rgba(255,255,255,0.7); 
-        font-size: 0.95rem; /* Adjusted for Lato's x-height */
+        color: rgba(255,255,255,0.6); 
+        font-size: 0.9rem;
         text-decoration: none;
         transition: 0.3s; 
-        display: inline-block;
     }
     .f-links a:hover { color: var(--jft-gold); padding-left: 5px; }
 
-    /* Contact Details */
     .f-contact li { 
         display: flex; 
         gap: 15px; 
-        margin-bottom: 20px; 
-        font-size: 0.95rem; 
-        color: rgba(255,255,255,0.8); 
+        margin-bottom: 22px; 
+        font-size: 0.9rem; 
+        color: rgba(255,255,255,0.7); 
         line-height: 1.6; 
         align-items: flex-start;
-        font-family: var(--font-body);
+        list-style: none;
     }
-    .f-contact i { color: var(--jft-gold); margin-top: 5px; flex-shrink: 0; }
+    .f-contact { padding: 0; margin: 0; }
+    .f-contact i { color: var(--jft-gold); margin-top: 4px; font-size: 1.1rem; }
+    .f-contact a { color: inherit; text-decoration: none; transition: 0.3s; }
+    .f-contact a:hover { color: var(--jft-gold); }
 
-    /* Form Elements */
     .f-input { 
         width: 100%; 
-        padding: 14px; 
+        padding: 15px; 
         background: rgba(255,255,255,0.05); 
         border: 1px solid rgba(255,255,255,0.1); 
         border-radius: 4px; 
         color: #fff; 
-        margin-bottom: 10px; 
-        font-family: var(--font-body); 
-        font-size: 0.9rem;
-        box-sizing: border-box;
+        margin-bottom: 12px; 
+        font-size: 0.85rem;
     }
-    .f-input:focus { outline: none; border-color: var(--jft-gold); }
     
-    /* Buttons: Montserrat (Modern Efficiency) */
-    .f-btn-full { 
+    .f-btn-pro { 
         width: 100%; 
-        padding: 14px; 
-        background: var(--jft-primary); 
-        color: #fff; 
+        padding: 16px; 
+        background: var(--jft-gold); 
+        color: var(--jft-navy); 
         border: none; 
         border-radius: 4px; 
-        font-family: var(--font-sub); /* Montserrat */
-        font-weight: 700; 
+        font-family: var(--font-sub);
+        font-weight: 800; 
         text-transform: uppercase; 
         font-size: 0.85rem; 
         cursor: pointer; 
         transition: 0.3s; 
         letter-spacing: 1px; 
     }
-    .f-btn-full:hover { background: var(--jft-gold); color: var(--jft-navy); }
+    .f-btn-pro:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-    /* Social Icons */
-    .td-social {
-        padding: 0; 
-        background: none; 
+    .f-trust-bar {
         display: flex;
-        gap: 15px;
-        justify-content: flex-start;
-    }
-    .td-social a { color: rgba(255,255,255,0.7); font-size: 1.2rem; transition: 0.3s; }
-    .td-social a:hover { color: var(--jft-gold); }
-
-    /* Bottom Copyright */
-    .footer-bottom { 
-        border-top: 1px solid rgba(255,255,255,0.1); 
-        padding-top: 30px; 
-        text-align: center; 
-        font-size: 0.85rem; 
-        color: rgba(255,255,255,0.5); 
-        font-family: var(--font-body);
-        display: flex;
-        justify-content: center;
-        gap: 15px;
+        align-items: center;
+        gap: 30px;
+        margin-top: 60px; /* Increased from 35px */
+        padding-top: 30px;
+        border-top: 1px solid rgba(255,255,255,0.05);
         flex-wrap: wrap;
     }
+    .trust-logo { height: 40px; filter: grayscale(1) brightness(2) contrast(1); opacity: 0.6; transition: 0.3s; }
+    .trust-logo:hover { filter: none; opacity: 1; }
 
-    /* --- RESPONSIVE LOGIC --- */
-    @media (max-width: 1024px) {
-        .footer-section { padding: 60px 0 30px 0; }
-        .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-        .footer-bottom { flex-direction: column; gap: 10px; }
+    .footer-bottom { 
+        border-top: 1px solid rgba(255,255,255,0.05); 
+        padding: 40px 0; /* More breathing room */
+        margin-top: 40px;
+        text-align: center; 
+        font-size: 0.8rem; 
+        color: rgba(255,255,255,0.4); 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 1;
     }
+    /* Fix for WhatsApp Overlap - Add Padding to Footer Bottom */
+    @media (min-width: 769px) {
+        .footer-bottom { padding-left: 80px; padding-right: 80px; }
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 10px; transition: 0.3s; }
+    .footer-bottom a:hover { color: var(--jft-gold); }
 
+    @media (max-width: 1024px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+        .footer-bottom { flex-direction: column; gap: 15px; }
+    }
     @media (max-width: 600px) {
-        .footer-section { padding: 45px 0 25px 0; text-align: left; }
-        .footer-grid { grid-template-columns: 1fr; gap: 35px; }
-        .f-col img { max-width: 150px; }
-        .f-input, .f-btn-full { font-size: 16px; }
+        .footer-grid { grid-template-columns: 1fr; }
+        .f-trust-bar { justify-content: center; gap: 20px; }
     }
 </style>
 
-<footer class="footer-section" id="contact">
+<footer class="footer-section">
     <div class="jft-wide-container">
         <div class="footer-grid">
+            <!-- Col 1: Branding -->
             <div class="f-col">
-                <img src="/images/jft logo.png" alt="JFT Agro" style="width: 180px; filter: brightness(0) invert(1); margin-bottom: 25px; max-width: 100%;">
-                <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; font-family: var(--font-body);">Government Recognized <strong>Star Export House</strong>. Bridging the gap between fertile Indian farms and global markets with integrity, quality, and trust.</p>
-                <div class="td-social">
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <img src="images/jft logo.png" alt="JFT Agro Overseas" style="height: 85px; filter: brightness(0) invert(1); margin-bottom: 25px;">
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 25px;">
+                    Government Recognized <strong>Star Export House</strong>. Delivering the purity of Indian harvests to 20+ countries across the Middle East, Europe, and Africa.
+                </p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://in.linkedin.com" target="_blank" style="color:#fff; font-size:1.2rem;"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" style="color:#fff; font-size:1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" style="color:#fff; font-size:1.2rem;"><i class="fa-brands fa-facebook"></i></a>
                 </div>
             </div>
 
+            <!-- Col 2: Navigation -->
             <div class="f-col">
                 <h4>Quick Links</h4>
                 <ul class="f-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="https://jftagro.com/about.html">About Us</a></li>
-                    <li><a href="https://jftagro.com/products.html">Our Products</a></li>
-                    <li><a href="https://jftagro.com/infrastructure.html">Infrastructure</a></li>
-                    <li><a href="https://jftagro.com/contact.html">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="products.html">Product Portfolio</a></li>
+                    <li><a href="infrastructure.html">Infrastructure</a></li>
+                    <li><a href="blog.html">Market Insights</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
 
+            <!-- Col 3: Contact -->
             <div class="f-col">
                 <h4>Reach Us</h4>
                 <ul class="f-contact">
-                    <li><i class="fa-solid fa-location-dot"></i> <span><strong>Head Office:</strong><br>N-2, APMC MARKET, Sector 19, Vashi, Mumbai - 400705</span></li>
-                    <li><i class="fa-solid fa-envelope"></i> <span>jftagro.info@gmail.com<br>export@jftagro.com</span></li>
-                    <li><i class="fa-solid fa-phone"></i> <span>+91 8425 057274<br>+91 8652 362771</span></li>
+                    <li><i class="fa-solid fa-location-dot"></i> <span>N-2, APMC MARKET, Sector 19, Vashi, Mumbai - 400705, India</span></li>
+                    <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:jftagro.info@gmail.com">jftagro.info@gmail.com</a></span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span><a href="tel:+918425057274">+91 8425 057274</a></span></li>
+                    <li><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> <span><a href="https://wa.me/918425057274" target="_blank"><strong>Instant Trade Support</strong><br>WhatsApp Online</a></span></li>
                 </ul>
             </div>
 
+            <!-- Col 4: Inquiry -->
             <div class="f-col">
                 <h4>Export Inquiry</h4>
-                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px; font-family: var(--font-body);">Get our latest product catalogue and export price list directly to your inbox.</p>
-                <form class="f-newsletter" onsubmit="event.preventDefault(); alert('Thank you! Our export manager will contact you shortly.');">
-                    <input type="email" class="f-input" placeholder="Enter Official Email ID" required>
-                    <button type="submit" class="f-btn-full">Request Price List</button>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Request our latest FOB/CIF price list and technical specifications.</p>
+                <form onsubmit="event.preventDefault(); alert('Inquiry Sent! Our export manager will contact you.');">
+                    <input type="email" class="f-input" placeholder="Official Email Address" required>
+                    <button type="submit" class="f-btn-pro">Get Price List</button>
                 </form>
+                <div style="margin-top: 15px; font-size: 0.7rem; color: rgba(255,255,255,0.4);">
+                    <i class="fa-solid fa-lock"></i> We respect your privacy. No spam.
+                </div>
             </div>
         </div>
 
+        <!-- Trust Bar -->
+        <div class="f-trust-bar">
+            <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-right: 10px;">Accreditations:</span>
+            <img src="https://apeda.gov.in/apedawebsite/images/logo.png" alt="APEDA" class="trust-logo">
+            <img src="https://www.fssai.gov.in/cms/themes/fssai/images/fssai_logo.png" alt="FSSAI" class="trust-logo" style="height:25px;">
+            <div style="border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; font-size: 0.6rem; color: rgba(255,255,255,0.6); font-weight: 800;">STAR EXPORT HOUSE</div>
+        </div>
+
         <div class="footer-bottom">
-            <span>&copy; <span id="current-year"></span> JFT Agro Overseas LLP. All Rights Reserved.</span>
-            <span>| <a href="#" style="color: var(--jft-gold); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--jft-gold); text-decoration: none;">Terms of Trade</a></span>
+            <div>&copy; <span id="current-year"></span> JFT Agro Overseas LLP. Exporting Excellence Globally.</div>
+            <div>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Trade</a>
+                <a href="sitemap.xml">Sitemap</a>
+            </div>
         </div>
     </div>
 </footer>
