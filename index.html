@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://translate.googleapis.com; frame-src https://www.google.com https://maps.google.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://ok.surf https://translate.googleapis.com https://translate.google.com; frame-src https://www.google.com https://maps.google.com;">
     <title>JFT Agro Overseas | Indian Rice, Spices & Grain Exporters - Star Export House</title>
     <meta name="description" content="JFT Agro Overseas is a Government Recognized Star Export House and ISO 9001:2015 certified exporter of Premium Indian Basmati Rice, Spices, Grains, and Pulses to 20+ countries.">
     <meta name="keywords" content="Rice Exporter India, Basmati Rice Exporters, Indian Spices Suppliers, Star Export House India, JFT Agro, Agro Commodities Export">
@@ -11,21 +11,21 @@
     <link rel="canonical" href="https://jftagro.com/">
     
     <!-- Performance: Preload critical LCP asset -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1542702969-a844b2098677?auto=format&fit=crop&q=80&w=2070" fetchpriority="high">
+    <link rel="preload" as="image" href="images/products/basmati_rice_hd.jpg" fetchpriority="high">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jftagro.com/">
     <meta property="og:title" content="JFT Agro Overseas | Government Recognized Star Export House">
     <meta property="og:description" content="Premier manufacturer and exporter of Indian Rice, Spices, Grains, and Sugar. ISO 9001:2015 Certified.">
-    <meta property="og:image" content="https://jftagro.com/images/homepage/hero-1.webp">
-
+    <meta property="og:image" content="images/products/basmati_rice_hd.jpg">
+ 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://jftagro.com/">
     <meta property="twitter:title" content="JFT Agro Overseas | Star Export House">
     <meta property="twitter:description" content="Premier manufacturer and exporter of Indian Rice, Spices, Grains, and Sugar.">
-    <meta property="twitter:image" content="https://jftagro.com/images/homepage/hero-1.webp">
+    <meta property="twitter:image" content="images/products/basmati_rice_hd.jpg">
 
     <!-- Organization Schema -->
     <script type="application/ld+json">
@@ -102,7 +102,7 @@
         :root { 
             --jft-primary: #4e8c3e; 
             --jft-dark: #1a3c34; 
-            --jft-gold: #dfa015; 
+            --jft-gold: #eebf45; 
             --jft-gold-light: #f7ca5e;
             --jft-navy: #1a3c34; 
             --jft-navy-light: #2c5148;
@@ -187,6 +187,16 @@
         
         .manu-highlight::after { background: var(--jft-gold) !important; opacity: 0.3 !important; }
 
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #f7ca5e 0%, #eebf45 50%, #b88d14 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            font-weight: 800;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
         .section-desc { font-size: clamp(1rem, 1.5vw, 1.15rem); max-width: 700px; margin-top: 20px; color: #6b6b6b; font-weight: 400; }
         
         .btn-primary { 
@@ -213,43 +223,7 @@
             background: #fff; color: var(--jft-navy); transform: translateY(-5px);
         }
 
-        /* --- Trusted Partners Section --- */
-        .trusted-bar {
-            background: #fff;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--jft-border);
-            text-align: center;
-            position: relative;
-            z-index: 50;
-        }
-        .trusted-label {
-            font-family: var(--font-sub);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #888;
-            margin-bottom: 30px;
-            display: block;
-        }
-        .trusted-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            opacity: 0.6;
-            filter: grayscale(100%);
-            transition: 0.5s;
-        }
-        .trusted-logos:hover {
-            opacity: 1;
-            filter: grayscale(0%);
-        }
-        .trusted-logos img {
-            height: 45px;
-            width: auto;
-            object-fit: contain;
-        }
+
         
         /* --- Hero CSS --- */
         .jft-hero-banner { position: relative; min-height: 100vh; width: 100%; overflow: hidden; background: #000; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; cursor: grab; }
@@ -330,7 +304,7 @@
         .stat-item { position: relative; text-align: center; overflow: hidden; padding: 10px 0; }
         .stat-item h3 { font-size: clamp(2rem, 4vw, 3.5rem); color: var(--jft-primary); font-weight: 700; line-height: 1; font-family: var(--font-sub); margin: 0; position: relative; z-index: 2; }
         .stat-item p { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #888; letter-spacing: 1px; margin: 10px 0 0 0; position: relative; z-index: 2; }
-        .stat-item::before { content: attr(data-count); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: clamp(4rem, 6vw, 8rem); color: rgba(78, 140, 62, 0.05); font-weight: 900; font-family: var(--font-sub); z-index: 0; line-height: 0; white-space: nowrap; }
+        .stat-item::before { content: none; }
         
         .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
@@ -376,7 +350,7 @@
         .view-btn { padding: 12px 30px; background: var(--jft-gold); color: var(--jft-navy); border-radius: 50px; font-family: var(--font-sub); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; margin-top: auto; font-weight: 700; border: none; cursor: pointer; } 
         .view-btn:hover { background: #fff; color: var(--jft-navy); }
         
-        .logistics-banner { background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop'); background-attachment: fixed; background-size: cover; background-position: center; padding: clamp(80px, 10vw, 160px) 0; position: relative; color: #fff; text-align: center; overflow: hidden; }
+        .logistics-banner { background-image: url('images/INFRASTRUCTURE/logistics.webp'); background-attachment: fixed; background-size: cover; background-position: center; padding: clamp(80px, 10vw, 160px) 0; position: relative; color: #fff; text-align: center; overflow: hidden; }
         .overlay-dark { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(26, 60, 52, 0.95) 0%, rgba(11, 28, 44, 0.9) 100%); z-index: 1; }
         .overlay-dark::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 40px 40px; z-index: 1; pointer-events: none; }
         .log-content { position: relative; z-index: 5; max-width: 900px; margin: 0 auto; padding: 0 20px; }
@@ -481,99 +455,149 @@
         .node-0 .country-list-reveal, .node-2 .country-list-reveal, .node-4 .country-list-reveal { left: 90px; top: 100%; } 
         .node-1 .country-list-reveal, .node-3 .country-list-reveal, .node-5 .country-list-reveal { right: 90px; top: 100%; }
         
-        /* --- UPDATED PARTNERS GRID CSS (MODERNIZED) --- */
+        /* --- STRATEGIC STRONGHOLDS (REIMAGINED) --- */
+        .bg-grid-map {
+            background-color: #fdfcf8;
+            background-image: 
+                radial-gradient(var(--jft-primary) 0.5px, transparent 0.5px),
+                radial-gradient(var(--jft-gold) 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            position: relative;
+        }
+        
         .partners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         .partner-card-modern {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 16px;
-            padding: 25px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            padding: 40px 30px;
             position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
 
         .partner-card-modern:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transform: translateY(-12px);
+            background: #fff;
             border-color: var(--jft-gold);
+            box-shadow: 0 20px 50px rgba(26, 60, 52, 0.12);
         }
 
-        /* Status Dot */
         .partner-status {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 8px;
-            height: 8px;
-            background: #2ecc71; /* Success Green */
+            top: 25px;
+            right: 25px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(46, 204, 113, 0.1);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-family: var(--font-sub);
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: #27ae60;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #2ecc71;
             border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.1);
+            box-shadow: 0 0 10px #2ecc71;
+            animation: pulseGreen 2s infinite;
         }
 
-        .partner-card-modern:hover .partner-status {
-            box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.2);
-            animation: pulseStatus 1.5s infinite;
+        @keyframes pulseGreen {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
-        @keyframes pulseStatus {
-            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
-        }
-
-        /* Flag Wrapper */
         .partner-flag-circle {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #f8f8f8;
+            padding: 5px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eee;
+        }
+        
+        .partner-flag-inner {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             overflow: hidden;
-            margin-bottom: 20px;
             border: 4px solid #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: 0.4s;
-            position: relative;
-            z-index: 2;
         }
 
         .partner-card-modern:hover .partner-flag-circle {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(238, 191, 69, 0.3);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(238, 191, 69, 0.25);
             border-color: var(--jft-gold);
         }
 
-        .partner-flag-circle img {
+        .partner-flag-inner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* Typography */
         .partner-country {
             font-family: var(--font-head);
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 800;
             color: var(--jft-navy);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .partner-role {
             font-family: var(--font-sub);
             font-size: 0.8rem;
-            color: #888;
+            color: var(--jft-primary);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .partner-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .hub-tag {
+            display: inline-block;
+            background: var(--jft-light);
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-family: var(--font-sub);
+            font-size: 0.7rem;
             font-weight: 600;
+            color: var(--jft-navy);
         }
         
         /* --- NEW CERTIFICATION DESIGN CSS (MODERNIZED) --- */
@@ -620,36 +644,31 @@
             top: 0; left: 0; 
             width: 100%; height: 3px;
             background: var(--jft-gold);
-            transform: scaleX(0);
+            transform: scaleX(1);
             transition: 0.4s ease;
             transform-origin: left;
         }
 
         .cert-card-modern:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(78, 140, 62, 0.1);
-            border-color: rgba(78, 140, 62, 0.3);
-        }
-
-        .cert-card-modern:hover::before {
-            transform: scaleX(1);
+            box-shadow: 0 15px 30px rgba(78, 140, 62, 0.12);
+            border-color: var(--jft-gold);
         }
 
         .cert-logo { 
             height: 50px; 
             width: auto; 
             object-fit: contain; 
-            filter: grayscale(100%) contrast(0.8); 
-            opacity: 0.6; 
+            filter: grayscale(0) contrast(1); 
+            opacity: 1; 
             transition: 0.4s; 
             margin-bottom: 12px;
             max-width: 90%;
+            transform: scale(1);
         } 
         
         .cert-card-modern:hover .cert-logo { 
-            filter: grayscale(0) contrast(1); 
-            opacity: 1; 
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .cert-label {
@@ -659,14 +678,9 @@
             color: var(--jft-navy);
             text-transform: uppercase;
             letter-spacing: 1px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: 0.4s ease;
-        }
-
-        .cert-card-modern:hover .cert-label {
             opacity: 1;
             transform: translateY(0);
+            transition: 0.4s ease;
         }
 
         .cert-verified-icon {
@@ -675,14 +689,9 @@
             right: 8px;
             font-size: 0.8rem;
             color: var(--jft-primary);
-            opacity: 0;
-            transform: scale(0);
-            transition: 0.3s;
-        }
-
-        .cert-card-modern:hover .cert-verified-icon {
             opacity: 1;
             transform: scale(1);
+            transition: 0.3s;
         }
         
         .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 80px; }
@@ -694,9 +703,24 @@
         .testi-auth span { font-size: 0.85rem; color: var(--jft-primary); font-family: var(--font-sub); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
         .testi-text { font-style: italic; color: #555; font-size: 1.05rem; position: relative; z-index: 1; font-family: var(--font-head); line-height: 1.6; }
 
-        /* --- TESTIMONIAL MARQUEE CSS --- */
-        .testi-scroll-container { width: 100%; overflow: hidden; position: relative; }
-        .testi-track { display: flex; gap: 30px; width: max-content; animation: scrollTesti 40s linear infinite; padding: 20px 0; }
+        /* --- TESTIMONIALS (REIMAGINED) --- */
+        .testi-scroll-container { 
+            width: 100%; 
+            overflow: hidden; 
+            position: relative; 
+            padding: 40px 0;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        
+        .testi-track { 
+            display: flex; 
+            gap: 30px; 
+            width: max-content; 
+            animation: scrollTesti 60s linear infinite; 
+            padding: 20px 0; 
+        }
+        
         .testi-track:hover { animation-play-state: paused; }
         
         @keyframes scrollTesti { 
@@ -705,26 +729,234 @@
         }
         
         .testi-card { 
-            width: 350px; 
-            background: #fff; 
+            width: 400px; 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 40px; 
-            border-radius: var(--radius-md); 
-            box-shadow: var(--shadow-subtle); 
+            border-radius: 24px; 
+            border: 1px solid rgba(255, 255, 255, 0.5);
             position: relative; 
             overflow: hidden; 
             flex-shrink: 0;
-            border: 1px solid transparent;
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
         
         .testi-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--jft-primary);
-            box-shadow: 0 15px 30px rgba(78, 140, 62, 0.15);
+            transform: translateY(-15px) scale(1.02);
+            background: #fff;
+            border-color: var(--jft-gold);
+            box-shadow: 0 25px 60px rgba(26, 60, 52, 0.15);
+        }
+        
+        .testi-card::before { 
+            content: '\201C'; 
+            position: absolute; 
+            top: -20px; 
+            left: 20px; 
+            font-size: 10rem; 
+            color: rgba(238, 191, 69, 0.1); 
+            font-family: 'Merriweather', serif; 
+            z-index: 0; 
+        }
+
+        .testi-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 18px; 
+            margin-bottom: 25px; 
+            position: relative; 
+            z-index: 1; 
+        } 
+        
+        .testi-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--jft-primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            border: 3px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testi-auth h4 { 
+            font-size: 1.2rem; 
+            margin: 0; 
+            font-family: var(--font-head); 
+            color: var(--jft-navy); 
+            font-weight: 800;
+        } 
+        
+        .testi-auth span { 
+            font-size: 0.8rem; 
+            color: #777; 
+            font-family: var(--font-sub); 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            font-weight: 600; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .testi-text { 
+            font-style: normal; 
+            color: #444; 
+            font-size: 1.1rem; 
+            position: relative; 
+            z-index: 1; 
+            font-family: var(--font-head); 
+            line-height: 1.8; 
+            margin-bottom: 25px;
+        }
+        
+        .testi-stars {
+            color: var(--jft-gold);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 4px;
+        }
+        
+        .flag-bubble {
+            background: var(--jft-light);
+            padding: 4px 10px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--jft-navy);
         }
 
         @media (max-width: 600px) {
             .testi-card { width: 300px; padding: 30px; }
+        }
+
+        .bg-legacy-texture {
+            background-color: #faf9f6;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(26, 60, 52, 0.03) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, rgba(238, 191, 69, 0.03) 0, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .legacy-watermark {
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(26, 60, 52, 0.02);
+            font-family: var(--font-head);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            text-transform: uppercase;
+        }
+
+        .stat-item.floating-stat {
+            background: #fff;
+            border: 1px solid rgba(238, 191, 69, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item.floating-stat::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--jft-gold), transparent, var(--jft-primary));
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--jft-border);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card:hover {
+            border-color: var(--jft-gold);
+            box-shadow: 0 15px 35px rgba(26, 60, 52, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .feat-icon {
+            font-size: 2rem;
+            color: var(--jft-primary);
+            margin-bottom: 20px;
+            transition: 0.4s;
+            display: inline-block;
+            filter: drop-shadow(0 5px 10px rgba(78, 140, 62, 0.2));
+        }
+
+        .feature-card:hover .feat-icon {
+            transform: scale(1.2) rotate(-10deg);
+            color: var(--jft-gold);
+        }
+
+        .bg-industrial-mesh {
+            background-color: var(--jft-navy);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            position: relative;
+        }
+
+        .bg-industrial-mesh::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(238, 191, 69, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .floating-stat {
+            animation: floatStat 4s ease-in-out infinite;
+        }
+
+        @keyframes floatStat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .manu-highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .manu-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: var(--jft-gold);
+            opacity: 0.3;
+            z-index: -1;
+            transform: skewX(-15deg);
         }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); } 
@@ -837,12 +1069,16 @@
 
     <section class="jft-hero-banner" id="home">
         <div id="hero-slides-container">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1542702969-a844b2098677?auto=format&fit=crop&q=80&w=2070');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1595839089001-c889f899e436?auto=format&fit=crop&q=80&w=2070');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=2070');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1515942400420-2b98fed1f515?auto=format&fit=crop&q=80&w=2070');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=2070');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1616432043562-3671ea2e5242?auto=format&fit=crop&q=80&w=2070');"></div>
+            <div class="hero-slide active">
+                <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+                    <source src="images/homepage/premiumnRice.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="hero-slide" style="background-image: url('images/products/rice_hd.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('images/homepage/SPICES.webp');"></div>
+            <div class="hero-slide" style="background-image: url('images/products/pulses_hd.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('images/homepage/OILSEEDS.webp');"></div>
+            <div class="hero-slide" style="background-image: url('images/homepage/Wheat-Flour.webp');"></div>
         </div>
         
         <div class="hero-grid-overlay"></div>
@@ -854,7 +1090,7 @@
                     <span class="hero-tag-modern"><i class="fa-solid fa-globe"></i> ISO 9001:2015 CERTIFIED</span>
                     <h1 class="hero-title-modern">
                         Global Export<br>
-                        <span>COMMAND CENTER</span>
+                        <span class="gold-gradient-text">COMMAND CENTER</span>
                         <strong>Powered by Indian Agriculture</strong>
                     </h1>
                     <div class="hero-desc-modern">
@@ -862,12 +1098,12 @@
                     </div>
                     <div class="hero-actions">
                         <a href="products.html" class="btn-primary" aria-label="Browse Export Inventory">Browse Export Inventory</a>
-                        <a href="contact.html" class="btn-outline" aria-label="Get Custom Quote">Get Custom Quote</a>
+                        <a href="contact.html#inquiry-form" class="btn-outline" aria-label="Get Custom Quote">Get Custom Quote</a>
                     </div>
                 </div>
                 <div class="hero-visual-card">
                     <div class="glass-card tilt-card">
-                        <img src="images/about-hm.png" alt="JFT Agro Overseas - Premier Indian Rice and Spices Exporter Logistics" width="450" height="500" loading="eager" fetchpriority="high">
+                        <img src="images/products/basmati_rice_hd.jpg" alt="JFT Agro Overseas - Premier Indian Rice and Spices Exporter Logistics" width="450" height="500" loading="eager" fetchpriority="high" style="object-fit: cover; border-radius: 12px;">
                     </div>
                 </div>
             </div>
@@ -877,7 +1113,7 @@
                     <span class="hero-tag-modern"><i class="fa-solid fa-wheat-awn"></i> PREMIUM GRAINS</span>
                     <h2 class="hero-title-modern">
                         The Grain Bowl<br>
-                        <span>OF THE WORLD</span>
+                        <span class="gold-gradient-text">OF THE WORLD</span>
                         <strong>Basmati, Non-Basmati & Wheat</strong>
                     </h2>
                     <div class="hero-desc-modern">
@@ -885,12 +1121,12 @@
                     </div>
                     <div class="hero-actions">
                         <a href="products.html" class="btn-primary" aria-label="Explore Rice Varieties">Explore Rice Varieties</a>
-                        <a href="contact.html" class="btn-outline" aria-label="Bulk Pricing">Request Bulk Pricing</a>
+                        <a href="contact.html#inquiry-form" class="btn-outline" aria-label="Bulk Pricing">Request Bulk Pricing</a>
                     </div>
                 </div>
                 <div class="hero-visual-card">
                     <div class="glass-card tilt-card">
-                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=600" alt="Premium Indian Basmati Rice Export Quality" width="600" height="800" loading="lazy">
+                        <img src="images/products/basmati_rice_hd.jpg" alt="Premium Indian Basmati Rice Export Quality" width="600" height="800" loading="lazy" style="object-fit: cover; border-radius: 12px;">
                     </div>
                 </div>
             </div>
@@ -913,7 +1149,7 @@
                 </div>
                 <div class="hero-visual-card">
                     <div class="glass-card tilt-card">
-                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=600" alt="Indian Spices (Turmeric, Chilli, Cumin) for Global Markets" width="600" height="800" loading="lazy">
+                        <img src="images/products/red_chilli_hd.jpg" alt="Indian Spices (Turmeric, Chilli, Cumin) for Global Markets" width="600" height="800" loading="lazy" style="object-fit: cover; border-radius: 12px;">
                     </div>
                 </div>
             </div>
@@ -931,12 +1167,12 @@
                     </div>
                     <div class="hero-actions">
                         <a href="#products" class="btn-primary" aria-label="See Pulses">See Pulses</a>
-                        <a href="#contact" class="btn-outline" aria-label="Get Quote">Get Quote</a>
+                        <a href="contact.html#inquiry-form" class="btn-outline" aria-label="Get Quote">Get Quote</a>
                     </div>
                 </div>
                 <div class="hero-visual-card">
                     <div class="glass-card tilt-card">
-                        <img src="https://images.unsplash.com/photo-1515942400420-2b98fed1f515?auto=format&fit=crop&q=80&w=600" alt="Healthy Pulses Export" width="600" height="800" loading="lazy">
+                        <img src="images/products/pulses_hd.jpg" alt="Healthy Pulses Export" width="600" height="800" loading="lazy" style="object-fit: cover; border-radius: 12px;">
                     </div>
                 </div>
             </div>
@@ -959,7 +1195,7 @@
                 </div>
                 <div class="hero-visual-card">
                     <div class="glass-card tilt-card">
-                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=600" alt="Lab Testing Quality Control" width="600" height="800" loading="lazy">
+                        <img src="images/INFRASTRUCTURE/packing unit.webp" alt="Premium Export Packing & Quality Control" width="600" height="800" loading="lazy" style="object-fit: cover; border-radius: 12px;">
                     </div>
                 </div>
             </div>
@@ -977,31 +1213,19 @@
                     </div>
                     <div class="hero-actions">
                         <a href="#global-reach" class="btn-primary" aria-label="Global Network">Global Network</a>
-                        <a href="#contact" class="btn-outline" aria-label="Track Shipment">Track Shipment</a>
+                        <a href="contact.html#inquiry-form" class="btn-outline" aria-label="Track Shipment">Track Shipment</a>
                     </div>
                 </div>
                 <div class="hero-visual-card">
                     <div class="glass-card tilt-card">
-                        <img src="https://images.unsplash.com/photo-1494412574643-35d324698420?auto=format&fit=crop&q=80&w=600" alt="Container Ship Logistics" width="600" height="800" loading="lazy">
+                        <img src="images/INFRASTRUCTURE/logistics.webp" alt="Global Export Logistics & Shipping Partners" width="600" height="800" loading="lazy" style="object-fit: cover; border-radius: 12px;">
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- Trusted Partners / Social Proof Section -->
-        <div class="trusted-bar">
-            <div class="jft-wide-container">
-                <span class="trusted-label">Trusted Partners in Global Trade</span>
-                <div class="trusted-logos">
-                    <img src="images/homepage/APEDA.webp" alt="APEDA India">
-                    <img src="images/homepage/STAR HOUSE.webp" alt="Star Export House">
-                    <img src="images/homepage/FSSAI.webp" alt="FSSAI Food Safety">
-                    <img src="images/homepage/SPICES_BOARD.webp" alt="Spices Board India">
-                    <img src="images/homepage/ISO.webp" alt="ISO 9001 Certified">
-                </div>
-            </div>
-        </div>
+
 
         <div class="slider-controls" id="hero-dots-container">
             <div class="control-dot active" onclick="setSlide(0)" aria-label="Slide 1"></div>
@@ -1015,13 +1239,14 @@
 
     <button id="backToTop" title="Back to Top" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <section class="section-padding bg-gradient-soft" id="about">
+    <section class="section-padding bg-legacy-texture" id="about">
+        <div class="legacy-watermark">JFT LEGACY</div>
         <div class="jft-wide-container">
             <div class="stats-grid reveal" id="stats-section">
-                <div class="stat-item" data-count="42"><h3 data-val="42">0</h3><p>Years Legacy</p></div>
-                <div class="stat-item" data-count="20"><h3 data-val="25">0</h3><p>Countries Served</p></div>
-                <div class="stat-item" data-count="500"><h3 data-val="500">0</h3><p>Containers / Month</p></div>
-                <div class="stat-item" data-count="1000"><h3 data-val="100">0</h3><p>% Happy Customers</p></div>
+                <div class="stat-item floating-stat" data-count="45" style="animation-delay: 0s;"><h3 data-val="45">0</h3><p>Years Legacy</p></div>
+                <div class="stat-item floating-stat" data-count="20" style="animation-delay: 0.5s;"><h3 data-val="25">0</h3><p>Countries Served</p></div>
+                <div class="stat-item floating-stat" data-count="500" style="animation-delay: 1s;"><h3 data-val="500">0</h3><p>Containers / Year</p></div>
+                <div class="stat-item floating-stat" data-count="100" data-suffix="%" style="animation-delay: 1.5s;"><h3 data-val="100">0</h3><p>% Happy Customers</p></div>
             </div>
             <div class="about-grid">
                 <div class="about-text reveal">
@@ -1029,7 +1254,7 @@
                         <span class="brand-tag">Corporate Profile</span>
                         <h2 class="section-title">Bridging Indian Farms <br><span>To Global Ports</span></h2>
                         <p class="section-desc" style="line-height: 1.8; font-size: 1.1rem; color: #444; letter-spacing: 0.2px;">JFT Agro Overseas is not just a supplier; we are your strategic partner in the global food supply chain. As an ISO 9001:2015, ISO 22000:2018 and HACCP certified Star Export House, we bridge the gap between Indian fertile lands and international markets with precision logistics and uncompromised quality control.</p>
-                        <a href="#contact" class="btn-primary" style="margin-top: 20px;" aria-label="Download Corporate Profile">Download Corporate Profile</a>
+                        <a href="contact.html#inquiry-form" class="btn-primary" style="margin-top: 20px;" aria-label="Download Corporate Profile">Download Corporate Profile</a>
                     </div>
                 </div>
                 <div class="features-grid reveal">
@@ -1056,77 +1281,77 @@
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/FSSAI.webp" class="cert-logo" alt="FSSAI - Food Safety and Standards Authority of India License" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/FSSAI.webp" class="cert-logo" alt="FSSAI - Food Safety and Standards Authority of India License" width="100" height="50" loading="lazy">
                             <span class="cert-label">Food Safety</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/STAR HOUSE.webp" class="cert-logo" alt="One Star Export House Certification - DGFT India" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/STAR HOUSE.webp" class="cert-logo" alt="One Star Export House Certification - DGFT India" width="100" height="50" loading="lazy">
                             <span class="cert-label">Star Export House</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/APEDA.webp" class="cert-logo" alt="APEDA - Agricultural and Processed Food Products Export Development Authority" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/APEDA.webp" class="cert-logo" alt="APEDA - Agricultural and Processed Food Products Export Development Authority" width="100" height="50" loading="lazy">
                             <span class="cert-label">APEDA Govt.</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/SPICES_BOARD.webp" class="cert-logo" alt="Spices Board" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/SPICES_BOARD.webp" class="cert-logo" alt="Spices Board" width="100" height="50" loading="lazy">
                             <span class="cert-label">Spices Board</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/COCONUT_BOARD.webp" class="cert-logo" alt="Coconut Board" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/COCONUT_BOARD.webp" class="cert-logo" alt="Coconut Board" width="100" height="50" loading="lazy">
                             <span class="cert-label">Coconut Board</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/AEO.webp" class="cert-logo" alt="AEO" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/AEO.webp" class="cert-logo" alt="AEO" width="100" height="50" loading="lazy">
                             <span class="cert-label">Authorized Operator</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/IEC.webp" class="cert-logo" alt="IEC" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/IEC.webp" class="cert-logo" alt="IEC" width="100" height="50" loading="lazy">
                             <span class="cert-label">Import Export Code</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/MSME.webp" class="cert-logo" alt="MSME" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/MSME.webp" class="cert-logo" alt="MSME" width="100" height="50" loading="lazy">
                             <span class="cert-label">MSME India</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/Shellac.webp" class="cert-logo" alt="SHELLAC" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/Shellac.webp" class="cert-logo" alt="SHELLAC" width="100" height="50" loading="lazy">
                             <span class="cert-label">Shellac Export</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/DGFT.webp" class="cert-logo" alt="DGFT" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/DGFT.webp" class="cert-logo" alt="DGFT" width="100" height="50" loading="lazy">
                             <span class="cert-label">DGFT</span>
                         </div>
                     </div>
                     <div class="cert-slide">
                         <div class="cert-card-modern">
                             <i class="fa-solid fa-circle-check cert-verified-icon"></i>
-                            <img src="/images/homepage/COFFEE_BOARD.webp" class="cert-logo" alt="COFFEE Board" width="100" height="50" loading="lazy">
+                            <img src="images/homepage/COFFEE_BOARD.webp" class="cert-logo" alt="COFFEE Board" width="100" height="50" loading="lazy">
                             <span class="cert-label">Coffee Board</span>
                         </div>
                     </div>
@@ -1154,7 +1379,7 @@
         </div>
     </section>
 
-    <section class="section-padding" id="manufacturing" style="background: var(--jft-navy); color: #fff;">
+    <section class="section-padding bg-industrial-mesh" id="manufacturing" style="color: #fff;">
         <div class="jft-wide-container">
             <div class="manu-layout">
                 <div class="manu-content" style="flex: 1;">
@@ -1187,7 +1412,7 @@
                         <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;"><i class="fa-solid fa-location-dot" style="color:var(--jft-primary); margin-top: 5px;"></i><div><strong>Basmati Rice:</strong> Punjab & Haryana Belt</div></li>
                         <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;"><i class="fa-solid fa-location-dot" style="color:var(--jft-primary); margin-top: 5px;"></i><div><strong>Non-Basmati Rice:</strong> All States of India</div></li>
                         <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;"><i class="fa-solid fa-location-dot" style="color:var(--jft-primary); margin-top: 5px;"></i><div><strong>Wheat & Flour:</strong> Sehore, Madhya Pradesh (Sarbati Belt)</div></li>
-                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;"><i class="fa-solid fa-location-dot" style="color:var(--jft-primary); margin-top: 5px;"></i><div><strong>Maize, Sorghum & Millets:</strong> Maharshtra, Karnataka & Rajasthan Belts</div></li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;"><i class="fa-solid fa-location-dot" style="color:var(--jft-primary); margin-top: 5px;"></i><div><strong>Maize, Sorghum & Millets:</strong> Maharashtra, Karnataka & Rajasthan Belts</div></li>
                         <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;"><i class="fa-solid fa-location-dot" style="color:var(--jft-primary); margin-top: 5px;"></i><div><strong>Turmeric & Powder:</strong> Sangli (Maharashtra) & Erode (Tamil Nadu)</div></li>
                         <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;"><i class="fa-solid fa-location-dot" style="color:var(--jft-primary); margin-top: 5px;"></i><div><strong>Chilly & Powder:</strong> Guntur, Andhra Pradesh</div></li>
                         <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px;"><i class="fa-solid fa-location-dot" style="color:var(--jft-primary); margin-top: 5px;"></i><div><strong>Dry Ginger & Powder:</strong> Kerala & North-East India</div></li>
@@ -1217,7 +1442,7 @@
                 <div class="prod-card">
                     <div class="prod-inner">
                         <div class="prod-front">
-                            <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=600" alt="Premium 1121 Basmati Rice" width="600" height="800" loading="lazy">
+                            <img src="images/products/basmati_rice_hd.jpg" alt="Premium 1121 Basmati Rice" width="600" height="800" loading="lazy">
                             <div class="prod-overlay"><span>Grain</span><h3>Rice</h3></div>
                         </div>
                         <div class="prod-back">
@@ -1231,7 +1456,7 @@
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Sona Masoori</li>
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> 100% Broken Rice</li>
                             </ul>
-                            <a href="https://jftagro.com/products.html" class="view-btn" aria-label="View Rice Details">View Details</a>
+                            <a href="products.html" class="view-btn" aria-label="View Details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -1239,7 +1464,7 @@
                 <div class="prod-card">
                     <div class="prod-inner">
                         <div class="prod-front">
-                            <img src="/images/homepage/SPICES.webp" alt="Indian Spices Assortment" width="600" height="800" loading="lazy">
+                            <img src="images/products/red_chilli_hd.jpg" alt="Indian Spices Assortment" width="600" height="800" loading="lazy">
                             <div class="prod-overlay"><span>Spices</span><h3>Spices</h3></div>
                         </div>
                         <div class="prod-back">
@@ -1254,7 +1479,7 @@
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Fenugreek Seeds & Powder</li>
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Green Cardamom</li>
                             </ul>
-                            <a href="https://jftagro.com/products.html" class="view-btn" aria-label="View Spices Details">View Details</a>
+                            <a href="products.html" class="view-btn" aria-label="View Spices Details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -1262,7 +1487,7 @@
                 <div class="prod-card">
                     <div class="prod-inner">
                         <div class="prod-front">
-                            <img src="/images/homepage/SUGAR.webp" alt="Indian Sugar Export" width="600" height="800" loading="lazy">
+                            <img src="images/homepage/SUGAR.webp" alt="Indian Sugar Export" width="600" height="800" loading="lazy">
                             <div class="prod-overlay"><span>Commodity</span><h3>Indian Sugar</h3></div>
                         </div>
                         <div class="prod-back">
@@ -1274,7 +1499,7 @@
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Brown Sugar</li>
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Jaggery Cubes</li>
                             </ul>
-                            <a href="https://jftagro.com/products.html" class="view-btn" aria-label="View Sugar Details">View Details</a>
+                            <a href="products.html" class="view-btn" aria-label="View Sugar Details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -1282,7 +1507,7 @@
                 <div class="prod-card">
                     <div class="prod-inner">
                         <div class="prod-front">
-                            <img src="/images/homepage/Wheat-Flour.webp" alt="Wheat and Flour" width="600" height="800" loading="lazy">
+                            <img src="images/products/wheat_flour_hd.webp" alt="Wheat and Flour" width="600" height="800" loading="lazy">
                             <div class="prod-overlay"><span>Grains</span><h3>Wheat & Flour</h3></div>
                         </div>
                         <div class="prod-back">
@@ -1294,7 +1519,7 @@
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Semolina (Sooji)</li>
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Whole Wheat Atta</li>
                             </ul>
-                            <a href="https://jftagro.com/products.html" class="view-btn" aria-label="View Wheat Details">View Details</a>
+                            <a href="products.html" class="view-btn" aria-label="View Wheat Details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -1302,7 +1527,7 @@
                 <div class="prod-card">
                     <div class="prod-inner">
                         <div class="prod-front">
-                            <img src="/images/homepage/OILSEEDS.webp" alt="Oilseeds and Herbs" width="600" height="800" loading="lazy">
+                            <img src="images/products/oilseeds_hd.jpg" alt="Oilseeds and Herbs" width="600" height="800" loading="lazy">
                             <div class="prod-overlay"><span>Herbs</span><h3>Oilseeds</h3></div>
                         </div>
                         <div class="prod-back">
@@ -1316,7 +1541,7 @@
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Black Cumin Seeds</li>
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Medicinal Herbs</li>
                             </ul>
-                            <a href="https://jftagro.com/products.html" class="view-btn" aria-label="View Oilseeds Details">View Details</a>
+                            <a href="products.html" class="view-btn" aria-label="View Oilseeds Details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -1324,7 +1549,7 @@
                 <div class="prod-card">
                     <div class="prod-inner">
                         <div class="prod-front">
-                            <img src="/images/homepage/ANIMAL FEED.webp" alt="Cattle Feed and Soya Doc" width="600" height="800" loading="lazy">
+                            <img src="images/homepage/ANIMAL FEED.webp" alt="Cattle Feed and Soya Doc" width="600" height="800" loading="lazy">
                             <div class="prod-overlay"><span>Feeds</span><h3>Animal Feeds</h3></div>
                         </div>
                         <div class="prod-back">
@@ -1340,7 +1565,7 @@
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Rice Bran De-Oiled</li>
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Cottonseed Cake</li>
                             </ul>
-                            <a href="https://jftagro.com/products.html" class="view-btn" aria-label="View Feed Details">View Details</a>
+                            <a href="products.html" class="view-btn" aria-label="View Feed Details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -1348,7 +1573,7 @@
                 <div class="prod-card">
                     <div class="prod-inner">
                         <div class="prod-front">
-                            <img src="/images/homepage/RAISINS.webp" alt="Raisins Dry Fruit" width="600" height="800" loading="lazy">
+                            <img src="images/homepage/RAISINS.webp" alt="Raisins Dry Fruit" width="600" height="800" loading="lazy">
                             <div class="prod-overlay"><span>Dry Fruit</span><h3>Raisins</h3></div>
                         </div>
                         <div class="prod-back">
@@ -1360,7 +1585,7 @@
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Brown Raisins</li>
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Green Raisins</li>
                             </ul>
-                            <a href="https://jftagro.com/products.html" class="view-btn" aria-label="View Raisins Details">View Details</a>
+                            <a href="products.html" class="view-btn" aria-label="View Raisins Details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -1368,7 +1593,7 @@
                 <div class="prod-card">
                     <div class="prod-inner">
                         <div class="prod-front">
-                            <img src="/images/homepage/PULSES.webp" alt="Pulses and Dal" width="600" height="800" loading="lazy">
+                            <img src="images/homepage/PULSES.webp" alt="Pulses and Dal" width="600" height="800" loading="lazy">
                             <div class="prod-overlay"><span>Pulses</span><h3>Pulses</h3></div>
                         </div>
                         <div class="prod-back">
@@ -1382,7 +1607,7 @@
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Moong (Green Gram)</li>
                                 <li class="prod-type-item"><i class="fa-solid fa-angle-right"></i> Toor Dal(Pigeon Pea)</li>
                             </ul>
-                            <a href="https://jftagro.com/products.html" class="view-btn" aria-label="View Pulses Details">View Details</a>
+                            <a href="products.html" class="view-btn" aria-label="View Pulses Details">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -1414,12 +1639,12 @@
             </div>
             <div class="infra-layout reveal">
                 <div class="infra-item">
-                    <img src="https://images.unsplash.com/photo-1605333550472-a05da82c5f13?auto=format&fit=crop&q=80" class="infra-bg-img" alt="Silos" width="600" height="400" loading="lazy">
+                    <img src="images/modern_grain_silo.png" class="infra-bg-img" alt="Silos" width="600" height="400" loading="lazy">
                     <div class="infra-content"><div class="infra-cap">10MT</div><h3>Per Hour Milling</h3><p>Fully automated Miltex rice milling & flour Milling lines ensure zero-contact processing.</p></div>
                     <ul class="infra-list"><li><i class="fa-solid fa-check"></i> Sortex Z+ Optical Sorters</li><li><i class="fa-solid fa-check"></i> Moisture Controlled Silos</li></ul>
                 </div>
                 <div class="infra-item">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" class="infra-bg-img" alt="Lab" width="600" height="400" loading="lazy">
+                    <img src="images/agro_quality_lab.png" class="infra-bg-img" alt="Lab" width="600" height="400" loading="lazy">
                     <div class="infra-content"><div class="infra-cap">NABL</div><h3>Accredited Labs</h3><p>In-house quality testing for moisture, grain length, Kett whiteness, and pesticide residue.</p></div>
                     <ul class="infra-list"><li><i class="fa-solid fa-check"></i> Pre-shipment Sample Retention</li><li><i class="fa-solid fa-check"></i> Fumigation Chambers</li></ul>
                 </div>
@@ -1473,66 +1698,94 @@
             
             <div class="partners-grid reveal">
                 <div class="partner-card-modern">
-                    <div class="partner-status" title="Active Hub"></div>
+                    <div class="partner-status"><div class="status-dot"></div> ACTIVE</div>
                     <div class="partner-flag-circle">
-                        <img src="/images/homepage/Flag-Russia.webp" alt="RUSSIA" width="80" height="80" loading="lazy">
+                        <div class="partner-flag-inner">
+                            <img src="images/homepage/Flag-Russia.webp" alt="RUSSIA" width="100" height="100" loading="lazy">
+                        </div>
                     </div>
                     <h4 class="partner-country">Russia</h4>
-                    <span class="partner-role">Distribution Partner</span>
+                    <span class="partner-role">CIS Trade Hub</span>
+                    <p class="partner-desc">Strategic gateway for Northern European & CIS distribution networks.</p>
+                    <div class="hub-tag">Customs Clearance Support</div>
                 </div>
 
                 <div class="partner-card-modern">
-                    <div class="partner-status" title="Active Hub"></div>
+                    <div class="partner-status"><div class="status-dot"></div> ACTIVE</div>
                     <div class="partner-flag-circle">
-                        <img src="/images/homepage/Flag-Vietnam.webp" alt="VIETNAM" width="80" height="80" loading="lazy">
+                        <div class="partner-flag-inner">
+                            <img src="images/homepage/Flag-Vietnam.webp" alt="VIETNAM" width="100" height="100" loading="lazy">
+                        </div>
                     </div>
                     <h4 class="partner-country">Vietnam</h4>
-                    <span class="partner-role">Distribution Partner</span>
+                    <span class="partner-role">SE Asia Terminal</span>
+                    <p class="partner-desc">Key transshipment point for South East Asian agro-trade lanes.</p>
+                    <div class="hub-tag">Regional Logistics Partner</div>
                 </div>
 
                 <div class="partner-card-modern">
-                    <div class="partner-status" title="Active Hub"></div>
+                    <div class="partner-status"><div class="status-dot"></div> ACTIVE</div>
                     <div class="partner-flag-circle">
-                        <img src="/images/homepage/Flag-Srilanka.webp" alt="SRI LANKA" width="80" height="80" loading="lazy">
+                        <div class="partner-flag-inner">
+                            <img src="images/homepage/Flag-Sri-Lanka.webp" alt="SRI LANKA" width="100" height="100" loading="lazy">
+                        </div>
                     </div>
                     <h4 class="partner-country">Sri Lanka</h4>
-                    <span class="partner-role">Distribution Partner</span>
+                    <span class="partner-role">Colombo Gateway</span>
+                    <p class="partner-desc">Direct supply route management for the Indian Ocean corridor.</p>
+                    <div class="hub-tag">Distribution Partner</div>
                 </div>
 
                 <div class="partner-card-modern">
-                    <div class="partner-status" title="Active Hub"></div>
+                    <div class="partner-status"><div class="status-dot"></div> ACTIVE</div>
                     <div class="partner-flag-circle">
-                        <img src="/images/homepage/Flag-United-Arab-Emirates.webp" alt="DUBAI" width="80" height="80" loading="lazy">
+                        <div class="partner-flag-inner">
+                            <img src="images/homepage/Flag-United-Arab-Emirates.webp" alt="DUBAI" width="100" height="100" loading="lazy">
+                        </div>
                     </div>
                     <h4 class="partner-country">Dubai (UAE)</h4>
-                    <span class="partner-role">Distribution Partner</span>
+                    <span class="partner-role">Global Trade Hub</span>
+                    <p class="partner-desc">Centralized command for Middle East & Gulf region operations.</p>
+                    <div class="hub-tag">Strategic Warehouse</div>
                 </div>
 
                 <div class="partner-card-modern">
-                    <div class="partner-status" title="Active Hub"></div>
+                    <div class="partner-status"><div class="status-dot"></div> ACTIVE</div>
                     <div class="partner-flag-circle">
-                        <img src="/images/homepage/Flag-Benin.webp" alt="BENIN" width="80" height="80" loading="lazy">
+                        <div class="partner-flag-inner">
+                            <img src="images/homepage/Flag-Benin.webp" alt="BENIN" width="100" height="100" loading="lazy">
+                        </div>
                     </div>
                     <h4 class="partner-country">Benin</h4>
-                    <span class="partner-role">Distribution Partner</span>
+                    <span class="partner-role">West Africa Hub</span>
+                    <p class="partner-desc">Leading entry point for Bulk Rice and Sugar in the ECOWAS market.</p>
+                    <div class="hub-tag">Regional Distribution</div>
                 </div>
 
                 <div class="partner-card-modern">
-                    <div class="partner-status" title="Active Hub"></div>
+                    <div class="partner-status"><div class="status-dot"></div> ACTIVE</div>
                     <div class="partner-flag-circle">
-                        <img src="/images/homepage/Flag-Zambia.webp" alt="ZAMBIA" width="80" height="80" loading="lazy">
+                        <div class="partner-flag-inner">
+                            <img src="images/homepage/Flag-Zambia.webp" alt="ZAMBIA" width="100" height="100" loading="lazy">
+                        </div>
                     </div>
                     <h4 class="partner-country">Zambia</h4>
-                    <span class="partner-role">Distribution Partner</span>
+                    <span class="partner-role">Southern Africa Hub</span>
+                    <p class="partner-desc">Empowering landlocked markets with reliable food security solutions.</p>
+                    <div class="hub-tag">Logistics Command</div>
                 </div>
 
                 <div class="partner-card-modern">
-                    <div class="partner-status" title="Active Hub"></div>
+                    <div class="partner-status"><div class="status-dot"></div> ACTIVE</div>
                     <div class="partner-flag-circle">
-                        <img src="/images/homepage/Flag-Indonesia.webp" alt="INDONESIA" width="80" height="80" loading="lazy">
+                        <div class="partner-flag-inner">
+                            <img src="images/homepage/Flag-Indonesia.webp" alt="INDONESIA" width="100" height="100" loading="lazy">
+                        </div>
                     </div>
                     <h4 class="partner-country">Indonesia</h4>
-                    <span class="partner-role">Distribution Partner</span>
+                    <span class="partner-role">Archipelago Trade Hub</span>
+                    <p class="partner-desc">Managing complex maritime supply chains across the Indonesian islands.</p>
+                    <div class="hub-tag">Supply Chain Partner</div>
                 </div>
             </div>
         </div>
@@ -1548,46 +1801,87 @@
             <div class="testi-scroll-container reveal">
                 <div class="testi-track" id="testiTrack">
                     <div class="testi-card">
-                        <div class="testi-header">
-                            <span class="flag-icon">🇧🇯</span>
-                            <div class="testi-auth"><h4>Abdoulaye Diallo</h4><span>Importer, Benin</span></div>
+                        <div class="testi-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
                         <p class="testi-text">"JFT's IR-64 parboiled rice consistency is the best we have received from India. 50 containers delivered without a single quality claim."</p>
-                    </div>
-                    <div class="testi-card">
                         <div class="testi-header">
-                            <span class="flag-icon">🇦🇪</span>
-                            <div class="testi-auth"><h4>Al-Futtaim Trading</h4><span>Distributor, Dubai</span></div>
+                            <div class="testi-avatar">AD</div>
+                            <div class="testi-auth">
+                                <h4>Abdoulaye Diallo</h4>
+                                <span><div class="flag-bubble">🇧🇯 BENIN</div> Importer</span>
+                            </div>
                         </div>
-                        <p class="testi-text">"Professional documentation and logistics. They understand the urgency of the Middle East market during Ramadan."</p>
                     </div>
+
                     <div class="testi-card">
-                        <div class="testi-header">
-                            <span class="flag-icon">🇬🇧</span>
-                            <div class="testi-auth"><h4>Sarah Jenkins</h4><span>Procurement, UK</span></div>
+                        <div class="testi-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="testi-text">"We rely on JFT for organic certified spices. Their lab reports match our European stringent standards perfectly."</p>
-                    </div>
-                    <div class="testi-card">
+                        <p class="testi-text">"Professional documentation and logistics. They understand the urgency of the Middle East market during Ramadan. Highly recommended."</p>
                         <div class="testi-header">
-                            <span class="flag-icon">🇻🇳</span>
-                            <div class="testi-auth"><h4>Nguyen Van Minh</h4><span>Trader, Vietnam</span></div>
+                            <div class="testi-avatar">AF</div>
+                            <div class="testi-auth">
+                                <h4>Al-Futtaim Trading</h4>
+                                <span><div class="flag-bubble">🇦🇪 DUBAI</div> Official Partner</span>
+                            </div>
                         </div>
-                        <p class="testi-text">"JFT's supply chain transparency is unmatched. We track every shipment in real-time, ensuring our inventory is always stocked."</p>
                     </div>
+
                     <div class="testi-card">
+                        <div class="testi-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testi-text">"We rely on JFT for organic certified spices. Their lab reports match our European stringent standards perfectly every single time."</p>
                         <div class="testi-header">
-                            <span class="flag-icon">🇸🇦</span>
-                            <div class="testi-auth"><h4>Khalid Al-Saud</h4><span>Retail Chain, Saudi Arabia</span></div>
+                            <div class="testi-avatar">SJ</div>
+                            <div class="testi-auth">
+                                <h4>Sarah Jenkins</h4>
+                                <span><div class="flag-bubble">🇬🇧 UK</div> Procurement</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testi-card">
+                        <div class="testi-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testi-text">"JFT's supply chain transparency is unmatched. We track every shipment in real-time, ensuring our inventory is always stocked and ready."</p>
+                        <div class="testi-header">
+                            <div class="testi-avatar">NV</div>
+                            <div class="testi-auth">
+                                <h4>Nguyen Van Minh</h4>
+                                <span><div class="flag-bubble">🇻🇳 VIETNAM</div> Senior Trader</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testi-card">
+                        <div class="testi-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
                         <p class="testi-text">"The Basmati aroma was authentic and premium. Our customers in Riyadh are very satisfied with the 1121 Sella quality."</p>
-                    </div>
-                    <div class="testi-card">
                         <div class="testi-header">
-                            <span class="flag-icon">🇺🇸</span>
-                            <div class="testi-auth"><h4>Michael Ross</h4><span>Whole Foods, USA</span></div>
+                            <div class="testi-avatar">KA</div>
+                            <div class="testi-auth">
+                                <h4>Khalid Al-Saud</h4>
+                                <span><div class="flag-bubble">🇸🇦 SAUDI</div> Retail Chain</span>
+                            </div>
                         </div>
-                        <p class="testi-text">"Strict adherence to FDA standards. JFT is our reliable partner for organic spices, delivering consistency every time."</p>
+                    </div>
+
+                    <div class="testi-card">
+                        <div class="testi-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testi-text">"Strict adherence to global standards. JFT is our reliable partner for organic spices, delivering consistency and purity every time."</p>
+                        <div class="testi-header">
+                            <div class="testi-avatar">MR</div>
+                            <div class="testi-auth">
+                                <h4>Michael Ross</h4>
+                                <span><div class="flag-bubble">🇺🇸 USA</div> Supply Chain</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1598,21 +1892,7 @@
 
     <script>
         // --- Universal File Loading ---
-        async function loadComponent(id, file) {
-            try {
-                const res = await fetch(file);
-                if (!res.ok) throw new Error(`Failed to load ${file}`);
-                const text = await res.text();
-                document.getElementById(id).innerHTML = text;
-                const scripts = document.getElementById(id).querySelectorAll("script");
-                scripts.forEach(oldScript => {
-                    const newScript = document.createElement("script");
-                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-                    oldScript.parentNode.replaceChild(newScript, oldScript);
-                });
-            } catch (err) { console.error(err); }
-        }
+
         document.addEventListener("DOMContentLoaded", () => {
             loadComponent("header-placeholder", "header.html");
             loadComponent("footer-placeholder", "footer.html");
@@ -1652,14 +1932,21 @@
                 if(entry.isIntersecting) { 
                     const counter = entry.target.querySelector('h3');
                     if(counter && !counter.classList.contains('counted')) {
-                        const target = +entry.target.getAttribute('data-count'); const inc = target / 100; let count = 0;
-                        const updateCount = () => { count += inc; if (count < target) { counter.innerText = Math.ceil(count); requestAnimationFrame(updateCount); } else { counter.innerText = target + "+"; } };
-                        updateCount(); counter.classList.add('counted');
+                        const target = +entry.target.getAttribute('data-count'); const suffix = entry.target.getAttribute('data-suffix') || "+"; const duration = 2000; 
+                        let startTime = null;
+                        const updateCount = (timestamp) => {
+                            if (!startTime) startTime = timestamp;
+                            const progress = Math.min((timestamp - startTime) / duration, 1);
+                            counter.innerText = Math.floor(progress * target) + suffix;
+                            if (progress < 1) { requestAnimationFrame(updateCount); }
+                        };
+                        requestAnimationFrame(updateCount);
+                        counter.classList.add('counted');
                     }
                 } 
             });
-        }, { threshold: 0.5 });
-        setTimeout(() => { document.querySelectorAll('.stat-item').forEach(el => statsObserver.observe(el)); }, 500);
+        }, { threshold: 0.1 }); // Lower threshold for better visibility trigger
+        setTimeout(() => { document.querySelectorAll('.stat-item').forEach(el => statsObserver.observe(el)); }, 800);
 
         // --- Audit Fix: Optimized Preloader Logic ---
         window.addEventListener('load', function() {
@@ -1888,6 +2175,31 @@
         });
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        // --- Universal File Loading ---
+        async function loadComponent(id, file) {
+            try {
+                const res = await fetch(file);
+                if (!res.ok) throw new Error(`Failed to load ${file}`);
+                const text = await res.text();
+                const container = document.getElementById(id);
+                if (!container) return;
+                container.innerHTML = text;
+                
+                // This block ensures scripts inside the loaded header/footer actually run
+                const scripts = container.querySelectorAll("script");
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
+            } catch (err) { console.error(err); }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadComponent("header-placeholder", "header.html");
+            loadComponent("footer-placeholder", "footer.html");
         });
     </script>
 </body>

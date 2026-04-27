@@ -89,7 +89,7 @@
 
     <div id="header-placeholder"></div>
 
-    <header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1454165833767-027ffea9e7a7?q=80&w=2070&auto=format&fit=crop');">
+    <header class="page-header" style="background-image: url('images/products/rice_hd.jpg');">
         <div class="ph-content">
             <h1 class="ph-title">Trade Insights</h1>
             <p>Latest updates, market analysis, and global trade trends.</p>
@@ -102,7 +102,7 @@
                 
                 <article class="blog-card reveal">
                     <div class="blog-img">
-                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800" alt="Basmati Rice Market">
+                        <img src="images/products/basmati_rice_hd.jpg" alt="Basmati Rice Market">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">Market Analysis • April 2026</div>
@@ -114,7 +114,7 @@
 
                 <article class="blog-card reveal" style="animation-delay: 0.1s;">
                     <div class="blog-img">
-                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=800" alt="Indian Spices Export">
+                        <img src="images/homepage/SPICES.webp" alt="Indian Spices Export">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">Export Trends • March 2026</div>
@@ -126,7 +126,7 @@
 
                 <article class="blog-card reveal" style="animation-delay: 0.2s;">
                     <div class="blog-img">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" alt="Supply Chain Logistics">
+                        <img src="images/INFRASTRUCTURE/logistics.webp" alt="Supply Chain Logistics">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">Logistics • February 2026</div>
@@ -138,7 +138,7 @@
 
                 <article class="blog-card reveal" style="animation-delay: 0.3s;">
                     <div class="blog-img">
-                        <img src="https://images.unsplash.com/photo-1594911772125-07fc7a2d8d9f?auto=format&fit=crop&q=80&w=800" alt="Organic Agro Trade">
+                        <img src="images/homepage/HERBS.webp" alt="Organic Agro Trade">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">Organic • January 2026</div>
@@ -150,7 +150,7 @@
 
                 <article class="blog-card reveal" style="animation-delay: 0.5s;">
                     <div class="blog-img">
-                        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800" alt="Indian Crop Report">
+                        <img src="images/products/rice_hd.jpg" alt="Indian Crop Report">
                         <div class="blog-badge">Market Intelligence</div>
                     </div>
                     <div class="blog-content">
@@ -171,9 +171,12 @@
         async function loadComponent(id, file) {
             try {
                 const res = await fetch(file);
+                if (!res.ok) throw new Error(`Failed to load ${file}`);
                 const text = await res.text();
-                document.getElementById(id).innerHTML = text;
-                const scripts = document.getElementById(id).querySelectorAll("script");
+                const container = document.getElementById(id);
+                if (!container) return;
+                container.innerHTML = text;
+                const scripts = container.querySelectorAll("script");
                 scripts.forEach(oldScript => {
                     const newScript = document.createElement("script");
                     Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));

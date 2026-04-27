@@ -64,12 +64,24 @@
         async function loadComponent(id, file) {
             try {
                 const res = await fetch(file);
+                if (!res.ok) throw new Error(`Failed to load ${file}`);
                 const text = await res.text();
-                document.getElementById(id).innerHTML = text;
+                const container = document.getElementById(id);
+                if (!container) return;
+                container.innerHTML = text;
+                const scripts = container.querySelectorAll("script");
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
             } catch (err) { console.error(err); }
         }
-        loadComponent('header-placeholder', 'header.html');
-        loadComponent('footer-placeholder', 'footer.html');
+        document.addEventListener("DOMContentLoaded", () => {
+            loadComponent("header-placeholder", "header.html");
+            loadComponent("footer-placeholder", "footer.html");
+        });
     </script>
 </body>
 </html>

@@ -32,7 +32,7 @@
         body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #333; background: #fff; } 
         * { box-sizing: border-box; } 
 
-        .eu-hero { height: 500px; display: flex; align-items: center; background: linear-gradient(rgba(26, 60, 52, 0.8), rgba(26, 60, 52, 0.8)), url('https://images.unsplash.com/photo-1526778545894-6297aa496122?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; color: #fff; }
+        .eu-hero { height: 500px; display: flex; align-items: center; background: linear-gradient(rgba(26, 60, 52, 0.8), rgba(26, 60, 52, 0.8)), url('images/homepage/SPICES.webp'); background-size: cover; background-position: center; color: #fff; }
         .hero-content { max-width: 800px; padding: 0 40px; }
         .hero-title { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
         .hero-title span { color: var(--jft-gold); }
@@ -72,7 +72,7 @@
         <div class="jft-container">
             <div class="grid-2">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=800" alt="EU Compliant Spices" style="width:100%; border-radius: var(--radius-md); box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    <img src="images/homepage/SPICES.webp" alt="EU Compliant Spices" style="width:100%; border-radius: var(--radius-md); box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
                 </div>
                 <div>
                     <span class="cert-tag">ISO 22000 & HACCP CERTIFIED</span>
@@ -97,8 +97,18 @@
         async function loadComponent(id, file) {
             try {
                 const res = await fetch(file);
+                if (!res.ok) throw new Error(`Failed to load ${file}`);
                 const text = await res.text();
-                document.getElementById(id).innerHTML = text;
+                const container = document.getElementById(id);
+                if (!container) return;
+                container.innerHTML = text;
+                const scripts = container.querySelectorAll("script");
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
             } catch (err) { console.error(err); }
         }
         document.addEventListener("DOMContentLoaded", () => {

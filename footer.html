@@ -3,133 +3,175 @@
     .footer-section { 
         background: var(--jft-navy); 
         color: #fff; 
-        padding: 80px 0 30px 0; 
-        border-top: 5px solid var(--jft-gold); /* Thinner, more elegant gold border */
+        padding: 100px 0 30px 0; 
+        border-top: 5px solid var(--jft-gold);
         width: 100%;
         box-sizing: border-box;
         font-family: var(--font-body);
+        position: relative;
+        overflow: hidden;
+    }
+    .footer-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+        background-size: 24px 24px;
+        pointer-events: none;
     }
     
     .footer-grid { 
         display: grid; 
         grid-template-columns: 1.2fr 0.7fr 1.1fr 1fr; 
         gap: 60px; 
-        margin-bottom: 50px; 
+        margin-bottom: 60px; 
         align-items: start;
+        position: relative;
+        z-index: 2;
     }
 
     .f-col h4 { 
-        font-family: var(--font-heading); 
-        font-size: 1.1rem;
-        margin-bottom: 25px; 
+        font-family: var(--font-sub); 
+        font-size: 1rem;
+        margin-bottom: 30px; 
         color: var(--jft-gold); 
         text-transform: uppercase;
-        letter-spacing: 1.5px; 
-        font-weight: 700;
+        letter-spacing: 2px; 
+        font-weight: 800;
         position: relative;
     }
     .f-col h4::after {
         content: '';
         position: absolute;
-        bottom: -8px;
+        bottom: -10px;
         left: 0;
-        width: 30px;
+        width: 40px;
         height: 2px;
         background: var(--jft-primary);
     }
 
-    .f-links li { margin-bottom: 12px; list-style: none; }
+    .f-links li { margin-bottom: 15px; list-style: none; }
     .f-links { padding: 0; margin: 0; }
     .f-links a { 
         color: rgba(255,255,255,0.6); 
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         text-decoration: none;
-        transition: 0.3s; 
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        display: inline-block;
     }
-    .f-links a:hover { color: var(--jft-gold); padding-left: 5px; }
+    .f-links a:hover { color: var(--jft-gold); transform: translateX(8px); }
 
     .f-contact li { 
         display: flex; 
         gap: 15px; 
-        margin-bottom: 22px; 
-        font-size: 0.9rem; 
-        color: rgba(255,255,255,0.7); 
+        margin-bottom: 25px; 
+        font-size: 0.95rem; 
+        color: rgba(255,255,255,0.75); 
         line-height: 1.6; 
         align-items: flex-start;
         list-style: none;
     }
     .f-contact { padding: 0; margin: 0; }
-    .f-contact i { color: var(--jft-gold); margin-top: 4px; font-size: 1.1rem; }
-    .f-contact a { color: inherit; text-decoration: none; transition: 0.3s; }
-    .f-contact a:hover { color: var(--jft-gold); }
+    .f-contact i { color: var(--jft-gold); margin-top: 5px; font-size: 1.1rem; }
+    .f-contact a { color: inherit; text-decoration: none; transition: 0.3s; border-bottom: 1px solid transparent; }
+    .f-contact a:hover { color: var(--jft-gold); border-bottom-color: var(--jft-gold); }
 
     .f-input { 
         width: 100%; 
-        padding: 15px; 
-        background: rgba(255,255,255,0.05); 
-        border: 1px solid rgba(255,255,255,0.1); 
-        border-radius: 4px; 
+        padding: 16px; 
+        background: rgba(255,255,255,0.1); 
+        border: 1px solid rgba(255,255,255,0.15); 
+        border-radius: 8px; 
         color: #fff; 
-        margin-bottom: 12px; 
-        font-size: 0.85rem;
+        margin-bottom: 15px; 
+        font-size: 0.9rem;
+        transition: 0.3s;
     }
+    .f-input:focus { outline: none; border-color: var(--jft-gold); background: rgba(255,255,255,0.1); }
     
     .f-btn-pro { 
         width: 100%; 
-        padding: 16px; 
+        padding: 18px; 
         background: var(--jft-gold); 
         color: var(--jft-navy); 
         border: none; 
-        border-radius: 4px; 
+        border-radius: 8px; 
         font-family: var(--font-sub);
         font-weight: 800; 
         text-transform: uppercase; 
         font-size: 0.85rem; 
         cursor: pointer; 
         transition: 0.3s; 
-        letter-spacing: 1px; 
+        letter-spacing: 1.5px; 
+        box-shadow: 0 4px 15px rgba(238, 191, 69, 0.2);
     }
-    .f-btn-pro:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    .f-btn-pro:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
 
     .f-trust-bar {
         display: flex;
         align-items: center;
-        gap: 30px;
-        margin-top: 60px; /* Increased from 35px */
-        padding-top: 30px;
-        border-top: 1px solid rgba(255,255,255,0.05);
+        gap: 35px;
+        margin-top: 80px;
+        padding: 40px 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
         flex-wrap: wrap;
+        justify-content: space-between;
     }
-    .trust-logo { height: 40px; filter: grayscale(1) brightness(2) contrast(1); opacity: 0.6; transition: 0.3s; }
-    .trust-logo:hover { filter: none; opacity: 1; }
+    .trust-group { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+    .trust-logo { height: 45px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.6; transition: 0.4s; }
+    .trust-logo:hover { filter: none; opacity: 1; transform: scale(1.05); }
+
+    .f-social-icon {
+        color: #fff;
+        font-size: 1.3rem;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        margin-right: 12px;
+    }
+    .f-social-icon:hover {
+        background: var(--jft-gold);
+        color: var(--jft-navy);
+        transform: translateY(-5px) rotate(8deg);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
 
     .footer-bottom { 
-        border-top: 1px solid rgba(255,255,255,0.05); 
-        padding: 40px 0; /* More breathing room */
-        margin-top: 40px;
+        border-top: 1px solid rgba(255,255,255,0.08); 
+        padding: 40px 0; 
         text-align: center; 
-        font-size: 0.8rem; 
+        font-size: 0.85rem; 
         color: rgba(255,255,255,0.4); 
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: relative;
-        z-index: 1;
+        flex-wrap: wrap;
+        gap: 20px;
     }
-    /* Fix for WhatsApp Overlap - Add Padding to Footer Bottom */
-    @media (min-width: 769px) {
-        .footer-bottom { padding-left: 80px; padding-right: 80px; }
-    }
-    .footer-bottom a { color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 10px; transition: 0.3s; }
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; margin-left: 25px; transition: 0.3s; font-weight: 600; }
     .footer-bottom a:hover { color: var(--jft-gold); }
 
     @media (max-width: 1024px) {
-        .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-        .footer-bottom { flex-direction: column; gap: 15px; }
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 50px; }
+        .footer-bottom { justify-content: center; flex-direction: column-reverse; }
+        .footer-bottom div { text-align: center; }
+        .footer-bottom a { margin: 0 12px; }
     }
-    @media (max-width: 600px) {
-        .footer-grid { grid-template-columns: 1fr; }
-        .f-trust-bar { justify-content: center; gap: 20px; }
+    @media (max-width: 650px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+        .f-col h4::after { left: 50%; transform: translateX(-50%); }
+        .f-contact li { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
+        .f-contact i { margin-top: 0; margin-bottom: 10px; }
+        .trust-group { justify-content: center; }
+        .f-trust-bar { flex-direction: column; text-align: center; }
     }
 </style>
 
@@ -138,14 +180,14 @@
         <div class="footer-grid">
             <!-- Col 1: Branding -->
             <div class="f-col">
-                <img src="images/jft logo.png" alt="JFT Agro Overseas" style="height: 85px; filter: brightness(0) invert(1); margin-bottom: 25px;">
-                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 25px;">
-                    Government Recognized <strong>Star Export House</strong>. Delivering the purity of Indian harvests to 20+ countries across the Middle East, Europe, and Africa.
+                <img src="images/jft logo.png" alt="JFT Agro Overseas" style="height: 75px; filter: brightness(0) invert(1); margin-bottom: 30px;">
+                <p style="color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.8; margin-bottom: 30px;">
+                    Government Recognized <strong>Star Export House</strong>. Bridging Indian farms to global ports with excellence in quality, logistics, and transparency since decades.
                 </p>
-                <div style="display: flex; gap: 15px;">
-                    <a href="https://in.linkedin.com" target="_blank" style="color:#fff; font-size:1.2rem;"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/" target="_blank" style="color:#fff; font-size:1.2rem;"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/" target="_blank" style="color:#fff; font-size:1.2rem;"><i class="fa-brands fa-facebook"></i></a>
+                <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                    <a href="https://in.linkedin.com" target="_blank" class="f-social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="f-social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" class="f-social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
                 </div>
             </div>
 
@@ -153,50 +195,55 @@
             <div class="f-col">
                 <h4>Quick Links</h4>
                 <ul class="f-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Our Story</a></li>
-                    <li><a href="products.html">Product Portfolio</a></li>
-                    <li><a href="infrastructure.html">Infrastructure</a></li>
+                    <li><a href="index.html">Home Dashboard</a></li>
+                    <li><a href="about.html">Company Profile</a></li>
+                    <li><a href="products.html">Export Portfolio</a></li>
+                    <li><a href="infrastructure.html">Milling Units</a></li>
                     <li><a href="blog.html">Market Insights</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">Global Trade Desk</a></li>
                 </ul>
             </div>
 
             <!-- Col 3: Contact -->
             <div class="f-col">
-                <h4>Reach Us</h4>
+                <h4>Global Presence</h4>
                 <ul class="f-contact">
-                    <li><i class="fa-solid fa-location-dot"></i> <span>N-2, APMC MARKET, Sector 19, Vashi, Mumbai - 400705, India</span></li>
+                    <li><i class="fa-solid fa-location-dot"></i> <span>APMC MARKET, Phase II, Sector 19, Vashi, Navi Mumbai - 400705, India</span></li>
                     <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:jftagro.info@gmail.com">jftagro.info@gmail.com</a></span></li>
                     <li><i class="fa-solid fa-phone"></i> <span><a href="tel:+918425057274">+91 8425 057274</a></span></li>
-                    <li><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> <span><a href="https://wa.me/918425057274" target="_blank"><strong>Instant Trade Support</strong><br>WhatsApp Online</a></span></li>
+                    <li><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> <span><a href="https://wa.me/918425057274" target="_blank"><strong>Instant Trade Desk</strong><br>WhatsApp Support 24/7</a></span></li>
                 </ul>
             </div>
 
             <!-- Col 4: Inquiry -->
             <div class="f-col">
-                <h4>Export Inquiry</h4>
-                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Request our latest FOB/CIF price list and technical specifications.</p>
-                <form onsubmit="event.preventDefault(); alert('Inquiry Sent! Our export manager will contact you.');">
-                    <input type="email" class="f-input" placeholder="Official Email Address" required>
-                    <button type="submit" class="f-btn-pro">Get Price List</button>
+                <h4>Newsletter</h4>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 20px;">Stay updated with latest commodity prices and trade trends.</p>
+                <form onsubmit="event.preventDefault(); window.location.href='contact.html';">
+                    <input type="email" class="f-input" placeholder="Your Work Email" required aria-label="Work Email">
+                    <button type="submit" class="f-btn-pro">Get Latest Price List</button>
                 </form>
-                <div style="margin-top: 15px; font-size: 0.7rem; color: rgba(255,255,255,0.4);">
-                    <i class="fa-solid fa-lock"></i> We respect your privacy. No spam.
+                <div style="margin-top: 15px; font-size: 0.75rem; color: rgba(255,255,255,0.4); display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-shield-halved"></i> 100% GDPR Compliant & Secure
                 </div>
             </div>
         </div>
 
         <!-- Trust Bar -->
         <div class="f-trust-bar">
-            <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-right: 10px;">Accreditations:</span>
-            <img src="https://apeda.gov.in/apedawebsite/images/logo.png" alt="APEDA" class="trust-logo">
-            <img src="https://www.fssai.gov.in/cms/themes/fssai/images/fssai_logo.png" alt="FSSAI" class="trust-logo" style="height:25px;">
-            <div style="border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; font-size: 0.6rem; color: rgba(255,255,255,0.6); font-weight: 800;">STAR EXPORT HOUSE</div>
+            <div class="trust-group">
+                <img src="images/homepage/APEDA.webp" alt="APEDA Govt India" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="images/homepage/FSSAI.webp" alt="FSSAI Food Safety" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="images/homepage/AEO.webp" alt="Authorized Economic Operator" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="images/homepage/IEC.webp" alt="Import Export Code" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="images/homepage/MSME.webp" alt="MSME India" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="images/homepage/STAR HOUSE.webp" alt="Star Export House" class="trust-logo" width="80" height="45" loading="lazy">
+            </div>
+            <div style="border: 2px solid var(--jft-gold); padding: 8px 15px; font-size: 0.75rem; color: var(--jft-gold); font-weight: 900; letter-spacing: 2px; border-radius: 4px;">STAR EXPORT HOUSE</div>
         </div>
 
         <div class="footer-bottom">
-            <div>&copy; <span id="current-year"></span> JFT Agro Overseas LLP. Exporting Excellence Globally.</div>
+            <div>&copy; <span id="footer-year"></span> JFT Agro Overseas LLP. All Rights Reserved.</div>
             <div>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Trade</a>
@@ -207,6 +254,6 @@
 </footer>
 
 <script>
-    document.getElementById('current-year').innerText = new Date().getFullYear();
+    document.getElementById('footer-year').innerText = new Date().getFullYear();
 </script>
 

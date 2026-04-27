@@ -34,7 +34,7 @@
         body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #333; background: #fff; } 
         * { box-sizing: border-box; } 
 
-        .uae-hero { height: 500px; display: flex; align-items: center; background: linear-gradient(rgba(26, 60, 52, 0.8), rgba(26, 60, 52, 0.8)), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; color: #fff; }
+        .uae-hero { height: 500px; display: flex; align-items: center; background: linear-gradient(rgba(26, 60, 52, 0.8), rgba(26, 60, 52, 0.8)), url('images/products/golden_sella.png'); background-size: cover; background-position: center; color: #fff; }
         .hero-content { max-width: 800px; padding: 0 40px; }
         .hero-title { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
         .hero-title span { color: var(--jft-gold); }
@@ -87,7 +87,7 @@
                     </ul>
                 </div>
                 <div>
-                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800" alt="UAE Rice Export" style="width:100%; border-radius: var(--radius-md); box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    <img src="images/products/basmati_1121.png" alt="UAE Rice Export" style="width:100%; border-radius: var(--radius-md); box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </div>
@@ -109,8 +109,18 @@
         async function loadComponent(id, file) {
             try {
                 const res = await fetch(file);
+                if (!res.ok) throw new Error(`Failed to load ${file}`);
                 const text = await res.text();
-                document.getElementById(id).innerHTML = text;
+                const container = document.getElementById(id);
+                if (!container) return;
+                container.innerHTML = text;
+                const scripts = container.querySelectorAll("script");
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
             } catch (err) { console.error(err); }
         }
         document.addEventListener("DOMContentLoaded", () => {
