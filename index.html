@@ -1907,12 +1907,7 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        // --- Universal File Loading ---
-
-        document.addEventListener("DOMContentLoaded", () => {
-            loadComponent("header-placeholder", "header.html");
-            loadComponent("footer-placeholder", "footer.html");
-        });
+        
 
         // --- Certification Slider ---
         document.addEventListener("DOMContentLoaded", () => {
@@ -2043,8 +2038,7 @@
                 }
             }
         } 
-        let slideTimer = setInterval(nextSlide, 5000); 
-        function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(nextSlide, 5000); }
+        
 
         // --- Drag/Swipe Logic ---
         const heroBanner = document.querySelector('.jft-hero-banner');
