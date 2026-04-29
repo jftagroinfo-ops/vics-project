@@ -7,6 +7,7 @@
     <title>Indian Basmati Rice & Spices Product Catalogue | JFT Agro Overseas</title>
     <meta name="description" content="Explore our export-grade catalogue of 1121 Basmati Rice, Indian Spices (Turmeric, Chilli, Cumin), Sugar S-30, and Grains. View detailed specs and loading capacities.">
     
+    <link rel="icon" type="image/png" href="images/jft logo.png">
     <link rel="canonical" href="https://jftagro.com/products.html">
     
     <!-- Performance: Preload critical LCP asset -->
@@ -1151,5 +1152,79 @@
         document.addEventListener("DOMContentLoaded", () => { document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); });
 
     </script>
+
+    -->
+<script type="text/javascript">
+(function injectProductSchema() {
+  /* ── PRODUCT CATALOGUE — update prices and names as needed ── */
+  const PRODUCTS = [
+    /* Rice */
+    {id:1, name:"1121 Golden Sella Basmati Rice", cat:"Rice", hs:"10063020", fob_usd_min:680, fob_usd_max:750, desc:"India's most exported Basmati variety. Extra-long grain (22–24mm cooked). Golden colour. 50kg PP bags.", img:"https://jftagro.com/images/products/basmati_rice_hd.jpg"},
+    {id:2, name:"1121 Steam Basmati Rice", cat:"Rice", hs:"10063020", fob_usd_min:660, fob_usd_max:720, desc:"White, fluffy 1121 Basmati. Preferred in UK, EU, and diaspora markets. Soft cooked texture.", img:"https://jftagro.com/images/products/basmati_rice_hd.jpg"},
+    {id:3, name:"1509 Sella Basmati Rice", cat:"Rice", hs:"10063020", fob_usd_min:700, fob_usd_max:760, desc:"Premium 1509 Basmati. Shorter crop cycle, aromatic profile similar to 1121. Sella (parboiled) finish.", img:"https://jftagro.com/images/products/basmati_rice_hd.jpg"},
+    {id:4, name:"IR-64 White Rice 5% Broken", cat:"Rice", hs:"10063090", fob_usd_min:370, fob_usd_max:420, desc:"Non-basmati white rice, 5% broken. Major export commodity for Africa and Southeast Asia.", img:"https://jftagro.com/images/products/ir64.webp"},
+    {id:5, name:"IR-64 Parboiled Rice 5% Broken", cat:"Rice", hs:"10063010", fob_usd_min:360, fob_usd_max:410, desc:"Parboiled non-basmati rice, firm texture, long shelf life. Dominant in West Africa trade.", img:"https://jftagro.com/images/products/ir64.webp"},
+    {id:6, name:"100% Broken Rice", cat:"Rice", hs:"10064000", fob_usd_min:260, fob_usd_max:310, desc:"Full broken rice for milling, animal feed, and food processing. Bulk supply.", img:"https://jftagro.com/images/products/ir64.webp"},
+    {id:7, name:"Swarna Rice Non-Basmati", cat:"Rice", hs:"10063090", fob_usd_min:340, fob_usd_max:390, desc:"Swarna (MTU 7029) medium-grain non-basmati rice. Popular in East Africa and Sri Lanka.", img:"https://jftagro.com/images/products/ir64.webp"},
+    /* Spices */
+    {id:8, name:"Turmeric Finger", cat:"Spice", hs:"09103020", fob_usd_min:1050, fob_usd_max:1200, desc:"Indian turmeric fingers, Erode/Salem origin. Min 3% curcumin. 50kg PP bags.", img:"https://jftagro.com/images/products/turmeric.webp"},
+    {id:9, name:"Cumin Seeds", cat:"Spice", hs:"09093129", fob_usd_min:1500, fob_usd_max:1750, desc:"Gujarat-origin cumin seeds. Machine-cleaned, sortex. 25kg multi-wall bags.", img:"https://jftagro.com/images/products/cumin.webp"},
+    {id:10, name:"Red Chilli Teja", cat:"Spice", hs:"09042110", fob_usd_min:1250, fob_usd_max:1400, desc:"Teja S17 variety red chilli. High pungency, vibrant colour. Dried and cleaned.", img:"https://jftagro.com/images/products/redchilli.webp"},
+    {id:11, name:"Coriander Seeds", cat:"Spice", hs:"09092110", fob_usd_min:800, fob_usd_max:950, desc:"Eagle / scooter grade coriander seeds. Machine-cleaned, double sortex. Rajasthan origin.", img:"https://jftagro.com/images/products/coriander.webp"},
+    {id:12, name:"Dry Ginger", cat:"Spice", hs:"09101110", fob_usd_min:900, fob_usd_max:1050, desc:"Kerala dry ginger, bleached and unbleached. 5–10% moisture. 50kg bags.", img:"https://jftagro.com/images/products/dryginger.webp"},
+    /* Grains & Others */
+    {id:13, name:"Milling Wheat", cat:"Grain", hs:"10019910", fob_usd_min:260, fob_usd_max:310, desc:"Indian milling wheat. Protein 10–12%. Suitable for flour milling and food processing.", img:"https://jftagro.com/images/products/wheat.webp"},
+    {id:14, name:"Yellow Maize", cat:"Grain", hs:"10059000", fob_usd_min:240, fob_usd_max:290, desc:"Animal feed grade yellow maize. Aflatoxin tested. 50kg PP bags or bulk.", img:"https://jftagro.com/images/products/maize.webp"},
+    {id:15, name:"Sugar S-30", cat:"Other", hs:"17019990", fob_usd_min:410, fob_usd_max:460, desc:"Indian S-30 white crystalline sugar. ICUMSA 150–200. 50kg PP bags.", img:"https://jftagro.com/images/products/sugar.webp"},
+    {id:16, name:"Sesame Seeds Natural", cat:"Other", hs:"12074090", fob_usd_min:1050, fob_usd_max:1200, desc:"Natural (unhulled) sesame seeds, Gujarat origin. Moisture <8%. Non-GMO.", img:"https://jftagro.com/images/products/sesame.webp"},
+  ];
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "JFT Agro Overseas — Export Product Catalogue",
+    "url": "https://jftagro.com/products.html",
+    "numberOfItems": PRODUCTS.length,
+    "itemListElement": PRODUCTS.map((p, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "Product",
+        "@id": `https://jftagro.com/products.html#product-${p.id}`,
+        "name": p.name,
+        "description": p.desc,
+        "image": p.img,
+        "category": p.cat,
+        "additionalProperty": [
+          {"@type":"PropertyValue","name":"HS Code","value":p.hs}
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "JFT Agro Overseas"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": p.fob_usd_min,
+          "highPrice": p.fob_usd_max,
+          "offerCount": "1",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "JFT Agro Overseas",
+            "url": "https://jftagro.com"
+          }
+        }
+      }
+    }))
+  };
+
+  const scriptEl = document.createElement('script');
+  scriptEl.type = 'application/ld+json';
+  scriptEl.textContent = JSON.stringify(schema, null, 2);
+  document.head.appendChild(scriptEl);
+  console.log('[JFT] Product schema injected:', PRODUCTS.length, 'products');
+})();
+</script>
 </body>
 </html>
