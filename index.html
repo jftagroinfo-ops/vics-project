@@ -115,13 +115,8 @@ img{max-width:100%;height:auto;display:block}
 .glass-card{background:rgba(255,255,255,.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:36px;padding:10px;box-shadow:0 50px 100px rgba(0,0,0,.4);transition:.5s var(--ease);overflow:hidden}
 .glass-card:hover{background:rgba(255,255,255,.1);border-color:rgba(238,191,69,.4);transform:translateY(-8px) scale(1.01)}
 .glass-card img{width:100%;height:470px;object-fit:cover;border-radius:28px;display:block}
-.hero-stats-bar{position:absolute;bottom:0;left:0;width:100%;background:rgba(0,0,0,.55);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(238,191,69,.2);z-index:20;display:flex;justify-content:center}
-.hero-stats-inner{display:flex;max-width:1360px;width:100%;padding:0 40px}
-.hero-stat-item{flex:1;padding:20px 24px;border-right:1px solid rgba(255,255,255,.08);text-align:center}
-.hero-stat-item:last-child{border-right:none}
-.hstat-num{font-family:var(--ff-s);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:var(--gold);line-height:1}
-.hstat-label{font-family:var(--ff-s);font-size:.68rem;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1.5px;margin-top:5px}
-.slider-controls{position:absolute;bottom:90px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:20}
+.hero-stats-bar{display:none!important}
+.slider-controls{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:20}
 .control-dot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:.3s;background:transparent}
 .control-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.4)}
 /* ─── STATS DRAMATIC ─── */
@@ -181,6 +176,24 @@ img{max-width:100%;height:auto;display:block}
 /* ─── IDENTITY TICKER ─── */
 .identity-section{background:var(--navy);overflow:hidden;padding:clamp(70px,8vw,115px) 0;position:relative}
 .identity-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(238,191,69,.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+/* Value Chain Card Grid */
+.vc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:55px;position:relative;z-index:2}
+.vc-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px 24px;position:relative;overflow:hidden;transition:.45s;cursor:default}
+.vc-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:3px;background:var(--gold);transition:.5s}
+.vc-card:hover{background:rgba(255,255,255,.08);border-color:rgba(238,191,69,.4);transform:translateY(-7px);box-shadow:0 25px 50px rgba(0,0,0,.25)}
+.vc-card:hover::after{width:100%}
+.vc-num{font-family:var(--ff-s);font-size:.65rem;font-weight:800;color:rgba(238,191,69,.5);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+.vc-icon-wrap{width:52px;height:52px;background:rgba(238,191,69,.1);border:1px solid rgba(238,191,69,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:.4s}
+.vc-card:hover .vc-icon-wrap{background:var(--gold);border-color:var(--gold)}
+.vc-icon-wrap i{font-size:1.4rem;color:var(--gold);transition:.4s}
+.vc-card:hover .vc-icon-wrap i{color:var(--navy)}
+.vc-title{font-family:var(--ff-h);font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:12px}
+.vc-desc{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:20px}
+.vc-stat{font-family:var(--ff-s);font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1}
+.vc-stat span{font-size:.7rem;font-weight:700;color:rgba(238,191,69,.55);display:block;margin-top:4px;letter-spacing:1px;text-transform:uppercase}
+@media(max-width:1100px){.vc-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.vc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.vc-grid{grid-template-columns:1fr}}
 .id-ticker-wrap{overflow:hidden;margin-top:55px;mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent)}
 .id-ticker{display:flex;width:max-content;gap:22px;animation:idRoll 35s linear infinite}
 .id-ticker:hover{animation-play-state:paused}
@@ -222,6 +235,8 @@ img{max-width:100%;height:auto;display:block}
 .o-stamp:hover{border-color:var(--green);color:var(--green)}
 .o-stamp i{color:var(--gold)}
 .region-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:768px){.region-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.region-grid{grid-template-columns:1fr}}
 .region-card{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:.45s}
 .region-card:hover{transform:translateY(-9px);border-color:var(--gold);box-shadow:0 25px 55px rgba(26,60,52,.1)}
 .region-color{height:5px}
@@ -271,14 +286,14 @@ img{max-width:100%;height:auto;display:block}
 .log-stat h4{color:#fff;font-family:var(--ff-s);font-size:1.05rem;font-weight:800;margin-bottom:4px}
 .log-stat p{color:rgba(255,255,255,.48);font-size:.84rem;margin:0}
 /* ─── AWARDS STRIP ─── */
-.awards-strip{background:var(--gold);padding:clamp(50px,6vw,90px) 0;overflow:hidden;position:relative}
-.awards-strip::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");pointer-events:none}
+.awards-strip{background:linear-gradient(135deg,#f0f7ee,#e8f4e6);padding:clamp(50px,6vw,90px) 0;overflow:hidden;position:relative;border-top:1px solid rgba(78,140,62,.12);border-bottom:1px solid rgba(78,140,62,.12)}
+.awards-strip::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none}
 .awards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;z-index:2}
-.award-item{background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:30px 22px;text-align:center;transition:.4s;backdrop-filter:blur(4px)}
-.award-item:hover{background:rgba(255,255,255,.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
-.award-icon{font-size:2.2rem;color:var(--navy);margin-bottom:14px;opacity:.85}
+.award-item{background:#fff;border:1px solid rgba(78,140,62,.15);border-radius:20px;padding:30px 22px;text-align:center;transition:.4s;box-shadow:0 4px 20px rgba(26,60,52,.06)}
+.award-item:hover{background:#fff;border-color:var(--green);transform:translateY(-6px);box-shadow:0 20px 50px rgba(26,60,52,.12)}
+.award-icon{font-size:2.2rem;color:var(--green);margin-bottom:14px;opacity:.9}
 .award-label{font-family:var(--ff-h);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:6px}
-.award-body{font-size:.82rem;color:rgba(26,60,52,.7);margin:0;font-family:var(--ff-s)}
+.award-body{font-size:.82rem;color:#6b6b6b;margin:0;font-family:var(--ff-s)}
 /* ─── PROCESS TIMELINE ─── */
 .process-section{background:linear-gradient(135deg,var(--navy-dark),var(--navy));position:relative;overflow:hidden;padding:clamp(70px,8vw,125px) 0}
 .process-section::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none}
@@ -304,6 +319,7 @@ img{max-width:100%;height:auto;display:block}
 .proc-guarantee strong{color:#fff}
 /* ─── GLOBAL NETWORK ─── */
 .jft-network-section{position:relative;padding:clamp(70px,8vw,125px) 0;overflow:visible;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;background:#fdfbf7}
+.jft-network-section::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1000'%3E%3Cpath fill='none' stroke='%234e8c3e' stroke-width='1.2' opacity='.12' d='M0,300 Q250,250 500,300 T1000,280 T1500,300 T2000,280M0,400 Q300,350 600,400 T1200,380 T1800,400M0,500 Q200,450 500,500 T1000,480 T1500,500M200,0 Q250,200 200,400 T220,800T200,1000M500,0 Q520,200 500,400 T510,800M800,0 Q780,200 800,400 T790,800M1100,0 Q1120,200 1100,400 T1110,800M1400,0 Q1380,200 1400,400 T1390,800M1700,0 Q1720,200 1700,400 T1710,800'/%3E%3Ccircle fill='%234e8c3e' opacity='.15' cx='1000' cy='450' r='6'/%3E%3Ccircle fill='%234e8c3e' opacity='.1' cx='1000' cy='450' r='25'/%3E%3Ccircle fill='none' stroke='%234e8c3e' stroke-width='1' opacity='.08' cx='1000' cy='450' r='200'/%3E%3Ccircle fill='none' stroke='%234e8c3e' stroke-width='1' opacity='.06' cx='1000' cy='450' r='380'/%3E%3C/svg%3E");background-size:cover;background-position:center;pointer-events:none;z-index:0}
 .network-header{text-align:center;margin-bottom:65px;position:relative;z-index:10;padding:0 20px}
 .network-visual{position:relative;height:760px;width:100%;display:flex;align-items:center;justify-content:center}
 .custom-india-map{position:absolute;top:40%;left:60%;transform:translate(-50%,-50%);width:100%;max-width:920px;z-index:1;opacity:.07;filter:grayscale(100%);pointer-events:none}
@@ -427,17 +443,21 @@ img{max-width:100%;height:auto;display:block}
   <div class="loader-track"><div class="loader-fill"></div></div>
 </div>
 <div id="header-placeholder"></div>
-<a href="https://wa.me/918425057274" class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp JFT Agro"><i class="fa-brands fa-whatsapp"></i></a>
 <button id="backToTop" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
 <!-- ── HERO ── -->
 <section class="jft-hero-banner" id="home">
   <div id="hero-slides-container">
-    <div class="hero-slide active"><video autoplay muted loop playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;"><source src="images/homepage/premiumnRice.mp4" type="video/mp4"></video></div>
-    <div class="hero-slide" style="background-image:url('images/products/rice_hd.jpg');"></div>
-    <div class="hero-slide" style="background-image:url('images/homepage/SPICES.webp');"></div>
-    <div class="hero-slide" style="background-image:url('images/products/pulses_hd.jpg');"></div>
-    <div class="hero-slide" style="background-image:url('images/homepage/OILSEEDS.webp');"></div>
+    <div class="hero-slide active">
+      <video autoplay muted loop playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
+        <source src="images/homepage/premiumnRice.mp4" type="video/mp4">
+      </video>
+    </div>
+    <!-- HD Unsplash fallback images for slides 2–5 -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1920&q=85&auto=format&fit=crop');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1920&q=85&auto=format&fit=crop');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1618897996318-5a901fa4f5c3?w=1920&q=85&auto=format&fit=crop');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1605000797498-6f2145b1d53d?w=1920&q=85&auto=format&fit=crop');"></div>
   </div>
   <div class="hero-grid-overlay"></div>
   <div class="hero-gold-stripe"></div>
@@ -452,7 +472,7 @@ img{max-width:100%;height:auto;display:block}
           <a href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Get Custom Quote</a>
         </div>
       </div>
-      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="images/products/basmati_rice_hd.jpg" alt="Premium Basmati Rice Export" loading="eager" fetchpriority="high"></div></div>
+      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="images/products/basmati_rice_hd.jpg" alt="Premium Basmati Rice Export" loading="eager" fetchpriority="high" onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80&auto=format&fit=crop'"></div></div>
     </div>
     <div class="hero-content-slide">
       <div class="hero-text-box">
@@ -461,7 +481,7 @@ img{max-width:100%;height:auto;display:block}
         <p class="hero-desc-modern">Extra-long grain 1121 and 1509 Basmati. Sortex-cleaned, fumigated, and packed to your exact specs for any destination port.</p>
         <div class="hero-actions"><a href="products.html" class="btn-primary">Explore Rice Varieties</a><a href="contact.html#inquiry-form" class="btn-outline">Request Bulk Pricing</a></div>
       </div>
-      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="images/products/basmati_rice_hd.jpg" alt="Premium Basmati Rice" loading="lazy"></div></div>
+      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=85&auto=format&fit=crop" alt="Premium Basmati Rice" loading="lazy"></div></div>
     </div>
     <div class="hero-content-slide">
       <div class="hero-text-box">
@@ -470,7 +490,7 @@ img{max-width:100%;height:auto;display:block}
         <p class="hero-desc-modern">High-curcumin turmeric from Sangli. Stem-cut Guntur chilli. Idukki green cardamom. Every batch third-party certified.</p>
         <div class="hero-actions"><a href="products.html" class="btn-primary">View Spices</a><a href="contact.html#inquiry-form" class="btn-outline">Get Quote</a></div>
       </div>
-      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="images/products/red_chilli_hd.jpg" alt="Indian Spices Export" loading="lazy"></div></div>
+      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=85&auto=format&fit=crop" alt="Indian Spices Export" loading="lazy"></div></div>
     </div>
     <div class="hero-content-slide">
       <div class="hero-text-box">
@@ -479,7 +499,7 @@ img{max-width:100%;height:auto;display:block}
         <p class="hero-desc-modern">Committed volume agreements mean guaranteed container availability even in peak season. Zero delay, rapid port clearance, full documentation support.</p>
         <div class="hero-actions"><a href="contact.html#inquiry-form" class="btn-primary">Get Export Quote</a><a href="quote-calculator.html" class="btn-outline">CIF Calculator</a></div>
       </div>
-      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="images/INFRASTRUCTURE/logistics.webp" alt="Export Logistics" loading="lazy"></div></div>
+      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="https://images.unsplash.com/photo-1605000797498-6f2145b1d53d?w=800&q=85&auto=format&fit=crop" alt="Export Logistics" loading="lazy"></div></div>
     </div>
   </div>
   <div class="slider-controls" id="hero-dots-container">
@@ -488,14 +508,7 @@ img{max-width:100%;height:auto;display:block}
     <div class="control-dot" onclick="setSlide(2)"></div>
     <div class="control-dot" onclick="setSlide(3)"></div>
   </div>
-  <div class="hero-stats-bar">
-    <div class="hero-stats-inner">
-      <div class="hero-stat-item"><div class="hstat-num" data-c="45" data-s="+">0+</div><div class="hstat-label">Years Legacy</div></div>
-      <div class="hero-stat-item"><div class="hstat-num" data-c="25" data-s="+">0+</div><div class="hstat-label">Countries Served</div></div>
-      <div class="hero-stat-item"><div class="hstat-num" data-c="500" data-s="+">0+</div><div class="hstat-label">Containers/Year</div></div>
-      <div class="hero-stat-item"><div class="hstat-num" data-c="100" data-s="%">0%</div><div class="hstat-label">Customer Retention</div></div>
-    </div>
-  </div>
+
 </section>
 
 <!-- ── DRAMATIC STATS ── -->
@@ -506,7 +519,7 @@ img{max-width:100%;height:auto;display:block}
       <div class="stat-item"><span class="stat-bg">45</span><span class="stat-num"><span class="cnt" data-v="45">0</span><span class="stat-unit">+</span></span><div class="stat-div"></div><span class="stat-lbl">Years of Legacy</span></div>
       <div class="stat-item"><span class="stat-bg">25</span><span class="stat-num"><span class="cnt" data-v="25">0</span><span class="stat-unit">+</span></span><div class="stat-div"></div><span class="stat-lbl">Countries Served</span></div>
       <div class="stat-item"><span class="stat-bg">500</span><span class="stat-num"><span class="cnt" data-v="500">0</span><span class="stat-unit">+</span></span><div class="stat-div"></div><span class="stat-lbl">Containers / Year</span></div>
-      <div class="stat-item"><span class="stat-bg">250</span><span class="stat-num"><span class="cnt" data-v="250">0</span><span class="stat-unit"> MT</span></span><div class="stat-div"></div><span class="stat-lbl">Milling Capacity / Day</span></div>
+      <div class="stat-item"><span class="stat-bg">250</span><span class="stat-num"><span class="cnt" data-v="250">0</span><span class="stat-unit"> MT+</span></span><div class="stat-div"></div><span class="stat-lbl">Milling Capacity / Day</span></div>
     </div>
   </div>
 </section>
@@ -562,36 +575,75 @@ img{max-width:100%;height:auto;display:block}
   </div>
 </section>
 
-<!-- ── IDENTITY TICKER ── -->
+<!-- ── IDENTITY / VALUE CHAIN ── -->
 <section class="identity-section" id="identity">
   <div class="jft-wide-container">
     <div class="section-header center-header reveal">
       <span class="brand-tag brand-tag-white">Our Core Roles</span>
       <h2 class="section-title" style="color:#fff;margin-top:15px;">A Comprehensive<br><span>Value Chain</span></h2>
-      <p class="section-desc" style="color:rgba(255,255,255,.5);margin:20px auto;max-width:560px;">From the first grain to final delivery — we operate across every vertical of the agro-commodity market.</p>
+      <p class="section-desc" style="color:rgba(255,255,255,.5);margin:20px auto;max-width:580px;">From the first grain to final delivery — we operate across every vertical of the agro-commodity market, giving buyers a single trusted source.</p>
     </div>
-  </div>
-  <div class="id-ticker-wrap">
-    <div class="id-ticker">
-      <div class="id-pill"><i class="fa-solid fa-industry"></i><span class="id-num">01</span><div class="id-dot"></div><span class="id-name">Manufacturer</span><span class="id-sub">250 MT/Day</span></div>
-      <div class="id-sep">&middot;</div>
-      <div class="id-pill"><i class="fa-solid fa-ship"></i><span class="id-num">02</span><div class="id-dot"></div><span class="id-name">Exporter</span><span class="id-sub">20+ Countries</span></div>
-      <div class="id-sep">&middot;</div>
-      <div class="id-pill"><i class="fa-solid fa-truck-ramp-box"></i><span class="id-num">03</span><div class="id-dot"></div><span class="id-name">Importer</span><span class="id-sub">Global Sourcing</span></div>
-      <div class="id-sep">&middot;</div>
-      <div class="id-pill"><i class="fa-solid fa-handshake"></i><span class="id-num">04</span><div class="id-dot"></div><span class="id-name">Trader</span><span class="id-sub">Strategic Arbitrage</span></div>
-      <div class="id-sep">&middot;</div>
-      <div class="id-pill"><i class="fa-solid fa-warehouse"></i><span class="id-num">05</span><div class="id-dot"></div><span class="id-name">Stockist</span><span class="id-sub">Moisture-Controlled</span></div>
-      <div class="id-sep">&middot;</div>
-      <div class="id-pill"><i class="fa-solid fa-industry"></i><span class="id-num">01</span><div class="id-dot"></div><span class="id-name">Manufacturer</span><span class="id-sub">250 MT/Day</span></div>
-      <div class="id-sep">&middot;</div>
-      <div class="id-pill"><i class="fa-solid fa-ship"></i><span class="id-num">02</span><div class="id-dot"></div><span class="id-name">Exporter</span><span class="id-sub">20+ Countries</span></div>
-      <div class="id-sep">&middot;</div>
-      <div class="id-pill"><i class="fa-solid fa-truck-ramp-box"></i><span class="id-num">03</span><div class="id-dot"></div><span class="id-name">Importer</span><span class="id-sub">Global Sourcing</span></div>
-      <div class="id-sep">&middot;</div>
-      <div class="id-pill"><i class="fa-solid fa-handshake"></i><span class="id-num">04</span><div class="id-dot"></div><span class="id-name">Trader</span><span class="id-sub">Strategic Arbitrage</span></div>
-      <div class="id-sep">&middot;</div>
-      <div class="id-pill"><i class="fa-solid fa-warehouse"></i><span class="id-num">05</span><div class="id-dot"></div><span class="id-name">Stockist</span><span class="id-sub">Moisture-Controlled</span></div>
+    <!-- Bold card grid -->
+    <div class="vc-grid reveal">
+      <div class="vc-card">
+        <div class="vc-num">01</div>
+        <div class="vc-icon-wrap"><i class="fa-solid fa-industry"></i></div>
+        <h3 class="vc-title">Manufacturer</h3>
+        <p class="vc-desc">250 MT/day in-house milling facility in Mumbai with Sortex Z+ optical sorting and NABL-certified lab.</p>
+        <div class="vc-stat">250 MT <span>/ Day</span></div>
+      </div>
+      <div class="vc-card">
+        <div class="vc-num">02</div>
+        <div class="vc-icon-wrap"><i class="fa-solid fa-ship"></i></div>
+        <h3 class="vc-title">Exporter</h3>
+        <p class="vc-desc">Committed volume agreements with Maersk, MSC &amp; CMA CGM ensure container slots even in peak season.</p>
+        <div class="vc-stat">20+ <span>Countries</span></div>
+      </div>
+      <div class="vc-card">
+        <div class="vc-num">03</div>
+        <div class="vc-icon-wrap"><i class="fa-solid fa-truck-ramp-box"></i></div>
+        <h3 class="vc-title">Importer</h3>
+        <p class="vc-desc">Strategic import of specialty commodities to meet buyer demand across diverse global markets.</p>
+        <div class="vc-stat">Global <span>Sourcing</span></div>
+      </div>
+      <div class="vc-card">
+        <div class="vc-num">04</div>
+        <div class="vc-icon-wrap"><i class="fa-solid fa-handshake"></i></div>
+        <h3 class="vc-title">Trader</h3>
+        <p class="vc-desc">Market intelligence and strategic arbitrage to deliver competitive pricing on every commodity class.</p>
+        <div class="vc-stat">500+ <span>TEU/Year</span></div>
+      </div>
+      <div class="vc-card">
+        <div class="vc-num">05</div>
+        <div class="vc-icon-wrap"><i class="fa-solid fa-warehouse"></i></div>
+        <h3 class="vc-title">Stockist</h3>
+        <p class="vc-desc">Moisture-controlled warehousing at APMC Vashi — buffer stock available for urgent orders year-round.</p>
+        <div class="vc-stat">45+ <span>Years Legacy</span></div>
+      </div>
+    </div>
+    <!-- Scrolling ticker below as accent -->
+    <div class="id-ticker-wrap" style="margin-top:55px;">
+      <div class="id-ticker">
+        <div class="id-pill"><i class="fa-solid fa-industry"></i><span class="id-num">01</span><div class="id-dot"></div><span class="id-name">Manufacturer</span><span class="id-sub">250 MT/Day</span></div>
+        <div class="id-sep">&middot;</div>
+        <div class="id-pill"><i class="fa-solid fa-ship"></i><span class="id-num">02</span><div class="id-dot"></div><span class="id-name">Exporter</span><span class="id-sub">20+ Countries</span></div>
+        <div class="id-sep">&middot;</div>
+        <div class="id-pill"><i class="fa-solid fa-truck-ramp-box"></i><span class="id-num">03</span><div class="id-dot"></div><span class="id-name">Importer</span><span class="id-sub">Global Sourcing</span></div>
+        <div class="id-sep">&middot;</div>
+        <div class="id-pill"><i class="fa-solid fa-handshake"></i><span class="id-num">04</span><div class="id-dot"></div><span class="id-name">Trader</span><span class="id-sub">Strategic Arbitrage</span></div>
+        <div class="id-sep">&middot;</div>
+        <div class="id-pill"><i class="fa-solid fa-warehouse"></i><span class="id-num">05</span><div class="id-dot"></div><span class="id-name">Stockist</span><span class="id-sub">Moisture-Controlled</span></div>
+        <div class="id-sep">&middot;</div>
+        <div class="id-pill"><i class="fa-solid fa-industry"></i><span class="id-num">01</span><div class="id-dot"></div><span class="id-name">Manufacturer</span><span class="id-sub">250 MT/Day</span></div>
+        <div class="id-sep">&middot;</div>
+        <div class="id-pill"><i class="fa-solid fa-ship"></i><span class="id-num">02</span><div class="id-dot"></div><span class="id-name">Exporter</span><span class="id-sub">20+ Countries</span></div>
+        <div class="id-sep">&middot;</div>
+        <div class="id-pill"><i class="fa-solid fa-truck-ramp-box"></i><span class="id-num">03</span><div class="id-dot"></div><span class="id-name">Importer</span><span class="id-sub">Global Sourcing</span></div>
+        <div class="id-sep">&middot;</div>
+        <div class="id-pill"><i class="fa-solid fa-handshake"></i><span class="id-num">04</span><div class="id-dot"></div><span class="id-name">Trader</span><span class="id-sub">Strategic Arbitrage</span></div>
+        <div class="id-sep">&middot;</div>
+        <div class="id-pill"><i class="fa-solid fa-warehouse"></i><span class="id-num">05</span><div class="id-dot"></div><span class="id-name">Stockist</span><span class="id-sub">Moisture-Controlled</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -651,6 +703,9 @@ img{max-width:100%;height:auto;display:block}
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#c8a870,#a07840);"></div><div class="region-body"><div class="region-prod">Wheat &amp; Flour</div><div class="region-name">Sehore (Sarbati Belt)</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Madhya Pradesh</div></div></div>
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#4e8c3e,#326127);"></div><div class="region-body"><div class="region-prod">Sesame &amp; Niger Seeds</div><div class="region-name">Gujarat &amp; West Bengal</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> West India</div></div></div>
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#56c27a,#2a8a50);"></div><div class="region-body"><div class="region-prod">Green Cardamom</div><div class="region-name">Idukki (Cardamom Hills)</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Kerala</div></div></div>
+      <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#8b5e3c,#6b3f20);"></div><div class="region-body"><div class="region-prod">Dry Ginger &amp; Pepper</div><div class="region-name">Wayanad &amp; Kozhikode</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Kerala</div></div></div>
+      <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#3a7bbd,#1a5a9a);"></div><div class="region-body"><div class="region-prod">Pulses &amp; Lentils</div><div class="region-name">Vidarbha &amp; Marathwada</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Maharashtra</div></div></div>
+      <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#d4a017,#a87700);"></div><div class="region-body"><div class="region-prod">Peanut / Groundnut</div><div class="region-name">Junagadh &amp; Rajkot</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Gujarat (Saurashtra)</div></div></div>
     </div>
   </div>
 </section>
@@ -664,14 +719,14 @@ img{max-width:100%;height:auto;display:block}
       <p class="section-desc">Sourced, processed, and packed to FDA, EU, and SFDA standards. Hover any card to explore varieties.</p>
     </div>
     <div class="prod-grid reveal">
-      <div class="pc"><div class="pc-inner"><img src="images/products/basmati_rice_hd.jpg" class="pc-img" alt="Basmati Rice" loading="lazy"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Flagship Product</div><div class="pc-title">Premium Rice</div><div class="pc-varieties"><ul><li>1121 Basmati (Extra Long Grain)</li><li>1509 Basmati Sella</li><li>IR 64 White &amp; Parboiled</li><li>Swarna &middot; 100% Broken</li></ul></div><a href="products.html" class="pc-link">Explore All Varieties <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/products/red_chilli_hd.jpg" class="pc-img" alt="Indian Spices" loading="lazy"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Spices</div><div class="pc-title">Indian Spices</div><div class="pc-varieties"><ul><li>Turmeric &middot; Red Chilli</li><li>Cumin &middot; Coriander</li><li>Green Cardamom</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/homepage/SUGAR.webp" class="pc-img" alt="Indian Sugar" loading="lazy"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Commodity</div><div class="pc-title">Indian Sugar</div><div class="pc-varieties"><ul><li>S-30 &middot; M-30 &middot; ICUMSA 45</li><li>Jaggery &middot; Brown Sugar</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/products/wheat_flour_hd.webp" class="pc-img" alt="Wheat Flour" loading="lazy"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Grains</div><div class="pc-title">Wheat &amp; Flour</div><div class="pc-varieties"><ul><li>Milling Wheat &middot; Maida</li><li>Semolina &middot; Atta</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/products/oilseeds_hd.jpg" class="pc-img" alt="Oilseeds" loading="lazy"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Oilseeds</div><div class="pc-title">Seeds &amp; Oilseeds</div><div class="pc-varieties"><ul><li>Natural &amp; Hulled Sesame</li><li>Groundnut &middot; Niger</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/homepage/PULSES.webp" class="pc-img" alt="Pulses" loading="lazy"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Pulses</div><div class="pc-title">Dal &amp; Pulses</div><div class="pc-varieties"><ul><li>Chickpeas &middot; Yellow Peas</li><li>Red Lentils &middot; Moong</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/homepage/ANIMAL FEED.webp" class="pc-img" alt="Animal Feed" loading="lazy"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Feeds</div><div class="pc-title">Animal Feeds</div><div class="pc-varieties"><ul><li>Soybean Meal &middot; Maize</li><li>Sorghum &middot; Rice Bran</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/homepage/RAISINS.webp" class="pc-img" alt="Raisins" loading="lazy"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Dry Fruit</div><div class="pc-title">Raisins</div><div class="pc-varieties"><ul><li>Malayar &middot; Golden &middot; Black</li><li>Green Raisins</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="images/products/basmati_rice_hd.jpg" class="pc-img" alt="Basmati Rice Export" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Flagship Product</div><div class="pc-title">Premium Rice</div><div class="pc-varieties"><ul><li>1121 Basmati (Extra Long Grain)</li><li>1509 Basmati Sella</li><li>IR 64 White &amp; Parboiled</li><li>Swarna &middot; 100% Broken</li></ul></div><a href="products.html" class="pc-link">Explore All Varieties <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="images/products/red_chilli_hd.jpg" class="pc-img" alt="Indian Spices" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Spices</div><div class="pc-title">Indian Spices</div><div class="pc-varieties"><ul><li>Turmeric &middot; Red Chilli</li><li>Cumin &middot; Coriander</li><li>Green Cardamom</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="images/homepage/SUGAR.webp" class="pc-img" alt="Indian Sugar" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Commodity</div><div class="pc-title">Indian Sugar</div><div class="pc-varieties"><ul><li>S-30 &middot; M-30 &middot; ICUMSA 45</li><li>Jaggery &middot; Brown Sugar</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="images/products/wheat_flour_hd.webp" class="pc-img" alt="Wheat Flour" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Grains</div><div class="pc-title">Wheat &amp; Flour</div><div class="pc-varieties"><ul><li>Milling Wheat &middot; Maida</li><li>Semolina &middot; Atta</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="images/products/oilseeds_hd.jpg" class="pc-img" alt="Oilseeds" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1612257416648-3a19c0c5df43?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Oilseeds</div><div class="pc-title">Seeds &amp; Oilseeds</div><div class="pc-varieties"><ul><li>Natural &amp; Hulled Sesame</li><li>Groundnut &middot; Niger</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="images/homepage/PULSES.webp" class="pc-img" alt="Pulses" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1618897996318-5a901fa4f5c3?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Pulses</div><div class="pc-title">Dal &amp; Pulses</div><div class="pc-varieties"><ul><li>Chickpeas &middot; Yellow Peas</li><li>Red Lentils &middot; Moong</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="images/homepage/ANIMAL FEED.webp" class="pc-img" alt="Animal Feed" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1605000797498-6f2145b1d53d?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Feeds</div><div class="pc-title">Animal Feeds</div><div class="pc-varieties"><ul><li>Soybean Meal &middot; Maize</li><li>Sorghum &middot; Rice Bran</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="images/homepage/RAISINS.webp" class="pc-img" alt="Raisins" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1508747703725-719777637510?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Dry Fruit</div><div class="pc-title">Raisins</div><div class="pc-varieties"><ul><li>Malayar &middot; Golden &middot; Black</li><li>Green Raisins</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
       <div class="pc" style="cursor:default;"><div class="pc-inner" style="background:#1a3c34;border-radius:20px;min-height:280px;display:flex;flex-direction:column;justify-content:center;padding:40px;"><i class="fa-solid fa-boxes-stacked" style="font-size:2.5rem;color:#eebf45;margin-bottom:20px;display:block;"></i><div class="pc-title" style="color:#fff;font-size:1.7rem;margin-bottom:14px;">16+ Product<br>Categories</div><p style="color:rgba(255,255,255,.58);font-size:.88rem;line-height:1.65;margin-bottom:24px;">Full export catalogue with specs, grades, and packing options for every market.</p><a href="products.html" class="btn-gold" style="padding:14px 28px;font-size:.78rem;align-self:flex-start;">View Full Catalogue <i class="fa-solid fa-arrow-right"></i></a></div></div>
     </div>
   </div>
@@ -702,7 +757,7 @@ img{max-width:100%;height:auto;display:block}
 <!-- ── AWARDS STRIP ── -->
 <section class="awards-strip section-padding" id="awards">
   <div class="jft-wide-container">
-    <h2 class="section-title reveal text-center" style="color:#1a3c34;margin-bottom:45px;">Recognition &amp; <span style="-webkit-text-fill-color:var(--navy-dark);background:none;color:var(--navy-dark);">Trust Marks</span></h2>
+    <h2 class="section-title reveal text-center" style="margin-bottom:45px;">Recognition &amp; <span>Trust Marks</span></h2>
     <div class="awards-grid reveal">
       <div class="award-item d1"><div class="award-icon"><i class="fa-solid fa-star"></i></div><div class="award-label">Star Export House</div><p class="award-body">Government of India recognition for outstanding export performance</p></div>
       <div class="award-item d2"><div class="award-icon"><i class="fa-solid fa-certificate"></i></div><div class="award-label">ISO 9001:2015</div><p class="award-body">International quality management system — renewed annually</p></div>
@@ -773,6 +828,7 @@ img{max-width:100%;height:auto;display:block}
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="images/homepage/Flag-Benin.webp" alt="Benin" loading="lazy"></div></div><h4 class="pcountry">Benin</h4><span class="prole">West Africa Hub</span><p class="pdesc">Leading entry point for Bulk Rice and Sugar in the ECOWAS market.</p><div class="ptag">Regional Distribution</div></div>
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="images/homepage/Flag-Zambia.webp" alt="Zambia" loading="lazy"></div></div><h4 class="pcountry">Zambia</h4><span class="prole">Southern Africa Hub</span><p class="pdesc">Empowering landlocked markets with reliable food security solutions.</p><div class="ptag">Logistics Command</div></div>
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="images/homepage/Flag-Indonesia.webp" alt="Indonesia" loading="lazy"></div></div><h4 class="pcountry">Indonesia</h4><span class="prole">Archipelago Trade Hub</span><p class="pdesc">Managing complex maritime supply chains across Indonesian islands.</p><div class="ptag">Supply Chain Partner</div></div>
+      <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner" style="background:linear-gradient(135deg,#006600,#bb0000,#006600);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🇰🇪</div></div><h4 class="pcountry">Kenya</h4><span class="prole">East Africa Gateway</span><p class="pdesc">Mombasa port hub for East African rice and grain distribution to inland markets.</p><div class="ptag">Regional Distribution</div></div>
     </div>
   </div>
 </section>
