@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIF/FOB Export Quote Calculator | JFT Agro Overseas</title>
+  <meta name="description" content="Instantly estimate CIF or FOB export prices for Indian Basmati Rice, Spices, and Grains to any global port. Free calculator from JFT Agro Overseas.">
+  <link rel="canonical" href="https://jftagro.com/quote-calculator.html">
+  <link rel="icon" type="image/png" href="images/jft logo.png">
+  <meta property="og:title" content="Free Export Quote Calculator | JFT Agro">
+  <meta property="og:description" content="Estimate your CIF/FOB price for Indian agro commodities in seconds.">
+  <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.jpg">
+  <meta name="theme-color" content="#1a3c34">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Quote Calculator","item":"https://jftagro.com/quote-calculator.html"}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --jft-primary:#4e8c3e; --jft-navy:#1a3c34; --jft-gold:#eebf45; --jft-gold-dark:#b88d14;
+      --jft-light:#f5f1e6; --jft-border:#dcd6cb;
+      --font-head:'Merriweather',serif; --font-sub:'Montserrat',sans-serif; --font-body:'Lato',sans-serif;
+      --radius-md:16px; --shadow:0 20px 60px rgba(0,0,0,0.08); --transition:all 0.3s ease;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font-body);background:#fdfcf8;color:#333;overflow-x:hidden}
+    #header-placeholder{min-height:80px;display:block}
+    #footer-placeholder{min-height:400px;display:block;background:var(--jft-navy)}
+    .page-wrapper{padding-top:170px;padding-bottom:80px;min-height:100vh}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    /* PAGE HEADER */
+    .calc-hero{background:linear-gradient(135deg,var(--jft-navy) 0%,#2c5148 100%);color:#fff;padding:60px 0 40px;text-align:center;position:relative;overflow:hidden}
+    .calc-hero::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(238,191,69,0.08),transparent 70%);pointer-events:none}
+    .calc-hero .brand-tag{display:inline-block;font-family:var(--font-sub);font-size:0.75rem;font-weight:700;color:var(--jft-gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;background:rgba(238,191,69,0.15);padding:8px 20px;border-radius:50px;border:1px solid rgba(238,191,69,0.3)}
+    .calc-hero h1{font-family:var(--font-head);font-size:clamp(2rem,5vw,3rem);color:#fff;margin-bottom:12px;line-height:1.2}
+    .calc-hero h1 span{color:var(--jft-gold)}
+    .calc-hero p{color:rgba(255,255,255,0.75);font-size:1.05rem;max-width:600px;margin:0 auto}
+    .disclaimer{background:rgba(238,191,69,0.12);border:1px solid rgba(238,191,69,0.3);border-radius:8px;padding:12px 20px;margin-top:20px;font-size:0.8rem;color:var(--jft-gold);display:inline-flex;align-items:center;gap:8px}
+    /* MAIN CALCULATOR CARD */
+    .calc-card{background:#fff;border-radius:24px;box-shadow:var(--shadow);overflow:hidden;margin-top:40px;border:1px solid var(--jft-border)}
+    .calc-grid{display:grid;grid-template-columns:1fr 380px;min-height:600px}
+    @media(max-width:900px){.calc-grid{grid-template-columns:1fr}}
+    /* LEFT: INPUTS */
+    .calc-inputs{padding:40px}
+    .calc-inputs h2{font-family:var(--font-head);font-size:1.4rem;color:var(--jft-navy);margin-bottom:6px}
+    .calc-inputs .sub{font-size:0.9rem;color:#888;margin-bottom:30px}
+    .input-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+    @media(max-width:600px){.input-row{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field label{font-family:var(--font-sub);font-size:0.75rem;font-weight:700;color:var(--jft-navy);text-transform:uppercase;letter-spacing:0.5px}
+    .field select,.field input{padding:13px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-family:var(--font-body);font-size:0.95rem;color:#333;transition:0.2s;background:#fdfbf7;appearance:none;-webkit-appearance:none}
+    .field select:focus,.field input:focus{outline:none;border-color:var(--jft-primary);background:#fff;box-shadow:0 0 0 3px rgba(78,140,62,0.1)}
+    .field-full{grid-column:1/-1}
+    .calc-btn{width:100%;padding:18px;background:linear-gradient(135deg,var(--jft-primary),#326127);color:#fff;border:none;border-radius:12px;font-family:var(--font-sub);font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:0.3s;margin-top:10px;box-shadow:0 8px 20px rgba(78,140,62,0.25)}
+    .calc-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(78,140,62,0.35)}
+    .calc-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+    /* RIGHT: RESULTS */
+    .calc-results{background:linear-gradient(180deg,#1a3c34 0%,#112621 100%);padding:40px;display:flex;flex-direction:column;gap:0;color:#fff;position:relative;overflow:hidden}
+    .calc-results::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(rgba(255,255,255,0.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+    .results-title{font-family:var(--font-sub);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.5);margin-bottom:30px;position:relative;z-index:2}
+    .result-placeholder{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;z-index:2;opacity:0.5}
+    .result-placeholder i{font-size:3rem;color:rgba(255,255,255,0.2);margin-bottom:15px}
+    .result-placeholder p{font-size:0.9rem;color:rgba(255,255,255,0.5)}
+    .results-content{display:none;position:relative;z-index:2;flex-direction:column;gap:0}
+    .results-content.show{display:flex}
+    .main-price{text-align:center;padding:25px 0 20px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:20px}
+    .main-price .label{font-size:0.75rem;font-family:var(--font-sub);text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.5);margin-bottom:8px}
+    .main-price .amount{font-family:var(--font-head);font-size:2.8rem;color:var(--jft-gold);font-weight:700;line-height:1;margin-bottom:4px}
+    .main-price .per-mt{font-size:0.85rem;color:rgba(255,255,255,0.6)}
+    .breakdown{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+    .breakdown-row{display:flex;justify-content:space-between;align-items:center;font-size:0.9rem}
+    .breakdown-row .item-name{color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px}
+    .breakdown-row .item-name i{color:rgba(255,255,255,0.3);font-size:0.8rem;width:14px}
+    .breakdown-row .item-val{font-weight:700;color:#fff;font-family:var(--font-sub)}
+    .total-row{border-top:1px solid rgba(255,255,255,0.15);padding-top:12px;font-size:1rem}
+    .total-row .item-name{color:#fff;font-weight:700}
+    .total-row .item-val{color:var(--jft-gold);font-size:1.1rem}
+    .result-meta{background:rgba(255,255,255,0.07);border-radius:10px;padding:16px;margin-bottom:20px;font-size:0.8rem;color:rgba(255,255,255,0.6);line-height:1.6}
+    .result-meta strong{color:rgba(255,255,255,0.9)}
+    .cta-btns{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+    .cta-primary{display:block;text-align:center;padding:14px;background:var(--jft-gold);color:var(--jft-navy);border-radius:10px;font-family:var(--font-sub);font-weight:700;font-size:0.85rem;text-decoration:none;transition:0.2s;text-transform:uppercase;letter-spacing:0.5px}
+    .cta-primary:hover{background:#fff}
+    .cta-secondary{display:block;text-align:center;padding:12px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);border-radius:10px;font-family:var(--font-sub);font-weight:600;font-size:0.8rem;text-decoration:none;border:1px solid rgba(255,255,255,0.15);transition:0.2s}
+    .cta-secondary:hover{background:rgba(255,255,255,0.15);color:#fff}
+    /* TABS — alternate incoterms view */
+    .inco-tabs{display:flex;gap:8px;margin-bottom:20px}
+    .inco-tab{flex:1;padding:10px;text-align:center;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;cursor:pointer;font-family:var(--font-sub);font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.6);transition:0.2s;text-transform:uppercase}
+    .inco-tab.active{background:rgba(238,191,69,0.2);border-color:var(--jft-gold);color:var(--jft-gold)}
+    /* INFO CARDS BELOW */
+    .info-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:30px}
+    .info-card{background:#fff;border-radius:var(--radius-md);padding:25px;border:1px solid var(--jft-border);transition:0.3s}
+    .info-card:hover{border-color:var(--jft-primary);transform:translateY(-4px);box-shadow:0 10px 30px rgba(78,140,62,0.1)}
+    .info-card i{font-size:1.8rem;color:var(--jft-primary);margin-bottom:12px}
+    .info-card h4{font-family:var(--font-sub);font-size:0.9rem;font-weight:700;color:var(--jft-navy);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+    .info-card p{font-size:0.85rem;color:#666;line-height:1.5;margin:0}
+    @media(max-width:480px){.calc-inputs{padding:25px 20px}.calc-results{padding:25px 20px}.main-price .amount{font-size:2.2rem}}
+  </style>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="page-wrapper">
+    <div class="calc-hero">
+      <div class="container">
+        <div class="brand-tag"><i class="fa-solid fa-calculator" style="margin-right:6px;"></i> Free Tool</div>
+        <h1>Instant <span>CIF / FOB</span><br>Export Price Estimator</h1>
+        <p>Get an indicative landed cost for any Indian agro commodity to any global port — before you submit a formal inquiry.</p>
+        <div class="disclaimer"><i class="fa-solid fa-circle-info"></i> Estimates based on current market benchmarks. Formal Proforma Invoice available on request.</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="calc-card">
+        <div class="calc-grid">
+
+          <!-- INPUTS -->
+          <div class="calc-inputs">
+            <h2>Configure Your Shipment</h2>
+            <p class="sub">Fill in the details below to calculate an estimated export price.</p>
+
+            <div class="input-row">
+              <div class="field">
+                <label for="calc-product">Product Category</label>
+                <select id="calc-product" onchange="onProductChange()">
+                  <optgroup label="Rice">
+                    <option value="basmati_1121_sella">1121 Golden Sella Basmati</option>
+                    <option value="basmati_1121_steam">1121 Steam Basmati</option>
+                    <option value="basmati_1509">1509 Basmati (Sella)</option>
+                    <option value="ir64_white_5">IR-64 White Rice (5% Broken)</option>
+                    <option value="ir64_parboiled_5">IR-64 Parboiled Rice (5%)</option>
+                    <option value="broken_100">100% Broken Rice</option>
+                    <option value="swarna">Swarna Rice (Non-Basmati)</option>
+                  </optgroup>
+                  <optgroup label="Spices">
+                    <option value="turmeric">Turmeric Finger</option>
+                    <option value="dry_ginger">Dry Ginger</option>
+                    <option value="cumin">Cumin Seeds</option>
+                    <option value="red_chilli">Red Chilli (Teja)</option>
+                    <option value="coriander">Coriander Seeds</option>
+                  </optgroup>
+                  <optgroup label="Grains & Other">
+                    <option value="milling_wheat">Milling Wheat</option>
+                    <option value="yellow_maize">Yellow Maize</option>
+                    <option value="sugar_s30">Sugar S-30</option>
+                    <option value="sesame_natural">Sesame Seeds (Natural)</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="field">
+                <label for="calc-qty">Quantity (Metric Tons)</label>
+                <input type="number" id="calc-qty" min="1" value="24" placeholder="e.g. 24">
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="field">
+                <label for="calc-port">Destination Port / Region</label>
+                <select id="calc-port" onchange="calculate()">
+                  <optgroup label="Middle East">
+                    <option value="jebel_ali">Jebel Ali (Dubai, UAE)</option>
+                    <option value="dammam">Dammam (Saudi Arabia)</option>
+                    <option value="muscat">Muscat (Oman)</option>
+                    <option value="doha">Doha (Qatar)</option>
+                  </optgroup>
+                  <optgroup label="Africa">
+                    <option value="cotonou">Cotonou (Benin)</option>
+                    <option value="lome">Lomé (Togo)</option>
+                    <option value="tema">Tema (Ghana)</option>
+                    <option value="mombasa">Mombasa (Kenya)</option>
+                    <option value="dar_es_salaam">Dar es Salaam (Tanzania)</option>
+                    <option value="djibouti">Djibouti</option>
+                  </optgroup>
+                  <optgroup label="Asia">
+                    <option value="colombo">Colombo (Sri Lanka)</option>
+                    <option value="ho_chi_minh">Ho Chi Minh (Vietnam)</option>
+                    <option value="jakarta">Jakarta (Indonesia)</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="manila">Manila (Philippines)</option>
+                  </optgroup>
+                  <optgroup label="Europe">
+                    <option value="rotterdam">Rotterdam (Netherlands)</option>
+                    <option value="felixstowe">Felixstowe (UK)</option>
+                    <option value="hamburg">Hamburg (Germany)</option>
+                  </optgroup>
+                  <optgroup label="Other">
+                    <option value="vladivostok">Vladivostok (Russia)</option>
+                    <option value="luanda">Luanda (Angola)</option>
+                    <option value="ex_mill">Ex-Mill / FOB India</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="field">
+                <label for="calc-packing">Packing Type</label>
+                <select id="calc-packing" onchange="calculate()">
+                  <option value="pp_50kg">50kg PP Bag (Bulk)</option>
+                  <option value="pp_25kg">25kg PP Bag</option>
+                  <option value="jute_50kg">50kg Jute Bag</option>
+                  <option value="nonwoven_40kg">40kg Non-Woven Bag</option>
+                  <option value="branded_5kg">5kg Branded Consumer Pack</option>
+                  <option value="fibc_jumbo">1MT Jumbo Bag (FIBC)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="field">
+                <label for="calc-inco">Incoterms</label>
+                <select id="calc-inco" onchange="calculate()">
+                  <option value="CIF">CIF – Cost, Insurance & Freight</option>
+                  <option value="FOB">FOB – Free On Board</option>
+                  <option value="CNF">CNF – Cost & Freight (no Insurance)</option>
+                  <option value="ExMill">Ex-Mill – Factory Gate Price</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="calc-containers">No. of Containers (20ft)</label>
+                <input type="number" id="calc-containers" min="1" max="50" value="1">
+              </div>
+            </div>
+
+            <button class="calc-btn" onclick="calculate()" id="calcBtn">
+              <i class="fa-solid fa-calculator" style="margin-right:8px;"></i> Calculate Estimate
+            </button>
+            <p style="font-size:0.78rem;color:#aaa;margin-top:10px;text-align:center;">Prices are indicative estimates in USD based on current Mandi/APEDA benchmarks. Actual PI may vary.</p>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="calc-results">
+            <div class="results-title">PRICE ESTIMATE</div>
+            <div class="result-placeholder" id="resultPlaceholder">
+              <i class="fa-solid fa-chart-line"></i>
+              <p>Fill in the form and click<br><strong style="color:rgba(255,255,255,0.7);">Calculate Estimate</strong><br>to see your price breakdown</p>
+            </div>
+            <div class="results-content" id="resultsContent">
+              <div class="inco-tabs" id="incoTabs"></div>
+              <div class="main-price">
+                <div class="label" id="mainPriceLabel">CIF ESTIMATE</div>
+                <div class="amount" id="mainPriceAmount">$0</div>
+                <div class="per-mt" id="mainPricePerMT">per Metric Ton</div>
+              </div>
+              <div class="breakdown" id="breakdownRows"></div>
+              <div class="result-meta" id="resultMeta"></div>
+              <div class="cta-btns">
+                <a href="contact.html#inquiry-form" class="cta-primary" id="ctaLink"><i class="fa-solid fa-file-invoice" style="margin-right:6px;"></i> Request Formal Proforma Invoice</a>
+                <a id="ctaWA" href="#" target="_blank" class="cta-secondary"><i class="fa-brands fa-whatsapp" style="margin-right:6px;"></i> Confirm via WhatsApp</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- INFO STRIP -->
+      <div class="info-strip">
+        <div class="info-card">
+          <i class="fa-solid fa-ship"></i>
+          <h4>What is CIF?</h4>
+          <p>Cost + Insurance + Freight. JFT covers shipping to your port. You handle import customs.</p>
+        </div>
+        <div class="info-card">
+          <i class="fa-solid fa-anchor"></i>
+          <h4>What is FOB?</h4>
+          <p>Free On Board. JFT loads goods onto the vessel. You arrange and pay for shipping & insurance.</p>
+        </div>
+        <div class="info-card">
+          <i class="fa-solid fa-truck"></i>
+          <h4>What is Ex-Mill?</h4>
+          <p>Factory gate price. You collect from our mill in India. Lowest cost, highest buyer responsibility.</p>
+        </div>
+        <div class="info-card">
+          <i class="fa-solid fa-file-invoice"></i>
+          <h4>Next Step: Formal PI</h4>
+          <p>This estimate is indicative. A binding Proforma Invoice with exact weights is issued within 24 hours of your inquiry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    /* ─── PRODUCT BASE PRICES (USD/MT FOB Mundra — approximate 2026 benchmarks) ─── */
+    const PRODUCTS = {
+      basmati_1121_sella: { name:'1121 Golden Sella Basmati', fob:700, load:25.5, hs:'10063020' },
+      basmati_1121_steam: { name:'1121 Steam Basmati', fob:680, load:24.5, hs:'10063020' },
+      basmati_1509:       { name:'1509 Basmati (Sella)', fob:720, load:25.5, hs:'10063020' },
+      ir64_white_5:       { name:'IR-64 White Rice 5% Broken', fob:390, load:26, hs:'10063090' },
+      ir64_parboiled_5:   { name:'IR-64 Parboiled 5% Broken', fob:380, load:26, hs:'10063010' },
+      broken_100:         { name:'100% Broken Rice', fob:280, load:26, hs:'10064000' },
+      swarna:             { name:'Swarna Non-Basmati Rice', fob:360, load:25.5, hs:'10063090' },
+      turmeric:           { name:'Turmeric Finger', fob:1100, load:14, hs:'09103020' },
+      dry_ginger:         { name:'Dry Ginger', fob:950, load:13, hs:'09101110' },
+      cumin:              { name:'Cumin Seeds', fob:1600, load:13.5, hs:'09093129' },
+      red_chilli:         { name:'Red Chilli (Teja)', fob:1300, load:14, hs:'09042110' },
+      coriander:          { name:'Coriander Seeds', fob:850, load:11, hs:'09092110' },
+      milling_wheat:      { name:'Milling Wheat', fob:280, load:24.5, hs:'10019910' },
+      yellow_maize:       { name:'Yellow Maize', fob:260, load:24, hs:'10059000' },
+      sugar_s30:          { name:'Sugar S-30', fob:430, load:26, hs:'17019990' },
+      sesame_natural:     { name:'Sesame Seeds (Natural)', fob:1100, load:19, hs:'12074090' },
+    };
+
+    /* ─── FREIGHT RATES (USD per 20ft container, approx) ─── */
+    const FREIGHT = {
+      jebel_ali:720, dammam:850, muscat:800, doha:780,
+      cotonou:1400, lome:1450, tema:1350, mombasa:1600, dar_es_salaam:1650, djibouti:1100,
+      colombo:400, ho_chi_minh:600, jakarta:700, singapore:500, manila:750,
+      rotterdam:1600, felixstowe:1700, hamburg:1650,
+      vladivostok:1300, luanda:1800, ex_mill:0
+    };
+    const PORT_NAMES = {
+      jebel_ali:'Jebel Ali (Dubai)', dammam:'Dammam (KSA)', muscat:'Muscat (Oman)', doha:'Doha (Qatar)',
+      cotonou:'Cotonou (Benin)', lome:'Lomé (Togo)', tema:'Tema (Ghana)', mombasa:'Mombasa (Kenya)',
+      dar_es_salaam:'Dar es Salaam', djibouti:'Djibouti', colombo:'Colombo (Sri Lanka)',
+      ho_chi_minh:'Ho Chi Minh City', jakarta:'Jakarta', singapore:'Singapore', manila:'Manila',
+      rotterdam:'Rotterdam', felixstowe:'Felixstowe', hamburg:'Hamburg',
+      vladivostok:'Vladivostok', luanda:'Luanda (Angola)', ex_mill:'Ex-Mill (India)'
+    };
+
+    /* ─── PACKING PREMIUM (USD/MT) ─── */
+    const PACKING = { pp_50kg:0, pp_25kg:8, jute_50kg:12, nonwoven_40kg:10, branded_5kg:45, fibc_jumbo:-5 };
+    const PACKING_NAMES = { pp_50kg:'50kg PP Bag', pp_25kg:'25kg PP Bag', jute_50kg:'50kg Jute Bag', nonwoven_40kg:'40kg Non-Woven', branded_5kg:'5kg Branded', fibc_jumbo:'1MT FIBC Jumbo' };
+
+    let lastResult = null;
+
+    function calculate() {
+      const prodKey = document.getElementById('calc-product').value;
+      const qty = parseFloat(document.getElementById('calc-qty').value) || 24;
+      const portKey = document.getElementById('calc-port').value;
+      const packKey = document.getElementById('calc-packing').value;
+      const inco = document.getElementById('calc-inco').value;
+      const containers = parseInt(document.getElementById('calc-containers').value) || 1;
+
+      const prod = PRODUCTS[prodKey];
+      const freightPerContainer = FREIGHT[portKey] || 800;
+      const mtPerContainer = prod.load;
+      const freightPerMT = portKey === 'ex_mill' ? 0 : (freightPerContainer / mtPerContainer);
+      const insurance = portKey === 'ex_mill' ? 0 : (prod.fob * 0.005); /* ~0.5% of FOB */
+      const packPremium = PACKING[packKey] || 0;
+      const totalQty = containers * mtPerContainer;
+
+      const fobMT = prod.fob + packPremium;
+      const cnfMT = fobMT + freightPerMT;
+      const cifMT = cnfMT + insurance;
+
+      let displayMT, displayLabel;
+      if (inco === 'ExMill') { displayMT = fobMT * 0.97; displayLabel = 'EX-MILL ESTIMATE'; }
+      else if (inco === 'FOB') { displayMT = fobMT; displayLabel = 'FOB ESTIMATE'; }
+      else if (inco === 'CNF') { displayMT = cnfMT; displayLabel = 'CNF ESTIMATE'; }
+      else { displayMT = cifMT; displayLabel = 'CIF ESTIMATE'; }
+
+      const totalValue = displayMT * totalQty;
+
+      lastResult = { prodKey, qty:totalQty, portKey, packKey, inco, displayMT, totalValue, fobMT, cnfMT, cifMT, prod, containers, mtPerContainer, freightPerMT, insurance, packPremium };
+
+      renderResults(lastResult, displayLabel);
+    }
+
+    function renderResults(r, label) {
+      document.getElementById('resultPlaceholder').style.display = 'none';
+      const rc = document.getElementById('resultsContent');
+      rc.classList.add('show');
+
+      document.getElementById('mainPriceLabel').textContent = label;
+      document.getElementById('mainPriceAmount').textContent = '$' + r.displayMT.toFixed(0);
+      document.getElementById('mainPricePerMT').textContent = 'per Metric Ton · Total: $' + r.totalValue.toLocaleString('en-US', {maximumFractionDigits:0});
+
+      /* Breakdown rows */
+      const rows = [
+        { icon:'fa-seedling', name:'Base product (FOB Mundra)', val:'$' + r.fobMT.toFixed(0) + ' /MT' },
+        { icon:'fa-box', name:PACKING_NAMES[r.packKey] + ' packing', val: r.packPremium === 0 ? 'Included' : '+$' + r.packPremium.toFixed(0) + ' /MT' },
+        { icon:'fa-ship', name:'Ocean freight to ' + (PORT_NAMES[r.portKey] || r.portKey), val: r.portKey === 'ex_mill' ? 'N/A' : '$' + r.freightPerMT.toFixed(0) + ' /MT' },
+        { icon:'fa-shield-halved', name:'Marine insurance (0.5%)', val: r.portKey === 'ex_mill' ? 'N/A' : '$' + r.insurance.toFixed(1) + ' /MT' },
+      ];
+      const totalLabel = { insurance: { FOB:'Excluded', CNF:'Excluded', CIF:'Included', ExMill:'N/A' } };
+      const div = document.getElementById('breakdownRows');
+      div.innerHTML = rows.map(r => `<div class="breakdown-row"><span class="item-name"><i class="fa-solid ${r.icon}"></i>${r.name}</span><span class="item-val">${r.val}</span></div>`).join('');
+      div.innerHTML += `<div class="breakdown-row total-row"><span class="item-name"><strong>Estimated ${r.inco} Price</strong></span><span class="item-val">$${r.displayMT.toFixed(0)}/MT</span></div>`;
+      div.innerHTML += `<div class="breakdown-row total-row" style="padding-top:6px;margin-top:-6px;"><span class="item-name" style="font-size:0.85rem;">Total for ${r.containers} container${r.containers>1?'s':''} (~${r.mtPerContainer * r.containers} MT)</span><span class="item-val" style="color:#fff;">$${r.totalValue.toLocaleString('en-US',{maximumFractionDigits:0})}</span></div>`;
+
+      const prod = r.prod;
+      document.getElementById('resultMeta').innerHTML = `<strong>Product:</strong> ${prod.name}<br><strong>HS Code:</strong> ${prod.hs}<br><strong>Estimated Load:</strong> ${r.mtPerContainer} MT / 20ft container<br><strong>Port of Loading:</strong> Mundra / Kandla / JNPT`;
+
+      /* Incoterms comparison tabs */
+      const tabsEl = document.getElementById('incoTabs');
+      tabsEl.innerHTML = ['ExMill','FOB','CNF','CIF'].map(t => {
+        const v = t === 'ExMill' ? (r.fobMT*0.97).toFixed(0) : t === 'FOB' ? r.fobMT.toFixed(0) : t === 'CNF' ? r.cnfMT.toFixed(0) : r.cifMT.toFixed(0);
+        return `<div class="inco-tab ${r.inco===t?'active':''}" onclick="switchInco('${t}')">${t}<br><small style="font-weight:400;">$${v}</small></div>`;
+      }).join('');
+
+      /* WhatsApp CTA with pre-filled message */
+      const msg = encodeURIComponent(`Hi JFT Agro! I used your quote calculator. I need a formal PI for:\n- Product: ${prod.name}\n- Quantity: ${r.qty} MT (${r.containers} container${r.containers>1?'s':''})\n- Port: ${PORT_NAMES[r.portKey]||r.portKey}\n- Incoterms: ${r.inco}\nPlease send your best rates. Thank you.`);
+      document.getElementById('ctaWA').href = `https://wa.me/918425057274?text=${msg}`;
+    }
+
+    function switchInco(t) {
+      document.getElementById('calc-inco').value = t;
+      calculate();
+    }
+
+    function onProductChange() { calculate(); }
+
+    /* ── COMPONENT LOADER ── */
+    async function loadComponent(id, file) {
+      try {
+        const res = await fetch(file);
+        if (!res.ok) throw new Error('Failed: ' + file);
+        const text = await res.text();
+        document.getElementById(id).innerHTML = text;
+        document.getElementById(id).querySelectorAll('script').forEach(old => {
+          const s = document.createElement('script');
+          Array.from(old.attributes).forEach(a => s.setAttribute(a.name, a.value));
+          s.appendChild(document.createTextNode(old.innerHTML));
+          old.parentNode.replaceChild(s, old);
+        });
+      } catch(e) { console.error(e); }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadComponent('header-placeholder', 'header.html');
+      loadComponent('footer-placeholder', 'footer.html');
+      calculate(); /* run on load with defaults */
+    });
+  </script>
+</body>
+</html>

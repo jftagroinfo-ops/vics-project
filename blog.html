@@ -1,200 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://translate.googleapis.com; frame-src https://www.google.com https://maps.google.com;">
-    <title>Trade Insights & Blog | JFT Agro Overseas</title>
-    <meta name="description" content="Stay updated with the latest trends in Indian Rice, Spices, and Grains export. Market analysis and trade insights from JFT Agro Overseas.">
-    
-    <link rel="canonical" href="https://jftagro.com/blog.html">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jftagro.com/blog.html">
-    <meta property="og:title" content="Trade Insights & Market Analysis | JFT Agro Overseas">
-    <meta property="og:description" content="Stay updated with the latest trends in Indian Rice and Spices export. Professional analysis for global trade partners.">
-    <meta property="og:image" content="https://jftagro.com/images/homepage/hero-1.webp">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Trade Insights | JFT Agro">
-    <meta property="twitter:description" content="Expert market analysis for the global agro-commodity sector.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root { 
-            --font-head: 'Merriweather', serif;
-            --font-sub:  'Montserrat', sans-serif;
-            --font-body: 'Lato', sans-serif;
-            --jft-primary: #4e8c3e;
-            --jft-navy: #1a3c34;
-            --jft-gold: #eebf45;
-            --jft-light: #f5f1e6;
-            --radius-md: 16px;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        body { margin: 0; padding: 0; overflow-x: hidden; font-family: var(--font-body); color: #333; background: #fdfcf8; } 
-        * { box-sizing: border-box; } 
-        
-        .page-header { 
-            height: 400px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background-size: cover; 
-            background-position: center; 
-            position: relative; 
-            color: #fff; 
-            text-align: center; 
-        }
-        .page-header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 60, 52, 0.7); }
-        .ph-content { position: relative; z-index: 2; padding: 0 20px; }
-        .ph-title { font-family: var(--font-head); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 15px; }
-        
-        .section-padding { padding: 80px 0; }
-        .jft-wide-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .blog-card { background: #fff; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition); border: 1px solid #eee; display: flex; flex-direction: column; }
-        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        
-        .blog-img { width: 100%; height: 240px; overflow: hidden; position: relative; }
-        .blog-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .blog-card:hover .blog-img img { transform: scale(1.1); }
-        
-        .blog-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-        .blog-meta { font-family: var(--font-sub); font-size: 0.75rem; color: var(--jft-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-weight: 700; }
-        .blog-title { font-family: var(--font-head); font-size: 1.4rem; color: var(--jft-navy); margin-bottom: 15px; line-height: 1.4; }
-        .blog-excerpt { font-size: 1rem; color: #666; line-height: 1.6; margin-bottom: 20px; }
-        
-        .read-more { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
-        .read-more i { transition: 0.3s; }
-        .read-more:hover { color: var(--jft-primary); }
-        .read-more:hover i { transform: translateX(5px); }
-
-        #header-placeholder { min-height: 80px; display: block; }
-        #footer-placeholder { min-height: 400px; display: block; background: var(--jft-navy); }
-
-        .reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JFT Agro Insights | Trade Intelligence for Global Importers</title>
+  <meta name="description" content="Expert articles on Indian rice export, spice trade, payment terms, shipping regulations, and global commodity market trends from JFT Agro Overseas.">
+  <link rel="canonical" href="https://jftagro.com/blog.html">
+  <link rel="icon" type="image/png" href="images/jft logo.png">
+  <meta property="og:title" content="Trade Insights & Export Intelligence | JFT Agro Overseas">
+  <meta property="og:description" content="Practical guides for international buyers of Indian agricultural commodities — Basmati rice, spices, grains, and more.">
+  <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#1a3c34">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Blog","name":"JFT Agro Insights","url":"https://jftagro.com/blog.html","description":"Trade intelligence for global importers of Indian agricultural commodities","publisher":{"@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root{--jft-primary:#4e8c3e;--jft-navy:#1a3c34;--jft-gold:#eebf45;--jft-gold-dark:#b88d14;--jft-light:#f5f1e6;--jft-border:#dcd6cb;--font-head:'Merriweather',serif;--font-sub:'Montserrat',sans-serif;--font-body:'Lato',sans-serif;--radius-md:16px;--shadow:0 8px 30px rgba(0,0,0,0.06)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font-body);background:#fdfcf8;color:#333;overflow-x:hidden}
+    #header-placeholder{min-height:80px;display:block}
+    #footer-placeholder{min-height:400px;display:block;background:var(--jft-navy)}
+    a{text-decoration:none;color:inherit}
+    h1,h2,h3{font-family:var(--font-head);color:var(--jft-navy);margin:0}
+    p{line-height:1.8;color:#5c5c5c}
+    .container{max-width:1150px;margin:0 auto;padding:0 20px}
+    .page-wrapper{padding-top:170px;padding-bottom:80px}
+    /* HERO */
+    .blog-hero{background:linear-gradient(135deg,var(--jft-navy),#2c5148);color:#fff;padding:70px 0 60px;text-align:center}
+    .brand-tag{display:inline-block;font-family:var(--font-sub);font-size:0.75rem;font-weight:700;color:var(--jft-gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;background:rgba(238,191,69,0.15);padding:8px 20px;border-radius:50px;border:1px solid rgba(238,191,69,0.3)}
+    .blog-hero h1{font-family:var(--font-head);font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}
+    .blog-hero h1 span{color:var(--jft-gold)}
+    .blog-hero p{color:rgba(255,255,255,0.75);max-width:600px;margin:0 auto;font-size:1.05rem}
+    /* FILTER BAR */
+    .filter-bar{display:flex;gap:10px;margin:40px 0 30px;flex-wrap:wrap;align-items:center}
+    .filter-btn{padding:8px 20px;border:1.5px solid var(--jft-border);background:#fff;border-radius:50px;font-family:var(--font-sub);font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#666;cursor:pointer;transition:0.2s}
+    .filter-btn.active,.filter-btn:hover{background:var(--jft-primary);color:#fff;border-color:var(--jft-primary)}
+    .filter-count{font-size:0.65rem;background:rgba(78,140,62,0.15);color:var(--jft-primary);padding:2px 7px;border-radius:20px;margin-left:4px;font-weight:700}
+    /* FEATURED ARTICLE */
+    .featured-article{display:grid;grid-template-columns:1.2fr 1fr;gap:0;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.1);border:1px solid var(--jft-border);margin-bottom:50px;transition:0.3s}
+    .featured-article:hover{transform:translateY(-5px);box-shadow:0 30px 80px rgba(0,0,0,0.15)}
+    @media(max-width:900px){.featured-article{grid-template-columns:1fr}}
+    .featured-img{position:relative;overflow:hidden;min-height:360px}
+    .featured-img img{width:100%;height:100%;object-fit:cover;transition:0.5s}
+    .featured-article:hover .featured-img img{transform:scale(1.04)}
+    .featured-body{background:#fff;padding:45px 40px;display:flex;flex-direction:column;justify-content:center}
+    .article-cat{display:inline-block;font-family:var(--font-sub);font-size:0.7rem;font-weight:700;color:var(--jft-primary);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;background:rgba(78,140,62,0.1);padding:5px 14px;border-radius:20px}
+    .featured-title{font-family:var(--font-head);font-size:clamp(1.4rem,3vw,2rem);line-height:1.3;margin-bottom:14px;color:var(--jft-navy)}
+    .featured-excerpt{font-size:1rem;color:#666;line-height:1.7;margin-bottom:20px}
+    .article-meta-row{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:22px;font-size:0.8rem;color:#999;font-family:var(--font-sub)}
+    .read-more{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sub);font-weight:700;color:var(--jft-primary);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px;transition:0.2s;padding:12px 24px;border:2px solid var(--jft-primary);border-radius:50px}
+    .read-more:hover{background:var(--jft-primary);color:#fff}
+    .featured-badge{position:absolute;top:20px;left:20px;background:var(--jft-gold);color:var(--jft-navy);font-family:var(--font-sub);font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;padding:6px 16px;border-radius:20px}
+    /* ARTICLES GRID */
+    .articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px}
+    .article-card{background:#fff;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--jft-border);box-shadow:var(--shadow);transition:0.3s;display:flex;flex-direction:column}
+    .article-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.1);border-color:transparent}
+    .card-img{height:200px;overflow:hidden;position:relative;background:var(--jft-light)}
+    .card-img img{width:100%;height:100%;object-fit:cover;transition:0.5s}
+    .article-card:hover .card-img img{transform:scale(1.06)}
+    .card-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem}
+    .card-body{padding:24px;flex:1;display:flex;flex-direction:column}
+    .card-title{font-family:var(--font-head);font-size:1.1rem;line-height:1.4;margin-bottom:10px;color:var(--jft-navy);transition:0.2s}
+    .article-card:hover .card-title{color:var(--jft-primary)}
+    .card-excerpt{font-size:0.88rem;color:#777;line-height:1.65;margin-bottom:16px;flex:1}
+    .card-meta{display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:#aaa;font-family:var(--font-sub);border-top:1px solid #f0f0f0;padding-top:14px;margin-top:auto}
+    .card-read{color:var(--jft-primary);font-weight:700;font-size:0.75rem;display:flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:0.5px;transition:0.2s}
+    .card-read:hover{gap:8px}
+    /* NEWSLETTER */
+    .newsletter-section{background:linear-gradient(135deg,var(--jft-navy),#224a40);padding:70px 0;margin:60px 0 0;color:#fff;text-align:center}
+    .newsletter-section h2{font-family:var(--font-head);font-size:2rem;margin-bottom:12px}
+    .newsletter-section p{color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 30px}
+    .nl-form{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+    .nl-input{flex:1;padding:16px 20px;border:none;border-radius:50px;font-family:var(--font-body);font-size:0.95rem;min-width:240px;outline:none}
+    .nl-btn{padding:16px 30px;background:var(--jft-gold);color:var(--jft-navy);border:none;border-radius:50px;font-family:var(--font-sub);font-weight:700;font-size:0.9rem;cursor:pointer;transition:0.3s;white-space:nowrap}
+    .nl-btn:hover{background:#fff}
+    /* TOPICS STRIP */
+    .topics-strip{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0}
+    .topic-tag{padding:8px 18px;background:#fff;border:1px solid var(--jft-border);border-radius:50px;font-family:var(--font-sub);font-size:0.78rem;font-weight:600;color:#666;cursor:pointer;transition:0.2s}
+    .topic-tag:hover{border-color:var(--jft-primary);color:var(--jft-primary);background:rgba(78,140,62,0.05)}
+    @media(max-width:600px){.featured-body{padding:30px 25px}.articles-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
+  <div id="header-placeholder"></div>
 
-    <div id="header-placeholder"></div>
+  <div class="page-wrapper">
+    <div class="blog-hero">
+      <div class="container">
+        <div class="brand-tag"><i class="fa-solid fa-newspaper" style="margin-right:6px;"></i> Knowledge Hub</div>
+        <h1>JFT Agro <span>Insights</span></h1>
+        <p>Trade intelligence, buyer guides, and market analysis for international importers of Indian agricultural commodities.</p>
+      </div>
+    </div>
 
-    <header class="page-header" style="background-image: url('images/products/rice_hd.jpg');">
-        <div class="ph-content">
-            <h1 class="ph-title">Trade Insights</h1>
-            <p>Latest updates, market analysis, and global trade trends.</p>
+    <div class="container">
+      <!-- FILTER BAR -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterPosts('all',this)">All Articles <span class="filter-count">9</span></button>
+        <button class="filter-btn" onclick="filterPosts('buyer-guide',this)">Buyer Guides <span class="filter-count">4</span></button>
+        <button class="filter-btn" onclick="filterPosts('market',this)">Market Intelligence <span class="filter-count">3</span></button>
+        <button class="filter-btn" onclick="filterPosts('compliance',this)">Compliance & Docs <span class="filter-count">2</span></button>
+      </div>
+
+      <!-- FEATURED ARTICLE -->
+      <a href="blog-basmati-export-guide.html" class="featured-article" data-cat="buyer-guide">
+        <div class="featured-img">
+          <img src="images/products/basmati_rice_hd.jpg" alt="1121 vs 1509 Basmati Rice" loading="lazy">
+          <div class="featured-badge"><i class="fa-solid fa-star" style="margin-right:5px;"></i> Editor's Pick</div>
         </div>
-    </header>
+        <div class="featured-body">
+          <span class="article-cat">Buyer's Guide</span>
+          <h2 class="featured-title">1121 vs 1509 Basmati Rice: Which Variety Should You Import in 2026?</h2>
+          <p class="featured-excerpt">Two varieties dominate Indian Basmati exports globally. Both are long-grain, aromatic, and premium — but they serve different markets, different buyers, and different price points. Here's what you need to know before placing your container order.</p>
+          <div class="article-meta-row">
+            <span><i class="fa-solid fa-calendar"></i> April 1, 2026</span>
+            <span><i class="fa-solid fa-clock"></i> 8 min read</span>
+            <span><i class="fa-solid fa-eye"></i> 4,200 views</span>
+          </div>
+          <div class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
 
-    <section class="section-padding">
-        <div class="jft-wide-container">
-            <div class="blog-grid">
-                
-                <article class="blog-card reveal">
-                    <div class="blog-img">
-                        <img src="images/products/basmati_rice_hd.jpg" alt="Basmati Rice Market">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">Market Analysis • April 2026</div>
-                        <h2 class="blog-title">Basmati Rice: Global Market Trends & Forecast 2026</h2>
-                        <p class="blog-excerpt">Exploring the rising demand for premium Basmati in Europe and the impact of new export policies on global pricing.</p>
-                        <a href="#" class="read-more">Read Full Insight <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
+      <!-- ARTICLES GRID -->
+      <div class="articles-grid" id="articlesGrid">
 
-                <article class="blog-card reveal" style="animation-delay: 0.1s;">
-                    <div class="blog-img">
-                        <img src="images/homepage/SPICES.webp" alt="Indian Spices Export">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">Export Trends • March 2026</div>
-                        <h2 class="blog-title">The Future of Indian Spices in the European Union</h2>
-                        <p class="blog-excerpt">Understanding the new EU safety standards for spice imports and how JFT Agro ensures 100% compliance.</p>
-                        <a href="#" class="read-more">Read Full Insight <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card reveal" style="animation-delay: 0.2s;">
-                    <div class="blog-img">
-                        <img src="images/INFRASTRUCTURE/logistics.webp" alt="Supply Chain Logistics">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">Logistics • February 2026</div>
-                        <h2 class="blog-title">Navigating Global Shipping Challenges in 2026</h2>
-                        <p class="blog-excerpt">How strategic partnerships help us maintain stable freight rates for our global partners despite maritime shifts.</p>
-                        <a href="#" class="read-more">Read Full Insight <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card reveal" style="animation-delay: 0.3s;">
-                    <div class="blog-img">
-                        <img src="images/homepage/HERBS.webp" alt="Organic Agro Trade">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">Organic • January 2026</div>
-                        <h2 class="blog-title">Organic Rice & Spices: Meeting the EU Demand</h2>
-                        <p class="blog-excerpt">A deep dive into our organic sourcing network and the rigorous certification process for premium European importers.</p>
-                        <a href="#" class="read-more">Read Full Insight <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="blog-card reveal" style="animation-delay: 0.5s;">
-                    <div class="blog-img">
-                        <img src="images/products/rice_hd.jpg" alt="Indian Crop Report">
-                        <div class="blog-badge">Market Intelligence</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">Trade Insights • April 2026</div>
-                        <h2 class="blog-title">April 2026 Crop Report: Rice & Spices Outlook</h2>
-                        <p class="blog-excerpt">Our monthly intelligence report on harvest volumes, Mandi arrivals, and price forecasts for the Q2 export season.</p>
-                        <a href="#" class="read-more">Download Full Report <i class="fa-solid fa-file-pdf"></i></a>
-                    </div>
-                </article>
-
+        <a href="blog-ir64-africa.html" class="article-card" data-cat="buyer-guide">
+          <div class="card-img"><div class="card-img-placeholder">🌾</div></div>
+          <div class="card-body">
+            <span class="article-cat">Buyer's Guide</span>
+            <h3 class="card-title">IR-64 Parboiled Rice: Why It Dominates the West Africa Market</h3>
+            <p class="card-excerpt">IR-64 parboiled is the backbone of Indian rice exports to Benin, Togo, and Ghana. We break down the grade specifications, CIF pricing, and fumigation requirements for buyers new to the Africa trade corridor.</p>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-calendar"></i> Mar 15, 2026 · 6 min</span>
+              <span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span>
             </div>
+          </div>
+        </a>
+
+        <a href="blog-spice-trends-2026.html" class="article-card" data-cat="market">
+          <div class="card-img"><div class="card-img-placeholder">🌶️</div></div>
+          <div class="card-body">
+            <span class="article-cat">Market Intelligence</span>
+            <h3 class="card-title">Indian Spice Export Trends 2026: Cumin, Turmeric, and What's Driving Prices</h3>
+            <p class="card-excerpt">Cumin hit a 5-year price high in Q4 2025. Turmeric is stabilizing. This analysis covers supply-side factors, demand trends, and what global buyers should expect in their 2026 procurement strategy.</p>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-calendar"></i> Mar 5, 2026 · 7 min</span>
+              <span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-lc-vs-tt.html" class="article-card" data-cat="compliance">
+          <div class="card-img"><div class="card-img-placeholder">🏦</div></div>
+          <div class="card-body">
+            <span class="article-cat">Compliance</span>
+            <h3 class="card-title">LC vs TT Payment: Which Is Safer for Your First Import from India?</h3>
+            <p class="card-excerpt">New importers frequently ask: should I use a Letter of Credit or Telegraphic Transfer for my first order? We compare risk, cost, and process — with real examples from our trade desk.</p>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-calendar"></i> Feb 20, 2026 · 5 min</span>
+              <span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-cif-fob-explained.html" class="article-card" data-cat="buyer-guide">
+          <div class="card-img"><div class="card-img-placeholder">🚢</div></div>
+          <div class="card-body">
+            <span class="article-cat">Buyer's Guide</span>
+            <h3 class="card-title">CIF vs FOB vs CNF: A Plain-English Guide for Agricultural Importers</h3>
+            <p class="card-excerpt">Incoterms confuse even experienced traders. This guide explains what CIF, FOB, CNF, and Ex-Mill actually mean in the context of Indian food commodity exports — and which you should choose for your situation.</p>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-calendar"></i> Feb 10, 2026 · 6 min</span>
+              <span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-india-uae-cepa.html" class="article-card" data-cat="market">
+          <div class="card-img"><div class="card-img-placeholder">🇦🇪</div></div>
+          <div class="card-body">
+            <span class="article-cat">Market Intelligence</span>
+            <h3 class="card-title">India–UAE CEPA: What It Means for Rice and Spice Importers in 2026</h3>
+            <p class="card-excerpt">India's Comprehensive Economic Partnership Agreement with UAE has been in force since 2022. Here's what has actually changed for commodity importers — duty rates, documentation, and practical implications.</p>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-calendar"></i> Jan 28, 2026 · 7 min</span>
+              <span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-private-label-rice.html" class="article-card" data-cat="buyer-guide">
+          <div class="card-img"><div class="card-img-placeholder">📦</div></div>
+          <div class="card-body">
+            <span class="article-cat">Buyer's Guide</span>
+            <h3 class="card-title">Private Label Rice from India: How It Works, MOQs, and What to Expect</h3>
+            <p class="card-excerpt">More buyers are moving toward private-label branded rice rather than buying generic. We explain the process, timelines, artwork requirements, MOQ considerations, and costs for launching your own brand from India.</p>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-calendar"></i> Jan 15, 2026 · 8 min</span>
+              <span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-eu-mrl-basmati.html" class="article-card" data-cat="compliance">
+          <div class="card-img"><div class="card-img-placeholder">🇪🇺</div></div>
+          <div class="card-body">
+            <span class="article-cat">Compliance</span>
+            <h3 class="card-title">EU Pesticide MRLs and Basmati: What Every European Buyer Must Know</h3>
+            <p class="card-excerpt">The EU has some of the world's strictest pesticide residue limits for rice. We break down which substances to watch for, how to read test reports, and what to demand from your Indian supplier before shipment.</p>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-calendar"></i> Jan 5, 2026 · 9 min</span>
+              <span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="blog-sesame-export-2026.html" class="article-card" data-cat="market">
+          <div class="card-img"><div class="card-img-placeholder">🌱</div></div>
+          <div class="card-body">
+            <span class="article-cat">Market Intelligence</span>
+            <h3 class="card-title">Indian Sesame Seeds Export 2026: Prices, Grades, and Key Markets</h3>
+            <p class="card-excerpt">Sesame seeds are India's fastest-growing export commodity after Basmati. This guide covers natural vs. hulled grades, price benchmarks, top importing countries, and quality parameters for international buyers.</p>
+            <div class="card-meta">
+              <span><i class="fa-solid fa-calendar"></i> Dec 20, 2025 · 5 min</span>
+              <span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+      </div><!-- end articles-grid -->
+
+      <!-- TOPICS STRIP -->
+      <div style="margin-top:50px;">
+        <h2 style="font-family:var(--font-head);font-size:1.3rem;margin-bottom:16px;color:var(--jft-navy);">Browse by Topic</h2>
+        <div class="topics-strip">
+          <span class="topic-tag">Basmati Rice</span>
+          <span class="topic-tag">IR-64 Non-Basmati</span>
+          <span class="topic-tag">Spice Export</span>
+          <span class="topic-tag">West Africa Trade</span>
+          <span class="topic-tag">UAE & Gulf</span>
+          <span class="topic-tag">Payment Terms</span>
+          <span class="topic-tag">Incoterms</span>
+          <span class="topic-tag">EU Compliance</span>
+          <span class="topic-tag">Private Labeling</span>
+          <span class="topic-tag">Sugar Export</span>
+          <span class="topic-tag">Sesame Seeds</span>
+          <span class="topic-tag">Container Logistics</span>
+          <span class="topic-tag">APEDA & FSSAI</span>
+          <span class="topic-tag">India–UAE CEPA</span>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <div id="footer-placeholder"></div>
+    <!-- NEWSLETTER -->
+    <div class="newsletter-section">
+      <div class="container">
+        <div class="brand-tag" style="background:rgba(238,191,69,0.15);border-color:rgba(238,191,69,0.3);color:var(--jft-gold);"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i> Monthly Dispatch</div>
+        <h2>Get Our Monthly <span style="color:var(--jft-gold);">Trade Intelligence</span> Report</h2>
+        <p>Price updates, market shifts, regulatory changes, and export intelligence — direct to your inbox. No spam, ever. One digest per month.</p>
+        <form class="nl-form" onsubmit="subscribeNewsletter(event)">
+          <input type="email" class="nl-input" placeholder="your@company.com" required id="nl-email">
+          <button type="submit" class="nl-btn"><i class="fa-solid fa-paper-plane" style="margin-right:6px;"></i> Subscribe Free</button>
+        </form>
+        <p style="margin-top:12px;font-size:0.78rem;color:rgba(255,255,255,0.45);">Join 2,400+ importers and traders. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        async function loadComponent(id, file) {
-            try {
-                const res = await fetch(file);
-                if (!res.ok) throw new Error(`Failed to load ${file}`);
-                const text = await res.text();
-                const container = document.getElementById(id);
-                if (!container) return;
-                container.innerHTML = text;
-                const scripts = container.querySelectorAll("script");
-                scripts.forEach(oldScript => {
-                    const newScript = document.createElement("script");
-                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-                    oldScript.parentNode.replaceChild(newScript, oldScript);
-                });
-            } catch (err) { console.error(err); }
+  <div id="footer-placeholder"></div>
+
+  <script>
+    function filterPosts(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.article-card').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
         }
+      });
+    }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            loadComponent("header-placeholder", "header.html");
-            loadComponent("footer-placeholder", "footer.html");
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        });
-    </script>
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      const email = document.getElementById('nl-email').value;
+      const msg = encodeURIComponent(`Hi JFT Agro — please add me to your monthly trade intelligence newsletter: ${email}`);
+      window.open(`https://wa.me/918425057274?text=${msg}`, '_blank');
+      e.target.querySelector('.nl-btn').textContent = '✓ Subscribed!';
+    }
+
+    async function loadComponent(id, file) {
+      try{const r=await fetch(file);const t=await r.text();document.getElementById(id).innerHTML=t;document.getElementById(id).querySelectorAll('script').forEach(o=>{const s=document.createElement('script');Array.from(o.attributes).forEach(a=>s.setAttribute(a.name,a.value));s.appendChild(document.createTextNode(o.innerHTML));o.parentNode.replaceChild(s,o);});}catch(e){console.error(e);}
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      loadComponent('header-placeholder','header.html');
+      loadComponent('footer-placeholder','footer.html');
+    });
+  </script>
 </body>
 </html>
