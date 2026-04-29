@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="preload" as="image" href="images/homepage/BASMATI.webp" fetchpriority="high">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://ok.surf https://translate.googleapis.com https://translate.google.com; frame-src https://www.google.com https://maps.google.com;">
     <title>JFT Agro Overseas | Indian Rice, Spices & Grain Exporters - Star Export House</title>
     <meta name="description" content="JFT Agro Overseas is a Government Recognized Star Export House and ISO 9001:2015 certified exporter of Premium Indian Basmati Rice, Spices, Grains, and Pulses to 20+ countries.">
     <meta name="keywords" content="Rice Exporter India, Basmati Rice Exporters, Indian Spices Suppliers, Star Export House India, JFT Agro, Agro Commodities Export">
     <meta name="theme-color" content="#1a3c34">
+    <link rel="icon" type="image/png" href="images/jft logo.png">
     <link rel="canonical" href="https://jftagro.com/">
     
     <!-- Performance: Preload critical LCP asset -->
@@ -1057,6 +1059,20 @@
             .export-node { flex: 0 0 90%; }
         }
     </style>
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "JFT Agro Overseas",
+          "url": "https://jftagro.com/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://jftagro.com/products.html?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+        </script>
 </head>
 <body>
     <div id="preloader">
@@ -2087,12 +2103,6 @@
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); if (entry.target.classList.contains('timeline-wrapper')) { document.getElementById('progressLine').style.width = '100%'; } } }); }, { threshold: 0.15 }); 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         
-        document.addEventListener("DOMContentLoaded", () => {
-            const networkNodes = [ { region: "African Continent", icon: "fa-ship", desc: "Bulk rice supplier to 15+ African nations.", countries: [{name:"Benin",type:"Parboiled"},{name:"Togo",type:"Rice"},{name:"Senegal",type:"Broken Rice"},{name:"Ivory Coast",type:"Rice"},{name:"Djibouti",type:"Grains"},{name:"Somalia",type:"Sugar"},{name:"Madagascar",type:"Rice"},{name:"Nigeria",type:"Rice"},{name:"Ghana",type:"Rice"},{name:"South Africa",type:"Rice"},{name:"Kenya",type:"Rice"},{name:"Tanzania",type:"Rice"}] }, { region: "Europe (EU)", icon: "fa-euro-sign", desc: "Certified Organic Spices & Grains.", countries: [{name:"UK",type:"Basmati"},{name:"Germany",type:"Spices"},{name:"Netherlands",type:"Spices"},{name:"France",type:"Rice"},{name:"Italy",type:"Rice"},{name:"Spain",type:"Rice"},{name:"Poland",type:"Rice"},{name:"Belgium",type:"Rice"},{name:"Sweden",type:"Rice"}] }, { region: "Middle East", icon: "fa-mosque", desc: "Premier exporter of Basmati and Spices.", countries: [{name:"UAE",type:"1121 Rice"},{name:"Saudi",type:"Basmati"},{name:"Qatar",type:"Rice"},{name:"Oman",type:"Rice"},{name:"Kuwait",type:"Rice"},{name:"Bahrain",type:"Rice"},{name:"Iraq",type:"Rice"},{name:"Jordan",type:"Rice"},{name:"Israel",type:"Rice"},{name:"Iran",type:"Rice"}] }, { region: "Russia & CIS", icon: "fa-snowflake", desc: "Supply partner for Northern markets.", countries: [{name:"Moscow",type:"Rice"},{name:"St. Petersburg",type:"Spices"},{name:"Ukraine",type:"Rice"},{name:"Uzbekistan",type:"Rice"},{name:"Kazakhstan",type:"Rice"},{name:"Azerbaijan",type:"Rice"},{name:"Georgia",type:"Rice"}] }, { region: "Sri Lanka", icon: "fa-anchor", desc: "Direct supply route to Colombo Hub.", countries: [{name:"Colombo",type:"Rice"},{name:"Kandy",type:"Rice"},{name:"Galle",type:"Rice"},{name:"Maldives",type:"Rice"},{name:"Seychelles",type:"Rice"}] }, { region: "SE Asia", icon: "fa-map-location-dot", desc: "Expanding footprint in Asian markets.", countries: [{name:"Vietnam",type:"Grains"},{name:"Thailand",type:"Rice"},{name:"Malaysia",type:"Rice"},{name:"Indonesia",type:"Rice"},{name:"Singapore",type:"Rice"},{name:"Philippines",type:"Rice"}] } ];
-            const container = document.getElementById('jft_nodes_container'); 
-            const svgLayer = document.getElementById('jft_svg_lines'); 
-            const hubX = 500; const hubY = 325; 
-            const nodeCoords = [{x:100,y:50}, {x:900,y:50}, {x:50,y:310}, {x:950,y:310}, {x:100,y:580}, {x:900,y:580}];
             
             // Audit Fix: Refactored Line Drawing for Resize Stability
             function drawNetworkLines() {
