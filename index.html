@@ -2180,7 +2180,7 @@
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        // --- Universal File Loading ---
+        // --- Component Loader ---
         async function loadComponent(id, file) {
             try {
                 const res = await fetch(file);
@@ -2189,11 +2189,8 @@
                 const container = document.getElementById(id);
                 if (!container) return;
                 container.innerHTML = text;
-                
-                // This block ensures scripts inside the loaded header/footer actually run
-                const scripts = container.querySelectorAll("script");
-                scripts.forEach(oldScript => {
-                    const newScript = document.createElement("script");
+                container.querySelectorAll('script').forEach(oldScript => {
+                    const newScript = document.createElement('script');
                     Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
                     newScript.appendChild(document.createTextNode(oldScript.innerHTML));
                     oldScript.parentNode.replaceChild(newScript, oldScript);
@@ -2201,10 +2198,31 @@
             } catch (err) { console.error(err); }
         }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            loadComponent("header-placeholder", "header.html");
-            loadComponent("footer-placeholder", "footer.html");
+        // --- Intersection Observer for reveal animations ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.12 });
+
+        // --- SINGLE DOMContentLoaded (correct for index.html) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load header and footer
+            loadComponent('header-placeholder', 'header.html');
+            loadComponent('footer-placeholder', 'footer.html');
+
+            // Observe all reveal elements
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            // Safety preloader dismiss — fires after 2.5s regardless of window.load
+            // (backup for cases where the video blocks the load event)
+            setTimeout(() => {
+                const p = document.getElementById('preloader');
+                if (p && p.style.display !== 'none') {
+                    p.style.opacity = '0';
+                    setTimeout(() => { p.style.display = 'none'; }, 600);
+                }
+            }, 2500);
         });
+
     </script>
 </body>
 </html>
