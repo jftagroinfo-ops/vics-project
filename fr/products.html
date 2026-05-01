@@ -354,11 +354,6 @@
         #back-to-top:hover { background: var(--jft-navy); transform: translateY(-5px); }
     </style>
 
-    <link rel="alternate" hreflang="en" href="https://jftagro.com/products.html" />
-    <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/products.html" />
-    <link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/products.html" />
-    <link rel="alternate" hreflang="x-default" href="https://jftagro.com/products.html" />
-
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jftagro.com/"}, {"@type": "ListItem", "position": 2, "name": "Products", "item": "https://jftagro.com/products.html"}]}</script>
 
   <!-- Google tag (gtag.js) -->
@@ -383,11 +378,19 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="../manifest.json">
 
     <link rel="alternate" hreflang="en" href="https://jftagro.com/products.html" />
     <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/products.html" />
     <link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/products.html" />
+    <link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/products.html" />
+    <link rel="alternate" hreflang="es" href="https://jftagro.com/es/products.html" />
+    <link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/products.html" />
+    <link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/products.html" />
+    <link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/products.html" />
+    <link rel="alternate" hreflang="id" href="https://jftagro.com/id/products.html" />
+    <link rel="alternate" hreflang="si" href="https://jftagro.com/si/products.html" />
+    <link rel="alternate" hreflang="th" href="https://jftagro.com/th/products.html" />
     <link rel="alternate" hreflang="x-default" href="https://jftagro.com/products.html" />
 </head>
 <body>
@@ -405,7 +408,7 @@ s0.parentNode.insertBefore(s1,s0);
     <header class="page-header" id="header-bg">
         <div class="ph-content reveal active">
             <h1 class="ph-title">Global Pantry</h1>
-            <div class="ph-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <span style="color:var(--jft-gold);">Products</span></div>
+            <div class="ph-breadcrumb"><a href="../index.html">Home</a> &nbsp;/&nbsp; <span style="color:var(--jft-gold);">Products</span></div>
         </div>
     </header>
 
@@ -652,7 +655,7 @@ s0.parentNode.insertBefore(s1,s0);
         const HEADER_BG = "images/Farm.webp";
 
         function initPage() {
-            document.getElementById('header-bg').style.backgroundImage = `url('${HEADER_BG}')`;
+            document.getElementById('header-bg').style.backgroundImage = `url('../${HEADER_BG}')`;
             renderProducts('all');
         }
 
@@ -696,7 +699,7 @@ s0.parentNode.insertBefore(s1,s0);
 
                 const html = `
                 <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
+                    <div class="p-img-box"><img src="../${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
                     <div class="p-content">
                         <div class="p-cat">${p.c.toUpperCase()}</div>
                         <h3 class="p-title">${p.t}</h3>
@@ -721,7 +724,7 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
 
                         <div class="p-action">
-                            <a href="contact.html#inquiry-form" class="btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
+                            <a href="../contact.html#inquiry-form" class="btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
                             <button class="p-btn" onclick="openModal(${globalIndex})">Specs <i class="fa-solid fa-file-pdf"></i></button>
                         </div>
                     </div>
@@ -770,7 +773,7 @@ s0.parentNode.insertBefore(s1,s0);
 
                         const html = `
                         <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                            <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
+                            <div class="p-img-box"><img src="../${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
                             <div class="p-content">
                                 <div class="p-cat">${p.c.toUpperCase()}</div>
                                 <h3 class="p-title">${p.t}</h3>
@@ -781,8 +784,8 @@ s0.parentNode.insertBefore(s1,s0);
                                 <div class="p-flags-area"><div class="p-flag-label">Top Importers</div><div class="p-market-list">${marketHTML}</div></div>
                                 <div class="p-tags-container">${tagsHTML}</div>
                                 <div class="p-action">
-                                    <a href="contact.html#inquiry-form" class="btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
-                                    ${p.u ? `<a href="${p.u}" class="p-btn" style="text-decoration:none; display:inline-flex; align-items:center;">Details <i class="fa-solid fa-arrow-right"></i></a>` : `<button class="p-btn" onclick="openModal(${globalIndex})">Specs <i class="fa-solid fa-file-pdf"></i></button>`}
+                                    <a href="../contact.html#inquiry-form" class="btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
+                                    ${p.u ? `<a href="../${p.u}" class="p-btn" style="text-decoration:none; display:inline-flex; align-items:center;">Details <i class="fa-solid fa-arrow-right"></i></a>` : `<button class="p-btn" onclick="openModal(${globalIndex})">Specs <i class="fa-solid fa-file-pdf"></i></button>`}
                                 </div>
                             </div>
                         </div>`;
@@ -1095,7 +1098,7 @@ s0.parentNode.insertBefore(s1,s0);
 
                 const html = `
                 <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
+                    <div class="p-img-box"><img src="../${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
                     <div class="p-content">
                         <div class="p-cat">${p.c.toUpperCase()}</div>
                         <h3 class="p-title">${p.t}</h3>
@@ -1106,8 +1109,8 @@ s0.parentNode.insertBefore(s1,s0);
                         <div class="p-flags-area"><div class="p-flag-label">Top Importers</div><div class="p-market-list">${marketHTML}</div></div>
                         <div class="p-tags-container">${tagsHTML}</div>
                         <div class="p-action">
-                            <a href="contact.html#inquiry-form" class="btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
-                            <a href="${p.u}" class="p-btn" style="text-decoration:none; display:inline-flex; align-items:center;">Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="../contact.html#inquiry-form" class="btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
+                            <a href="../${p.u}" class="p-btn" style="text-decoration:none; display:inline-flex; align-items:center;">Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>`;
