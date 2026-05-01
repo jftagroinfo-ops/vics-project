@@ -434,12 +434,22 @@ img{max-width:100%;height:auto;display:block}
   .export-node.active-mobile .country-reveal{max-height:300px;opacity:1;visibility:visible;margin-top:15px;overflow-y:auto}
   .network-visual{height:auto;flex-direction:column;padding:20px 0}
 }
+/* ─── PARTNERS GRID ─── */
+.partners-section { background: #fff; padding: 100px 0; }
+.partners-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; }
+.pcard { background: #fdfbf7; border: 1px solid var(--border); border-radius: 24px; padding: 35px 30px; transition: .4s; position: relative; overflow: hidden; }
+.pcard:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 20px 50px rgba(26,60,52,0.1); background: #fff; }
+.pstatus { font-family: var(--ff-s); font-size: 0.62rem; font-weight: 800; color: var(--green); display: flex; align-items: center; gap: 6px; margin-bottom: 20px; letter-spacing: 1px; }
+.pdot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); }
+.pflag { width: 70px; height: 70px; margin-bottom: 25px; position: relative; }
+.pflag-inner { width: 100%; height: 100%; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.pflag-inner img { width: 100%; height: 100%; object-fit: cover; }
+.pcountry { font-family: var(--ff-h); font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+.prole { font-family: var(--ff-s); font-size: 0.72rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 15px; }
+.pdesc { font-size: 0.88rem; color: #777; line-height: 1.6; margin-bottom: 20px; }
+.ptag { display: inline-block; padding: 6px 14px; background: rgba(78,140,62,0.08); color: var(--green); border-radius: 50px; font-size: 0.7rem; font-weight: 700; font-family: var(--ff-s); }
+@media (max-width: 768px) { .partners-grid { grid-template-columns: 1fr; } }
 </style>
-
-    <link rel="alternate" hreflang="en" href="https://jftagro.com/index.html" />
-    <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/index.html" />
-    <link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/index.html" />
-    <link rel="alternate" hreflang="x-default" href="https://jftagro.com/index.html" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G"></script>
@@ -464,6 +474,19 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
   <link rel="manifest" href="manifest.json">
+
+    <link rel="alternate" hreflang="en" href="https://jftagro.com/index.html" />
+    <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/index.html" />
+    <link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/index.html" />
+    <link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/index.html" />
+    <link rel="alternate" hreflang="es" href="https://jftagro.com/es/index.html" />
+    <link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/index.html" />
+    <link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/index.html" />
+    <link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/index.html" />
+    <link rel="alternate" hreflang="id" href="https://jftagro.com/id/index.html" />
+    <link rel="alternate" hreflang="si" href="https://jftagro.com/si/index.html" />
+    <link rel="alternate" hreflang="th" href="https://jftagro.com/th/index.html" />
+    <link rel="alternate" hreflang="x-default" href="https://jftagro.com/index.html" />
 </head>
 <body>
 <div id="preloader">
@@ -857,6 +880,8 @@ s0.parentNode.insertBefore(s1,s0);
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="images/homepage/Flag-Benin.webp" alt="Benin" loading="lazy"></div></div><h4 class="pcountry">Benin</h4><span class="prole">West Africa Hub</span><p class="pdesc">Leading entry point for Bulk Rice and Sugar in the ECOWAS market.</p><div class="ptag">Regional Distribution</div></div>
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="images/homepage/Flag-Zambia.webp" alt="Zambia" loading="lazy"></div></div><h4 class="pcountry">Zambia</h4><span class="prole">Southern Africa Hub</span><p class="pdesc">Empowering landlocked markets with reliable food security solutions.</p><div class="ptag">Logistics Command</div></div>
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="images/homepage/Flag-Indonesia.webp" alt="Indonesia" loading="lazy"></div></div><h4 class="pcountry">Indonesia</h4><span class="prole">Archipelago Trade Hub</span><p class="pdesc">Managing complex maritime supply chains across Indonesian islands.</p><div class="ptag">Supply Chain Partner</div></div>
+      <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="https://flagcdn.com/w80/my.png" alt="Malaysia" loading="lazy"></div></div><h4 class="pcountry">Malaysia</h4><span class="prole">Port Klang Hub</span><p class="pdesc">Critical transit point for refined oils and grain distribution in SE Asia.</p><div class="ptag">Logistics Partner</div></div>
+      <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="https://flagcdn.com/w80/th.png" alt="Thailand" loading="lazy"></div></div><h4 class="pcountry">Thailand</h4><span class="prole">Bangkok Gateway</span><p class="pdesc">Managing regional trade flows and high-quality grain sourcing networks.</p><div class="ptag">Regional Hub</div></div>
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner" style="background:linear-gradient(135deg,#006600,#bb0000,#006600);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🇰🇪</div></div><h4 class="pcountry">Kenya</h4><span class="prole">East Africa Gateway</span><p class="pdesc">Mombasa port hub for East African rice and grain distribution to inland markets.</p><div class="ptag">Regional Distribution</div></div>
     </div>
   </div>

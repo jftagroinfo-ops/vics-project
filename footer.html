@@ -24,6 +24,19 @@
         pointer-events: none;
     }
     
+    .jft-wide-container {
+        width: 100%;
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 55px);
+        box-sizing: border-box;
+    }
+    
+    /* Hide Google Translate artifacts */
+    #goog-gt-tt, .goog-te-balloon-frame, .goog-te-banner-frame, .goog-te-menu-frame, .goog-te-menu-value:first-child, .skiptranslate { display: none !important; }
+    .goog-text-highlight { background: none !important; box-shadow: none !important; }
+    body { top: 0 !important; }
+    
     .footer-grid { 
         display: grid; 
         grid-template-columns: 1.2fr 0.7fr 1.1fr 1fr; 
