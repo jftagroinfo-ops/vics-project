@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://translate.googleapis.com; frame-src https://www.google.com https://maps.google.com;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com https://embed.tawk.to https://*.tawk.to 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://embed.tawk.to 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://embed.tawk.to; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://translate.googleapis.com https://*.tawk.to wss://*.tawk.to https://cdn.jsdelivr.net; frame-src 'self' https://www.google.com https://maps.google.com https://embed.tawk.to;">
     <title>Indian Basmati Rice & Spices Product Catalogue | JFT Agro Overseas</title>
     <meta name="description" content="Explore our export-grade catalogue of 1121 Basmati Rice, Indian Spices (Turmeric, Chilli, Cumin), Sugar S-30, and Grains. View detailed specs and loading capacities.">
     
@@ -115,7 +115,7 @@
         
         #page-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--jft-gold); z-index: 9999; width: 0%; transition: width 0.1s; }
 
-        .jft-wide-container { max-width: 1350px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 5; }
+        .jft-container { max-width: 1350px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 5; }
         .section-padding { padding: clamp(60px, 8vw, 110px) 0; } 
         .bg-light { background-color: var(--jft-light); }
         
@@ -314,7 +314,7 @@
 
         /* --- Media Queries --- */
         @media (max-width: 1024px) {
-            .jft-wide-container { padding: 0 20px; }
+            .jft-container { padding: 0 20px; }
             .page-header { margin-top: 40px; }
             
             .modal-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -392,6 +392,28 @@ s0.parentNode.insertBefore(s1,s0);
     <link rel="alternate" hreflang="si" href="https://jftagro.com/si/products.html" />
     <link rel="alternate" hreflang="th" href="https://jftagro.com/th/products.html" />
     <link rel="alternate" hreflang="x-default" href="https://jftagro.com/products.html" />
+
+<style id="jft-core-style">
+  :root{
+    --jft-green: #4e8c3e; --jft-green-dark: #326127;
+    --jft-navy: #1a3c34; --jft-navy-dark: #0d1f1b;
+    --jft-gold: #eebf45; --jft-gold-dark: #b88d14;
+    --jft-cream: #fdfbf7; --jft-white: #ffffff;
+    --font-head: 'Merriweather', serif;
+    --font-sub: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --radius: 12px;
+  }
+  .jft-container{max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,55px);position:relative;z-index:5}
+  .section-padding{padding:clamp(80px,10vw,140px) 0}
+  .btn-jft{display:inline-flex;align-items:center;gap:12px;padding:18px 45px;border-radius:50px;font-family:var(--font-sub);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:0.85rem;cursor:pointer;transition:var(--transition);border:none;text-decoration:none;justify-content:center}
+  .btn-primary{background:linear-gradient(135deg,var(--jft-green),var(--jft-green-dark));color:#fff;box-shadow:0 10px 30px rgba(78,140,62,0.2)}
+  .btn-primary:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(78,140,62,0.3);color:#fff}
+  .btn-gold{background:var(--jft-gold);color:var(--jft-navy);box-shadow:0 10px 30px rgba(238,191,69,0.2)}
+  .btn-gold:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(238,191,69,0.3);background:var(--jft-gold-dark);color:#fff}
+</style>
+
 </head>
 <body>
 
@@ -413,7 +435,7 @@ s0.parentNode.insertBefore(s1,s0);
     </header>
 
     <div class="brand-strip">
-        <div class="jft-wide-container bs-grid">
+        <div class="jft-container bs-grid">
             <div class="bs-item"><i class="fa-solid fa-certificate bs-icon"></i><span class="bs-text">Star Export House</span></div>
             <div class="bs-item"><i class="fa-solid fa-check-double bs-icon"></i><span class="bs-text">ISO 9001:2015</span></div>
             <div class="bs-item"><i class="fa-solid fa-globe bs-icon"></i><span class="bs-text">Govt Recognized</span></div>
@@ -422,7 +444,7 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
 
     <section class="section-padding" style="background: transparent; padding-top: 0;">
-        <div class="jft-wide-container">
+        <div class="jft-container">
             <div class="search-wrapper reveal">
                 <div class="search-input-box">
                     <input type="text" id="prod-search" class="search-input" placeholder="Search by Product Name or Category..." onkeyup="performSearch()" aria-label="Search Products">
@@ -460,7 +482,7 @@ s0.parentNode.insertBefore(s1,s0);
     </section>
 
     <section class="why-choose-section">
-        <div class="jft-wide-container">
+        <div class="jft-container">
             <div class="wc-header reveal">
                 <h2>Why Choose <span>JFT Agro</span></h2>
                 <p>Delivering excellence in agro-exports with a commitment to quality, transparency, and timely global logistics.</p>
@@ -504,7 +526,7 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </div>
                     <div class="modal-actions">
-                        <button class="btn-primary" style="background:var(--jft-navy);" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+                        <button class="btn-jft btn-primary" style="background:var(--jft-navy);" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
 
@@ -650,7 +672,7 @@ s0.parentNode.insertBefore(s1,s0);
             {c:'pulses',t:'Chickpeas (Kabuli)',h:[1,2,3],i:'images/products/pulses_hd.webp',s:[['Size','7mm / 8mm / 9mm / 12mm'],['Count','42-44 / 58-60'],['Moisture','12% Max'],['Admixture','1% Max'],['Origin','India/Australia/Russia'],['HS Code','07132000'],['MOQ','1 FCL (20ft)']],l:'24 MT in 20ft',p:'25kg, 50kg Bags',f:['Turkey','UAE','Saudi Arabia','Algeria'],k:['Chickpeas','Kabuli Chana','Garbanzo Beans'],u:'chickpeas-kabuli-exporter.html'},
             {c:'pulses',t:'Green Mung Beans',h:[10,11,12],i:'images/products/pulses_hd.webp',s:[['Size','3mm - 4.5mm'],['Purity','99%'],['Moisture','12% Max'],['Admixture','1% Max'],['Origin','India/Africa/Myanmar'],['HS Code','07133100'],['MOQ','1 FCL (20ft)']],l:'24 MT in 20ft',p:'25kg, 50kg Bags',f:['Vietnam','China','Indonesia'],k:['Mung Beans','Moong Dal','Green Beans'],u:'green-mung-beans-exporter.html'},
             {c:'pulses',t:'Toor Dal (Split Pigeon Pea)',h:[1,2,3,4,5,6,7,8,9,10,11,12],i:'images/products/pulses_hd.webp',s:[['Type','Oily / Non-Oily'],['Moisture','12% Max'],['Admixture','1% Max'],['Broken','2% Max'],['Origin','Africa/Myanmar'],['HS Code','07136000'],['MOQ','1 FCL (20ft)']],l:'24 MT in 20ft',p:'25kg, 50kg PP Bags',f:['Malawi','Myanmar','Sudan'],k:['Toor Dal','Split Pigeon Pea','Processed Dal'],u:'toor-dal-split-pigeon-pea-exporter.html'}
-        ]];
+        ];
 
         const HEADER_BG = "images/Farm.webp";
 
@@ -724,7 +746,7 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
 
                         <div class="p-action">
-                            <a href="contact.html#inquiry-form" class="btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
+                            <a href="contact.html#inquiry-form" class="btn-jft btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
                             <button class="p-btn" onclick="openModal(${globalIndex})">Specs <i class="fa-solid fa-file-pdf"></i></button>
                         </div>
                     </div>
@@ -784,7 +806,7 @@ s0.parentNode.insertBefore(s1,s0);
                                 <div class="p-flags-area"><div class="p-flag-label">Top Importers</div><div class="p-market-list">${marketHTML}</div></div>
                                 <div class="p-tags-container">${tagsHTML}</div>
                                 <div class="p-action">
-                                    <a href="contact.html#inquiry-form" class="btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
+                                    <a href="contact.html#inquiry-form" class="btn-jft btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
                                     ${p.u ? `<a href="${p.u}" class="p-btn" style="text-decoration:none; display:inline-flex; align-items:center;">Details <i class="fa-solid fa-arrow-right"></i></a>` : `<button class="p-btn" onclick="openModal(${globalIndex})">Specs <i class="fa-solid fa-file-pdf"></i></button>`}
                                 </div>
                             </div>
@@ -1032,6 +1054,7 @@ s0.parentNode.insertBefore(s1,s0);
             } else {
                 document.getElementById('m-cultivation').innerText = "Year-Round Arrivals";
             }
+        }
 
         function downloadPDF() { alert("Downloading Product Data Sheet..."); }
 
@@ -1109,7 +1132,7 @@ s0.parentNode.insertBefore(s1,s0);
                         <div class="p-flags-area"><div class="p-flag-label">Top Importers</div><div class="p-market-list">${marketHTML}</div></div>
                         <div class="p-tags-container">${tagsHTML}</div>
                         <div class="p-action">
-                            <a href="contact.html#inquiry-form" class="btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
+                            <a href="contact.html#inquiry-form" class="btn-jft btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
                             <a href="${p.u}" class="p-btn" style="text-decoration:none; display:inline-flex; align-items:center;">Details <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -1153,12 +1176,12 @@ s0.parentNode.insertBefore(s1,s0);
             attachScrollObserver();
         });
         
-        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); });
-        document.addEventListener("DOMContentLoaded", () => { document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); });
-
+        document.addEventListener("DOMContentLoaded", () => { 
+            const revObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); });
+            document.querySelectorAll('.reveal').forEach(el => revObserver.observe(el)); 
+        });
     </script>
 
-    -->
 <script type="text/javascript">
 (function injectProductSchema() {
   /* ── PRODUCT CATALOGUE — update prices and names as needed ── */
