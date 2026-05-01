@@ -1,0 +1,44 @@
+name: JFT Global Sync
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # Run every 12 hours
+  push:
+    paths:
+      - '*.html'
+      - 'tools/*.py'
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install deep-translator requests
+
+      - name: Update Live Market Data & News
+        run: |
+          python tools/fetch_agro_news.py
+
+      - name: Generate Multilingual Pages & Sitemap
+        run: |
+          python tools/generate_hreflang.py
+          python tools/generate_sitemap.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "JFT Automation"
+          git config --global user.email "automation@jftagro.com"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Automated Global Sync: Regional updates and sitemap refresh"
+          git push
