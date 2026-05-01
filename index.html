@@ -130,7 +130,7 @@ img{max-width:100%;height:auto;display:block}
 .stat-item:hover{background:rgba(255,255,255,.025)}
 .stat-item::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:3px;background:var(--gold);transition:.5s}
 .stat-item:hover::before{width:75%}
-.stat-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--ff-s);font-size:clamp(5rem,10vw,11rem);font-weight:900;color:rgba(255,255,255,.025);pointer-events:none;white-space:nowrap;z-index:0;line-height:1}
+.stat-bg{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);font-family:var(--ff-s);font-size:clamp(5rem,10vw,11rem);font-weight:900;color:rgba(255,255,255,.01);pointer-events:none;white-space:nowrap;z-index:0;line-height:1;user-select:none}
 .stat-num{font-family:var(--ff-s);font-size:clamp(3.5rem,6.5vw,6rem);font-weight:900;color:#fff;line-height:1;display:block;position:relative;z-index:1}
 .stat-unit{font-family:var(--ff-s);font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:900;color:var(--gold)}
 .stat-div{width:32px;height:2px;background:var(--gold);margin:14px auto;opacity:.5}
@@ -581,7 +581,7 @@ s0.parentNode.insertBefore(s1,s0);
   <div class="about-inner">
     <div class="about-left reveal-left">
       <div class="about-tag-line">Corporate Profile</div>
-      <h2 class="about-h">Bridging Indian Farms<br>To <em>Global Ports</em></h2>
+      <h2 class="about-h">Bridging Indian Farms<br>To Global <em>Ports</em></h2>
       <p class="about-p">JFT Agro Overseas is not just a supplier — we are your strategic partner in the global food supply chain. As an ISO 9001:2015 and HACCP certified Star Export House, we bridge India's fertile lands to international markets with precision logistics and uncompromised quality control.</p>
       <p class="about-p" style="margin-bottom:30px;">Unlike many competitors who trade, JFT Agro <strong style="color:#fff;">manufactures</strong>. Our in-house milling unit in Mumbai gives us total control over quality, pricing, and timeline — delivering factory-direct value to every buyer.</p>
       <div class="cert-badges">
@@ -613,15 +613,15 @@ s0.parentNode.insertBefore(s1,s0);
   <div class="cert-lbl">Accreditations &amp; Certifications</div>
   <div class="cert-wrap" id="certSlider">
     <div class="cert-track" id="certTrack">
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/FSSAI.webp" class="cert-logo" alt="FSSAI" loading="lazy"><span class="cert-name">Food Safety</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/STAR HOUSE.webp" class="cert-logo" alt="Star Export House" loading="lazy"><span class="cert-name">Star Export House</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/APEDA.webp" class="cert-logo" alt="APEDA" loading="lazy"><span class="cert-name">APEDA Govt.</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/FSSAI.webp" class="cert-logo" alt="FSSAI" loading="lazy"><span class="cert-name">FSSAI Safety</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/STAR HOUSE.webp" class="cert-logo" alt="Star Export House" loading="lazy"><span class="cert-name">Star House</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/APEDA.webp" class="cert-logo" alt="APEDA" loading="lazy"><span class="cert-name">APEDA India</span></div></div>
       <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/SPICES_BOARD.webp" class="cert-logo" alt="Spices Board" loading="lazy"><span class="cert-name">Spices Board</span></div></div>
       <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/COCONUT_BOARD.webp" class="cert-logo" alt="Coconut Board" loading="lazy"><span class="cert-name">Coconut Board</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/AEO.webp" class="cert-logo" alt="AEO" loading="lazy"><span class="cert-name">Auth. Operator</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/IEC.webp" class="cert-logo" alt="IEC" loading="lazy"><span class="cert-name">Import Export Code</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/AEO.webp" class="cert-logo" alt="AEO" loading="lazy"><span class="cert-name">AEO Operator</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/IEC.webp" class="cert-logo" alt="IEC" loading="lazy"><span class="cert-name">IEC Code</span></div></div>
       <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/MSME.webp" class="cert-logo" alt="MSME" loading="lazy"><span class="cert-name">MSME India</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/DGFT.webp" class="cert-logo" alt="DGFT" loading="lazy"><span class="cert-name">DGFT</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/DGFT.webp" class="cert-logo" alt="DGFT" loading="lazy"><span class="cert-name">DGFT Govt</span></div></div>
       <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/COFFEE_BOARD.webp" class="cert-logo" alt="Coffee Board" loading="lazy"><span class="cert-name">Coffee Board</span></div></div>
     </div>
   </div>

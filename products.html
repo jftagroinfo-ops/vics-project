@@ -154,13 +154,13 @@
         .search-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: var(--jft-primary); font-size: 1.2rem; pointer-events: none; }
 
         .tab-wrapper { position: sticky; top: 90px; max-width: 1300px; margin: 0 auto 30px auto; z-index: 999; display: flex; align-items: center; padding: 10px 20px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; transition: 0.3s; }
-        .cat-scroll-view { overflow-x: auto; display: flex; gap: 10px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 5px; width: 100%; cursor: grab; scroll-snap-type: x mandatory; }
+        .cat-scroll-view { overflow-x: auto; display: flex; gap: 12px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 10px 100px; width: 100%; cursor: grab; scroll-snap-type: x mandatory; position: relative; }
         .cat-scroll-view:active { cursor: grabbing; }
         .cat-scroll-view::-webkit-scrollbar { display: none; }
         
-        .tab-arrow { width: 35px; height: 35px; background: var(--jft-navy); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 12; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .tab-arrow:hover { background: var(--jft-gold); color: var(--jft-navy); transform: scale(1.1); }
-        .tab-left { margin-right: 10px; } .tab-right { margin-left: 10px; }
+        .tab-arrow { width: 38px; height: 38px; background: var(--jft-navy); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 12; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); flex-shrink: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: absolute; top: 50%; transform: translateY(-50%); }
+        .tab-arrow:hover { background: var(--jft-gold); color: var(--jft-navy); transform: translateY(-50%) scale(1.1); }
+        .tab-left { left: 10px; } .tab-right { right: 10px; }
         
         .cat-btn { flex: 0 0 auto; padding: 10px 20px; background: transparent; border: 1px solid #eee; border-radius: 50px; font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #555; cursor: pointer; transition: all 0.3s ease; font-size: 0.75rem; white-space: nowrap; pointer-events: auto; scroll-snap-align: start; }
         .cat-btn:hover { background: rgba(78, 140, 62, 0.05); color: var(--jft-primary); border-color: rgba(78, 140, 62, 0.3); transform: scale(1.05); }
@@ -219,8 +219,8 @@
         .p-tag::before { content: '#'; color: var(--jft-primary); margin-right: 1px; }
 
         .p-action { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; padding-top: 10px; }
-        .p-btn { color: var(--jft-primary); font-weight: 700; font-family: var(--font-sub); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; transition: 0.3s; cursor: pointer; border: none; background: none; }
-        .p-btn:hover { color: var(--jft-navy); gap: 12px; }
+        .p-btn { flex: 1; color: var(--jft-primary); font-weight: 700; font-family: var(--font-sub); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; cursor: pointer; border: 1px solid rgba(78,140,62,0.2); background: rgba(78,140,62,0.03); padding: 10px; border-radius: 50px; }
+        .p-btn:hover { background: var(--jft-primary); color: #fff; }
 
         /* --- "Why Choose Us" Section --- */
         .why-choose-section { background: linear-gradient(135deg, #112621 0%, #1a3c34 100%); padding: clamp(60px, 8vw, 120px) 0; position: relative; margin-top: 50px; }
@@ -745,9 +745,9 @@ s0.parentNode.insertBefore(s1,s0);
                             ${tagsHTML}
                         </div>
 
-                        <div class="p-action">
-                            <a href="contact.html#inquiry-form" class="btn-jft btn-primary" style="padding:10px 20px; font-size:0.75rem;">Get Quote</a>
-                            <button class="p-btn" onclick="openModal(${globalIndex})">Specs <i class="fa-solid fa-file-pdf"></i></button>
+                        <div class="p-action" style="display:flex; gap:10px;">
+                            <a href="contact.html#inquiry-form" class="btn-jft btn-primary" style="flex:1.2; padding:12px; font-size:0.75rem;">Get Quote</a>
+                            <button class="p-btn" onclick="openModal(${globalIndex})">Specs <i class="fa-solid fa-file-invoice"></i></button>
                         </div>
                     </div>
                 </div>`;
