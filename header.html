@@ -11,6 +11,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<!-- Google Translate Widget -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <style>
   :root {
     --jft-navy: #1a3c34;
@@ -182,6 +190,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 </style>
 
+<div id="google_translate_element" style="display:none;"></div>
 <div id="page-progress"></div>
 
 <div class="top-dashboard">
@@ -247,6 +256,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a href="about.html" class="nav-link" onclick="toggleMenu()">About</a>
       <a href="products.html" class="nav-link" onclick="toggleMenu()">Products</a>
       <a href="infrastructure.html" class="nav-link" onclick="toggleMenu()">Infra</a>
+      <a href="certificates.html" class="nav-link" onclick="toggleMenu()">Certificates</a>
+      <a href="quality-control.html" class="nav-link" onclick="toggleMenu()">Quality</a>
       <a href="blog.html" class="nav-link" onclick="toggleMenu()">Insights</a>
       <div class="nav-link dropdown-markets" style="position:relative;cursor:pointer;" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-label="Markets submenu">
         Markets <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
@@ -258,6 +269,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
       <a href="quote-calculator.html" class="nav-link" onclick="toggleMenu()">Get Quote</a>
+      <a href="faq.html" class="nav-link" onclick="toggleMenu()">FAQ</a>
       <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
       <a href="contact.html#inquiry-form" class="nav-btn-action desktop-only" onclick="toggleMenu()">Request PI</a>
       <div class="mobile-social-menu">
@@ -395,7 +407,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   function translateTo(langCode) {
     const select = document.querySelector('.goog-te-combo');
-    if (select) { select.value = langCode; select.dispatchEvent(new Event('change')); }
+    if (select) { 
+        select.value = langCode; 
+        select.dispatchEvent(new Event('change')); 
+    }
     const m = document.getElementById('langMenu');
     if (m) m.classList.remove('show');
   }

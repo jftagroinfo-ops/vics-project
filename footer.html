@@ -174,6 +174,54 @@
         .trust-group { justify-content: center; }
         .f-trust-bar { flex-direction: column; text-align: center; }
     }
+
+    /* --- Smart WhatsApp Widget --- */
+    .smart-wa-widget {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        cursor: pointer;
+        z-index: 9999;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .smart-wa-widget:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        color: white;
+    }
+    .smart-wa-tooltip {
+        position: absolute;
+        right: 75px;
+        background: white;
+        color: var(--jft-navy);
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-family: var(--font-sub);
+        font-weight: 700;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, transform 0.3s;
+        transform: translateX(10px);
+        pointer-events: none;
+    }
+    .smart-wa-widget:hover .smart-wa-tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
 </style>
 
 <footer class="footer-section">
@@ -245,7 +293,7 @@
         </div>
 
         <div class="footer-bottom">
-            <div>&copy; <span id="footer-year"></span> JFT Agro Overseas LLPcopy; 1980–<span id="footer-year"></span> JFT Agro Overseas LLP. All Rights Reserved.</div>
+            <div>&copy; <span id="footer-year"></span> JFT Agro Overseas LLP. All Rights Reserved.</div>
             <div>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Trade</a>
@@ -255,7 +303,29 @@
     </div>
 </footer>
 
+<!-- Smart WhatsApp Widget HTML -->
+<a id="smart-wa-link" href="https://wa.me/918425057274?text=Hello" target="_blank" rel="noopener noreferrer" class="smart-wa-widget" aria-label="Chat with us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <div class="smart-wa-tooltip">Get Live Quote</div>
+</a>
+
 <script>
     document.getElementById('footer-year').innerText = new Date().getFullYear();
+
+    // Smart WhatsApp Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const waLink = document.getElementById('smart-wa-link');
+        if (waLink) {
+            // Get product name if on product page, else use document title
+            let interest = document.title.split('|')[0].trim();
+            const h1 = document.querySelector('h1');
+            if (h1 && window.location.pathname.includes('-exporter')) {
+                interest = h1.innerText.trim();
+            }
+            
+            const message = `Hello JFT Agro, I am interested in ${interest}. Please share the latest FOB/CIF prices and specifications.`;
+            waLink.href = `https://wa.me/918425057274?text=${encodeURIComponent(message)}`;
+        }
+    });
 </script>
 
