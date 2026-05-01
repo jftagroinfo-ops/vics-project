@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" href="images/jft logo.png">
   <meta property="og:title" content="Free Export Quote Calculator | JFT Agro">
   <meta property="og:description" content="Estimate your CIF/FOB price for Indian agro commodities in seconds.">
-  <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.jpg">
+  <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
   <meta name="theme-color" content="#1a3c34">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Quote Calculator","item":"https://jftagro.com/quote-calculator.html"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,6 +96,30 @@
     .info-card p{font-size:0.85rem;color:#666;line-height:1.5;margin:0}
     @media(max-width:480px){.calc-inputs{padding:25px 20px}.calc-results{padding:25px 20px}.main-price .amount{font-size:2.2rem}}
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MWZ2ZWZP4G');
+  </script>
+
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69f470aa8523f61c32f239ee/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <div id="header-placeholder"></div>
@@ -190,15 +214,23 @@
                   </optgroup>
                 </select>
               </div>
+            <div class="input-row">
+              <div class="field">
+                <label for="calc-container-size">Container Size</label>
+                <select id="calc-container-size" onchange="calculate()">
+                  <option value="20ft">20ft Dry Container (Standard)</option>
+                  <option value="40ft">40ft Dry Container</option>
+                </select>
+              </div>
               <div class="field">
                 <label for="calc-packing">Packing Type</label>
                 <select id="calc-packing" onchange="calculate()">
-                  <option value="pp_50kg">50kg PP Bag (Bulk)</option>
-                  <option value="pp_25kg">25kg PP Bag</option>
-                  <option value="jute_50kg">50kg Jute Bag</option>
-                  <option value="nonwoven_40kg">40kg Non-Woven Bag</option>
-                  <option value="branded_5kg">5kg Branded Consumer Pack</option>
-                  <option value="fibc_jumbo">1MT Jumbo Bag (FIBC)</option>
+                  <option value="pp_50kg" data-kg="50">50kg PP Bag (Bulk)</option>
+                  <option value="pp_25kg" data-kg="25">25kg PP Bag</option>
+                  <option value="jute_50kg" data-kg="50">50kg Jute Bag</option>
+                  <option value="nonwoven_40kg" data-kg="40">40kg Non-Woven Bag</option>
+                  <option value="branded_5kg" data-kg="5">5kg Branded Consumer Pack</option>
+                  <option value="fibc_jumbo" data-kg="1000">1MT Jumbo Bag (FIBC)</option>
                 </select>
               </div>
             </div>
@@ -214,8 +246,8 @@
                 </select>
               </div>
               <div class="field">
-                <label for="calc-containers">No. of Containers (20ft)</label>
-                <input type="number" id="calc-containers" min="1" max="50" value="1">
+                <label for="calc-containers">No. of Containers</label>
+                <input type="number" id="calc-containers" min="1" max="50" value="1" onchange="calculate()">
               </div>
             </div>
 
@@ -325,19 +357,42 @@
 
     function calculate() {
       const prodKey = document.getElementById('calc-product').value;
-      const qty = parseFloat(document.getElementById('calc-qty').value) || 24;
       const portKey = document.getElementById('calc-port').value;
-      const packKey = document.getElementById('calc-packing').value;
+      
+      const packEl = document.getElementById('calc-packing');
+      const packKey = packEl.value;
+      const bagKg = parseFloat(packEl.options[packEl.selectedIndex].getAttribute('data-kg'));
+      
+      const containerSize = document.getElementById('calc-container-size').value;
       const inco = document.getElementById('calc-inco').value;
       const containers = parseInt(document.getElementById('calc-containers').value) || 1;
 
       const prod = PRODUCTS[prodKey];
+      
+      // Calculate MT per container based on 20ft vs 40ft
+      // Usually, 40ft holds about 1.1x to 1.15x of 20ft for heavy items like rice due to weight limits, 
+      // but for spices, it holds 2x the volume. Let's use a standard multiplier of 1.2x for heavy grains, 2x for light spices.
+      let mtPerContainer = prod.load;
+      if (containerSize === '40ft') {
+          if (prod.cat === 'Spice') mtPerContainer = prod.load * 2;
+          else mtPerContainer = Math.min(28.5, prod.load * 1.2); // max road weight limit
+      }
+      
+      // Calculate bags per container
+      const totalKgPerContainer = mtPerContainer * 1000;
+      const bagsPerContainer = Math.floor(totalKgPerContainer / bagKg);
+      
       const freightPerContainer = FREIGHT[portKey] || 800;
-      const mtPerContainer = prod.load;
-      const freightPerMT = portKey === 'ex_mill' ? 0 : (freightPerContainer / mtPerContainer);
+      // 40ft freight is usually higher, let's assume 1.4x of 20ft
+      const actualFreightPerContainer = containerSize === '40ft' ? freightPerContainer * 1.4 : freightPerContainer;
+      
+      const freightPerMT = portKey === 'ex_mill' ? 0 : (actualFreightPerContainer / mtPerContainer);
       const insurance = portKey === 'ex_mill' ? 0 : (prod.fob * 0.005); /* ~0.5% of FOB */
       const packPremium = PACKING[packKey] || 0;
       const totalQty = containers * mtPerContainer;
+      
+      // Update qty input box to reflect exact MT
+      document.getElementById('calc-qty').value = totalQty.toFixed(1);
 
       const fobMT = prod.fob + packPremium;
       const cnfMT = fobMT + freightPerMT;
@@ -351,7 +406,7 @@
 
       const totalValue = displayMT * totalQty;
 
-      lastResult = { prodKey, qty:totalQty, portKey, packKey, inco, displayMT, totalValue, fobMT, cnfMT, cifMT, prod, containers, mtPerContainer, freightPerMT, insurance, packPremium };
+      lastResult = { prodKey, qty:totalQty, portKey, packKey, inco, displayMT, totalValue, fobMT, cnfMT, cifMT, prod, containers, containerSize, mtPerContainer, bagsPerContainer, freightPerMT, insurance, packPremium };
 
       renderResults(lastResult, displayLabel);
     }
@@ -379,7 +434,7 @@
       div.innerHTML += `<div class="breakdown-row total-row" style="padding-top:6px;margin-top:-6px;"><span class="item-name" style="font-size:0.85rem;">Total for ${r.containers} container${r.containers>1?'s':''} (~${r.mtPerContainer * r.containers} MT)</span><span class="item-val" style="color:#fff;">$${r.totalValue.toLocaleString('en-US',{maximumFractionDigits:0})}</span></div>`;
 
       const prod = r.prod;
-      document.getElementById('resultMeta').innerHTML = `<strong>Product:</strong> ${prod.name}<br><strong>HS Code:</strong> ${prod.hs}<br><strong>Estimated Load:</strong> ${r.mtPerContainer} MT / 20ft container<br><strong>Port of Loading:</strong> Mundra / Kandla / JNPT`;
+      document.getElementById('resultMeta').innerHTML = `<strong>Product:</strong> ${prod.name}<br><strong>HS Code:</strong> ${prod.hs}<br><strong>Estimated Load:</strong> ${r.mtPerContainer.toFixed(1)} MT / ${r.containerSize} container<br><strong>Bag Capacity:</strong> ~${r.bagsPerContainer.toLocaleString('en-US')} bags / container<br><strong>Port of Loading:</strong> Mundra / Kandla / JNPT`;
 
       /* Incoterms comparison tabs */
       const tabsEl = document.getElementById('incoTabs');
