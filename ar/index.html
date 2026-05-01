@@ -271,7 +271,7 @@ img{max-width:100%;height:auto;display:block}
 .pc-link i{transition:transform .3s}
 .pc:hover .pc-link i{transform:translateX(4px)}
 /* ─── LOGISTICS PARALLAX ─── */
-.logistics-banner{background-image:url('images/INFRASTRUCTURE/logistics.webp');background-attachment:fixed;background-size:cover;background-position:center;position:relative;color:#fff;overflow:hidden}
+.logistics-banner{background-image:url('../images/INFRASTRUCTURE/logistics.webp');background-attachment:fixed;background-size:cover;background-position:center;position:relative;color:#fff;overflow:hidden}
 .logistics-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,18,15,.97),rgba(26,60,52,.88));z-index:1}
 .log-inner{position:relative;z-index:5;padding:clamp(70px,10vw,150px) 0}
 .log-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -434,12 +434,22 @@ img{max-width:100%;height:auto;display:block}
   .export-node.active-mobile .country-reveal{max-height:300px;opacity:1;visibility:visible;margin-top:15px;overflow-y:auto}
   .network-visual{height:auto;flex-direction:column;padding:20px 0}
 }
+/* ─── PARTNERS GRID ─── */
+.partners-section { background: #fff; padding: 100px 0; }
+.partners-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; }
+.pcard { background: #fdfbf7; border: 1px solid var(--border); border-radius: 24px; padding: 35px 30px; transition: .4s; position: relative; overflow: hidden; }
+.pcard:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 20px 50px rgba(26,60,52,0.1); background: #fff; }
+.pstatus { font-family: var(--ff-s); font-size: 0.62rem; font-weight: 800; color: var(--green); display: flex; align-items: center; gap: 6px; margin-bottom: 20px; letter-spacing: 1px; }
+.pdot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); }
+.pflag { width: 70px; height: 70px; margin-bottom: 25px; position: relative; }
+.pflag-inner { width: 100%; height: 100%; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.pflag-inner img { width: 100%; height: 100%; object-fit: cover; }
+.pcountry { font-family: var(--ff-h); font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+.prole { font-family: var(--ff-s); font-size: 0.72rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 15px; }
+.pdesc { font-size: 0.88rem; color: #777; line-height: 1.6; margin-bottom: 20px; }
+.ptag { display: inline-block; padding: 6px 14px; background: rgba(78,140,62,0.08); color: var(--green); border-radius: 50px; font-size: 0.7rem; font-weight: 700; font-family: var(--ff-s); }
+@media (max-width: 768px) { .partners-grid { grid-template-columns: 1fr; } }
 </style>
-
-    <link rel="alternate" hreflang="en" href="https://jftagro.com/index.html" />
-    <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/index.html" />
-    <link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/index.html" />
-    <link rel="alternate" hreflang="x-default" href="https://jftagro.com/index.html" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G"></script>
@@ -463,11 +473,19 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="../manifest.json">
 
     <link rel="alternate" hreflang="en" href="https://jftagro.com/index.html" />
     <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/index.html" />
     <link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/index.html" />
+    <link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/index.html" />
+    <link rel="alternate" hreflang="es" href="https://jftagro.com/es/index.html" />
+    <link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/index.html" />
+    <link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/index.html" />
+    <link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/index.html" />
+    <link rel="alternate" hreflang="id" href="https://jftagro.com/id/index.html" />
+    <link rel="alternate" hreflang="si" href="https://jftagro.com/si/index.html" />
+    <link rel="alternate" hreflang="th" href="https://jftagro.com/th/index.html" />
     <link rel="alternate" hreflang="x-default" href="https://jftagro.com/index.html" />
 </head>
 <body>
@@ -502,18 +520,18 @@ s0.parentNode.insertBefore(s1,s0);
         <h1 class="hero-title-modern">Global Export<br><span class="gold-text">Command Center</span><strong>Powered by Indian Agriculture</strong></h1>
         <p class="hero-desc-modern">Bridging India's fertile lands to 20+ international markets with precision quality control, factory-direct pricing, and guaranteed container availability.</p>
         <div class="hero-actions">
-          <a href="products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
-          <a href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Get Custom Quote</a>
+          <a href="../products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
+          <a href="../contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Get Custom Quote</a>
         </div>
       </div>
-      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="images/products/basmati_rice_hd.webp" alt="Premium Basmati Rice Export" loading="eager" fetchpriority="high" onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80&auto=format&fit=crop'"></div></div>
+      <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="../images/products/basmati_rice_hd.webp" alt="Premium Basmati Rice Export" loading="eager" fetchpriority="high" onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80&auto=format&fit=crop'"></div></div>
     </div>
     <div class="hero-content-slide">
       <div class="hero-text-box">
         <span class="hero-tag-modern"><i class="fa-solid fa-wheat-awn"></i> Premium Grains</span>
         <h2 class="hero-title-modern">The Grain Bowl<br><span class="gold-text">Of The World</span><strong>Basmati, Non-Basmati &amp; Wheat</strong></h2>
         <p class="hero-desc-modern">Extra-long grain 1121 and 1509 Basmati. Sortex-cleaned, fumigated, and packed to your exact specs for any destination port.</p>
-        <div class="hero-actions"><a href="products.html" class="btn-primary">Explore Rice Varieties</a><a href="contact.html#inquiry-form" class="btn-outline">Request Bulk Pricing</a></div>
+        <div class="hero-actions"><a href="../products.html" class="btn-primary">Explore Rice Varieties</a><a href="../contact.html#inquiry-form" class="btn-outline">Request Bulk Pricing</a></div>
       </div>
       <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=85&auto=format&fit=crop" alt="Premium Basmati Rice" loading="lazy"></div></div>
     </div>
@@ -522,7 +540,7 @@ s0.parentNode.insertBefore(s1,s0);
         <span class="hero-tag-modern"><i class="fa-solid fa-pepper-hot"></i> Exotic Spices</span>
         <h2 class="hero-title-modern">The Spice Route<br><span>Reimagined</span><strong>Turmeric, Chilli &amp; Cardamom</strong></h2>
         <p class="hero-desc-modern">High-curcumin turmeric from Sangli. Stem-cut Guntur chilli. Idukki green cardamom. Every batch third-party certified.</p>
-        <div class="hero-actions"><a href="products.html" class="btn-primary">View Spices</a><a href="contact.html#inquiry-form" class="btn-outline">Get Quote</a></div>
+        <div class="hero-actions"><a href="../products.html" class="btn-primary">View Spices</a><a href="../contact.html#inquiry-form" class="btn-outline">Get Quote</a></div>
       </div>
       <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=85&auto=format&fit=crop" alt="Indian Spices Export" loading="lazy"></div></div>
     </div>
@@ -531,7 +549,7 @@ s0.parentNode.insertBefore(s1,s0);
         <span class="hero-tag-modern"><i class="fa-solid fa-ship"></i> Masters of Seas</span>
         <h2 class="hero-title-modern">Borders Are<br><span>Imaginary Lines</span><strong>Maersk &middot; MSC &middot; CMA-CGM</strong></h2>
         <p class="hero-desc-modern">Committed volume agreements mean guaranteed container availability even in peak season. Zero delay, rapid port clearance, full documentation support.</p>
-        <div class="hero-actions"><a href="contact.html#inquiry-form" class="btn-primary">Get Export Quote</a><a href="quote-calculator.html" class="btn-outline">CIF Calculator</a></div>
+        <div class="hero-actions"><a href="../contact.html#inquiry-form" class="btn-primary">Get Export Quote</a><a href="../quote-calculator.html" class="btn-outline">CIF Calculator</a></div>
       </div>
       <div class="hero-visual-card"><div class="glass-card tilt-card"><img src="https://images.unsplash.com/photo-1605000797498-6f2145b1d53d?w=800&q=85&auto=format&fit=crop" alt="Export Logistics" loading="lazy"></div></div>
     </div>
@@ -583,8 +601,8 @@ s0.parentNode.insertBefore(s1,s0);
         <div class="feat-card d4"><i class="fa-solid fa-boxes-stacked feat-icon"></i><div class="feat-title">Bulk Capabilities</div><p class="feat-text">Single containers to full break-bulk vessel charters — we scale to your need.</p></div>
       </div>
       <div class="about-cta">
-        <a href="contact.html#inquiry-form" class="btn-primary">Get a Quote</a>
-        <a href="about.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#4e8c3e;text-transform:uppercase;letter-spacing:1.5px;">Our Story <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="../contact.html#inquiry-form" class="btn-primary">Get a Quote</a>
+        <a href="../about.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#4e8c3e;text-transform:uppercase;letter-spacing:1.5px;">Our Story <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -702,7 +720,7 @@ s0.parentNode.insertBefore(s1,s0);
           <div class="manu-spec"><i class="fa-solid fa-eye"></i> Sortex Z+ Optical Sort</div>
           <div class="manu-spec"><i class="fa-solid fa-flask"></i> In-house NABL Lab</div>
         </div>
-        <a href="infrastructure.html" class="btn-gold">Tour Our Facility <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="../infrastructure.html" class="btn-gold">Tour Our Facility <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -753,15 +771,15 @@ s0.parentNode.insertBefore(s1,s0);
       <p class="section-desc">Sourced, processed, and packed to FDA, EU, and SFDA standards. Hover any card to explore varieties.</p>
     </div>
     <div class="prod-grid reveal">
-      <div class="pc"><div class="pc-inner"><img src="images/products/basmati_rice_hd.webp" class="pc-img" alt="Basmati Rice Export" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Flagship Product</div><div class="pc-title">Premium Rice</div><div class="pc-varieties"><ul><li>1121 Basmati (Extra Long Grain)</li><li>1509 Basmati Sella</li><li>IR 64 White &amp; Parboiled</li><li>Swarna &middot; 100% Broken</li></ul></div><a href="products.html" class="pc-link">Explore All Varieties <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/products/red_chilli_hd.webp" class="pc-img" alt="Indian Spices" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Spices</div><div class="pc-title">Indian Spices</div><div class="pc-varieties"><ul><li>Turmeric &middot; Red Chilli</li><li>Cumin &middot; Coriander</li><li>Green Cardamom</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="../images/homepage/SUGAR.webp" class="pc-img" alt="Indian Sugar" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Commodity</div><div class="pc-title">Indian Sugar</div><div class="pc-varieties"><ul><li>S-30 &middot; M-30 &middot; ICUMSA 45</li><li>Jaggery &middot; Brown Sugar</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/products/wheat_flour_hd.webp" class="pc-img" alt="Wheat Flour" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Grains</div><div class="pc-title">Wheat &amp; Flour</div><div class="pc-varieties"><ul><li>Milling Wheat &middot; Maida</li><li>Semolina &middot; Atta</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="images/products/oilseeds_hd.webp" class="pc-img" alt="Oilseeds" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1612257416648-3a19c0c5df43?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Oilseeds</div><div class="pc-title">Seeds &amp; Oilseeds</div><div class="pc-varieties"><ul><li>Natural &amp; Hulled Sesame</li><li>Groundnut &middot; Niger</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="../images/homepage/PULSES.webp" class="pc-img" alt="Pulses" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1618897996318-5a901fa4f5c3?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Pulses</div><div class="pc-title">Dal &amp; Pulses</div><div class="pc-varieties"><ul><li>Chickpeas &middot; Yellow Peas</li><li>Red Lentils &middot; Moong</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="../images/homepage/ANIMAL FEED.webp" class="pc-img" alt="Animal Feed" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1605000797498-6f2145b1d53d?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Feeds</div><div class="pc-title">Animal Feeds</div><div class="pc-varieties"><ul><li>Soybean Meal &middot; Maize</li><li>Sorghum &middot; Rice Bran</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc"><div class="pc-inner"><img src="../images/homepage/RAISINS.webp" class="pc-img" alt="Raisins" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1508747703725-719777637510?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Dry Fruit</div><div class="pc-title">Raisins</div><div class="pc-varieties"><ul><li>Malayar &middot; Golden &middot; Black</li><li>Green Raisins</li></ul></div><a href="products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
-      <div class="pc" style="cursor:default;"><div class="pc-inner" style="background:#1a3c34;border-radius:20px;min-height:280px;display:flex;flex-direction:column;justify-content:center;padding:40px;"><i class="fa-solid fa-boxes-stacked" style="font-size:2.5rem;color:#eebf45;margin-bottom:20px;display:block;"></i><div class="pc-title" style="color:#fff;font-size:1.7rem;margin-bottom:14px;">16+ Product<br>Categories</div><p style="color:rgba(255,255,255,.58);font-size:.88rem;line-height:1.65;margin-bottom:24px;">Full export catalogue with specs, grades, and packing options for every market.</p><a href="products.html" class="btn-gold" style="padding:14px 28px;font-size:.78rem;align-self:flex-start;">View Full Catalogue <i class="fa-solid fa-arrow-right"></i></a></div></div>
+      <div class="pc"><div class="pc-inner"><img src="../images/products/basmati_rice_hd.webp" class="pc-img" alt="Basmati Rice Export" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Flagship Product</div><div class="pc-title">Premium Rice</div><div class="pc-varieties"><ul><li>1121 Basmati (Extra Long Grain)</li><li>1509 Basmati Sella</li><li>IR 64 White &amp; Parboiled</li><li>Swarna &middot; 100% Broken</li></ul></div><a href="../products.html" class="pc-link">Explore All Varieties <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="../images/products/red_chilli_hd.webp" class="pc-img" alt="Indian Spices" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Spices</div><div class="pc-title">Indian Spices</div><div class="pc-varieties"><ul><li>Turmeric &middot; Red Chilli</li><li>Cumin &middot; Coriander</li><li>Green Cardamom</li></ul></div><a href="../products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="../images/homepage/SUGAR.webp" class="pc-img" alt="Indian Sugar" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Commodity</div><div class="pc-title">Indian Sugar</div><div class="pc-varieties"><ul><li>S-30 &middot; M-30 &middot; ICUMSA 45</li><li>Jaggery &middot; Brown Sugar</li></ul></div><a href="../products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="../images/products/wheat_flour_hd.webp" class="pc-img" alt="Wheat Flour" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Grains</div><div class="pc-title">Wheat &amp; Flour</div><div class="pc-varieties"><ul><li>Milling Wheat &middot; Maida</li><li>Semolina &middot; Atta</li></ul></div><a href="../products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="../images/products/oilseeds_hd.webp" class="pc-img" alt="Oilseeds" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1612257416648-3a19c0c5df43?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Oilseeds</div><div class="pc-title">Seeds &amp; Oilseeds</div><div class="pc-varieties"><ul><li>Natural &amp; Hulled Sesame</li><li>Groundnut &middot; Niger</li></ul></div><a href="../products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="../images/homepage/PULSES.webp" class="pc-img" alt="Pulses" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1618897996318-5a901fa4f5c3?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Pulses</div><div class="pc-title">Dal &amp; Pulses</div><div class="pc-varieties"><ul><li>Chickpeas &middot; Yellow Peas</li><li>Red Lentils &middot; Moong</li></ul></div><a href="../products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="../images/homepage/ANIMAL FEED.webp" class="pc-img" alt="Animal Feed" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1605000797498-6f2145b1d53d?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Feeds</div><div class="pc-title">Animal Feeds</div><div class="pc-varieties"><ul><li>Soybean Meal &middot; Maize</li><li>Sorghum &middot; Rice Bran</li></ul></div><a href="../products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc"><div class="pc-inner"><img src="../images/homepage/RAISINS.webp" class="pc-img" alt="Raisins" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1508747703725-719777637510?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Dry Fruit</div><div class="pc-title">Raisins</div><div class="pc-varieties"><ul><li>Malayar &middot; Golden &middot; Black</li><li>Green Raisins</li></ul></div><a href="../products.html" class="pc-link">View All <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
+      <div class="pc" style="cursor:default;"><div class="pc-inner" style="background:#1a3c34;border-radius:20px;min-height:280px;display:flex;flex-direction:column;justify-content:center;padding:40px;"><i class="fa-solid fa-boxes-stacked" style="font-size:2.5rem;color:#eebf45;margin-bottom:20px;display:block;"></i><div class="pc-title" style="color:#fff;font-size:1.7rem;margin-bottom:14px;">16+ Product<br>Categories</div><p style="color:rgba(255,255,255,.58);font-size:.88rem;line-height:1.65;margin-bottom:24px;">Full export catalogue with specs, grades, and packing options for every market.</p><a href="../products.html" class="btn-gold" style="padding:14px 28px;font-size:.78rem;align-self:flex-start;">View Full Catalogue <i class="fa-solid fa-arrow-right"></i></a></div></div>
     </div>
   </div>
 </section>
@@ -775,7 +793,7 @@ s0.parentNode.insertBefore(s1,s0);
           <span class="brand-tag brand-tag-white">Export Logistics</span>
           <h2 class="section-title" style="margin:20px 0 25px;">Masters of<br><span>Logistics</span></h2>
           <p>We don't just sell commodities — we deliver contracts. With committed volume agreements, we guarantee container availability even during Ramadan and harvest peak seasons.</p>
-          <a href="quote-calculator.html" class="btn-gold" style="margin-top:10px;">CIF Price Calculator <i class="fa-solid fa-calculator"></i></a>
+          <a href="../quote-calculator.html" class="btn-gold" style="margin-top:10px;">CIF Price Calculator <i class="fa-solid fa-calculator"></i></a>
         </div>
         <div class="log-stats reveal-right">
           <div class="log-stat"><div class="log-icon"><i class="fa-solid fa-ship"></i></div><div><h4>Premium Shipping Lines</h4><p>MSC &middot; Maersk &middot; CMA CGM — dedicated slot agreements</p></div></div>
@@ -862,6 +880,8 @@ s0.parentNode.insertBefore(s1,s0);
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="../images/homepage/Flag-Benin.webp" alt="Benin" loading="lazy"></div></div><h4 class="pcountry">Benin</h4><span class="prole">West Africa Hub</span><p class="pdesc">Leading entry point for Bulk Rice and Sugar in the ECOWAS market.</p><div class="ptag">Regional Distribution</div></div>
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="../images/homepage/Flag-Zambia.webp" alt="Zambia" loading="lazy"></div></div><h4 class="pcountry">Zambia</h4><span class="prole">Southern Africa Hub</span><p class="pdesc">Empowering landlocked markets with reliable food security solutions.</p><div class="ptag">Logistics Command</div></div>
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="../images/homepage/Flag-Indonesia.webp" alt="Indonesia" loading="lazy"></div></div><h4 class="pcountry">Indonesia</h4><span class="prole">Archipelago Trade Hub</span><p class="pdesc">Managing complex maritime supply chains across Indonesian islands.</p><div class="ptag">Supply Chain Partner</div></div>
+      <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="https://flagcdn.com/w80/my.png" alt="Malaysia" loading="lazy"></div></div><h4 class="pcountry">Malaysia</h4><span class="prole">Port Klang Hub</span><p class="pdesc">Critical transit point for refined oils and grain distribution in SE Asia.</p><div class="ptag">Logistics Partner</div></div>
+      <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="https://flagcdn.com/w80/th.png" alt="Thailand" loading="lazy"></div></div><h4 class="pcountry">Thailand</h4><span class="prole">Bangkok Gateway</span><p class="pdesc">Managing regional trade flows and high-quality grain sourcing networks.</p><div class="ptag">Regional Hub</div></div>
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner" style="background:linear-gradient(135deg,#006600,#bb0000,#006600);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🇰🇪</div></div><h4 class="pcountry">Kenya</h4><span class="prole">East Africa Gateway</span><p class="pdesc">Mombasa port hub for East African rice and grain distribution to inland markets.</p><div class="ptag">Regional Distribution</div></div>
     </div>
   </div>
@@ -895,8 +915,8 @@ s0.parentNode.insertBefore(s1,s0);
     <h2>Ready to Source<br>Premium Agro Products?</h2>
     <p>Get a competitive proforma invoice within 24 hours. We work with buyers from 25+ countries on any volume — single containers to vessel charters.</p>
     <div style="display:flex;gap:15px;flex-wrap:wrap;">
-      <a href="contact.html#inquiry-form" style="background:#1a3c34;color:#fff;padding:16px 34px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;display:inline-flex;align-items:center;gap:10px;transition:.4s;"><i class="fa-solid fa-file-invoice"></i> Request Quote</a>
-      <a href="sample-request.html" style="background:transparent;color:#1a3c34;border:2px solid #1a3c34;padding:14px 32px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;display:inline-flex;align-items:center;gap:10px;transition:.4s;"><i class="fa-solid fa-box-open"></i> Request Sample</a>
+      <a href="../contact.html#inquiry-form" style="background:#1a3c34;color:#fff;padding:16px 34px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;display:inline-flex;align-items:center;gap:10px;transition:.4s;"><i class="fa-solid fa-file-invoice"></i> Request Quote</a>
+      <a href="../sample-request.html" style="background:transparent;color:#1a3c34;border:2px solid #1a3c34;padding:14px 32px;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;display:inline-flex;align-items:center;gap:10px;transition:.4s;"><i class="fa-solid fa-box-open"></i> Request Sample</a>
     </div>
   </div>
   <div class="cta-right">
@@ -1073,8 +1093,8 @@ function loadComp(id,file){
 
 // ── MAIN DOMContentLoaded ──
 document.addEventListener('DOMContentLoaded',function(){
-  loadComp('header-placeholder','header.html');
-  loadComp('footer-placeholder','footer.html');
+  loadComp('header-placeholder','../header.html');
+  loadComp('footer-placeholder','../footer.html');
   startSlider();
   setTimeout(runHeroCounters,1200);
 
