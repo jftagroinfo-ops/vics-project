@@ -1,5 +1,42 @@
+# ─── JFT Agro Overseas — robots.txt ───────────────────────────────────────────
+# Website: https://jftagro.com
+# Updated: 2026-05-02
+
+# Allow all well-behaved bots to crawl everything
 User-agent: *
 Allow: /
 
-# Sitemap Location
+# Disallow confirmation / utility pages that should not be indexed
+Disallow: /thank-you.html
+Disallow: /404.html
+Disallow: /sample-request.html
+
+# Disallow any future admin or private directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_drafts/
+
+# ── Google-specific rules ──────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Disallow: /thank-you.html
+Disallow: /404.html
+Disallow: /sample-request.html
+Crawl-delay: 0
+
+# ── Bing / DuckDuckGo ─────────────────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+Disallow: /thank-you.html
+Disallow: /404.html
+Crawl-delay: 1
+
+# ── Yandex (Russia/CIS market) ────────────────────────────────────────────────
+User-agent: YandexBot
+Allow: /
+Disallow: /thank-you.html
+Disallow: /404.html
+Crawl-delay: 1
+
+# ── Sitemaps ───────────────────────────────────────────────────────────────────
 Sitemap: https://jftagro.com/sitemap.xml
