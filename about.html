@@ -125,11 +125,11 @@ img{max-width:100%;height:auto;display:block}
 .ab-actions{display:flex;gap:18px;flex-wrap:wrap}
 /* Right image column */
 .ab-img-col{position:relative}
-.ab-img-main{width:100%;height:520px;object-fit:cover;border-radius:32px;border:3px solid rgba(238,191,69,.2);box-shadow:0 50px 100px rgba(0,0,0,.4)}
-.ab-badge-gold{position:absolute;bottom:-30px;left:-30px;background:var(--gold);color:var(--navy);border-radius:20px;padding:26px 30px;font-family:var(--ff-s);box-shadow:0 25px 50px rgba(238,191,69,.35);text-align:center;z-index:5}
+.ab-img-main{width:100%;height:clamp(300px,45vh,520px);object-fit:cover;border-radius:32px;border:3px solid rgba(238,191,69,.2);box-shadow:0 50px 100px rgba(0,0,0,.4)}
+.ab-badge-gold{position:absolute;bottom:-20px;left:-10px;background:var(--gold);color:var(--navy);border-radius:20px;padding:26px 30px;font-family:var(--ff-s);box-shadow:0 25px 50px rgba(238,191,69,.35);text-align:center;z-index:5}
 .ab-badge-gold .bnum{font-size:3rem;font-weight:900;line-height:1;display:block}
 .ab-badge-gold .blbl{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-top:4px;display:block}
-.ab-badge-glass{position:absolute;top:-20px;right:-20px;background:rgba(255,255,255,.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:16px;padding:18px 22px;text-align:center;z-index:5}
+.ab-badge-glass{position:absolute;top:-12px;right:-8px;background:rgba(255,255,255,.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:16px;padding:18px 22px;text-align:center;z-index:5}
 .ab-badge-glass .bgnum{font-size:1.6rem;font-weight:900;color:var(--gold);display:block;line-height:1}
 .ab-badge-glass .bglbl{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.6);margin-top:4px;display:block}
 
@@ -153,7 +153,7 @@ img{max-width:100%;height:auto;display:block}
 .story-img-wrapper{position:relative;padding:20px}
 .story-img{width:100%;border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,.15);position:relative;z-index:2;transition:.5s}
 .story-img-wrapper:hover .story-img{transform:rotateY(-2deg) rotateX(2deg)}
-.story-bg-box{position:absolute;top:0;left:0;width:95%;height:95%;background:radial-gradient(circle at top right,var(--cream),transparent);border:2px solid var(--gold);border-radius:20px;z-index:1;transform:translate(-25px,-25px);transition:.5s}
+.story-bg-box{position:absolute;top:0;left:0;width:95%;height:95%;background:radial-gradient(circle at top right,var(--cream),transparent);border:2px solid var(--gold);border-radius:20px;z-index:1;transform:translate(-15px,-15px);transition:.5s}
 .story-img-wrapper:hover .story-bg-box{transform:translate(-15px,-15px);border-color:var(--green)}
 .story-text .stitle{margin:18px 0 22px}
 .story-p{font-size:1.05rem;line-height:1.9;color:#555;margin-bottom:20px}
@@ -233,8 +233,8 @@ img{max-width:100%;height:auto;display:block}
 .usp-row h4{font-family:var(--ff-s);font-size:.95rem;font-weight:800;color:#fff;margin-bottom:4px}
 .usp-row p{font-size:.84rem;color:rgba(255,255,255,.48);margin:0;line-height:1.6}
 .why-img-col{position:relative}
-.why-img{width:100%;height:580px;object-fit:cover;border-radius:28px;border:3px solid rgba(238,191,69,.15)}
-.why-stat-badge{position:absolute;bottom:-28px;right:-28px;background:var(--gold);color:var(--navy);border-radius:20px;padding:26px 30px;font-family:var(--ff-s);box-shadow:0 20px 50px rgba(238,191,69,.35);text-align:center}
+.why-img{width:100%;height:clamp(300px,45vh,580px);object-fit:cover;border-radius:28px;border:3px solid rgba(238,191,69,.15)}
+.why-stat-badge{position:absolute;bottom:-18px;right:-10px;background:var(--gold);color:var(--navy);border-radius:20px;padding:26px 30px;font-family:var(--ff-s);box-shadow:0 20px 50px rgba(238,191,69,.35);text-align:center}
 .why-stat-badge .wsb{font-size:2.8rem;font-weight:900;line-height:1;display:block}
 .why-stat-badge .wsl{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-top:4px;display:block}
 
@@ -289,7 +289,7 @@ img{max-width:100%;height:auto;display:block}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin-top:55px}
 .team-card{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.1);border-bottom:5px solid var(--gold);background:#000;transition:.4s}
 .team-card:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(0,0,0,.18)}
-.team-img{width:100%;height:420px;object-fit:cover;transition:.6s;filter:opacity(.9)}
+.team-img{width:100%;height:clamp(260px,40vh,420px);object-fit:cover;transition:.6s;filter:opacity(.9)}
 .team-card:hover .team-img{transform:scale(1.06);filter:opacity(1)}
 .team-info{position:absolute;bottom:0;left:0;width:100%;padding:40px 30px;background:linear-gradient(to top,rgba(26,60,52,1) 20%,rgba(26,60,52,.8) 60%,transparent);color:#fff;transform:translateY(8px);transition:.4s}
 .team-card:hover .team-info{transform:translateY(0);padding-bottom:48px}
@@ -353,6 +353,117 @@ img{max-width:100%;height:auto;display:block}
   .cert-grid{grid-template-columns:1fr 1fr}
   .global-stats{grid-template-columns:1fr}
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ABOUT.HTML — COMPREHENSIVE RESPONSIVE FIXES
+   ═══════════════════════════════════════════════════════════════════════ */
+@media(max-width:1200px){
+  .ab-hero-inner{gap:clamp(40px,5vw,70px)} .why-layout{gap:clamp(40px,5vw,70px)}
+  .cert-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:1100px){
+  .ab-img-col{display:none} .ab-hero-inner{grid-template-columns:1fr}
+  .ab-hero{padding-top:120px;min-height:auto;text-align:center}
+  .ab-crumb{justify-content:center} .ab-actions{justify-content:center}
+  .ab-hero h1{font-size:clamp(2rem,6vw,3.8rem)}
+  .story-bg-box{transform:translate(-8px,-8px);width:98%;height:98%}
+  .why-img-col{display:none} .why-layout{grid-template-columns:1fr;max-width:800px;margin:0 auto}
+  .cert-grid{grid-template-columns:repeat(3,1fr)}
+  .team-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .guide-grid{grid-template-columns:1fr}
+  .global-stats{grid-template-columns:repeat(2,1fr)}
+  .cta-wrap{grid-template-columns:1fr;gap:40px}
+  .ab-badge-gold,.ab-badge-glass,.why-stat-badge{position:relative!important;bottom:auto!important;left:auto!important;right:auto!important;top:auto!important;margin:12px auto 0;display:block;max-width:200px}
+}
+@media(max-width:900px){
+  .ss-grid{grid-template-columns:repeat(3,1fr)}
+  .ss-item:nth-child(4),.ss-item:nth-child(5){border-top:1px solid var(--border)}
+  .mvv-grid{grid-template-columns:1fr 1fr}
+  .guide-grid{grid-template-columns:1fr 1fr}
+  .cert-grid{grid-template-columns:repeat(3,1fr)}
+  .global-stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .ab-hero{padding-top:100px;padding-bottom:40px}
+  .ab-hero h1{font-size:clamp(1.8rem,7vw,2.8rem);letter-spacing:-1px}
+  .ab-hero-sub{font-size:1rem;max-width:100%}
+  .ab-actions{justify-content:center}
+  .ss-grid{grid-template-columns:repeat(2,1fr)}
+  .ss-item:nth-child(3),.ss-item:nth-child(5){border-top:1px solid var(--border)}
+  .ss-num{font-size:clamp(1.5rem,5vw,2.2rem)}
+  .story-p{font-size:.95rem} .story-quote{padding:16px 18px 16px 22px;font-size:.95rem}
+  .story-badges{gap:20px;justify-content:center} .story-bg-box{display:none}
+  .story-img-wrapper{padding:0} .story-img{border-radius:16px}
+  .qc-grid{grid-template-columns:1fr 1fr} .qc-card{padding:28px 22px}
+  .growth-container::before{left:20px}
+  .growth-item{padding-left:55px}
+  .growth-marker{left:20px;top:10px;width:22px;height:22px}
+  .g-year-text{font-size:3rem} .g-box{padding:22px 20px} .g-box h4{font-size:.95rem}
+  .mvv-grid{grid-template-columns:1fr}
+  .mvv-card{padding:clamp(24px,4vw,40px) clamp(20px,3vw,35px)}
+  .usp-row{padding:16px 18px;gap:14px}
+  .usp-ico{width:40px;height:40px;font-size:1rem}
+  .guide-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:repeat(2,1fr)}
+  .cert-box{padding:22px 14px} .cert-box-logo{height:42px}
+  .global-stats{grid-template-columns:1fr 1fr}
+  .countries-pills{gap:8px} .cpill{font-size:.78rem;padding:7px 14px}
+  .team-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .cta-wrap{grid-template-columns:1fr;gap:30px}
+  .cta-btns{flex-wrap:wrap;gap:12px}
+  .about-cta{padding:clamp(40px,6vw,70px) 0}
+  .global-map-bg{width:120%;opacity:.04}
+  .btn-p,.btn-o,.btn-g,.btn-primary{min-height:48px}
+}
+@media(max-width:600px){
+  .ab-hero{padding-top:90px}
+  .ab-hero h1{font-size:clamp(1.6rem,8vw,2.4rem)}
+  .ab-actions{flex-direction:column;align-items:center;width:100%}
+  .ab-actions .btn-p,.ab-actions .btn-o,.ab-actions a{width:100%;max-width:300px;justify-content:center}
+  .ss-grid{grid-template-columns:repeat(2,1fr)}
+  .qc-grid{grid-template-columns:1fr}
+  .mvv-grid{grid-template-columns:1fr}
+  .guide-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:repeat(2,1fr)}
+  .global-stats{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr;max-width:380px;margin-left:auto;margin-right:auto}
+  .cta-wrap h2{font-size:clamp(1.6rem,6vw,2.4rem)}
+  .g-year-text{font-size:2.5rem}
+  .growth-item{padding-left:48px;margin-bottom:40px}
+  .sp{padding:clamp(48px,8vw,80px) 0}
+}
+@media(max-width:480px){
+  .ab-hero h1{font-size:1.6rem;letter-spacing:-.5px}
+  .ab-hero-sub{font-size:.95rem}
+  .ss-grid{grid-template-columns:1fr}
+  .ss-item{border-right:none;border-bottom:1px solid var(--border)}
+  .ss-item:last-child{border-bottom:none}
+  .cert-grid{grid-template-columns:1fr 1fr}
+  .global-stats{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr;max-width:100%}
+  .growth-container::before{display:none}
+  .growth-item{padding-left:0;flex-direction:column}
+  .growth-marker{display:none}
+  .g-year-text{font-size:2.2rem;opacity:.5}
+  .stitle{font-size:clamp(1.7rem,7vw,2.8rem)}
+  .cta-row{padding:14px 16px;gap:12px}
+  .cta-ico{width:36px;height:36px;font-size:.85rem}
+  .jft-wide-container,.con{padding:0 16px}
+  .sp{padding:clamp(40px,7vw,65px) 0}
+  .global-map-bg{display:none}
+}
+@media(max-width:380px){
+  .ab-hero h1{font-size:1.45rem}
+  .stitle{font-size:1.6rem}
+  .cert-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .cert-box{padding:16px 10px} .cert-box h4{font-size:.82rem}
+  .jft-wide-container,.con{padding:0 14px}
+}
+
+
+/* ── Prevent duplicate WhatsApp FAB if multiple .wa-fab exist ── */
+.wa-fab ~ .wa-fab { display: none !important; }
+
 </style>
 
   <!-- Google tag (gtag.js) -->
@@ -572,6 +683,12 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </div>
+
+    <!-- Timeline CTA -->
+    <div style="text-align:center;margin-top:50px;" class="reveal">
+      <p style="font-family:'Montserrat',sans-serif;font-size:.8rem;color:rgba(26,60,52,.4);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">Ready to be part of our next chapter?</p>
+      <a href="contact.html#inquiry-form" class="btn-p">Start Your Import Journey <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
 </section>
 
 <!-- ════ MISSION / VISION / VALUES ════ -->
@@ -602,6 +719,11 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </div>
+
+    <!-- MVV CTA -->
+    <div class="tc" style="margin-top:40px;">
+      <a href="about.html#why-jft" style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;color:var(--green);text-transform:uppercase;letter-spacing:1.5px;transition:.3s;">See Why Buyers Choose JFT <i class="fa-solid fa-arrow-down"></i></a>
+    </div>
 </section>
 
 <!-- ════ WHY JFT ════ -->
@@ -733,6 +855,16 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </div>
+
+    <!-- Global Reach CTA -->
+    <div style="text-align:center;margin-top:45px;position:relative;z-index:2;" class="reveal">
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a href="africa-trade.html" style="display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:#fff;border:1px solid var(--border);border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;color:var(--navy);transition:.3s;"><i class="fa-solid fa-wheat-awn" style="color:var(--green);"></i> Africa Trade Hub</a>
+        <a href="uae-trade.html" style="display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:#fff;border:1px solid var(--border);border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;color:var(--navy);transition:.3s;"><i class="fa-solid fa-mosque" style="color:var(--green);"></i> Middle East Hub</a>
+        <a href="europe-trade.html" style="display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:#fff;border:1px solid var(--border);border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;color:var(--navy);transition:.3s;"><i class="fa-solid fa-snowflake" style="color:var(--green);"></i> Europe &amp; CIS</a>
+        <a href="asia-trade.html" style="display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:#fff;border:1px solid var(--border);border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.78rem;color:var(--navy);transition:.3s;"><i class="fa-solid fa-ferry" style="color:var(--green);"></i> Asia Hub</a>
+      </div>
+    </div>
 </section>
 
 <!-- ════ LEADERSHIP TEAM ════ -->
@@ -745,7 +877,15 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
     <div class="team-grid reveal">
       <div class="team-card">
-        <img src="images/jft logo.png" alt="Mr. Ganpatlal Jain, Managing Director — JFT Agro Overseas" class="team-img" loading="lazy" width="400" height="420" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop'">
+        <div style="width:100%;height:clamp(260px,40vh,420px);background:linear-gradient(135deg,#112621,#1a3c34,#2c5148);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(238,191,69,.06) 1px,transparent 1px);background-size:28px 28px;"></div>
+          <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(78,140,62,.15),transparent 70%);"></div>
+          <div style="width:100px;height:100px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Merriweather',serif;font-size:2.2rem;font-weight:900;color:#1a3c34;box-shadow:0 15px 40px rgba(238,191,69,.35);z-index:2;">GJ</div>
+          <div style="text-align:center;z-index:2;padding:0 20px;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;color:rgba(238,191,69,.8);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Founder · 1980</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.5);">45+ Years in Agro Exports</div>
+          </div>
+        </div>
         <div class="team-info">
           <span class="role">Managing Director</span>
           <h3>Mr. Ganpatlal Jain</h3>
@@ -753,7 +893,15 @@ s0.parentNode.insertBefore(s1,s0);
         <a href="https://wa.me/918425057274" class="team-wa" target="_blank" rel="noopener" aria-label="WhatsApp Mr. Ganpatlal Jain"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
       <div class="team-card">
-        <img src="images/jft logo.png" alt="Mr. Vicky Jain, Director of Exports — JFT Agro Overseas" class="team-img" loading="lazy" width="400" height="420" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop'">
+        <div style="width:100%;height:clamp(260px,40vh,420px);background:linear-gradient(135deg,#1a3c34,#2c5148,#326127);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(238,191,69,.06) 1px,transparent 1px);background-size:28px 28px;"></div>
+          <div style="position:absolute;bottom:-50px;left:-50px;width:180px;height:180px;background:radial-gradient(circle,rgba(238,191,69,.08),transparent 70%);"></div>
+          <div style="width:100px;height:100px;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Merriweather',serif;font-size:2.2rem;font-weight:900;color:#fff;box-shadow:0 15px 40px rgba(78,140,62,.35);z-index:2;">VJ</div>
+          <div style="text-align:center;z-index:2;padding:0 20px;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;color:rgba(238,191,69,.8);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Export Operations</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.5);">Rice &amp; Grain Trade Specialist</div>
+          </div>
+        </div>
         <div class="team-info">
           <span class="role">Director of Exports</span>
           <h3>Mr. Vicky Jain</h3>
@@ -761,7 +909,15 @@ s0.parentNode.insertBefore(s1,s0);
         <a href="https://wa.me/918425057274" class="team-wa" target="_blank" rel="noopener" aria-label="WhatsApp Mr. Vicky Jain"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
       <div class="team-card">
-        <img src="images/jft logo.png" alt="Mr. Mithun Jain, Director of Imports — JFT Agro Overseas" class="team-img" loading="lazy" width="400" height="420" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&auto=format&fit=crop'">
+        <div style="width:100%;height:clamp(260px,40vh,420px);background:linear-gradient(135deg,#2c5148,#1a3c34,#0d1f1b);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(238,191,69,.06) 1px,transparent 1px);background-size:28px 28px;"></div>
+          <div style="position:absolute;top:-40px;left:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(78,140,62,.12),transparent 70%);"></div>
+          <div style="width:100px;height:100px;background:linear-gradient(135deg,#b88d14,#eebf45);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Merriweather',serif;font-size:2.2rem;font-weight:900;color:#1a3c34;box-shadow:0 15px 40px rgba(238,191,69,.25);z-index:2;">MJ</div>
+          <div style="text-align:center;z-index:2;padding:0 20px;">
+            <div style="font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;color:rgba(238,191,69,.8);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">Import Operations</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.5);">Spices &amp; Specialty Commodities</div>
+          </div>
+        </div>
         <div class="team-info">
           <span class="role">Director of Imports</span>
           <h3>Mr. Mithun Jain</h3>
@@ -861,23 +1017,7 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
   </div>
 </section>
-<section class="jft-cta-block">
-  <div class="jft-wide-container">
-    <div class="cta-eyebrow">Ready to Source?</div>
-    <h2 class="cta-block-title">Start Your <em>Export Inquiry</em><br>With JFT Agro Today</h2>
-    <p class="cta-block-desc">Free samples available. Factory-direct pricing. Our export team responds within 4 business hours with a Proforma Invoice.</p>
-    <div class="cta-actions">
-      <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice-dollar"></i> Request Bulk Pricing</a>
-      <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Order Free Sample</a>
-    </div>
-    <div class="cta-trust-row">
-      <span class="cta-trust-item"><i class="fa-solid fa-star"></i> Star Export House</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-clock"></i> 4-Hour Response</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-globe"></i> 20+ Countries</span>
-    </div>
-  </div>
-</section>
+
 
 <div id="footer-placeholder"></div>
 <script>
