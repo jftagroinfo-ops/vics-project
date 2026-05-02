@@ -7,69 +7,14 @@
   <meta name="description" content="Answers to common questions about Indian agricultural exports. MOQs, payment terms, shipping documents, and trade glossary for global buyers.">
   <link rel="canonical" href="https://jftagro.com/faq.html">
   <link rel="icon" type="image/png" href="images/jft logo.png">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="JFT Agro Overseas">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jftagro.com/faq.html">
-  <meta property="og:title" content="Export FAQ & Trade Glossary | JFT Agro Overseas">
-  <meta property="og:description" content="Answers to common questions about Indian agricultural exports. MOQs, payment terms, shipping documents, and trade glossary for global buyers.">
-  <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:site_name" content="JFT Agro Overseas">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@jftagro">
-  <meta name="twitter:title" content="Export FAQ & Trade Glossary | JFT Agro Overseas">
-  <meta name="twitter:description" content="MOQs, payment terms, certificates and trade glossary for international buyers of Indian rice, spices and grains.">
-  <meta name="twitter:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
   <meta name="geo.region" content="IN-MH">
   <meta name="geo.placename" content="Navi Mumbai, Maharashtra, India">
   <meta name="geo.position" content="19.0330;73.0297">
   <meta name="ICBM" content="19.0330, 73.0297">
   <link rel="apple-touch-icon" href="images/jft logo.png">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "name": "Indian Agricultural Export FAQ",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the Minimum Order Quantity (MOQ) for Indian rice and spice exports?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Generally, our MOQ for export is one 20ft container. However, for high-value spices or trial orders, we can discuss LCL (Less than Container Load) shipments or air freight options."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I request product samples before placing a bulk export order?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we provide free product samples up to 1-2kg. The buyer is responsible for international courier charges via DHL or FedEx. Sample costs are often adjusted against your first commercial invoice."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What are the standard payment terms for Indian agro commodity exports?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We work on two standard terms: (1) 30% advance payment and 70% against scanned shipping documents, or (2) 100% irrevocable Letter of Credit (L/C) at sight from a first-class international bank."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which export documents does JFT Agro provide with shipments?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Standard documents include: Commercial Invoice, Packing List, Bill of Lading, Certificate of Origin, Phytosanitary Certificate, and Fumigation Certificate. Additional documents like SGS Inspection reports can be provided on request."
-        }
-      }
-    ]
-  }
-  </script>
+  <meta name="theme-color" content="#1a3c34">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -83,7 +28,7 @@
     body { font-family: var(--font-body); background: #fdfcf8; color: #333; overflow-x: hidden; }
     #header-placeholder { min-height: 80px; display: block; }
     #footer-placeholder { min-height: 400px; display: block; background: var(--jft-navy); }
-    .page-wrapper { padding-top: 170px; padding-bottom: 80px; min-height: 100vh; }
+    .page-wrapper{padding-top:30px;padding-bottom:80px}
     .container { max-width: 1360px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 55px); position: relative; z-index: 5; }
     
     .faq-hero { text-align: center; margin-bottom: 60px; }
@@ -145,15 +90,36 @@ s0.parentNode.insertBefore(s1,s0);
     <link rel="alternate" hreflang="si" href="https://jftagro.com/si/faq.html" />
     <link rel="alternate" hreflang="th" href="https://jftagro.com/th/faq.html" />
     <link rel="alternate" hreflang="x-default" href="https://jftagro.com/faq.html" />
+  <link rel="stylesheet" href="jft-design-system.css">
 </head>
 <body>
-  <div id="header-placeholder"></div>
+<div id="page-progress"></div>
+  <!-- FAB + Back-to-top -->
+<a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="header-placeholder"></div>
   <div class="page-wrapper">
     <div class="container">
-      <div class="faq-hero">
-        <h1>Trade <span>FAQ</span> & Glossary</h1>
-        <p>Everything you need to know about importing agricultural products from India.</p>
-      </div>
+      <!-- ── HERO ── -->
+<section class="jft-page-hero">
+  <div class="jft-page-hero-bg" style="background-image:url('images/products/basmati_rice_hd.webp');"></div>
+  <div class="jft-page-hero-glow"></div>
+  <div class="jft-page-hero-gold-stripe"></div>
+  <div class="jft-wide-container jft-page-hero-inner">
+    <nav class="jft-breadcrumb" aria-label="breadcrumb">
+      <a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i>
+      <span style="color:var(--gold)">FAQ</span>
+    </nav>
+    <span class="brand-tag brand-tag-white"><i class="fa-solid fa-circle-question"></i> FAQ</span>
+    <h1 style="font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:-1.5px;margin:18px 0 20px;">Trade FAQ &<br><em style="color:var(--gold-light);font-style:italic;font-weight:300;">Glossary</em></h1>
+    <p class="jft-page-hero-sub">Everything international buyers need to know about Indian agro commodity exports — MOQs, payment terms, documentation, shipping and trade terminology explained.</p>
+    <div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-clock"></i> Quick Answers</span><span class="jft-hero-tag"><i class="fa-solid fa-file-invoice"></i> Export Docs</span><span class="jft-hero-tag"><i class="fa-solid fa-ship"></i> Shipping Terms</span></div>
+    <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-paper-plane"></i> Send Inquiry</a>
+      <a href="products.html" class="btn-outline"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
+    </div>
+  </div>
+</section>
 
       <div class="faq-section">
         <h2>Ordering & MOQs</h2>
@@ -202,7 +168,26 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </div>
-  <div id="footer-placeholder"></div>
+  
+<!-- ── CTA ── -->
+<section class="jft-cta-block">
+  <div class="jft-wide-container">
+    <div class="cta-eyebrow">Ready to Source?</div>
+    <h2 class="cta-block-title">Start Your <em>Export Inquiry</em><br>With JFT Agro Today</h2>
+    <p class="cta-block-desc">Free samples. Factory-direct pricing. Response within 4 business hours.</p>
+    <div class="cta-actions">
+      <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice-dollar"></i> Request Pricing</a>
+      <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Free Sample</a>
+    </div>
+    <div class="cta-trust-row">
+      <span class="cta-trust-item"><i class="fa-solid fa-star"></i> Star Export House</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-clock"></i> 4-Hour Response</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-globe"></i> 20+ Countries</span>
+    </div>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
 
   <script>
     async function loadComponent(id, file) {
@@ -218,7 +203,14 @@ s0.parentNode.insertBefore(s1,s0);
         });
       } catch(e) { console.error(e); }
     }
-    document.addEventListener('DOMContentLoaded', () => {
+    
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement.scrollTop||document.body.scrollTop;
+    var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    var b=document.getElementById('page-progress');if(b)b.style.width=(h>0?(s/h)*100:0)+'%';
+    var t=document.getElementById('backToTop');if(t)t.classList.toggle('show',s>400);
+  });
+  document.addEventListener('DOMContentLoaded', () => {
       loadComponent('header-placeholder', 'header.html');
       loadComponent('footer-placeholder', 'footer.html');
       

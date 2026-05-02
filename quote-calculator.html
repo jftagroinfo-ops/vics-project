@@ -2,12 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="author" content="JFT Agro Overseas">
-  <meta name="geo.region" content="IN-MH">
-  <meta name="geo.placename" content="Navi Mumbai, Maharashtra, India">
-  <meta name="geo.position" content="19.0330;73.0297">
-  <meta name="ICBM" content="19.0330, 73.0297">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CIF/FOB Export Quote Calculator | JFT Agro Overseas</title>
   <meta name="description" content="Instantly estimate CIF or FOB export prices for Indian Basmati Rice, Spices, and Grains to any global port. Free calculator from JFT Agro Overseas.">
@@ -16,14 +10,13 @@
   <meta property="og:title" content="Free Export Quote Calculator | JFT Agro">
   <meta property="og:description" content="Estimate your CIF/FOB price for Indian agro commodities in seconds.">
   <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="JFT Agro Overseas — Premium Indian Agricultural Exports">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@jftagro">
-  <meta name="twitter:title" content="Free Export Quote Calculator | JFT Agro">
-  <meta name="twitter:description" content="Estimate your CIF/FOB price for Indian agro commodities in seconds.">
-  <meta name="twitter:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="JFT Agro Overseas">
+  <meta name="geo.region" content="IN-MH">
+  <meta name="geo.placename" content="Navi Mumbai, Maharashtra, India">
+  <meta name="geo.position" content="19.0330;73.0297">
+  <meta name="ICBM" content="19.0330, 73.0297">
+  <link rel="apple-touch-icon" href="images/jft logo.png">
   <meta name="theme-color" content="#1a3c34">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Quote Calculator","item":"https://jftagro.com/quote-calculator.html"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +34,7 @@
     body{font-family:var(--font-body);background:#fdfcf8;color:#333;overflow-x:hidden}
     #header-placeholder{min-height:80px;display:block}
     #footer-placeholder{min-height:400px;display:block;background:var(--jft-navy)}
-    .page-wrapper{padding-top:170px;padding-bottom:80px;min-height:100vh}
+    .page-wrapper{padding-top:30px;padding-bottom:80px;min-height:100vh}
     .container { max-width: 1360px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 55px); position: relative; z-index: 5; }
     /* PAGE HEADER */
     .calc-hero{background:linear-gradient(135deg,var(--jft-navy) 0%,#2c5148 100%);color:#fff;padding:60px 0 40px;text-align:center;position:relative;overflow:hidden}
@@ -134,7 +127,6 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="images/jft logo.png">
 
     <link rel="alternate" hreflang="en" href="https://jftagro.com/quote-calculator.html" />
     <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/quote-calculator.html" />
@@ -148,14 +140,36 @@ s0.parentNode.insertBefore(s1,s0);
     <link rel="alternate" hreflang="si" href="https://jftagro.com/si/quote-calculator.html" />
     <link rel="alternate" hreflang="th" href="https://jftagro.com/th/quote-calculator.html" />
     <link rel="alternate" hreflang="x-default" href="https://jftagro.com/quote-calculator.html" />
+  <link rel="stylesheet" href="jft-design-system.css">
 </head>
 <body>
-  <div id="header-placeholder"></div>
+<div id="page-progress"></div>
+  <!-- FAB + Back-to-top -->
+<a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="header-placeholder"></div>
 
   <div class="page-wrapper">
-    <div class="calc-hero">
-      <div class="container">
-        <div class="brand-tag"><i class="fa-solid fa-calculator" style="margin-right:6px;"></i> Free Tool</div>
+    <!-- ── HERO ── -->
+<section class="jft-page-hero">
+  <div class="jft-page-hero-bg" style="background-image:url('images/products/basmati_rice_hd.webp');"></div>
+  <div class="jft-page-hero-glow"></div>
+  <div class="jft-page-hero-gold-stripe"></div>
+  <div class="jft-wide-container jft-page-hero-inner">
+    <nav class="jft-breadcrumb" aria-label="breadcrumb">
+      <a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i>
+      <span style="color:var(--gold)">Quote Calculator</span>
+    </nav>
+    <span class="brand-tag brand-tag-white"><i class="fa-solid fa-calculator"></i> Quote Calculator</span>
+    <h1 style="font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:-1.5px;margin:18px 0 20px;">Instant Export<br><em style="color:var(--gold-light);font-style:italic;font-weight:300;">Quote Calculator</em></h1>
+    <p class="jft-page-hero-sub">Get a live FOB / CIF / CNF estimate for any Indian agricultural commodity to any destination port in seconds. No registration required.</p>
+    <div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-bolt"></i> Instant Estimate</span><span class="jft-hero-tag"><i class="fa-solid fa-ship"></i> All Incoterms</span><span class="jft-hero-tag"><i class="fa-solid fa-globe"></i> Any Port Worldwide</span></div>
+    <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-paper-plane"></i> Send Inquiry</a>
+      <a href="products.html" class="btn-outline"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
+    </div>
+  </div>
+</section>
         <h1>Instant <span>CIF / FOB</span><br>Export Price Estimator</h1>
         <p>Get an indicative landed cost for any Indian agro commodity to any global port — before you submit a formal inquiry.</p>
         <div class="disclaimer"><i class="fa-solid fa-circle-info"></i> Estimates based on current market benchmarks. Formal Proforma Invoice available on request.</div>
@@ -499,7 +513,14 @@ s0.parentNode.insertBefore(s1,s0);
       } catch(e) { console.error(e); }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement.scrollTop||document.body.scrollTop;
+    var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    var b=document.getElementById('page-progress');if(b)b.style.width=(h>0?(s/h)*100:0)+'%';
+    var t=document.getElementById('backToTop');if(t)t.classList.toggle('show',s>400);
+  });
+  document.addEventListener('DOMContentLoaded', () => {
       loadComponent('header-placeholder', 'header.html');
       loadComponent('footer-placeholder', 'footer.html');
       calculate(); /* run on load with defaults */
