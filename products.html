@@ -162,7 +162,7 @@
         .ph-breadcrumb { font-family: var(--font-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--jft-gold); font-size: clamp(0.7rem, 2vw, 0.9rem); background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 50px; display: inline-block; }
 
         /* --- Brand Strip --- */
-        .brand-strip { background: #fff; border-bottom: 1px solid #eee; padding: 20px 0; margin-top: -5px; position: relative; z-index: 4; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .brand-strip-old { display:none; }  /* replaced by prod-stats-strip */
         .bs-grid { display: flex; justify-content: center; gap: clamp(20px, 4vw, 50px); flex-wrap: wrap; }
         .bs-item { display: flex; align-items: center; gap: 10px; opacity: 0.7; transition: 0.3s; }
         .bs-item:hover { opacity: 1; transform: translateY(-2px); }
@@ -198,7 +198,7 @@
         .sub-cat-btn.active { background: var(--jft-gold); color: var(--jft-navy); border-color: var(--jft-gold); box-shadow: 0 8px 15px rgba(238, 191, 69, 0.3); transform: scale(1.05); }
 
         /* --- Product Grid --- */
-        .product-catalogue-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: start; }
+        .product-catalogue-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: stretch; }
         
         .p-item { background: #fff; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--jft-border); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; display: flex; flex-direction: column; contain: content; }
         .p-item:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(26, 60, 52, 0.1); border-color: var(--jft-gold); }
@@ -229,7 +229,7 @@
         .p-toggle-btn:hover { background: var(--jft-primary); color: #fff; }
         .p-toggle-btn.rotated { transform: rotate(180deg); background: var(--jft-gold); color: var(--jft-navy); border-color: var(--jft-gold); }
 
-        .p-flags-area { margin-top: auto; padding-top: 15px; margin-bottom: 15px; border-top: 1px solid #f0f0f0; }
+        .p-flags-area { padding-top: 15px; margin-bottom: 15px; border-top: 1px solid #f0f0f0; min-height: 72px; }
         .p-flag-label { font-size: 0.7rem; font-weight: 700; color: #999; text-transform: uppercase; margin-bottom: 8px; font-family: var(--font-sub); letter-spacing: 0.5px; }
         .p-market-list { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; line-height: 1.5; font-family: var(--font-head); color: #222; font-weight: 700; }
         .p-market-item { transition: 0.2s; cursor: default; border-bottom: 2px solid transparent; }
@@ -237,7 +237,7 @@
         .p-market-item::after { content: ','; color: #ccc; font-weight: 400; margin-right: 4px; }
         .p-market-item:last-child::after { content: ''; }
 
-        .p-tags-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px; padding-top: 10px; border-top: 1px dashed #eee; }
+        .p-tags-container { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px; padding-top: 10px; border-top: 1px dashed #eee; min-height: 58px; }
         .p-tag { font-size: 0.65rem; font-family: var(--font-sub); color: #666; background: #f5f5f5; padding: 4px 10px; border-radius: 20px; font-weight: 600; }
         .p-tag::before { content: '#'; color: var(--jft-primary); margin-right: 1px; }
 
@@ -375,6 +375,262 @@
         #backToTop { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--jft-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: none; }
         #backToTop.show { opacity: 1; visibility: visible; }
         #back-to-top:hover { background: var(--jft-navy); transform: translateY(-5px); }
+
+/* ════════════════════════════════════════════════════════════════
+   CATALOGUE FILTER ZONE — Search + Category Tabs
+   ════════════════════════════════════════════════════════════════ */
+.catalogue-zone {
+  background: var(--jft-cream, #fdfbf7);
+  padding: clamp(40px,5vw,70px) 0 clamp(40px,5vw,60px);
+  border-top: 1px solid rgba(26,60,52,.07);
+}
+
+/* ── Search row ── */
+.cz-search-row {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: clamp(24px,3vw,36px);
+  flex-wrap: wrap;
+}
+.cz-search-box {
+  flex: 1; min-width: 0; position: relative;
+  max-width: 720px;
+}
+.cz-search-input {
+  width: 100%;
+  padding: clamp(14px,2vw,18px) 50px clamp(14px,2vw,18px) clamp(46px,5vw,58px);
+  border-radius: 60px;
+  border: 2px solid rgba(26,60,52,.1);
+  font-family: var(--font-body);
+  font-size: clamp(.9rem,1.5vw,1.05rem);
+  box-shadow: 0 8px 30px rgba(26,60,52,.06);
+  outline: none;
+  transition: .3s;
+  background: #fff;
+  color: #333;
+}
+.cz-search-input:focus {
+  border-color: var(--jft-primary);
+  box-shadow: 0 12px 40px rgba(78,140,62,.12);
+}
+.cz-search-input::placeholder { color: #aaa; }
+.cz-search-icon {
+  position: absolute; left: clamp(18px,3vw,22px); top: 50%;
+  transform: translateY(-50%);
+  color: var(--jft-primary); font-size: clamp(.95rem,1.5vw,1.2rem);
+  pointer-events: none;
+}
+.cz-clear-btn {
+  position: absolute; right: 18px; top: 50%;
+  transform: translateY(-50%);
+  background: rgba(26,60,52,.08); border: none; cursor: pointer;
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--jft-navy); font-size: .8rem; transition: .3s;
+}
+.cz-clear-btn:hover { background: var(--jft-navy); color: #fff; }
+.cz-result-count {
+  font-family: var(--font-sub); font-size: .78rem; font-weight: 700;
+  color: rgba(26,60,52,.5); text-transform: uppercase; letter-spacing: 1px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.cz-result-count #result-num {
+  font-size: 1.4rem; color: var(--jft-primary); font-weight: 900;
+  font-family: var(--font-head); vertical-align: middle; margin-right: 4px;
+}
+
+/* ── Category Tabs ── */
+.cz-tabs-zone {
+  display: flex; align-items: center; gap: 0;
+  background: #fff; border-radius: 60px;
+  border: 1px solid rgba(26,60,52,.1);
+  box-shadow: 0 8px 30px rgba(26,60,52,.06);
+  padding: 6px 50px; /* space for arrows */
+  position: sticky; top: 85px; z-index: 99;
+  margin-bottom: 20px; overflow: hidden;
+}
+.cz-tab-scroll {
+  display: flex; gap: 6px; overflow-x: auto;
+  scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; flex: 1; padding: 4px 0;
+  cursor: grab;
+}
+.cz-tab-scroll:active { cursor: grabbing; }
+.cz-tab-scroll::-webkit-scrollbar { display: none; }
+.cz-tab {
+  flex: 0 0 auto;
+  padding: clamp(8px,1.2vw,11px) clamp(14px,1.8vw,22px);
+  border-radius: 50px; border: none;
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: clamp(.68rem,1vw,.78rem);
+  text-transform: uppercase; letter-spacing: .5px;
+  color: #666; background: transparent; cursor: pointer;
+  transition: .3s; white-space: nowrap;
+  display: flex; align-items: center; gap: 6px;
+}
+.cz-tab i { font-size: .75em; }
+.cz-tab:hover { background: rgba(78,140,62,.07); color: var(--jft-primary); }
+.cz-tab.active {
+  background: var(--jft-primary); color: #fff;
+  box-shadow: 0 6px 18px rgba(78,140,62,.3);
+}
+.cz-tab-import { color: #d97706; }
+.cz-tab-import:hover { background: #fffbeb; }
+.cz-tab-import.active { background: #d97706; color: #fff; box-shadow: 0 6px 18px rgba(217,119,6,.3); }
+.cz-tab-arrow {
+  width: 36px; height: 36px;
+  background: rgba(26,60,52,.08); color: var(--jft-navy);
+  border: none; border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .75rem; transition: .3s; flex-shrink: 0;
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+}
+.cz-tab-left  { left: 8px; }
+.cz-tab-right { right: 8px; }
+.cz-tab-arrow:hover { background: var(--jft-navy); color: #fff; }
+
+/* ── Rice Sub-filters ── */
+.cz-subfilters {
+  display: none; justify-content: center; gap: 12px;
+  margin-bottom: 36px; flex-wrap: wrap; padding: 0 10px;
+  animation: fadeIn .4s ease;
+}
+.cz-subtab {
+  padding: 9px 22px; background: #fff;
+  border: 2px solid #e0e0e0; border-radius: 50px;
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: .72rem; color: #666; cursor: pointer;
+  transition: .3s; text-transform: uppercase; letter-spacing: 1px;
+}
+.cz-subtab:hover { border-color: var(--jft-gold); color: var(--jft-navy); }
+.cz-subtab.active {
+  background: var(--jft-gold); color: var(--jft-navy);
+  border-color: var(--jft-gold);
+  box-shadow: 0 6px 15px rgba(238,191,69,.3);
+}
+
+/* ── Product img overlay hover ── */
+.p-item:hover .img-overlay { opacity: 1 !important; background: rgba(26,60,52,.25) !important; }
+
+/* ════════════════════════════════════════════════════════════════
+   WHY CHOOSE SECTION — align with index.html dark section style
+   ════════════════════════════════════════════════════════════════ */
+.why-choose-section {
+  background: linear-gradient(135deg,#0d1f1b,#1a3c34) !important;
+  padding: clamp(70px,9vw,120px) 0;
+  position: relative; overflow: hidden; margin-top: 0;
+}
+.why-choose-section::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.wc-header { margin-bottom: 55px; position: relative; z-index: 2; padding: 0 20px; }
+.wc-header h2 { color: #fff; font-size: clamp(2rem,5vw,3rem); margin-bottom: 16px; }
+.wc-header span { color: var(--jft-gold); }
+.wc-header p { color: rgba(255,255,255,.55); max-width: 580px; margin: 0 auto; }
+.wc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; position: relative; z-index: 2; }
+.wc-card {
+  padding: clamp(28px,3.5vw,44px) clamp(22px,3vw,34px);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px; transition: .4s; text-align: left;
+  box-shadow: none; color: #fff;
+  position: relative; overflow: hidden;
+}
+.wc-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 3px; background: var(--jft-gold); transition: .5s;
+}
+.wc-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,.1);
+  border-color: rgba(238,191,69,.4);
+  box-shadow: 0 25px 50px rgba(0,0,0,.3);
+}
+.wc-card:hover::after { width: 100%; }
+.wc-icon-box {
+  width: 56px; height: 56px; background: rgba(238,191,69,.12);
+  border: 1px solid rgba(238,191,69,.25);
+  border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; margin: 0 0 22px 0; transition: .4s;
+}
+.wc-card:hover .wc-icon-box { background: var(--jft-gold); border-color: var(--jft-gold); }
+.wc-icon { font-size: 1.4rem; color: var(--jft-gold); transition: .4s; }
+.wc-card:hover .wc-icon { color: var(--jft-navy); }
+.wc-title { color: #fff; font-size: 1rem; margin-bottom: 12px; letter-spacing: .5px; }
+.wc-text { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.7; }
+
+/* ════════════════════════════════════════════════════════════════
+   COMPREHENSIVE RESPONSIVE
+   ════════════════════════════════════════════════════════════════ */
+
+/* Product grid cols */
+@media(min-width:1400px) {
+  .product-catalogue-grid { grid-template-columns: repeat(4,1fr); }
+}
+@media(max-width:1100px) {
+  .wc-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:1024px) {
+  .cz-tabs-zone { padding: 5px 44px; top: 70px; }
+  .product-catalogue-grid { grid-template-columns: repeat(2,1fr); }
+  .modal-grid { grid-template-columns: 1fr; gap: 30px; }
+  .modal-content { width:100%; height:100%; border-radius:0; }
+  .modal-header { padding:15px 20px; } .modal-body { padding:20px; }
+}
+@media(max-width:900px) {
+  .cz-search-row { flex-direction: column; align-items: stretch; }
+  .cz-search-box { max-width: 100%; }
+  .cz-result-count { text-align: center; }
+  .wc-grid { grid-template-columns: repeat(2,1fr); }
+  .m-logistics-box { grid-template-columns:1fr; gap:15px; }
+}
+@media(max-width:768px) {
+  .catalogue-zone { padding: clamp(30px,5vw,50px) 0; }
+  .cz-tabs-zone { border-radius: 16px; padding: 5px 42px; }
+  .cz-tab { padding: 8px 14px; font-size: .66rem; gap: 4px; }
+  .cz-tab i { display: none; } /* hide icons on small tabs to save space */
+  .product-catalogue-grid { grid-template-columns: repeat(2,1fr); gap: 14px; }
+  .p-img-box { height: 200px; }
+  .p-content { padding: 16px; }
+  .p-title { font-size: 1rem; }
+  .p-table-shared td { font-size: .78rem; padding: 6px 10px; }
+  .wc-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .wc-card { padding: 22px 18px; }
+  .why-choose-section { padding: clamp(50px,7vw,90px) 0; }
+  .modal-actions { display:none; }
+}
+@media(max-width:600px) {
+  .product-catalogue-grid { grid-template-columns: 1fr; }
+  .p-img-box { height: clamp(180px,50vw,260px); }
+  .cz-tabs-zone { padding: 5px 40px; top: 60px; }
+  .cz-tab { padding: 7px 12px; font-size: .62rem; }
+  .wc-grid { grid-template-columns: 1fr; }
+  .brand-strip .bs-grid { gap: 16px; }
+  .bs-text { font-size: .68rem; }
+}
+@media(max-width:480px) {
+  .cz-search-input { font-size: .88rem; padding: 12px 44px 12px 46px; }
+  .cz-search-icon { font-size: 1rem; }
+  .product-catalogue-grid { grid-template-columns: 1fr; gap: 12px; }
+  .p-action { flex-direction: column; }
+  .p-action .btn-jft, .p-action .p-btn { width: 100%; flex: none; }
+  .jft-wide-container, .jft-container { padding: 0 14px; }
+}
+
+
+/* ── Products Page Stats Strip ── */
+.prod-stats-strip { background: #fff; border-bottom: 1px solid rgba(26,60,52,.08); }
+.prod-stats-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; }
+.prod-stat-item { padding: clamp(20px,3vw,36px) clamp(14px,2.5vw,28px); border-right: 1px solid rgba(26,60,52,.07); text-align: center; transition: .3s; position: relative; }
+.prod-stat-item:last-child { border-right: none; }
+.prod-stat-item::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 3px; background: var(--jft-primary); transition: .4s; }
+.prod-stat-item:hover::after { width: 50%; }
+.prod-stat-num { font-family: var(--font-sub); font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: 900; color: var(--jft-primary); line-height: 1; }
+.prod-stat-lbl { font-family: var(--font-sub); font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: rgba(26,60,52,.4); margin-top: 7px; }
+@media(max-width:768px) { .prod-stats-grid { grid-template-columns: repeat(3,1fr); } .prod-stat-item:nth-child(3) { border-right: none; } .prod-stat-item:nth-child(4) { border-top: 1px solid rgba(26,60,52,.07); } .prod-stat-item:nth-child(5) { border-top: 1px solid rgba(26,60,52,.07); border-right: none; } }
+@media(max-width:480px) { .prod-stats-grid { grid-template-columns: repeat(2,1fr); } .prod-stat-item:nth-child(2) { border-right: none; } .prod-stat-item:nth-child(5) { grid-column: span 2; border-right: none; } }
+
     </style>
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jftagro.com/"}, {"@type": "ListItem", "position": 2, "name": "Products", "item": "https://jftagro.com/products.html"}]}</script>
@@ -476,52 +732,110 @@ s0.parentNode.insertBefore(s1,s0);
   </div>
 </section>
 
-    <div class="brand-strip">
-        <div class="jft-wide-container bs-grid">
-            <div class="bs-item"><i class="fa-solid fa-certificate bs-icon"></i><span class="bs-text">Star Export House</span></div>
-            <div class="bs-item"><i class="fa-solid fa-check-double bs-icon"></i><span class="bs-text">ISO 9001:2015</span></div>
-            <div class="bs-item"><i class="fa-solid fa-globe bs-icon"></i><span class="bs-text">Govt Recognized</span></div>
-            <div class="bs-item"><i class="fa-solid fa-leaf bs-icon"></i><span class="bs-text">APEDA Certified</span></div>
-        </div>
+<!-- Stats strip -->
+<div class="prod-stats-strip">
+  <div class="jft-wide-container">
+    <div class="prod-stats-grid">
+      <div class="prod-stat-item">
+        <div class="prod-stat-num">84</div>
+        <div class="prod-stat-lbl">Products Available</div>
+      </div>
+      <div class="prod-stat-item">
+        <div class="prod-stat-num">20+</div>
+        <div class="prod-stat-lbl">Export Countries</div>
+      </div>
+      <div class="prod-stat-item">
+        <div class="prod-stat-num">500+</div>
+        <div class="prod-stat-lbl">Containers / Year</div>
+      </div>
+      <div class="prod-stat-item">
+        <div class="prod-stat-num">45+</div>
+        <div class="prod-stat-lbl">Years Experience</div>
+      </div>
+      <div class="prod-stat-item">
+        <div class="prod-stat-num">4hr</div>
+        <div class="prod-stat-lbl">Quote Response</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ CATALOGUE FILTER ZONE ════ -->
+<section class="catalogue-zone">
+  <div class="jft-wide-container">
+
+    <!-- Search + count row -->
+    <div class="cz-search-row reveal">
+      <div class="cz-search-box">
+        <i class="fa-solid fa-magnifying-glass cz-search-icon"></i>
+        <input type="text" id="prod-search" class="cz-search-input" placeholder="Search 84 products — rice, cumin, turmeric, psyllium..." onkeyup="performSearch()" aria-label="Search Products" autocomplete="off">
+        <button class="cz-clear-btn" id="search-clear-btn" onclick="clearSearch()" title="Clear search" style="display:none;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="cz-result-count" id="result-count">
+        <span id="result-num">84</span> products
+      </div>
     </div>
 
-    <section class="section-padding" style="background: transparent; padding-top: 0;">
-        <div class="jft-wide-container">
-            <div class="search-wrapper reveal">
-                <div class="search-input-box">
-                    <input type="text" id="prod-search" class="search-input" placeholder="Search by Product Name or Category..." onkeyup="performSearch()" aria-label="Search Products">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                </div>
-            </div>
+    <!-- Category tabs -->
+    <div class="cz-tabs-zone reveal">
+      <button class="cz-tab-arrow cz-tab-left" onclick="scrollTabs(-200)" aria-label="Scroll left"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="cz-tab-scroll" id="tab-container" tabindex="0">
+        <button class="cz-tab active" data-cat="all" onclick="filterProducts('all')">
+          <i class="fa-solid fa-grid-2"></i> All Products
+        </button>
+        <button class="cz-tab" data-cat="rice" onclick="filterProducts('rice')">
+          <i class="fa-solid fa-seedling"></i> Rice
+        </button>
+        <button class="cz-tab" data-cat="spices" onclick="filterProducts('spices')">
+          <i class="fa-solid fa-pepper-hot"></i> Spices
+        </button>
+        <button class="cz-tab" data-cat="wheat" onclick="filterProducts('wheat')">
+          <i class="fa-solid fa-wheat-awn"></i> Wheat
+        </button>
+        <button class="cz-tab" data-cat="flour" onclick="filterProducts('flour')">
+          <i class="fa-solid fa-bowl-food"></i> Flour
+        </button>
+        <button class="cz-tab" data-cat="herbs" onclick="filterProducts('herbs')">
+          <i class="fa-solid fa-leaf"></i> Herbs
+        </button>
+        <button class="cz-tab" data-cat="oilseeds" onclick="filterProducts('oilseeds')">
+          <i class="fa-solid fa-droplet"></i> Oilseeds
+        </button>
+        <button class="cz-tab" data-cat="feed" onclick="filterProducts('feed')">
+          <i class="fa-solid fa-cow"></i> Animal Feed
+        </button>
+        <button class="cz-tab" data-cat="raisins" onclick="filterProducts('raisins')">
+          <i class="fa-solid fa-apple-whole"></i> Fruits
+        </button>
+        <button class="cz-tab" data-cat="sugar" onclick="filterProducts('sugar')">
+          <i class="fa-solid fa-cubes"></i> Sugar
+        </button>
+        <button class="cz-tab cz-tab-import" data-cat="pulses" onclick="filterProducts('pulses')">
+          <i class="fa-solid fa-ship"></i> Pulses
+        </button>
+      </div>
+      <button class="cz-tab-arrow cz-tab-right" onclick="scrollTabs(200)" aria-label="Scroll right"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
 
-            <div class="tab-wrapper reveal">
-                <div class="tab-arrow tab-left" onclick="scrollTabs(-200)"><i class="fa-solid fa-chevron-left"></i></div>
-                <div class="cat-scroll-view" id="tab-container" tabindex="0">
-                    <button class="cat-btn active" onclick="filterProducts('all')">All</button>
-                    <button class="cat-btn" onclick="filterProducts('rice')">Rice</button>
-                    <button class="cat-btn" onclick="filterProducts('spices')">Spices</button>
-                    <button class="cat-btn" onclick="filterProducts('flour')">Flour</button>
-                    <button class="cat-btn" onclick="filterProducts('wheat')">Wheat</button>
-                    <button class="cat-btn" onclick="filterProducts('herbs')">Herbs</button>
-                    <button class="cat-btn" onclick="filterProducts('oilseeds')">Oil Seeds</button>
-                    <button class="cat-btn" onclick="filterProducts('feed')">Animal Feed</button>
-                    <button class="cat-btn" onclick="filterProducts('raisins')">Raisins</button>
-                    <button class="cat-btn" onclick="filterProducts('sugar')">Sugar</button>
-                    <button class="cat-btn import-tab" onclick="filterProducts('pulses')"><i class="fa-solid fa-ship"></i> We Import (Pulses)</button>
-                </div>
-                <div class="tab-arrow tab-right" onclick="scrollTabs(200)"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
+    <!-- Rice sub-filters -->
+    <div id="rice-sub-filters" class="cz-subfilters">
+      <button class="cz-subtab active" onclick="filterRice('all', this)">All Rice</button>
+      <button class="cz-subtab" onclick="filterRice('basmati', this)">Basmati</button>
+      <button class="cz-subtab" onclick="filterRice('non-basmati', this)">Non-Basmati</button>
+    </div>
 
-            <div id="rice-sub-filters">
-                <button class="sub-cat-btn active" onclick="filterRice('all', this)">All Rice</button>
-                <button class="sub-cat-btn" onclick="filterRice('basmati', this)">Basmati</button>
-                <button class="sub-cat-btn" onclick="filterRice('non-basmati', this)">Non-Basmati</button>
-            </div>
+    <!-- Product grid -->
+    <div class="product-catalogue-grid" id="product-grid"></div>
 
-            <div class="product-catalogue-grid reveal" id="product-grid">
-                </div>
-        </div>
-    </section>
+    <!-- No results state -->
+    <div id="no-results" style="display:none;text-align:center;padding:80px 20px;">
+      <i class="fa-solid fa-magnifying-glass" style="font-size:3rem;color:#ddd;margin-bottom:20px;display:block;"></i>
+      <h3 style="font-family:'Merriweather',serif;color:#aaa;margin-bottom:10px;">No products found</h3>
+      <p style="color:#bbb;font-size:.9rem;">Try a different search term or <button onclick="clearSearch()" style="background:none;border:none;color:var(--jft-primary);font-weight:700;cursor:pointer;font-size:.9rem;text-decoration:underline;">browse all products</button></p>
+    </div>
+
+  </div>
+</section>
 
     <section class="why-choose-section">
         <div class="jft-wide-container">
@@ -552,9 +866,12 @@ s0.parentNode.insertBefore(s1,s0);
                 </div>
             </div>
         </div>
+      <!-- Why Choose CTA -->
+      <div style="text-align:center;margin-top:55px;position:relative;z-index:2;" class="reveal">
+        <a href="contact.html#inquiry-form" style="display:inline-flex;align-items:center;gap:10px;background:var(--jft-gold);color:var(--jft-navy);padding:17px 42px;border-radius:50px;font-family:var(--font-sub);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 10px 30px rgba(238,191,69,.3);transition:.4s;"><i class="fa-solid fa-paper-plane"></i> Request Bulk Pricing Now</a>
+      </div>
     </section>
 
-    
 <!-- CTA Section -->
 <section class="jft-cta-block">
   <div class="jft-wide-container">
@@ -646,7 +963,6 @@ s0.parentNode.insertBefore(s1,s0);
         </div>
     </div>
 
-    <button id="backToTop" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <script>
         const PRODUCT_DATA = [
@@ -773,6 +1089,7 @@ s0.parentNode.insertBefore(s1,s0);
             setTimeout(() => {
                 container.innerHTML = '';
                 const filtered = cat === 'all' ? PRODUCT_DATA : PRODUCT_DATA.filter(p => p.c === cat);
+                updateResultCount(filtered.length);
                 let delay = 0;
 
             filtered.forEach((p, index) => {
@@ -843,13 +1160,33 @@ s0.parentNode.insertBefore(s1,s0);
             });
 
                 container.style.opacity = '1';
+                // Show/hide no-results
+                const noRes = document.getElementById('no-results');
+                if (noRes) noRes.style.display = container.children.length === 0 ? 'block' : 'none';
                 initDragScroll();
             }, 300);
         }
 
         // --- SEARCH LOGIC ---
+        function clearSearch() {
+            document.getElementById('prod-search').value = '';
+            document.getElementById('search-clear-btn').style.display = 'none';
+            renderProducts('all');
+            updateResultCount(PRODUCT_DATA.length);
+            document.querySelectorAll('.cz-tab').forEach(b => b.classList.remove('active'));
+            const allBtn = document.querySelector('.cz-tab[data-cat="all"]');
+            if (allBtn) allBtn.classList.add('active');
+        }
+
+        function updateResultCount(n) {
+            const el = document.getElementById('result-num');
+            if (el) el.textContent = n;
+        }
+
         function performSearch() {
             const query = document.getElementById('prod-search').value.toLowerCase();
+            const clearBtn = document.getElementById('search-clear-btn');
+            if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
             const container = document.getElementById('product-grid');
             container.innerHTML = '';
             
@@ -1169,15 +1506,16 @@ s0.parentNode.insertBefore(s1,s0);
         }
 
         function filterProducts(cat) {
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            document.querySelectorAll('.cz-tab').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.querySelector(`.cz-tab[data-cat="${cat}"]`);
+            if (activeBtn) { activeBtn.classList.add('active'); activeBtn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}); }
             renderProducts(cat);
             attachScrollObserver();
             document.getElementById('rice-sub-filters').style.display = (cat === 'rice') ? 'flex' : 'none';
         }
 
         function filterRice(type, btn) {
-            document.querySelectorAll('.sub-cat-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.cz-subtab, .sub-cat-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
             const container = document.getElementById('product-grid');
@@ -1231,7 +1569,7 @@ s0.parentNode.insertBefore(s1,s0);
             attachScrollObserver();
         }
 
-        function scrollTabs(amount) {
+        function scrollTabs(amount) { /* works with cz-tab-scroll */
             document.getElementById('tab-container').scrollBy({ left: amount, behavior: 'smooth' });
         }
 
