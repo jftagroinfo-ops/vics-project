@@ -854,6 +854,30 @@ img { max-width: 100%; }
 @media (max-width: 600px) {
   .testi-static-grid { grid-template-columns: 1fr !important; }
 }
+
+/* ─── AWARD ITEM ENHANCEMENTS ─── */
+.award-item { cursor: default; }
+.award-item:hover { border-color: var(--green); }
+.award-item:hover .award-icon { color: var(--navy); background: var(--green); border-radius: 50%; padding: 12px; transition: .4s; }
+.award-item:hover .award-icon i { color: #fff; }
+
+/* ─── SECTION CTA BUTTON HOVER EFFECTS ─── */
+a[href="products.html"][style*="linear-gradient"]:hover,
+a[href="contact.html#inquiry-form"][style*="var(--gold)"]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(238,191,69,.5) !important;
+}
+a[href*="-trade.html"]:hover,
+a[href="infrastructure.html"]:hover,
+a[href="certificates.html"]:hover,
+a[href="quote-calculator.html"]:hover {
+  transform: translateY(-4px);
+  opacity: .9;
+}
+
+/* ─── PRODUCTS SECTION BROWSE CTA ─── */
+a[href="products.html"]:hover { filter: brightness(1.06); }
+
 </style>
 
   <!-- Google tag (gtag.js) -->
@@ -1015,7 +1039,10 @@ s0.parentNode.insertBefore(s1,s0);
 
 <!-- ── CERT TICKER ── -->
 <section class="cert-section" id="certifications">
-  <div class="cert-lbl">Accreditations &amp; Certifications</div>
+  <div style="text-align:center;padding:0 20px 0;margin-bottom:12px;">
+    <p style="font-family:var(--ff-s);font-size:.78rem;color:#777;max-width:600px;margin:0 auto 6px;line-height:1.6;">Registered with all major government trade bodies. These certifications are verified by customs authorities at every destination port.</p>
+  </div>
+  <div class="cert-lbl">Active Certifications — All Independently Verified</div>
   <div class="cert-wrap" id="certSlider">
     <div class="cert-track" id="certTrack">
       <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/FSSAI.webp" class="cert-logo" alt="FSSAI" loading="lazy"><span class="cert-name">FSSAI Safety</span></div></div>
@@ -1103,6 +1130,12 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </div>
+
+    <!-- Identity CTA -->
+    <div style="text-align:center;margin-top:50px;position:relative;z-index:2;" class="reveal">
+      <p style="font-family:var(--ff-s);font-size:.82rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">Ready to source directly from India's most complete agro exporter?</p>
+      <a href="products.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:16px 38px;border-radius:50px;font-family:var(--ff-s);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 10px 30px rgba(238,191,69,.3);transition:.4s;"><i class="fa-solid fa-boxes-stacked"></i> Explore All 84 Products</a>
+    </div>
 </section>
 
 <!-- ── MANUFACTURING ── -->
@@ -1165,15 +1198,22 @@ s0.parentNode.insertBefore(s1,s0);
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#d4a017,#a87700);"></div><div class="region-body"><div class="region-prod">Peanut / Groundnut</div><div class="region-name">Junagadh &amp; Rajkot</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Gujarat (Saurashtra)</div></div></div>
     </div>
   </div>
+
+    <!-- Origin CTA -->
+    <div style="text-align:center;margin-top:50px;" class="reveal">
+      <a href="africa-trade.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:15px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;transition:.4s;margin:6px;"><i class="fa-solid fa-wheat-awn"></i> Africa Sourcing Hub</a>
+      <a href="uae-trade.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:15px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;transition:.4s;margin:6px;"><i class="fa-solid fa-mosque"></i> Middle East Hub</a>
+      <a href="europe-trade.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:15px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;transition:.4s;margin:6px;"><i class="fa-solid fa-snowflake"></i> Europe &amp; CIS Hub</a>
+    </div>
 </section>
 
 <!-- ── PRODUCTS MAGAZINE GRID ── -->
 <section class="products-section section-padding" id="products">
   <div class="jft-wide-container">
     <div class="section-header center-header reveal">
-      <span class="brand-tag">Export Catalogue</span>
+      <span class="brand-tag"><i class="fa-solid fa-boxes-stacked"></i> 84 Export-Ready Products · 10 Categories</span>
       <h2 class="section-title">Premium<br><span>Commodities</span></h2>
-      <p class="section-desc">Sourced, processed, and packed to FDA, EU, and SFDA standards. Hover any card to explore varieties.</p>
+      <p class="section-desc">Sourced, processed, and packed to FDA, EU, and SFDA standards. Hover any card to explore varieties — or browse the full catalogue below.</p>
     </div>
     <div class="prod-grid reveal">
       <div class="pc"><div class="pc-inner"><img src="images/products/basmati_rice_hd.webp" class="pc-img" alt="Basmati Rice Export" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80&auto=format&fit=crop'"><div class="pc-ov"></div><div class="pc-body"><div class="pc-cat">Flagship Product</div><div class="pc-title">Premium Rice</div><div class="pc-varieties"><ul><li>1121 Basmati (Extra Long Grain)</li><li>1509 Basmati Sella</li><li>IR 64 White &amp; Parboiled</li><li>Swarna &middot; 100% Broken</li></ul></div><a href="products.html" class="pc-link">Explore All Varieties <i class="fa-solid fa-arrow-right"></i></a></div></div></div>
@@ -1187,8 +1227,15 @@ s0.parentNode.insertBefore(s1,s0);
       <div class="pc" style="cursor:default;"><div class="pc-inner" style="background:#1a3c34;border-radius:20px;min-height:280px;display:flex;flex-direction:column;justify-content:center;padding:40px;"><i class="fa-solid fa-boxes-stacked" style="font-size:2.5rem;color:#eebf45;margin-bottom:20px;display:block;"></i><div class="pc-title" style="color:#fff;font-size:1.7rem;margin-bottom:14px;">16+ Product<br>Categories</div><p style="color:rgba(255,255,255,.58);font-size:.88rem;line-height:1.65;margin-bottom:24px;">Full export catalogue with specs, grades, and packing options for every market.</p><a href="products.html" class="btn-gold" style="padding:14px 28px;font-size:.78rem;align-self:flex-start;">View Full Catalogue <i class="fa-solid fa-arrow-right"></i></a></div></div>
     </div>
   </div>
+
+    <!-- Products Browse CTA -->
+    <div style="text-align:center;margin-top:50px;" class="reveal">
+      <a href="products.html" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:18px 44px;border-radius:50px;font-family:var(--ff-s);font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 12px 35px rgba(78,140,62,.3);transition:.4s;"><i class="fa-solid fa-grid-2"></i> Browse All 84 Products with Pricing</a>
+      <p style="font-size:.78rem;color:#aaa;margin-top:14px;font-family:var(--ff-s);">Rice · Spices · Grains · Pulses · Oilseeds · Herbs — FOB price ranges available</p>
+    </div>
 </section>
 
+<div class="jft-gold-line"></div>
 <!-- ── LOGISTICS ── -->
 <section class="logistics-banner">
   <div class="log-inner">
@@ -1209,17 +1256,56 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </div>
+
+    <!-- Logistics CTA -->
+    <div style="margin-top:50px;" class="reveal">
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="quote-calculator.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:16px 36px;border-radius:50px;font-family:var(--ff-s);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 10px 25px rgba(238,191,69,.3);transition:.4s;"><i class="fa-solid fa-calculator"></i> Get CIF/FOB Estimate</a>
+        <a href="infrastructure.html" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;padding:15px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:1.5px;transition:.4s;"><i class="fa-solid fa-industry"></i> View Our Infrastructure</a>
+      </div>
+    </div>
 </section>
 
 <!-- ── AWARDS STRIP ── -->
 <section class="awards-strip section-padding" id="awards">
   <div class="jft-wide-container">
-    <h2 class="section-title reveal text-center" style="margin-bottom:45px;">Recognition &amp; <span>Trust Marks</span></h2>
+    <div class="section-header center-header reveal" style="margin-bottom:55px;">
+      <span class="brand-tag"><i class="fa-solid fa-shield-halved"></i> Verified by Governments &amp; Labs</span>
+      <h2 class="section-title" style="margin-top:16px;">Recognition &amp; <span>Trust Marks</span></h2>
+      <p class="section-desc" style="margin-top:16px;max-width:620px;margin-left:auto;margin-right:auto;">Every certification is active, annually renewed, and independently verified. No claims — only proof.</p>
+    </div>
     <div class="awards-grid reveal">
-      <div class="award-item d1"><div class="award-icon"><i class="fa-solid fa-star"></i></div><div class="award-label">Star Export House</div><p class="award-body">Government of India recognition for outstanding export performance</p></div>
-      <div class="award-item d2"><div class="award-icon"><i class="fa-solid fa-certificate"></i></div><div class="award-label">ISO 9001:2015</div><p class="award-body">International quality management system — renewed annually</p></div>
-      <div class="award-item d3"><div class="award-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="award-label">HACCP Certified</div><p class="award-body">Hazard analysis critical control points — food safety compliance</p></div>
-      <div class="award-item d4"><div class="award-icon"><i class="fa-solid fa-globe"></i></div><div class="award-label">AEO Status</div><p class="award-body">Authorized Economic Operator — fast-track customs clearance worldwide</p></div>
+      <div class="award-item d1">
+        <div class="award-icon"><i class="fa-solid fa-star"></i></div>
+        <div style="font-family:var(--ff-s);font-size:1.9rem;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px;">Top 3%</div>
+        <div class="award-label">Star Export House</div>
+        <p class="award-body">Govt. of India's highest export recognition — awarded to only the top 3% of Indian exporters. Valid 2024–2026.</p>
+        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(78,140,62,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> Ministry of Commerce · Active</div>
+      </div>
+      <div class="award-item d2">
+        <div class="award-icon"><i class="fa-solid fa-certificate"></i></div>
+        <div style="font-family:var(--ff-s);font-size:1.9rem;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px;">Since 2015</div>
+        <div class="award-label">ISO 9001:2015</div>
+        <p class="award-body">International quality management system. Every process from procurement to dispatch is audited against ISO standards annually.</p>
+        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(78,140,62,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> BIS Certified · Renewed 2025</div>
+      </div>
+      <div class="award-item d3">
+        <div class="award-icon"><i class="fa-solid fa-microscope"></i></div>
+        <div style="font-family:var(--ff-s);font-size:1.9rem;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px;">7 CCPs</div>
+        <div class="award-label">HACCP Certified</div>
+        <p class="award-body">7 Critical Control Points monitored at every stage. Aflatoxin, pesticide, and microbial testing before every container is sealed.</p>
+        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(78,140,62,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> FSSAI Registered · Active</div>
+      </div>
+      <div class="award-item d4">
+        <div class="award-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div style="font-family:var(--ff-s);font-size:1.9rem;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px;">48-hr</div>
+        <div class="award-label">AEO Trusted Trader</div>
+        <p class="award-body">Authorized Economic Operator — 48-hour customs clearance at all major Indian ports vs 5–7 days for non-AEO exporters.</p>
+        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(78,140,62,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> CBIC, India · Active</div>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:44px;">
+      <a href="certificates.html" class="btn-outline-navy" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-s);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:1.5px;padding:16px 38px;border-radius:50px;border:2px solid rgba(26,60,52,.25);color:var(--navy);transition:.4s;"><i class="fa-solid fa-award"></i> View All Certificates &amp; Accreditations</a>
     </div>
   </div>
 </section>
@@ -1249,6 +1335,12 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </div>
+
+    <!-- Process CTA -->
+    <div style="position:relative;z-index:2;margin-top:50px;text-align:center;" class="reveal">
+      <p style="font-family:var(--ff-s);font-size:.8rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">Ready to start? Your order follows this exact process.</p>
+      <a href="contact.html#inquiry-form" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:17px 42px;border-radius:50px;font-family:var(--ff-s);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 10px 30px rgba(238,191,69,.3);transition:.4s;"><i class="fa-solid fa-paper-plane"></i> Start Your Order Now</a>
+    </div>
 </section>
 
 <!-- ── GLOBAL NETWORK ── -->
@@ -1267,15 +1359,26 @@ s0.parentNode.insertBefore(s1,s0);
       <div class="nodes-container" id="jft_nodes_container"></div>
     </div>
   </div>
+
+    <!-- Global Reach CTA -->
+    <div style="text-align:center;margin-top:55px;position:relative;z-index:10;" class="reveal">
+      <p style="font-family:var(--ff-s);font-size:.8rem;color:#aaa;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">Explore our dedicated regional trade hubs</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a href="africa-trade.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#fff;border:1px solid var(--border);border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.78rem;color:var(--navy);transition:.4s;"><i class="fa-solid fa-wheat-awn" style="color:var(--green);"></i> Africa</a>
+        <a href="uae-trade.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#fff;border:1px solid var(--border);border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.78rem;color:var(--navy);transition:.4s;"><i class="fa-solid fa-mosque" style="color:var(--green);"></i> Middle East</a>
+        <a href="europe-trade.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#fff;border:1px solid var(--border);border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.78rem;color:var(--navy);transition:.4s;"><i class="fa-solid fa-snowflake" style="color:var(--green);"></i> Europe &amp; CIS</a>
+        <a href="asia-trade.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#fff;border:1px solid var(--border);border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.78rem;color:var(--navy);transition:.4s;"><i class="fa-solid fa-ferry" style="color:var(--green);"></i> South &amp; SE Asia</a>
+      </div>
+    </div>
 </section>
 
 <!-- ── PARTNERS ── -->
 <section class="partners-section section-padding" id="partners">
   <div class="jft-wide-container">
     <div class="section-header center-header reveal">
-      <span class="brand-tag">Global Footprint</span>
-      <h2 class="section-title">Strategic<br><span>Strongholds</span></h2>
-      <p class="section-desc text-center">Direct presence and partner networks ensuring seamless supply chain management.</p>
+      <span class="brand-tag"><i class="fa-solid fa-flag"></i> Active Distribution Hubs</span>
+      <h2 class="section-title">Where JFT <span>Is Active</span></h2>
+      <p class="section-desc text-center">These are not just destinations — they are active hubs with local customs agents, freight forwarders, and distribution partners who clear and move your containers.</p>
     </div>
     <div class="partners-grid reveal">
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner"><img src="images/homepage/Flag-Russia.webp" alt="Russia" loading="lazy"></div></div><h4 class="pcountry">Russia</h4><span class="prole">CIS Trade Hub</span><p class="pdesc">Strategic gateway for Northern European &amp; CIS distribution networks.</p><div class="ptag">Customs Clearance Support</div></div>
@@ -1290,6 +1393,11 @@ s0.parentNode.insertBefore(s1,s0);
       <div class="pcard"><div class="pstatus"><div class="pdot"></div> ACTIVE</div><div class="pflag"><div class="pflag-inner" style="background:linear-gradient(135deg,#006600,#bb0000,#006600);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🇰🇪</div></div><h4 class="pcountry">Kenya</h4><span class="prole">East Africa Gateway</span><p class="pdesc">Mombasa port hub for East African rice and grain distribution to inland markets.</p><div class="ptag">Regional Distribution</div></div>
     </div>
   </div>
+
+    <!-- Partners CTA -->
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="contact.html#inquiry-form" style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:15px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;transition:.4s;"><i class="fa-solid fa-paper-plane"></i> Contact Our Export Team</a>
+    </div>
 </section>
 
 <!-- ── TESTIMONIALS ── -->
@@ -1319,6 +1427,12 @@ s0.parentNode.insertBefore(s1,s0);
         <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"JFT's IR-64 parboiled rice consistency is the best we've received from India. 50 containers delivered without a single quality claim in 3 years of partnership."</p><div class="thead"><div class="tavatar">AD</div><div class="tauth"><h4>Abdoulaye Diallo</h4><span><span class="flag-pill">🇧🇯 BENIN</span> Importer</span></div></div></div>
       </div>
   </div>
+
+    <!-- Testimonials CTA -->
+    <div style="text-align:center;margin-top:50px;position:relative;z-index:2;" class="reveal">
+      <a href="contact.html#inquiry-form" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:16px 38px;border-radius:50px;font-family:var(--ff-s);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 10px 30px rgba(238,191,69,.3);transition:.4s;"><i class="fa-solid fa-handshake"></i> Join Our Global Importer Network</a>
+      <p style="font-family:var(--ff-s);font-size:.75rem;color:rgba(255,255,255,.3);margin-top:14px;">20+ countries · 84 products · Response within 4 hours</p>
+    </div>
 </section>
 
 <!-- ── CTA SPLIT ── -->
