@@ -198,7 +198,7 @@
         .sub-cat-btn.active { background: var(--jft-gold); color: var(--jft-navy); border-color: var(--jft-gold); box-shadow: 0 8px 15px rgba(238, 191, 69, 0.3); transform: scale(1.05); }
 
         /* --- Product Grid --- */
-        .product-catalogue-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: stretch; }
+        .product-catalogue-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: clamp(20px, 3vw, 36px); align-items: stretch; max-width: 100%; }
         
         .p-item { background: #fff; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--jft-border); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; display: flex; flex-direction: column; contain: content; }
         .p-item:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(26, 60, 52, 0.1); border-color: var(--jft-gold); }
@@ -565,9 +565,7 @@
    ════════════════════════════════════════════════════════════════ */
 
 /* Product grid cols */
-@media(min-width:1400px) {
-  .product-catalogue-grid { grid-template-columns: repeat(4,1fr); }
-}
+/* max 3 columns — 4 looked cramped */
 @media(max-width:1100px) {
   .wc-grid { grid-template-columns: repeat(2,1fr); }
 }
@@ -630,6 +628,45 @@
 .prod-stat-lbl { font-family: var(--font-sub); font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: rgba(26,60,52,.4); margin-top: 7px; }
 @media(max-width:768px) { .prod-stats-grid { grid-template-columns: repeat(3,1fr); } .prod-stat-item:nth-child(3) { border-right: none; } .prod-stat-item:nth-child(4) { border-top: 1px solid rgba(26,60,52,.07); } .prod-stat-item:nth-child(5) { border-top: 1px solid rgba(26,60,52,.07); border-right: none; } }
 @media(max-width:480px) { .prod-stats-grid { grid-template-columns: repeat(2,1fr); } .prod-stat-item:nth-child(2) { border-right: none; } .prod-stat-item:nth-child(5) { grid-column: span 2; border-right: none; } }
+
+
+/* ── Premium card upgrades ── */
+.p-hs-strip {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0; margin-bottom: 12px;
+  border-top: 1px dashed rgba(26,60,52,.1);
+  flex-wrap: wrap;
+}
+.p-hs-code {
+  font-family: var(--font-sub); font-size: .68rem; font-weight: 700;
+  color: rgba(26,60,52,.45); text-transform: uppercase; letter-spacing: .5px;
+  background: rgba(26,60,52,.05); padding: 4px 10px; border-radius: 6px;
+}
+.p-load-pill {
+  font-family: var(--font-sub); font-size: .68rem; font-weight: 700;
+  color: var(--jft-primary); display: flex; align-items: center; gap: 5px;
+  background: rgba(78,140,62,.07); padding: 4px 10px; border-radius: 6px;
+}
+.p-load-pill i { font-size: .6rem; }
+
+/* ── Image height consistent ── */
+.p-img-box { height: 240px; overflow: hidden; position: relative; background: #f0f0f0; }
+.p-img-box img { width: 100%; height: 100%; object-fit: cover; transition: .6s; }
+.p-item:hover .p-img-box img { transform: scale(1.06); }
+.p-item:hover .img-overlay { opacity: 1 !important; background: rgba(26,60,52,.3) !important; }
+
+/* ── Card border accent on hover ── */
+.p-item {
+  transition: .4s cubic-bezier(.4,0,.2,1);
+  position: relative; overflow: visible;
+}
+.p-item::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 3px; background: var(--jft-gold);
+  border-radius: 0 0 var(--radius-md) var(--radius-md); transition: .5s;
+}
+.p-item:hover::after { width: 100%; }
+.p-item:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(26,60,52,.12); border-color: rgba(238,191,69,.4); }
 
     </style>
 
@@ -1124,7 +1161,7 @@ s0.parentNode.insertBefore(s1,s0);
 
                 const html = `
                 <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                    <div class="p-img-box" style="position:relative;overflow:hidden;">${p.u ? `<a href="${p.u}" aria-label="View ${p.t} details" style="display:block;"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260" style="transition:.4s;"><div style="position:absolute;inset:0;background:rgba(26,60,52,.0);transition:.3s;display:flex;align-items:center;justify-content:center;opacity:0;" class="img-overlay"><span style="background:rgba(238,191,69,.95);color:#1a3c34;padding:8px 18px;border-radius:20px;font-family:var(--font-sub);font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;">View Details</span></div></a>` : `<img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260">`}</div>
+                    <div class="p-img-box" style="position:relative;overflow:hidden;">${p.u ? `<a href="${p.u}" aria-label="View ${p.t} details" style="display:block;height:100%;"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260" style="transition:.6s;width:100%;height:100%;object-fit:cover;"><div class="p-cat-badge" style="position:absolute;top:14px;left:14px;background:rgba(26,60,52,.85);backdrop-filter:blur(8px);color:#fff;padding:5px 12px;border-radius:20px;font-family:var(--font-sub);font-weight:800;font-size:.65rem;text-transform:uppercase;letter-spacing:1px;">${p.c}</div><div style="position:absolute;inset:0;background:rgba(26,60,52,.0);transition:.3s;display:flex;align-items:center;justify-content:center;opacity:0;" class="img-overlay"><span style="background:rgba(238,191,69,.95);color:#1a3c34;padding:8px 18px;border-radius:20px;font-family:var(--font-sub);font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;">View Details</span></div></a>` : `<img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260" style="width:100%;height:100%;object-fit:cover;">`}</div>
                     <div class="p-content">
                         <div class="p-cat">${p.c.toUpperCase()}</div>
                         <h3 class="p-title">${p.u ? `<a href="${p.u}" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--jft-primary)'" onmouseout="this.style.color='inherit'">${p.t}</a>` : p.t}</h3>
@@ -1144,8 +1181,9 @@ s0.parentNode.insertBefore(s1,s0);
                             <div class="p-market-list">${marketHTML}</div>
                         </div>
 
-                        <div class="p-tags-container">
-                            ${tagsHTML}
+                        <div class="p-hs-strip">
+                            <span class="p-hs-code">HS: ${p.s.find(r => r[0]==='HS Code') ? p.s.find(r => r[0]==='HS Code')[1] : '—'}</span>
+                            <span class="p-load-pill"><i class="fa-solid fa-ship"></i> ${p.l.split(' in ')[0]}</span>
                         </div>
 
                         <div class="p-action" style="display:flex; gap:8px; flex-wrap:wrap;">
@@ -1546,7 +1584,7 @@ s0.parentNode.insertBefore(s1,s0);
 
                 const html = `
                 <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                    <div class="p-img-box" style="position:relative;overflow:hidden;">${p.u ? `<a href="${p.u}" aria-label="View ${p.t} details" style="display:block;"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260" style="transition:.4s;"><div style="position:absolute;inset:0;background:rgba(26,60,52,.0);transition:.3s;display:flex;align-items:center;justify-content:center;opacity:0;" class="img-overlay"><span style="background:rgba(238,191,69,.95);color:#1a3c34;padding:8px 18px;border-radius:20px;font-family:var(--font-sub);font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;">View Details</span></div></a>` : `<img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260">`}</div>
+                    <div class="p-img-box" style="position:relative;overflow:hidden;">${p.u ? `<a href="${p.u}" aria-label="View ${p.t} details" style="display:block;height:100%;"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260" style="transition:.6s;width:100%;height:100%;object-fit:cover;"><div class="p-cat-badge" style="position:absolute;top:14px;left:14px;background:rgba(26,60,52,.85);backdrop-filter:blur(8px);color:#fff;padding:5px 12px;border-radius:20px;font-family:var(--font-sub);font-weight:800;font-size:.65rem;text-transform:uppercase;letter-spacing:1px;">${p.c}</div><div style="position:absolute;inset:0;background:rgba(26,60,52,.0);transition:.3s;display:flex;align-items:center;justify-content:center;opacity:0;" class="img-overlay"><span style="background:rgba(238,191,69,.95);color:#1a3c34;padding:8px 18px;border-radius:20px;font-family:var(--font-sub);font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;">View Details</span></div></a>` : `<img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260" style="width:100%;height:100%;object-fit:cover;">`}</div>
                     <div class="p-content">
                         <div class="p-cat">${p.c.toUpperCase()}</div>
                         <h3 class="p-title">${p.u ? `<a href="${p.u}" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--jft-primary)'" onmouseout="this.style.color='inherit'">${p.t}</a>` : p.t}</h3>
