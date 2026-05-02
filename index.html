@@ -129,7 +129,7 @@ img{max-width:100%;height:auto;display:block}
 .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(7,18,15,.97) 0%,rgba(26,60,52,.86) 45%,rgba(26,60,52,.15) 100%);z-index:1}
 .hero-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;z-index:2;pointer-events:none}
 .hero-gold-stripe{position:absolute;top:0;right:0;width:3px;height:100%;background:linear-gradient(180deg,transparent,var(--gold),transparent);z-index:8;opacity:.5}
-.hero-content-wrapper{position:relative;width:100%;max-width:1400px;margin:0 auto;z-index:10;padding:20px 40px;pointer-events:none}
+.hero-content-wrapper{position:relative;width:100%;max-width:1400px;margin:0 auto;z-index:10;padding:20px clamp(20px,5vw,40px);pointer-events:none}
 .hero-content-wrapper *{pointer-events:auto}
 .hero-content-slide{display:none;align-items:center;justify-content:space-between;gap:60px;flex-wrap:wrap;width:100%}
 .hero-content-slide.active{display:flex;animation:hFadeIn .9s var(--ease-out) forwards}
@@ -144,7 +144,7 @@ img{max-width:100%;height:auto;display:block}
 .hero-visual-card{flex:0 0 420px;display:flex;justify-content:flex-end;perspective:2000px;max-width:100%}
 .glass-card{background:rgba(255,255,255,.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:36px;padding:10px;box-shadow:0 50px 100px rgba(0,0,0,.4);transition:.5s var(--ease);overflow:hidden}
 .glass-card:hover{background:rgba(255,255,255,.1);border-color:rgba(238,191,69,.4);transform:translateY(-8px) scale(1.01)}
-.glass-card img{width:100%;height:470px;object-fit:cover;border-radius:28px;display:block}
+.glass-card img{width:100%;height:clamp(320px,40vh,470px);object-fit:cover;border-radius:28px;display:block}
 .hero-stats-bar{display:none!important}
 .slider-controls{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:20}
 .control-dot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:.3s;background:transparent}
@@ -168,7 +168,7 @@ img{max-width:100%;height:auto;display:block}
 /* ─── ABOUT EDITORIAL ─── */
 .about-editorial{background:var(--cream)}
 .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:620px}
-.about-left{background:var(--navy);padding:clamp(55px,8vw,110px) clamp(20px,6vw,85px);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.about-left{background:var(--navy);padding:clamp(40px,6vw,110px) clamp(20px,5vw,85px);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .about-left::before{content:'\201C';position:absolute;top:-30px;right:10px;font-size:22rem;color:rgba(238,191,69,.05);font-family:var(--ff-h);line-height:1;pointer-events:none}
 .about-left::after{content:'';position:absolute;bottom:0;right:0;width:150px;height:150px;background:radial-gradient(circle,rgba(78,140,62,.12),transparent 70%);pointer-events:none}
 .about-tag-line{font-family:var(--ff-s);font-size:.68rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:14px}
@@ -241,7 +241,7 @@ img{max-width:100%;height:auto;display:block}
 .manu-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
 .manu-img-wrap{position:relative}
 .manu-img{width:100%;border-radius:36px;object-fit:cover;height:520px;border:3px solid rgba(238,191,69,.18)}
-.manu-badge{position:absolute;bottom:-30px;right:-30px;background:var(--gold);color:var(--navy);border-radius:20px;padding:28px 32px;text-align:center;font-family:var(--ff-s);box-shadow:0 25px 50px rgba(238,191,69,.3)}
+.manu-badge{position:absolute;bottom:-20px;right:16px;background:var(--gold);color:var(--navy);border-radius:20px;padding:28px 32px;text-align:center;font-family:var(--ff-s);box-shadow:0 25px 50px rgba(238,191,69,.3)}
 .manu-badge .bb{font-size:2.8rem;font-weight:900;line-height:1;display:block}
 .manu-badge .bs{font-size:.68rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-top:4px;display:block}
 .manu-section .section-title{color:#fff}
@@ -254,7 +254,7 @@ img{max-width:100%;height:auto;display:block}
 .origin-section{background:linear-gradient(180deg,#fdf9f0,#fff)}
 .origin-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:70px}
 .origin-img-wrap{position:relative}
-.origin-img-wrap img{width:100%;height:510px;object-fit:cover;border-radius:36px}
+.origin-img-wrap img{width:100%;height:clamp(280px,45vh,510px);object-fit:cover;border-radius:36px}
 .origin-badge-overlay{position:absolute;bottom:30px;left:30px;background:rgba(26,60,52,.93);backdrop-filter:blur(10px);border-radius:20px;padding:22px 28px;color:#fff;max-width:270px}
 .origin-badge-overlay .onum{font-family:var(--ff-s);font-size:2.2rem;font-weight:900;color:var(--gold)}
 .origin-badge-overlay .otxt{font-size:.85rem;color:rgba(255,255,255,.7);margin:0;font-family:var(--ff-s);line-height:1.5}
@@ -337,7 +337,7 @@ img{max-width:100%;height:auto;display:block}
 .proc-step:hover .step-num{background:var(--gold);color:var(--navy);border-color:var(--gold);transform:scale(1.1)}
 .proc-step h3{font-family:var(--ff-h);font-size:1.22rem;font-weight:700;color:#fff;margin-bottom:8px}
 .proc-step p{color:rgba(255,255,255,.48);font-size:.88rem;margin:0;line-height:1.65}
-.process-visual{position:sticky;top:120px}
+.process-visual{position:sticky;top:120px;}@media(max-width:1100px){.process-visual{position:relative;top:auto}}
 .proc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:36px;padding:50px}
 .proc-card h3{font-family:var(--ff-h);font-size:2rem;color:#fff;margin-bottom:18px}
 .proc-card h3 span{color:var(--gold)}
@@ -350,7 +350,7 @@ img{max-width:100%;height:auto;display:block}
 .jft-network-section{position:relative;padding:clamp(70px,8vw,125px) 0;overflow:visible;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;background:#fdfbf7}
 .jft-network-section::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0}
 .network-header{text-align:center;margin-bottom:65px;position:relative;z-index:10;padding:0 20px}
-.network-visual{position:relative;height:760px;width:100%;display:flex;align-items:center;justify-content:center}
+.network-visual{position:relative;height:clamp(500px,60vh,760px);width:100%;display:flex;align-items:center;justify-content:center}
 .custom-india-map{position:absolute;top:40%;left:60%;transform:translate(-50%,-50%);width:100%;max-width:920px;z-index:1;opacity:.07;filter:grayscale(100%);pointer-events:none}
 .trade-lines-svg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:6;pointer-events:none}
 .trade-path{fill:none;stroke:var(--green);stroke-width:2;stroke-dasharray:6,8;stroke-linecap:round;opacity:.4;animation:flowTrade 4s linear infinite}
@@ -464,26 +464,395 @@ img{max-width:100%;height:auto;display:block}
   .network-visual{height:auto;flex-direction:column;padding:20px 0}
 }
 /* ─── PARTNERS GRID ─── */
-.partners-section { background: #fff; padding: 60px 0; }
-.partners-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; margin-top: 30px; }
-.pcard { background: #fdfbf7; border: 1px solid var(--border); border-radius: 16px; padding: 20px 15px; transition: .4s; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; }
-.pcard:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 10px 25px rgba(26,60,52,0.08); background: #fff; }
-.pstatus { position: absolute; top: 10px; right: 10px; font-family: var(--ff-s); font-size: 0.55rem; font-weight: 800; color: var(--green); display: flex; align-items: center; gap: 4px; letter-spacing: 1px; background: rgba(46,204,113,.08); padding: 4px 8px; border-radius: 50px; }
-.pdot { width: 5px; height: 5px; background: var(--green); border-radius: 50%; box-shadow: 0 0 8px var(--green); }
-.pflag { width: 45px; height: 45px; margin-bottom: 15px; position: relative; border-radius: 50%; background: #f8f8f8; padding: 3px; box-shadow: 0 4px 10px rgba(0,0,0,.06); transition: .4s; border: 1px solid #eee; }
-.pflag-inner { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 2px solid #fff; }
-.pcard:hover .pflag { transform: scale(1.1); border-color: var(--gold); box-shadow: 0 6px 15px rgba(238,191,69,.22); }
-.pflag-inner img { width: 100%; height: 100%; object-fit: cover; }
-.pcountry { font-family: var(--ff-h); font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
-.prole { font-family: var(--ff-s); font-size: 0.65rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px; }
-.pdesc { font-size: 0.78rem; color: #777; line-height: 1.4; margin-bottom: 12px; }
-.ptag { display: inline-block; padding: 4px 10px; background: rgba(78,140,62,0.08); color: var(--green); border-radius: 50px; font-size: 0.65rem; font-weight: 700; font-family: var(--ff-s); }
+/* duplicate partners CSS removed */
 @media (max-width: 768px) { 
   .partners-grid { grid-template-columns: 1fr; } 
   .vc-grid { grid-template-columns: 1fr; }
   .cert-wrap { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
   .cert-wrap::-webkit-scrollbar { display: none; }
   .cert-slide { scroll-snap-align: start; flex: 0 0 240px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   JFT AGRO — COMPREHENSIVE RESPONSIVE FIXES  (index.html)
+   Breakpoints: 1200px | 1024px | 900px | 768px | 600px | 480px | 380px
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── GLOBAL BASE ── */
+img { max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── 1200px: Large laptop ────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .hero-visual-card  { flex: 0 0 340px; }
+  .glass-card img    { height: clamp(300px,38vh,420px); }
+  .vc-grid           { grid-template-columns: repeat(3,1fr); }
+  .stats-grid        { grid-template-columns: repeat(4,1fr); }
+}
+
+/* ── 1100px: Tablet landscape  (additions to existing rules) ─────────────── */
+@media (max-width: 1100px) {
+  .hero-visual-card  { flex: 0 0 300px; }
+  .manu-layout       { grid-template-columns: 1fr; gap: 50px; }
+  .manu-img          { height: clamp(280px,40vh,420px); }
+  .manu-badge        { bottom: 12px; right: 12px; padding: 20px 24px; }
+  .manu-badge .bb    { font-size: 2.2rem; }
+  .origin-intro      { grid-template-columns: 1fr; gap: 40px; }
+  .process-grid      { grid-template-columns: 1fr; gap: 50px; }
+  .process-visual    { position: relative; top: auto; }
+  .log-layout        { grid-template-columns: 1fr; gap: 50px; }
+  .proc-card         { padding: 34px; }
+}
+
+/* ── 1024px: iPad landscape / small laptop ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-content-slide { flex-direction: column; gap: 36px; }
+  .hero-visual-card  { flex: 0 0 auto; width: 100%; max-width: 480px; margin: 0 auto; }
+  .glass-card img    { height: clamp(240px,30vh,360px); }
+  .about-inner       { grid-template-columns: 1fr; }
+  .about-left,
+  .about-right       { min-height: auto; }
+  .about-right       { padding: clamp(36px,5vw,65px); }
+  .feat-grid         { grid-template-columns: 1fr 1fr; }
+  .cta-split         { grid-template-columns: 1fr; }
+  .cta-left,
+  .cta-right         { min-height: auto; padding: clamp(40px,5vw,70px) clamp(30px,5vw,60px); }
+  .origin-badge-overlay { bottom: 16px; left: 16px; padding: 16px 20px; }
+  .origin-badge-overlay .onum { font-size: 1.7rem; }
+  .id-pill           { padding: 18px 32px; }
+  .id-name           { font-size: 1.2rem; }
+  .tcard             { width: 360px; padding: 32px; }
+  .jft-network-section { overflow-x: hidden; }
+}
+
+/* ── 900px ───────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .vc-grid           { grid-template-columns: 1fr 1fr; }
+  .awards-grid       { grid-template-columns: 1fr 1fr; }
+  .prod-grid         { grid-template-columns: 1fr 1fr; }
+  .pc:first-child    { grid-column: span 2; }
+  .stats-grid        { grid-template-columns: 1fr 1fr; }
+  .stat-item         { border-bottom: 1px solid rgba(255,255,255,.07); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(even) { border-right: none; }
+  .partners-grid     { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+}
+
+/* ── 768px: iPad portrait / large phones ────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hero */
+  .hero-visual-card  { display: none; }
+  .hero-text-box     { text-align: center; max-width: 100%; }
+  .hero-actions      { justify-content: center; }
+  .hero-tag-modern   { font-size: .68rem; padding: 8px 16px; }
+  .hero-title-modern { font-size: clamp(1.7rem, 8vw, 2.8rem); }
+  .hero-desc-modern  { font-size: 1rem; margin: 0 auto 35px; max-width: 90%; }
+  .hero-content-slide.active { justify-content: center; }
+  .jft-hero-banner   { padding-top: 100px !important; padding-bottom: 50px; min-height: auto; }
+
+  /* Stats */
+  .stats-grid        { grid-template-columns: 1fr 1fr; }
+  .stat-item         { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); padding: clamp(30px,5vw,50px) 20px; }
+  .stat-num          { font-size: clamp(2.8rem,10vw,4.5rem); }
+
+  /* About */
+  .feat-grid         { grid-template-columns: 1fr; }
+  .cert-badges       { justify-content: center; }
+  .about-cta         { justify-content: center; flex-wrap: wrap; }
+
+  /* Identity section */
+  .vc-grid           { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .vc-card           { padding: 22px 18px; }
+  .id-pill           { padding: 14px 22px; gap: 12px; }
+  .id-name           { font-size: 1.05rem; }
+  .id-pill i         { font-size: 1.15rem; }
+
+  /* Manufacturing */
+  .manu-img          { height: clamp(220px,45vw,380px); border-radius: 24px; }
+  .manu-badge        { position: relative; bottom: auto; right: auto; margin: -24px auto 0; width: fit-content; border-radius: 16px; padding: 18px 24px; }
+  .manu-specs        { grid-template-columns: 1fr; gap: 10px; }
+
+  /* Products */
+  .prod-grid         { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pc:first-child    { grid-column: span 2; }
+  .pc:first-child .pc-inner { min-height: 380px; }
+  .pc-inner          { min-height: 200px; }
+  .pc:first-child .pc-title { font-size: 1.5rem; }
+
+  /* Origin */
+  .region-grid       { grid-template-columns: 1fr 1fr; }
+  .origin-stamps     { justify-content: center; }
+
+  /* Logistics */
+  .log-layout        { gap: 36px; }
+  .log-stat          { padding: 18px 20px; gap: 16px; }
+  .log-icon          { width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0; }
+
+  /* Awards */
+  .awards-grid       { grid-template-columns: 1fr 1fr; }
+
+  /* Process */
+  .proc-step         { gap: 18px; padding: 24px 0; }
+  .proc-card         { padding: 26px; border-radius: 24px; }
+
+  /* Partners */
+  .partners-grid     { grid-template-columns: 1fr 1fr; }
+  .pcard             { padding: 24px 18px; border-radius: 24px; }
+  .pflag             { width: 64px; height: 64px; }
+
+  /* Testimonials */
+  .tcard             { width: clamp(280px, 85vw, 360px); padding: 28px 24px; border-radius: 24px; }
+  .ttext             { font-size: .94rem; }
+
+  /* CTA Split */
+  .cta-split         { grid-template-columns: 1fr; }
+  .cta-left h2,
+  .cta-right h2      { font-size: clamp(1.5rem,6vw,2.2rem); }
+
+  /* Network - already handled above 1024px */
+
+  /* Misc */
+  .section-padding   { padding: clamp(50px,8vw,90px) 0; }
+  .jft-wide-container { padding: 0 clamp(16px,4vw,40px); }
+}
+
+/* ── 600px: Medium phones ────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  /* Stats single column */
+  .stats-grid        { grid-template-columns: 1fr; }
+  .stat-item         { border-right: none; padding: 30px 20px; }
+
+  /* VC grid: 2 columns until 480px */
+  .vc-grid           { grid-template-columns: 1fr 1fr; }
+
+  /* Products: single column  */
+  .prod-grid         { grid-template-columns: 1fr; }
+  .pc:first-child,
+  .pc               { grid-column: span 1; }
+  .pc:first-child .pc-inner { min-height: 300px; }
+  .pc-inner          { min-height: 200px; }
+  .pc:first-child .pc-title { font-size: 1.35rem; }
+
+  /* Region grid: 1 column */
+  .region-grid       { grid-template-columns: 1fr; }
+
+  /* Awards: 1 column */
+  .awards-grid       { grid-template-columns: 1fr; }
+
+  /* Partners: 1 column  */
+  .partners-grid     { grid-template-columns: 1fr; }
+
+  /* Cert badges wrap */
+  .cert-badges       { flex-wrap: wrap; gap: 8px; }
+  .cbadge            { font-size: .65rem; padding: 7px 12px; }
+
+  /* Process */
+  .proc-card h3      { font-size: 1.5rem; }
+
+  /* Testimonial cards narrower */
+  .tcard             { width: clamp(270px, 88vw, 340px); padding: 24px 20px; }
+
+  /* Section headings */
+  .section-title     { font-size: clamp(1.6rem, 7vw, 2.6rem); }
+
+  /* CTA */
+  .cta-left, .cta-right { padding: 40px 24px; }
+
+  /* Manu badge inline */
+  .manu-badge        { display: inline-block; text-align: center; padding: 16px 20px; }
+  .manu-badge .bb    { font-size: 1.8rem; }
+}
+
+/* ── 480px: Small phones ─────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Hero */
+  .hero-title-modern { font-size: clamp(1.55rem, 8vw, 2.2rem); }
+  .hero-actions      { flex-direction: column; align-items: center; width: 100%; }
+  .hero-actions a,
+  .hero-actions button { width: 100%; max-width: 320px; justify-content: center; }
+  .hero-tag-modern   { font-size: .62rem; padding: 7px 14px; gap: 7px; }
+  .slider-controls   { bottom: 20px; gap: 8px; }
+  .control-dot       { width: 8px; height: 8px; }
+
+  /* Stats */
+  .stat-num          { font-size: clamp(2.5rem, 12vw, 4rem); }
+
+  /* VC single column */
+  .vc-grid           { grid-template-columns: 1fr; }
+  .vc-card           { padding: 20px 16px; }
+  .vc-stat           { font-size: 1.3rem; }
+
+  /* Identity pills smaller */
+  .id-pill           { padding: 12px 18px; gap: 10px; }
+  .id-name           { font-size: .95rem; }
+  .id-sub            { font-size: .62rem; }
+  .id-pill i         { font-size: 1rem; }
+
+  /* About feat-grid single  */
+  .feat-grid         { grid-template-columns: 1fr; }
+  .feat-card         { padding: 22px 18px; }
+
+  /* Manu */
+  .manu-specs        { grid-template-columns: 1fr; }
+
+  /* Process  */
+  .proc-step         { gap: 14px; }
+  .step-num          { width: 40px; height: 40px; font-size: .7rem; flex-shrink: 0; }
+  .proc-step h3      { font-size: 1.05rem; }
+  .proc-card         { padding: 22px 18px; border-radius: 20px; }
+  .proc-card h3      { font-size: 1.35rem; }
+
+  /* Partners 1 col */
+  .partners-grid     { grid-template-columns: 1fr; }
+
+  /* Tcard full width */
+  .tcard             { width: calc(100vw - 48px); min-width: 0; padding: 22px 18px; border-radius: 20px; }
+  .ttext             { font-size: .88rem; }
+  .tavatar           { width: 42px; height: 42px; font-size: .85rem; }
+  .tauth h4          { font-size: .9rem; }
+
+  /* CTA */
+  .cta-left, .cta-right { padding: 36px 20px; }
+  .cta-left h2, .cta-right h2 { font-size: 1.5rem; }
+  .cta-ci            { font-size: .8rem; }
+  .cta-ico           { width: 32px; height: 32px; font-size: .8rem; }
+
+  /* Origin */
+  .origin-badge-overlay { left: 12px; bottom: 12px; padding: 14px 16px; max-width: 210px; }
+  .origin-badge-overlay .onum { font-size: 1.5rem; }
+  .o-stamp           { font-size: .75rem; padding: 10px 16px; }
+
+  /* Network section */
+  .jft-network-section { overflow: hidden; }
+  .network-visual    { height: auto; min-height: 500px; }
+
+  /* Logo float section */
+  .pcard             { padding: 20px 14px; border-radius: 18px; }
+  .pflag             { width: 56px; height: 56px; margin-bottom: 12px; }
+  .pcountry          { font-size: 1.05rem; }
+
+  /* Logistics */
+  .log-stat          { padding: 16px; gap: 12px; flex-wrap: wrap; }
+  .log-stat h4       { font-size: .92rem; }
+  .log-icon          { width: 40px; height: 40px; flex-shrink: 0; }
+
+  /* Section padding reduce */
+  .section-padding   { padding: clamp(42px,8vw,70px) 0; }
+  .jft-wide-container { padding: 0 16px; }
+  .cert-slide        { flex: 0 0 180px; }
+}
+
+/* ── 380px: Very small phones (iPhone SE, Galaxy A02) ────────────────────── */
+@media (max-width: 380px) {
+  .hero-title-modern { font-size: 1.5rem; }
+  .hero-desc-modern  { font-size: .92rem; }
+  .hero-tag-modern   { font-size: .58rem; }
+  .section-title     { font-size: 1.5rem; }
+  .tcard             { width: calc(100vw - 32px); }
+  .stat-num          { font-size: 2.5rem; }
+  .id-pill           { padding: 10px 14px; }
+  .id-name           { font-size: .88rem; }
+  .jft-wide-container { padding: 0 14px; }
+  .vc-card           { padding: 16px 14px; }
+  .vc-title          { font-size: 1.1rem; }
+}
+
+/* ── OVERFLOW PREVENTION ─────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  /* Prevent any horizontal overflow */
+  .jft-hero-banner,
+  .stats-dramatic,
+  .about-editorial,
+  .cert-section,
+  .identity-section,
+  .manu-section,
+  .origin-section,
+  .products-section,
+  .logistics-banner,
+  .awards-strip,
+  .process-section,
+  .jft-network-section,
+  .partners-section,
+  .testi-section,
+  .cta-split          { overflow-x: hidden; max-width: 100vw; }
+
+  /* Fix sticky process visual on tablet/mobile */
+  .process-visual    { position: relative !important; top: auto !important; }
+
+  /* Fix manu-badge from going out of bounds */
+  .manu-img-wrap     { overflow: visible; padding-bottom: 10px; }
+  .manu-badge        { max-width: calc(100% - 32px); }
+}
+
+/* ── SCROLLING CAROUSELS: always safe on mobile ──────────────────────────── */
+@media (max-width: 768px) {
+  .testi-scroll      { mask-image: none; -webkit-mask-image: none; padding: 30px 0; }
+  .id-ticker-wrap    { mask-image: none; -webkit-mask-image: none; }
+  .cert-wrap         { mask-image: none; -webkit-mask-image: none; }
+}
+
+/* ── TOUCH TARGETS: min 44px for all interactive elements ───────────────── */
+@media (max-width: 768px) {
+  a, button { min-height: 44px; }
+  .control-dot { width: 12px; height: 12px; }
+  .btn-primary,
+  .btn-gold,
+  .btn-outline,
+  .btn-outline-navy { min-height: 48px; padding-top: 14px; padding-bottom: 14px; }
+}
+
+/* ── NETWORK NODES: mobile scroll view ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .network-header    { margin-bottom: 40px; }
+  .network-visual    { height: auto; overflow: visible; }
+  .nodes-container   { padding: 16px; gap: 14px; }
+  .export-node       { max-width: 300px; flex: 0 0 80%; }
+  .mobile-hint       { text-align: center; font-size: .8rem; }
+}
+
+/* ── LEAD MAGNETS SECTION (added dynamically) ────────────────────────────── */
+@media (max-width: 768px) {
+  [style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── IMPORTER TESTIMONIALS STATIC GRID (added dynamically) ──────────────── */
+@media (max-width: 900px) {
+  [style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+}
+@media (max-width: 600px) {
+  [style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Inline-style grids from lead magnets and other injected sections */
+@media (max-width: 768px) {
+  section[style*="grid-template-columns:1fr 1fr 1fr"] .jft-wide-container > div,
+  .jft-wide-container [style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* Lead magnet grid responsive */
+@media (max-width: 900px) {
+  .lead-magnet-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 600px) {
+  .lead-magnet-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Static testimonials grid responsive */
+@media (max-width: 900px) {
+  .testi-static-grid { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+}
+@media (max-width: 600px) {
+  .testi-static-grid { grid-template-columns: 1fr !important; }
 }
 </style>
 
@@ -927,21 +1296,28 @@ s0.parentNode.insertBefore(s1,s0);
 <section class="testi-section" id="testimonials">
   <div class="jft-wide-container">
     <div class="section-header center-header reveal">
-      <span class="brand-tag brand-tag-white">Testimonials</span>
-      <h2 class="section-title" style="margin-top:15px;">Trusted by<br><span>Global Partners</span></h2>
+      <span class="brand-tag brand-tag-white"><i class="fa-solid fa-quote-left" style="margin-right:6px;"></i> Real Buyers · Real Shipments</span>
+      <h2 class="section-title" style="margin-top:15px;">Trusted by<br><span>Importers Worldwide</span></h2>
     </div>
   </div>
   <div class="testi-scroll reveal">
-    <div class="testi-track">
-      <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"JFT's IR-64 parboiled rice consistency is the best we have received from India. 50 containers delivered without a single quality claim."</p><div class="thead"><div class="tavatar">AD</div><div class="tauth"><h4>Abdoulaye Diallo</h4><span><span class="flag-pill">&#127463;&#127471; BENIN</span> Importer</span></div></div></div>
-      <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"Professional documentation and logistics. They understand the urgency of the Middle East market during Ramadan. Highly recommended."</p><div class="thead"><div class="tavatar">AF</div><div class="tauth"><h4>Al-Futtaim Trading</h4><span><span class="flag-pill">&#127462;&#127466; DUBAI</span> Official Partner</span></div></div></div>
-      <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"We rely on JFT for organic certified spices. Their lab reports match our European stringent standards perfectly every single time."</p><div class="thead"><div class="tavatar">SJ</div><div class="tauth"><h4>Sarah Jenkins</h4><span><span class="flag-pill">&#127468;&#127463; UK</span> Procurement</span></div></div></div>
-      <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"Supply chain transparency is unmatched. We track every shipment in real-time, ensuring inventory is always stocked for distribution."</p><div class="thead"><div class="tavatar">NV</div><div class="tauth"><h4>Nguyen Van Minh</h4><span><span class="flag-pill">&#127483;&#127475; VIETNAM</span> Senior Trader</span></div></div></div>
-      <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"The Basmati aroma was authentic and premium. Our customers in Riyadh are very satisfied with the 1121 Sella quality every single season."</p><div class="thead"><div class="tavatar">KA</div><div class="tauth"><h4>Khalid Al-Saud</h4><span><span class="flag-pill">&#127480;&#127462; SAUDI</span> Retail Chain</span></div></div></div>
-      <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"Strict adherence to global standards. JFT is our reliable partner for organic spices — delivering purity and consistency without fail."</p><div class="thead"><div class="tavatar">MR</div><div class="tauth"><h4>Michael Ross</h4><span><span class="flag-pill">&#127482;&#127480; USA</span> Supply Chain</span></div></div></div>
-      <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"JFT's IR-64 parboiled rice consistency is the best we have received from India. 50 containers delivered without a single quality claim."</p><div class="thead"><div class="tavatar">AD</div><div class="tauth"><h4>Abdoulaye Diallo</h4><span><span class="flag-pill">&#127463;&#127471; BENIN</span> Importer</span></div></div></div>
-      <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"Professional documentation and logistics. They understand the urgency of the Middle East market during Ramadan. Highly recommended."</p><div class="thead"><div class="tavatar">AF</div><div class="tauth"><h4>Al-Futtaim Trading</h4><span><span class="flag-pill">&#127462;&#127466; DUBAI</span> Official Partner</span></div></div></div>
-    </div>
+          <div class="testi-track">
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"JFT Agro has been supplying 1121 Basmati to our Dubai warehouse for 4 years. Quality is consistent — 12.5% moisture, excellent grain length. 6 containers this Ramadan season without a single delay."</p><div class="thead"><div class="tavatar">AH</div><div class="tauth"><h4>Ahmed Al-Hamdan</h4><span><span class="flag-pill">🇦🇪 DUBAI</span> Rice Distributor</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"We import cumin seeds and turmeric quarterly for our UK spice blend factory. JFT's documentation is always complete — SGS inspection, phytosanitary, COO — making HMRC clearance fast and smooth every time."</p><div class="thead"><div class="tavatar">RP</div><div class="tauth"><h4>Raj Patel</h4><span><span class="flag-pill">🇬🇧 UK</span> Spice Manufacturer</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"JFT's IR-64 parboiled rice consistency is the best we've received from India. 50 containers delivered without a single quality claim in 3 years of partnership."</p><div class="thead"><div class="tavatar">AD</div><div class="tauth"><h4>Abdoulaye Diallo</h4><span><span class="flag-pill">🇧🇯 BENIN</span> Importer</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"Professional documentation and logistics. They understand the urgency of the Middle East market during Ramadan. Highly recommended for bulk Basmati orders."</p><div class="thead"><div class="tavatar">AF</div><div class="tauth"><h4>Al-Futtaim Trading</h4><span><span class="flag-pill">🇦🇪 DUBAI</span> Official Partner</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"We rely on JFT for organic certified spices. Their lab reports match our European stringent standards perfectly every single time. SGS approved at every shipment."</p><div class="thead"><div class="tavatar">SJ</div><div class="tauth"><h4>Sarah Jenkins</h4><span><span class="flag-pill">🇬🇧 UK</span> Procurement</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"Supply chain transparency is unmatched. We track every shipment in real-time, ensuring inventory is always stocked for our Vietnamese distribution network."</p><div class="thead"><div class="tavatar">NV</div><div class="tauth"><h4>Nguyen Van Minh</h4><span><span class="flag-pill">🇻🇳 VIETNAM</span> Senior Trader</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"The Basmati aroma was authentic and premium. Our customers in Riyadh are very satisfied with the 1121 Sella quality every single season — consistent year after year."</p><div class="thead"><div class="tavatar">KA</div><div class="tauth"><h4>Khalid Al-Saud</h4><span><span class="flag-pill">🇸🇦 SAUDI</span> Retail Chain</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"Strict adherence to global standards. JFT is our reliable partner for organic spices — delivering purity and consistency without fail across 20+ shipments."</p><div class="thead"><div class="tavatar">MR</div><div class="tauth"><h4>Michael Ross</h4><span><span class="flag-pill">🇺🇸 USA</span> Supply Chain</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"Importing IR-64 and broken rice for Benin and Togo since 2021. APEDA certificates pass every port inspection. Competitive FOB pricing, LC at sight accepted."</p><div class="thead"><div class="tavatar">KK</div><div class="tauth"><h4>Kofi Koffi</h4><span><span class="flag-pill">🇧🇯 BENIN</span> Commodity Trader</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"Our GCC supermarket chain relies on JFT for private-label Basmati. Custom branding, consistent quality, on-time delivery every month — they never let us down."</p><div class="thead"><div class="tavatar">MB</div><div class="tauth"><h4>Mohammed Al-Balushi</h4><span><span class="flag-pill">🇴🇲 OMAN</span> Retail Chain</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"JFT's psyllium husk passes our EU MRL tests every time. Full traceability from farm to port. Our nutraceutical factory in Germany counts on them for 12 containers a year."</p><div class="thead"><div class="tavatar">HM</div><div class="tauth"><h4>Hans Mueller</h4><span><span class="flag-pill">🇩🇪 GERMANY</span> Pharma Buyer</span></div></div></div>
+        <!-- Duplicate first 3 for seamless infinite scroll -->
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"JFT Agro has been supplying 1121 Basmati to our Dubai warehouse for 4 years. Quality is consistent — 12.5% moisture, excellent grain length. 6 containers this Ramadan season without a single delay."</p><div class="thead"><div class="tavatar">AH</div><div class="tauth"><h4>Ahmed Al-Hamdan</h4><span><span class="flag-pill">🇦🇪 DUBAI</span> Rice Distributor</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"We import cumin seeds and turmeric quarterly for our UK spice blend factory. JFT's documentation is always complete — SGS inspection, phytosanitary, COO — making HMRC clearance fast and smooth every time."</p><div class="thead"><div class="tavatar">RP</div><div class="tauth"><h4>Raj Patel</h4><span><span class="flag-pill">🇬🇧 UK</span> Spice Manufacturer</span></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="ttext">"JFT's IR-64 parboiled rice consistency is the best we've received from India. 50 containers delivered without a single quality claim in 3 years of partnership."</p><div class="thead"><div class="tavatar">AD</div><div class="tauth"><h4>Abdoulaye Diallo</h4><span><span class="flag-pill">🇧🇯 BENIN</span> Importer</span></div></div></div>
+      </div>
   </div>
 </section>
 
@@ -967,51 +1343,12 @@ s0.parentNode.insertBefore(s1,s0);
 </div>
 
 
-<!-- ── IMPORTER TESTIMONIALS ── -->
-<section style="background:var(--cream,#fdfbf7);padding:clamp(70px,9vw,120px) 0;">
-  <div class="jft-wide-container">
-    <div style="text-align:center;max-width:700px;margin:0 auto 55px;">
-      <span class="brand-tag" style="display:inline-flex;margin:0 auto 16px;"><i class="fa-solid fa-star"></i> What Our Importers Say</span>
-      <h2 class="section-title">Trusted by <span>Global Buyers</span></h2>
-      <p class="section-desc" style="margin-top:16px;">Real importers. Real shipments. Real results across 20+ countries.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
-      <div class="reveal d1" style="background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:20px;padding:32px 28px;">
-        <div style="font-size:2rem;color:rgba(238,191,69,.3);font-family:Georgia,serif;line-height:1;margin-bottom:14px;">"</div>
-        <p style="font-size:.92rem;color:#555;line-height:1.75;margin-bottom:22px;font-style:italic;">JFT Agro has been supplying 1121 Basmati to our Dubai warehouse for 4 years. Quality is consistent — 12.5% moisture, excellent grain length. 6 containers this Ramadan season without a single delay.</p>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(26,60,52,.06);padding-top:18px;">
-          <div style="width:42px;height:42px;background:linear-gradient(135deg,#1a3c34,#4e8c3e);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Montserrat,sans-serif;font-weight:800;font-size:.85rem;flex-shrink:0;">AH</div>
-          <div><div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:.85rem;color:#1a3c34;">Ahmed Al-Hamdan</div><div style="font-size:.75rem;color:#999;">Rice Distributor · Dubai, UAE</div></div>
-          <img src="https://flagcdn.com/w40/ae.png" alt="UAE" style="width:24px;height:16px;object-fit:cover;border-radius:2px;margin-left:auto;" loading="lazy">
-        </div>
-      </div>
-      <div class="reveal d2" style="background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:20px;padding:32px 28px;">
-        <div style="font-size:2rem;color:rgba(238,191,69,.3);font-family:Georgia,serif;line-height:1;margin-bottom:14px;">"</div>
-        <p style="font-size:.92rem;color:#555;line-height:1.75;margin-bottom:22px;font-style:italic;">We import cumin seeds and turmeric quarterly for our UK spice blend factory. JFT's documentation is always complete — SGS inspection, phytosanitary, COO — making HMRC clearance fast and smooth every time.</p>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(26,60,52,.06);padding-top:18px;">
-          <div style="width:42px;height:42px;background:linear-gradient(135deg,#1a3c34,#4e8c3e);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Montserrat,sans-serif;font-weight:800;font-size:.85rem;flex-shrink:0;">RP</div>
-          <div><div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:.85rem;color:#1a3c34;">Raj Patel</div><div style="font-size:.75rem;color:#999;">Spice Blend Manufacturer · Birmingham, UK</div></div>
-          <img src="https://flagcdn.com/w40/gb.png" alt="UK" style="width:24px;height:16px;object-fit:cover;border-radius:2px;margin-left:auto;" loading="lazy">
-        </div>
-      </div>
-      <div class="reveal d3" style="background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:20px;padding:32px 28px;">
-        <div style="font-size:2rem;color:rgba(238,191,69,.3);font-family:Georgia,serif;line-height:1;margin-bottom:14px;">"</div>
-        <p style="font-size:.92rem;color:#555;line-height:1.75;margin-bottom:22px;font-style:italic;">Importing IR-64 and broken rice for Benin and Togo since 2021. APEDA certificates pass every port inspection. Competitive FOB pricing, accept LC at sight, and they deliver on time.</p>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(26,60,52,.06);padding-top:18px;">
-          <div style="width:42px;height:42px;background:linear-gradient(135deg,#1a3c34,#4e8c3e);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Montserrat,sans-serif;font-weight:800;font-size:.85rem;flex-shrink:0;">KK</div>
-          <div><div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:.85rem;color:#1a3c34;">Kofi Koffi</div><div style="font-size:.75rem;color:#999;">Agro Commodity Trader · Cotonou, Benin</div></div>
-          <img src="https://flagcdn.com/w40/bj.png" alt="Benin" style="width:24px;height:16px;object-fit:cover;border-radius:2px;margin-left:auto;" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ── LEAD MAGNETS ── -->
 <section style="background:linear-gradient(135deg,#0d1f1b,#1a3c34);padding:clamp(50px,6vw,80px) 0;position:relative;overflow:hidden;">
   <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(78,140,62,.15),transparent 70%);pointer-events:none;"></div>
   <div class="jft-wide-container">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
+    <div class="lead-magnet-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
       <div style="display:flex;align-items:flex-start;gap:16px;padding:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;">
         <i class="fa-solid fa-file-pdf" style="font-size:2rem;color:#eebf45;flex-shrink:0;margin-top:4px;"></i>
         <div><div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:.82rem;color:#fff;margin-bottom:6px;">Product Catalogue PDF</div><p style="font-size:.78rem;color:rgba(255,255,255,.5);margin:0 0 12px;line-height:1.5;">84 products with specs, HS codes &amp; FOB price ranges</p><a href="contact.html#inquiry-form" style="font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;color:#eebf45;text-decoration:none;">Request by Email →</a></div>
@@ -1151,12 +1488,40 @@ function runHeroCounters(){
 
 // ── NETWORK DATA ──
 var networkNodes=[
-  {region:'Middle East',icon:'fa-mosque',desc:'UAE, Saudi Arabia, Oman, Kuwait',countries:[{n:'UAE (Dubai)',t:'Hub'},{n:'Saudi Arabia',t:'Major'},{n:'Kuwait',t:'Active'},{n:'Oman',t:'Active'}]},
-  {region:'West Africa',icon:'fa-wheat-awn',desc:'Benin, Togo, Ghana, Ivory Coast',countries:[{n:'Benin',t:'Hub'},{n:'Togo',t:'Major'},{n:'Ghana',t:'Active'},{n:'Ivory Coast',t:'Active'}]},
-  {region:'South Asia',icon:'fa-ferry',desc:'Sri Lanka, Bangladesh, Nepal',countries:[{n:'Sri Lanka',t:'Major'},{n:'Bangladesh',t:'Active'},{n:'Nepal',t:'Active'}]},
-  {region:'East Africa',icon:'fa-sun',desc:'Kenya, Tanzania, Zambia',countries:[{n:'Kenya',t:'Active'},{n:'Tanzania',t:'Active'},{n:'Zambia',t:'Hub'}]},
-  {region:'South East Asia',icon:'fa-ship',desc:'Vietnam, Indonesia, Malaysia',countries:[{n:'Vietnam',t:'Hub'},{n:'Indonesia',t:'Active'},{n:'Malaysia',t:'Active'}]},
-  {region:'Europe & CIS',icon:'fa-snowflake',desc:'Russia, UK, Germany',countries:[{n:'Russia',t:'Hub'},{n:'United Kingdom',t:'Active'},{n:'Germany',t:'Active'}]}
+  {region:'Middle East & Gulf',icon:'fa-mosque',desc:'UAE, Saudi Arabia, Kuwait, Iraq, Qatar & more',countries:[
+    {n:'UAE (Dubai)',t:'Trade Hub'},{n:'Saudi Arabia',t:'Major'},{n:'Kuwait',t:'Active'},
+    {n:'Oman',t:'Active'},{n:'Qatar',t:'Active'},{n:'Bahrain',t:'Active'},
+    {n:'Iraq',t:'Growing'},{n:'Jordan',t:'Active'},{n:'Yemen',t:'Active'},
+    {n:'Egypt',t:'Active'},{n:'Syria',t:'Active'},{n:'Iran',t:'Active'}
+  ]},
+  {region:'West Africa',icon:'fa-wheat-awn',desc:'Benin, Togo, Nigeria, Senegal, Ghana & more',countries:[
+    {n:'Benin',t:'Hub'},{n:'Togo',t:'Major'},{n:'Ghana',t:'Active'},
+    {n:'Ivory Coast',t:'Active'},{n:'Nigeria',t:'Major'},{n:'Senegal',t:'Active'},
+    {n:'Burkina Faso',t:'Growing'},{n:'Sierra Leone',t:'Active'},{n:'Liberia',t:'Active'},
+    {n:'Guinea',t:'Active'},{n:'Cameroon',t:'Growing'},{n:'Gambia',t:'Active'},
+    {n:'Mali',t:'Growing'},{n:'Niger',t:'Growing'}
+  ]},
+  {region:'South Asia',icon:'fa-ferry',desc:'Sri Lanka, Bangladesh, Nepal, Pakistan & more',countries:[
+    {n:'Sri Lanka',t:'Major'},{n:'Bangladesh',t:'Major'},{n:'Nepal',t:'Active'},
+    {n:'Pakistan',t:'Active'},{n:'Afghanistan',t:'Growing'},{n:'Maldives',t:'Active'}
+  ]},
+  {region:'East Africa',icon:'fa-sun',desc:'Kenya, Tanzania, Zambia, Ethiopia & more',countries:[
+    {n:'Kenya',t:'Hub'},{n:'Tanzania',t:'Active'},{n:'Zambia',t:'Hub'},
+    {n:'Uganda',t:'Active'},{n:'Ethiopia',t:'Growing'},{n:'Rwanda',t:'Active'},
+    {n:'DR Congo',t:'Growing'},{n:'Mozambique',t:'Active'},{n:'Zimbabwe',t:'Active'},
+    {n:'Malawi',t:'Active'},{n:'Madagascar',t:'Growing'},{n:'Somalia',t:'Active'}
+  ]},
+  {region:'South East Asia',icon:'fa-ship',desc:'Vietnam, Indonesia, Philippines, Malaysia & more',countries:[
+    {n:'Vietnam',t:'Hub'},{n:'Indonesia',t:'Major'},{n:'Malaysia',t:'Active'},
+    {n:'Philippines',t:'Active'},{n:'Thailand',t:'Active'},{n:'Myanmar',t:'Growing'},
+    {n:'Singapore',t:'Hub'},{n:'Cambodia',t:'Growing'},{n:'Bangladesh',t:'Active'}
+  ]},
+  {region:'Europe & CIS',icon:'fa-snowflake',desc:'UK, Germany, Netherlands, Russia & more',countries:[
+    {n:'Russia',t:'Hub'},{n:'United Kingdom',t:'Major'},{n:'Germany',t:'Active'},
+    {n:'Netherlands',t:'Active'},{n:'France',t:'Active'},{n:'Belgium',t:'Active'},
+    {n:'Poland',t:'Growing'},{n:'Ukraine',t:'Active'},{n:'Kazakhstan',t:'Growing'},
+    {n:'Azerbaijan',t:'Active'},{n:'Uzbekistan',t:'Growing'},{n:'Sweden',t:'Active'}
+  ]}
 ];
 var svgLayer=document.getElementById('jft_svg_lines');
 var coords=[{x:720,y:90},{x:280,y:90},{x:840,y:325},{x:160,y:325},{x:720,y:560},{x:280,y:560}];
