@@ -372,8 +372,8 @@
         @keyframes dropIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1); } .reveal.active { opacity: 1; transform: translateY(0); }
         
-        #back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--jft-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: none; }
-        #back-to-top.show { opacity: 1; visibility: visible; }
+        #backToTop { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--jft-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: none; }
+        #backToTop.show { opacity: 1; visibility: visible; }
         #back-to-top:hover { background: var(--jft-navy); transform: translateY(-5px); }
     </style>
 
@@ -738,8 +738,32 @@ s0.parentNode.insertBefore(s1,s0);
 
         const HEADER_BG = "images/Farm.webp";
 
+        function dismissPreloader() {
+            var p = document.getElementById('preloader');
+            if (!p) return;
+            if (p._dismissed) return;  /* prevent double-call */
+            p._dismissed = true;
+            p.style.transition = 'opacity 0.6s ease';
+            p.style.opacity = '0';
+            setTimeout(function(){
+                if (p && p.parentNode) { p.style.display = 'none'; }
+            }, 650);
+        }
+
+        /* ── Hard failsafe: force-remove preloader after 4 seconds no matter what ── */
+        setTimeout(function() {
+            var p = document.getElementById('preloader');
+            if (p && p.style.display !== 'none') {
+                p.style.transition = 'none';
+                p.style.opacity = '0';
+                p.style.display = 'none';
+                console.warn('[JFT] Preloader force-dismissed by failsafe');
+            }
+        }, 4000);
+
         function initPage() {
-            document.getElementById('header-bg').style.backgroundImage = `url('${HEADER_BG}')`;
+            var hbg = document.getElementById('header-bg');
+            if (hbg) hbg.style.backgroundImage = "url('" + HEADER_BG + "')";
             renderProducts('all');
         }
 
@@ -783,10 +807,10 @@ s0.parentNode.insertBefore(s1,s0);
 
                 const html = `
                 <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
+                    <div class="p-img-box" style="position:relative;overflow:hidden;">${p.u ? `<a href="${p.u}" aria-label="View ${p.t} details" style="display:block;"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260" style="transition:.4s;"><div style="position:absolute;inset:0;background:rgba(26,60,52,.0);transition:.3s;display:flex;align-items:center;justify-content:center;opacity:0;" class="img-overlay"><span style="background:rgba(238,191,69,.95);color:#1a3c34;padding:8px 18px;border-radius:20px;font-family:var(--font-sub);font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;">View Details</span></div></a>` : `<img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260">`}</div>
                     <div class="p-content">
                         <div class="p-cat">${p.c.toUpperCase()}</div>
-                        <h3 class="p-title">${p.t}</h3>
+                        <h3 class="p-title">${p.u ? `<a href="${p.u}" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--jft-primary)'" onmouseout="this.style.color='inherit'">${p.t}</a>` : p.t}</h3>
                         
                         <div class="p-specs-wrapper">
                             <div class="p-specs-scrollable" id="${uniqueId}" tabindex="0">
@@ -807,9 +831,10 @@ s0.parentNode.insertBefore(s1,s0);
                             ${tagsHTML}
                         </div>
 
-                        <div class="p-action" style="display:flex; gap:10px;">
-                            <a href="contact.html#inquiry-form" class="btn-jft btn-primary" style="flex:1.2; padding:12px; font-size:0.75rem;">Get Quote</a>
-                            <button class="p-btn" onclick="openModal(${globalIndex})">Specs <i class="fa-solid fa-file-invoice"></i></button>
+                        <div class="p-action" style="display:flex; gap:8px; flex-wrap:wrap;">
+                            ${p.u ? `<a href="${p.u}" class="btn-jft btn-primary" style="flex:1; padding:11px 8px; font-size:0.72rem; text-align:center;"><i class="fa-solid fa-eye" style="margin-right:4px;"></i>View Details</a>` : ''}
+                            <a href="contact.html#inquiry-form?product=${encodeURIComponent(p.t)}" class="btn-jft" style="flex:1; padding:11px 8px; font-size:0.72rem; text-align:center; background:rgba(26,60,52,.08); color:var(--jft-navy); border:1px solid rgba(26,60,52,.2); border-radius:var(--jft-radius); font-family:var(--font-sub); font-weight:700; text-transform:uppercase; letter-spacing:.5px; display:flex; align-items:center; justify-content:center; gap:4px;"><i class="fa-solid fa-paper-plane"></i>Get Quote</a>
+                            <button class="p-btn" onclick="openModal(${globalIndex})" style="flex:none; padding:11px 14px; font-size:0.72rem;"><i class="fa-solid fa-table-list"></i></button>
                         </div>
                     </div>
                 </div>`;
@@ -1183,10 +1208,10 @@ s0.parentNode.insertBefore(s1,s0);
 
                 const html = `
                 <div class="p-item" style="animation: dropIn 0.5s ease forwards; animation-delay: ${delay}s; opacity: 0; transform: translateY(20px);">
-                    <div class="p-img-box"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260"></div>
+                    <div class="p-img-box" style="position:relative;overflow:hidden;">${p.u ? `<a href="${p.u}" aria-label="View ${p.t} details" style="display:block;"><img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260" style="transition:.4s;"><div style="position:absolute;inset:0;background:rgba(26,60,52,.0);transition:.3s;display:flex;align-items:center;justify-content:center;opacity:0;" class="img-overlay"><span style="background:rgba(238,191,69,.95);color:#1a3c34;padding:8px 18px;border-radius:20px;font-family:var(--font-sub);font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;">View Details</span></div></a>` : `<img src="${p.i}" alt="${p.t}" loading="${loadingAttr}" width="290" height="260">`}</div>
                     <div class="p-content">
                         <div class="p-cat">${p.c.toUpperCase()}</div>
-                        <h3 class="p-title">${p.t}</h3>
+                        <h3 class="p-title">${p.u ? `<a href="${p.u}" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--jft-primary)'" onmouseout="this.style.color='inherit'">${p.t}</a>` : p.t}</h3>
                         <div class="p-specs-wrapper">
                             <div class="p-specs-scrollable" id="${uniqueId}" tabindex="0"><table class="p-table-shared">${allSpecsHTML}</table></div>
                             <div class="p-toggle-overlay"><div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle Specifications"><i class="fa-solid fa-chevron-down"></i></div></div>
@@ -1230,13 +1255,36 @@ s0.parentNode.insertBefore(s1,s0);
         }
 
         // Trigger the load when the page is ready
-        document.addEventListener("DOMContentLoaded", () => {
-            loadComponent("header-placeholder", "header.html");
-            loadComponent("footer-placeholder", "footer.html");
-            initPage();
-            setTimeout(() => { document.getElementById('preloader').style.display = 'none'; }, 1000);
-            attachScrollObserver();
+        document.addEventListener("DOMContentLoaded", function() {
+            try {
+                loadComponent("header-placeholder", "header.html");
+                loadComponent("footer-placeholder", "footer.html");
+                initPage();
+                attachScrollObserver();
+            } catch(e) {
+                console.error("Init error:", e);
+            }
+            dismissPreloader();
         });
+
+
+        /* ── window.onload safety net — fires after ALL resources loaded ── */
+        window.addEventListener('load', function() {
+            dismissPreloader();
+        });
+
+        /* ── Scroll: progress bar + back-to-top ── */
+        window.addEventListener('scroll', function() {
+            var ws = document.documentElement.scrollTop || document.body.scrollTop;
+            var h  = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var bar = document.getElementById('page-progress');
+            if (bar) bar.style.width = (h > 0 ? (ws / h) * 100 : 0) + '%';
+            var btn = document.getElementById('backToTop');
+            if (btn) btn.classList.toggle('show', ws > 400);
+        });
+
+        /* Safety net: dismiss preloader even if DOMContentLoaded already fired */
+        if (document.readyState !== "loading") { dismissPreloader(); }
         
         document.addEventListener("DOMContentLoaded", () => { 
             const revObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); });
