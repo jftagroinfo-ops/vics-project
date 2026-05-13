@@ -55,7 +55,7 @@
   --shadow:0 20px 60px rgba(26,60,52,.1);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px;overflow-x:hidden;scrollbar-gutter:stable}
+html{scroll-behavior:smooth;scroll-padding-top:175px;overflow-x:hidden;scrollbar-gutter:stable}
 body{margin:0;padding:0;font-family:var(--ff-b);color:#333;background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,h4{font-family:var(--ff-h);margin:0;color:var(--navy);letter-spacing:-.5px}
 p{line-height:1.8;margin-bottom:1.4rem;font-size:clamp(1rem,1.5vw,1.1rem);color:#444}
@@ -517,7 +517,7 @@ s0.parentNode.insertBefore(s1,s0);
 <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20would%20like%20to%20know%20more%20about%20your%20company%20and%20export%20services." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp JFT Agro"><i class="fa-brands fa-whatsapp"></i></a>
 
 <!-- ════ HERO ════ -->
-<section class="ab-hero">
+<div id="main-content"></div><section class="ab-hero">
   <div class="ab-hero-bg"></div>
   <div class="ab-hero-grain"></div>
   <div class="ab-hero-grid"></div>
@@ -1099,7 +1099,15 @@ window.addEventListener('load', finishLoading);
 setTimeout(finishLoading, 5000); // fallback
 
 /* ── DOMContentLoaded ── */
-document.addEventListener('DOMContentLoaded', function(){
+
+  /* ── Preloader failsafe: force-hide after 4s ── */
+  setTimeout(function() {
+    var p = document.getElementById('preloader');
+    if (p && p.style.display !== 'none' && p.style.opacity !== '0') {
+      p.style.transition = 'none'; p.style.opacity = '0'; p.style.display = 'none';
+    }
+  }, 4000);
+  document.addEventListener('DOMContentLoaded', function(){
   loadComponent('header-placeholder', 'header.html');
   loadComponent('footer-placeholder', 'footer.html');
 

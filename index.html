@@ -904,7 +904,7 @@ s0.parentNode.insertBefore(s1,s0);
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/sw.js')
-      .then(function(reg) { console.log('SW registered:', reg.scope); })
+      .then(function(reg) {  })
       .catch(function(err) { console.warn('SW registration failed:', err); });
   });
 }
@@ -1493,7 +1493,15 @@ if ('serviceWorker' in navigator) {
 'use strict';
 
 // ── CERT SLIDER (drag + auto-scroll) ──
-document.addEventListener('DOMContentLoaded',function(){
+
+  /* ── Preloader failsafe: force-hide after 4s ── */
+  setTimeout(function() {
+    var p = document.getElementById('preloader');
+    if (p && p.style.display !== 'none' && p.style.opacity !== '0') {
+      p.style.transition = 'none'; p.style.opacity = '0'; p.style.display = 'none';
+    }
+  }, 4000);
+  document.addEventListener('DOMContentLoaded',function(){
   var track=document.getElementById('certTrack');
   var wrap=document.getElementById('certSlider');
   if(!track||!wrap)return;

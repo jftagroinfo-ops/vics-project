@@ -941,7 +941,7 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </div>
                     <div class="modal-actions">
-                        <button class="btn-jft btn-primary" style="background:var(--jft-navy);" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+                        <button class="btn-jft btn-primary" style="background:var(--jft-navy);" onclick="closeModal()" aria-label="Close product detail"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
 
@@ -1188,7 +1188,7 @@ s0.parentNode.insertBefore(s1,s0);
                         <div class="p-action" style="display:flex; gap:8px; flex-wrap:wrap;">
                             ${p.u ? `<a href="${p.u}" class="btn-jft btn-primary" style="flex:1; padding:11px 8px; font-size:0.72rem; text-align:center;"><i class="fa-solid fa-eye" style="margin-right:4px;"></i>View Details</a>` : ''}
                             <a href="contact.html#inquiry-form?product=${encodeURIComponent(p.t)}" class="btn-jft" style="flex:1; padding:11px 8px; font-size:0.72rem; text-align:center; background:rgba(26,60,52,.08); color:var(--jft-navy); border:1px solid rgba(26,60,52,.2); border-radius:var(--jft-radius); font-family:var(--font-sub); font-weight:700; text-transform:uppercase; letter-spacing:.5px; display:flex; align-items:center; justify-content:center; gap:4px;"><i class="fa-solid fa-paper-plane"></i>Get Quote</a>
-                            <button class="p-btn" onclick="openModal(${globalIndex})" style="flex:none; padding:11px 14px; font-size:0.72rem;"><i class="fa-solid fa-table-list"></i></button>
+                            <button class="p-btn" onclick="openModal(${globalIndex})" style="flex:none; padding:11px 14px; font-size:0.72rem;" aria-label="View full spec sheet"><i class="fa-solid fa-table-list"></i></button>
                         </div>
                     </div>
                 </div>`;
@@ -1228,9 +1228,15 @@ s0.parentNode.insertBefore(s1,s0);
             container.innerHTML = '';
             
             const filtered = PRODUCT_DATA.filter(p => {
+                // Search: name, category, keywords, HS code, markets, packing
+                const hsCode = (p.s && p.s.find(r => r[0]==='HS Code')) ? p.s.find(r => r[0]==='HS Code')[1] : '';
+                const markets = p.f ? p.f.join(' ').toLowerCase() : '';
                 return p.t.toLowerCase().includes(query) || 
                        p.c.toLowerCase().includes(query) || 
-                       (p.k && p.k.some(tag => tag.toLowerCase().includes(query)));
+                       (p.k && p.k.some(tag => tag.toLowerCase().includes(query))) ||
+                       hsCode.includes(query) ||
+                       markets.includes(query) ||
+                       (p.p && p.p.toLowerCase().includes(query));
             });
 
             container.style.opacity = '0';
@@ -1745,7 +1751,7 @@ s0.parentNode.insertBefore(s1,s0);
   scriptEl.type = 'application/ld+json';
   scriptEl.textContent = JSON.stringify(schema, null, 2);
   document.head.appendChild(scriptEl);
-  console.log('[JFT] Product schema injected:', PRODUCTS.length, 'products');
+  /* schema injected */
 })();
 </script>
 </body>

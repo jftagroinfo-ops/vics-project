@@ -270,6 +270,8 @@ s0.parentNode.insertBefore(s1,s0);
               <input type="hidden" name="subject" value="New Export Inquiry from JFT Agro Website">
               <input type="hidden" name="from_name" value="JFT Agro Trade Desk">
               <input type="hidden" name="redirect" value="false">
+              <!-- Honeypot anti-spam (hidden from real users, bots fill it) -->
+              <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
 
               <div class="form-grid">
                 <div class="form-group">
