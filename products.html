@@ -70,8 +70,7 @@
       ]
     }
     </script>
-      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="author" content="JFT Agro Overseas">
+        <meta name="author" content="JFT Agro Overseas">
   <meta name="geo.region" content="IN-MH">
   <meta name="geo.placename" content="Navi Mumbai, Maharashtra, India">
   <meta name="geo.position" content="19.0330;73.0297">
@@ -748,7 +747,7 @@ s0.parentNode.insertBefore(s1,s0);
     <div id="header-placeholder"></div>
 
     <!-- ═══ PAGE HERO ═══ -->
-<section class="jft-page-hero">
+<div id="main-content"></div><section class="jft-page-hero">
   <div class="jft-page-hero-bg" style="background-image:url('images/products/basmati_rice_hd.webp');"></div>
   <div class="jft-page-hero-glow"></div>
   <div class="jft-page-hero-gold-stripe"></div>
@@ -1636,6 +1635,15 @@ s0.parentNode.insertBefore(s1,s0);
                 loadComponent("header-placeholder", "header.html");
                 loadComponent("footer-placeholder", "footer.html");
                 initPage();
+            /* Handle ?q= URL search param (Google SearchAction / shared links) */
+            const urlParams = new URLSearchParams(window.location.search);
+            const q = urlParams.get('q');
+            if (q) {
+                setTimeout(function() {
+                    var si = document.getElementById('prod-search');
+                    if (si) { si.value = q; performSearch(q); }
+                }, 400);
+            }
                 attachScrollObserver();
             } catch(e) {
                 console.error("Init error:", e);

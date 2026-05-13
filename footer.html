@@ -276,7 +276,7 @@
                     <li><i class="fa-solid fa-location-dot"></i> <span>APMC MARKET, Phase II, Sector 19, Vashi, Navi Mumbai - 400705, India</span></li>
                     <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:info@jftagro.com">info@jftagro.com</a></span></li>
                     <li><i class="fa-solid fa-phone"></i> <span><a href="tel:+918425057274">+91 84250 57274</a></span></li>
-                    <li><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> <span><a href="https://wa.me/918425057274" target="_blank"><strong>Instant Trade Desk</strong><br>WhatsApp: Mon–Sat 9AM–7PM IST</a></span></li>
+                    <li><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> <span><a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer"><strong>Instant Trade Desk</strong><br>WhatsApp: Mon–Sat 9AM–7PM IST</a></span></li>
                 </ul>
             </div>
 
@@ -328,6 +328,10 @@
     // Smart WhatsApp Logic
     document.addEventListener('DOMContentLoaded', () => {
         const waLink = document.getElementById('smart-wa-link');
+        /* Hide the footer WA widget if the page already has a .wa-fab button */
+        if (waLink && document.querySelector('.wa-fab')) {
+            waLink.style.display = 'none';
+        }
         if (waLink) {
             // Get product name if on product page, else use document title
             let interest = document.title.split('|')[0].trim();
