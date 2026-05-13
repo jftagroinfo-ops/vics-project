@@ -3,7 +3,7 @@ from datetime import datetime
 
 base_url = 'https://jftagro.com/'
 # Portable pathing
-directory = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+directory = os.path.abspath(os.path.dirname(__file__))
 
 xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
 xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -17,7 +17,10 @@ for root, dirs, files in os.walk(directory):
     dirs[:] = [d for d in dirs if not d.startswith('.')]
     
     for file in files:
-        if file.endswith('.html'):
+        EXCLUDE = {'header.html','footer.html','inner-page-hero-snippet.html',
+                 'seo-universal-head-snippet.html','product-page-template.html',
+                 'cookie-consent-snippet.html','thank-you.html','404.html'}
+        if file.endswith('.html') and file not in EXCLUDE:
             # Get relative path
             rel_path = os.path.relpath(os.path.join(root, file), directory)
             # Use forward slashes for URLs

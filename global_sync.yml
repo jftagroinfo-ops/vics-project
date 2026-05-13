@@ -28,17 +28,17 @@ jobs:
 
       - name: Update Live Market Data & News
         run: |
-          python tools/fetch_agro_news.py
+          python fetch_agro_news.py
 
       - name: Generate Multilingual Pages & Sitemap
         run: |
-          python tools/generate_hreflang.py
-          python tools/generate_sitemap.py
+          python generate_hreflang.py
+          python generate_sitemap.py
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "JFT Automation"
-          git config --global user.email "automation@jftagro.com"
+          git config --global user.email "exports@jftagro.com"
           git add .
           git diff-index --quiet HEAD || git commit -m "Automated Global Sync: Regional updates and sitemap refresh"
           git push

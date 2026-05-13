@@ -8,7 +8,7 @@ from deep_translator import GoogleTranslator
 sys.stdout.reconfigure(encoding='utf-8')
 
 # Use relative pathing for portability (works on Local and GitHub Actions)
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Automatically discover all pages to translate
 ALL_FILES = [f for f in os.listdir(BASE_DIR) if f.endswith('.html')]

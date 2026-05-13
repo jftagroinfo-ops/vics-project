@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 
 # Configuration
-NEWS_FILE = 'assets/news.json'
+NEWS_FILE = 'news.json'
 # Google News RSS for Indian Agricultural Exports
 RSS_URL = 'https://news.google.com/rss/search?q=Indian+Agriculture+Export+Rice+Spices+Trade&hl=en-IN&gl=IN&ceid=IN:en'
 
@@ -35,9 +35,6 @@ def fetch_agro_news():
             print("No relevant agro news found today, keeping existing data.")
             return
 
-        # Ensure assets directory exists
-        os.makedirs(os.path.dirname(NEWS_FILE), exist_ok=True)
-        
         with open(NEWS_FILE, 'w', encoding='utf-8') as f:
             json.dump(news_items, f, indent=4)
             
