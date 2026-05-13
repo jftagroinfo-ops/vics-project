@@ -102,6 +102,13 @@
     .info-card h4{font-family:var(--font-sub);font-size:0.9rem;font-weight:700;color:var(--jft-navy);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
     .info-card p{font-size:0.85rem;color:#666;line-height:1.5;margin:0}
     @media(max-width:480px){.calc-inputs{padding:25px 20px}.calc-results{padding:25px 20px}.main-price .amount{font-size:2.2rem}}
+    @media print {
+      .calc-hero, #header-placeholder, #footer-placeholder, .info-strip, .cta-btns, .calc-btn { display: none !important; }
+      body { background: #fff; color: #000; }
+      .calc-card { box-shadow: none; border: 1px solid #ddd; }
+      .calc-results { background: #1a3c34 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .calc-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -143,7 +150,7 @@ s0.parentNode.insertBefore(s1,s0);
   <link rel="stylesheet" href="jft-design-system.css">
 </head>
 <body>
-<div id="page-progress"></div>
+
   <!-- FAB + Back-to-top -->
 <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
@@ -319,6 +326,11 @@ s0.parentNode.insertBefore(s1,s0);
                 <a href="contact.html#inquiry-form" class="cta-primary" id="ctaLink"><i class="fa-solid fa-file-invoice" style="margin-right:6px;"></i> Request Formal Proforma Invoice</a>
                 <a id="ctaWA" href="#" target="_blank" class="cta-secondary"><i class="fa-brands fa-whatsapp" style="margin-right:6px;"></i> Confirm via WhatsApp</a>
               </div>
+              <div style="display:flex;gap:8px;margin-top:10px;position:relative;z-index:2;">
+                <button onclick="copyQuote()" style="flex:1;padding:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.8);font-family:var(--font-sub);font-size:0.72rem;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'"><i class="fa-solid fa-copy" style="margin-right:5px;"></i> Copy Quote</button>
+                <button onclick="window.print()" style="flex:1;padding:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.8);font-family:var(--font-sub);font-size:0.72rem;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'"><i class="fa-solid fa-print" style="margin-right:5px;"></i> Print</button>
+              </div>
+              <div id="copy-confirm" style="display:none;text-align:center;font-size:0.75rem;color:#4ade80;margin-top:6px;font-family:var(--font-sub);font-weight:700;"><i class="fa-solid fa-check"></i> Copied to clipboard!</div>
             </div>
           </div>
 
@@ -496,6 +508,34 @@ s0.parentNode.insertBefore(s1,s0);
     }
 
     function onProductChange() { calculate(); }
+
+    function copyQuote() {
+      if (!lastResult) return;
+      const r = lastResult;
+      const prod = r.prod;
+      const PORT_NAMES_LOCAL = {'jebel_ali':'Jebel Ali (Dubai)','dammam':'Dammam (KSA)','muscat':'Muscat (Oman)','doha':'Doha (Qatar)','cotonou':'Cotonou (Benin)','lome':'Lomé (Togo)','tema':'Tema (Ghana)','mombasa':'Mombasa (Kenya)','dar_es_salaam':'Dar es Salaam','djibouti':'Djibouti','colombo':'Colombo (Sri Lanka)','ho_chi_minh':'Ho Chi Minh City','jakarta':'Jakarta','singapore':'Singapore','manila':'Manila','rotterdam':'Rotterdam','felixstowe':'Felixstowe','hamburg':'Hamburg','vladivostok':'Vladivostok','luanda':'Luanda (Angola)','ex_mill':'Ex-Mill (India)'};
+      const text = [
+        '── JFT AGRO OVERSEAS — Export Quote Estimate ──',
+        'Product: ' + prod.name,
+        'Quantity: ' + r.qty.toFixed(1) + ' MT (' + r.containers + ' container' + (r.containers > 1 ? 's' : '') + ')',
+        'Port: ' + (PORT_NAMES_LOCAL[r.portKey] || r.portKey),
+        'Incoterms: ' + r.inco,
+        '',
+        'FOB Price: $' + r.fobMT.toFixed(0) + '/MT',
+        'CNF Price: $' + r.cnfMT.toFixed(0) + '/MT',
+        'CIF Price: $' + r.cifMT.toFixed(0) + '/MT',
+        '',
+        '★ Estimate only. Formal PI issued within 24 hrs.',
+        'Contact: exports@jftagro.com | +91 84250 57274',
+        'Website: https://jftagro.com'
+      ].join('
+');
+      navigator.clipboard.writeText(text).then(function() {
+        var el = document.getElementById('copy-confirm');
+        el.style.display = 'block';
+        setTimeout(function() { el.style.display = 'none'; }, 2500);
+      }).catch(function() { alert(text); });
+    }
 
     /* ── COMPONENT LOADER ── */
     async function loadComponent(id, file) {
