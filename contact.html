@@ -90,16 +90,6 @@
     .time-val{font-family:var(--font-sub);font-weight:700;font-size:clamp(0.9rem,2vw,1rem);color:var(--jft-navy)}
     .time-loc{font-size:0.7rem;color:#888;text-transform:uppercase;letter-spacing:1px;margin-top:2px}
 
-    /* Bank details gated section */
-    .bank-gate{background:var(--jft-light);border:1px dashed var(--jft-gold);border-radius:var(--radius-md);padding:20px;margin-top:10px;text-align:center}
-    .bank-gate p{font-size:0.85rem;color:#666;margin-bottom:12px}
-    .bank-gate button{background:var(--jft-navy);color:#fff;border:none;padding:10px 20px;border-radius:50px;font-family:var(--font-sub);font-weight:700;font-size:0.8rem;cursor:pointer;transition:0.3s}
-    .bank-gate button:hover{background:var(--jft-primary)}
-    .bank-details-reveal{display:none}
-    .bank-details-reveal.open{display:block}
-    .bank-fraud-alert{background:rgba(226,75,74,0.08);border-left:4px solid #e24b4a;padding:12px 16px;border-radius:0 8px 8px 0;margin-top:10px}
-    .bank-fraud-alert p{font-size:0.8rem;color:#a32d2d;margin:0}
-
     .contact-form-col{flex:1.4;background:#fff;padding:50px;border-radius:var(--radius-md);box-shadow:0 20px 60px rgba(0,0,0,0.1);border-top:5px solid var(--jft-gold);min-width:0}
     .form-header{margin-bottom:30px}
     .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
@@ -381,23 +371,6 @@ s0.parentNode.insertBefore(s1,s0);
             </a>
           </div>
 
-          <!-- FIX: Bank details now gated — not visible without user action -->
-          <div class="c-card" style="border:1px dashed var(--jft-gold);">
-            <div class="c-icon" style="background:rgba(238,191,69,0.1);color:var(--jft-gold-dark);"><i class="fa-solid fa-building-columns"></i></div>
-            <h3 class="c-title">Banking Details</h3>
-            <div class="bank-gate" id="bankGate">
-              <p>Bank details are shared securely after trade verification to protect against fraud. Click below to reveal — only share with verified colleagues.</p>
-              <button onclick="revealBankDetails()"><i class="fa-solid fa-lock" style="margin-right:6px;"></i> Reveal Bank Details</button>
-            </div>
-            <div class="bank-details-reveal" id="bankReveal">
-              <span class="c-text"><strong>Bank:</strong> YES Bank Ltd</span>
-              <span class="c-text"><strong>Branch:</strong> APMC, Vashi</span>
-              <span class="c-text"><strong>SWIFT:</strong> YESBINBB</span>
-              <div class="bank-fraud-alert">
-                <p><i class="fa-solid fa-triangle-exclamation" style="margin-right:6px;"></i><strong>Fraud Alert:</strong> We NEVER request payments to personal accounts. Always verify via video call before any transfer. Our company name is "JFT Agro Overseas LLP" exactly.</p>
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -535,12 +508,6 @@ s0.parentNode.insertBefore(s1,s0);
         item.querySelector('.faq-icon').style.transform = parent.classList.contains('active') ? 'rotate(45deg)' : 'rotate(0deg)';
       });
     });
-
-    /* ── BANK REVEAL ── */
-    function revealBankDetails() {
-      document.getElementById('bankGate').style.display = 'none';
-      document.getElementById('bankReveal').classList.add('open');
-    }
 
     /* ── SAMPLE TOGGLE
        FIX: was document.getElementById('is_sample') — corrected to 'is-sample' ── */
