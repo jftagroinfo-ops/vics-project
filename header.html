@@ -8,9 +8,24 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
-<!-- GA4 Direct Tag (active) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MWZ2ZWZP4G');</script>
+<!-- GA4 — loads only after cookie consent (GDPR compliant) -->
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  // Default: deny analytics until consent given
+  gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied'});
+  
+  var _jftConsent = localStorage.getItem('jft_cookie_consent');
+  if(_jftConsent === 'accepted') {
+    gtag('consent','update',{analytics_storage:'granted'});
+    var _s = document.createElement('script');
+    _s.async = true;
+    _s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G';
+    document.head.appendChild(_s);
+    gtag('config','G-MWZ2ZWZP4G');
+  }
+</script>
 
 <!-- Tawk.to Live Chat -->
 <script type="text/javascript">
@@ -25,6 +40,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 
+<meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -353,6 +369,17 @@ function jftCookieAccept(){
   localStorage.setItem('jft_cookie_consent','accepted');
   var bar = document.getElementById('jft-cookie-bar');
   if(bar){bar.style.transition='transform .3s ease';bar.classList.remove('show');}
+  // Dynamically load GA4 now that consent is given
+  if(typeof gtag === 'function'){
+    gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted'});
+  }
+  if(!document.querySelector('script[src*="googletagmanager"]')){
+    var _s=document.createElement('script');
+    _s.async=true;
+    _s.src='https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G';
+    document.head.appendChild(_s);
+    if(typeof gtag==='function') gtag('config','G-MWZ2ZWZP4G');
+  }
 }
 function jftCookieDecline(){
   localStorage.setItem('jft_cookie_consent','declined');
