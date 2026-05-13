@@ -1,10 +1,14 @@
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<!-- Google Tag Manager — REPLACE GTM-XXXXXXX with your real GTM container ID -->
+<!-- If you only use GA4 directly (not GTM), delete this block -->
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+<!-- GA4 Direct Tag (active) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MWZ2ZWZP4G');</script>
 
 <!-- Tawk.to Live Chat -->
 <script type="text/javascript">
@@ -143,8 +147,8 @@ s0.parentNode.insertBefore(s1,s0);
     <a href="contact.html#inquiry-form" class="visit-plan" style="padding-left: 30px; margin-left: 10px; border-left: 1px solid rgba(0,0,0,0.05);">
       <i class="fa-solid fa-plane-departure" style="font-size: 1rem; margin-right: 5px;"></i> 
       <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1;">
-        <span style="font-size: 0.7rem; letter-spacing: 1.5px; font-weight: 800;">GULFOOD DUBAI 2026</span>
-        <span style="font-size: 0.58rem; opacity: 0.8; font-weight: 700; text-transform: uppercase;">17–21 FEB | HALL 7, STAND C7-20</span>
+        <span style="font-size: 0.7rem; letter-spacing: 1.5px; font-weight: 800;">ANNAPOORNA 2026</span>
+        <span style="font-size: 0.58rem; opacity: 0.8; font-weight: 700; text-transform: uppercase;">19–21 NOV | MUMBAI WJEC</span>
       </div>
     </a>
   </div>
@@ -221,7 +225,11 @@ s0.parentNode.insertBefore(s1,s0);
 
   function updateTickerDOM(id, label, value) {
     const el = document.getElementById(id);
-    if (el) el.innerHTML = `${label} <span class="forex-up">${value.toFixed(2)} ▲</span>`;
+    if (!el) return;
+    const prevText = el.querySelector('span') ? parseFloat(el.querySelector('span').textContent) : 0;
+    const arrow = prevText > 0 ? (value >= prevText ? '▲' : '▼') : '▲';
+    const cls = (prevText > 0 && value < prevText) ? 'forex-down' : 'forex-up';
+    el.innerHTML = `${label} <span class="${cls}">${value.toFixed(2)} ${arrow}</span>`;
   }
 
   async function fetchMarketNews() {
@@ -233,7 +241,7 @@ s0.parentNode.insertBefore(s1,s0);
     ];
     
     try {
-      const response = await fetch('assets/news.json');
+      const response = await fetch('news.json');
       if (!response.ok) throw new Error('Local news feed not found');
       const news = await response.json();
       

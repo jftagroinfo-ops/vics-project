@@ -16,5 +16,39 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "description": "JFT Agro Overseas - Government Recognized Star Export House. Indian Rice, Spices & Grains Exporter.",
+  "scope": "/",
+  "lang": "en",
+  "orientation": "portrait-primary",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "shortcuts": [
+    {
+      "name": "Get Quote",
+      "short_name": "Quote",
+      "description": "Send an export inquiry",
+      "url": "/contact.html#inquiry-form",
+      "icons": [
+        {
+          "src": "images/jft logo.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "short_name": "Products",
+      "description": "Browse export products",
+      "url": "/products.html",
+      "icons": [
+        {
+          "src": "images/jft logo.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
   ]
 }

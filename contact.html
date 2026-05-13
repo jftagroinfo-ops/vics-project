@@ -198,7 +198,7 @@ s0.parentNode.insertBefore(s1,s0);
   <link rel="stylesheet" href="jft-design-system.css">
 </head>
 <body>
-  <div id="page-progress"></div>
+  
   <div id="preloader">
     <img src="images/jft logo.png" alt="JFT Loading" class="loader-logo-img" width="220" height="80">
     <div class="loader-text">Loading Trade Desk...</div>
@@ -372,7 +372,7 @@ s0.parentNode.insertBefore(s1,s0);
             <h3 class="c-title">Direct Line</h3>
             <span class="c-text"><strong>Sales:</strong> +91 84250 57274</span>
             <span class="c-text"><strong>Sales:</strong> +91 86523 62771</span>
-            <span class="c-text"><strong>Email:</strong> <a href="mailto:jftagro.info@gmail.com" class="c-link">jftagro.info@gmail.com</a></span>
+            <span class="c-text"><strong>Email:</strong> <a href="mailto:exports@jftagro.com" class="c-link">exports@jftagro.com</a></span>
             <a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Chat on WhatsApp" style="margin-top:20px;width:100%;background:#25d366;border-color:#25d366;color:#fff;">
               <i class="fa-brands fa-whatsapp" style="margin-right:10px;"></i> Chat on WhatsApp
             </a>
@@ -389,7 +389,7 @@ s0.parentNode.insertBefore(s1,s0);
             <div class="bank-details-reveal" id="bankReveal">
               <span class="c-text"><strong>Bank:</strong> YES Bank Ltd</span>
               <span class="c-text"><strong>Branch:</strong> APMC, Vashi</span>
-              <span class="c-text"><strong>SWIFT:</strong> HDFCCINBB</span>
+              <span class="c-text"><strong>SWIFT:</strong> YESBINBB</span>
               <div class="bank-fraud-alert">
                 <p><i class="fa-solid fa-triangle-exclamation" style="margin-right:6px;"></i><strong>Fraud Alert:</strong> We NEVER request payments to personal accounts. Always verify via video call before any transfer. Our company name is "JFT Agro Overseas LLP" exactly.</p>
               </div>
@@ -582,11 +582,15 @@ s0.parentNode.insertBefore(s1,s0);
           /* Success — show thank-you state */
           document.getElementById('formBody').style.display = 'none';
           document.getElementById('formSuccess').classList.add('show');
-          /* Auto-download catalogue */
-          const link = document.createElement('a');
-          link.href = 'assets/JFT_Agro_Introduction.pdf';
-          link.download = 'JFT_Agro_Introduction.pdf';
-          document.body.appendChild(link); link.click(); document.body.removeChild(link);
+          /* Auto-download catalogue (only if file exists) */
+          fetch('assets/JFT_Agro_Introduction.pdf', {method:'HEAD'}).then(r=>{
+            if(r.ok){
+              const link = document.createElement('a');
+              link.href = 'assets/JFT_Agro_Introduction.pdf';
+              link.download = 'JFT_Agro_Introduction.pdf';
+              document.body.appendChild(link); link.click(); document.body.removeChild(link);
+            }
+          }).catch(()=>{});
           if (typeof trackEvent === 'function') trackEvent('generate_lead', { form: 'RFQ_Contact_Form' });
         } else {
           throw new Error(result.message || 'Submission failed');

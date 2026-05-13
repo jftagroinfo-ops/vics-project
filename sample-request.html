@@ -140,7 +140,7 @@ s0.parentNode.insertBefore(s1,s0);
   <link rel="stylesheet" href="jft-design-system.css">
 </head>
 <body>
-<div id="page-progress"></div>
+
   <!-- FAB + Back-to-top -->
 <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
@@ -355,7 +355,7 @@ s0.parentNode.insertBefore(s1,s0);
       const addr = document.getElementById('s-addr1').value;
       const city = document.getElementById('s-city').value;
       const country = document.getElementById('s-country').options[document.getElementById('s-country').selectedIndex].text;
-      if (!name || !email || !phone || !addr || !city || !country.includes('--')) {
+      if (!name || !email || !phone || !addr || !city || document.getElementById('s-country').value === '') {
         const missing = [];
         if (!name) missing.push('Full Name');
         if (!email) missing.push('Email');

@@ -899,6 +899,15 @@ s1.src='https://embed.tawk.to/69f470aa8523f61c32f239ee/default';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
+
+// ── SERVICE WORKER REGISTRATION ──
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(reg) { console.log('SW registered:', reg.scope); })
+      .catch(function(err) { console.warn('SW registration failed:', err); });
+  });
+}
 })();
 </script>
 <!--End of Tawk.to Script-->

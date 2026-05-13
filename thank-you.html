@@ -76,13 +76,23 @@ s0.parentNode.insertBefore(s1,s0);
     <div id="footer-placeholder" style="position: absolute; bottom: 0; width: 100%; z-index: 100;"></div>
 
     <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('header-placeholder').innerHTML = data);
-            
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+      async function loadComp(id, file) {
+        try {
+          const res = await fetch(file);
+          if (!res.ok) return;
+          const html = await res.text();
+          const el = document.getElementById(id);
+          el.innerHTML = html;
+          el.querySelectorAll('script').forEach(old => {
+            const s = document.createElement('script');
+            Array.from(old.attributes).forEach(a => s.setAttribute(a.name, a.value));
+            s.textContent = old.textContent;
+            old.parentNode.replaceChild(s, old);
+          });
+        } catch(e) { console.warn(e); }
+      }
+      loadComp('header-placeholder','header.html');
+      loadComp('footer-placeholder','footer.html');
     </script>
 </body>
 </html>
