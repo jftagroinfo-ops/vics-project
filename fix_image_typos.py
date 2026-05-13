@@ -1,6 +1,6 @@
 import os
 
-BASE_DIR = r'c:\Users\HP\Downloads\JFT_WEBSITE\vics-project'
+BASE_DIR = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
 SUBDIRS = ['ar', 'fr', 'vi', 'ms', 'id', 'th', 'si', 'ru', 'es', 'pt']
 
 def fix_errors():

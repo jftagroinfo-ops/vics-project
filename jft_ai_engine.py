@@ -7,11 +7,11 @@ from datetime import datetime
 # Paths
 # Portable Paths
 TOOLS_DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.abspath(os.path.join(TOOLS_DIR, '..'))
+BASE_DIR = os.path.abspath(TOOLS_DIR)
 TEMPLATE_FILE = os.path.join(BASE_DIR, 'blog-basmati-export-guide.html')
 BLOG_LIST_FILE = os.path.join(BASE_DIR, 'blog.html')
-SITEMAP_SCRIPT = os.path.join(TOOLS_DIR, 'generate_sitemap.py')
-TRANS_SCRIPT = os.path.join(TOOLS_DIR, 'generate_hreflang.py')
+SITEMAP_SCRIPT = os.path.join(BASE_DIR, 'generate_sitemap.py')
+TRANS_SCRIPT = os.path.join(BASE_DIR, 'generate_hreflang.py')
 
 def generate_slug(title):
     slug = title.lower().strip()

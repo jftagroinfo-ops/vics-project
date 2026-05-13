@@ -3,7 +3,7 @@ import re
 from bs4 import BeautifulSoup
 
 # Configuration
-BASE_DIR = r'c:\Users\HP\Downloads\JFT_WEBSITE\vics-project'
+BASE_DIR = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
 IGNORE_DIRS = ['.git', '.github', 'images', 'assets', 'tools']
 
 def audit_website():

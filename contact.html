@@ -292,7 +292,8 @@ s0.parentNode.insertBefore(s1,s0);
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="product">Select Product</label>
-                  <select id="product" name="product" class="form-select">
+                  <select id="product" name="product" class="form-select" required>
+                    <option value="" disabled selected>— Select Product of Interest —</option>
                     <option value="Basmati Rice">Basmati Rice (1121/1509)</option>
                     <option value="Non-Basmati Rice">Non-Basmati Rice (IR64/PR11)</option>
                     <option value="Sugar">Indian Sugar (S-30)</option>
@@ -605,6 +606,21 @@ s0.parentNode.insertBefore(s1,s0);
       }
     }
 
+
+    /* Pre-fill product from URL ?product= param (from products page) */
+    (function() {
+        const params = new URLSearchParams(window.location.search);
+        const prod = params.get('product');
+        if (!prod) return;
+        const sel = document.getElementById('product');
+        if (!sel) return;
+        for (let i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].text.toLowerCase().includes(prod.toLowerCase()) ||
+                sel.options[i].value.toLowerCase().includes(prod.toLowerCase())) {
+                sel.selectedIndex = i; break;
+            }
+        }
+    })();
     /* ── CLOCKS ── */
     function updateClocks() {
       const now = new Date();

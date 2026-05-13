@@ -1,7 +1,7 @@
 import os
 import re
 
-BASE_DIR = r'c:\Users\HP\Downloads\JFT_WEBSITE\vics-project'
+BASE_DIR = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
 
 def propagate_fix():
     print("--- Propagating Products Page Fix ---")
@@ -39,7 +39,7 @@ def propagate_fix():
             
             # Ensure pathing is correct (../ prefix)
             # Since we copied from root, we need to add ../ to assets
-            if not root.endswith('vics-project'):
+            if root != BASE_DIR:
                 content = content.replace('src="images/', 'src="../images/')
                 content = content.replace('href="images/', 'href="../images/')
                 content = content.replace('src="assets/', 'src="../assets/')

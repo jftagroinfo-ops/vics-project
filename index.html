@@ -1054,16 +1054,16 @@ if ('serviceWorker' in navigator) {
   <div class="cert-lbl">Active Certifications — All Independently Verified</div>
   <div class="cert-wrap" id="certSlider">
     <div class="cert-track" id="certTrack">
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/FSSAI.webp" class="cert-logo" alt="FSSAI" loading="lazy"><span class="cert-name">FSSAI Safety</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/STAR HOUSE.webp" class="cert-logo" alt="Star Export House" loading="lazy"><span class="cert-name">Star House</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/APEDA.webp" class="cert-logo" alt="APEDA" loading="lazy"><span class="cert-name">APEDA India</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/SPICES_BOARD.webp" class="cert-logo" alt="Spices Board" loading="lazy"><span class="cert-name">Spices Board</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/COCONUT_BOARD.webp" class="cert-logo" alt="Coconut Board" loading="lazy"><span class="cert-name">Coconut Board</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/AEO.webp" class="cert-logo" alt="AEO" loading="lazy"><span class="cert-name">AEO Operator</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/IEC.webp" class="cert-logo" alt="IEC" loading="lazy"><span class="cert-name">IEC Code</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/MSME.webp" class="cert-logo" alt="MSME" loading="lazy"><span class="cert-name">MSME India</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/DGFT.webp" class="cert-logo" alt="DGFT" loading="lazy"><span class="cert-name">DGFT Govt</span></div></div>
-      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/COFFEE_BOARD.webp" class="cert-logo" alt="Coffee Board" loading="lazy"><span class="cert-name">Coffee Board</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/FSSAI.webp" class="cert-logo" width="80" height="45" alt="FSSAI" loading="lazy"><span class="cert-name">FSSAI Safety</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/STAR HOUSE.webp" class="cert-logo" width="80" height="45" alt="Star Export House" loading="lazy"><span class="cert-name">Star House</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/APEDA.webp" class="cert-logo" width="80" height="45" alt="APEDA" loading="lazy"><span class="cert-name">APEDA India</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/SPICES_BOARD.webp" class="cert-logo" width="80" height="45" alt="Spices Board" loading="lazy"><span class="cert-name">Spices Board</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/COCONUT_BOARD.webp" class="cert-logo" width="80" height="45" alt="Coconut Board" loading="lazy"><span class="cert-name">Coconut Board</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/AEO.webp" class="cert-logo" width="80" height="45" alt="AEO" loading="lazy"><span class="cert-name">AEO Operator</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/IEC.webp" class="cert-logo" width="80" height="45" alt="IEC" loading="lazy"><span class="cert-name">IEC Code</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/MSME.webp" class="cert-logo" width="80" height="45" alt="MSME" loading="lazy"><span class="cert-name">MSME India</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/DGFT.webp" class="cert-logo" width="80" height="45" alt="DGFT" loading="lazy"><span class="cert-name">DGFT Govt</span></div></div>
+      <div class="cert-slide"><div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/COFFEE_BOARD.webp" class="cert-logo" width="80" height="45" alt="Coffee Board" loading="lazy"><span class="cert-name">Coffee Board</span></div></div>
     </div>
   </div>
 </section>
@@ -1525,7 +1525,7 @@ var slideIdx=0,sliderTimer;
 function startSlider(){clearInterval(sliderTimer);sliderTimer=setInterval(nextSlide,5500);}
 function setSlide(n){slideIdx=n;updateSlider();startSlider();}
 window.setSlide=setSlide;
-function nextSlide(){var slides=document.querySelectorAll('.hero-slide');slideIdx=(slideIdx+1)%slides.length;updateSlider();}
+function nextSlide(){var slides=document.querySelectorAll('.hero-slide');if(!slides.length)return;slideIdx=(slideIdx+1)%slides.length;updateSlider();}
 function updateSlider(){
   var slides=document.querySelectorAll('.hero-slide');
   var contents=document.querySelectorAll('.hero-content-slide');

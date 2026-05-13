@@ -1,7 +1,7 @@
 import os
 import re
 
-BASE_DIR = r'c:\Users\HP\Downloads\JFT_WEBSITE\vics-project'
+BASE_DIR = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
 
 def polish_website():
     print("--- Finalizing Polish & Quality Assurance ---")
