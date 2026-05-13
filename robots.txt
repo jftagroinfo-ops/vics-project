@@ -11,6 +11,14 @@ Disallow: /thank-you.html
 Disallow: /404.html
 Disallow: /sample-request.html
 
+# Disallow utility / snippet files (not meant for indexing)
+Disallow: /cookie-consent-snippet.html
+Disallow: /inner-page-hero-snippet.html
+Disallow: /seo-universal-head-snippet.html
+Disallow: /product-page-template.html
+Disallow: /footer.html
+Disallow: /header.html
+
 # Disallow any future admin or private directories
 Disallow: /admin/
 Disallow: /private/
