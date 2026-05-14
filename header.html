@@ -223,21 +223,62 @@ s0.parentNode.insertBefore(s1,s0);
     // Initial load with fallbacks to avoid "---"
     Object.keys(fallbacks).forEach(id => updateTickerDOM(id, labels[id], fallbacks[id]));
 
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000);
-      const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD', { signal: controller.signal });
-      clearTimeout(timeoutId);
-      
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
-      const base = data.rates;
-      updateTickerDOM('fx-usd','USD/INR', base.INR);
-      updateTickerDOM('fx-eur','EUR/INR', base.INR / base.EUR);
-      updateTickerDOM('fx-gbp','GBP/INR', base.INR / base.GBP);
-      updateTickerDOM('fx-aed','AED/INR', base.INR / base.AED);
-    } catch(e) {
-      console.warn('Forex API unavailable or timed out, using fallback rates.');
+    /* Try multiple APIs in order — fallbacks ensure rates always show */
+    const APIS = [
+      {
+        url: 'https://api.frankfurter.app/latest?from=USD&to=INR,EUR,GBP,AED',
+        parse: (d) => ({
+          usd: d.rates.INR,
+          eur: d.rates.INR / d.rates.EUR,
+          gbp: d.rates.INR / d.rates.GBP,
+          aed: d.rates.INR / d.rates.AED
+        })
+      },
+      {
+        url: 'https://api.exchangerate-api.com/v4/latest/USD',
+        parse: (d) => ({
+          usd: d.rates.INR,
+          eur: d.rates.INR / d.rates.EUR,
+          gbp: d.rates.INR / d.rates.GBP,
+          aed: d.rates.INR / d.rates.AED
+        })
+      },
+      {
+        url: 'https://open.er-api.com/v6/latest/USD',
+        parse: (d) => ({
+          usd: d.rates.INR,
+          eur: d.rates.INR / d.rates.EUR,
+          gbp: d.rates.INR / d.rates.GBP,
+          aed: d.rates.INR / d.rates.AED
+        })
+      }
+    ];
+
+    let ratesFetched = false;
+    for (const api of APIS) {
+      if (ratesFetched) break;
+      try {
+        const ctrl = new AbortController();
+        const tid = setTimeout(() => ctrl.abort(), 6000);
+        const resp = await fetch(api.url, { signal: ctrl.signal });
+        clearTimeout(tid);
+        if (!resp.ok) throw new Error('API error: ' + resp.status);
+        const data = await resp.json();
+        const rates = api.parse(data);
+        if (rates.usd && rates.usd > 50) { /* sanity check */
+          updateTickerDOM('fx-usd', 'USD/INR', rates.usd);
+          updateTickerDOM('fx-eur', 'EUR/INR', rates.eur);
+          updateTickerDOM('fx-gbp', 'GBP/INR', rates.gbp);
+          updateTickerDOM('fx-aed', 'AED/INR', rates.aed);
+          ratesFetched = true;
+          console.log('Forex loaded from:', api.url.split('/')[2]);
+        }
+      } catch(e) {
+        console.warn('Forex API failed, trying next:', api.url.split('/')[2], e.message);
+      }
+    }
+    if (!ratesFetched) {
+      console.warn('All forex APIs failed. Showing fallback rates.');
     }
   }
 
@@ -259,8 +300,10 @@ s0.parentNode.insertBefore(s1,s0);
     ];
     
     try {
-      const response = await fetch('news.json');
-      if (!response.ok) throw new Error('Local news feed not found');
+      /* Resolve news.json relative to site root, not current page depth */
+      const newsUrl = window.location.origin + '/news.json';
+      const response = await fetch(newsUrl);
+      if (!response.ok) throw new Error('News feed not found');
       const news = await response.json();
       
       if (news && news.length > 0) {
@@ -314,13 +357,22 @@ s0.parentNode.insertBefore(s1,s0);
     grid.innerHTML = langs.map(l => `<a href="${l.path}"><img src="${l.flag}" class="lang-flag" alt="${l.code}"> ${l.name}</a>`).join('');
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  /* ── INIT: run immediately if DOM already loaded (header injected via fetch),
+     or wait for DOMContentLoaded if somehow loaded synchronously ── */
+  function jftHeaderInit() {
     fetchLiveForex();
     fetchMarketNews();
     initLocalizationLinks();
     const dateSpan = document.getElementById('forex-date');
     if (dateSpan) dateSpan.innerText = 'RATES AS OF ' + new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', jftHeaderInit);
+  } else {
+    /* DOM already loaded — header was injected dynamically */
+    jftHeaderInit();
+  }
 
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
