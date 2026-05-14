@@ -657,6 +657,14 @@ s0.parentNode.insertBefore(s1,s0);
             const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); });
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
+
+        /* Page scroll progress + back-to-top */
+        window.addEventListener('scroll', function() {
+            var s = document.documentElement.scrollTop || document.body.scrollTop;
+            var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var b = document.getElementById('page-progress'); if(b) b.style.width = (h > 0 ? (s/h)*100 : 0) + '%';
+            var t = document.getElementById('backToTop'); if(t) t.classList.toggle('show', s > 400);
+        });
     </script>
 </body>
 </html>
