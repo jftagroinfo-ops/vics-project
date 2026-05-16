@@ -145,45 +145,56 @@ s0.parentNode.insertBefore(s1,s0);
 
   /* ── MOBILE RESPONSIVE: 1024px and below ── */
   @media (max-width: 1024px) {
-    /* Nav menu: full-width dropdown starting below navbar (logo row)
-       top = dashboard(80px) + navbar(72px) = 152px → we use 152px so it
-       starts exactly from the bottom edge of the logo row */
+    /* ── MOBILE NAV MENU ──────────────────────────────────────────────────
+       Drops down from the bottom of the logo/hamburger row.
+       top = top-dashboard(80px) + navbar(72px) = 152px exactly.
+       Items start from the very top of the panel — no gap.                */
     .nav-menu {
       position: fixed;
-      top: 152px;          /* below logo row, not 170 */
+      top: 152px;
       left: 0;
       right: 0;
       width: 100%;
       max-width: 100%;
+      /* Use height not max-height so it fills space without empty bottom gap */
+      height: auto;
       max-height: calc(100dvh - 152px);
       background: var(--jft-navy);
       flex-direction: column;
-      padding: 0 0 20px;
+      justify-content: flex-start;
+      align-items: stretch;
+      padding: 4px 0 24px;   /* tiny 4px top breathing room */
       gap: 0;
-      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
-      transform: translateY(-10px);
+      margin: 0;
+      transition: clip-path 0.35s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.25s ease;
+      /* Clip from top — gives clean slide-down reveal */
+      clip-path: inset(0 0 100% 0);
       opacity: 0;
       pointer-events: none;
       overflow-y: auto;
       overflow-x: hidden;
       z-index: 1500;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-      display: flex !important; /* always in DOM, show/hide via opacity+transform */
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      display: flex !important;
     }
     .nav-menu.active {
-      transform: translateY(0);
+      clip-path: inset(0 0 0% 0);
       opacity: 1;
       pointer-events: auto;
     }
 
-    /* Overlay backdrop when nav is open */
+    /* Overlay: ONLY covers area BELOW the navbar (not above it).
+       This prevents the navbar/logo from being darkened.              */
     .nav-overlay {
       display: none;
       position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
+      top: 152px;           /* starts where the nav-menu starts */
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.45);
       z-index: 1499;
-      backdrop-filter: blur(2px);
     }
     .nav-overlay.show { display: block; }
 
@@ -317,7 +328,9 @@ s0.parentNode.insertBefore(s1,s0);
   /* Very small phones */
   @media (max-width: 480px) {
     .jft-navbar { height: 68px; top: 80px; }
-    .nav-menu { top: 148px; max-height: calc(100dvh - 148px); }
+    .nav-menu { top: 148px; max-height: calc(100dvh - 148px); clip-path: inset(0 0 100% 0); }
+    .nav-menu.active { clip-path: inset(0 0 0% 0); }
+    .nav-overlay { top: 148px; }   /* sync overlay with nav-menu */
     .nav-logo-img { height: 46px; max-width: 160px; }
     .nav-flex { padding: 0 14px; }
   }

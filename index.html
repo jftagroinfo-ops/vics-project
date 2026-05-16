@@ -463,12 +463,25 @@ img{max-width:100%;height:auto;display:block}
   .country-reveal{position:relative!important;width:100%!important;max-height:0;left:0!important;top:0!important;opacity:0;visibility:hidden;right:auto!important}
   .export-node.active-mobile .country-reveal{max-height:300px;opacity:1;visibility:visible;margin-top:15px;overflow-y:auto}
   .network-visual{height:auto;flex-direction:column;padding:20px 0}
-  /* FIX: central-hub goes below nodes-container on mobile so it doesn't overlap */
-  .central-hub{order:2;z-index:1!important;margin-bottom:16px;width:100px;height:100px}
-  .hub-circle{z-index:1!important}
-  .pulse-ring{z-index:0!important}
-  .mobile-hint{order:1;margin-bottom:8px}
-  .nodes-container{order:3;z-index:5;position:relative}
+  /* SOUL OF INDIA SECTION: Hide hub circle on mobile — it overlaps swipe cards.
+     Mobile interface is purely the swipe cards. Hub only makes sense on desktop
+     where it's the center of an interactive network diagram.                    */
+  .central-hub { display: none !important; }
+  .pulse-ring  { display: none !important; }
+  /* Nodes container: full-width horizontal scroll */
+  .nodes-container {
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    padding: 16px;
+  }
+  /* Mobile hint stays at top */
+  .network-visual {
+    align-items: flex-start;
+    gap: 0;
+  }
 }
 /* ─── PARTNERS GRID ─── */
 /* duplicate partners CSS removed */
@@ -815,8 +828,7 @@ img { max-width: 100%; }
   .network-header    { margin-bottom: 40px; }
   .network-visual    { height: auto; overflow: visible; }
   .nodes-container   { padding: 16px; gap: 14px; }
-  .central-hub       { width: 90px!important; height: 90px!important; }
-  .hub-circle img    { width: 55px!important; height: 55px!important; }
+  /* Hub hidden on mobile - no further overrides needed */
   .export-node       { max-width: 300px; flex: 0 0 80%; }
   .mobile-hint       { text-align: center; font-size: .8rem; }
 }
@@ -1374,7 +1386,8 @@ if ('serviceWorker' in navigator) {
     <div class="network-visual reveal">
       <div class="custom-india-map desktop-only"><img src="images/Farm.webp" alt="" style="width:100%;max-width:600px;opacity:.12;" onerror="this.style.display='none'"></div>
       <svg class="trade-lines-svg desktop-only" viewBox="0 0 1000 650" preserveAspectRatio="none"><g id="jft_svg_lines"></g></svg>
-      <div class="central-hub"><div class="pulse-ring pr-1"></div><div class="pulse-ring pr-2"></div><div class="hub-circle"><img src="images/jft logo.png" alt="JFT Agro" width="80" height="80" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-leaf\' style=\'font-size:32px;color:#4e8c3e\'></i>'"></div></div>
+      <!-- Desktop only: hub circle with pulse rings -->
+      <div class="central-hub desktop-only"><div class="pulse-ring pr-1"></div><div class="pulse-ring pr-2"></div><div class="hub-circle"><img src="images/jft logo.png" alt="JFT Agro" width="80" height="80" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-leaf\' style=\'font-size:32px;color:#4e8c3e\'></i>'"></div></div>
       <div class="mobile-hint"><i class="fa-solid fa-left-right"></i> Swipe &amp; Tap to Explore</div>
       <div class="nodes-container" id="jft_nodes_container"></div>
     </div>
