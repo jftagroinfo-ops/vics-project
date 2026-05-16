@@ -1,0 +1,824 @@
+/*
+ * ╔══════════════════════════════════════════════════════════════════════════╗
+ * ║  JFT AGRO OVERSEAS — GLOBAL RESPONSIVE SYSTEM  v1.0                    ║
+ * ║  Include AFTER jft-design-system.css on every page                      ║
+ * ║  <link rel="stylesheet" href="jft-responsive.css">                     ║
+ * ║                                                                          ║
+ * ║  Breakpoints:                                                            ║
+ * ║   1280px  Large laptop                                                   ║
+ * ║   1024px  Tablet landscape / small laptop                                ║
+ * ║    900px  Tablet portrait                                                ║
+ * ║    768px  iPad / large phone landscape                                   ║
+ * ║    600px  Medium phone                                                   ║
+ * ║    480px  Small phone                                                    ║
+ * ║    380px  Very small phone (SE, A02)                                     ║
+ * ╚══════════════════════════════════════════════════════════════════════════╝
+ */
+
+/* ════════════════════════════════════════════════════════════════════════════
+   0. UNIVERSAL SAFE DEFAULTS
+   ════════════════════════════════════════════════════════════════════════════ */
+html { overflow-x: hidden; }
+body { overflow-x: hidden; min-width: 320px; }
+*,*::before,*::after { box-sizing: border-box; max-width: 100%; }
+img, video, iframe, embed, object { max-width: 100%; height: auto; }
+table { width: 100%; }
+
+/* Ensure containers never escape viewport */
+.jft-wide-container,
+.container,
+.page-wrapper,
+section,
+footer { max-width: 100vw; overflow-x: hidden; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   1. HEADER / TOP DASHBOARD
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Forex strip: scrollable on mobile, no scrollbar visible */
+.forex-group {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.forex-group::-webkit-scrollbar { display: none; }
+
+/* Row-2 should not overflow on small screens */
+.td-row-2 { overflow: hidden; }
+
+/* Top dashboard full-width on all screens */
+.top-dashboard { width: 100%; max-width: 100%; }
+
+/* Visit plan / Annapoorna banner: truncate on very small screens */
+@media (max-width: 480px) {
+  .visit-plan span:last-child { display: none; }
+  .visit-plan { padding: 0 16px; }
+  .ticker-label .market-text { display: none; }
+  .ticker-label { padding: 0 20px 0 14px; clip-path: polygon(0 0,100% 0,86% 100%,0 100%); }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   2. NAVBAR
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Ensure logo doesn't overflow on small screens */
+.nav-logo-img {
+  max-height: 65px;
+  width: auto;
+  max-width: clamp(140px, 40vw, 240px);
+}
+
+/* Mobile nav: ensure full-height scroll */
+@media (max-width: 1024px) {
+  .jft-navbar { top: 80px; }
+  .nav-menu {
+    top: calc(80px + 70px); /* top-dashboard + navbar height */
+    height: calc(100dvh - 150px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-logo-img { max-height: 56px; }
+}
+
+@media (max-width: 600px) {
+  .jft-navbar { height: 70px; }
+  .nav-logo-img { max-height: 48px; max-width: 160px; }
+  .td-row-1 { height: 42px; }
+  .td-row-2 { height: 38px; }
+  .nav-menu { top: calc(80px + 70px); }
+}
+
+@media (max-width: 380px) {
+  .nav-logo-img { max-height: 42px; max-width: 140px; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   3. INNER PAGE HERO BANNER
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.jft-page-hero {
+  padding-left: clamp(16px, 5vw, 55px);
+  padding-right: clamp(16px, 5vw, 55px);
+}
+
+@media (max-width: 1024px) {
+  .jft-page-hero { padding-top: 175px; }
+}
+@media (max-width: 768px) {
+  .jft-page-hero {
+    padding-top: 160px;
+    padding-bottom: 40px;
+    min-height: auto;
+  }
+  .jft-page-hero h1 { font-size: clamp(1.7rem, 7vw, 2.8rem); letter-spacing: -1px; }
+  .jft-page-hero-sub { font-size: .95rem; margin-bottom: 28px; }
+  .jft-page-hero-meta { gap: 10px; }
+  .jft-hero-tag { font-size: .66rem; padding: 7px 13px; }
+  .jft-page-hero .hero-actions,
+  .jft-page-hero [style*="display:flex"][style*="gap:16"] {
+    flex-wrap: wrap;
+    gap: 12px !important;
+  }
+  .jft-page-hero .btn-gold,
+  .jft-page-hero .btn-outline,
+  .jft-page-hero .btn-primary {
+    width: 100%;
+    max-width: 340px;
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .jft-page-hero { padding-top: 148px; padding-bottom: 32px; }
+  .jft-page-hero h1 { font-size: clamp(1.5rem, 8vw, 2.2rem); }
+  .jft-breadcrumb { font-size: .62rem; gap: 6px; flex-wrap: wrap; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   4. GLOBAL BUTTONS — full-width on small screens
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions .btn-gold,
+  .cta-actions .btn-outline,
+  .cta-actions .btn-primary,
+  .cta-actions .btn-outline-navy {
+    width: 100%;
+    max-width: 340px;
+    justify-content: center;
+  }
+  .btn-primary,
+  .btn-gold,
+  .btn-outline,
+  .btn-outline-navy {
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: .78rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* Ensure touch target minimum */
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-gold,
+  .btn-outline,
+  .btn-outline-navy {
+    min-height: 48px;
+  }
+  a, button { min-height: 44px; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   5. CTA BLOCK (global)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .jft-cta-block { padding: clamp(50px,7vw,80px) 0; }
+  .cta-block-title { font-size: clamp(1.7rem,6vw,2.6rem); }
+  .cta-block-desc { font-size: .95rem; }
+  .cta-trust-row { gap: 14px; }
+  .cta-trust-item { font-size: .67rem; }
+}
+@media (max-width: 480px) {
+  .cta-trust-row { flex-direction: column; align-items: center; gap: 10px; }
+  .cta-eyebrow { font-size: .65rem; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   6. FLOATING ELEMENTS — wa-fab, backToTop
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+  .wa-fab { bottom: 80px; right: 16px; width: 50px; height: 50px; font-size: 1.3rem; }
+  #backToTop { bottom: 22px; right: 18px; width: 44px; height: 44px; font-size: 1rem; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   7. FOOTER
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 45px !important; }
+}
+@media (max-width: 650px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 36px !important; text-align: center; }
+  .f-col h4::after { left: 50%; transform: translateX(-50%); }
+  .f-contact li { justify-content: center; text-align: left; }
+  .f-links a { font-size: .9rem; }
+  .trust-group { justify-content: center; }
+  .f-trust-bar { flex-direction: column; text-align: center; gap: 20px; }
+  .f-social-icon { width: 42px; height: 42px; font-size: 1.1rem; margin-right: 8px; }
+  .trust-logo { height: 36px; }
+  .footer-section { padding: 60px 0 24px; }
+}
+@media (max-width: 480px) {
+  .footer-bottom { font-size: .8rem; padding: 24px 0; }
+  .footer-bottom a { margin: 0 8px; font-size: .78rem; }
+  .f-btn-pro { padding: 14px; font-size: .8rem; }
+  .smart-wa-widget { bottom: 80px; right: 16px; width: 52px; height: 52px; font-size: 26px; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   8. ABOUT PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .ab-hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .ab-hero-visual { max-width: 500px; margin: 0 auto; }
+  .ab-stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .ab-team-grid { grid-template-columns: 1fr 1fr !important; }
+  .ab-section-grid,
+  .timeline-section > .jft-wide-container > div[style*="grid"] { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 768px) {
+  .ab-hero-inner { gap: 28px !important; }
+  .ab-stats-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .ab-team-grid { grid-template-columns: 1fr !important; }
+  .about-values-grid,
+  .about-cards-grid { grid-template-columns: 1fr !important; }
+  /* Timeline — stack vertically */
+  .timeline-item { flex-direction: column !important; gap: 16px !important; }
+  .timeline-year { min-width: auto !important; }
+}
+@media (max-width: 480px) {
+  .ab-stats-grid { grid-template-columns: 1fr !important; }
+  .ab-cert-grid { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   9. PRODUCTS PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Product search bar */
+@media (max-width: 768px) {
+  .prod-search-bar,
+  #search-input { width: 100% !important; }
+  .filter-bar { flex-wrap: wrap; gap: 8px; }
+  .filter-btn { font-size: .72rem; padding: 8px 14px; }
+}
+
+/* Product modal responsive */
+@media (max-width: 768px) {
+  .product-modal-content,
+  .modal-content,
+  #productModal .modal-inner {
+    width: 95vw !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding: clamp(20px,4vw,36px) !important;
+    max-height: 90dvh;
+    overflow-y: auto;
+  }
+  .modal-grid,
+  .modal-body { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 480px) {
+  .product-modal-content,
+  #productModal .modal-inner {
+    width: 100vw !important;
+    border-radius: 16px 16px 0 0 !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important;
+    left: 0 !important;
+    max-height: 88dvh;
+  }
+}
+
+/* Product card grid */
+@media (max-width: 900px) {
+  .products-grid,
+  .product-grid { grid-template-columns: repeat(2,1fr) !important; }
+}
+@media (max-width: 480px) {
+  .products-grid,
+  .product-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Sticky filter bar z-index and position fix */
+@media (max-width: 1024px) {
+  .filter-sticky,
+  .prod-filter-bar { top: 148px !important; }
+}
+@media (max-width: 768px) {
+  .filter-sticky,
+  .prod-filter-bar {
+    top: 140px !important;
+    padding: 10px 16px !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .filter-sticky::-webkit-scrollbar { display: none; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   10. INFRASTRUCTURE PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .infra-grid,
+  .mill-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .infra-image-wrap { max-height: 400px; overflow: hidden; border-radius: 20px; }
+}
+@media (max-width: 768px) {
+  .infra-grid { gap: 28px !important; }
+  .infra-stats { grid-template-columns: 1fr 1fr !important; }
+  .infra-tabs { overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-bottom: 4px; }
+  .infra-tabs::-webkit-scrollbar { display: none; }
+}
+@media (max-width: 480px) {
+  .infra-stats { grid-template-columns: 1fr !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   11. QUALITY CONTROL PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .qc-grid,
+  .qc-process-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+}
+@media (max-width: 768px) {
+  .qc-grid { grid-template-columns: 1fr !important; }
+  .qc-process-grid { grid-template-columns: 1fr !important; }
+  .qc-steps::before { display: none !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   12. CERTIFICATES PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .cert-grid,
+  .certs-grid { grid-template-columns: repeat(2,1fr) !important; gap: 20px !important; }
+}
+@media (max-width: 600px) {
+  .cert-grid,
+  .certs-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Certificate cards: no fixed heights */
+.cert-card,
+.certificate-card { height: auto !important; min-height: auto !important; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   13. BLOG PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .articles-grid,
+  .blog-grid { grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+}
+@media (max-width: 600px) {
+  .articles-grid,
+  .blog-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Blog article page */
+@media (max-width: 768px) {
+  .article-wrap { padding: 32px 16px 60px !important; }
+  .article-body h2 { font-size: 1.3rem; }
+  .compare-table { font-size: .82rem; }
+  .compare-table th { font-size: .7rem; padding: 10px 10px; }
+  .compare-table td { padding: 9px 10px; }
+  /* Horizontal scroll for large tables on mobile */
+  .article-body .compare-table-wrap,
+  .article-body table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .related-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .related-grid { grid-template-columns: 1fr !important; }
+  .share-row { flex-wrap: wrap; gap: 8px; }
+  .author-card { flex-direction: column; text-align: center; }
+}
+
+/* Wrap all tables for horizontal scroll */
+.compare-table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+.compare-table thead,
+.compare-table tbody,
+.compare-table tr { display: table-row-group; }
+.compare-table thead { display: table-header-group; }
+.compare-table tr { display: table-row; }
+.compare-table th,
+.compare-table td { display: table-cell; white-space: normal; }
+
+@media (max-width: 600px) {
+  .compare-table th,
+  .compare-table td { white-space: nowrap; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   14. FAQ PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .faq-section { padding: 40px 0 !important; }
+  .faq-container { padding: 0 16px; }
+  .faq-question { font-size: .95rem !important; padding: 20px 0 !important; }
+  .faq-answer { font-size: .93rem !important; }
+}
+@media (max-width: 480px) {
+  .faq-question { font-size: .9rem !important; gap: 10px !important; }
+  .faq-icon { width: 26px !important; height: 26px !important; flex-shrink: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   15. QUOTE CALCULATOR PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .calc-layout,
+  .calculator-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .calc-result-card { position: static !important; }
+}
+@media (max-width: 768px) {
+  .calc-form-grid { grid-template-columns: 1fr !important; }
+  .calc-container { padding: 24px !important; }
+}
+@media (max-width: 480px) {
+  .copy-quote-btn,
+  .print-quote-btn { width: 100%; justify-content: center; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   16. CONTACT PAGE (redesigned version)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+  .contact-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .form-card { position: static !important; }
+  .contact-hero-inner .jft-wide-container {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+@media (max-width: 768px) {
+  .contact-hero { min-height: auto; }
+  .contact-hero-inner { padding: clamp(130px,18vw,170px) 0 40px !important; }
+  .form-card-hdr,
+  .form-card-header { padding: 24px 20px !important; }
+  .form-body,
+  .form-card-body { padding: 24px 20px !important; }
+  .frow { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .info-column { gap: 16px !important; }
+  .icard,
+  .info-card { padding: 24px 20px !important; }
+  /* Map responsive */
+  .map-inner,
+  .map-section-inner { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .map-tabs-col,
+  .map-tabs-new { flex-direction: row !important; flex-wrap: wrap !important; gap: 8px !important; }
+  .mtab,
+  .map-tab-btn { flex: 1 1 calc(50% - 4px) !important; min-width: 140px !important; }
+  .map-frame,
+  .map-frame-wrap { height: 300px !important; }
+  /* FAQ layout */
+  .faq-layout { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .faq-mini-card,
+  .fmc-card { position: static !important; }
+}
+@media (max-width: 480px) {
+  .stats-bar-inner { grid-template-columns: 1fr 1fr !important; }
+  .pgrid,
+  .process-grid-new { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .pgrid::before,
+  .process-grid-new::before { display: none !important; }
+  .mtab,
+  .map-tab-btn { flex: 1 1 100% !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   17. TRADE PAGES (africa, uae, europe, asia)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .trade-layout,
+  .trade-grid,
+  .market-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .trade-sidebar { position: static !important; }
+}
+@media (max-width: 768px) {
+  .trade-stats-bar { grid-template-columns: 1fr 1fr !important; }
+  .trade-products-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .trade-products-grid { grid-template-columns: 1fr !important; }
+  .trade-stats-bar { grid-template-columns: 1fr !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   18. PRODUCT EXPORTER PAGES (83 pages)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .product-layout,
+  .product-inner,
+  .exporter-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .product-sidebar,
+  .product-inquiry-card { position: static !important; }
+}
+@media (max-width: 768px) {
+  .product-specs-table { display: block; overflow-x: auto; }
+  .product-features-grid { grid-template-columns: 1fr 1fr !important; }
+  .jft-spec-table { font-size: .88rem; }
+  .jft-spec-table td { padding: 12px 14px; }
+  .jft-spec-table td:first-child { width: 42%; }
+}
+@media (max-width: 480px) {
+  .product-features-grid { grid-template-columns: 1fr !important; }
+  .jft-spec-table td { padding: 10px 12px; font-size: .85rem; }
+  .jft-spec-table td:first-child { width: 45%; font-size: .78rem; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   19. JFT INFO CARDS & DARK CARDS (used on multiple pages)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .jft-info-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 600px) {
+  .jft-info-grid { grid-template-columns: 1fr !important; }
+  .jft-info-card { padding: 28px 22px; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   20. SAMPLE REQUEST PAGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .sample-request-layout,
+  .sample-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .product-selector-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .product-selector-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   21. COOKIE BANNER
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 600px) {
+  #jft-cookie-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 16px !important;
+  }
+  .cb-btns { width: 100% !important; display: flex !important; gap: 8px !important; }
+  .cb-accept,
+  .cb-decline { flex: 1 !important; text-align: center !important; justify-content: center !important; }
+}
+@media (max-width: 380px) {
+  #jft-cookie-bar { font-size: .8rem; }
+  .cb-btns { flex-direction: column; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   22. SPEC TABLES — wrap all for horizontal scroll
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.jft-spec-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+}
+
+@media (max-width: 600px) {
+  .jft-spec-table { min-width: 420px; }
+  .jft-spec-section { overflow-x: hidden; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   23. FORMS — universal mobile fixes
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+    width: 100% !important;
+  }
+  .form-grid,
+  .form-row,
+  .frow { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .submit-btn,
+  button[type="submit"],
+  .btn-submit {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   24. TYPOGRAPHY — fluid scaling
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .section-title { font-size: clamp(1.7rem, 6vw, 2.8rem); }
+  .section-desc { font-size: .97rem; }
+  h2 { font-size: clamp(1.5rem, 5vw, 2.4rem); }
+  h3 { font-size: clamp(1.1rem, 3.5vw, 1.5rem); }
+  p { font-size: clamp(.93rem, 2vw, 1.08rem); }
+}
+@media (max-width: 480px) {
+  .section-title { font-size: clamp(1.5rem, 7vw, 2.2rem); letter-spacing: -.5px; }
+  h2 { font-size: clamp(1.3rem, 6vw, 2rem); }
+}
+@media (max-width: 380px) {
+  .section-title { font-size: 1.45rem; }
+  p { font-size: .9rem; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   25. BRAND TAGS — scale on mobile
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+  .brand-tag {
+    font-size: .65rem;
+    padding: 8px 16px;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   26. TESTIMONIALS / SCROLLING CARDS
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .testi-scroll { padding: 28px 0; }
+  .testi-track { animation-duration: 40s; }
+}
+@media (max-width: 480px) {
+  .tcard {
+    width: calc(100vw - 40px) !important;
+    min-width: 0 !important;
+    padding: 24px 20px !important;
+    border-radius: 20px !important;
+  }
+  .ttext { font-size: .88rem; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   27. PRELOADER — always fill screen
+   ════════════════════════════════════════════════════════════════════════════ */
+
+#preloader {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  z-index: 9999 !important;
+}
+@media (max-width: 480px) {
+  .loader-logo-img { width: 150px !important; }
+  .loader-track { width: 180px; }
+  .loader-text { font-size: .7rem; letter-spacing: 3px; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   28. ACCESSIBILITY — skip link
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 10px 20px;
+  border-radius: 0 0 8px 8px;
+  font-family: var(--ff-s);
+  font-weight: 700;
+  font-size: .82rem;
+  text-transform: uppercase;
+  z-index: 99999;
+  transition: top .3s;
+}
+.skip-link:focus { top: 0; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   29. FOLDABLE / LANDSCAPE MOBILE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .jft-page-hero { padding-top: 120px; min-height: auto; padding-bottom: 30px; }
+  .jft-hero-banner { min-height: auto; padding-top: 100px !important; }
+  #preloader { display: none !important; }
+  .loader-logo-img { width: 120px !important; }
+  .nav-menu {
+    height: calc(100vh - 120px) !important;
+    overflow-y: scroll !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   30. ULTRA-WIDE SCREENS (1800px+)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1800px) {
+  .jft-wide-container { padding: 0 clamp(55px, 5vw, 120px); }
+  .section-title { font-size: 3.8rem; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   31. OVERFLOW KILL-SWITCH — prevent ANY horizontal scroll site-wide
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .jft-hero-banner,
+  .stats-dramatic,
+  .about-editorial,
+  .contact-hero,
+  .process-section,
+  .map-section,
+  .faq-s,
+  .faq-section-new,
+  .testi-section,
+  .jft-cta-block,
+  .jft-page-hero,
+  .jft-dark-section { overflow-x: hidden !important; max-width: 100vw !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   32. Z-INDEX STACK NORMALISATION
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Ensure cookie bar stays above everything */
+#jft-cookie-bar { z-index: 9000 !important; }
+/* Modals above navbar */
+.modal-overlay,
+#productModal { z-index: 5000 !important; }
+/* Navbar below modals */
+.jft-navbar { z-index: 1000 !important; }
+/* Top dashboard below navbar modals, above content */
+.top-dashboard { z-index: 2000 !important; }
+/* FABs below modals, above content */
+.wa-fab,
+.smart-wa-widget,
+#backToTop { z-index: 998 !important; }
+/* Page progress bar always on top */
+#page-progress { z-index: 10000 !important; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   33. IMAGE RESPONSIVENESS
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.glass-card img,
+.product-img,
+.cert-img,
+.hero-img,
+.about-img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .glass-card img { height: clamp(200px, 40vw, 340px) !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   34. SCROLL PADDING — account for fixed header height
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  html { scroll-padding-top: 155px; }
+}
+@media (max-width: 768px) {
+  html { scroll-padding-top: 148px; }
+}
+@media (max-width: 480px) {
+  html { scroll-padding-top: 140px; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   35. PRINT MEDIA
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media print {
+  .wa-fab,
+  #backToTop,
+  .smart-wa-widget,
+  #preloader,
+  #jft-cookie-bar,
+  .jft-navbar,
+  .top-dashboard,
+  nav { display: none !important; }
+  body { overflow: visible !important; }
+  .jft-wide-container { max-width: 100% !important; padding: 0 20px !important; }
+  .section-title { font-size: 1.8rem !important; }
+  a { color: var(--navy) !important; }
+}
