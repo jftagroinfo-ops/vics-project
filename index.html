@@ -457,30 +457,65 @@ img{max-width:100%;height:auto;display:block}
 @media(max-width:1024px){
   .logistics-banner{background-attachment:scroll!important}
   .desktop-only{display:none!important}.mobile-hint{display:block}
-  .nodes-container{width:100vw;display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding:20px;-webkit-overflow-scrolling:touch}
+  /* ── SOUL OF INDIA: horizontal-only scroll ─────────────────────────────
+     overflow-y:hidden prevents cards from jumping up/down during swipe.
+     touch-action:pan-x tells browser: only handle horizontal touch here.  */
+  .nodes-container{
+    width:100%;
+    max-width:100vw;
+    display:flex;
+    flex-direction:row;
+    overflow-x:auto;
+    overflow-y:hidden;              /* LOCK vertical — cards cannot jump up/down */
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    gap:16px;
+    padding:16px 20px 24px;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-x;             /* Tell browser: ONLY horizontal gestures here */
+    overscroll-behavior-x:contain;  /* Prevent pull-to-refresh during swipe */
+  }
   .nodes-container::-webkit-scrollbar{display:none}
-  .export-node{position:relative;flex:0 0 85%;max-width:350px;flex-direction:column!important;text-align:center!important;padding:30px 20px;background:#fff;border-radius:20px;border:1px solid var(--border);scroll-snap-align:center;top:auto!important;left:auto!important;right:auto!important;box-shadow:0 4px 20px rgba(26,60,52,.06)}
+  .nodes-container{scrollbar-width:none;-ms-overflow-style:none}
+
+  .export-node{
+    position:relative;
+    flex:0 0 82%;
+    max-width:320px;
+    min-width:260px;
+    flex-direction:column!important;
+    text-align:center!important;
+    padding:28px 20px;
+    background:#fff;
+    border-radius:20px;
+    border:1px solid var(--border);
+    scroll-snap-align:center;
+    top:auto!important;
+    left:auto!important;
+    right:auto!important;
+    box-shadow:0 4px 20px rgba(26,60,52,.06);
+    /* Fixed height so cards don't collapse/expand vertically */
+    align-self:stretch;
+    height:auto;
+  }
   .country-reveal{position:relative!important;width:100%!important;max-height:0;left:0!important;top:0!important;opacity:0;visibility:hidden;right:auto!important}
   .export-node.active-mobile .country-reveal{max-height:300px;opacity:1;visibility:visible;margin-top:15px;overflow-y:auto}
   .network-visual{height:auto;flex-direction:column;padding:20px 0}
-  /* SOUL OF INDIA SECTION: Hide hub circle on mobile — it overlaps swipe cards.
-     Mobile interface is purely the swipe cards. Hub only makes sense on desktop
-     where it's the center of an interactive network diagram.                    */
+  /* SOUL OF INDIA: hub hidden, horizontal-only swipe cards */
   .central-hub { display: none !important; }
   .pulse-ring  { display: none !important; }
-  /* Nodes container: full-width horizontal scroll */
-  .nodes-container {
-    width: 100%;
-    max-width: 100vw;
-    position: relative;
-    z-index: 5;
-    margin: 0;
-    padding: 16px;
-  }
-  /* Mobile hint stays at top */
+
+  /* network-visual: don't clip the scroll container but do contain it */
   .network-visual {
     align-items: flex-start;
     gap: 0;
+    overflow: hidden;           /* prevent any child from causing page vertical shift */
+    padding: 0;
+  }
+
+  /* origin-section: prevent any overflow from causing layout shift */
+  .origin-section {
+    overflow-x: hidden;
   }
 }
 /* ─── PARTNERS GRID ─── */
@@ -1753,6 +1788,27 @@ document.addEventListener('DOMContentLoaded',function(){
     });
     drawLines();
     var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawLines,120);});
+
+    /* ── Touch lock: prevent page from scrolling vertically while user
+       swipes horizontally inside the nodes-container.
+       We detect if the gesture is more horizontal than vertical,
+       then call preventDefault() to stop page scroll.              */
+    var nodesEl = document.getElementById('jft_nodes_container');
+    if (nodesEl) {
+      var touchStartX = 0, touchStartY = 0;
+      nodesEl.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      nodesEl.addEventListener('touchmove', function(e) {
+        var dx = Math.abs(e.touches[0].clientX - touchStartX);
+        var dy = Math.abs(e.touches[0].clientY - touchStartY);
+        /* If moving more sideways than up/down — block page scroll */
+        if (dx > dy && dx > 8) {
+          e.stopPropagation();
+        }
+      }, { passive: true });
+    }
   }
 
   // Dismiss preloader — faster on mobile
