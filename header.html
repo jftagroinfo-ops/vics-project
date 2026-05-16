@@ -160,6 +160,21 @@ s0.parentNode.insertBefore(s1,s0);
     /* Hide desktop nav links */
     .nav-links-desktop { display: none !important; }
 
+    /* CRITICAL: Remove backdrop-filter on mobile navbar.
+       backdrop-filter creates a new compositing layer — any child element
+       (including our drawer) gets blurred/washed through it.
+       Solid background on mobile is correct — no frosted glass needed. */
+    .jft-navbar {
+      background: #fff !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .jft-navbar.scrolled {
+      background: #fff !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
     /* Show hamburger */
     .mobile-toggle {
       display: flex;
@@ -183,38 +198,47 @@ s0.parentNode.insertBefore(s1,s0);
     .nav-flex       { padding: 0 16px; }
 
     /* ── MOBILE DRAWER ──────────────────────────────────────────────────
-       position: absolute; top: 100%  →  attaches to the EXACT bottom of
-       the fixed <nav> element. No pixel guessing. No gap. Ever.        */
+       position:fixed — JS sets `top` to navbar's actual getBoundingClientRect().bottom
+       This is pixel-perfect on every device, every scroll position, every zoom level.
+       No CSS pixel calculations needed.                                               */
     .mobile-nav-drawer {
       display: flex;
       flex-direction: column;
-      position: absolute;       /* relative to jft-navbar (position:fixed) */
-      top: 100%;                /* starts exactly at bottom of navbar       */
+      position: fixed;
+      top: 152px;               /* JS overrides this immediately on open  */
       left: 0;
       right: 0;
       width: 100%;
       background: var(--jft-navy);
       z-index: 1500;
-      /* CLOSED state: visually hidden, no layout impact */
+      /* CLOSED: invisible, non-interactive, no space taken */
       visibility: hidden;
       opacity: 0;
-      transform: translateY(-8px);
-      transition: opacity 0.25s ease, transform 0.3s ease, visibility 0s linear 0.3s;
-      /* Scrollable when content exceeds screen */
-      max-height: calc(100dvh - 72px - 80px);
+      pointer-events: none;
+      /* Scrollable content */
+      max-height: calc(100dvh - 152px);
       overflow-y: auto;
       overflow-x: hidden;
       box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+      transition: opacity 0.22s ease, visibility 0s linear 0.22s;
     }
     .mobile-nav-drawer.open {
       visibility: visible;
       opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.25s ease, transform 0.3s ease, visibility 0s linear 0s;
+      pointer-events: auto;
+      transition: opacity 0.22s ease, visibility 0s linear 0s;
     }
 
-    /* Overlay only below the navbar — no dark band over logo area */
-    .nav-overlay { top: calc(72px + 80px); } /* navbar + dashboard */
+    /* Overlay: JS sets top same as drawer */
+    .nav-overlay {
+      position: fixed;
+      top: 152px;   /* overridden by JS */
+      left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 1499;
+      display: none;
+    }
+    .nav-overlay.show { display: block; }
   }
 
   /* ════════════════════════════════════════════════════════════════════
@@ -228,7 +252,7 @@ s0.parentNode.insertBefore(s1,s0);
       align-items: center;
       padding: 0 24px;
       height: 54px;
-      color: rgba(255,255,255,0.88);
+      color: #fff;
       font-family: var(--font-sub);
       font-size: 0.82rem;
       font-weight: 700;
@@ -250,7 +274,7 @@ s0.parentNode.insertBefore(s1,s0);
       justify-content: space-between;
       padding: 0 24px;
       height: 54px;
-      color: rgba(255,255,255,0.88);
+      color: #fff;
       font-family: var(--font-sub);
       font-size: 0.82rem;
       font-weight: 700;
@@ -284,7 +308,7 @@ s0.parentNode.insertBefore(s1,s0);
       gap: 10px;
       padding: 0 24px 0 36px;
       height: 48px;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.92);
       font-family: var(--font-sub);
       font-size: 0.78rem;
       font-weight: 600;
@@ -347,8 +371,7 @@ s0.parentNode.insertBefore(s1,s0);
     .jft-navbar   { height: 68px; }
     .nav-logo-img { height: 46px; max-width: 160px; }
     .nav-flex     { padding: 0 14px; }
-    .mobile-nav-drawer { max-height: calc(100dvh - 68px - 80px); }
-    .nav-overlay  { top: calc(68px + 80px); }
+    /* drawer top + maxHeight set by JS positionDrawer() — no CSS overrides needed */
   }
 </style>
 
@@ -438,13 +461,15 @@ s0.parentNode.insertBefore(s1,s0);
     </button>
   </div>
 
-  <!-- Mobile drawer: sits INSIDE <nav> so position:absolute;top:100% is always correct -->
-  <div class="mobile-nav-drawer" id="mobileNavMenu" aria-hidden="true">
+</nav>
+
+<!-- Mobile nav drawer: OUTSIDE <nav> to avoid backdrop-filter stacking context.
+     position:fixed + JS-set top means DOM position doesn't affect visual placement. -->
+<div class="mobile-nav-drawer" id="mobileNavMenu" aria-hidden="true">
     <a href="index.html" class="mnav-link" onclick="closeMenu()">Home</a>
     <a href="about.html" class="mnav-link" onclick="closeMenu()">Company</a>
     <a href="products.html" class="mnav-link" onclick="closeMenu()">Products</a>
 
-    <!-- Infrastructure accordion -->
     <div class="mnav-accordion">
       <div class="mnav-acc-label" onclick="toggleSubMenu('acc-infra')">
         <span>Infrastructure</span>
@@ -457,7 +482,6 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
 
-    <!-- Trade Hub accordion -->
     <div class="mnav-accordion">
       <div class="mnav-acc-label" onclick="toggleSubMenu('acc-trade')">
         <span>Trade Hub</span>
@@ -487,23 +511,41 @@ s0.parentNode.insertBefore(s1,s0);
         <a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
-  </div>
+</div>
 
-</nav>
-<!-- Overlay: JS positions it via getBoundingClientRect for pixel-perfect placement -->
+<!-- Overlay: JS positions it flush below navbar -->
 <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
 
 <script>
   /* ══ MOBILE NAV ══════════════════════════════════════════════════════ */
 
-  function toggleMenu() {
+  /* ── positionDrawer: measure navbar bottom via getBoundingClientRect ──
+     This is called every time the menu opens AND on scroll/resize so the
+     drawer always sits flush against the navbar bottom with zero gap.    */
+  function positionDrawer() {
+    var navbar  = document.getElementById('navbar');
     var drawer  = document.getElementById('mobileNavMenu');
+    var overlay = document.getElementById('navOverlay');
+    if (!navbar || !drawer) return;
+
+    var navBottom = navbar.getBoundingClientRect().bottom; /* exact px from viewport top */
+    var remaining = window.innerHeight - navBottom;        /* space left below navbar    */
+
+    drawer.style.top        = navBottom + 'px';
+    drawer.style.maxHeight  = remaining + 'px';
+    if (overlay) overlay.style.top = navBottom + 'px';
+  }
+
+  function toggleMenu() {
+    var drawer = document.getElementById('mobileNavMenu');
+    if (!drawer) return;
+    if (drawer.classList.contains('open')) { closeMenu(); return; }
+
+    positionDrawer(); /* set exact top BEFORE showing */
+
     var overlay = document.getElementById('navOverlay');
     var btn     = document.getElementById('mobileToggleBtn');
     var icon    = document.getElementById('menuIcon');
-    if (!drawer) return;
-    var isOpen = drawer.classList.contains('open');
-    if (isOpen) { closeMenu(); return; }
 
     drawer.classList.add('open');
     drawer.setAttribute('aria-hidden', 'false');
@@ -520,6 +562,7 @@ s0.parentNode.insertBefore(s1,s0);
     var icon    = document.getElementById('menuIcon');
     if (!drawer) return;
 
+    /* Close all accordions */
     document.querySelectorAll('.mnav-accordion.open').forEach(function(a) {
       a.classList.remove('open');
     });
@@ -544,8 +587,22 @@ s0.parentNode.insertBefore(s1,s0);
     parent.classList.toggle('open', !isOpen);
   }
 
+  /* Re-position drawer on scroll (navbar may move when top-dashboard scrolls away) */
+  window.addEventListener('scroll', function() {
+    if (document.getElementById('mobileNavMenu').classList.contains('open')) {
+      positionDrawer();
+    }
+  }, { passive: true });
+
+  /* Re-position on resize, close if desktop */
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 1024) { closeMenu(); return; }
+    if (document.getElementById('mobileNavMenu').classList.contains('open')) {
+      positionDrawer();
+    }
+  });
+
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
-  window.addEventListener('resize', function() { if (window.innerWidth > 1024) closeMenu(); });
   function initMobileDropdowns() {}
   function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
 
