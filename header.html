@@ -197,174 +197,258 @@ s0.parentNode.insertBefore(s1,s0);
     .nav-logo-img   { height: 52px; max-width: 180px; }
     .nav-flex       { padding: 0 16px; }
 
-    /* ── MOBILE DRAWER ──────────────────────────────────────────────────
-       position:fixed — JS sets `top` to navbar's actual getBoundingClientRect().bottom
-       This is pixel-perfect on every device, every scroll position, every zoom level.
-       No CSS pixel calculations needed.                                               */
+    /* ── MOBILE DRAWER ────────────────────────────────────────────────────
+       Design matches index.html: dark navy gradient, gold accents,
+       Montserrat typography, subtle noise texture, gold top border.
+       position:fixed — top set by JS getBoundingClientRect().bottom       */
     .mobile-nav-drawer {
       display: flex;
       flex-direction: column;
       position: fixed;
-      top: 152px;               /* JS overrides this immediately on open  */
+      top: 152px;          /* overwritten by JS positionDrawer() on open */
       left: 0;
       right: 0;
       width: 100%;
-      background: var(--jft-navy);
+      /* index.html dark background gradient */
+      background: linear-gradient(180deg, #0d1f1b 0%, #1a3c34 40%, #0f2820 100%);
       z-index: 1500;
-      /* CLOSED: invisible, non-interactive, no space taken */
       visibility: hidden;
       opacity: 0;
       pointer-events: none;
-      /* Scrollable content */
       max-height: calc(100dvh - 152px);
       overflow-y: auto;
       overflow-x: hidden;
-      box-shadow: 0 6px 30px rgba(0,0,0,0.5);
-      transition: opacity 0.22s ease, visibility 0s linear 0.22s;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+      /* gold top border — same as index section dividers */
+      border-top: 2px solid var(--jft-gold);
     }
+    /* Noise texture overlay — same as index.html dark sections */
+    .mobile-nav-drawer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+    .mobile-nav-drawer > * { position: relative; z-index: 1; }
     .mobile-nav-drawer.open {
       visibility: visible;
       opacity: 1;
       pointer-events: auto;
-      transition: opacity 0.22s ease, visibility 0s linear 0s;
+      transition: opacity 0.25s ease, visibility 0s linear 0s;
     }
-
-    /* Overlay: JS sets top same as drawer */
+    /* Overlay */
     .nav-overlay {
       position: fixed;
-      top: 152px;   /* overridden by JS */
+      top: 152px;
       left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.5);
       z-index: 1499;
       display: none;
+      backdrop-filter: blur(1px);
     }
     .nav-overlay.show { display: block; }
   }
 
   /* ════════════════════════════════════════════════════════════════════
-     MOBILE DRAWER LINK STYLES
+     MOBILE DRAWER — styled to match index.html hero design language
+     Same gradient bg, grid overlay, gold accents, Montserrat font
      ════════════════════════════════════════════════════════════════════ */
+
+  /* The drawer itself: index.html hero gradient background */
+  .mobile-nav-drawer {
+    background: linear-gradient(160deg, #07120f 0%, #0d1f1b 35%, #1a3c34 70%, #2c5148 100%);
+  }
+
+  /* Grid overlay — same as index.html hero-grid-overlay */
+  .mobile-nav-drawer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 52px 52px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Gold radial glow — same as index.html hero */
+  .mobile-nav-drawer::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(238,191,69,0.07), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Gold top stripe — same as index.html hero-gold-stripe */
+  .mnav-gold-stripe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--jft-gold) 50%, transparent);
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
   @media (max-width: 1024px) {
+    .mobile-nav-drawer > * { position: relative; z-index: 1; }
+
+    /* Brand header */
+    .mnav-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .mnav-brand-dot {
+      width: 8px; height: 8px;
+      background: var(--jft-gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: mnavPulse 1.8s ease-in-out infinite alternate;
+    }
+    @keyframes mnavPulse {
+      from { opacity: 0.5; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px rgba(238,191,69,0.6); }
+    }
+    .mnav-brand-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 2.5px;
+      color: var(--jft-gold);
+    }
+
+    /* Section label */
+    .mnav-section-label {
+      display: flex; align-items: center; gap: 10px;
+      padding: 18px 24px 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 3px;
+      color: rgba(238,191,69,0.6);
+    }
+    .mnav-section-label::before {
+      content: ''; width: 24px; height: 1px;
+      background: rgba(238,191,69,0.4); flex-shrink: 0;
+    }
 
     /* Standard link */
     .mnav-link {
-      display: flex;
-      align-items: center;
-      padding: 0 24px;
-      height: 54px;
-      color: #fff;
-      font-family: var(--font-sub);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      transition: background 0.18s, color 0.18s;
-    }
-    .mnav-link:active { background: rgba(255,255,255,0.07); color: var(--jft-gold); }
-
-    /* Accordion parent */
-    .mnav-accordion {
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .mnav-acc-label {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-      height: 54px;
-      color: #fff;
-      font-family: var(--font-sub);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      transition: background 0.18s, color 0.18s;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-    .mnav-acc-label:active { background: rgba(255,255,255,0.07); }
-    .mnav-caret {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.5);
-      transition: transform 0.3s ease;
-    }
-    .mnav-accordion.open .mnav-caret { transform: rotate(180deg); color: var(--jft-gold); }
-    .mnav-accordion.open .mnav-acc-label { color: var(--jft-gold); }
-
-    /* Accordion body */
-    .mnav-acc-body {
-      max-height: 0;
-      overflow: hidden;
-      background: rgba(0,0,0,0.3);
-      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
-    }
-    .mnav-accordion.open .mnav-acc-body { max-height: 500px; }
-    .mnav-acc-body a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0 24px 0 36px;
-      height: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 58px;
       color: rgba(255,255,255,0.92);
-      font-family: var(--font-sub);
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s, padding-left 0.2s;
+      position: relative;
+    }
+    .mnav-link::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--jft-gold); opacity: 0;
+      transition: opacity 0.2s; border-radius: 0 2px 2px 0;
+    }
+    .mnav-link:hover { background: rgba(255,255,255,0.04); color: var(--jft-gold); padding-left: 30px; }
+    .mnav-link:hover::before { opacity: 1; }
+    .mnav-arrow { font-size: 0.6rem; color: rgba(255,255,255,0.3); transition: transform 0.2s, color 0.2s; }
+    .mnav-link:hover .mnav-arrow { transform: translateX(4px); color: var(--jft-gold); }
+
+    /* Accordion */
+    .mnav-accordion { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .mnav-acc-label {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 58px;
+      color: rgba(255,255,255,0.92);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      cursor: pointer; transition: background 0.2s, color 0.2s;
+      user-select: none; -webkit-user-select: none; position: relative;
+    }
+    .mnav-acc-label::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--jft-gold); opacity: 0;
+      transition: opacity 0.2s; border-radius: 0 2px 2px 0;
+    }
+    .mnav-accordion.open .mnav-acc-label { background: rgba(255,255,255,0.04); color: var(--jft-gold); }
+    .mnav-accordion.open .mnav-acc-label::before { opacity: 1; }
+    .mnav-caret {
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 50%;
+      font-size: 0.62rem; color: rgba(255,255,255,0.45);
+      transition: transform 0.3s, background 0.2s, color 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .mnav-accordion.open .mnav-caret {
+      transform: rotate(180deg);
+      background: rgba(238,191,69,0.15); border-color: rgba(238,191,69,0.4); color: var(--jft-gold);
+    }
+    .mnav-acc-body {
+      max-height: 0; overflow: hidden;
+      background: rgba(0,0,0,0.25);
+      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mnav-accordion.open .mnav-acc-body { max-height: 560px; }
+    .mnav-acc-body a {
+      display: flex; align-items: center; gap: 12px;
+      padding: 0 24px 0 32px; height: 50px;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem; font-weight: 600;
       text-decoration: none;
       border-bottom: 1px solid rgba(255,255,255,0.04);
-      transition: background 0.15s, color 0.15s;
+      transition: background 0.18s, color 0.18s, padding-left 0.18s;
     }
-    .mnav-acc-body a::before { content: '→'; color: var(--jft-gold); font-size: 0.7rem; flex-shrink: 0; }
-    .mnav-acc-body a:active { background: rgba(255,255,255,0.07); color: var(--jft-gold); }
+    .mnav-acc-body a::before {
+      content: ''; width: 20px; height: 1px;
+      background: rgba(238,191,69,0.45); flex-shrink: 0;
+      transition: width 0.2s, background 0.2s;
+    }
+    .mnav-acc-body a:hover { background: rgba(238,191,69,0.06); color: var(--jft-gold); padding-left: 40px; }
+    .mnav-acc-body a:hover::before { width: 28px; background: var(--jft-gold); }
 
-    /* Footer: CTA + social */
+    /* Footer */
     .mnav-footer {
-      padding: 20px 24px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      padding: 22px 24px 28px;
+      display: flex; flex-direction: column; gap: 16px;
+      border-top: 1px solid rgba(255,255,255,0.07); margin-top: 8px;
     }
     .mnav-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 20px;
-      background: var(--jft-primary);
-      color: #fff;
-      border-radius: 12px;
-      font-family: var(--font-sub);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, var(--jft-gold), #f7ca5e);
+      color: var(--jft-navy); border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1.5px;
       text-decoration: none;
-      transition: background 0.2s;
+      box-shadow: 0 8px 24px rgba(238,191,69,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .mnav-cta:active { background: var(--jft-dark); }
-    .mnav-social {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
+    .mnav-cta:active { transform: scale(0.97); }
+    .mnav-social { display: flex; align-items: center; justify-content: center; gap: 10px; }
     .mnav-social a {
-      width: 42px; height: 42px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 10px;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.75);
-      font-size: 1rem;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
+      color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
     }
-    .mnav-social a:active { background: rgba(238,191,69,0.25); color: var(--jft-gold); }
+    .mnav-social a:hover {
+      background: rgba(238,191,69,0.14); border-color: rgba(238,191,69,0.4);
+      color: var(--jft-gold); transform: translateY(-2px);
+    }
   }
 
-  /* ════════════════════════════════════════════════════════════════════
+    /* ════════════════════════════════════════════════════════════════════
      480px — small phones
      ════════════════════════════════════════════════════════════════════ */
   @media (max-width: 480px) {
@@ -463,57 +547,82 @@ s0.parentNode.insertBefore(s1,s0);
 
 </nav>
 
-<!-- Mobile nav drawer: OUTSIDE <nav> to avoid backdrop-filter stacking context.
-     position:fixed + JS-set top means DOM position doesn't affect visual placement. -->
+<!-- ══ MOBILE NAV DRAWER ══════════════════════════════════════════════
+     Outside <nav> — no backdrop-filter blur inheritance.
+     Background matches index.html hero section exactly.             -->
 <div class="mobile-nav-drawer" id="mobileNavMenu" aria-hidden="true">
-    <a href="index.html" class="mnav-link" onclick="closeMenu()">Home</a>
-    <a href="about.html" class="mnav-link" onclick="closeMenu()">Company</a>
-    <a href="products.html" class="mnav-link" onclick="closeMenu()">Products</a>
 
-    <div class="mnav-accordion">
-      <div class="mnav-acc-label" onclick="toggleSubMenu('acc-infra')">
-        <span>Infrastructure</span>
-        <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-infra"></i>
-      </div>
-      <div class="mnav-acc-body" id="acc-infra">
-        <a href="infrastructure.html" onclick="closeMenu()">Milling Units</a>
-        <a href="quality-control.html" onclick="closeMenu()">Quality Control</a>
-        <a href="certificates.html" onclick="closeMenu()">Certifications</a>
-      </div>
+  <!-- Gold stripe — same as index.html hero-gold-stripe -->
+  <div class="mnav-gold-stripe"></div>
+
+  <!-- Brand header — index.html hero-tag style -->
+  <div class="mnav-header">
+    <div class="mnav-brand-dot"></div>
+    <span class="mnav-brand-text">JFT Agro Overseas &nbsp;·&nbsp; Navigation</span>
+  </div>
+
+  <!-- Section label -->
+  <div class="mnav-section-label">Main Menu</div>
+
+  <a href="index.html" class="mnav-link" onclick="closeMenu()">
+    Home <i class="fa-solid fa-chevron-right mnav-arrow"></i>
+  </a>
+  <a href="about.html" class="mnav-link" onclick="closeMenu()">
+    Company <i class="fa-solid fa-chevron-right mnav-arrow"></i>
+  </a>
+  <a href="products.html" class="mnav-link" onclick="closeMenu()">
+    Products <i class="fa-solid fa-chevron-right mnav-arrow"></i>
+  </a>
+
+  <!-- Infrastructure accordion -->
+  <div class="mnav-accordion" id="mnav-infra">
+    <div class="mnav-acc-label" onclick="toggleSubMenu('acc-infra')">
+      <span>Infrastructure</span>
+      <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-infra"></i>
     </div>
-
-    <div class="mnav-accordion">
-      <div class="mnav-acc-label" onclick="toggleSubMenu('acc-trade')">
-        <span>Trade Hub</span>
-        <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-trade"></i>
-      </div>
-      <div class="mnav-acc-body" id="acc-trade">
-        <a href="blog.html" onclick="closeMenu()">Market Blog</a>
-        <a href="faq.html" onclick="closeMenu()">Trade FAQ</a>
-        <a href="quote-calculator.html" onclick="closeMenu()">Quote Calculator</a>
-        <a href="africa-trade.html" onclick="closeMenu()">Africa Trade</a>
-        <a href="asia-trade.html" onclick="closeMenu()">Asia Trade</a>
-        <a href="europe-trade.html" onclick="closeMenu()">Europe Trade</a>
-        <a href="uae-trade.html" onclick="closeMenu()">Middle East Hub</a>
-      </div>
+    <div class="mnav-acc-body" id="acc-infra">
+      <a href="infrastructure.html" onclick="closeMenu()">Milling Units</a>
+      <a href="quality-control.html" onclick="closeMenu()">Quality Control</a>
+      <a href="certificates.html" onclick="closeMenu()">Certifications</a>
     </div>
+  </div>
 
-    <a href="contact.html" class="mnav-link" onclick="closeMenu()">Contact</a>
-
-    <div class="mnav-footer">
-      <a href="contact.html#inquiry-form" class="mnav-cta" onclick="closeMenu()">
-        <i class="fa-solid fa-paper-plane"></i> Request Quote
-      </a>
-      <div class="mnav-social">
-        <a href="https://www.linkedin.com/company/jft-agro-overseas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-      </div>
+  <!-- Trade Hub accordion -->
+  <div class="mnav-accordion" id="mnav-trade">
+    <div class="mnav-acc-label" onclick="toggleSubMenu('acc-trade')">
+      <span>Trade Hub</span>
+      <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-trade"></i>
     </div>
+    <div class="mnav-acc-body" id="acc-trade">
+      <a href="blog.html" onclick="closeMenu()">Market Blog</a>
+      <a href="faq.html" onclick="closeMenu()">Trade FAQ</a>
+      <a href="quote-calculator.html" onclick="closeMenu()">Quote Calculator</a>
+      <a href="africa-trade.html" onclick="closeMenu()">Africa Trade</a>
+      <a href="asia-trade.html" onclick="closeMenu()">Asia Trade</a>
+      <a href="europe-trade.html" onclick="closeMenu()">Europe Trade</a>
+      <a href="uae-trade.html" onclick="closeMenu()">Middle East Hub</a>
+    </div>
+  </div>
+
+  <a href="contact.html" class="mnav-link" onclick="closeMenu()">
+    Contact <i class="fa-solid fa-chevron-right mnav-arrow"></i>
+  </a>
+
+  <!-- Footer: gold CTA + social icons -->
+  <div class="mnav-footer">
+    <a href="contact.html#inquiry-form" class="mnav-cta" onclick="closeMenu()">
+      <i class="fa-solid fa-paper-plane"></i> Request Quote
+    </a>
+    <div class="mnav-social">
+      <a href="https://www.linkedin.com/company/jft-agro-overseas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+
 </div>
 
-<!-- Overlay: JS positions it flush below navbar -->
 <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
 
 <script>
@@ -576,11 +685,14 @@ s0.parentNode.insertBefore(s1,s0);
   }
 
   function toggleSubMenu(accId) {
-    var acc = document.getElementById(accId);
-    if (!acc) return;
-    var parent = acc.closest('.mnav-accordion');
+    var body = document.getElementById(accId);
+    if (!body) return;
+    /* Parent is the .mnav-accordion wrapper — find it by ID convention */
+    var parent = document.getElementById('mnav-acc-' + accId.replace('acc-',''));
+    if (!parent) parent = body.closest('.mnav-accordion');
     if (!parent) return;
     var isOpen = parent.classList.contains('open');
+    /* Close all others */
     document.querySelectorAll('.mnav-accordion.open').forEach(function(a) {
       if (a !== parent) a.classList.remove('open');
     });
