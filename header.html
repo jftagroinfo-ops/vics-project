@@ -97,6 +97,29 @@ s0.parentNode.insertBefore(s1,s0);
   .lang-flag { width: 22px; height: 16px; border-radius: 2px; object-fit: cover; box-shadow: 0 1px 3px rgba(0,0,0,0.1); flex-shrink: 0; }
 
   .td-row-2 { display: flex; justify-content: space-between; align-items: center; height: 38px; background: #fff; color: var(--jft-navy); padding-left: 20px; font-weight: 700; border-bottom: 1px solid #eee; overflow: hidden; }
+  /* Mobile: hide social + utilities in row-1, keep full ticker */
+  @media (max-width: 768px) {
+    .td-social { display: none; }
+    .td-utilities { display: none; }
+    .td-row-1 { padding: 0; }
+    .td-news-ticker { margin-right: 0; width: 100%; }
+    .ticker-label { font-size: 0.68rem; padding: 0 28px 0 14px; clip-path: polygon(0 0,100% 0,84% 100%,0 100%); }
+    /* Row 2 mobile: USD/INR left, Annapoorna right only */
+    .forex-group { gap: 0; padding-right: 0; }
+    #forex-date { display: none; } /* hide "Rates as of" text on mobile */
+    .forex-item.desktop-only { display: none!important; } /* hide EUR, GBP, AED */
+    #fx-eur, #fx-gbp, #fx-aed { display: none!important; }
+    #fx-usd { font-size: 0.75rem; padding-left: 4px; }
+    .visit-plan { font-size: 0.65rem; padding: 0 12px; gap: 6px; clip-path: polygon(10px 0,100% 0,100% 100%,0 100%); }
+    .visit-plan .vp-sub { display: none; } /* hide second line of Annapoorna */
+  }
+  @media (max-width: 380px) {
+    .td-row-1 { height: 36px; }
+    .td-row-2 { height: 34px; }
+    .ticker-label { padding: 0 22px 0 12px; font-size: 0.62rem; }
+    #fx-usd { font-size: 0.7rem; }
+    .visit-plan { font-size: 0.6rem; padding: 0 10px; }
+  }
   .forex-group { display: flex; gap: 25px; align-items: center; font-size: 0.8rem; flex: 1; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; white-space: nowrap; height: 100%; padding-right: 15px; }
   .forex-up { color: #3b6d11; background: #ecfdf5; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; }
   .visit-plan { display: flex; align-items: center; gap: 12px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.72rem; clip-path: polygon(15px 0, 100% 0, 100% 100%, 0% 100%); transition: 0.3s; letter-spacing: 0.5px; font-weight: 800; white-space: nowrap; text-decoration: none; flex-shrink: 0; position: relative; }
@@ -122,27 +145,36 @@ s0.parentNode.insertBefore(s1,s0);
 
   /* ── MOBILE RESPONSIVE: 1024px and below ── */
   @media (max-width: 1024px) {
-    /* Nav menu: slide-in panel from right.
-       top = dashboard(80px) + navbar(90px) = 170px */
+    /* Nav menu: full-width dropdown starting below navbar (logo row)
+       top = dashboard(80px) + navbar(72px) = 152px → we use 152px so it
+       starts exactly from the bottom edge of the logo row */
     .nav-menu {
       position: fixed;
-      top: 170px;
-      right: -100%;
-      width: 85%;
-      max-width: 340px;
-      height: calc(100dvh - 170px);
+      top: 152px;          /* below logo row, not 170 */
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100%;
+      max-height: calc(100dvh - 152px);
       background: var(--jft-navy);
       flex-direction: column;
-      padding: 12px 0 24px;
+      padding: 0 0 20px;
       gap: 0;
-      transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+      transform: translateY(-10px);
+      opacity: 0;
+      pointer-events: none;
       overflow-y: auto;
       overflow-x: hidden;
       z-index: 1500;
-      box-shadow: -8px 0 40px rgba(0,0,0,0.35);
-      border-left: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      display: flex !important; /* always in DOM, show/hide via opacity+transform */
     }
-    .nav-menu.active { right: 0; }
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
 
     /* Overlay backdrop when nav is open */
     .nav-overlay {
@@ -159,19 +191,38 @@ s0.parentNode.insertBefore(s1,s0);
     .nav-link {
       color: rgba(255,255,255,0.9) !important;
       width: 100%;
-      padding: 14px 24px;
+      padding: 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
       border-radius: 0;
       font-size: 0.82rem;
       letter-spacing: 1px;
+      display: block;
+      min-height: 52px;
+    }
+    /* Regular nav links (anchors) */
+    a.nav-link {
+      display: flex;
+      align-items: center;
+      padding: 14px 24px;
+      min-height: 52px;
+    }
+    a.nav-link:hover { background: rgba(255,255,255,0.06); color: var(--jft-gold) !important; }
+    /* Dropdown label — full-width tap target */
+    .dd-label {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 14px 24px;
       min-height: 52px;
+      width: 100%;
+      cursor: pointer;
+      color: rgba(255,255,255,0.9);
+      transition: 0.2s;
     }
-    .nav-link:hover { background: rgba(255,255,255,0.06); color: var(--jft-gold) !important; }
-    .nav-link .fa-caret-down { transition: transform 0.3s; }
-    .dropdown-markets.open .fa-caret-down { transform: rotate(180deg); }
+    .dd-label:hover { background: rgba(255,255,255,0.06); color: var(--jft-gold) !important; }
+    .dropdown-markets { cursor: pointer; padding: 0; }
+    /* On mobile, disable CSS hover for dropdown (use JS accordion instead) */
+    .dropdown-markets .markets-menu { display: block !important; opacity: 1 !important; visibility: visible !important; transform: none !important; }
 
     /* CTA button inside mobile menu */
     .nav-btn-action {
@@ -215,6 +266,7 @@ s0.parentNode.insertBefore(s1,s0);
     .markets-menu a::before { content: '→'; margin-right: 10px; color: var(--jft-gold); font-size: 0.75rem; }
 
     /* Hamburger button */
+    .nav-social-row { display: flex; }
     .mobile-toggle {
       display: flex;
       align-items: center;
@@ -240,10 +292,32 @@ s0.parentNode.insertBefore(s1,s0);
     .nav-flex { padding: 0 16px; }
   }
 
+  /* Nav social icons at bottom of menu */
+  .nav-social-row {
+    display: none; /* hidden on desktop */
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 24px 8px;
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-social-row a {
+    width: 42px; height: 42px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+    transition: 0.2s;
+    min-height: 42px; /* touch target */
+  }
+  .nav-social-row a:hover { background: rgba(238,191,69,0.2); color: var(--jft-gold); }
+
   /* Very small phones */
   @media (max-width: 480px) {
     .jft-navbar { height: 68px; top: 80px; }
-    .nav-menu { top: 148px; height: calc(100dvh - 148px); }
+    .nav-menu { top: 148px; max-height: calc(100dvh - 148px); }
     .nav-logo-img { height: 46px; max-width: 160px; }
     .nav-flex { padding: 0 14px; }
   }
@@ -285,7 +359,7 @@ s0.parentNode.insertBefore(s1,s0);
       <i class="fa-solid fa-plane-departure" style="font-size: 1rem; margin-right: 5px;"></i> 
       <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1;">
         <span style="font-size: 0.7rem; letter-spacing: 1.5px; font-weight: 800;">ANNAPOORNA 2026</span>
-        <span style="font-size: 0.58rem; opacity: 0.8; font-weight: 700; text-transform: uppercase;">19–21 NOV | MUMBAI WJEC</span>
+        <span class="vp-sub" style="font-size: 0.58rem; opacity: 0.8; font-weight: 700; text-transform: uppercase;">19–21 NOV | MUMBAI WJEC</span>
       </div>
     </a>
   </div>
@@ -302,30 +376,37 @@ s0.parentNode.insertBefore(s1,s0);
       
       <a href="products.html" class="nav-link" onclick="toggleMenu()">Products</a>
 
-      <div class="nav-link dropdown-markets">
-        Infrastructure <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
-        <div class="markets-menu">
-          <a href="infrastructure.html">Milling Units</a>
-          <a href="quality-control.html">Quality Control</a>
-          <a href="certificates.html">Certifications</a>
+      <div class="nav-link dropdown-markets" id="dd-infra">
+        <span class="dd-label" onclick="toggleSubMenu('dd-infra',event)">Infrastructure <i class="fa-solid fa-caret-down dd-caret" style="font-size:0.7rem;transition:transform 0.3s;"></i></span>
+        <div class="markets-menu" id="submenu-infra">
+          <a href="infrastructure.html" onclick="closeMenu()">Milling Units</a>
+          <a href="quality-control.html" onclick="closeMenu()">Quality Control</a>
+          <a href="certificates.html" onclick="closeMenu()">Certifications</a>
         </div>
       </div>
 
-      <div class="nav-link dropdown-markets">
-        Trade Hub <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
-        <div class="markets-menu">
-          <a href="blog.html">Market Blog</a>
-          <a href="faq.html">Trade FAQ</a>
-          <a href="quote-calculator.html">Quote Calculator</a>
-          <a href="africa-trade.html">Africa Trade</a>
-          <a href="asia-trade.html">Asia Trade</a>
-          <a href="europe-trade.html">Europe Trade</a>
-          <a href="uae-trade.html">Middle East Hub</a>
+      <div class="nav-link dropdown-markets" id="dd-trade">
+        <span class="dd-label" onclick="toggleSubMenu('dd-trade',event)">Trade Hub <i class="fa-solid fa-caret-down dd-caret" style="font-size:0.7rem;transition:transform 0.3s;"></i></span>
+        <div class="markets-menu" id="submenu-trade">
+          <a href="blog.html" onclick="closeMenu()">Market Blog</a>
+          <a href="faq.html" onclick="closeMenu()">Trade FAQ</a>
+          <a href="quote-calculator.html" onclick="closeMenu()">Quote Calculator</a>
+          <a href="africa-trade.html" onclick="closeMenu()">Africa Trade</a>
+          <a href="asia-trade.html" onclick="closeMenu()">Asia Trade</a>
+          <a href="europe-trade.html" onclick="closeMenu()">Europe Trade</a>
+          <a href="uae-trade.html" onclick="closeMenu()">Middle East Hub</a>
         </div>
       </div>
 
       <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
       <a href="contact.html#inquiry-form" class="nav-btn-action" onclick="toggleMenu()">Request Quote</a>
+      <!-- Social icons at bottom of mobile nav -->
+      <div class="nav-social-row">
+        <a href="https://www.linkedin.com/company/jft-agro-overseas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
     </div>
     <button class="mobile-toggle" id="mobileToggleBtn" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
   </div>
@@ -353,7 +434,47 @@ s0.parentNode.insertBefore(s1,s0);
     }
   }
 
+  /* Toggle individual submenu accordion */
+  function toggleSubMenu(dropId, e) {
+    e && e.stopPropagation();
+    const drop = document.getElementById(dropId);
+    if (!drop) return;
+    const submenu = drop.querySelector('.markets-menu');
+    const caret = drop.querySelector('.dd-caret');
+    const isOpen = drop.classList.contains('open');
+    
+    /* Close all other submenus */
+    document.querySelectorAll('.dropdown-markets.open').forEach(function(d) {
+      if (d.id !== dropId) {
+        d.classList.remove('open');
+        var sm = d.querySelector('.markets-menu');
+        var cr = d.querySelector('.dd-caret');
+        if (sm) sm.classList.remove('show-mobile');
+        if (cr) cr.style.transform = 'rotate(0deg)';
+      }
+    });
+    
+    /* Toggle current */
+    if (isOpen) {
+      drop.classList.remove('open');
+      if (submenu) submenu.classList.remove('show-mobile');
+      if (caret) caret.style.transform = 'rotate(0deg)';
+    } else {
+      drop.classList.add('open');
+      if (submenu) submenu.classList.add('show-mobile');
+      if (caret) caret.style.transform = 'rotate(180deg)';
+    }
+  }
+
   function closeMenu() {
+    /* Also close all submenus */
+    document.querySelectorAll('.dropdown-markets.open').forEach(function(d) {
+      d.classList.remove('open');
+      var sm = d.querySelector('.markets-menu');
+      var cr = d.querySelector('.dd-caret');
+      if (sm) sm.classList.remove('show-mobile');
+      if (cr) cr.style.transform = 'rotate(0deg)';
+    });
     const menu = document.getElementById('navMenu');
     const overlay = document.getElementById('navOverlay');
     const btn = document.getElementById('mobileToggleBtn');
@@ -371,38 +492,10 @@ s0.parentNode.insertBefore(s1,s0);
     if (e.key === 'Escape') closeMenu();
   });
 
-  /* Mobile dropdown accordion — attach after DOM is ready */
+  /* initMobileDropdowns — kept for compatibility, logic now in toggleSubMenu */
   function initMobileDropdowns() {
-    if (window.innerWidth > 1024) return; /* desktop: hover works, skip */
-    document.querySelectorAll('.dropdown-markets').forEach(function(drop) {
-      /* Remove hover-based opening by disabling CSS hover on mobile
-         (already done in media query — just add click) */
-      drop.addEventListener('click', function(e) {
-        /* Don't close nav */
-        e.stopPropagation();
-        var submenu = drop.querySelector('.markets-menu');
-        var isOpen = submenu && submenu.classList.contains('show-mobile');
-        
-        /* Close all others first */
-        document.querySelectorAll('.markets-menu.show-mobile').forEach(function(m) {
-          m.classList.remove('show-mobile');
-          m.closest('.dropdown-markets') && m.closest('.dropdown-markets').classList.remove('open');
-        });
-        
-        /* Toggle clicked one */
-        if (submenu && !isOpen) {
-          submenu.classList.add('show-mobile');
-          drop.classList.add('open');
-        }
-      });
-    });
-
-    /* Submenu links should close the nav after navigation */
-    document.querySelectorAll('.markets-menu a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        setTimeout(closeMenu, 100);
-      });
-    });
+    /* Submenus are handled by inline onclick on dd-label spans */
+    /* Desktop hover still works via CSS */
   }
 
   /* Also close mobile nav on resize to desktop */

@@ -463,6 +463,12 @@ img{max-width:100%;height:auto;display:block}
   .country-reveal{position:relative!important;width:100%!important;max-height:0;left:0!important;top:0!important;opacity:0;visibility:hidden;right:auto!important}
   .export-node.active-mobile .country-reveal{max-height:300px;opacity:1;visibility:visible;margin-top:15px;overflow-y:auto}
   .network-visual{height:auto;flex-direction:column;padding:20px 0}
+  /* FIX: central-hub goes below nodes-container on mobile so it doesn't overlap */
+  .central-hub{order:2;z-index:1!important;margin-bottom:16px;width:100px;height:100px}
+  .hub-circle{z-index:1!important}
+  .pulse-ring{z-index:0!important}
+  .mobile-hint{order:1;margin-bottom:8px}
+  .nodes-container{order:3;z-index:5;position:relative}
 }
 /* ─── PARTNERS GRID ─── */
 /* duplicate partners CSS removed */
@@ -809,6 +815,8 @@ img { max-width: 100%; }
   .network-header    { margin-bottom: 40px; }
   .network-visual    { height: auto; overflow: visible; }
   .nodes-container   { padding: 16px; gap: 14px; }
+  .central-hub       { width: 90px!important; height: 90px!important; }
+  .hub-circle img    { width: 55px!important; height: 55px!important; }
   .export-node       { max-width: 300px; flex: 0 0 80%; }
   .mobile-hint       { text-align: center; font-size: .8rem; }
 }
