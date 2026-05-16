@@ -64,7 +64,7 @@
   --ease:cubic-bezier(.165,.84,.44,1);--ease-out:cubic-bezier(.2,.8,.2,1);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:175px;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:175px;overflow-x:hidden}@media(max-width:1024px){html{scroll-padding-top:160px}}@media(max-width:480px){html{scroll-padding-top:150px}}
 body{margin:0;padding:0;font-family:var(--ff-b);color:#4a4a4a;background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,h4{font-family:var(--ff-h);margin:0;color:var(--navy);letter-spacing:-.5px}
 p{line-height:1.8;margin-bottom:1.4rem;font-size:clamp(1rem,1.5vw,1.1rem);color:#5c5c5c}
@@ -124,7 +124,7 @@ img{max-width:100%;height:auto;display:block}
 .jft-hero-banner{position:relative;min-height:100vh;width:100%;overflow:hidden;background:#000;display:flex;align-items:center;cursor:grab}
 .jft-hero-banner:active{cursor:grabbing}
 @media(min-width:1025px){.jft-hero-banner{padding-top:130px}}
-@media(max-width:1024px){.jft-hero-banner{padding-top:160px!important;align-items:flex-start}}
+@media(max-width:1024px){.jft-hero-banner{padding-top:175px!important;align-items:flex-start}}
 .hero-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.5s ease-in-out;background-size:cover;background-position:center}
 .hero-slide.active{opacity:1;visibility:visible}
 .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(7,18,15,.97) 0%,rgba(26,60,52,.86) 45%,rgba(26,60,52,.15) 100%);z-index:1}
@@ -541,15 +541,15 @@ img { max-width: 100%; }
 
 /* ── 768px: iPad portrait / large phones ────────────────────────────────── */
 @media (max-width: 768px) {
-  /* Hero */
+  /* Hero — 768px */
   .hero-visual-card  { display: none; }
   .hero-text-box     { text-align: center; max-width: 100%; }
   .hero-actions      { justify-content: center; }
   .hero-tag-modern   { font-size: .68rem; padding: 8px 16px; }
-  .hero-title-modern { font-size: clamp(1.7rem, 8vw, 2.8rem); }
-  .hero-desc-modern  { font-size: 1rem; margin: 0 auto 35px; max-width: 90%; }
+  .hero-title-modern { font-size: clamp(1.7rem, 7.5vw, 2.8rem); }
+  .hero-desc-modern  { font-size: 1rem; margin: 0 auto 28px; max-width: 95%; }
   .hero-content-slide.active { justify-content: center; }
-  .jft-hero-banner   { padding-top: 100px !important; padding-bottom: 50px; min-height: auto; }
+  .jft-hero-banner   { padding-top: 160px !important; padding-bottom: 50px; min-height: calc(100svh - 80px); }
 
   /* Stats */
   .stats-grid        { grid-template-columns: 1fr 1fr; }
@@ -666,11 +666,12 @@ img { max-width: 100%; }
 
 /* ── 480px: Small phones ─────────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  /* Hero */
-  .hero-title-modern { font-size: clamp(1.55rem, 8vw, 2.2rem); }
+  /* Hero — 480px */
+  .hero-title-modern { font-size: clamp(1.5rem, 8.5vw, 2rem); }
+  .jft-hero-banner   { padding-top: 152px !important; padding-bottom: 40px; min-height: calc(100svh - 80px); }
   .hero-actions      { flex-direction: column; align-items: center; width: 100%; }
   .hero-actions a,
-  .hero-actions button { width: 100%; max-width: 320px; justify-content: center; }
+  .hero-actions button { width: 100%; max-width: 300px; justify-content: center; font-size: .78rem; padding: 14px 20px; }
   .hero-tag-modern   { font-size: .62rem; padding: 7px 14px; gap: 7px; }
   .slider-controls   { bottom: 20px; gap: 8px; }
   .control-dot       { width: 8px; height: 8px; }
@@ -745,8 +746,9 @@ img { max-width: 100%; }
 
 /* ── 380px: Very small phones (iPhone SE, Galaxy A02) ────────────────────── */
 @media (max-width: 380px) {
-  .hero-title-modern { font-size: 1.5rem; }
-  .hero-desc-modern  { font-size: .92rem; }
+  .hero-title-modern { font-size: 1.4rem; }
+  .jft-hero-banner   { padding-top: 148px !important; }
+  .hero-desc-modern  { font-size: .9rem; }
   .hero-tag-modern   { font-size: .58rem; }
   .section-title     { font-size: 1.5rem; }
   .tcard             { width: calc(100vw - 32px); }
@@ -1501,7 +1503,7 @@ if ('serviceWorker' in navigator) {
     if (p && p.style.display !== 'none' && p.style.opacity !== '0') {
       p.style.transition = 'none'; p.style.opacity = '0'; p.style.display = 'none';
     }
-  }, 4000);
+  }, 3000);
   document.addEventListener('DOMContentLoaded',function(){
   var track=document.getElementById('certTrack');
   var wrap=document.getElementById('certSlider');
@@ -1600,7 +1602,17 @@ var observer=new IntersectionObserver(function(entries){
       animateNum(el,+el.getAttribute('data-v'),2200);
     });
   });
-},{threshold:.1});
+},{
+  threshold: 0.08,           /* trigger when 8% visible — less strict */
+  rootMargin: '0px 0px -40px 0px' /* slight offset so elements reveal before fully in view */
+});
+
+/* Fallback: force-show all reveals after 5s in case observer missed any */
+setTimeout(function() {
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el) {
+    el.classList.add('active');
+  });
+}, 5000);
 
 // ── HERO BAR COUNTERS ──
 function runHeroCounters(){
@@ -1722,11 +1734,12 @@ document.addEventListener('DOMContentLoaded',function(){
     var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawLines,120);});
   }
 
-  // Dismiss preloader
+  // Dismiss preloader — faster on mobile
+  var plDelay = ('ontouchstart' in window || navigator.maxTouchPoints > 0) ? 1200 : 1900;
   setTimeout(function(){
     var p=document.getElementById('preloader');
-    if(p){p.style.opacity='0';setTimeout(function(){p.style.display='none';},700);}
-  },1900);
+    if(p){p.style.opacity='0';setTimeout(function(){p.style.display='none';},600);}
+  }, plDelay);
 });
 
 })();

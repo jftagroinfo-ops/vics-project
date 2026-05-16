@@ -795,13 +795,13 @@ footer { max-width: 100vw; overflow-x: hidden; }
    ════════════════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
-  html { scroll-padding-top: 155px; }
+  html { scroll-padding-top: 170px; } /* dashboard(80) + navbar(72) = 152 + buffer */
 }
 @media (max-width: 768px) {
-  html { scroll-padding-top: 148px; }
+  html { scroll-padding-top: 160px; }
 }
 @media (max-width: 480px) {
-  html { scroll-padding-top: 140px; }
+  html { scroll-padding-top: 150px; }
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -821,4 +821,95 @@ footer { max-width: 100vw; overflow-x: hidden; }
   .jft-wide-container { max-width: 100% !important; padding: 0 20px !important; }
   .section-title { font-size: 1.8rem !important; }
   a { color: var(--navy) !important; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   36. STUCK SECTIONS FIX — CSS animation fallback for .reveal elements
+       If JS IntersectionObserver doesn't fire on mobile, these animate in
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* On mobile: use CSS animation with delay as fallback for stuck reveals */
+@media (max-width: 1024px) {
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    /* CSS keyframe fallback fires after 2s regardless of JS */
+    animation: revealFallback 0.8s ease forwards;
+    animation-delay: 2s;
+    animation-play-state: paused;
+  }
+  .reveal.active,
+  .reveal-left.active,
+  .reveal-right.active {
+    /* When JS adds .active, override with immediate show */
+    animation: none !important;
+    opacity: 1 !important;
+    transform: translate(0) !important;
+  }
+}
+
+/* Staggered fallback delays for nice cascade */
+@media (max-width: 1024px) {
+  .d1 { animation-delay: 2.15s; }
+  .d2 { animation-delay: 2.3s; }
+  .d3 { animation-delay: 2.45s; }
+  .d4 { animation-delay: 2.6s; }
+}
+
+@keyframes revealFallback {
+  from { opacity: 0; transform: translateY(20px); animation-play-state: running; }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Override: sections that were stuck with opacity:0 */
+@media (max-width: 768px) {
+  /* Force show everything after 3.5s via animation */
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   37. NAVBAR OVERLAY — dark backdrop when mobile menu is open
+   ════════════════════════════════════════════════════════════════════════════ */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1499;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  transition: opacity 0.3s;
+}
+.nav-overlay.show {
+  display: block;
+  animation: overlayFadeIn 0.3s ease forwards;
+}
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Prevent body scroll when mobile nav open */
+body.nav-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Hero sections: ensure they clear the fixed header exactly */
+@media (max-width: 1024px) {
+  /* All inner page heroes */
+  .jft-page-hero,
+  .contact-hero,
+  .article-page-hero-strip { padding-top: 175px !important; }
+}
+@media (max-width: 480px) {
+  .jft-page-hero,
+  .contact-hero,
+  .article-page-hero-strip { padding-top: 155px !important; }
 }

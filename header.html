@@ -120,13 +120,132 @@ s0.parentNode.insertBefore(s1,s0);
   .markets-menu a:hover { background: var(--jft-cream); color: var(--jft-primary); }
   .mobile-toggle { display: none; }
 
+  /* ── MOBILE RESPONSIVE: 1024px and below ── */
   @media (max-width: 1024px) {
-    .nav-menu { position: fixed; top: 70px; right: -100%; width: 100%; max-width: 320px; height: calc(100vh - 70px); background: var(--jft-navy); flex-direction: column; padding: 20px 0; transition: 0.4s; overflow-y: auto; }
+    /* Nav menu: slide-in panel from right.
+       top = dashboard(80px) + navbar(90px) = 170px */
+    .nav-menu {
+      position: fixed;
+      top: 170px;
+      right: -100%;
+      width: 85%;
+      max-width: 340px;
+      height: calc(100dvh - 170px);
+      background: var(--jft-navy);
+      flex-direction: column;
+      padding: 12px 0 24px;
+      gap: 0;
+      transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+      overflow-y: auto;
+      overflow-x: hidden;
+      z-index: 1500;
+      box-shadow: -8px 0 40px rgba(0,0,0,0.35);
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
     .nav-menu.active { right: 0; }
-    .nav-link { color: #fff!important; width: 100%; padding: 15px 30px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .markets-menu { position: static; width: 100%; background: rgba(0,0,0,0.2); max-height: 0; overflow: hidden; opacity: 1; visibility: visible; transform: none; padding: 0; }
-    .markets-menu.show-mobile { max-height: 500px; padding: 10px 0; }
-    .mobile-toggle { display: block; font-size: 1.5rem; color: var(--jft-navy); cursor: pointer; padding: 10px; }
+
+    /* Overlay backdrop when nav is open */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1499;
+      backdrop-filter: blur(2px);
+    }
+    .nav-overlay.show { display: block; }
+
+    /* Nav links inside mobile menu */
+    .nav-link {
+      color: rgba(255,255,255,0.9) !important;
+      width: 100%;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-radius: 0;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 52px;
+    }
+    .nav-link:hover { background: rgba(255,255,255,0.06); color: var(--jft-gold) !important; }
+    .nav-link .fa-caret-down { transition: transform 0.3s; }
+    .dropdown-markets.open .fa-caret-down { transform: rotate(180deg); }
+
+    /* CTA button inside mobile menu */
+    .nav-btn-action {
+      margin: 16px 24px 0;
+      padding: 14px 20px;
+      text-align: center;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      display: block;
+      min-height: 48px;
+      width: calc(100% - 48px);
+    }
+
+    /* Dropdown submenu — accordion on mobile */
+    .markets-menu {
+      position: static !important;
+      width: 100%;
+      background: rgba(0,0,0,0.25);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      padding: 0;
+      box-shadow: none;
+      border-radius: 0;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .markets-menu.show-mobile { max-height: 400px; padding: 6px 0; }
+    .markets-menu a {
+      padding: 12px 24px 12px 38px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: block;
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+    }
+    .markets-menu a:hover { background: rgba(255,255,255,0.06); color: var(--jft-gold); }
+    .markets-menu a::before { content: '→'; margin-right: 10px; color: var(--jft-gold); font-size: 0.75rem; }
+
+    /* Hamburger button */
+    .mobile-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      font-size: 1.4rem;
+      color: var(--jft-navy);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      border-radius: 8px;
+      transition: 0.2s;
+      flex-shrink: 0;
+    }
+    .mobile-toggle:hover { background: rgba(26,60,52,0.08); }
+    .mobile-toggle.open { color: var(--jft-primary); }
+
+    /* Navbar height on mobile */
+    .jft-navbar { height: 72px; }
+    .jft-navbar.scrolled { height: 64px; }
+    .nav-logo-img { height: 52px; max-width: 180px; }
+    .nav-flex { padding: 0 16px; }
+  }
+
+  /* Very small phones */
+  @media (max-width: 480px) {
+    .jft-navbar { height: 68px; top: 80px; }
+    .nav-menu { top: 148px; height: calc(100dvh - 148px); }
+    .nav-logo-img { height: 46px; max-width: 160px; }
+    .nav-flex { padding: 0 14px; }
   }
 </style>
 
@@ -208,12 +327,95 @@ s0.parentNode.insertBefore(s1,s0);
       <a href="contact.html" class="nav-link" onclick="toggleMenu()">Contact</a>
       <a href="contact.html#inquiry-form" class="nav-btn-action" onclick="toggleMenu()">Request Quote</a>
     </div>
-    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu"><i class="fa-solid fa-bars"></i></button>
+    <button class="mobile-toggle" id="mobileToggleBtn" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
   </div>
 </nav>
+<div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
 
 <script>
-  function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+  /* ── MOBILE NAV ── */
+  function toggleMenu() {
+    const menu = document.getElementById('navMenu');
+    const overlay = document.getElementById('navOverlay');
+    const btn = document.getElementById('mobileToggleBtn');
+    const icon = document.getElementById('menuIcon');
+    const isOpen = menu.classList.contains('active');
+    
+    if (isOpen) {
+      closeMenu();
+    } else {
+      menu.classList.add('active');
+      overlay && overlay.classList.add('show');
+      btn && btn.classList.add('open');
+      btn && btn.setAttribute('aria-expanded', 'true');
+      if (icon) { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); }
+      document.body.style.overflow = 'hidden'; /* prevent scroll when nav open */
+    }
+  }
+
+  function closeMenu() {
+    const menu = document.getElementById('navMenu');
+    const overlay = document.getElementById('navOverlay');
+    const btn = document.getElementById('mobileToggleBtn');
+    const icon = document.getElementById('menuIcon');
+    menu.classList.remove('active');
+    overlay && overlay.classList.remove('show');
+    btn && btn.classList.remove('open');
+    btn && btn.setAttribute('aria-expanded', 'false');
+    if (icon) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
+    document.body.style.overflow = '';
+  }
+
+  /* Close nav on Escape key */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  /* Mobile dropdown accordion — attach after DOM is ready */
+  function initMobileDropdowns() {
+    if (window.innerWidth > 1024) return; /* desktop: hover works, skip */
+    document.querySelectorAll('.dropdown-markets').forEach(function(drop) {
+      /* Remove hover-based opening by disabling CSS hover on mobile
+         (already done in media query — just add click) */
+      drop.addEventListener('click', function(e) {
+        /* Don't close nav */
+        e.stopPropagation();
+        var submenu = drop.querySelector('.markets-menu');
+        var isOpen = submenu && submenu.classList.contains('show-mobile');
+        
+        /* Close all others first */
+        document.querySelectorAll('.markets-menu.show-mobile').forEach(function(m) {
+          m.classList.remove('show-mobile');
+          m.closest('.dropdown-markets') && m.closest('.dropdown-markets').classList.remove('open');
+        });
+        
+        /* Toggle clicked one */
+        if (submenu && !isOpen) {
+          submenu.classList.add('show-mobile');
+          drop.classList.add('open');
+        }
+      });
+    });
+
+    /* Submenu links should close the nav after navigation */
+    document.querySelectorAll('.markets-menu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        setTimeout(closeMenu, 100);
+      });
+    });
+  }
+
+  /* Also close mobile nav on resize to desktop */
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 1024) {
+      closeMenu();
+      /* Re-enable desktop dropdowns */
+      document.querySelectorAll('.markets-menu').forEach(function(m) {
+        m.classList.remove('show-mobile');
+      });
+    }
+  });
+
   function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
 
   async function fetchLiveForex() {
@@ -368,10 +570,14 @@ s0.parentNode.insertBefore(s1,s0);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', jftHeaderInit);
+    document.addEventListener('DOMContentLoaded', function() {
+      jftHeaderInit();
+      initMobileDropdowns();
+    });
   } else {
     /* DOM already loaded — header was injected dynamically */
     jftHeaderInit();
+    initMobileDropdowns();
   }
 
   window.addEventListener('scroll', () => {
