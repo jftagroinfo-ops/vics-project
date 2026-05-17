@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://embed.tawk.to 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com https://embed.tawk.to https://va.tawk.to; frame-src https://www.marinetraffic.com https://www.vesseltracker.com https://embed.tawk.to https://www.google.com;">
+<title>Shipment Tracker — Track Your JFT Agro Container | jftagro.com</title>
+<meta name="description" content="Track your JFT Agro shipment in real-time. Enter your container number or Bill of Lading to see live vessel position, port status, and estimated arrival at your destination.">
+<link rel="canonical" href="https://jftagro.com/shipment-tracker.html">
+<link rel="icon" type="image/png" href="images/jft logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:title" content="Shipment Tracker — Track Your JFT Agro Container">
+<meta property="og:description" content="Real-time container and BL tracking for JFT Agro Overseas shipments. Enter your container number to track your vessel live.">
+<meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
+<meta property="og:url" content="https://jftagro.com/shipment-tracker.html">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JFT Agro Shipment Tracker","applicationCategory":"BusinessApplication","url":"https://jftagro.com/shipment-tracker.html","description":"Track JFT Agro container shipments and Bill of Lading in real-time.","provider":{"@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Shipment Tracker","item":"https://jftagro.com/shipment-tracker.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://jftagro.com/shipment-tracker.html">
+<link rel="alternate" hreflang="x-default" href="https://jftagro.com/shipment-tracker.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="jft-design-system.css">
+<link rel="stylesheet" href="jft-responsive.css">
+<style>
+:root{
+  --green:#3d7030;--green-dark:#2a5220;--navy:#1a3c34;--navy-dark:#0d1f1b;--navy-light:#2c5148;
+  --gold:#eebf45;--gold-light:#f7ca5e;--gold-dark:#b88d14;--cream:#fdfbf7;--border:rgba(26,60,52,.1);
+  --ff-h:'Merriweather',serif;--ff-s:'Montserrat',sans-serif;--ff-b:'Lato',sans-serif;
+  --ease:cubic-bezier(.165,.84,.44,1);--ease-out:cubic-bezier(.2,.8,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:175px;overflow-x:hidden}
+body{margin:0;padding:0;font-family:var(--ff-b);color:#4a4a4a;background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--ff-h);margin:0;color:var(--navy);letter-spacing:-.5px}
+p{line-height:1.8;margin-bottom:1.4rem;font-size:clamp(1rem,1.5vw,1.1rem);color:#5c5c5c}
+a{text-decoration:none;color:inherit;transition:.4s var(--ease)}
+ul{list-style:none;padding:0;margin:0}
+img{max-width:100%;height:auto;display:block}
+.jft-wide-container{max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,55px);position:relative;z-index:5}
+
+/* UTILITIES */
+.brand-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-s);font-size:.75rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;background:rgba(61,112,48,.08);padding:10px 22px;border-radius:50px;border:1px solid rgba(61,112,48,.2)}
+.brand-tag-white{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.25)}
+.btn-gold{background:var(--gold);color:var(--navy);padding:16px 38px;border-radius:50px;font-family:var(--ff-s);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;border:none;cursor:pointer;transition:.4s var(--ease);box-shadow:0 8px 24px rgba(238,191,69,.3);display:inline-flex;align-items:center;gap:10px}
+.btn-gold:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(238,191,69,.45);background:var(--gold-light)}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff;padding:14px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;cursor:pointer;transition:.4s var(--ease);display:inline-flex;align-items:center;gap:10px}
+.btn-outline:hover{background:#fff;color:var(--navy);transform:translateY(-3px)}
+.reveal{opacity:0;transform:translateY(40px);transition:.9s var(--ease-out)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+#header-placeholder{min-height:80px}
+#footer-placeholder{min-height:400px;background:var(--navy)}
+#backToTop{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:var(--gold);color:var(--navy);border:none;border-radius:50%;cursor:pointer;z-index:999;display:flex;align-items:center;justify-content:center;font-size:1.1rem;opacity:0;visibility:hidden;transition:.4s var(--ease);transform:translateY(15px)}
+#backToTop.show{opacity:1;visibility:visible;transform:translateY(0)}
+.wa-fab{position:fixed;bottom:90px;right:28px;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;box-shadow:0 8px 28px rgba(37,211,102,.4);z-index:998;animation:waP 2.5s ease-in-out infinite}
+@keyframes waP{0%,100%{box-shadow:0 8px 28px rgba(37,211,102,.4)}50%{box-shadow:0 8px 28px rgba(37,211,102,.7),0 0 0 10px rgba(37,211,102,.07)}}
+#preloader{position:fixed;inset:0;background:linear-gradient(135deg,#07120f,var(--navy));z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .6s}
+.loader-logo-img{width:180px;margin-bottom:28px;filter:brightness(0) invert(1);animation:lf 3s ease-in-out infinite}
+.loader-text{font-family:var(--ff-s);font-size:.75rem;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:24px;text-transform:uppercase;letter-spacing:4px}
+.loader-track{width:200px;height:2px;background:rgba(255,255,255,.1);overflow:hidden;border-radius:2px}
+.loader-fill{width:100%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:translateX(-100%);animation:ll 2s cubic-bezier(.85,0,.15,1) forwards}
+@keyframes ll{to{transform:translateX(0)}}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* HERO */
+.track-hero{position:relative;min-height:500px;display:flex;align-items:center;overflow:hidden;background:var(--navy-dark)}
+.th-bg{position:absolute;inset:0;background-image:url('images/products/basmati_rice_hd.webp');background-size:cover;background-position:center;opacity:.14;z-index:0}
+.th-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,18,15,.97) 0%,rgba(26,60,52,.88) 60%,rgba(44,81,72,.82) 100%);z-index:1}
+.th-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:56px 56px;z-index:2}
+.th-glow{position:absolute;top:-200px;right:-120px;width:750px;height:750px;background:radial-gradient(circle,rgba(238,191,69,.06),transparent 65%);z-index:2;pointer-events:none}
+.th-inner{position:relative;z-index:5;padding:clamp(140px,17vw,190px) 0 clamp(60px,8vw,90px);width:100%}
+.th-inner .jft-wide-container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-breadcrumb{display:flex;align-items:center;gap:8px;font-family:var(--ff-s);font-size:.68rem;font-weight:700;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:22px}
+.hero-breadcrumb a{color:rgba(255,255,255,.38);transition:.3s}.hero-breadcrumb a:hover{color:var(--gold)}
+.hero-breadcrumb i{font-size:.42rem;color:rgba(255,255,255,.2)}
+.th-h1{font-size:clamp(2rem,4.5vw,3.6rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:-1.5px;margin:16px 0 20px}
+.th-h1 em{color:var(--gold-light);font-style:italic;font-weight:300}
+.th-sub{font-size:clamp(.9rem,1.4vw,1.05rem);color:rgba(255,255,255,.65);line-height:1.8;max-width:500px;margin-bottom:30px}
+
+/* HERO MINI TRACKER (in hero right side) */
+.hero-tracker-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:32px;position:relative;overflow:hidden}
+.hero-tracker-card::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(238,191,69,.07),transparent 70%);pointer-events:none}
+.htc-label{font-family:var(--ff-s);font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:16px}
+.htc-input-wrap{display:flex;gap:10px;margin-bottom:12px}
+.htc-input{flex:1;padding:13px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;font-family:var(--ff-s);font-size:.9rem;outline:none;transition:.3s;text-transform:uppercase;letter-spacing:1px}
+.htc-input::placeholder{color:rgba(255,255,255,.35);text-transform:none;letter-spacing:0}
+.htc-input:focus{border-color:var(--gold);background:rgba(255,255,255,.08)}
+.htc-btn{padding:13px 20px;background:var(--gold);color:var(--navy);border:none;border-radius:12px;font-family:var(--ff-s);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:.3s;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.htc-btn:hover{background:var(--gold-light);transform:scale(1.02)}
+.htc-status-row{display:flex;gap:8px;flex-wrap:wrap}
+.htc-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.65);padding:6px 14px;border-radius:50px;font-family:var(--ff-s);font-size:.68rem;font-weight:700;display:flex;align-items:center;gap:6px}
+.htc-stat i{font-size:.6rem}
+.live-dot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:ldp 1.2s ease-in-out infinite alternate;flex-shrink:0}
+@keyframes ldp{to{transform:scale(1.5);opacity:.5}}
+
+/* MAIN SECTION */
+.track-section{padding:clamp(60px,8vw,110px) 0}
+.track-layout{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+
+/* SEARCH CARD */
+.search-card{background:#fff;border-radius:28px;box-shadow:0 20px 60px rgba(26,60,52,.09);border:1px solid rgba(26,60,52,.07);overflow:hidden;position:sticky;top:185px}
+.sc-header{background:linear-gradient(135deg,var(--navy-dark),var(--navy));padding:28px 34px;position:relative;overflow:hidden}
+.sc-header::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(238,191,69,.1),transparent 70%)}
+.sc-eyebrow{font-family:var(--ff-s);font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px;position:relative;z-index:1}
+.sc-eyebrow::before{content:'';width:16px;height:2px;background:var(--gold);border-radius:2px}
+.sc-title{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:900;color:#fff;position:relative;z-index:1}
+.sc-title em{color:var(--gold-light);font-style:italic;font-weight:300}
+.sc-body{padding:30px 34px}
+.form-label{font-family:var(--ff-s);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.form-label i{color:var(--green);font-size:.8rem}
+.input-with-icon{position:relative;margin-bottom:22px}
+.main-input{width:100%;padding:14px 16px 14px 46px;border:1.5px solid rgba(26,60,52,.12);border-radius:13px;font-family:var(--ff-s);font-size:1rem;color:#333;background:#fdfbf7;transition:.3s;outline:none;text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+.main-input::placeholder{text-transform:none;letter-spacing:0;font-weight:400;color:#aaa}
+.main-input:focus{border-color:var(--green);background:#fff;box-shadow:0 0 0 4px rgba(61,112,48,.07)}
+.input-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--green);font-size:1rem;pointer-events:none}
+.track-type-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}
+.tt-tab{padding:10px 12px;border-radius:12px;border:1.5px solid rgba(26,60,52,.12);background:#fdfbf7;cursor:pointer;transition:.3s;text-align:center;font-family:var(--ff-s);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:#888;display:flex;align-items:center;justify-content:center;gap:7px}
+.tt-tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.tt-tab i{font-size:.8rem}
+.track-btn{width:100%;padding:16px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);border:none;border-radius:13px;font-family:var(--ff-s);font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:1.5px;cursor:pointer;transition:.4s var(--ease);box-shadow:0 8px 24px rgba(238,191,69,.28);display:flex;align-items:center;justify-content:center;gap:10px}
+.track-btn:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(238,191,69,.4)}
+.hint-row{margin-top:14px;display:flex;align-items:flex-start;gap:8px;background:rgba(61,112,48,.06);border-radius:10px;padding:11px 14px}
+.hint-row i{color:var(--green);font-size:.85rem;margin-top:1px;flex-shrink:0}
+.hint-text{font-family:var(--ff-s);font-size:.72rem;color:#666;line-height:1.55}
+
+/* CARRIER RESULT CARD */
+.result-col{display:flex;flex-direction:column;gap:20px}
+.carrier-card{background:#fff;border-radius:24px;padding:30px;border:1px solid rgba(26,60,52,.08);box-shadow:0 10px 40px rgba(26,60,52,.06)}
+.cc-empty{text-align:center;padding:24px 0}
+.cc-empty-icon{font-size:2.8rem;color:rgba(26,60,52,.15);margin-bottom:14px}
+.cc-empty-text{color:#aaa;font-family:var(--ff-s);font-size:.83rem;line-height:1.65;max-width:280px;margin:0 auto}
+
+/* CARRIER INFO */
+.carrier-info{display:flex;align-items:center;gap:16px;margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid rgba(26,60,52,.08)}
+.carrier-logo{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--ff-s);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#fff;flex-shrink:0}
+.carrier-name-block .cname{font-family:var(--ff-h);font-size:1.05rem;font-weight:700;color:var(--navy)}
+.carrier-name-block .csub{font-family:var(--ff-s);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(61,112,48,.7);margin-top:2px}
+.verified-badge{display:flex;align-items:center;gap:6px;background:#eaf3de;color:#3b6d11;padding:5px 12px;border-radius:50px;font-family:var(--ff-s);font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;margin-left:auto}
+
+/* TRACKING LINKS */
+.tracking-links-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.tlink-btn{display:flex;align-items:center;gap:13px;padding:14px 18px;border-radius:14px;border:1.5px solid rgba(26,60,52,.1);background:#fdfbf7;text-decoration:none;transition:.3s;cursor:pointer}
+.tlink-btn:hover{border-color:var(--gold);background:rgba(238,191,69,.04);transform:translateX(5px)}
+.tlink-btn.primary-track{background:linear-gradient(135deg,var(--navy-dark),var(--navy));border-color:transparent;color:#fff}
+.tlink-btn.primary-track:hover{transform:translateX(5px) translateY(-2px);box-shadow:0 8px 24px rgba(26,60,52,.25)}
+.tl-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.tlink-btn.primary-track .tl-icon{background:rgba(255,255,255,.1);color:var(--gold)}
+.tl-icon-default{background:rgba(61,112,48,.1);color:var(--green)}
+.tl-body{flex:1}
+.tl-title{font-family:var(--ff-s);font-size:.82rem;font-weight:800;color:var(--navy);margin-bottom:2px}
+.tlink-btn.primary-track .tl-title{color:#fff}
+.tl-sub{font-family:var(--ff-s);font-size:.68rem;color:#888}
+.tlink-btn.primary-track .tl-sub{color:rgba(255,255,255,.5)}
+.tl-arrow{color:#aaa;font-size:.8rem;flex-shrink:0}
+.tlink-btn.primary-track .tl-arrow{color:rgba(255,255,255,.4)}
+
+/* CONTAINER FORMAT HELPER */
+.format-helper{background:rgba(26,60,52,.04);border-radius:13px;padding:16px 18px;margin-bottom:18px}
+.fh-title{font-family:var(--ff-s);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--navy);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.fh-title i{color:var(--green)}
+.fh-format{font-family:monospace;font-size:1rem;font-weight:700;letter-spacing:3px;color:var(--navy);margin-bottom:6px;display:block}
+.fh-parts{display:flex;gap:6px;flex-wrap:wrap}
+.fhp{font-family:var(--ff-s);font-size:.65rem;padding:3px 10px;border-radius:50px;font-weight:700}
+.fhp-owner{background:#dbeafe;color:#1e40af}
+.fhp-type{background:#fef3c7;color:#92400e}
+.fhp-serial{background:#d1fae5;color:#065f46}
+.fhp-check{background:#fce7f3;color:#9d174d}
+
+/* UNIVERSAL TRACKERS */
+.universal-card{background:#fff;border-radius:24px;padding:28px;border:1px solid rgba(26,60,52,.08);box-shadow:0 8px 30px rgba(26,60,52,.05)}
+.uc-title{font-family:var(--ff-h);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.uc-title i{color:var(--gold)}
+.univ-grid{display:flex;flex-direction:column;gap:8px}
+.univ-link{display:flex;align-items:center;gap:11px;padding:12px 14px;border-radius:11px;border:1px solid rgba(26,60,52,.08);background:#fdfbf7;text-decoration:none;transition:.3s;font-family:var(--ff-s);font-size:.8rem;font-weight:700;color:var(--navy)}
+.univ-link:hover{border-color:var(--gold);background:rgba(238,191,69,.04);transform:translateX(4px)}
+.univ-link .ul-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0}
+.univ-link .ul-sub{font-size:.65rem;color:#999;font-weight:400;margin-left:auto}
+.univ-link i.fa-external-link-alt{font-size:.65rem;color:#ccc;margin-left:6px}
+
+/* LIVE MAP SECTION */
+.map-section{padding:clamp(60px,7vw,100px) 0;background:#fff;border-top:1px solid rgba(26,60,52,.06)}
+.map-wrapper{border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,52,.1);border:1px solid rgba(26,60,52,.07);margin-top:40px}
+.map-wrapper iframe{width:100%;height:520px;display:block;border:0}
+
+/* CARRIERS GRID */
+.carriers-section{padding:clamp(50px,7vw,90px) 0;background:var(--cream);border-top:1px solid rgba(26,60,52,.06)}
+.carriers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:36px}
+.carrier-chip{background:#fff;border-radius:14px;padding:16px 18px;border:1px solid rgba(26,60,52,.08);display:flex;align-items:center;gap:12px;transition:.3s var(--ease)}
+.carrier-chip:hover{border-color:rgba(238,191,69,.4);transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,60,52,.07)}
+.cc-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.cc-name-wrap .cc-n{font-family:var(--ff-s);font-size:.8rem;font-weight:700;color:var(--navy)}
+.cc-name-wrap .cc-prefix{font-family:var(--ff-s);font-size:.62rem;color:#aaa;margin-top:1px}
+
+/* HOW TO TRACK */
+.how-section{padding:clamp(60px,7vw,100px) 0;background:linear-gradient(135deg,var(--navy-dark),var(--navy));position:relative;overflow:hidden}
+.how-section::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:56px 56px}
+.how-section .section-title{color:#fff}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:50px;position:relative;z-index:2}
+.step-item{text-align:center}
+.step-icon{width:68px;height:68px;border-radius:50%;border:2px solid rgba(238,191,69,.35);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.4rem;color:var(--gold);transition:.4s}
+.step-item:hover .step-icon{background:rgba(238,191,69,.12);border-color:var(--gold)}
+.step-item h4{font-family:var(--ff-h);font-size:.98rem;color:#fff;margin-bottom:8px}
+.step-item p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6;max-width:180px;margin:0 auto}
+
+/* CTA BLOCK */
+.jft-cta-block{background:var(--cream);padding:clamp(60px,8vw,100px) 0;text-align:center;border-top:1px solid rgba(26,60,52,.08)}
+.cta-eyebrow{font-family:var(--ff-s);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--green);margin-bottom:14px}
+.cta-block-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:14px}
+.cta-block-title em{color:var(--green);font-style:italic;font-weight:300}
+.cta-block-desc{color:#777;max-width:520px;margin:0 auto 32px;line-height:1.8}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-navy{background:var(--navy);color:#fff;padding:16px 38px;border-radius:50px;font-family:var(--ff-s);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;border:none;cursor:pointer;transition:.4s var(--ease);box-shadow:0 8px 24px rgba(26,60,52,.25);display:inline-flex;align-items:center;gap:10px}
+.btn-navy:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(26,60,52,.35)}
+.wa-btn{background:#25d366;color:#fff;padding:16px 38px;border-radius:50px;font-family:var(--ff-s);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;border:none;cursor:pointer;transition:.4s var(--ease);display:inline-flex;align-items:center;gap:10px}
+.wa-btn:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(37,211,102,.35)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.th-inner .jft-wide-container,.track-layout{grid-template-columns:1fr;gap:36px}.search-card{position:static}.steps-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:768px){.map-wrapper iframe{height:360px}.carriers-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.steps-grid{grid-template-columns:1fr}.htc-input-wrap{flex-direction:column}.cta-actions{flex-direction:column;align-items:center}.cta-actions>*{width:100%;max-width:320px;justify-content:center}.carriers-grid{grid-template-columns:1fr}}
+</style>
+
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied'});var _c=localStorage.getItem('jft_cookie_consent');if(_c==='accepted'){gtag('consent','update',{analytics_storage:'granted'});var _gs=document.createElement('script');_gs.async=true;_gs.src='https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G';document.head.appendChild(_gs);gtag('config','G-MWZ2ZWZP4G');}</script>
+<script type="text/javascript">var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69f470aa8523f61c32f239ee/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script>
+</head>
+<body>
+
+<div id="preloader"><img src="images/jft logo.png" alt="JFT Agro" class="loader-logo-img" width="180" height="70"><p class="loader-text">Shipment Tracker</p><div class="loader-track"><div class="loader-fill"></div></div></div>
+<a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20need%20help%20tracking%20my%20shipment." class="wa-fab" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp JFT Agro"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="header-placeholder"></div>
+
+<!-- HERO -->
+<section class="track-hero" id="main-content">
+  <div class="th-bg"></div>
+  <div class="th-overlay"></div>
+  <div class="th-grid"></div>
+  <div class="th-glow"></div>
+  <div class="th-inner">
+    <div class="jft-wide-container">
+      <div>
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i>
+          <span style="color:rgba(255,255,255,.6)">Shipment Tracker</span>
+        </nav>
+        <span class="brand-tag brand-tag-white"><i class="fa-solid fa-ship"></i> Live Cargo Tracking</span>
+        <h1 class="th-h1">Track Your<br><em>Shipment Live</em></h1>
+        <p class="th-sub">Enter your container number or Bill of Lading reference to instantly identify your shipping line and open real-time vessel tracking. No login required.</p>
+        <div style="display:flex;gap:13px;flex-wrap:wrap">
+          <a href="#tracker" class="btn-gold"><i class="fa-solid fa-magnifying-glass"></i> Track Now</a>
+          <a href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-phone"></i> Contact Trade Desk</a>
+        </div>
+        <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:22px">
+          <span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:7px"><i class="fa-solid fa-ship" style="color:var(--gold)"></i> 12 Major Carriers</span>
+          <span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:7px"><i class="fa-solid fa-bolt" style="color:var(--gold)"></i> Instant Detection</span>
+          <span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:7px"><i class="fa-solid fa-lock-open" style="color:var(--gold)"></i> No Login Needed</span>
+        </div>
+      </div>
+
+      <!-- HERO QUICK TRACK -->
+      <div class="reveal-right">
+        <div class="hero-tracker-card">
+          <div class="htc-label"><span class="live-dot"></span> &nbsp;Quick Track</div>
+          <div class="htc-input-wrap">
+            <input class="htc-input" id="heroInput" type="text" placeholder="e.g. MSCU1234567 or MAEU123456789" autocomplete="off" maxlength="20" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'')">
+            <button class="htc-btn" onclick="quickTrack()"><i class="fa-solid fa-magnifying-glass"></i> Track</button>
+          </div>
+          <div class="htc-status-row">
+            <span class="htc-stat"><i class="fa-solid fa-circle" style="color:#22c55e;font-size:.4rem"></i> MSC</span>
+            <span class="htc-stat"><i class="fa-solid fa-circle" style="color:#22c55e;font-size:.4rem"></i> Maersk</span>
+            <span class="htc-stat"><i class="fa-solid fa-circle" style="color:#22c55e;font-size:.4rem"></i> CMA CGM</span>
+            <span class="htc-stat"><i class="fa-solid fa-circle" style="color:#22c55e;font-size:.4rem"></i> Hapag-Lloyd</span>
+            <span class="htc-stat"><i class="fa-solid fa-circle" style="color:#22c55e;font-size:.4rem"></i> +8 more</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="page-progress"></div>
+
+<!-- MAIN TRACKER -->
+<section class="track-section" id="tracker">
+  <div class="jft-wide-container">
+    <div class="track-layout">
+
+      <!-- SEARCH PANEL -->
+      <div class="reveal-left">
+        <div class="search-card">
+          <div class="sc-header">
+            <div class="sc-eyebrow">Enter Your Reference</div>
+            <h2 class="sc-title">Track by Container<br>or <em>Bill of Lading</em></h2>
+          </div>
+          <div class="sc-body">
+            <div class="track-type-tabs">
+              <button class="tt-tab active" id="tab-container" onclick="switchTab('container')"><i class="fa-solid fa-box"></i> Container No.</button>
+              <button class="tt-tab" id="tab-bl" onclick="switchTab('bl')"><i class="fa-solid fa-file-invoice"></i> Bill of Lading</button>
+            </div>
+
+            <div class="form-label"><i class="fa-solid fa-hashtag"></i> <span id="inputLabel">Container number</span></div>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-magnifying-glass input-icon"></i>
+              <input class="main-input" id="mainInput" type="text" placeholder="e.g. MSCU1234567" autocomplete="off" maxlength="20" oninput="onMainInput()" onkeydown="if(event.key==='Enter')doTrack()">
+            </div>
+
+            <div id="formatHelper" class="format-helper">
+              <div class="fh-title"><i class="fa-solid fa-circle-info"></i> Container number format</div>
+              <span class="fh-format" id="fhFormat">MSCU &nbsp;U &nbsp;123456 &nbsp;7</span>
+              <div class="fh-parts">
+                <span class="fhp fhp-owner">Owner code (4 letters)</span>
+                <span class="fhp fhp-type">Category (U/J/Z)</span>
+                <span class="fhp fhp-serial">Serial (6 digits)</span>
+                <span class="fhp fhp-check">Check digit</span>
+              </div>
+            </div>
+
+            <button class="track-btn" onclick="doTrack()">
+              <i class="fa-solid fa-satellite-dish" id="trackIcon"></i>
+              <span id="trackBtnText">Identify Carrier & Track</span>
+            </button>
+
+            <div class="hint-row">
+              <i class="fa-solid fa-circle-info"></i>
+              <div class="hint-text">Your container number and BL reference are on your <strong>Booking Confirmation</strong>, <strong>Shipping Instructions</strong>, or <strong>Proforma Invoice</strong> from JFT Agro. It was also emailed to you when we shipped your order.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS COLUMN -->
+      <div class="result-col">
+
+        <!-- CARRIER RESULT CARD -->
+        <div class="carrier-card reveal d1" id="carrierCard">
+          <div class="cc-empty" id="ccEmpty">
+            <div class="cc-empty-icon"><i class="fa-solid fa-ship"></i></div>
+            <div class="cc-empty-text">Enter your container or BL number on the left and click <strong>Track</strong>.<br><br>We'll identify your shipping line and open the live tracking page.</div>
+          </div>
+          <div id="ccResult" style="display:none">
+            <div class="carrier-info">
+              <div class="carrier-logo" id="carrierLogo">?</div>
+              <div class="carrier-name-block">
+                <div class="cname" id="carrierName">—</div>
+                <div class="csub" id="carrierSub">—</div>
+              </div>
+              <div class="verified-badge"><i class="fa-solid fa-check"></i> Identified</div>
+            </div>
+            <div class="tracking-links-grid" id="trackingLinks"></div>
+          </div>
+        </div>
+
+        <!-- UNIVERSAL TRACKERS -->
+        <div class="universal-card reveal d2">
+          <div class="uc-title"><i class="fa-solid fa-globe"></i> Universal tracking portals</div>
+          <div class="univ-grid">
+            <a class="univ-link" href="https://www.searates.com/container/tracking/" target="_blank" rel="noopener noreferrer">
+              <div class="ul-icon" style="background:#e0f2fe;color:#0369a1"><i class="fa-solid fa-ship"></i></div>
+              <div><div style="font-family:var(--ff-s);font-size:.8rem;font-weight:700;color:var(--navy)">Searates Container Tracking</div><div style="font-size:.65rem;color:#aaa;font-family:var(--ff-s)">Multi-carrier universal tracker</div></div>
+              <span class="ul-sub">Free</span><i class="fa-solid fa-external-link-alt"></i>
+            </a>
+            <a class="univ-link" href="https://www.track-trace.com/container" target="_blank" rel="noopener noreferrer">
+              <div class="ul-icon" style="background:#fef3c7;color:#92400e"><i class="fa-solid fa-box"></i></div>
+              <div><div style="font-family:var(--ff-s);font-size:.8rem;font-weight:700;color:var(--navy)">Track-Trace.com</div><div style="font-size:.65rem;color:#aaa;font-family:var(--ff-s)">Widest carrier coverage</div></div>
+              <span class="ul-sub">Free</span><i class="fa-solid fa-external-link-alt"></i>
+            </a>
+            <a class="univ-link" href="https://www.container-tracking.org/" target="_blank" rel="noopener noreferrer">
+              <div class="ul-icon" style="background:#f0fdf4;color:#166534"><i class="fa-solid fa-magnifying-glass"></i></div>
+              <div><div style="font-family:var(--ff-s);font-size:.8rem;font-weight:700;color:var(--navy)">Container-Tracking.org</div><div style="font-size:.65rem;color:#aaa;font-family:var(--ff-s)">Real-time container status</div></div>
+              <span class="ul-sub">Free</span><i class="fa-solid fa-external-link-alt"></i>
+            </a>
+            <a class="univ-link" href="https://www.marinetraffic.com/en/ais/home/centerx:72.88/centery:18.96/zoom:8" target="_blank" rel="noopener noreferrer">
+              <div class="ul-icon" style="background:#ede9fe;color:#5b21b6"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div><div style="font-family:var(--ff-s);font-size:.8rem;font-weight:700;color:var(--navy)">MarineTraffic — Live Map</div><div style="font-size:.65rem;color:#aaa;font-family:var(--ff-s)">NHAVA SHEVA / MUNDRA port view</div></div>
+              <span class="ul-sub">Free</span><i class="fa-solid fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- WHATSAPP SUPPORT -->
+        <div style="background:linear-gradient(135deg,#075e54,#128c7e);border-radius:22px;padding:26px 28px">
+          <div style="font-family:var(--ff-h);font-size:1rem;font-weight:700;color:#fff;margin-bottom:8px">Can't find your tracking info?</div>
+          <p style="font-size:.88rem;color:rgba(255,255,255,.72);line-height:1.65;margin-bottom:16px">WhatsApp our trade desk with your order reference. We'll share your container number, BL, and carrier details within minutes.</p>
+          <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20please%20share%20my%20container%20tracking%20details%20for%20my%20order." target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:9px;background:#25d366;color:#fff;padding:12px 24px;border-radius:50px;font-family:var(--ff-s);font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;transition:.3s" onmouseover="this.style.background='#20ba5a'" onmouseout="this.style.background='#25d366'"><i class="fa-brands fa-whatsapp" style="font-size:1.1rem"></i> WhatsApp Trade Desk</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE MAP -->
+<section class="map-section">
+  <div class="jft-wide-container">
+    <div class="reveal">
+      <span class="brand-tag">Live Vessel Map</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--navy)">Real-time vessel positions — <span style="color:var(--green)">Indian Ocean &amp; Gulf</span></h2>
+      <p style="max-width:600px;margin:14px 0 0;color:#777;font-size:.97rem;line-height:1.8">Live AIS vessel tracking showing all cargo ships currently in the Indian Ocean, Arabian Sea, and Persian Gulf — the routes all JFT Agro shipments travel.</p>
+    </div>
+    <div class="map-wrapper reveal">
+      <iframe src="https://www.marinetraffic.com/en/ais/embed/zoom:4/centery:14/centerx:68/maptype:0/shownames:false/mmsi:0/shipid:0/fleet:/fleet_id:/vtypes:/showmenu:/remember:false" loading="lazy" title="Live vessel tracking map — Indian Ocean and Arabian Sea" allowfullscreen></iframe>
+    </div>
+    <p style="font-size:.78rem;color:#aaa;margin-top:12px;font-family:var(--ff-s);text-align:center"><i class="fa-solid fa-circle-info" style="color:var(--green);margin-right:6px"></i> Map powered by MarineTraffic AIS data. Centred on the Indian Ocean / Arabian Sea to show Mumbai, Mundra, Nhava Sheva and Gulf ports. <a href="https://www.marinetraffic.com" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700">Open full-screen map ↗</a></p>
+  </div>
+</section>
+
+<!-- SUPPORTED CARRIERS -->
+<section class="carriers-section">
+  <div class="jft-wide-container">
+    <div class="text-center reveal">
+      <span class="brand-tag">Carrier Coverage</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--navy)">12 carriers <span style="color:var(--green)">auto-detected</span></h2>
+      <p style="max-width:560px;margin:14px auto 0;color:#777;font-size:.97rem;line-height:1.8">JFT Agro ships with all major carriers serving India–Africa, India–Gulf, India–Europe, and India–Asia routes.</p>
+    </div>
+    <div class="carriers-grid reveal">
+      <div class="carrier-chip"><div class="cc-dot" style="background:#001489"></div><div class="cc-name-wrap"><div class="cc-n">MSC</div><div class="cc-prefix">MSCU · MEDU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#00243D"></div><div class="cc-name-wrap"><div class="cc-n">Maersk</div><div class="cc-prefix">MAEU · MRKU · SUDU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#E31837"></div><div class="cc-name-wrap"><div class="cc-n">CMA CGM</div><div class="cc-prefix">CMAU · CCLU · APZU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#F47C00"></div><div class="cc-name-wrap"><div class="cc-n">Hapag-Lloyd</div><div class="cc-prefix">HLXU · HLBU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#E83F93"></div><div class="cc-name-wrap"><div class="cc-n">ONE Line</div><div class="cc-prefix">KKFU · KOCU · MOLU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#00833E"></div><div class="cc-name-wrap"><div class="cc-n">Evergreen</div><div class="cc-prefix">EISU · EGHU · EMCU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#0099CC"></div><div class="cc-name-wrap"><div class="cc-n">ZIM</div><div class="cc-prefix">ZIMU · ZCSU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#E31837"></div><div class="cc-name-wrap"><div class="cc-n">COSCO</div><div class="cc-prefix">CCCU · CSNU · COSU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#003087"></div><div class="cc-name-wrap"><div class="cc-n">PIL</div><div class="cc-prefix">PILU · PCIU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#C8102E"></div><div class="cc-name-wrap"><div class="cc-n">OOCL</div><div class="cc-prefix">OOLU · OCLU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#003087"></div><div class="cc-name-wrap"><div class="cc-n">Yang Ming</div><div class="cc-prefix">YMLU · YMMU</div></div></div>
+      <div class="carrier-chip"><div class="cc-dot" style="background:#666"></div><div class="cc-name-wrap"><div class="cc-n">All Others</div><div class="cc-prefix">Universal trackers</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO TRACK -->
+<section class="how-section">
+  <div class="jft-wide-container">
+    <div class="text-center reveal" style="position:relative;z-index:2">
+      <span style="display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-s);font-size:.75rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;background:rgba(255,255,255,.07);padding:10px 22px;border-radius:50px;border:1px solid rgba(255,255,255,.12)"><i class="fa-solid fa-route"></i> How It Works</span>
+      <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.8rem)">Track your shipment in <span style="color:var(--gold)">4 steps</span></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item reveal d1">
+        <div class="step-icon"><i class="fa-solid fa-file-invoice"></i></div>
+        <h4>Find your reference</h4>
+        <p>Your container number or BL is in your JFT Agro Booking Confirmation email or Proforma Invoice.</p>
+      </div>
+      <div class="step-item reveal d2">
+        <div class="step-icon"><i class="fa-solid fa-keyboard"></i></div>
+        <h4>Enter it above</h4>
+        <p>Type your container number (e.g. MSCU1234567) or BL number in the search box and click Track.</p>
+      </div>
+      <div class="step-item reveal d3">
+        <div class="step-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+        <h4>Carrier identified</h4>
+        <p>We instantly detect your shipping line from the container prefix and show the carrier's direct tracking link.</p>
+      </div>
+      <div class="step-item reveal d4">
+        <div class="step-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+        <h4>See live position</h4>
+        <p>Click the tracking link to see your vessel's live position, port of loading, ETA at destination, and customs status.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BLOCK -->
+<section class="jft-cta-block">
+  <div class="jft-wide-container">
+    <div class="cta-eyebrow">Need Shipping Documents?</div>
+    <h2 class="cta-block-title">We Email All Documents<br><em>Same Day as Vessel Departure</em></h2>
+    <p class="cta-block-desc">Bill of Lading, Certificate of Origin, Phytosanitary Certificate, CoA, Packing List — all sent to you the day your container is loaded. No chasing required.</p>
+    <div class="cta-actions">
+      <a href="contact.html#inquiry-form" class="btn-navy"><i class="fa-solid fa-paper-plane"></i> Start New Shipment</a>
+      <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20need%20my%20shipping%20documents." target="_blank" rel="noopener noreferrer" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Request Documents</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script>
+/* ── COMPONENT LOADER ── */
+async function loadComponent(id,file){try{const r=await fetch(file);if(!r.ok)throw new Error(file);const h=await r.text();document.getElementById(id).innerHTML=h;document.getElementById(id).querySelectorAll('script').forEach(o=>{const s=document.createElement('script');Array.from(o.attributes).forEach(a=>s.setAttribute(a.name,a.value));s.appendChild(document.createTextNode(o.innerHTML));o.parentNode.replaceChild(s,o);});}catch(e){console.warn(e);}}
+
+/* ── CARRIER DATABASE ── */
+const CARRIERS = {
+  /* MSC */
+  MSCU:{name:'MSC Mediterranean Shipping',short:'MSC',color:'#001489',track:n=>`https://www.msc.com/en/track-a-shipment?trackingNumber=${n}`,alt:'https://www.track-trace.com/container#${n}'},
+  MSDU:{name:'MSC Mediterranean Shipping',short:'MSC',color:'#001489',track:n=>`https://www.msc.com/en/track-a-shipment?trackingNumber=${n}`},
+  MEDU:{name:'MSC Mediterranean Shipping',short:'MSC',color:'#001489',track:n=>`https://www.msc.com/en/track-a-shipment?trackingNumber=${n}`},
+  /* Maersk */
+  MAEU:{name:'Maersk Line',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  MRKU:{name:'Maersk Line',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  MSKU:{name:'Maersk Line',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  SUDU:{name:'Hamburg Süd / Maersk',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  SEGU:{name:'Seaco / Maersk',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  TRHU:{name:'Triton / Maersk',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  TGHU:{name:'Textainer / Maersk',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  TTNU:{name:'Triton Container / Maersk',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  TEXU:{name:'Textainer Equipment',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  SEALU:{name:'SeaLand / Maersk',short:'MAERSK',color:'#00243D',track:n=>`https://www.maersk.com/tracking/${n}`},
+  /* CMA CGM */
+  CMAU:{name:'CMA CGM',short:'CMA CGM',color:'#E31837',track:n=>`https://www.cma-cgm.com/ebusiness/tracking/search?SearchField=${n}`},
+  CCLU:{name:'CMA CGM',short:'CMA CGM',color:'#E31837',track:n=>`https://www.cma-cgm.com/ebusiness/tracking/search?SearchField=${n}`},
+  CGMU:{name:'CMA CGM',short:'CMA CGM',color:'#E31837',track:n=>`https://www.cma-cgm.com/ebusiness/tracking/search?SearchField=${n}`},
+  APZU:{name:'APL / CMA CGM',short:'CMA CGM',color:'#E31837',track:n=>`https://www.cma-cgm.com/ebusiness/tracking/search?SearchField=${n}`},
+  CIMU:{name:'CMA CGM',short:'CMA CGM',color:'#E31837',track:n=>`https://www.cma-cgm.com/ebusiness/tracking/search?SearchField=${n}`},
+  /* Hapag-Lloyd */
+  HLXU:{name:'Hapag-Lloyd',short:'HAPAG',color:'#F47C00',track:n=>`https://www.hapag-lloyd.com/en/online-business/tracing/tracing-by-container.html?container=${n}`},
+  HLBU:{name:'Hapag-Lloyd',short:'HAPAG',color:'#F47C00',track:n=>`https://www.hapag-lloyd.com/en/online-business/tracing/tracing-by-container.html?container=${n}`},
+  UACU:{name:'UAL / Hapag-Lloyd',short:'HAPAG',color:'#F47C00',track:n=>`https://www.hapag-lloyd.com/en/online-business/tracing/tracing-by-container.html?container=${n}`},
+  /* ONE */
+  KKFU:{name:'ONE Ocean Network Express',short:'ONE',color:'#E83F93',track:n=>`https://ecomm.one-line.com/ecom/CUP_HOM_3301GS.do?ACTION_TYPE=INIT&cntr_no=${n}`},
+  KOCU:{name:'ONE Ocean Network Express',short:'ONE',color:'#E83F93',track:n=>`https://ecomm.one-line.com/ecom/CUP_HOM_3301GS.do?ACTION_TYPE=INIT&cntr_no=${n}`},
+  MOLU:{name:'MOL / ONE',short:'ONE',color:'#E83F93',track:n=>`https://ecomm.one-line.com/ecom/CUP_HOM_3301GS.do?ACTION_TYPE=INIT&cntr_no=${n}`},
+  NYKU:{name:'NYK / ONE',short:'ONE',color:'#E83F93',track:n=>`https://ecomm.one-line.com/ecom/CUP_HOM_3301GS.do?ACTION_TYPE=INIT&cntr_no=${n}`},
+  /* Evergreen */
+  EISU:{name:'Evergreen Line',short:'EVG',color:'#00833E',track:n=>`https://ct.shipmentlink.com/servlet/TDB1_CargoTracking.do?CNTR_NO=${n}`},
+  EGHU:{name:'Evergreen Line',short:'EVG',color:'#00833E',track:n=>`https://ct.shipmentlink.com/servlet/TDB1_CargoTracking.do?CNTR_NO=${n}`},
+  EMCU:{name:'Evergreen Line',short:'EVG',color:'#00833E',track:n=>`https://ct.shipmentlink.com/servlet/TDB1_CargoTracking.do?CNTR_NO=${n}`},
+  EVGU:{name:'Evergreen Line',short:'EVG',color:'#00833E',track:n=>`https://ct.shipmentlink.com/servlet/TDB1_CargoTracking.do?CNTR_NO=${n}`},
+  FSCU:{name:'Florens / Evergreen',short:'EVG',color:'#00833E',track:n=>`https://ct.shipmentlink.com/servlet/TDB1_CargoTracking.do?CNTR_NO=${n}`},
+  GCXU:{name:'Gold Container / Evergreen',short:'EVG',color:'#00833E',track:n=>`https://ct.shipmentlink.com/servlet/TDB1_CargoTracking.do?CNTR_NO=${n}`},
+  SNBU:{name:'Evergreen Line',short:'EVG',color:'#00833E',track:n=>`https://ct.shipmentlink.com/servlet/TDB1_CargoTracking.do?CNTR_NO=${n}`},
+  WHLU:{name:'Evergreen Line',short:'EVG',color:'#00833E',track:n=>`https://ct.shipmentlink.com/servlet/TDB1_CargoTracking.do?CNTR_NO=${n}`},
+  /* ZIM */
+  ZIMU:{name:'ZIM Integrated Shipping',short:'ZIM',color:'#0099CC',track:n=>`https://www.zim.com/tools/track-a-shipment?container=${n}`},
+  ZCSU:{name:'ZIM Integrated Shipping',short:'ZIM',color:'#0099CC',track:n=>`https://www.zim.com/tools/track-a-shipment?container=${n}`},
+  /* COSCO */
+  CCCU:{name:'COSCO Shipping Lines',short:'COSCO',color:'#E31837',track:n=>`https://elines.coscoshipping.com/ebusiness/cargoTracking?trackCode=${n}`},
+  CSNU:{name:'COSCO Shipping Lines',short:'COSCO',color:'#E31837',track:n=>`https://elines.coscoshipping.com/ebusiness/cargoTracking?trackCode=${n}`},
+  CXDU:{name:'COSCO Shipping Lines',short:'COSCO',color:'#E31837',track:n=>`https://elines.coscoshipping.com/ebusiness/cargoTracking?trackCode=${n}`},
+  COSU:{name:'COSCO Shipping Lines',short:'COSCO',color:'#E31837',track:n=>`https://elines.coscoshipping.com/ebusiness/cargoTracking?trackCode=${n}`},
+  CBHU:{name:'COSCO Shipping Lines',short:'COSCO',color:'#E31837',track:n=>`https://elines.coscoshipping.com/ebusiness/cargoTracking?trackCode=${n}`},
+  /* PIL */
+  PILU:{name:'PIL Pacific International Lines',short:'PIL',color:'#003087',track:n=>`https://www.pilship.com/en-cargo-tracking-PIL/151.html`},
+  PCIU:{name:'PIL Pacific International Lines',short:'PIL',color:'#003087',track:n=>`https://www.pilship.com/en-cargo-tracking-PIL/151.html`},
+  /* OOCL */
+  OOLU:{name:'OOCL Orient Overseas Container Line',short:'OOCL',color:'#C8102E',track:n=>`https://www.oocl.com/eng/ourservices/eservices/cargotracking/Pages/cargotracking.aspx?Container=${n}`},
+  OCLU:{name:'OOCL',short:'OOCL',color:'#C8102E',track:n=>`https://www.oocl.com/eng/ourservices/eservices/cargotracking/Pages/cargotracking.aspx?Container=${n}`},
+  /* Yang Ming */
+  YMLU:{name:'Yang Ming Marine Transport',short:'YANG MING',color:'#003087',track:n=>`https://www.yangming.com/e-service/Track_Trace/track_trace_cargo_tracking.aspx?traceType=CONTAINER&cno=${n}`},
+  YMMU:{name:'Yang Ming Marine Transport',short:'YANG MING',color:'#003087',track:n=>`https://www.yangming.com/e-service/Track_Trace/track_trace_cargo_tracking.aspx?traceType=CONTAINER&cno=${n}`},
+  YMTU:{name:'Yang Ming Marine Transport',short:'YANG MING',color:'#003087',track:n=>`https://www.yangming.com/e-service/Track_Trace/track_trace_cargo_tracking.aspx?traceType=CONTAINER&cno=${n}`},
+};
+
+var activeTab = 'container';
+
+function switchTab(t) {
+  activeTab = t;
+  document.getElementById('tab-container').classList.toggle('active', t==='container');
+  document.getElementById('tab-bl').classList.toggle('active', t==='bl');
+  document.getElementById('inputLabel').textContent = t==='container' ? 'Container number' : 'Bill of Lading (BL) number';
+  document.getElementById('formatHelper').style.display = t==='container' ? 'block' : 'none';
+  const inp = document.getElementById('mainInput');
+  inp.placeholder = t==='container' ? 'e.g. MSCU1234567' : 'e.g. MAEU1234567890';
+  inp.value = '';
+  resetResult();
+}
+
+function onMainInput() {
+  const v = document.getElementById('mainInput').value.toUpperCase().replace(/[^A-Z0-9]/g,'');
+  document.getElementById('mainInput').value = v;
+  if (v.length >= 4 && activeTab === 'container') {
+    const prefix = v.substring(0,4);
+    const c = CARRIERS[prefix];
+    if (c) {
+      document.getElementById('fhFormat').textContent = prefix + ' ' + (v[4]||'U') + ' ' + v.substring(5,11) + ' ' + (v[11]||'?');
+    }
+  }
+}
+
+function resetResult() {
+  document.getElementById('ccEmpty').style.display = 'block';
+  document.getElementById('ccResult').style.display = 'none';
+}
+
+function detectCarrier(num) {
+  if (!num || num.length < 4) return null;
+  const prefix = num.substring(0,4);
+  return CARRIERS[prefix] || null;
+}
+
+function renderResult(num, carrier, isBL) {
+  document.getElementById('ccEmpty').style.display = 'none';
+  document.getElementById('ccResult').style.display = 'block';
+
+  const logo = document.getElementById('carrierLogo');
+  logo.style.background = carrier ? carrier.color : '#888';
+  logo.textContent = carrier ? carrier.short.substring(0,6) : '?';
+
+  document.getElementById('carrierName').textContent = carrier ? carrier.name : 'Unknown carrier — use universal tracker';
+  document.getElementById('carrierSub').textContent = isBL ? 'Bill of Lading: ' + num : 'Container: ' + num;
+
+  const linksEl = document.getElementById('trackingLinks');
+  linksEl.innerHTML = '';
+
+  if (carrier) {
+    const url = carrier.track(num);
+    linksEl.innerHTML = `
+      <a href="${url}" target="_blank" rel="noopener noreferrer" class="tlink-btn primary-track">
+        <div class="tl-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+        <div class="tl-body">
+          <div class="tl-title">Track on ${carrier.name.split(' ')[0] + (carrier.name.split(' ')[1]||'')} Official Site</div>
+          <div class="tl-sub">Opens carrier's real-time tracking — live vessel position &amp; ETA</div>
+        </div>
+        <i class="fa-solid fa-arrow-right tl-arrow"></i>
+      </a>
+      <a href="https://www.searates.com/container/tracking/?number=${num}" target="_blank" rel="noopener noreferrer" class="tlink-btn">
+        <div class="tl-icon tl-icon-default"><i class="fa-solid fa-ship"></i></div>
+        <div class="tl-body">
+          <div class="tl-title">Also track on Searates</div>
+          <div class="tl-sub">Multi-carrier universal tracker — detailed event log</div>
+        </div>
+        <i class="fa-solid fa-external-link-alt tl-arrow"></i>
+      </a>
+      <a href="https://www.track-trace.com/container#${num}" target="_blank" rel="noopener noreferrer" class="tlink-btn">
+        <div class="tl-icon tl-icon-default"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="tl-body">
+          <div class="tl-title">Track on Track-Trace.com</div>
+          <div class="tl-sub">Widest coverage — shows port-by-port event history</div>
+        </div>
+        <i class="fa-solid fa-external-link-alt tl-arrow"></i>
+      </a>`;
+  } else {
+    linksEl.innerHTML = `
+      <a href="https://www.searates.com/container/tracking/?number=${num}" target="_blank" rel="noopener noreferrer" class="tlink-btn primary-track">
+        <div class="tl-icon"><i class="fa-solid fa-ship"></i></div>
+        <div class="tl-body">
+          <div class="tl-title">Track on Searates (Universal)</div>
+          <div class="tl-sub">Carrier not auto-detected — Searates covers all major lines</div>
+        </div>
+        <i class="fa-solid fa-arrow-right tl-arrow"></i>
+      </a>
+      <a href="https://www.track-trace.com/container#${num}" target="_blank" rel="noopener noreferrer" class="tlink-btn">
+        <div class="tl-icon tl-icon-default"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="tl-body">
+          <div class="tl-title">Track on Track-Trace.com</div>
+          <div class="tl-sub">Universal container tracker — widest coverage</div>
+        </div>
+        <i class="fa-solid fa-external-link-alt tl-arrow"></i>
+      </a>
+      <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20please%20help%20me%20track%20number%20${num}" target="_blank" rel="noopener noreferrer" class="tlink-btn" style="border-color:rgba(37,211,102,.3)">
+        <div class="tl-icon" style="background:#dcfce7;color:#166534"><i class="fa-brands fa-whatsapp"></i></div>
+        <div class="tl-body">
+          <div class="tl-title">Ask JFT Agro trade desk</div>
+          <div class="tl-sub">We'll look up your shipment and share carrier details</div>
+        </div>
+        <i class="fa-solid fa-external-link-alt tl-arrow"></i>
+      </a>`;
+  }
+}
+
+function doTrack() {
+  const inp = document.getElementById('mainInput');
+  const num = inp.value.trim().toUpperCase().replace(/\s/g,'');
+  if (num.length < 4) { inp.focus(); inp.style.borderColor='#e53935'; setTimeout(()=>inp.style.borderColor='',2000); return; }
+
+  const carrier = activeTab === 'container' ? detectCarrier(num) : null;
+  renderResult(num, carrier, activeTab === 'bl');
+
+  if (typeof gtag !== 'undefined') gtag('event','shipment_tracked',{tracking_type:activeTab,carrier:carrier?carrier.short:'unknown'});
+
+  document.getElementById('carrierCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function quickTrack() {
+  const val = document.getElementById('heroInput').value.trim().toUpperCase();
+  if (!val) return;
+  document.getElementById('mainInput').value = val;
+  document.getElementById('tracker').scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(doTrack, 600);
+}
+
+/* ── SCROLL ── */
+window.addEventListener('scroll',function(){
+  var s=document.documentElement.scrollTop;
+  var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  var b=document.getElementById('page-progress');if(b)b.style.width=(h>0?(s/h)*100:0)+'%';
+  var t=document.getElementById('backToTop');if(t)t.classList.toggle('show',s>400);
+});
+
+/* ── PRELOADER + REVEALS ── */
+window.addEventListener('load',()=>{
+  setTimeout(()=>{var p=document.getElementById('preloader');if(p){p.style.opacity='0';setTimeout(()=>p.style.display='none',600);}},1400);
+  setTimeout(()=>{var p=document.getElementById('preloader');if(p){p.style.opacity='0';p.style.display='none';}},3500);
+  var obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active');});},{threshold:.08});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>obs.observe(el));
+  setTimeout(()=>document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>el.classList.add('active')),4500);
+});
+
+document.addEventListener('DOMContentLoaded',()=>{
+  loadComponent('header-placeholder','header.html');
+  loadComponent('footer-placeholder','footer.html');
+});
+</script>
+</body>
+</html>

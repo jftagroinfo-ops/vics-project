@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com https://embed.tawk.to https://va.tawk.to; frame-src https://embed.tawk.to;">
+<title>Container Packing Calculator | JFT Agro Overseas</title>
+<meta name="description" content="Calculate exactly how many bags fit in a 20ft or 40ft container for Indian agro exports. Free tool for rice, spices, pulses, grains and more — by JFT Agro Overseas.">
+<link rel="canonical" href="https://jftagro.com/packing-calculator.html">
+<link rel="icon" type="image/png" href="images/jft logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:title" content="Container Packing Calculator | JFT Agro Overseas">
+<meta property="og:description" content="Free tool: calculate how many bags fit in a 20ft or 40ft container for rice, spices, pulses and grains export from India.">
+<meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
+<meta property="og:url" content="https://jftagro.com/packing-calculator.html">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Container Packing Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://jftagro.com/packing-calculator.html","description":"Calculate how many bags fit in a 20ft or 40ft container for Indian agro commodity exports.","provider":{"@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Quote Calculator","item":"https://jftagro.com/quote-calculator.html"},{"@type":"ListItem","position":3,"name":"Packing Calculator","item":"https://jftagro.com/packing-calculator.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://jftagro.com/packing-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://jftagro.com/packing-calculator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="jft-design-system.css">
+<link rel="stylesheet" href="jft-responsive.css">
+
+<style>
+:root{
+  --green:#3d7030;--green-dark:#2a5220;--navy:#1a3c34;--navy-dark:#0d1f1b;--navy-light:#2c5148;
+  --gold:#eebf45;--gold-light:#f7ca5e;--gold-dark:#b88d14;--cream:#fdfbf7;--border:rgba(26,60,52,.1);
+  --ff-h:'Merriweather',serif;--ff-s:'Montserrat',sans-serif;--ff-b:'Lato',sans-serif;
+  --ease:cubic-bezier(.165,.84,.44,1);--ease-out:cubic-bezier(.2,.8,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:175px;overflow-x:hidden}
+body{margin:0;padding:0;font-family:var(--ff-b);color:#4a4a4a;background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--ff-h);margin:0;color:var(--navy);letter-spacing:-.5px}
+p{line-height:1.8;margin-bottom:1.4rem;font-size:clamp(1rem,1.5vw,1.1rem);color:#5c5c5c}
+a{text-decoration:none;color:inherit;transition:.4s var(--ease)}
+ul{list-style:none;padding:0;margin:0}
+img{max-width:100%;height:auto;display:block}
+.jft-wide-container{max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,55px);position:relative;z-index:5}
+
+/* UTILITIES */
+.brand-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-s);font-size:.75rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;background:rgba(61,112,48,.08);padding:10px 22px;border-radius:50px;border:1px solid rgba(61,112,48,.2)}
+.brand-tag-white{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.25)}
+.btn-gold{background:var(--gold);color:var(--navy);padding:16px 38px;border-radius:50px;font-family:var(--ff-s);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;border:none;cursor:pointer;transition:.4s var(--ease);box-shadow:0 8px 24px rgba(238,191,69,.3);display:inline-flex;align-items:center;gap:10px}
+.btn-gold:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(238,191,69,.45);background:var(--gold-light)}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff;padding:14px 36px;border-radius:50px;font-family:var(--ff-s);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;cursor:pointer;transition:.4s var(--ease);display:inline-flex;align-items:center;gap:10px}
+.btn-outline:hover{background:#fff;color:var(--navy);transform:translateY(-3px)}
+.reveal{opacity:0;transform:translateY(40px);transition:.9s var(--ease-out)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+#header-placeholder{min-height:80px}
+#footer-placeholder{min-height:400px;background:var(--navy)}
+#backToTop{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:var(--gold);color:var(--navy);border:none;border-radius:50%;cursor:pointer;z-index:999;display:flex;align-items:center;justify-content:center;font-size:1.1rem;opacity:0;visibility:hidden;transition:.4s var(--ease);transform:translateY(15px)}
+#backToTop.show{opacity:1;visibility:visible;transform:translateY(0)}
+.wa-fab{position:fixed;bottom:90px;right:28px;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;box-shadow:0 8px 28px rgba(37,211,102,.4);z-index:998;animation:waP 2.5s ease-in-out infinite}
+@keyframes waP{0%,100%{box-shadow:0 8px 28px rgba(37,211,102,.4)}50%{box-shadow:0 8px 28px rgba(37,211,102,.7),0 0 0 10px rgba(37,211,102,.07)}}
+#preloader{position:fixed;inset:0;background:linear-gradient(135deg,#07120f,var(--navy));z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .6s}
+.loader-logo-img{width:180px;margin-bottom:28px;filter:brightness(0) invert(1);animation:lf 3s ease-in-out infinite}
+.loader-text{font-family:var(--ff-s);font-size:.75rem;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:24px;text-transform:uppercase;letter-spacing:4px}
+.loader-track{width:200px;height:2px;background:rgba(255,255,255,.1);overflow:hidden;border-radius:2px}
+.loader-fill{width:100%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:translateX(-100%);animation:ll 2s cubic-bezier(.85,0,.15,1) forwards}
+@keyframes ll{to{transform:translateX(0)}}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* HERO */
+.pack-hero{position:relative;min-height:480px;display:flex;align-items:center;overflow:hidden;background:var(--navy-dark)}
+.pack-hero-bg{position:absolute;inset:0;background-image:url('images/products/basmati_rice_hd.webp');background-size:cover;background-position:center;opacity:.15;z-index:0}
+.pack-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,18,15,.96) 0%,rgba(26,60,52,.88) 60%,rgba(44,81,72,.8) 100%);z-index:1}
+.pack-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:56px 56px;z-index:2}
+.pack-hero-glow{position:absolute;top:-180px;right:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(238,191,69,.06),transparent 65%);z-index:2;pointer-events:none}
+.pack-hero-inner{position:relative;z-index:5;padding:clamp(140px,17vw,190px) 0 clamp(60px,8vw,90px);width:100%}
+.pack-hero-inner .jft-wide-container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-breadcrumb{display:flex;align-items:center;gap:8px;font-family:var(--ff-s);font-size:.68rem;font-weight:700;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:22px}
+.hero-breadcrumb a{color:rgba(255,255,255,.38);transition:.3s}
+.hero-breadcrumb a:hover{color:var(--gold)}
+.hero-breadcrumb i{font-size:.42rem;color:rgba(255,255,255,.2)}
+.hero-h1{font-size:clamp(2rem,4.5vw,3.6rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:-1.5px;margin:16px 0 20px}
+.hero-h1 em{color:var(--gold-light);font-style:italic;font-weight:300}
+.hero-sub{font-size:clamp(.92rem,1.4vw,1.05rem);color:rgba(255,255,255,.65);line-height:1.8;max-width:500px;margin-bottom:32px}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}
+.hero-tag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:7px}
+.hero-tag i{color:var(--gold);font-size:.72rem}
+
+/* HERO RIGHT: stats glass card */
+.hero-stats-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:36px;position:relative;overflow:hidden}
+.hero-stats-card::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(238,191,69,.07),transparent 70%);pointer-events:none}
+.hsc-label{font-family:var(--ff-s);font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.hsc-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.hsc-row:last-child{border-bottom:none}
+.hsc-name{font-family:var(--ff-s);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7)}
+.hsc-val{font-family:var(--ff-s);font-size:.82rem;font-weight:800;color:#fff}
+.hsc-val span{color:var(--gold);font-size:.68rem;font-weight:700;margin-left:5px}
+
+/* MAIN LAYOUT */
+.calc-section{padding:clamp(60px,8vw,110px) 0;background:var(--cream)}
+.calc-layout{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+
+/* CALCULATOR CARD */
+.calc-card{background:#fff;border-radius:28px;box-shadow:0 20px 60px rgba(26,60,52,.09);border:1px solid rgba(26,60,52,.07);overflow:hidden;position:sticky;top:185px}
+.calc-card-header{background:linear-gradient(135deg,var(--navy-dark),var(--navy));padding:30px 36px;position:relative;overflow:hidden}
+.calc-card-header::before{content:'';position:absolute;top:-60px;right:-50px;width:220px;height:220px;background:radial-gradient(circle,rgba(238,191,69,.1),transparent 70%);pointer-events:none}
+.cch-eyebrow{font-family:var(--ff-s);font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px;position:relative;z-index:1}
+.cch-eyebrow::before{content:'';width:16px;height:2px;background:var(--gold);border-radius:2px}
+.cch-title{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:900;color:#fff;line-height:1.25;position:relative;z-index:1}
+.cch-title em{color:var(--gold-light);font-style:italic;font-weight:300}
+.calc-body{padding:32px 36px}
+
+/* FORM GROUPS */
+.form-group{margin-bottom:22px}
+.form-label{font-family:var(--ff-s);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.form-label i{color:var(--green);font-size:.8rem}
+.form-select,.form-input{width:100%;padding:13px 16px;border:1.5px solid rgba(26,60,52,.12);border-radius:12px;font-family:var(--ff-b);font-size:.95rem;color:#333;background:#fdfbf7;transition:.3s;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233d7030' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.form-select:focus,.form-input:focus{border-color:var(--green);background-color:#fff;box-shadow:0 0 0 4px rgba(61,112,48,.07)}
+.form-input{background-image:none}
+
+/* CONTAINER TOGGLE */
+.container-toggle{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:22px}
+.ct-btn{padding:10px 8px;border-radius:12px;border:1.5px solid rgba(26,60,52,.12);background:#fdfbf7;cursor:pointer;transition:.3s;text-align:center;font-family:var(--ff-s)}
+.ct-btn:hover{border-color:var(--green);background:rgba(61,112,48,.04)}
+.ct-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.ct-btn .ct-name{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:2px}
+.ct-btn .ct-size{font-size:.65rem;color:#888;display:block}
+.ct-btn.active .ct-size{color:rgba(255,255,255,.55)}
+
+/* CALCULATE BTN */
+.calc-btn{width:100%;padding:16px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);border:none;border-radius:13px;font-family:var(--ff-s);font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:1.5px;cursor:pointer;transition:.4s var(--ease);box-shadow:0 8px 24px rgba(238,191,69,.28);display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px}
+.calc-btn:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(238,191,69,.4)}
+
+/* RESULTS PANEL */
+.results-col{display:flex;flex-direction:column;gap:22px}
+.result-main{background:#fff;border-radius:24px;padding:36px;border:1px solid rgba(26,60,52,.08);box-shadow:0 10px 40px rgba(26,60,52,.06)}
+.rm-empty{text-align:center;padding:28px 0}
+.rm-empty-icon{font-size:3rem;color:rgba(26,60,52,.15);margin-bottom:16px}
+.rm-empty-text{color:#aaa;font-family:var(--ff-s);font-size:.85rem;line-height:1.6}
+
+/* RESULT HEADER */
+.result-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid rgba(26,60,52,.08)}
+.rh-title{font-family:var(--ff-h);font-size:1.1rem;font-weight:700;color:var(--navy)}
+.rh-tag{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:5px 14px;border-radius:50px;font-family:var(--ff-s);font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+
+/* BIG NUMBERS */
+.result-big-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.rbg-item{background:linear-gradient(135deg,var(--navy-dark),var(--navy));border-radius:18px;padding:22px 20px;text-align:center;position:relative;overflow:hidden}
+.rbg-item::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(238,191,69,.08),transparent 70%)}
+.rbg-num{font-family:var(--ff-h);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:var(--gold);line-height:1;position:relative;z-index:1}
+.rbg-label{font-family:var(--ff-s);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,.45);margin-top:6px;position:relative;z-index:1}
+
+/* DETAIL ROWS */
+.result-detail-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(26,60,52,.06)}
+.result-detail-row:last-child{border-bottom:none}
+.rdr-label{font-family:var(--ff-s);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#888;display:flex;align-items:center;gap:7px}
+.rdr-label i{color:var(--green);width:15px;text-align:center}
+.rdr-val{font-family:var(--ff-s);font-size:.88rem;font-weight:800;color:var(--navy)}
+
+/* UTILISATION BARS */
+.util-section{margin-top:20px}
+.util-row{margin-bottom:14px}
+.util-row-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.util-name{font-family:var(--ff-s);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#888}
+.util-pct{font-family:var(--ff-s);font-size:.78rem;font-weight:800;color:var(--navy)}
+.util-track{height:8px;background:rgba(26,60,52,.08);border-radius:4px;overflow:hidden}
+.util-fill{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.4,0,.2,1);min-width:4px}
+.util-fill.weight{background:linear-gradient(90deg,var(--navy),var(--navy-light))}
+.util-fill.volume{background:linear-gradient(90deg,var(--gold-dark),var(--gold))}
+.util-fill.warning{background:linear-gradient(90deg,#e57c00,#f59e0b)}
+.util-fill.over{background:linear-gradient(90deg,#c0392b,#e74c3c)}
+
+/* WARNING BOX */
+.result-warning{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(245,158,11,.04));border:1px solid rgba(245,158,11,.25);border-radius:14px;padding:14px 18px;margin-top:16px;display:none;align-items:flex-start;gap:12px}
+.result-warning.show{display:flex}
+.result-warning i{color:#b45309;font-size:1rem;flex-shrink:0;margin-top:2px}
+.result-warning-text{font-family:var(--ff-s);font-size:.78rem;font-weight:600;color:#92400e;line-height:1.5}
+
+/* COMPARISON TABLE CARD */
+.compare-card{background:#fff;border-radius:24px;padding:32px;border:1px solid rgba(26,60,52,.08);box-shadow:0 10px 40px rgba(26,60,52,.06)}
+.cc-title{font-family:var(--ff-h);font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.cc-title i{color:var(--gold)}
+.comp-table{width:100%;border-collapse:collapse}
+.comp-table th{font-family:var(--ff-s);font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:#aaa;text-align:left;padding:0 14px 12px;border-bottom:1.5px solid rgba(26,60,52,.08)}
+.comp-table td{padding:13px 14px;border-bottom:1px solid rgba(26,60,52,.06);font-size:.88rem;color:#444;font-family:var(--ff-s)}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table td:first-child{font-weight:700;color:var(--navy)}
+.comp-table .highlight-row td{background:linear-gradient(135deg,rgba(238,191,69,.06),rgba(238,191,69,.03))}
+.comp-table .highlight-row td:first-child{color:var(--green-dark)}
+.td-badge{background:rgba(61,112,48,.1);color:var(--green-dark);font-size:.62rem;padding:2px 8px;border-radius:50px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-left:6px}
+.td-badge-gold{background:rgba(238,191,69,.15);color:var(--gold-dark)}
+
+/* HOW IT WORKS */
+.how-section{background:#fff;padding:clamp(60px,8vw,100px) 0;border-top:1px solid rgba(26,60,52,.06)}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:48px}
+.how-grid::before{content:'';position:absolute;top:35px;left:12.5%;width:75%;height:2px;background:linear-gradient(90deg,var(--gold),rgba(238,191,69,.2));z-index:0}
+.how-step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.how-num{width:70px;height:70px;border-radius:50%;border:2px solid var(--gold);background:#fff;color:var(--navy);font-family:var(--ff-h);font-weight:900;font-size:1.5rem;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(238,191,69,.18);transition:.4s var(--ease)}
+.how-step:hover .how-num{background:var(--navy);color:var(--gold);border-color:var(--navy);transform:translateY(-6px)}
+.how-step h4{font-family:var(--ff-h);font-size:.98rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.how-step p{font-size:.86rem;color:#777;line-height:1.6;max-width:180px;margin:0 auto}
+
+/* CTA BLOCK */
+.jft-cta-block{background:linear-gradient(135deg,var(--navy-dark),var(--navy));padding:clamp(60px,8vw,110px) 0;text-align:center;position:relative;overflow:hidden}
+.jft-cta-block::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
+.cta-eyebrow{font-family:var(--ff-s);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:14px}
+.cta-block-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:14px}
+.cta-block-title em{color:var(--gold-light);font-style:italic;font-weight:300}
+.cta-block-desc{color:rgba(255,255,255,.58);max-width:520px;margin:0 auto 32px;line-height:1.8;font-size:clamp(.92rem,1.4vw,1.05rem)}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.cta-trust-row{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:26px;position:relative;z-index:2}
+.cta-trust-item{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.4);font-family:var(--ff-s);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.cta-trust-item i{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.pack-hero-inner .jft-wide-container{grid-template-columns:1fr;gap:36px}.hero-stats-card{max-width:480px}.calc-layout{grid-template-columns:1fr;gap:32px}.calc-card{position:static}.how-grid{grid-template-columns:1fr 1fr;gap:32px}.how-grid::before{display:none}}
+@media(max-width:768px){.result-big-grid{grid-template-columns:1fr 1fr}.how-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.container-toggle{grid-template-columns:1fr}.result-big-grid{grid-template-columns:1fr 1fr}.calc-body,.calc-card-header{padding:22px 20px}.how-grid{grid-template-columns:1fr}.cta-actions{flex-direction:column;align-items:center}.cta-actions>*{width:100%;max-width:320px;justify-content:center}}
+</style>
+
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied'});var _c=localStorage.getItem('jft_cookie_consent');if(_c==='accepted'){gtag('consent','update',{analytics_storage:'granted'});var _gs=document.createElement('script');_gs.async=true;_gs.src='https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G';document.head.appendChild(_gs);gtag('config','G-MWZ2ZWZP4G');}</script>
+<script type="text/javascript">var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/69f470aa8523f61c32f239ee/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script>
+</head>
+<body>
+
+<div id="preloader"><img src="images/jft logo.png" alt="JFT Agro" class="loader-logo-img" width="180" height="70"><p class="loader-text">Packing Calculator</p><div class="loader-track"><div class="loader-fill"></div></div></div>
+<a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20need%20help%20with%20container%20packing%20for%20my%20order." class="wa-fab" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp JFT Agro"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="header-placeholder"></div>
+
+<!-- HERO -->
+<section class="pack-hero" id="main-content">
+  <div class="pack-hero-bg"></div>
+  <div class="pack-hero-overlay"></div>
+  <div class="pack-hero-grid"></div>
+  <div class="pack-hero-glow"></div>
+  <div class="pack-hero-inner">
+    <div class="jft-wide-container">
+      <div>
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i>
+          <a href="quote-calculator.html">Tools</a><i class="fa-solid fa-chevron-right"></i>
+          <span style="color:rgba(255,255,255,.6)">Packing Calculator</span>
+        </nav>
+        <span class="brand-tag brand-tag-white"><i class="fa-solid fa-boxes-stacked"></i> Free Trade Tool</span>
+        <h1 class="hero-h1">Container<br><em>Packing Calculator</em></h1>
+        <p class="hero-sub">Instantly calculate how many bags fit in a 20ft, 40ft, or 40ft High Cube container — based on your product type, bag size, and weight. Plan your order before you inquire.</p>
+        <div style="display:flex;gap:13px;flex-wrap:wrap">
+          <a href="#calculator" class="btn-gold"><i class="fa-solid fa-calculator"></i> Open Calculator</a>
+          <a href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-paper-plane"></i> Request Quote</a>
+        </div>
+        <div class="hero-tags">
+          <span class="hero-tag"><i class="fa-solid fa-ship"></i> 20ft · 40ft · 40ft HC</span>
+          <span class="hero-tag"><i class="fa-solid fa-weight-scale"></i> Weight &amp; Volume limits</span>
+          <span class="hero-tag"><i class="fa-solid fa-check"></i> Industry standard data</span>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="hero-stats-card">
+          <div class="hsc-label"><i class="fa-solid fa-circle" style="font-size:.45rem;animation:waP 1.5s ease infinite alternate"></i> Standard Container Capacities</div>
+          <div class="hsc-row"><span class="hsc-name">20ft FCL — Rice (50kg bags)</span><span class="hsc-val">480–520 <span>bags</span></span></div>
+          <div class="hsc-row"><span class="hsc-name">40ft FCL — Rice (50kg bags)</span><span class="hsc-val">960–1040 <span>bags</span></span></div>
+          <div class="hsc-row"><span class="hsc-name">20ft FCL — Spices (25kg bags)</span><span class="hsc-val">700–800 <span>bags</span></span></div>
+          <div class="hsc-row"><span class="hsc-name">40ft HC — Flour (50kg bags)</span><span class="hsc-val">900–960 <span>bags</span></span></div>
+          <div class="hsc-row"><span class="hsc-name">Max payload — 20ft FCL</span><span class="hsc-val">~28,000 <span>kg</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLL PROGRESS -->
+<div id="page-progress"></div>
+
+<!-- MAIN CALCULATOR + RESULTS -->
+<section class="calc-section" id="calculator">
+  <div class="jft-wide-container">
+    <div class="calc-layout">
+
+      <!-- LEFT: CALCULATOR -->
+      <div class="reveal-left">
+        <div class="calc-card">
+          <div class="calc-card-header">
+            <div class="cch-eyebrow">Configure Your Shipment</div>
+            <h2 class="cch-title">Calculate <em>Bags Per Container</em></h2>
+          </div>
+          <div class="calc-body">
+
+            <!-- PRODUCT TYPE -->
+            <div class="form-group">
+              <div class="form-label"><i class="fa-solid fa-leaf"></i> Product type</div>
+              <select class="form-select" id="product" onchange="onInputChange()">
+                <option value="" disabled selected>— Select product —</option>
+                <optgroup label="Rice">
+                  <option value="rice_basmati">Basmati Rice (1121, 1509, 1401)</option>
+                  <option value="rice_nonbasmati">Non-Basmati Rice (IR64, PR11, Sona Masoori)</option>
+                  <option value="rice_parboiled">Parboiled Rice</option>
+                  <option value="rice_broken">Broken Rice (25%, 100%)</option>
+                </optgroup>
+                <optgroup label="Grains & Flours">
+                  <option value="wheat_flour">Wheat Flour / Atta / Maida</option>
+                  <option value="semolina">Semolina / Sooji / Rava</option>
+                  <option value="maize">Yellow Maize / Corn</option>
+                  <option value="barley">Barley Seeds</option>
+                </optgroup>
+                <optgroup label="Pulses & Legumes">
+                  <option value="pulses">Pulses (Toor Dal, Mung Beans, Chickpeas)</option>
+                  <option value="groundnuts">Groundnuts / Peanuts</option>
+                  <option value="soybean">Soya Bean</option>
+                </optgroup>
+                <optgroup label="Spices & Seeds">
+                  <option value="cumin">Cumin Seeds (Jeera)</option>
+                  <option value="coriander">Coriander Seeds</option>
+                  <option value="turmeric">Turmeric Finger / Powder</option>
+                  <option value="chilli">Dry Red Chilli</option>
+                  <option value="pepper">Black Pepper</option>
+                  <option value="sesame">Sesame Seeds</option>
+                  <option value="fennel">Fennel / Fenugreek Seeds</option>
+                  <option value="psyllium">Psyllium Husk / Seeds</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option value="sugar">Sugar (S-30)</option>
+                  <option value="oil_cake">Oil Cake (Groundnut / Cotton Seed)</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <!-- BAG SIZE -->
+            <div class="form-group">
+              <div class="form-label"><i class="fa-solid fa-box"></i> Bag size</div>
+              <select class="form-select" id="bagSize" onchange="onInputChange()">
+                <option value="1">1 kg bag</option>
+                <option value="5">5 kg bag</option>
+                <option value="10">10 kg bag</option>
+                <option value="25">25 kg bag</option>
+                <option value="50" selected>50 kg bag (standard)</option>
+              </select>
+            </div>
+
+            <!-- BAG TYPE -->
+            <div class="form-group">
+              <div class="form-label"><i class="fa-solid fa-box-open"></i> Bag material</div>
+              <select class="form-select" id="bagType" onchange="onInputChange()">
+                <option value="pp_woven" selected>PP Woven (standard export)</option>
+                <option value="non_woven">Non-Woven Bag</option>
+                <option value="jute">Jute Bag</option>
+                <option value="hdpe">HDPE Bag</option>
+                <option value="craft_paper">Craft Paper / Multiwall</option>
+              </select>
+            </div>
+
+            <!-- CONTAINER TYPE -->
+            <div class="form-group">
+              <div class="form-label"><i class="fa-solid fa-ship"></i> Container type</div>
+              <div class="container-toggle">
+                <button class="ct-btn active" id="btn-20ft" onclick="selectContainer('20ft',this)">
+                  <span class="ct-name">20ft FCL</span>
+                  <span class="ct-size">≈ 24–26 MT</span>
+                </button>
+                <button class="ct-btn" id="btn-40ft" onclick="selectContainer('40ft',this)">
+                  <span class="ct-name">40ft FCL</span>
+                  <span class="ct-size">≈ 26–28 MT</span>
+                </button>
+                <button class="ct-btn" id="btn-40hc" onclick="selectContainer('40hc',this)">
+                  <span class="ct-name">40ft HC</span>
+                  <span class="ct-size">≈ 28–30 MT</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- PALLETS -->
+            <div class="form-group">
+              <div class="form-label"><i class="fa-solid fa-pallet"></i> Palletised? <span style="font-weight:400;font-size:.65rem;color:#aaa;text-transform:none;letter-spacing:0">(reduces capacity ~8–12%)</span></div>
+              <select class="form-select" id="palletised" onchange="onInputChange()">
+                <option value="no" selected>No — floor-loaded (maximum bags)</option>
+                <option value="yes">Yes — palletised (standard 1.2m × 1.0m)</option>
+              </select>
+            </div>
+
+            <button class="calc-btn" onclick="calculate()">
+              <i class="fa-solid fa-calculator"></i> Calculate Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: RESULTS -->
+      <div class="results-col">
+
+        <!-- MAIN RESULT -->
+        <div class="result-main reveal d1" id="resultMain">
+          <div class="rm-empty" id="emptyState">
+            <div class="rm-empty-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+            <div class="rm-empty-text">Select your product and bag size,<br>then click <strong>Calculate Now</strong><br>to see how many bags fit in your container.</div>
+          </div>
+          <div id="resultContent" style="display:none">
+            <div class="result-header">
+              <div class="rh-title" id="resultTitle">20ft FCL — Basmati Rice</div>
+              <div class="rh-tag" id="resultTag">Floor Loaded</div>
+            </div>
+            <div class="result-big-grid">
+              <div class="rbg-item">
+                <div class="rbg-num" id="numBags">—</div>
+                <div class="rbg-label">Bags in container</div>
+              </div>
+              <div class="rbg-item">
+                <div class="rbg-num" id="totalWeight">—</div>
+                <div class="rbg-label">Total cargo (MT)</div>
+              </div>
+            </div>
+            <div class="result-detail-row">
+              <div class="rdr-label"><i class="fa-solid fa-weight-scale"></i> Payload used</div>
+              <div class="rdr-val" id="payloadUsed">—</div>
+            </div>
+            <div class="result-detail-row">
+              <div class="rdr-label"><i class="fa-solid fa-cube"></i> Volume used</div>
+              <div class="rdr-val" id="volumeUsed">—</div>
+            </div>
+            <div class="result-detail-row">
+              <div class="rdr-label"><i class="fa-solid fa-ship"></i> Container max payload</div>
+              <div class="rdr-val" id="maxPayload">—</div>
+            </div>
+            <div class="result-detail-row">
+              <div class="rdr-label"><i class="fa-solid fa-ruler-combined"></i> Usable volume</div>
+              <div class="rdr-val" id="maxVolume">—</div>
+            </div>
+            <div class="result-detail-row">
+              <div class="rdr-label"><i class="fa-solid fa-triangle-exclamation"></i> Limiting factor</div>
+              <div class="rdr-val" id="limitFactor">—</div>
+            </div>
+            <div class="util-section">
+              <div class="util-row">
+                <div class="util-row-head"><span class="util-name">Weight utilisation</span><span class="util-pct" id="weightPct">—</span></div>
+                <div class="util-track"><div class="util-fill weight" id="weightBar" style="width:0%"></div></div>
+              </div>
+              <div class="util-row">
+                <div class="util-row-head"><span class="util-name">Volume utilisation</span><span class="util-pct" id="volumePct">—</span></div>
+                <div class="util-track"><div class="util-fill volume" id="volumeBar" style="width:0%"></div></div>
+              </div>
+            </div>
+            <div class="result-warning" id="resultWarning">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <div class="result-warning-text" id="warningText"></div>
+            </div>
+            <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(26,60,52,.08);display:flex;gap:10px;flex-wrap:wrap">
+              <a href="contact.html#inquiry-form" class="btn-gold" style="flex:1;justify-content:center;min-width:140px"><i class="fa-solid fa-paper-plane"></i> Request PI</a>
+              <a href="quote-calculator.html" style="flex:1;justify-content:center;min-width:140px;display:inline-flex;align-items:center;gap:8px;padding:14px 20px;border-radius:12px;background:rgba(26,60,52,.06);font-family:var(--ff-s);font-size:.78rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;transition:.3s" onmouseover="this.style.background='rgba(26,60,52,.1)'" onmouseout="this.style.background='rgba(26,60,52,.06)'"><i class="fa-solid fa-calculator" style="color:var(--green)"></i> Price Calculator</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPARISON TABLE -->
+        <div class="compare-card reveal d2" id="compareCard" style="display:none">
+          <div class="cc-title"><i class="fa-solid fa-table-columns"></i> All containers — same settings</div>
+          <table class="comp-table" id="compTable">
+            <thead>
+              <tr>
+                <th>Container</th>
+                <th>Bags</th>
+                <th>Cargo (MT)</th>
+                <th>Weight util.</th>
+              </tr>
+            </thead>
+            <tbody id="compBody"></tbody>
+          </table>
+          <p style="font-size:.78rem;color:#aaa;margin:14px 0 0;font-family:var(--ff-s);line-height:1.6"><i class="fa-solid fa-circle-info" style="color:var(--green);margin-right:5px"></i> Calculations are estimates based on industry-standard container dimensions and typical bulk densities. Actual figures may vary ±5% depending on stacking pattern and product moisture.</p>
+        </div>
+
+      </div><!-- /.results-col -->
+    </div><!-- /.calc-layout -->
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="jft-wide-container">
+    <div class="text-center reveal">
+      <span class="brand-tag">How It Works</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--navy);letter-spacing:-.5px">How the calculator <span style="color:var(--green)">works</span></h2>
+      <p style="max-width:580px;margin:16px auto 0;color:#777;font-size:.97rem;line-height:1.8">Based on real container specifications and product bulk densities used in Indian agro export practice.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step reveal d1">
+        <div class="how-num">1</div>
+        <h4>Container dimensions</h4>
+        <p>We use ISO standard internal dimensions for 20ft, 40ft, and 40ft HC containers — not nominal exterior sizes.</p>
+      </div>
+      <div class="how-step reveal d2">
+        <div class="how-num">2</div>
+        <h4>Bulk density lookup</h4>
+        <p>Each product has a known bulk density (kg/CBM). Rice ≈ 780, cumin ≈ 480, psyllium ≈ 260. This determines volume per bag.</p>
+      </div>
+      <div class="how-step reveal d3">
+        <div class="how-num">3</div>
+        <h4>Packing efficiency</h4>
+        <p>Bags don't stack perfectly. We apply a 85–88% packing efficiency factor standard in the export industry.</p>
+      </div>
+      <div class="how-step reveal d4">
+        <div class="how-num">4</div>
+        <h4>Limiting factor</h4>
+        <p>The lower of weight capacity vs volume capacity is your real limit. The calculator shows which applies to your product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BLOCK -->
+<section class="jft-cta-block">
+  <div class="jft-wide-container">
+    <div class="cta-eyebrow">Ready to Ship?</div>
+    <h2 class="cta-block-title">Get a <em>Formal Proforma Invoice</em><br>for Your Exact Requirement</h2>
+    <p class="cta-block-desc">This calculator gives you a planning estimate. Our trade desk gives you a binding PI with exact bag count, CIF price, and ETA — within 24 hours.</p>
+    <div class="cta-actions">
+      <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice-dollar"></i> Request Proforma Invoice</a>
+      <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Request Free Sample</a>
+    </div>
+    <div class="cta-trust-row">
+      <span class="cta-trust-item"><i class="fa-solid fa-star"></i> Star Export House</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-clock"></i> 24hr Response</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-globe"></i> 20+ Countries</span>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script>
+/* ── COMPONENT LOADER ── */
+async function loadComponent(id, file) {
+  try {
+    const res = await fetch(file); if (!res.ok) throw new Error(file);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+    document.getElementById(id).querySelectorAll('script').forEach(old => {
+      const s = document.createElement('script');
+      Array.from(old.attributes).forEach(a => s.setAttribute(a.name, a.value));
+      s.appendChild(document.createTextNode(old.innerHTML));
+      old.parentNode.replaceChild(s, old);
+    });
+  } catch(e) { console.warn('Component load failed:', e); }
+}
+
+/* ── DATA ── */
+const CONTAINERS = {
+  '20ft': { name:'20ft FCL', payload:28000,  volume:25.8,  label:'~28,000 kg',  vlabel:'25.8 CBM' },
+  '40ft': { name:'40ft FCL', payload:26500,  volume:56.1,  label:'~26,500 kg',  vlabel:'56.1 CBM' },
+  '40hc': { name:'40ft HC',  payload:26300,  volume:66.7,  label:'~26,300 kg',  vlabel:'66.7 CBM' }
+};
+
+/* Bulk density kg/CBM (average; varies by moisture & grade) */
+const DENSITY = {
+  rice_basmati:780, rice_nonbasmati:800, rice_parboiled:810, rice_broken:820,
+  wheat_flour:580,  semolina:620,        maize:740,          barley:640,
+  pulses:800,       groundnuts:560,      soybean:730,
+  cumin:480,        coriander:520,       turmeric:450,       chilli:380,
+  pepper:600,       sesame:660,          fennel:490,         psyllium:260,
+  sugar:850,        oil_cake:580
+};
+
+/* Bag overfill factor: filled bags occupy more volume than pure density math */
+const BAG_OVERFILL = { 1:1.35, 5:1.20, 10:1.15, 25:1.10, 50:1.07 };
+
+/* Bag material adds weight to tare */
+const BAG_TARE_KG = { pp_woven:{1:.02,5:.06,10:.1,25:.2,50:.35}, non_woven:{1:.02,5:.07,10:.12,25:.22,50:.38}, jute:{1:.025,5:.08,10:.14,25:.28,50:.55}, hdpe:{1:.015,5:.05,10:.09,25:.18,50:.30}, craft_paper:{1:.03,5:.07,10:.12,25:.25,50:.45} };
+
+/* Packing efficiency per bag size (floor-loaded) */
+const PACK_EFF = { 1:.78, 5:.82, 10:.85, 25:.87, 50:.88 };
+
+var selectedContainer = '20ft';
+
+function selectContainer(type, btn) {
+  selectedContainer = type;
+  document.querySelectorAll('.ct-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (document.getElementById('resultContent').style.display !== 'none') calculate();
+}
+
+function onInputChange() {
+  if (document.getElementById('resultContent').style.display !== 'none') calculate();
+}
+
+function fmt(n) { return n.toLocaleString('en-IN'); }
+function fmtMT(kg) { return (kg/1000).toFixed(2) + ' MT'; }
+function pct(v) { return Math.min(100, Math.round(v)) + '%'; }
+
+function calcForContainer(cType, product, bagKg, bagType, palletised) {
+  if (!product || !bagKg) return null;
+  const c = CONTAINERS[cType];
+  const density = DENSITY[product] || 700;
+  const tare = (BAG_TARE_KG[bagType] || BAG_TARE_KG.pp_woven)[bagKg] || 0;
+  const netKg = bagKg;
+  const grossKg = netKg + tare;
+  const packEff = PACK_EFF[bagKg] || .86;
+  const palletPenalty = palletised === 'yes' ? .88 : 1.0;
+  const overfill = BAG_OVERFILL[bagKg] || 1.1;
+
+  /* Volume per bag (CBM) */
+  const volPerBag = (netKg / density) * overfill;
+
+  /* Usable volume after packing efficiency and pallets */
+  const usableVol = c.volume * packEff * palletPenalty;
+
+  /* By volume */
+  const bagsByVol = Math.floor(usableVol / volPerBag);
+
+  /* By weight */
+  const maxPayload = palletised === 'yes' ? c.payload - (Math.ceil(usableVol / 1.152) * 25) : c.payload;
+  const bagsByWeight = Math.floor(maxPayload / grossKg);
+
+  /* Final = lower */
+  const bags = Math.min(bagsByVol, bagsByWeight);
+  const totalGross = bags * grossKg;
+  const totalNet = bags * netKg;
+  const totalVol = bags * volPerBag;
+  const weightPct = totalGross / c.payload * 100;
+  const volumePct = totalVol / c.volume * 100;
+  const limitedBy = bagsByWeight < bagsByVol ? 'Weight capacity' : 'Volume / stacking';
+
+  return { bags, totalNet, totalGross, totalVol, weightPct, volumePct, limitedBy,
+           maxPayload: c.payload, usableVol: usableVol.toFixed(1), volLabel: c.vlabel,
+           payloadLabel: c.label };
+}
+
+function calculate() {
+  const product   = document.getElementById('product').value;
+  const bagKg     = parseInt(document.getElementById('bagSize').value);
+  const bagType   = document.getElementById('bagType').value;
+  const palletised= document.getElementById('palletised').value;
+
+  if (!product) { document.getElementById('product').focus(); return; }
+
+  const r = calcForContainer(selectedContainer, product, bagKg, bagType, palletised);
+  if (!r) return;
+
+  const c = CONTAINERS[selectedContainer];
+  const productName = document.getElementById('product').selectedOptions[0].text;
+  const containerName = c.name;
+
+  /* Show content */
+  document.getElementById('emptyState').style.display = 'none';
+  document.getElementById('resultContent').style.display = 'block';
+
+  document.getElementById('resultTitle').textContent = containerName + ' — ' + productName;
+  document.getElementById('resultTag').textContent = palletised === 'yes' ? 'Palletised' : 'Floor Loaded';
+
+  document.getElementById('numBags').textContent = fmt(r.bags);
+  document.getElementById('totalWeight').textContent = (r.totalNet/1000).toFixed(2);
+
+  document.getElementById('payloadUsed').textContent = fmt(r.totalGross) + ' kg (' + pct(r.weightPct) + ' of capacity)';
+  document.getElementById('volumeUsed').textContent = r.totalVol.toFixed(1) + ' CBM (' + pct(r.volumePct) + ' of capacity)';
+  document.getElementById('maxPayload').textContent = r.payloadLabel;
+  document.getElementById('maxVolume').textContent = r.usableVol + ' CBM (usable after packing eff.)';
+  document.getElementById('limitFactor').textContent = r.limitedBy;
+
+  /* Bars */
+  const wPct = Math.min(100, r.weightPct);
+  const vPct = Math.min(100, r.volumePct);
+  setTimeout(() => {
+    const wb = document.getElementById('weightBar');
+    wb.style.width = wPct + '%';
+    wb.className = 'util-fill weight' + (wPct > 95 ? ' over' : wPct > 85 ? ' warning' : '');
+    const vb = document.getElementById('volumeBar');
+    vb.style.width = vPct + '%';
+    vb.className = 'util-fill volume' + (vPct > 95 ? ' over' : vPct > 85 ? ' warning' : '');
+  }, 80);
+  document.getElementById('weightPct').textContent = pct(r.weightPct);
+  document.getElementById('volumePct').textContent = pct(r.volumePct);
+
+  /* Warning */
+  const warn = document.getElementById('resultWarning');
+  const warnText = document.getElementById('warningText');
+  if (r.weightPct > 98 || r.volumePct > 98) {
+    warnText.textContent = 'This combination is right at the container limit. A small increase in product moisture or bag tare weight could exceed capacity. We recommend leaving 2–3% buffer.';
+    warn.classList.add('show');
+  } else if (r.weightPct < 60 && r.volumePct < 60) {
+    warnText.textContent = 'Utilisation is below 60%. Consider switching to 50kg bags or using a smaller container to optimise freight cost per MT.';
+    warn.classList.add('show');
+  } else {
+    warn.classList.remove('show');
+  }
+
+  /* Comparison table */
+  const tbody = document.getElementById('compBody');
+  tbody.innerHTML = '';
+  ['20ft','40ft','40hc'].forEach(ct => {
+    const cr = calcForContainer(ct, product, bagKg, bagType, palletised);
+    if (!cr) return;
+    const isSelected = ct === selectedContainer;
+    const tr = document.createElement('tr');
+    if (isSelected) tr.className = 'highlight-row';
+    tr.innerHTML = `
+      <td>${CONTAINERS[ct].name}${isSelected ? '<span class="td-badge td-badge-gold">selected</span>' : ''}</td>
+      <td>${fmt(cr.bags)}</td>
+      <td>${(cr.totalNet/1000).toFixed(2)} MT</td>
+      <td>${pct(cr.weightPct)}</td>`;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('compareCard').style.display = 'block';
+
+  /* GA event */
+  if (typeof gtag !== 'undefined') gtag('event','packing_calc_used',{product,bagKg,container:selectedContainer});
+}
+
+/* ── SCROLL ── */
+window.addEventListener('scroll', function() {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const b = document.getElementById('page-progress'); if(b) b.style.width = (h>0?(s/h)*100:0)+'%';
+  const t = document.getElementById('backToTop'); if(t) t.classList.toggle('show', s > 400);
+});
+
+/* ── PRELOADER + REVEALS ── */
+window.addEventListener('load', () => {
+  setTimeout(() => { const p=document.getElementById('preloader'); if(p){p.style.opacity='0';setTimeout(()=>p.style.display='none',600);} }, 1400);
+  setTimeout(() => { const p=document.getElementById('preloader'); if(p){p.style.opacity='0';p.style.display='none';} }, 3500);
+  const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); }, {threshold:.08});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => obs.observe(el));
+  setTimeout(() => document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => el.classList.add('active')), 4500);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadComponent('header-placeholder', 'header.html');
+  loadComponent('footer-placeholder', 'footer.html');
+});
+</script>
+</body>
+</html>
