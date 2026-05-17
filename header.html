@@ -144,6 +144,11 @@ s0.parentNode.insertBefore(s1,s0);
   .markets-menu a:hover { background: rgba(61,112,48,.05); color: var(--jft-primary); padding-left: 26px; }
   .markets-menu-divider { height: 1px; background: rgba(26,60,52,.08); margin: 6px 12px; }
   .markets-icon { font-size: .7rem; width: 14px; color: var(--jft-primary); }
+  /* Clean icon + divider system for all dropdowns */
+  .dd-icon { font-size: .72rem; width: 14px; text-align: center; color: var(--jft-primary); opacity: .65; flex-shrink: 0; transition: opacity .2s; }
+  .markets-menu a:hover .dd-icon { opacity: 1; }
+  .dd-divider { height: 1px; background: rgba(26,60,52,.08); margin: 5px 14px; }
+  .dd-view-all { color: var(--jft-primary) !important; font-weight: 700 !important; }
 
   /* ── MEGA MENU (Trade Hub) ── */
   .mega-menu {
@@ -616,38 +621,61 @@ s0.parentNode.insertBefore(s1,s0);
     <div class="nav-links-desktop">
       <a href="index.html" class="nav-link">Home</a>
       <a href="about.html" class="nav-link">Company</a>
-      <a href="products.html" class="nav-link">Products</a>
+
+      <!-- PRODUCTS -->
+      <div class="nav-link dropdown-markets">
+        Products <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
+        <div class="markets-menu">
+          <a href="products.html?cat=rice"><i class="fa-solid fa-seedling dd-icon"></i> Rice</a>
+          <a href="products.html?cat=spices"><i class="fa-solid fa-pepper-hot dd-icon"></i> Spices</a>
+          <a href="products.html?cat=wheat"><i class="fa-solid fa-wheat-awn dd-icon"></i> Wheat</a>
+          <a href="products.html?cat=flour"><i class="fa-solid fa-bowl-food dd-icon"></i> Flour & Grains</a>
+          <a href="products.html?cat=pulses"><i class="fa-solid fa-circle dd-icon"></i> Pulses</a>
+          <a href="products.html?cat=oilseeds"><i class="fa-solid fa-droplet dd-icon"></i> Oilseeds</a>
+          <a href="products.html?cat=herbs"><i class="fa-solid fa-leaf dd-icon"></i> Herbs & Seeds</a>
+          <a href="products.html?cat=feed"><i class="fa-solid fa-cow dd-icon"></i> Animal Feed</a>
+          <a href="products.html?cat=sugar"><i class="fa-solid fa-cubes dd-icon"></i> Sugar</a>
+          <a href="products.html?cat=raisins"><i class="fa-solid fa-apple-whole dd-icon"></i> Fruits</a>
+          <div class="dd-divider"></div>
+          <a href="products.html" class="dd-view-all"><i class="fa-solid fa-grid-2 dd-icon"></i> All Products →</a>
+        </div>
+      </div>
+
+      <!-- INFRASTRUCTURE -->
       <div class="nav-link dropdown-markets">
         Infrastructure <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
         <div class="markets-menu">
-          <a href="infrastructure.html">Milling Units</a>
-          <a href="quality-control.html">Quality Control</a>
-          <a href="certificates.html">Certifications</a>
+          <a href="infrastructure.html"><i class="fa-solid fa-industry dd-icon"></i> Milling Units</a>
+          <a href="quality-control.html"><i class="fa-solid fa-microscope dd-icon"></i> Quality Control</a>
+          <a href="certificates.html"><i class="fa-solid fa-award dd-icon"></i> Certifications</a>
         </div>
       </div>
+
+      <!-- TRADE HUB -->
       <div class="nav-link dropdown-markets">
         Trade Hub <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
-        <div class="markets-menu markets-mega">
-          <!-- Column 1: Trade Markets -->
-          <div class="mega-col">
-            <div class="mega-col-label"><i class="fa-solid fa-globe"></i> Trade Markets</div>
-            <a href="africa-trade.html"><i class="fa-solid fa-wheat-awn mega-icon"></i> Africa Trade</a>
-            <a href="uae-trade.html"><i class="fa-solid fa-mosque mega-icon"></i> Middle East Hub</a>
-            <a href="asia-trade.html"><i class="fa-solid fa-ferry mega-icon"></i> Asia Trade</a>
-            <a href="europe-trade.html"><i class="fa-solid fa-snowflake mega-icon"></i> Europe Trade</a>
-          </div>
-          <!-- Column 2: Resources & Tools -->
-          <div class="mega-col">
-            <div class="mega-col-label"><i class="fa-solid fa-screwdriver-wrench"></i> Resources & Tools</div>
-            <a href="blog.html"><i class="fa-solid fa-newspaper mega-icon"></i> Market Blog</a>
-            <a href="faq.html"><i class="fa-solid fa-circle-question mega-icon"></i> Trade FAQ</a>
-            <a href="quote-calculator.html"><i class="fa-solid fa-calculator mega-icon"></i> Quote Calculator</a>
-            <a href="packing-calculator.html"><i class="fa-solid fa-boxes-stacked mega-icon mega-tool"></i> Packing Calculator</a>
-            <a href="shipment-tracker.html"><i class="fa-solid fa-ship mega-icon mega-tool"></i> Shipment Tracker</a>
-            <a href="port-transit-calculator.html"><i class="fa-solid fa-map-location-dot mega-icon mega-tool"></i> Port Transit Times</a>
-          </div>
+        <div class="markets-menu">
+          <a href="africa-trade.html"><i class="fa-solid fa-wheat-awn dd-icon"></i> Africa Trade</a>
+          <a href="uae-trade.html"><i class="fa-solid fa-mosque dd-icon"></i> Middle East Hub</a>
+          <a href="asia-trade.html"><i class="fa-solid fa-ferry dd-icon"></i> Asia Trade</a>
+          <a href="europe-trade.html"><i class="fa-solid fa-snowflake dd-icon"></i> Europe Trade</a>
         </div>
       </div>
+
+      <!-- TOOLS -->
+      <div class="nav-link dropdown-markets">
+        Tools <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
+        <div class="markets-menu">
+          <a href="blog.html"><i class="fa-solid fa-newspaper dd-icon"></i> Market Blog</a>
+          <a href="faq.html"><i class="fa-solid fa-circle-question dd-icon"></i> Trade FAQ</a>
+          <div class="dd-divider"></div>
+          <a href="quote-calculator.html"><i class="fa-solid fa-calculator dd-icon"></i> Quote Calculator</a>
+          <a href="packing-calculator.html"><i class="fa-solid fa-boxes-stacked dd-icon"></i> Packing Calculator</a>
+          <a href="shipment-tracker.html"><i class="fa-solid fa-ship dd-icon"></i> Shipment Tracker</a>
+          <a href="port-transit-calculator.html"><i class="fa-solid fa-map-location-dot dd-icon"></i> Port Transit Time</a>
+        </div>
+      </div>
+
       <a href="contact.html" class="nav-link">Contact</a>
       <a href="contact.html#inquiry-form" class="nav-btn-action">Request Quote</a>
     </div>
@@ -662,76 +690,84 @@ s0.parentNode.insertBefore(s1,s0);
 </nav>
 
 <!-- ══ MOBILE NAV DRAWER ══════════════════════════════════════════════
-     Outside <nav> — no backdrop-filter blur inheritance.
-     Background matches index.html hero section exactly.             -->
+     HOME · COMPANY · PRODUCTS · INFRASTRUCTURE · TRADE HUB · TOOLS · CONTACT -->
 <div class="mobile-nav-drawer" id="mobileNavMenu" aria-hidden="true">
-
-  <!-- Gold stripe — same as index.html hero-gold-stripe -->
   <div class="mnav-gold-stripe"></div>
-
-  <!-- Brand header — index.html hero-tag style -->
   <div class="mnav-header">
     <div class="mnav-brand-dot"></div>
     <span class="mnav-brand-text">JFT Agro Overseas &nbsp;·&nbsp; Navigation</span>
   </div>
-
-  <!-- Section label -->
   <div class="mnav-section-label">Main Menu</div>
 
-  <a href="index.html" class="mnav-link" onclick="closeMenu()">
-    Home <i class="fa-solid fa-chevron-right mnav-arrow"></i>
-  </a>
-  <a href="about.html" class="mnav-link" onclick="closeMenu()">
-    Company <i class="fa-solid fa-chevron-right mnav-arrow"></i>
-  </a>
-  <a href="products.html" class="mnav-link" onclick="closeMenu()">
-    Products <i class="fa-solid fa-chevron-right mnav-arrow"></i>
-  </a>
+  <a href="index.html" class="mnav-link" onclick="closeMenu()">Home <i class="fa-solid fa-chevron-right mnav-arrow"></i></a>
+  <a href="about.html" class="mnav-link" onclick="closeMenu()">Company <i class="fa-solid fa-chevron-right mnav-arrow"></i></a>
 
-  <!-- Infrastructure accordion -->
+  <!-- PRODUCTS accordion -->
+  <div class="mnav-accordion" id="mnav-products">
+    <div class="mnav-acc-label" onclick="toggleSubMenu('acc-products')">
+      <span>Products</span>
+      <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-products"></i>
+    </div>
+    <div class="mnav-acc-body" id="acc-products">
+      <a href="products.html?cat=rice" onclick="closeMenu()"><i class="fa-solid fa-seedling mnav-tool-icon"></i> Rice</a>
+      <a href="products.html?cat=spices" onclick="closeMenu()"><i class="fa-solid fa-pepper-hot mnav-tool-icon"></i> Spices</a>
+      <a href="products.html?cat=wheat" onclick="closeMenu()"><i class="fa-solid fa-wheat-awn mnav-tool-icon"></i> Wheat</a>
+      <a href="products.html?cat=flour" onclick="closeMenu()"><i class="fa-solid fa-bowl-food mnav-tool-icon"></i> Flour & Grains</a>
+      <a href="products.html?cat=pulses" onclick="closeMenu()"><i class="fa-solid fa-circle mnav-tool-icon"></i> Pulses</a>
+      <a href="products.html?cat=oilseeds" onclick="closeMenu()"><i class="fa-solid fa-droplet mnav-tool-icon"></i> Oilseeds</a>
+      <a href="products.html?cat=herbs" onclick="closeMenu()"><i class="fa-solid fa-leaf mnav-tool-icon"></i> Herbs & Seeds</a>
+      <a href="products.html?cat=feed" onclick="closeMenu()"><i class="fa-solid fa-cow mnav-tool-icon"></i> Animal Feed</a>
+      <a href="products.html?cat=sugar" onclick="closeMenu()"><i class="fa-solid fa-cubes mnav-tool-icon"></i> Sugar</a>
+      <a href="products.html?cat=raisins" onclick="closeMenu()"><i class="fa-solid fa-apple-whole mnav-tool-icon"></i> Fruits</a>
+      <a href="products.html" onclick="closeMenu()" style="color:rgba(238,191,69,.9);font-weight:700"><i class="fa-solid fa-grid-2 mnav-tool-icon"></i> All Products →</a>
+    </div>
+  </div>
+
+  <!-- INFRASTRUCTURE accordion -->
   <div class="mnav-accordion" id="mnav-infra">
     <div class="mnav-acc-label" onclick="toggleSubMenu('acc-infra')">
       <span>Infrastructure</span>
       <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-infra"></i>
     </div>
     <div class="mnav-acc-body" id="acc-infra">
-      <a href="infrastructure.html" onclick="closeMenu()">Milling Units</a>
-      <a href="quality-control.html" onclick="closeMenu()">Quality Control</a>
-      <a href="certificates.html" onclick="closeMenu()">Certifications</a>
+      <a href="infrastructure.html" onclick="closeMenu()"><i class="fa-solid fa-industry mnav-tool-icon"></i> Milling Units</a>
+      <a href="quality-control.html" onclick="closeMenu()"><i class="fa-solid fa-microscope mnav-tool-icon"></i> Quality Control</a>
+      <a href="certificates.html" onclick="closeMenu()"><i class="fa-solid fa-award mnav-tool-icon"></i> Certifications</a>
     </div>
   </div>
 
-  <!-- Trade Hub accordion -->
+  <!-- TRADE HUB accordion -->
   <div class="mnav-accordion" id="mnav-trade">
     <div class="mnav-acc-label" onclick="toggleSubMenu('acc-trade')">
       <span>Trade Hub</span>
       <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-trade"></i>
     </div>
     <div class="mnav-acc-body" id="acc-trade">
-      <!-- Section: Trade Destinations -->
-      <div class="mnav-sub-label"><i class="fa-solid fa-globe mnav-sub-icon"></i> Trade Destinations</div>
       <a href="africa-trade.html" onclick="closeMenu()"><i class="fa-solid fa-wheat-awn mnav-tool-icon"></i> Africa Trade</a>
+      <a href="uae-trade.html" onclick="closeMenu()"><i class="fa-solid fa-mosque mnav-tool-icon"></i> Middle East Hub</a>
       <a href="asia-trade.html" onclick="closeMenu()"><i class="fa-solid fa-ferry mnav-tool-icon"></i> Asia Trade</a>
       <a href="europe-trade.html" onclick="closeMenu()"><i class="fa-solid fa-snowflake mnav-tool-icon"></i> Europe Trade</a>
-      <a href="uae-trade.html" onclick="closeMenu()"><i class="fa-solid fa-mosque mnav-tool-icon"></i> Middle East Hub</a>
-      <!-- Section: Market Intelligence -->
-      <div class="mnav-sub-label"><i class="fa-solid fa-chart-line mnav-sub-icon"></i> Market Intelligence</div>
-      <a href="blog.html" onclick="closeMenu()"><i class="fa-solid fa-newspaper mnav-tool-icon"></i> Market Blog</a>
-      <a href="faq.html" onclick="closeMenu()"><i class="fa-solid fa-circle-question mnav-tool-icon"></i> Trade FAQ</a>
-      <!-- Section: Trade Tools -->
-      <div class="mnav-sub-label"><i class="fa-solid fa-screwdriver-wrench mnav-sub-icon"></i> Trade Tools</div>
-      <a href="quote-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-calculator mnav-tool-icon"></i> Quote Calculator</a>
-      <a href="packing-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-boxes-stacked mnav-tool-icon"></i> Packing Calculator</a>
-      <a href="shipment-tracker.html" onclick="closeMenu()"><i class="fa-solid fa-ship mnav-tool-icon"></i> Shipment Tracker</a>
-      <a href="port-transit-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-map-location-dot mnav-tool-icon"></i> Port Transit Times</a>
     </div>
   </div>
 
-  <a href="contact.html" class="mnav-link" onclick="closeMenu()">
-    Contact <i class="fa-solid fa-chevron-right mnav-arrow"></i>
-  </a>
+  <!-- TOOLS accordion -->
+  <div class="mnav-accordion" id="mnav-tools">
+    <div class="mnav-acc-label" onclick="toggleSubMenu('acc-tools')">
+      <span>Tools</span>
+      <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-tools"></i>
+    </div>
+    <div class="mnav-acc-body" id="acc-tools">
+      <a href="blog.html" onclick="closeMenu()"><i class="fa-solid fa-newspaper mnav-tool-icon"></i> Market Blog</a>
+      <a href="faq.html" onclick="closeMenu()"><i class="fa-solid fa-circle-question mnav-tool-icon"></i> Trade FAQ</a>
+      <a href="quote-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-calculator mnav-tool-icon"></i> Quote Calculator</a>
+      <a href="packing-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-boxes-stacked mnav-tool-icon"></i> Packing Calculator</a>
+      <a href="shipment-tracker.html" onclick="closeMenu()"><i class="fa-solid fa-ship mnav-tool-icon"></i> Shipment Tracker</a>
+      <a href="port-transit-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-map-location-dot mnav-tool-icon"></i> Port Transit Time</a>
+    </div>
+  </div>
 
-  <!-- Footer: gold CTA + social icons -->
+  <a href="contact.html" class="mnav-link" onclick="closeMenu()">Contact <i class="fa-solid fa-chevron-right mnav-arrow"></i></a>
+
   <div class="mnav-footer">
     <a href="contact.html#inquiry-form" class="mnav-cta" onclick="closeMenu()">
       <i class="fa-solid fa-paper-plane"></i> Request Quote
@@ -743,9 +779,7 @@ s0.parentNode.insertBefore(s1,s0);
       <a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
   </div>
-
 </div>
-
 <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
 
 <script>
