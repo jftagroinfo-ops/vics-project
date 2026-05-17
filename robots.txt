@@ -1,50 +1,67 @@
-# ─── JFT Agro Overseas — robots.txt ───────────────────────────────────────────
-# Website: https://jftagro.com
-# Updated: 2026-05-02
+# JFT Agro Overseas — robots.txt
+# Last updated: 2026-05-17
 
-# Allow all well-behaved bots to crawl everything
+# Allow all crawlers
 User-agent: *
 Allow: /
+Allow: /ar/
+Allow: /es/
+Allow: /fr/
+Allow: /id/
+Allow: /ms/
+Allow: /pt/
+Allow: /ru/
+Allow: /si/
+Allow: /th/
+Allow: /vi/
 
-# Disallow confirmation / utility pages that should not be indexed
-Disallow: /thank-you.html
-Disallow: /404.html
-Disallow: /sample-request.html
+# Disallow utility pages
+Disallow: /generate_hreflang.py
+Disallow: /propagate_products_fix.py
+Disallow: /thorough_fix.py
+Disallow: /audit_website.py
+Disallow: /fetch_agro_news.py
+Disallow: /jft_ai_engine.py
+Disallow: /final_polish.py
+Disallow: /fix_image_typos.py
+Disallow: /generate_sitemap.py
 
-# Disallow utility / snippet files (not meant for indexing)
-Disallow: /cookie-consent-snippet.html
-Disallow: /inner-page-hero-snippet.html
-Disallow: /seo-universal-head-snippet.html
-Disallow: /product-page-template.html
-Disallow: /footer.html
-Disallow: /header.html
+# Allow important assets
+Allow: /images/
+Allow: /jft-design-system.css
+Allow: /jft-responsive.css
 
-# Disallow any future admin or private directories
-Disallow: /admin/
-Disallow: /private/
-Disallow: /_drafts/
+# Crawl-delay (be polite to smaller crawlers)
+Crawl-delay: 1
 
-# ── Google-specific rules ──────────────────────────────────────────────────────
+# Sitemaps
+Sitemap: https://jftagro.com/sitemap.xml
+
+# Search engine specific
 User-agent: Googlebot
 Allow: /
-Disallow: /thank-you.html
-Disallow: /404.html
-Disallow: /sample-request.html
 Crawl-delay: 0
 
-# ── Bing / DuckDuckGo ─────────────────────────────────────────────────────────
 User-agent: Bingbot
 Allow: /
-Disallow: /thank-you.html
-Disallow: /404.html
 Crawl-delay: 1
 
-# ── Yandex (Russia/CIS market) ────────────────────────────────────────────────
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
 User-agent: YandexBot
 Allow: /
-Disallow: /thank-you.html
-Disallow: /404.html
-Crawl-delay: 1
+Crawl-delay: 2
 
-# ── Sitemaps ───────────────────────────────────────────────────────────────────
-Sitemap: https://jftagro.com/sitemap.xml
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
