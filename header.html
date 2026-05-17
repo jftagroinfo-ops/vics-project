@@ -138,9 +138,43 @@ s0.parentNode.insertBefore(s1,s0);
   .nav-btn-action:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-2px); }
 
   /* ── STANDARD DROPDOWN (Infrastructure) ── */
-  .markets-menu { position: absolute; top: 100%; left: 0; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; min-width: 190px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: 0.3s; z-index: 100; padding: 10px 0; border: 1px solid rgba(26,60,52,.07); }
-  .dropdown-markets:hover .markets-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-  .markets-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: var(--jft-navy); text-decoration: none; font-family: var(--font-sub); font-size: 0.82rem; font-weight: 600; transition: 0.2s; white-space: nowrap; }
+  .markets-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+    border-radius: 14px;
+    min-width: 230px;    /* wide enough for longest item */
+    width: max-content;  /* expands to fit content, never clips */
+    max-width: 320px;    /* cap so it doesn't go too wide */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+    z-index: 2000;
+    padding: 8px 0;
+    border: 1px solid rgba(26,60,52,.08);
+  }
+  .dropdown-markets:hover .markets-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0s;
+  }
+  .markets-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: var(--jft-navy);
+    text-decoration: none;
+    font-family: var(--font-sub);
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;   /* kept — but width:max-content ensures box fits */
+    transition: background 0.2s, color 0.2s, padding-left 0.2s;
+  }
   .markets-menu a:hover { background: rgba(61,112,48,.05); color: var(--jft-primary); padding-left: 26px; }
   .markets-menu-divider { height: 1px; background: rgba(26,60,52,.08); margin: 6px 12px; }
   .markets-icon { font-size: .7rem; width: 14px; color: var(--jft-primary); }
@@ -149,6 +183,8 @@ s0.parentNode.insertBefore(s1,s0);
   .markets-menu a:hover .dd-icon { opacity: 1; }
   .dd-divider { height: 1px; background: rgba(26,60,52,.08); margin: 5px 14px; }
   .dd-view-all { color: var(--jft-primary) !important; font-weight: 700 !important; }
+  /* Tools and Products dropdowns: align to right edge so they don't overflow viewport */
+  .dd-align-right { left: auto !important; right: 0 !important; }
 
   /* ── MEGA MENU (Trade Hub) ── */
   .mega-menu {
@@ -665,7 +701,7 @@ s0.parentNode.insertBefore(s1,s0);
       <!-- TOOLS -->
       <div class="nav-link dropdown-markets">
         Tools <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
-        <div class="markets-menu">
+        <div class="markets-menu dd-align-right">
           <a href="blog.html"><i class="fa-solid fa-newspaper dd-icon"></i> Market Blog</a>
           <a href="faq.html"><i class="fa-solid fa-circle-question dd-icon"></i> Trade FAQ</a>
           <div class="dd-divider"></div>
@@ -673,6 +709,8 @@ s0.parentNode.insertBefore(s1,s0);
           <a href="packing-calculator.html"><i class="fa-solid fa-boxes-stacked dd-icon"></i> Packing Calculator</a>
           <a href="shipment-tracker.html"><i class="fa-solid fa-ship dd-icon"></i> Shipment Tracker</a>
           <a href="port-transit-calculator.html"><i class="fa-solid fa-map-location-dot dd-icon"></i> Port Transit Time</a>
+          <div class="dd-divider"></div>
+          <a href="whatsapp-catalog.html" style="color:#25d366!important;font-weight:700"><i class="fa-brands fa-whatsapp dd-icon" style="color:#25d366!important;opacity:1"></i> WhatsApp Catalog</a>
         </div>
       </div>
 
@@ -763,6 +801,7 @@ s0.parentNode.insertBefore(s1,s0);
       <a href="packing-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-boxes-stacked mnav-tool-icon"></i> Packing Calculator</a>
       <a href="shipment-tracker.html" onclick="closeMenu()"><i class="fa-solid fa-ship mnav-tool-icon"></i> Shipment Tracker</a>
       <a href="port-transit-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-map-location-dot mnav-tool-icon"></i> Port Transit Time</a>
+      <a href="whatsapp-catalog.html" onclick="closeMenu()" style="color:rgba(37,211,102,.9);font-weight:700"><i class="fa-brands fa-whatsapp mnav-tool-icon" style="color:#25d366"></i> WhatsApp Catalog</a>
     </div>
   </div>
 
