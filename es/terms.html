@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos de Comercio | JFT Agro en el extranjero</title>
+    <title>Terms of Trade | JFT Agro Overseas</title>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="JFT Agro Overseas">
+  <meta name="geo.region" content="IN-MH">
+  <meta name="geo.placename" content="Navi Mumbai, Maharashtra, India">
+  <meta name="geo.position" content="19.0330;73.0297">
+  <meta name="ICBM" content="19.0330, 73.0297">
+  <link rel="apple-touch-icon" href="../images/jft logo.png">
+  <link rel="canonical" href="https://jftagro.com/es/terms.html">
+<meta name="description" content="JFT Agro Overseas - Legal Information, Privacy Policy, and Terms of Trade for global agricultural exports.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --jft-navy: #1a3c34; --jft-gold: #dfa015; --jft-primary: #4e8c3e; }
@@ -54,9 +63,35 @@ s0.parentNode.insertBefore(s1,s0);
     <link rel="alternate" hreflang="si" href="https://jftagro.com/si/terms.html" />
     <link rel="alternate" hreflang="th" href="https://jftagro.com/th/terms.html" />
     <link rel="alternate" hreflang="x-default" href="https://jftagro.com/terms.html" />
+  <link rel="stylesheet" href="../jft-design-system.css">
+<link rel="stylesheet" href="../jft-responsive.css">
 </head>
 <body>
-    <div id="header-placeholder"></div>
+
+    <!-- FAB + Back-to-top -->
+<a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="header-placeholder"></div>
+<!-- ── HERO ── -->
+<section class="jft-page-hero">
+  <div class="jft-page-hero-bg" style="background-image:url('images/products/basmati_rice_hd.webp');"></div>
+  <div class="jft-page-hero-glow"></div>
+  <div class="jft-page-hero-gold-stripe"></div>
+  <div class="jft-wide-container jft-page-hero-inner">
+    <nav class="jft-breadcrumb" aria-label="breadcrumb">
+      <a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i>
+      <span style="color:var(--gold)">Terms of Trade</span>
+    </nav>
+    <span class="brand-tag brand-tag-white"><i class="fa-solid fa-scale-balanced"></i> Terms of Trade</span>
+    <h1 style="font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:-1.5px;margin:18px 0 20px;">Terms of<br><em style="color:var(--gold-light);font-style:italic;font-weight:300;">Trade</em></h1>
+    <p class="jft-page-hero-sub">Standard terms and conditions governing all export transactions between JFT Agro Overseas and international buyers.</p>
+    <div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-shield-halved"></i> Compliance</span><span class="jft-hero-tag"><i class="fa-solid fa-file-lines"></i> Legal Documents</span><span class="jft-hero-tag"><i class="fa-solid fa-globe"></i> All Jurisdictions</span></div>
+    <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="../contact.html" class="btn-gold"><i class="fa-solid fa-paper-plane"></i> Contact Us</a>
+      <a href="../products.html" class="btn-outline"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
+    </div>
+  </div>
+</section>
     
     <div class="legal-header">
         <h1>Terms of Trade</h1>
@@ -112,9 +147,16 @@ s0.parentNode.insertBefore(s1,s0);
                 });
             } catch (err) { console.error(err); }
         }
-        document.addEventListener("DOMContentLoaded", () => {
-            loadComponent("header-placeholder", "header.html");
-            loadComponent("footer-placeholder", "footer.html");
+        
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement.scrollTop||document.body.scrollTop;
+    var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    var b=document.getElementById('page-progress');if(b)b.style.width=(h>0?(s/h)*100:0)+'%';
+    var t=document.getElementById('backToTop');if(t)t.classList.toggle('show',s>400);
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+            loadComponent("header-placeholder", "../header.html");
+            loadComponent("footer-placeholder", "../footer.html");
         });
     </script>
 </body>

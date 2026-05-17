@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kalkulator Penawaran Ekspor CIF/FOB | JFT Agro Luar Negeri</title>
-  <meta name="description" content="Perkirakan secara instan harga ekspor CIF atau FOB untuk Beras Basmati, Rempah-rempah, dan Biji-bijian India ke pelabuhan global mana pun. Kalkulator gratis dari JFT Agro Luar Negeri.">
-  <link rel="canonical" href="https://jftagro.com/quote-calculator.html">
+  <title>CIF/FOB Export Quote Calculator | JFT Agro Overseas</title>
+  <meta name="description" content="Instantly estimate CIF or FOB export prices for Indian Basmati Rice, Spices, and Grains to any global port. Free calculator from JFT Agro Overseas.">
+  <link rel="canonical" href="https://jftagro.com/id/quote-calculator.html">
   <link rel="icon" type="image/png" href="../images/jft logo.png">
   <meta property="og:title" content="Free Export Quote Calculator | JFT Agro">
   <meta property="og:description" content="Estimate your CIF/FOB price for Indian agro commodities in seconds.">
   <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="JFT Agro Overseas">
+  <meta name="geo.region" content="IN-MH">
+  <meta name="geo.placename" content="Navi Mumbai, Maharashtra, India">
+  <meta name="geo.position" content="19.0330;73.0297">
+  <meta name="ICBM" content="19.0330, 73.0297">
+  <link rel="apple-touch-icon" href="../images/jft logo.png">
   <meta name="theme-color" content="#1a3c34">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Quote Calculator","item":"https://jftagro.com/quote-calculator.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CIF/FOB Export Quote Calculator","description":"Instantly estimate CIF, FOB, or CNF export prices for Indian Basmati Rice, Spices, and Grains to any global port. Free tool by JFT Agro Overseas.","url":"https://jftagro.com/quote-calculator.html","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Quote Calculator","item":"https://jftagro.com/quote-calculator.html"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -27,7 +35,7 @@
     body{font-family:var(--font-body);background:#fdfcf8;color:#333;overflow-x:hidden}
     #header-placeholder{min-height:80px;display:block}
     #footer-placeholder{min-height:400px;display:block;background:var(--jft-navy)}
-    .page-wrapper{padding-top:170px;padding-bottom:80px;min-height:100vh}
+    .page-wrapper{padding-top:30px;padding-bottom:80px;min-height:100vh}
     .container { max-width: 1360px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 55px); position: relative; z-index: 5; }
     /* PAGE HEADER */
     .calc-hero{background:linear-gradient(135deg,var(--jft-navy) 0%,#2c5148 100%);color:#fff;padding:60px 0 40px;text-align:center;position:relative;overflow:hidden}
@@ -95,6 +103,13 @@
     .info-card h4{font-family:var(--font-sub);font-size:0.9rem;font-weight:700;color:var(--jft-navy);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
     .info-card p{font-size:0.85rem;color:#666;line-height:1.5;margin:0}
     @media(max-width:480px){.calc-inputs{padding:25px 20px}.calc-results{padding:25px 20px}.main-price .amount{font-size:2.2rem}}
+    @media print {
+      .calc-hero, #header-placeholder, #footer-placeholder, .info-strip, .cta-btns, .calc-btn { display: none !important; }
+      body { background: #fff; color: #000; }
+      .calc-card { box-shadow: none; border: 1px solid #ddd; }
+      .calc-results { background: #1a3c34 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .calc-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -133,14 +148,37 @@ s0.parentNode.insertBefore(s1,s0);
     <link rel="alternate" hreflang="si" href="https://jftagro.com/si/quote-calculator.html" />
     <link rel="alternate" hreflang="th" href="https://jftagro.com/th/quote-calculator.html" />
     <link rel="alternate" hreflang="x-default" href="https://jftagro.com/quote-calculator.html" />
+  <link rel="stylesheet" href="../jft-design-system.css">
+<link rel="stylesheet" href="../jft-responsive.css">
 </head>
 <body>
-  <div id="header-placeholder"></div>
+
+  <!-- FAB + Back-to-top -->
+<a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="header-placeholder"></div>
 
   <div class="page-wrapper">
-    <div class="calc-hero">
-      <div class="container">
-        <div class="brand-tag"><i class="fa-solid fa-calculator" style="margin-right:6px;"></i> Free Tool</div>
+    <!-- ── HERO ── -->
+<section class="jft-page-hero">
+  <div class="jft-page-hero-bg" style="background-image:url('images/products/basmati_rice_hd.webp');"></div>
+  <div class="jft-page-hero-glow"></div>
+  <div class="jft-page-hero-gold-stripe"></div>
+  <div class="jft-wide-container jft-page-hero-inner">
+    <nav class="jft-breadcrumb" aria-label="breadcrumb">
+      <a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i>
+      <span style="color:var(--gold)">Quote Calculator</span>
+    </nav>
+    <span class="brand-tag brand-tag-white"><i class="fa-solid fa-calculator"></i> Quote Calculator</span>
+    <h1 style="font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:-1.5px;margin:18px 0 20px;">Instant Export<br><em style="color:var(--gold-light);font-style:italic;font-weight:300;">Quote Calculator</em></h1>
+    <p class="jft-page-hero-sub">Get a live FOB / CIF / CNF estimate for any Indian agricultural commodity to any destination port in seconds. No registration required.</p>
+    <div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-bolt"></i> Instant Estimate</span><span class="jft-hero-tag"><i class="fa-solid fa-ship"></i> All Incoterms</span><span class="jft-hero-tag"><i class="fa-solid fa-globe"></i> Any Port Worldwide</span></div>
+    <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="../contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-paper-plane"></i> Send Inquiry</a>
+      <a href="../products.html" class="btn-outline"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
+    </div>
+  </div>
+</section>
         <h1>Instant <span>CIF / FOB</span><br>Export Price Estimator</h1>
         <p>Get an indicative landed cost for any Indian agro commodity to any global port — before you submit a formal inquiry.</p>
         <div class="disclaimer"><i class="fa-solid fa-circle-info"></i> Estimates based on current market benchmarks. Formal Proforma Invoice available on request.</div>
@@ -288,8 +326,13 @@ s0.parentNode.insertBefore(s1,s0);
               <div class="result-meta" id="resultMeta"></div>
               <div class="cta-btns">
                 <a href="../contact.html#inquiry-form" class="cta-primary" id="ctaLink"><i class="fa-solid fa-file-invoice" style="margin-right:6px;"></i> Request Formal Proforma Invoice</a>
-                <a id="ctaWA" href="#" target="_blank" class="cta-secondary"><i class="fa-brands fa-whatsapp" style="margin-right:6px;"></i> Confirm via WhatsApp</a>
+                <a id="ctaWA" href="#" target="_blank" class="cta-secondary" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" style="margin-right:6px;"></i> Confirm via WhatsApp</a>
               </div>
+              <div style="display:flex;gap:8px;margin-top:10px;position:relative;z-index:2;">
+                <button onclick="copyQuote()" style="flex:1;padding:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.8);font-family:var(--font-sub);font-size:0.72rem;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'"><i class="fa-solid fa-copy" style="margin-right:5px;"></i> Copy Quote</button>
+                <button onclick="window.print()" style="flex:1;padding:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.8);font-family:var(--font-sub);font-size:0.72rem;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'"><i class="fa-solid fa-print" style="margin-right:5px;"></i> Print</button>
+              </div>
+              <div id="copy-confirm" style="display:none;text-align:center;font-size:0.75rem;color:#4ade80;margin-top:6px;font-family:var(--font-sub);font-weight:700;"><i class="fa-solid fa-check"></i> Copied to clipboard!</div>
             </div>
           </div>
 
@@ -322,7 +365,24 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
   </div>
 
-  <div id="footer-placeholder"></div>
+  <section class="jft-cta-block">
+  <div class="jft-wide-container">
+    <div class="cta-eyebrow">Need a Formal Quote?</div>
+    <h2 class="cta-block-title">Request a <em>Proforma Invoice</em><br>for Your Exact Requirements</h2>
+    <p class="cta-block-desc">The calculator gives you an estimate. Our trade desk gives you a binding PI within 24 hours, CIF to your port.</p>
+    <div class="cta-actions">
+      <a href="../contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice-dollar"></i> Request Formal PI</a>
+      <a href="../sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Free Sample First</a>
+    </div>
+    <div class="cta-trust-row">
+      <span class="cta-trust-item"><i class="fa-solid fa-star"></i> Star Export House</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-clock"></i> 4-Hour Response</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-globe"></i> 20+ Countries</span>
+    </div>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
 
   <script>
     /* ─── PRODUCT BASE PRICES (USD/MT FOB Mundra — approximate 2026 benchmarks) ─── */
@@ -334,15 +394,15 @@ s0.parentNode.insertBefore(s1,s0);
       ir64_parboiled_5:   { name:'IR-64 Parboiled 5% Broken', fob:380, load:26, hs:'10063010' },
       broken_100:         { name:'100% Broken Rice', fob:280, load:26, hs:'10064000' },
       swarna:             { name:'Swarna Non-Basmati Rice', fob:360, load:25.5, hs:'10063090' },
-      turmeric:           { name:'Turmeric Finger', fob:1100, load:14, hs:'09103020' },
-      dry_ginger:         { name:'Dry Ginger', fob:950, load:13, hs:'09101110' },
-      cumin:              { name:'Cumin Seeds', fob:1600, load:13.5, hs:'09093129' },
-      red_chilli:         { name:'Red Chilli (Teja)', fob:1300, load:14, hs:'09042110' },
-      coriander:          { name:'Coriander Seeds', fob:850, load:11, hs:'09092110' },
+      turmeric:           { name:'Turmeric Finger', cat:'Spice', fob:1100, load:14, hs:'09103020' },
+      dry_ginger:         { name:'Dry Ginger', cat:'Spice', fob:950, load:13, hs:'09101110' },
+      cumin:              { name:'Cumin Seeds', cat:'Spice', fob:1600, load:13.5, hs:'09093129' },
+      red_chilli:         { name:'Red Chilli (Teja)', cat:'Spice', fob:1300, load:14, hs:'09042110' },
+      coriander:          { name:'Coriander Seeds', cat:'Spice', fob:850, load:11, hs:'09092110' },
       milling_wheat:      { name:'Milling Wheat', fob:280, load:24.5, hs:'10019910' },
       yellow_maize:       { name:'Yellow Maize', fob:260, load:24, hs:'10059000' },
       sugar_s30:          { name:'Sugar S-30', fob:430, load:26, hs:'17019990' },
-      sesame_natural:     { name:'Sesame Seeds (Natural)', fob:1100, load:19, hs:'12074090' },
+      sesame_natural:     { name:'Sesame Seeds (Natural)', cat:'Spice', fob:1100, load:19, hs:'12074090' },
     };
 
     /* ─── FREIGHT RATES (USD per 20ft container, approx) ─── */
@@ -468,6 +528,33 @@ s0.parentNode.insertBefore(s1,s0);
 
     function onProductChange() { calculate(); }
 
+    function copyQuote() {
+      if (!lastResult) return;
+      const r = lastResult;
+      const prod = r.prod;
+      const PORT_NAMES_LOCAL = {'jebel_ali':'Jebel Ali (Dubai)','dammam':'Dammam (KSA)','muscat':'Muscat (Oman)','doha':'Doha (Qatar)','cotonou':'Cotonou (Benin)','lome':'Lomé (Togo)','tema':'Tema (Ghana)','mombasa':'Mombasa (Kenya)','dar_es_salaam':'Dar es Salaam','djibouti':'Djibouti','colombo':'Colombo (Sri Lanka)','ho_chi_minh':'Ho Chi Minh City','jakarta':'Jakarta','singapore':'Singapore','manila':'Manila','rotterdam':'Rotterdam','felixstowe':'Felixstowe','hamburg':'Hamburg','vladivostok':'Vladivostok','luanda':'Luanda (Angola)','ex_mill':'Ex-Mill (India)'};
+      const text = [
+        '── JFT AGRO OVERSEAS — Export Quote Estimate ──',
+        'Product: ' + prod.name,
+        'Quantity: ' + r.qty.toFixed(1) + ' MT (' + r.containers + ' container' + (r.containers > 1 ? 's' : '') + ')',
+        'Port: ' + (PORT_NAMES_LOCAL[r.portKey] || r.portKey),
+        'Incoterms: ' + r.inco,
+        '',
+        'FOB Price: $' + r.fobMT.toFixed(0) + '/MT',
+        'CNF Price: $' + r.cnfMT.toFixed(0) + '/MT',
+        'CIF Price: $' + r.cifMT.toFixed(0) + '/MT',
+        '',
+        '★ Estimate only. Formal PI issued within 24 hrs.',
+        'Contact: exports@jftagro.com | +91 84250 57274',
+        'Website: https://jftagro.com'
+      ].join('\n');
+      navigator.clipboard.writeText(text).then(function() {
+        var el = document.getElementById('copy-confirm');
+        el.style.display = 'block';
+        setTimeout(function() { el.style.display = 'none'; }, 2500);
+      }).catch(function() { alert(text); });
+    }
+
     /* ── COMPONENT LOADER ── */
     async function loadComponent(id, file) {
       try {
@@ -484,7 +571,14 @@ s0.parentNode.insertBefore(s1,s0);
       } catch(e) { console.error(e); }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement.scrollTop||document.body.scrollTop;
+    var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    var b=document.getElementById('page-progress');if(b)b.style.width=(h>0?(s/h)*100:0)+'%';
+    var t=document.getElementById('backToTop');if(t)t.classList.toggle('show',s>400);
+  });
+  document.addEventListener('DOMContentLoaded', () => {
       loadComponent('header-placeholder', '../header.html');
       loadComponent('footer-placeholder', '../footer.html');
       calculate(); /* run on load with defaults */

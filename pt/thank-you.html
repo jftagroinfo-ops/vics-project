@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta recebida | JFT Agro no exterior</title>
-    <meta name="theme-color" content="#1a3c34">
+    <title>Inquiry Received | JFT Agro Overseas</title>
+      <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Your export inquiry has been received by JFT Agro Overseas. Our trade desk will respond within 24 hours with a Proforma Invoice.">
+  <meta name="author" content="JFT Agro Overseas">
+  <meta name="geo.region" content="IN-MH">
+  <meta name="geo.placename" content="Navi Mumbai, Maharashtra, India">
+  <meta name="geo.position" content="19.0330;73.0297">
+  <meta name="ICBM" content="19.0330, 73.0297">
+  <link rel="apple-touch-icon" href="../images/jft logo.png">
+  <meta name="theme-color" content="#1a3c34">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <style>
         body { margin:0; height:100vh; display:flex; align-items:center; justify-content:center; background:#fdfbf7; font-family:'Montserrat', sans-serif; text-align:center; color:#1a3c34; position: relative; }
@@ -54,6 +62,8 @@ s0.parentNode.insertBefore(s1,s0);
     <link rel="alternate" hreflang="si" href="https://jftagro.com/si/thank-you.html" />
     <link rel="alternate" hreflang="th" href="https://jftagro.com/th/thank-you.html" />
     <link rel="alternate" hreflang="x-default" href="https://jftagro.com/thank-you.html" />
+  <link rel="stylesheet" href="../jft-design-system.css">
+<link rel="stylesheet" href="../jft-responsive.css">
 </head>
 <body>
     <div id="header-placeholder" style="position: absolute; top: 0; width: 100%; z-index: 100;"></div>
@@ -68,13 +78,23 @@ s0.parentNode.insertBefore(s1,s0);
     <div id="footer-placeholder" style="position: absolute; bottom: 0; width: 100%; z-index: 100;"></div>
 
     <script>
-        fetch('../header.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('header-placeholder').innerHTML = data);
-            
-        fetch('../footer.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+      async function loadComp(id, file) {
+        try {
+          const res = await fetch(file);
+          if (!res.ok) return;
+          const html = await res.text();
+          const el = document.getElementById(id);
+          el.innerHTML = html;
+          el.querySelectorAll('script').forEach(old => {
+            const s = document.createElement('script');
+            Array.from(old.attributes).forEach(a => s.setAttribute(a.name, a.value));
+            s.textContent = old.textContent;
+            old.parentNode.replaceChild(s, old);
+          });
+        } catch(e) { console.warn(e); }
+      }
+      loadComp('header-placeholder','header.html');
+      loadComp('footer-placeholder','footer.html');
     </script>
 </body>
 </html>
