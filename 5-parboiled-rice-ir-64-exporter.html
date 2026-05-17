@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com https://embed.tawk.to 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://ok.surf https://translate.googleapis.com https://translate.google.com https://embed.tawk.to https://va.tawk.to https://api.exchangerate-api.com; frame-src https://www.google.com https://maps.google.com https://embed.tawk.to; worker-src 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com https://embed.tawk.to 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com https://ok.surf https://translate.googleapis.com https://translate.google.com https://embed.tawk.to https://va.tawk.to https://api.exchangerate-api.com; frame-src https://www.google.com https://maps.google.com https://embed.tawk.to; worker-src 'self';">
 <title>5% Parboiled Rice (IR-64) Exporter India | JFT Agro Overseas</title>
 <meta name="description" content="Export quality Indian 5% Parboiled Rice (IR-64). Sourced and processed for international markets. High quality, bulk export.">
 <meta name="keywords" content="5% Parboiled Rice (IR-64) Exporter, 5% Parboiled Rice (IR-64) Supplier, Indian 5% Parboiled Rice (IR-64), Bulk 5% Parboiled Rice (IR-64), JFT Agro">
@@ -25,7 +25,7 @@
 <meta property="og:url" content="https://jftagro.com/5-parboiled-rice-ir-64-exporter.html">
 <meta property="og:title" content="5% Parboiled Rice (IR-64) Exporter | JFT Agro Overseas">
 <meta property="og:description" content="Export quality Indian 5% Parboiled Rice (IR-64). Sourced and processed for international markets. High quality, bulk export.">
-<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Parboiled_rice.jpg/1280px-Parboiled_rice.jpg">
+<meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="5% Parboiled Rice (IR-64) — JFT Agro Overseas Export Quality">
@@ -33,14 +33,14 @@
 <meta name="twitter:site" content="@jftagro">
 <meta name="twitter:title" content="5% Parboiled Rice (IR-64) Exporter | JFT Agro Overseas">
 <meta name="twitter:description" content="Export quality Indian 5% Parboiled Rice (IR-64). Sourced and processed for international markets. High quality, bulk export.">
-<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Parboiled_rice.jpg/1280px-Parboiled_rice.jpg">
+<meta name="twitter:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "5% Parboiled Rice (IR-64)",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Parboiled_rice.jpg/1280px-Parboiled_rice.jpg",
+  "image": "https://jftagro.com/images/products/basmati_rice_hd.webp",
   "description": "Export quality Indian 5% Parboiled Rice (IR-64). Sourced and processed for international markets. High quality, bulk export.",
   "brand": {"@type": "Brand", "name": "JFT Agro Overseas"},
   "offers": {
@@ -82,6 +82,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="jft-design-system.css">
+<link rel="stylesheet" href="jft-responsive.css">
 
 <style>
 /* ── Page-specific overrides ── */
@@ -94,6 +95,7 @@
   width: 100%; height: clamp(320px,45vh,520px); object-fit: cover;
   border-radius: 28px; border: 3px solid rgba(238,191,69,.2);
   box-shadow: 0 50px 100px rgba(0,0,0,.35); display: block;
+  background: linear-gradient(135deg, #2d5a1a, #4a8c2a, #8bc34a);
 }
 .prod-hero-badge {
   position: absolute; bottom: -24px; right: -24px;
@@ -112,12 +114,20 @@
 .prod-hero-glass .gn { font-family: var(--ff-s); font-size: 1.4rem; font-weight: 900; color: var(--gold); line-height: 1; display: block; }
 .prod-hero-glass .gl { font-size: .6rem; font-weight: 700; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 3px; display: block; }
 
+
+.prod-hero-img.img-error {
+  opacity: 0;
+  min-height: clamp(320px,45vh,520px);
+}
+.prod-hero-img-wrap {
+  min-height: clamp(320px,45vh,520px);
+}
 /* Specs layout */
 .jft-spec-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px,5vw,70px); align-items: start; }
 .spec-feature-list { display: flex; flex-direction: column; gap: 20px; }
 .spec-feature-item { display: flex; align-items: flex-start; gap: 16px; padding: 22px; background: #fff; border: 1px solid var(--border); border-radius: 16px; transition: .4s; }
 .spec-feature-item:hover { border-color: rgba(238,191,69,.4); transform: translateX(6px); box-shadow: 0 10px 30px rgba(26,60,52,.07); }
-.sfi-icon { width: 44px; height: 44px; background: rgba(78,140,62,.1); border: 1px solid rgba(78,140,62,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: .4s; }
+.sfi-icon { width: 44px; height: 44px; background: rgba(61,112,48,.1); border: 1px solid rgba(61,112,48,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: .4s; }
 .spec-feature-item:hover .sfi-icon { background: var(--green); border-color: var(--green); }
 .sfi-icon i { font-size: 1.1rem; color: var(--green); transition: .4s; }
 .spec-feature-item:hover .sfi-icon i { color: #fff; }
@@ -129,7 +139,7 @@
 .pkg-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
 .pkg-item { padding: clamp(28px,4vw,50px) clamp(18px,3vw,38px); border-right: 1px solid var(--border); text-align: center; transition: .35s; }
 .pkg-item:last-child { border-right: none; }
-.pkg-item:hover { background: rgba(78,140,62,.04); }
+.pkg-item:hover { background: rgba(61,112,48,.04); }
 .pkg-icon { font-size: 2rem; color: var(--gold); margin-bottom: 14px; display: block; }
 .pkg-label { font-family: var(--ff-s); font-size: .65rem; font-weight: 800; color: #aaa; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
 .pkg-val { font-family: var(--ff-h); font-size: 1rem; font-weight: 700; color: var(--navy); }
@@ -154,7 +164,7 @@
 </head>
 <body>
 
-<div id="page-progress"></div>
+
 <div id="header-placeholder"></div>
 
 <!-- ── WHATSAPP FAB ── -->
@@ -171,7 +181,7 @@
      HERO — Dark navy, product image, breadcrumb, key stats
      ════════════════════════════════════════════════════════ -->
 <section class="jft-page-hero">
-  <div class="jft-page-hero-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Parboiled_rice.jpg/1280px-Parboiled_rice.jpg');"></div>
+  <div class="jft-page-hero-bg" style="background-image:url('images/products/basmati_rice_hd.webp');"></div>
   <div class="jft-page-hero-glow"></div>
   <div class="jft-page-hero-gold-stripe"></div>
   <div class="jft-wide-container jft-page-hero-inner">
@@ -200,7 +210,7 @@
       </div>
       <!-- Image -->
       <div class="prod-hero-img-wrap reveal-right">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Parboiled_rice.jpg/1280px-Parboiled_rice.jpg" alt="5% Parboiled Rice (IR-64) Export Quality — JFT Agro Overseas" class="prod-hero-img" loading="eager">
+        <img src="images/products/basmati_rice_hd.webp" alt="5% Parboiled Rice (IR-64) Export Quality — JFT Agro Overseas" class="prod-hero-img" loading="eager" onerror="this.onerror=null;this.classList.add(\'img-error\')" >
         <div class="prod-hero-badge">
           <span class="bb">26 MT in 20ft</span>
           <span class="bs">in 20ft FCL</span>
@@ -337,7 +347,7 @@
     <div style="margin-top:14px;text-align:center;font-size:.8rem;color:#aaa;font-family:'Montserrat',sans-serif;">
       <i class="fa-solid fa-circle-info" style="margin-right:5px;"></i>
       Prices fluctuate with commodity markets. Request a locked Proforma Invoice valid for 5 business days.
-      <a href="contact.html#inquiry-form" style="color:#4e8c3e;font-weight:700;margin-left:6px;">Get Firm Quote →</a>
+      <a href="contact.html#inquiry-form" style="color:#3d7030;font-weight:700;margin-left:6px;">Get Firm Quote →</a>
     </div>
   </div>
 </section>
@@ -387,20 +397,20 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);">
       
       <div>
-        <span style="display:inline-flex;align-items:center;gap:8px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:800;color:#4e8c3e;text-transform:uppercase;letter-spacing:2px;background:rgba(78,140,62,.08);padding:8px 18px;border-radius:50px;border:1px solid rgba(78,140,62,.2);margin-bottom:18px;">
+        <span style="display:inline-flex;align-items:center;gap:8px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:800;color:#3d7030;text-transform:uppercase;letter-spacing:2px;background:rgba(61,112,48,.08);padding:8px 18px;border-radius:50px;border:1px solid rgba(61,112,48,.2);margin-bottom:18px;">
           <i class="fa-solid fa-industry"></i> Use Cases
         </span>
-        <h2 style="font-family:Merriweather,serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#1a3c34;margin:0 0 18px;">Who buys <span style="color:#4e8c3e;">5% Parboiled Rice (IR-64)?</span></h2>
+        <h2 style="font-family:Merriweather,serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#1a3c34;margin:0 0 18px;">Who buys <span style="color:#3d7030;">5% Parboiled Rice (IR-64)?</span></h2>
         <p style="font-size:.9rem;color:#666;margin-bottom:22px;line-height:1.7;">Suitable for a wide range of B2B buyers across food, pharma and industrial sectors:</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(26,60,52,.04);border:1px solid rgba(26,60,52,.08);border-radius:10px;">
-      <i class="fa-solid fa-circle-check" style="color:#4e8c3e;font-size:.9rem;flex-shrink:0;"></i>
+      <i class="fa-solid fa-circle-check" style="color:#3d7030;font-size:.9rem;flex-shrink:0;"></i>
       <span style="font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:600;color:#333;">West Africa</span>
     </div><div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(26,60,52,.04);border:1px solid rgba(26,60,52,.08);border-radius:10px;">
-      <i class="fa-solid fa-circle-check" style="color:#4e8c3e;font-size:.9rem;flex-shrink:0;"></i>
+      <i class="fa-solid fa-circle-check" style="color:#3d7030;font-size:.9rem;flex-shrink:0;"></i>
       <span style="font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:600;color:#333;">East Africa</span>
     </div><div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(26,60,52,.04);border:1px solid rgba(26,60,52,.08);border-radius:10px;">
-      <i class="fa-solid fa-circle-check" style="color:#4e8c3e;font-size:.9rem;flex-shrink:0;"></i>
+      <i class="fa-solid fa-circle-check" style="color:#3d7030;font-size:.9rem;flex-shrink:0;"></i>
       <span style="font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:600;color:#333;">Bangladesh — preferred parboiled grade</span>
     </div>
         </div>
@@ -410,9 +420,9 @@
         <span style="display:inline-flex;align-items:center;gap:8px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:800;color:#eebf45;text-transform:uppercase;letter-spacing:2px;background:rgba(238,191,69,.1);padding:8px 18px;border-radius:50px;border:1px solid rgba(238,191,69,.25);margin-bottom:18px;">
           <i class="fa-solid fa-file-certificate"></i> Documentation
         </span>
-        <h2 style="font-family:Merriweather,serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#1a3c34;margin:0 0 18px;">Compliance <span style="color:#4e8c3e;">documents</span> included</h2>
+        <h2 style="font-family:Merriweather,serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#1a3c34;margin:0 0 18px;">Compliance <span style="color:#3d7030;">documents</span> included</h2>
         <p style="font-size:.9rem;color:#666;margin-bottom:18px;line-height:1.7;">Every shipment of 5% Parboiled Rice (IR-64) comes with full export documentation. Standard set below:</p>
-        <div style="margin-bottom:18px;"><span style="display:inline-flex;align-items:center;gap:6px;background:rgba(78,140,62,.1);border:1px solid rgba(78,140,62,.2);color:#326127;padding:6px 14px;border-radius:20px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;margin:4px;"><i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> APEDA Certificate</span><span style="display:inline-flex;align-items:center;gap:6px;background:rgba(78,140,62,.1);border:1px solid rgba(78,140,62,.2);color:#326127;padding:6px 14px;border-radius:20px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;margin:4px;"><i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Phytosanitary</span><span style="display:inline-flex;align-items:center;gap:6px;background:rgba(78,140,62,.1);border:1px solid rgba(78,140,62,.2);color:#326127;padding:6px 14px;border-radius:20px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;margin:4px;"><i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Fumigation</span></div>
+        <div style="margin-bottom:18px;"><span style="display:inline-flex;align-items:center;gap:6px;background:rgba(61,112,48,.1);border:1px solid rgba(61,112,48,.2);color:#326127;padding:6px 14px;border-radius:20px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;margin:4px;"><i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> APEDA Certificate</span><span style="display:inline-flex;align-items:center;gap:6px;background:rgba(61,112,48,.1);border:1px solid rgba(61,112,48,.2);color:#326127;padding:6px 14px;border-radius:20px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;margin:4px;"><i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Phytosanitary</span><span style="display:inline-flex;align-items:center;gap:6px;background:rgba(61,112,48,.1);border:1px solid rgba(61,112,48,.2);color:#326127;padding:6px 14px;border-radius:20px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;margin:4px;"><i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Fumigation</span></div>
         <div style="background:#fff;border:1px solid rgba(26,60,52,.1);border-radius:14px;padding:18px 20px;">
           <div style="font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:800;color:#1a3c34;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Standard shipment documents</div>
           <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(26,60,52,.05);font-size:.82rem;color:#555;"><i class="fa-solid fa-file-lines" style="color:#eebf45;width:14px;flex-shrink:0;"></i> Commercial Invoice & Packing List</div><div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(26,60,52,.05);font-size:.82rem;color:#555;"><i class="fa-solid fa-file-lines" style="color:#eebf45;width:14px;flex-shrink:0;"></i> Bill of Lading (B/L) / AWB</div><div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(26,60,52,.05);font-size:.82rem;color:#555;"><i class="fa-solid fa-file-lines" style="color:#eebf45;width:14px;flex-shrink:0;"></i> Certificate of Origin (COO)</div><div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(26,60,52,.05);font-size:.82rem;color:#555;"><i class="fa-solid fa-file-lines" style="color:#eebf45;width:14px;flex-shrink:0;"></i> Quality & Weight Certificate</div><div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(26,60,52,.05);font-size:.82rem;color:#555;"><i class="fa-solid fa-file-lines" style="color:#eebf45;width:14px;flex-shrink:0;"></i> Phytosanitary Certificate (GoI)</div><div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(26,60,52,.05);font-size:.82rem;color:#555;"><i class="fa-solid fa-file-lines" style="color:#eebf45;width:14px;flex-shrink:0;"></i> Fumigation Certificate</div><div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(26,60,52,.05);font-size:.82rem;color:#555;"><i class="fa-solid fa-file-lines" style="color:#eebf45;width:14px;flex-shrink:0;"></i> SGS / Cotecna Inspection (on request)</div><div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(26,60,52,.05);font-size:.82rem;color:#555;"><i class="fa-solid fa-file-lines" style="color:#eebf45;width:14px;flex-shrink:0;"></i> COA — Certificate of Analysis (on request)</div>
@@ -440,7 +450,7 @@
           <li style="display:flex;align-items:flex-start;gap:14px;"><i class="fa-solid fa-circle-check" style="color:var(--green);margin-top:3px;flex-shrink:0;"></i><span style="font-size:.95rem;color:#555;line-height:1.65;">Custom packaging — private label, retail-ready packs available</span></li>
           <li style="display:flex;align-items:flex-start;gap:14px;"><i class="fa-solid fa-circle-check" style="color:var(--green);margin-top:3px;flex-shrink:0;"></i><span style="font-size:.95rem;color:#555;line-height:1.65;">FOB, CIF, CNF, DAP — flexible Incoterms for every buyer</span></li>
           <li style="display:flex;align-items:flex-start;gap:14px;"><i class="fa-solid fa-circle-check" style="color:var(--green);margin-top:3px;flex-shrink:0;"></i><span style="font-size:.95rem;color:#555;line-height:1.65;">Dedicated export manager — single point of contact from inquiry to delivery</span></li>
-          <li style="display:flex;align-items:flex-start;gap:14px;margin-top:6px;"><i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--green);margin-top:3px;flex-shrink:0;"></i><span style="font-size:.95rem;color:#555;line-height:1.65;">Further reading: <a href="blog-basmati-export-guide.html" style="color:#4e8c3e;font-weight:700;">Basmati export guide →</a></span></li>
+          <li style="display:flex;align-items:flex-start;gap:14px;margin-top:6px;"><i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--green);margin-top:3px;flex-shrink:0;"></i><span style="font-size:.95rem;color:#555;line-height:1.65;">Further reading: <a href="blog-basmati-export-guide.html" style="color:#3d7030;font-weight:700;">Basmati export guide →</a></span></li>
         </ul>
         <div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;">
           <a href="certificates.html" class="btn-primary"><i class="fa-solid fa-award"></i> View Certifications</a>
@@ -449,7 +459,7 @@
       </div>
       <div class="reveal-right">
         <div style="background:var(--navy);border-radius:28px;padding:clamp(32px,4vw,55px);position:relative;overflow:hidden;">
-          <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(78,140,62,.2),transparent 70%);pointer-events:none;"></div>
+          <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(61,112,48,.2),transparent 70%);pointer-events:none;"></div>
           <div style="font-family:var(--ff-s);font-size:.65rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:22px;">Request a Quick Quote</div>
           <h3 style="font-family:var(--ff-h);color:#fff;font-size:1.6rem;font-weight:700;margin:0 0 16px;line-height:1.3;">Get factory-direct pricing for <em style="color:var(--gold-light);font-weight:300;">5% Parboiled Rice (IR-64)</em></h3>
           <p style="color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.7;margin-bottom:28px;">Tell us your quantity, destination port, and packaging requirement. We respond within 4 business hours.</p>
