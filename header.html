@@ -51,7 +51,7 @@ s0.parentNode.insertBefore(s1,s0);
     --jft-navy: #1a3c34;
     --jft-gold: #eebf45;
     --jft-gold-dark: #b88d14;
-    --jft-primary: #4e8c3e;
+    --jft-primary: #3d7030;
     --jft-dark: #142923;
     --jft-cream: #f5f1e6;
     --font-heading: 'Merriweather', serif;
@@ -134,7 +134,7 @@ s0.parentNode.insertBefore(s1,s0);
   .nav-menu { display: flex; align-items: center; gap: 20px; }
   .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; letter-spacing: 1.5px; position: relative; padding: 5px 0; transition: 0.3s; cursor: pointer; }
   .nav-link:hover { color: var(--jft-primary); }
-  .nav-btn-action { padding: 12px 24px; background: var(--jft-primary); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--jft-primary); transition: 0.3s; box-shadow: 0 4px 15px rgba(78,140,62,0.2); text-decoration: none; white-space: nowrap; font-family: var(--font-sub); }
+  .nav-btn-action { padding: 12px 24px; background: var(--jft-primary); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--jft-primary); transition: 0.3s; box-shadow: 0 4px 15px rgba(61,112,48,0.2); text-decoration: none; white-space: nowrap; font-family: var(--font-sub); }
   .nav-btn-action:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-2px); }
 
   .markets-menu { position: absolute; top: 100%; left: 0; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 8px; min-width: 180px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: 0.3s; z-index: 100; padding: 10px 0; }
@@ -532,6 +532,10 @@ s0.parentNode.insertBefore(s1,s0);
           <a href="asia-trade.html">Asia Trade</a>
           <a href="europe-trade.html">Europe Trade</a>
           <a href="uae-trade.html">Middle East Hub</a>
+          <div class="markets-menu-divider"></div>
+          <a href="packing-calculator.html"><i class="fa-solid fa-boxes-stacked markets-icon"></i> Packing Calculator</a>
+          <a href="shipment-tracker.html"><i class="fa-solid fa-ship markets-icon"></i> Shipment Tracker</a>
+          <a href="port-transit-calculator.html"><i class="fa-solid fa-map-location-dot markets-icon"></i> Port Transit Times</a>
         </div>
       </div>
       <a href="contact.html" class="nav-link">Contact</a>
@@ -601,6 +605,10 @@ s0.parentNode.insertBefore(s1,s0);
       <a href="asia-trade.html" onclick="closeMenu()">Asia Trade</a>
       <a href="europe-trade.html" onclick="closeMenu()">Europe Trade</a>
       <a href="uae-trade.html" onclick="closeMenu()">Middle East Hub</a>
+      <div class="mnav-tools-label">Trade Tools</div>
+      <a href="packing-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-boxes-stacked mnav-tool-icon"></i> Packing Calculator</a>
+      <a href="shipment-tracker.html" onclick="closeMenu()"><i class="fa-solid fa-ship mnav-tool-icon"></i> Shipment Tracker</a>
+      <a href="port-transit-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-map-location-dot mnav-tool-icon"></i> Port Transit Times</a>
     </div>
   </div>
 
