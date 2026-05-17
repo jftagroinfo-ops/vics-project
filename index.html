@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="yandex-verification" content="3fbd4b91e2017518" />
 <link rel="preload" as="image" href="images/homepage/BASMATI.webp" fetchpriority="high">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://www.googletagmanager.com https://translate.googleapis.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com https://api.exchangerate-api.com https://ok.surf https://translate.googleapis.com https://translate.google.com; frame-src https://www.google.com https://maps.google.com;">
@@ -56,7 +57,7 @@
 <link rel="stylesheet" href="jft-responsive.css">
 <style>
 :root{
-  --green:#4e8c3e;--green-dark:#326127;--green-light:#6aad55;
+  --green:#3d7030;--green-dark:#326127;--green-light:#6aad55;
   --navy:#1a3c34;--navy-dark:#0d1f1b;--navy-light:#2c5148;
   --gold:#eebf45;--gold-light:#f7ca5e;--gold-dark:#b88d14;
   --cream:#fdfbf7;--border:rgba(26,60,52,.1);
@@ -75,7 +76,7 @@ img{max-width:100%;height:auto;display:block}
 .section-padding{padding:clamp(70px,9vw,130px) 0}
 .text-center{text-align:center}
 /* TYPOGRAPHY */
-.brand-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-s);font-size:.75rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;background:rgba(78,140,62,.08);padding:10px 22px;border-radius:50px;border:1px solid rgba(78,140,62,.2);backdrop-filter:blur(5px)}
+.brand-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-s);font-size:.75rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;background:rgba(61,112,48,.08);padding:10px 22px;border-radius:50px;border:1px solid rgba(61,112,48,.2);backdrop-filter:blur(5px)}
 .brand-tag-gold{background:rgba(238,191,69,.1);color:var(--gold-dark);border-color:rgba(238,191,69,.3)}
 .brand-tag-white{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.25)}
 .section-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.15;color:var(--navy)}
@@ -86,8 +87,8 @@ img{max-width:100%;height:auto;display:block}
 .section-desc{font-size:clamp(1rem,1.5vw,1.12rem);margin-top:20px;color:#6b6b6b;line-height:1.85}
 .gold-text{background:linear-gradient(135deg,#f7ca5e,#eebf45,#b88d14);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:900}
 /* BUTTONS */
-.btn-primary{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:17px 42px;border-radius:50px;font-family:var(--ff-s);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;border:none;cursor:pointer;transition:.4s var(--ease);box-shadow:0 10px 30px rgba(78,140,62,.3);display:inline-flex;align-items:center;gap:10px}
-.btn-primary:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(78,140,62,.4);background:linear-gradient(135deg,var(--green-light),var(--green))}
+.btn-primary{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:17px 42px;border-radius:50px;font-family:var(--ff-s);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;border:none;cursor:pointer;transition:.4s var(--ease);box-shadow:0 10px 30px rgba(61,112,48,.3);display:inline-flex;align-items:center;gap:10px}
+.btn-primary:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(61,112,48,.4);background:linear-gradient(135deg,var(--green-light),var(--green))}
 .btn-outline{background:transparent;border:2px solid rgba(255,255,255,.65);color:#fff;padding:15px 40px;border-radius:50px;font-family:var(--ff-s);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;cursor:pointer;transition:.4s var(--ease);display:inline-flex;align-items:center;gap:10px}
 .btn-outline:hover{background:#fff;color:var(--navy);border-color:#fff;transform:translateY(-4px)}
 .btn-gold{background:var(--gold);color:var(--navy);padding:17px 42px;border-radius:50px;font-family:var(--ff-s);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;border:none;cursor:pointer;transition:.4s var(--ease);box-shadow:0 10px 30px rgba(238,191,69,.35);display:inline-flex;align-items:center;gap:10px}
@@ -153,7 +154,7 @@ img{max-width:100%;height:auto;display:block}
 /* ─── STATS DRAMATIC ─── */
 .stats-dramatic{position:relative;background:linear-gradient(135deg,#070e0c,var(--navy));overflow:hidden;padding:clamp(60px,8vw,110px) 0}
 .stats-dramatic::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none}
-.stats-dramatic::after{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(78,140,62,.12),transparent 70%);pointer-events:none}
+.stats-dramatic::after{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(61,112,48,.12),transparent 70%);pointer-events:none}
 .stats-gold-line{position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;z-index:2}
 .stat-item{padding:clamp(40px,6vw,75px) clamp(25px,4vw,55px);border-right:1px solid rgba(255,255,255,.07);position:relative;text-align:center;overflow:hidden;transition:.4s}
@@ -171,7 +172,7 @@ img{max-width:100%;height:auto;display:block}
 .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:620px}
 .about-left{background:var(--navy);padding:clamp(40px,6vw,110px) clamp(20px,5vw,85px);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .about-left::before{content:'\201C';position:absolute;top:-30px;right:10px;font-size:22rem;color:rgba(238,191,69,.05);font-family:var(--ff-h);line-height:1;pointer-events:none}
-.about-left::after{content:'';position:absolute;bottom:0;right:0;width:150px;height:150px;background:radial-gradient(circle,rgba(78,140,62,.12),transparent 70%);pointer-events:none}
+.about-left::after{content:'';position:absolute;bottom:0;right:0;width:150px;height:150px;background:radial-gradient(circle,rgba(61,112,48,.12),transparent 70%);pointer-events:none}
 .about-tag-line{font-family:var(--ff-s);font-size:.68rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:14px}
 .about-tag-line::before{content:'';width:38px;height:1px;background:var(--gold);flex-shrink:0}
 .about-h{font-family:var(--ff-h);font-size:clamp(1.9rem,4vw,3.2rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:28px}
@@ -316,10 +317,10 @@ img{max-width:100%;height:auto;display:block}
 .log-stat h4{color:#fff;font-family:var(--ff-s);font-size:1.05rem;font-weight:800;margin-bottom:4px}
 .log-stat p{color:rgba(255,255,255,.48);font-size:.84rem;margin:0}
 /* ─── AWARDS STRIP ─── */
-.awards-strip{background:linear-gradient(135deg,#f0f7ee,#e8f4e6);padding:clamp(50px,6vw,90px) 0;overflow:hidden;position:relative;border-top:1px solid rgba(78,140,62,.12);border-bottom:1px solid rgba(78,140,62,.12)}
+.awards-strip{background:linear-gradient(135deg,#f0f7ee,#e8f4e6);padding:clamp(50px,6vw,90px) 0;overflow:hidden;position:relative;border-top:1px solid rgba(61,112,48,.12);border-bottom:1px solid rgba(61,112,48,.12)}
 .awards-strip::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none}
 .awards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;z-index:2}
-.award-item{background:#fff;border:1px solid rgba(78,140,62,.15);border-radius:20px;padding:30px 22px;text-align:center;transition:.4s;box-shadow:0 4px 20px rgba(26,60,52,.06)}
+.award-item{background:#fff;border:1px solid rgba(61,112,48,.15);border-radius:20px;padding:30px 22px;text-align:center;transition:.4s;box-shadow:0 4px 20px rgba(26,60,52,.06)}
 .award-item:hover{background:#fff;border-color:var(--green);transform:translateY(-6px);box-shadow:0 20px 50px rgba(26,60,52,.12)}
 .award-icon{font-size:2.2rem;color:var(--green);margin-bottom:14px;opacity:.9}
 .award-label{font-family:var(--ff-h);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:6px}
@@ -357,7 +358,7 @@ img{max-width:100%;height:auto;display:block}
 .trade-path{fill:none;stroke:var(--green);stroke-width:2;stroke-dasharray:6,8;stroke-linecap:round;opacity:.4;animation:flowTrade 4s linear infinite}
 @keyframes flowTrade{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
 .central-hub{position:relative;z-index:10;width:140px;height:140px;display:flex;align-items:center;justify-content:center}
-.hub-circle{width:100%;height:100%;background:#fff;border-radius:50%;padding:20px;box-shadow:0 12px 50px rgba(78,140,62,.2);display:flex;align-items:center;justify-content:center;border:3px solid var(--gold);position:relative;z-index:12}
+.hub-circle{width:100%;height:100%;background:#fff;border-radius:50%;padding:20px;box-shadow:0 12px 50px rgba(61,112,48,.2);display:flex;align-items:center;justify-content:center;border:3px solid var(--gold);position:relative;z-index:12}
 .pulse-ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--green);opacity:0}
 .pr-1{animation:hubPulse 4s infinite}.pr-2{animation:hubPulse 4s infinite 2s}
 @keyframes hubPulse{0%{transform:scale(.9);opacity:.6}100%{transform:scale(2.6);opacity:0}}
@@ -423,7 +424,7 @@ img{max-width:100%;height:auto;display:block}
 .cta-left h2{font-family:var(--ff-h);font-size:clamp(1.8rem,3.5vw,2.9rem);font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:18px;position:relative;z-index:1}
 .cta-left p{color:rgba(26,60,52,.72);font-size:1.05rem;line-height:1.75;margin-bottom:32px;position:relative;z-index:1}
 .cta-right{background:var(--navy);padding:clamp(55px,8vw,100px) clamp(45px,7vw,90px);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.cta-right::before{content:'';position:absolute;top:-120px;left:-120px;width:380px;height:380px;background:rgba(78,140,62,.08);border-radius:50%;pointer-events:none}
+.cta-right::before{content:'';position:absolute;top:-120px;left:-120px;width:380px;height:380px;background:rgba(61,112,48,.08);border-radius:50%;pointer-events:none}
 .cta-right h2{font-family:var(--ff-h);font-size:clamp(1.8rem,3.5vw,2.9rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:18px;position:relative;z-index:1}
 .cta-right h2 span{color:var(--gold)}
 .cta-right p{color:rgba(255,255,255,.6);font-size:1.05rem;line-height:1.75;margin-bottom:32px;position:relative;z-index:1}
@@ -1098,7 +1099,7 @@ if ('serviceWorker' in navigator) {
       </div>
       <div class="about-cta">
         <a href="contact.html#inquiry-form" class="btn-primary">Get a Quote</a>
-        <a href="about.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#4e8c3e;text-transform:uppercase;letter-spacing:1.5px;">Our Story <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="about.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;color:#3d7030;text-transform:uppercase;letter-spacing:1.5px;">Our Story <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -1258,7 +1259,7 @@ if ('serviceWorker' in navigator) {
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#f5a623,#e07b00);"></div><div class="region-body"><div class="region-prod">Turmeric &amp; Powder</div><div class="region-name">Sangli &amp; Erode</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Maharashtra &middot; Tamil Nadu</div></div></div>
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#e84040,#c02020);"></div><div class="region-body"><div class="region-prod">Chilli &amp; Powder</div><div class="region-name">Guntur Region</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Andhra Pradesh</div></div></div>
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#c8a870,#a07840);"></div><div class="region-body"><div class="region-prod">Wheat &amp; Flour</div><div class="region-name">Sehore (Sarbati Belt)</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Madhya Pradesh</div></div></div>
-      <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#4e8c3e,#326127);"></div><div class="region-body"><div class="region-prod">Sesame &amp; Niger Seeds</div><div class="region-name">Gujarat &amp; West Bengal</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> West India</div></div></div>
+      <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#3d7030,#326127);"></div><div class="region-body"><div class="region-prod">Sesame &amp; Niger Seeds</div><div class="region-name">Gujarat &amp; West Bengal</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> West India</div></div></div>
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#56c27a,#2a8a50);"></div><div class="region-body"><div class="region-prod">Green Cardamom</div><div class="region-name">Idukki (Cardamom Hills)</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Kerala</div></div></div>
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#8b5e3c,#6b3f20);"></div><div class="region-body"><div class="region-prod">Dry Ginger &amp; Pepper</div><div class="region-name">Wayanad &amp; Kozhikode</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Kerala</div></div></div>
       <div class="region-card"><div class="region-color" style="background:linear-gradient(90deg,#3a7bbd,#1a5a9a);"></div><div class="region-body"><div class="region-prod">Pulses &amp; Lentils</div><div class="region-name">Vidarbha &amp; Marathwada</div><div class="region-loc"><i class="fa-solid fa-location-dot"></i> Maharashtra</div></div></div>
@@ -1297,7 +1298,7 @@ if ('serviceWorker' in navigator) {
 
     <!-- Products Browse CTA -->
     <div style="text-align:center;margin-top:50px;" class="reveal">
-      <a href="products.html" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:18px 44px;border-radius:50px;font-family:var(--ff-s);font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 12px 35px rgba(78,140,62,.3);transition:.4s;"><i class="fa-solid fa-grid-2"></i> Browse All 84 Products with Pricing</a>
+      <a href="products.html" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:18px 44px;border-radius:50px;font-family:var(--ff-s);font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 12px 35px rgba(61,112,48,.3);transition:.4s;"><i class="fa-solid fa-grid-2"></i> Browse All 84 Products with Pricing</a>
       <p style="font-size:.78rem;color:#aaa;margin-top:14px;font-family:var(--ff-s);">Rice · Spices · Grains · Pulses · Oilseeds · Herbs — FOB price ranges available</p>
     </div>
 </section>
@@ -1347,28 +1348,28 @@ if ('serviceWorker' in navigator) {
         <div style="font-family:var(--ff-s);font-size:1.9rem;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px;">Top 3%</div>
         <div class="award-label">Star Export House</div>
         <p class="award-body">Govt. of India's highest export recognition — awarded to only the top 3% of Indian exporters. Valid 2024–2026.</p>
-        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(78,140,62,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> Ministry of Commerce · Active</div>
+        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(61,112,48,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> Ministry of Commerce · Active</div>
       </div>
       <div class="award-item d2">
         <div class="award-icon"><i class="fa-solid fa-certificate"></i></div>
         <div style="font-family:var(--ff-s);font-size:1.9rem;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px;">Since 2015</div>
         <div class="award-label">ISO 9001:2015</div>
         <p class="award-body">International quality management system. Every process from procurement to dispatch is audited against ISO standards annually.</p>
-        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(78,140,62,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> BIS Certified · Renewed 2025</div>
+        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(61,112,48,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> BIS Certified · Renewed 2025</div>
       </div>
       <div class="award-item d3">
         <div class="award-icon"><i class="fa-solid fa-microscope"></i></div>
         <div style="font-family:var(--ff-s);font-size:1.9rem;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px;">7 CCPs</div>
         <div class="award-label">HACCP Certified</div>
         <p class="award-body">7 Critical Control Points monitored at every stage. Aflatoxin, pesticide, and microbial testing before every container is sealed.</p>
-        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(78,140,62,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> FSSAI Registered · Active</div>
+        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(61,112,48,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> FSSAI Registered · Active</div>
       </div>
       <div class="award-item d4">
         <div class="award-icon"><i class="fa-solid fa-bolt"></i></div>
         <div style="font-family:var(--ff-s);font-size:1.9rem;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px;">48-hr</div>
         <div class="award-label">AEO Trusted Trader</div>
         <p class="award-body">Authorized Economic Operator — 48-hour customs clearance at all major Indian ports vs 5–7 days for non-AEO exporters.</p>
-        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(78,140,62,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> CBIC, India · Active</div>
+        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-s);font-size:.65rem;font-weight:700;color:var(--green);background:rgba(61,112,48,.1);padding:5px 12px;border-radius:20px;"><i class="fa-solid fa-check-circle"></i> CBIC, India · Active</div>
       </div>
     </div>
     <div class="reveal" style="text-align:center;margin-top:44px;">
@@ -1422,7 +1423,7 @@ if ('serviceWorker' in navigator) {
       <div class="custom-india-map desktop-only"><img src="images/Farm.webp" alt="" style="width:100%;max-width:600px;opacity:.12;" onerror="this.style.display='none'"></div>
       <svg class="trade-lines-svg desktop-only" viewBox="0 0 1000 650" preserveAspectRatio="none"><g id="jft_svg_lines"></g></svg>
       <!-- Desktop only: hub circle with pulse rings -->
-      <div class="central-hub desktop-only"><div class="pulse-ring pr-1"></div><div class="pulse-ring pr-2"></div><div class="hub-circle"><img src="images/jft logo.png" alt="JFT Agro" width="80" height="80" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-leaf\' style=\'font-size:32px;color:#4e8c3e\'></i>'"></div></div>
+      <div class="central-hub desktop-only"><div class="pulse-ring pr-1"></div><div class="pulse-ring pr-2"></div><div class="hub-circle"><img src="images/jft logo.png" alt="JFT Agro" width="80" height="80" onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-leaf\' style=\'font-size:32px;color:#3d7030\'></i>'"></div></div>
       <div class="mobile-hint"><i class="fa-solid fa-left-right"></i> Swipe &amp; Tap to Explore</div>
       <div class="nodes-container" id="jft_nodes_container"></div>
     </div>
@@ -1528,7 +1529,7 @@ if ('serviceWorker' in navigator) {
 
 <!-- ── LEAD MAGNETS ── -->
 <section style="background:linear-gradient(135deg,#0d1f1b,#1a3c34);padding:clamp(50px,6vw,80px) 0;position:relative;overflow:hidden;">
-  <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(78,140,62,.15),transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(61,112,48,.15),transparent 70%);pointer-events:none;"></div>
   <div class="jft-wide-container">
     <div class="lead-magnet-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
       <div style="display:flex;align-items:flex-start;gap:16px;padding:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;">
