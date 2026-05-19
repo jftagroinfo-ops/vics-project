@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --jft-primary: #4e8c3e; --jft-navy: #1a3c34; --jft-gold: #eebf45;
+      --jft-primary: #3d7030; --jft-navy: #1a3c34; --jft-gold: #eebf45;
       --font-head: 'Merriweather', serif; --font-sub: 'Montserrat', sans-serif; --font-body: 'Lato', sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -50,7 +50,14 @@
     .glossary-card { background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #eee; }
     .glossary-card strong { color: var(--jft-primary); display: block; margin-bottom: 5px; font-family: var(--font-sub); }
     .glossary-card p { font-size: 0.85rem; color: #777; margin: 0; }
-  </style>
+    #preloader{position:fixed;inset:0;background:linear-gradient(135deg,#07120f,#1a3c34);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .6s}
+  .loader-logo-img{width:180px;margin-bottom:28px;filter:brightness(0) invert(1);animation:lf 3s ease-in-out infinite}
+  .loader-text{font-family:'Montserrat',sans-serif;font-size:.75rem;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:24px;text-transform:uppercase;letter-spacing:4px}
+  .loader-track{width:200px;height:2px;background:rgba(255,255,255,.1);overflow:hidden;border-radius:2px}
+  .loader-fill{width:100%;height:100%;background:linear-gradient(90deg,#eebf45,#f7ca5e);transform:translateX(-100%);animation:ll 2s cubic-bezier(.85,0,.15,1) forwards}
+  @keyframes ll{to{transform:translateX(0)}}
+  @keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+</style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G"></script>
@@ -91,6 +98,7 @@ s0.parentNode.insertBefore(s1,s0);
     <link rel="alternate" hreflang="th" href="https://jftagro.com/th/faq.html" />
     <link rel="alternate" hreflang="x-default" href="https://jftagro.com/faq.html" />
   <link rel="stylesheet" href="jft-design-system.css">
+<link rel="stylesheet" href="jft-responsive.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What is the Minimum Order Quantity (MOQ) for export?","acceptedAnswer":{"@type":"Answer","text":"The MOQ is typically 1 FCL (20ft container) = 24-26 Metric Tons, depending on product density and packing. Sample requests are accepted for smaller quantities."}},
 {"@type":"Question","name":"What are the payment terms for Indian agro exports?","acceptedAnswer":{"@type":"Answer","text":"Standard terms are 30% advance + 70% against Scan Bill of Lading. Established buyers may use 100% Irrevocable LC at sight from top-tier banks."}},
@@ -99,12 +107,16 @@ s0.parentNode.insertBefore(s1,s0);
 {"@type":"Question","name":"Does JFT Agro provide phytosanitary and fumigation certificates?","acceptedAnswer":{"@type":"Answer","text":"Yes. All export shipments are accompanied by a Phytosanitary Certificate issued by the Plant Quarantine Authority, Certificate of Origin, and fumigation certificate as required by the destination country."}},
 {"@type":"Question","name":"Can JFT Agro do private label / OEM packaging?","acceptedAnswer":{"@type":"Answer","text":"Yes. JFT Agro offers private label services including custom bag printing on PP, jute, and non-woven bags. Branded 1kg, 2kg, 5kg packs are also available for retail markets."}}
 ]}</script>
+  <meta property="og:title" content="Export FAQ & Trade Glossary | JFT Agro Overseas">
+  <meta property="og:description" content="Answers to common questions about Indian agricultural exports. MOQs, payment terms, shipping documents, and trade glossary for global buyers.">
+  <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
 </head>
 <body>
 
   <!-- FAB + Back-to-top -->
 <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="preloader"><img src="images/jft logo.png" alt="JFT Agro" class="loader-logo-img" width="180" height="70" loading="eager"><p class="loader-text">Loading</p><div class="loader-track"><div class="loader-fill"></div></div></div>
 <div id="header-placeholder"></div>
 <!-- ── HERO — full-width, outside any container ── -->
 <section class="jft-page-hero">
@@ -231,6 +243,12 @@ s0.parentNode.insertBefore(s1,s0);
         });
       });
     });
-  </script>
+  
+    /* Preloader */
+    var plDelay = ('ontouchstart' in window) ? 900 : 1400;
+    setTimeout(function(){ var p=document.getElementById('preloader');if(p){p.style.opacity='0';setTimeout(function(){p.style.display='none';},500);} }, plDelay);
+    setTimeout(function(){ var p=document.getElementById('preloader');if(p){p.style.opacity='0';p.style.display='none';} }, 3000);
+
+</script>
 </body>
 </html>

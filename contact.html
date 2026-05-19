@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://embed.tawk.to 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com https://api.web3forms.com https://embed.tawk.to https://va.tawk.to; frame-src https://www.google.com https://maps.google.com https://embed.tawk.to;">
 <title>Contact JFT Agro | Global Export Trade Desk & RFQ</title>
-<meta name="description" content="Send an export inquiry to JFT Agro Overseas — India's Star Export House. Get a Proforma Invoice for Basmati Rice, Spices, Grains and Pulses within 24 hours.">
+<meta name="description" content="Contact JFT Agro Overseas — India's Star Export House for rice, spices, grains and pulses. Get a CIF Proforma Invoice within 24 hours. WhatsApp, email, or request a free sample.'s Star Export House. Get a Proforma Invoice for Basmati Rice, Spices, Grains and Pulses within 24 hours.">
 <link rel="canonical" href="https://jftagro.com/contact.html">
 <link rel="icon" type="image/png" href="images/jft logo.png">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -637,7 +637,14 @@ window.addEventListener('load', () => {
   const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); }, {threshold:0.1});
   document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => obs.observe(el));
 });
-document.addEventListener('DOMContentLoaded', () => {
+
+/* Mobile reveal fallback: force-show all after 5s */
+setTimeout(function() {
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el) {
+    el.classList.add('active');
+  });
+}, 5000);
+  document.addEventListener('DOMContentLoaded', () => {
   loadComponent('header-placeholder', 'header.html');
   loadComponent('footer-placeholder', 'footer.html');
 });
