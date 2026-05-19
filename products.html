@@ -1786,6 +1786,18 @@ s0.parentNode.insertBefore(s1,s0);
                     if (si) { si.value = q; performSearch(q); }
                 }, 400);
             }
+            /* Handle ?cat= URL param — used by nav menu product links */
+            const cat = urlParams.get('cat');
+            if (cat && cat !== 'all') {
+                setTimeout(function() {
+                    filterProducts(cat);
+                    /* Scroll smoothly to the catalogue section */
+                    var grid = document.getElementById('product-grid');
+                    if (grid) {
+                        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 300);
+            }
                 attachScrollObserver();
             } catch(e) {
                 console.error("Init error:", e);
