@@ -113,7 +113,7 @@
         body { 
             margin: 0; 
             padding: 0; 
-            overflow-x: clip; 
+            overflow-x: hidden; 
             font-family: var(--font-body); 
             color: #4a4a4a; 
             background: linear-gradient(180deg, #ffffff 0%, #f1f5ee 100%);
@@ -125,7 +125,7 @@
 
         * { box-sizing: border-box; } 
         
-        html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+        html { scroll-behavior: smooth; }
         
         h1, h2, h3, h4 { font-family: var(--font-head); margin: 0; color: var(--jft-navy); letter-spacing: -0.5px; } 
         p { line-height: 1.8; margin-bottom: 1.5rem; font-size: clamp(0.95rem, 2vw, 1.1rem); color: #5c5c5c; } 
@@ -460,14 +460,18 @@
 /* ── Category Tabs ── */
 .cz-tabs-zone {
   display: flex; align-items: center; gap: 0;
-  background: #fff; border-radius: 60px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 60px;
   border: 1px solid rgba(26,60,52,.1);
   box-shadow: 0 8px 30px rgba(26,60,52,.06);
   padding: 6px 6px 6px 52px;
-  /* NOT sticky — the wrapper .cz-sticky-wrap handles sticking */
-  position: relative;
-  z-index: 1;
-  margin-bottom: 0;
+  position: sticky;
+  top: 174px;        /* sticks just below the fixed header */
+  z-index: 99;
+  margin-bottom: 20px;
+  margin-top: 12px;
   overflow: hidden;
 }
 .cz-tab-scroll {
@@ -835,17 +839,14 @@ s0.parentNode.insertBefore(s1,s0);
 
         /* ── Sticky filter wrapper: search + tabs stick together ── */
         .cz-sticky-wrap {
-          position: sticky;
-          top: 172px;
-          z-index: 200;
-          background: var(--jft-cream, #fdfbf7);
-          padding: 20px 0 12px;  /* generous top, tighter bottom */
-          margin-bottom: 16px;
-          box-shadow: 0 6px 20px rgba(0,0,0,.04);
+          position: static;  /* no sticky — flows naturally after stats bar */
+          background: transparent;
+          padding: 24px 0 0;
+          margin-bottom: 0;
         }
-        @media (max-width: 1023px) { .cz-sticky-wrap { top: 165px; } }
-        @media (max-width: 767px)  { .cz-sticky-wrap { top: 152px; } }
-        @media (max-width: 599px)  { .cz-sticky-wrap { top: 148px; padding: 10px 0; } }
+        
+        
+        
 
 </style>
 
