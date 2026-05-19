@@ -2629,4 +2629,28 @@
     <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/yellow-peas-matar-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/yellow-peas-matar-exporter.html"/>
   </url>
+  <url>
+    <loc>https://jftagro.com/packing-calculator.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/packing-calculator.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/packing-calculator.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/shipment-tracker.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/shipment-tracker.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/shipment-tracker.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/port-transit-calculator.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/port-transit-calculator.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/port-transit-calculator.html"/>
+  </url>
 </urlset>
