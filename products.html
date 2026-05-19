@@ -151,7 +151,7 @@
         .btn-primary:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
 
         /* --- Page Header --- */
-        .page-header { min-height: 45vh; height: auto; padding: 80px 0; position: relative; display: flex; align-items: center; justify-content: center; margin-top: 170px; background-attachment: fixed; background-position: center; background-size: cover; }
+        .page-header { min-height: 45vh; height: auto; padding: 80px 0 30px; position: relative; display: flex; align-items: center; justify-content: center; margin-top: 170px; background-attachment: fixed; background-position: center; background-size: cover; }
         .page-header::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(26, 60, 52, 0.95) 0%, rgba(26, 60, 52, 0.6) 50%, rgba(238, 191, 69, 0.1) 100%); z-index: 1; }
         .ph-content { position: relative; z-index: 2; text-align: center; color: #fff; text-shadow: 0 4px 10px rgba(0,0,0,0.4); transform: translateY(20px); opacity: 0; animation: fadeUp 1s ease forwards; animation-delay: 0.2s; padding: 0 20px; }
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
@@ -400,7 +400,7 @@
    ════════════════════════════════════════════════════════════════ */
 .catalogue-zone {
   background: var(--jft-cream, #fdfbf7);
-  padding: clamp(24px,3vw,40px) 0 clamp(40px,5vw,60px); /* reduced top gap */
+  padding: 0 0 clamp(40px,5vw,60px);
   border-top: 1px solid rgba(26,60,52,.07);
 }
 
@@ -650,7 +650,7 @@
 
 
 /* ── Products Page Stats Strip ── */
-.prod-stats-strip { background: #fff; border-bottom: 1px solid rgba(26,60,52,.08); }
+.prod-stats-strip { background: #fff; border-bottom: 1px solid rgba(26,60,52,.08); padding: 20px 0; margin-bottom: 0; }
 .prod-stats-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; }
 .prod-stat-item { padding: clamp(20px,3vw,36px) clamp(14px,2.5vw,28px); border-right: 1px solid rgba(26,60,52,.07); text-align: center; transition: .3s; position: relative; }
 .prod-stat-item:last-child { border-right: none; }
@@ -839,9 +839,8 @@ s0.parentNode.insertBefore(s1,s0);
           top: 172px;
           z-index: 200;
           background: var(--jft-cream, #fdfbf7);
-          padding: 14px 0 14px;
-          margin-bottom: 20px;
-          /* Subtle fade at bottom to separate from products */
+          padding: 20px 0 12px;  /* generous top, tighter bottom */
+          margin-bottom: 16px;
           box-shadow: 0 6px 20px rgba(0,0,0,.04);
         }
         @media (max-width: 1023px) { .cz-sticky-wrap { top: 165px; } }
