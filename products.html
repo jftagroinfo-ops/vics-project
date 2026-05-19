@@ -202,11 +202,15 @@
            Mobile (<600px): 1 column                          */
         .product-catalogue-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr); /* Default: 3 columns */
+          grid-template-columns: repeat(3, 1fr);
           gap: clamp(18px, 2.5vw, 32px);
           align-items: stretch;
           max-width: 100%;
+          padding-top: 12px; /* small breathing room below sticky filter bar */
+          scroll-margin-top: 240px;
         }
+        /* Product items need z-index below filter bar */
+        .p-item { position: relative; z-index: 1; }
         
         .p-item { background: #fff; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--jft-border); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; display: flex; flex-direction: column; contain: content; }
         .p-item:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(26, 60, 52, 0.1); border-color: var(--jft-gold); }
@@ -396,14 +400,14 @@
    ════════════════════════════════════════════════════════════════ */
 .catalogue-zone {
   background: var(--jft-cream, #fdfbf7);
-  padding: clamp(40px,5vw,70px) 0 clamp(40px,5vw,60px);
+  padding: clamp(24px,3vw,40px) 0 clamp(40px,5vw,60px); /* reduced top gap */
   border-top: 1px solid rgba(26,60,52,.07);
 }
 
 /* ── Search row ── */
 .cz-search-row {
   display: flex; align-items: center; gap: 16px;
-  margin-bottom: clamp(24px,3vw,36px);
+  margin-bottom: 12px; /* tight — filter bar follows immediately */
   flex-wrap: wrap;
 }
 .cz-search-box {
@@ -459,20 +463,28 @@
   background: #fff; border-radius: 60px;
   border: 1px solid rgba(26,60,52,.1);
   box-shadow: 0 8px 30px rgba(26,60,52,.06);
-  padding: 6px 50px;
+  padding: 6px 6px 6px 52px;  /* left-pad = arrow width + gap; right-pad = arrow width + gap */
   position: sticky;
-  top: 172px;            /* dashboard(80) + navbar(90) + 2px gap */
-  z-index: 99;
-  margin-bottom: 24px;
+  top: 172px;
+  z-index: 200;
+  margin-bottom: 20px;
   overflow: hidden;
-  /* Prevent filter bar from overlapping product images */
-  scroll-margin-top: 172px;
 }
 .cz-tab-scroll {
   display: flex; gap: 6px; overflow-x: auto;
   scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; flex: 1; padding: 4px 0;
+  scrollbar-width: none; flex: 1;
+  padding: 4px 4px;
   cursor: grab;
+  -ms-overflow-style: none;
+  /* Ensure first tab is not hidden behind the arrow buttons */
+  scroll-padding-left: 8px;
+}
+.cz-tab-scroll::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 4px;
 }
 .cz-tab-scroll:active { cursor: grabbing; }
 .cz-tab-scroll::-webkit-scrollbar { display: none; }
@@ -894,7 +906,7 @@ s0.parentNode.insertBefore(s1,s0);
   <div class="jft-wide-container">
 
     <!-- Search + count row -->
-    <div class="cz-search-row reveal">
+    <div class="cz-search-row">
       <div class="cz-search-box">
         <i class="fa-solid fa-magnifying-glass cz-search-icon"></i>
         <input type="text" id="prod-search" class="cz-search-input" placeholder="Search 84 products — rice, cumin, turmeric, psyllium..." oninput="debouncedSearch()" aria-label="Search Products" autocomplete="off">
@@ -906,7 +918,7 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
 
     <!-- Category tabs -->
-    <div class="cz-tabs-zone reveal">
+    <div class="cz-tabs-zone">
       <button class="cz-tab-arrow cz-tab-left" onclick="scrollTabs(-200)" aria-label="Scroll left"><i class="fa-solid fa-chevron-left"></i></button>
       <div class="cz-tab-scroll" id="tab-container" tabindex="0">
         <button class="cz-tab active" data-cat="all" onclick="filterProducts('all')">
