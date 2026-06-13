@@ -1,62 +1,75 @@
 import os
 from datetime import datetime
 
-base_url = 'https://jftagro.com/'
-# Portable pathing
+base_url = "https://jftagro.com/"
 directory = os.path.abspath(os.path.dirname(__file__))
 
-xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
-xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+LANGS = ["ar","es","fr","id","ms","pt","ru","si","th","vi"]
 
-today = datetime.now().strftime('%Y-%m-%d')
+EXCLUDE = {
+    "header.html","footer.html","inner-page-hero-snippet.html",
+    "seo-universal-head-snippet.html","product-page-template.html",
+    "cookie-consent-snippet.html","thank-you.html","404.html"
+}
+
+today = datetime.now().strftime("%Y-%m-%d")
 url_count = 0
 
-# Walk through the directory recursively
-for root, dirs, files in os.walk(directory):
-    # Exclude hidden directories like .git
-    dirs[:] = [d for d in dirs if not d.startswith('.')]
-    
-    for file in files:
-        EXCLUDE = {'header.html','footer.html','inner-page-hero-snippet.html',
-                 'seo-universal-head-snippet.html','product-page-template.html',
-                 'cookie-consent-snippet.html','thank-you.html','404.html'}
-        if file.endswith('.html') and file not in EXCLUDE:
-            # Get relative path
-            rel_path = os.path.relpath(os.path.join(root, file), directory)
-            # Use forward slashes for URLs
-            rel_path_url = rel_path.replace(os.sep, '/')
-            
-            # Map index.html to directory root for cleaner URLs
-            if rel_path_url == 'index.html':
-                url = base_url
-            elif rel_path_url.endswith('/index.html'):
-                url = base_url + rel_path_url.replace('index.html', '')
-            else:
-                url = base_url + rel_path_url
-                
-            xml_content += '  <url>\n'
-            xml_content += f'    <loc>{url}</loc>\n'
-            xml_content += f'    <lastmod>{today}</lastmod>\n'
-            
-            # Priority logic
-            if 'index.html' in rel_path_url:
-                priority = '1.0'
-            elif 'products.html' in rel_path_url:
-                priority = '0.9'
-            elif '-exporter.html' in rel_path_url or '-supplier.html' in rel_path_url:
-                priority = '0.8'
-            elif 'blog' in rel_path_url:
-                priority = '0.7'
-            else:
-                priority = '0.5'
-                
-            xml_content += f'    <priority>{priority}</priority>\n'
-            xml_content += '  </url>\n'
-            url_count += 1
+xml  = '<?xml version="1.0" encoding="UTF-8"?>\n'
+xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+xml += '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
 
-xml_content += '</urlset>'
+for root_dir, dirs, files in os.walk(directory):
+    dirs[:] = [d for d in dirs if not d.startswith(".")]
 
-with open(os.path.join(directory, 'sitemap.xml'), 'w', encoding='utf-8') as f:
-    f.write(xml_content)
+    for file in sorted(files):
+        if not file.endswith(".html") or file in EXCLUDE:
+            continue
 
-print(f'Generated sitemap.xml with {url_count} URLs across all languages.')
+        rel = os.path.relpath(os.path.join(root_dir, file), directory).replace(os.sep, "/")
+
+        # Skip lang sub-directories (ar/, fr/, etc.) – hreflang handled below
+        top_dir = rel.split("/")[0]
+        if top_dir in LANGS:
+            continue
+
+        url = base_url if rel == "index.html" else base_url + rel
+
+        # Priority & changefreq
+        if rel == "index.html":
+            priority, changefreq = "1.0", "weekly"
+        elif rel == "products.html":
+            priority, changefreq = "0.9", "weekly"
+        elif rel in ("about.html","contact.html","quality-control.html"):
+            priority, changefreq = "0.85", "monthly"
+        elif "-exporter.html" in rel or "-supplier.html" in rel:
+            priority, changefreq = "0.80", "monthly"
+        elif rel.startswith("blog"):
+            priority, changefreq = "0.70", "monthly"
+        elif rel in ("africa-trade.html","asia-trade.html","europe-trade.html","uae-trade.html"):
+            priority, changefreq = "0.75", "monthly"
+        else:
+            priority, changefreq = "0.50", "yearly"
+
+        # Hreflang block
+        hreflang = f'    <xhtml:link rel="alternate" hreflang="en" href="{url}"/>\n'
+        for lc in LANGS:
+            lang_url = base_url + lc + "/" + rel
+            hreflang += f'    <xhtml:link rel="alternate" hreflang="{lc}" href="{lang_url}"/>\n'
+        hreflang += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url}"/>\n'
+
+        xml += "  <url>\n"
+        xml += f"    <loc>{url}</loc>\n"
+        xml += f"    <lastmod>{today}</lastmod>\n"
+        xml += f"    <changefreq>{changefreq}</changefreq>\n"
+        xml += f"    <priority>{priority}</priority>\n"
+        xml += hreflang
+        xml += "  </url>\n"
+        url_count += 1
+
+xml += "</urlset>"
+
+with open(os.path.join(directory, "sitemap.xml"), "w", encoding="utf-8") as f:
+    f.write(xml)
+
+print(f"[OK] sitemap.xml regenerated — {url_count} URLs with hreflang for {len(LANGS)} languages.")
