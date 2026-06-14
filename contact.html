@@ -36,6 +36,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="jft-design-system.css">
 <link rel="stylesheet" href="jft-responsive.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Contact","url":"https://jftagro.com/contact.html","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hqc-value",".hero-tagline"]}}</script>
 </head>
 <style>
 :root{
@@ -361,11 +362,11 @@ var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
             <a href="https://wa.me/918425057274?text=Hi%2C%20I%20just%20submitted%20an%20RFQ%20on%20your%20website." class="swa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Confirm via WhatsApp</a>
           </div>
           <div class="form-body" id="formBody">
-            <form id="rfqForm" onsubmit="handleRFQ(event)">
+            <form id="rfqForm" method="POST" action="#" onsubmit="handleRFQ(event)">
               <input type="hidden" name="access_key" value="88f6e4fc-7b15-4519-9408-6946321501b6">
               <input type="hidden" name="subject" value="New Export Inquiry from JFT Agro Website">
               <input type="hidden" name="from_name" value="JFT Agro Trade Desk">
-              <input type="hidden" name="redirect" value="false">
+              <input type="hidden" name="redirect" value="https://jftagro.com/thank-you.html">
               <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
               <div class="frow">
                 <div class="fwrap"><label class="flabel" for="full_name">Full Name <span class="req">*</span></label><input type="text" id="full_name" name="full_name" class="finput" placeholder="John Doe" autocomplete="name" required></div>

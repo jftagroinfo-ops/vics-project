@@ -467,6 +467,7 @@
       background: var(--navy)
     }
 
+    #page-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--gold),var(--green));z-index:10000;transition:width .1s;box-shadow:0 1px 6px rgba(78,140,62,.35);}
     #backToTop {
       position: fixed;
       bottom: 30px;
@@ -4298,9 +4299,11 @@
   <link rel="alternate" hreflang="th" href="https://jftagro.com/th/index.html" />
   <link rel="alternate" hreflang="x-default" href="https://jftagro.com/index.html" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the minimum order quantity for JFT Agro Overseas?","acceptedAnswer":{"@type":"Answer","text":"The minimum order quantity is typically 1 FCL (20-foot container) = 20\u201326 metric tons depending on the product. Samples are available in smaller quantities (1\u20135 kg) dispatched via DHL within 48 hours."}},{"@type":"Question","name":"What payment terms does JFT Agro accept?","acceptedAnswer":{"@type":"Answer","text":"JFT Agro accepts 30% advance TT + 70% against scan copy of Bill of Lading for new buyers. Established buyers may use 100% Irrevocable Letter of Credit (LC) at sight from first-class banks. CIF, FOB, and CNF pricing available."}},{"@type":"Question","name":"Which countries does JFT Agro Overseas export to?","acceptedAnswer":{"@type":"Answer","text":"JFT Agro exports to 25+ countries including UAE, Saudi Arabia, Kuwait, Qatar, Oman, Bahrain, UK, Germany, France, Benin, Togo, Ghana, Nigeria, Kenya, Tanzania, Vietnam, Indonesia, Sri Lanka, Bangladesh, Russia, and more."}},{"@type":"Question","name":"How long does it take to get a Proforma Invoice from JFT Agro?","acceptedAnswer":{"@type":"Answer","text":"JFT Agro issues a formal Proforma Invoice within 24 hours of receiving your inquiry with product name, quantity, destination port, and required incoterms (FOB/CIF/CNF). Contact via WhatsApp +91 84250 57274 or email exports@jftagro.com."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com/","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"127","bestRating":"5","worstRating":"1"},"review":[{"@type":"Review","author":{"@type":"Person","name":"Ahmed Al-Hamdan"},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"JFT Agro has been supplying 1121 Basmati to our Dubai warehouse for 4 years. Quality is consistent. 6 containers this Ramadan season without a single delay.","datePublished":"2026-03-15"},{"@type":"Review","author":{"@type":"Person","name":"Raj Patel"},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"We import cumin seeds and turmeric quarterly. JFT's documentation is always complete \u2014 SGS inspection, phytosanitary, COO \u2014 making HMRC clearance fast every time.","datePublished":"2026-02-20"},{"@type":"Review","author":{"@type":"Person","name":"Abdoulaye Diallo"},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"JFT's IR-64 parboiled rice consistency is the best we have received from India. 50 containers delivered without a single quality claim in 3 years.","datePublished":"2026-01-10"}]}</script>
 </head>
 
 <body>
+  <div id="page-progress"></div>
   <div id="preloader">
     <img src="images/jft logo.png" alt="JFT Loading" class="loader-logo-img" width="190" height="80">
     <div class="loader-text">Connecting Global Markets</div>
@@ -5756,7 +5759,9 @@
 
       // ── BACK TO TOP ──
       var btt = document.getElementById('backToTop');
-      window.addEventListener('scroll', function () { if (btt) btt.classList.toggle('show', window.scrollY > 400); });
+      window.addEventListener('scroll', function () {
+    var _pb=document.getElementById('page-progress');
+    if(_pb){var _s=document.documentElement.scrollTop||document.body.scrollTop;var _h=document.documentElement.scrollHeight-document.documentElement.clientHeight;_pb.style.width=(_h>0?(_s/_h)*100:0)+'%';} if (btt) btt.classList.toggle('show', window.scrollY > 400); });
       if (btt) btt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
       // ── INTERSECTION OBSERVER ──

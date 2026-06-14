@@ -1,5 +1,5 @@
 # JFT Agro Overseas — robots.txt
-# Last updated: 2026-05-17
+# Last updated: 2026-06-13
 
 # Allow all crawlers
 User-agent: *
@@ -16,6 +16,7 @@ Allow: /th/
 Allow: /vi/
 
 # Disallow utility pages
+Disallow: /thank-you.html
 Disallow: /generate_hreflang.py
 Disallow: /propagate_products_fix.py
 Disallow: /thorough_fix.py
@@ -65,3 +66,19 @@ Allow: /
 
 User-agent: LinkedInBot
 Allow: /
+
+# AI training crawlers — allow indexing, throttle training
+User-agent: GPTBot
+Crawl-delay: 10
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Crawl-delay: 10
+
+User-agent: CCBot
+Crawl-delay: 30
+
+User-agent: Bytespider
+Crawl-delay: 30
