@@ -205,6 +205,11 @@
   .loader-fill{width:100%;height:100%;background:linear-gradient(90deg,#eebf45,#f7ca5e);transform:translateX(-100%);animation:ll 2s cubic-bezier(.85,0,.15,1) forwards}
   @keyframes ll{to{transform:translateX(0)}}
   @keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+<style>
+@media(max-width:768px){
+  .usecase-doc-grid{grid-template-columns:1fr !important;}
+}
+</style>
 </style>
 
 <!-- GA4 -->
@@ -465,7 +470,7 @@
 <!-- ── USE CASES & DOCUMENTATION ── -->
 <section style="background:var(--cream,#fdfbf7);padding:clamp(50px,6vw,80px) 0;">
   <div class="jft-wide-container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);">
+    <div class="usecase-doc-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px);">
       
       <div>
         <span style="display:inline-flex;align-items:center;gap:8px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:800;color:#3d7030;text-transform:uppercase;letter-spacing:2px;background:rgba(61,112,48,.08);padding:8px 18px;border-radius:50px;border:1px solid rgba(61,112,48,.2);margin-bottom:18px;">
@@ -707,6 +712,21 @@ document.querySelectorAll('.faq-chevron').forEach(function(c){c.closest('.faq-it
     setTimeout(function(){ var p=document.getElementById('preloader');if(p){p.style.opacity='0';setTimeout(function(){p.style.display='none';},500);} }, plDelay);
     setTimeout(function(){ var p=document.getElementById('preloader');if(p){p.style.opacity='0';p.style.display='none';} }, 3000);
 
+</script>
+<script>
+(function(){
+  var fab = document.querySelector('.wa-fab');
+  var btn = document.querySelector('.btn-wa-product');
+  if (!fab || !btn) return;
+  // Hide FAB initially (btn-wa is visible at top of page)
+  fab.style.cssText += ';opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s,visibility .35s;';
+  new IntersectionObserver(function(entries) {
+    var visible = entries[0].isIntersecting;
+    fab.style.opacity    = visible ? '0' : '1';
+    fab.style.visibility = visible ? 'hidden' : 'visible';
+    fab.style.pointerEvents = visible ? 'none' : 'auto';
+  }, { threshold: 0.1 }).observe(btn);
+})();
 </script>
 </body>
 </html>
