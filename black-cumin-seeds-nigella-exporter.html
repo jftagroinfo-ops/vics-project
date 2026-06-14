@@ -195,21 +195,9 @@
 .market-chip img { width: 28px; height: 20px; object-fit: cover; border-radius: 3px; flex-shrink: 0; }
 .market-chip span { font-family: var(--ff-s); font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.8); }
 
-@media(max-width:1024px) { .prod-hero-layout { grid-template-columns: 1fr; } .pkg-grid { grid-template-columns: 1fr 1fr; } .markets-grid { grid-template-columns: 1fr 1fr; } .jft-spec-grid { grid-template-columns: 1fr; } }
-@media(max-width:768px) { .pkg-grid { grid-template-columns: 1fr 1fr; } .markets-grid { grid-template-columns: 1fr; } .prod-hero-badge { bottom: -16px; right: 16px; } .prod-hero-glass { display: none; } }
-@media(max-width:480px) { .pkg-grid { grid-template-columns: 1fr; } }
-  #preloader{position:fixed;inset:0;background:linear-gradient(135deg,#07120f,#1a3c34);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .6s}
-  .loader-logo-img{width:180px;margin-bottom:28px;filter:brightness(0) invert(1);animation:lf 3s ease-in-out infinite}
-  .loader-text{font-family:'Montserrat',sans-serif;font-size:.75rem;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:24px;text-transform:uppercase;letter-spacing:4px}
-  .loader-track{width:200px;height:2px;background:rgba(255,255,255,.1);overflow:hidden;border-radius:2px}
-  .loader-fill{width:100%;height:100%;background:linear-gradient(90deg,#eebf45,#f7ca5e);transform:translateX(-100%);animation:ll 2s cubic-bezier(.85,0,.15,1) forwards}
+
   @keyframes ll{to{transform:translateX(0)}}
   @keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-<style>
-@media(max-width:768px){
-  .usecase-doc-grid{grid-template-columns:1fr !important;}
-}
-</style>
 </style>
 
 <!-- GA4 -->
@@ -233,6 +221,221 @@
      "acceptedAnswer": {"@type": "Answer", "text": "Yes — free samples dispatched worldwide within 24 hours. No minimum weight for samples."}}
   ]
 }</script>
+
+<!-- ── RESPONSIVE OVERRIDES (auto-injected) ── -->
+<style>
+/* ═══════════════════════════════════════════════
+   JFT AGRO — PRODUCT PAGE RESPONSIVE SYSTEM
+   Breakpoints: 1024 · 768 · 480 · 360
+   ═══════════════════════════════════════════════ */
+
+/* ── Global box-sizing & overflow guard ── */
+*, *::before, *::after { box-sizing: border-box; }
+body { overflow-x: hidden; }
+img, video, iframe { max-width: 100%; height: auto; }
+
+/* ── Container padding on small screens ── */
+.jft-wide-container {
+  width: 100%;
+  padding-left: clamp(16px, 4vw, 80px);
+  padding-right: clamp(16px, 4vw, 80px);
+}
+
+/* ── Hero section ── */
+.prod-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 80px);
+  align-items: center;
+}
+.prod-hero-img-wrap { min-height: clamp(240px, 40vh, 520px); }
+.prod-hero-img { width: 100%; height: clamp(240px, 40vh, 520px); object-fit: cover; }
+
+/* Hero CTA buttons — always wrap on small screens */
+.prod-hero-layout .btn-gold,
+.prod-hero-layout .btn-outline,
+.prod-hero-layout .btn-wa-product {
+  white-space: nowrap;
+}
+
+/* ── Spec table section (2-col left/right) ── */
+.jft-spec-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(24px, 5vw, 70px);
+  align-items: start;
+}
+.jft-spec-table { width: 100%; border-collapse: collapse; }
+.jft-spec-table td { padding: clamp(8px,1.5vw,14px) clamp(10px,2vw,18px); }
+
+/* ── 4-col stats strip (FOB Price / Packaging / MOQ / Delivery) ── */
+.stats-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+/* ── Packaging grid ── */
+.pkg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+
+/* ── Markets grid ── */
+.markets-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+/* ── Use Cases chips (2-col inside use-cases column) ── */
+.usecase-chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* ── Use Cases + Documentation outer grid ── */
+.usecase-doc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 5vw, 60px);
+}
+
+/* ── Related products ── */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* ── CTA block buttons ── */
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* ── FAQ max-width ── */
+.faq-wrap { max-width: 800px; margin: 0 auto; }
+
+/* ── Hero badge / glass positioning ── */
+.prod-hero-badge {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+}
+.prod-hero-glass {
+  position: absolute;
+  top: -18px;
+  left: -18px;
+}
+
+/* ═══════════════════════════════
+   TABLET  ≤ 1024px
+   ═══════════════════════════════ */
+@media (max-width: 1024px) {
+  .prod-hero-layout        { grid-template-columns: 1fr; }
+  .jft-spec-grid           { grid-template-columns: 1fr; }
+  .pkg-grid                { grid-template-columns: repeat(2, 1fr); }
+  .markets-grid            { grid-template-columns: repeat(2, 1fr); }
+  .stats-4col              { grid-template-columns: repeat(2, 1fr); }
+  .prod-hero-glass         { display: none; }
+  .prod-hero-badge         { bottom: -16px; right: 16px; }
+}
+
+/* ═══════════════════════════════
+   MOBILE  ≤ 768px
+   ═══════════════════════════════ */
+@media (max-width: 768px) {
+  /* Hero */
+  .prod-hero-layout        { grid-template-columns: 1fr; gap: 24px; }
+  .prod-hero-img           { height: clamp(220px, 55vw, 380px); }
+  .prod-hero-img-wrap      { min-height: clamp(220px, 55vw, 380px); }
+
+  /* Spec grid */
+  .jft-spec-grid           { grid-template-columns: 1fr; gap: 24px; }
+
+  /* Stats strip: 2×2 on tablet, keep 2 cols on mobile */
+  .stats-4col              { grid-template-columns: repeat(2, 1fr); }
+
+  /* Packaging */
+  .pkg-grid                { grid-template-columns: repeat(2, 1fr); }
+
+  /* Markets */
+  .markets-grid            { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .market-chip             { padding: 10px 12px; }
+
+  /* Use cases + documentation: stack */
+  .usecase-doc-grid        { grid-template-columns: 1fr !important; gap: 32px; }
+
+  /* Use cases chips: keep 2-col */
+  .usecase-chips           { grid-template-columns: 1fr 1fr; }
+
+  /* CTA buttons: full width */
+  .cta-actions             { flex-direction: column; align-items: stretch; }
+  .cta-actions a           { text-align: center; justify-content: center; }
+
+  /* Related products */
+  .related-grid            { grid-template-columns: repeat(2, 1fr); }
+
+  /* Hero CTA buttons */
+  [style*="margin-top:36px"][style*="display:flex"][style*="flex-wrap:wrap"] {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  [style*="margin-top:36px"][style*="display:flex"][style*="flex-wrap:wrap"] a {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Section headers */
+  .section-title           { font-size: clamp(1.3rem, 5vw, 2rem) !important; }
+  .section-desc            { font-size: .88rem !important; }
+
+  /* Spec table: smaller padding */
+  .jft-spec-table td       { padding: 8px 10px; font-size: .83rem; }
+}
+
+/* ═══════════════════════════════
+   SMALL MOBILE  ≤ 480px
+   ═══════════════════════════════ */
+@media (max-width: 480px) {
+  /* Stats strip: 1 col */
+  .stats-4col              { grid-template-columns: 1fr !important; }
+
+  /* Packaging: 1 col */
+  .pkg-grid                { grid-template-columns: 1fr !important; }
+
+  /* Markets: 1 col */
+  .markets-grid            { grid-template-columns: 1fr !important; gap: 8px; }
+
+  /* Use cases chips: 1 col */
+  .usecase-chips           { grid-template-columns: 1fr; }
+
+  /* Related products: 1 col */
+  .related-grid            { grid-template-columns: 1fr !important; }
+
+  /* Hero badge: hide on very small */
+  .prod-hero-badge         { display: none; }
+
+  /* Font scaling */
+  .section-title           { font-size: clamp(1.1rem, 6vw, 1.5rem) !important; }
+  h1                       { font-size: clamp(1.3rem, 7vw, 2rem) !important; }
+
+  /* Spec table: compact */
+  .jft-spec-table td       { padding: 6px 8px; font-size: .78rem; }
+
+  /* FAQ */
+  .faq-wrap                { padding: 0 4px; }
+}
+
+/* ═══════════════════════════════
+   TINY MOBILE  ≤ 360px
+   ═══════════════════════════════ */
+@media (max-width: 360px) {
+  .jft-wide-container      { padding-left: 12px; padding-right: 12px; }
+  .stats-4col > *          { border-right: none !important; border-bottom: 1px solid rgba(26,60,52,.08); }
+  .jft-spec-table          { font-size: .75rem; }
+  h1                       { font-size: clamp(1.1rem, 8vw, 1.4rem) !important; }
+}
+</style>
+
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#1a3c34;color:#fff;padding:8px 16px;z-index:10000;text-decoration:none;border-radius:0 0 4px 0;font-size:14px;" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
@@ -391,7 +594,7 @@
 <!-- ── PRICING & AVAILABILITY ── -->
 <section style="background:#fff;padding:clamp(50px,6vw,80px) 0;border-top:1px solid rgba(26,60,52,.08);">
   <div class="jft-wide-container">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;background:#fff;border:1px solid rgba(26,60,52,.1);border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(26,60,52,.06);">
+    <div class="stats-4col" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border:1px solid rgba(26,60,52,.1);border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(26,60,52,.06);">
       <div style="padding:clamp(24px,3vw,40px) clamp(20px,3vw,36px);border-right:1px solid rgba(26,60,52,.08);text-align:center;">
         <i class="fa-solid fa-tag" style="font-size:1.6rem;color:#eebf45;margin-bottom:12px;display:block;"></i>
         <div style="font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;color:#aaa;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Indicative FOB Price</div>
@@ -475,7 +678,7 @@
         </span>
         <h2 style="font-family:Merriweather,serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#1a3c34;margin:0 0 18px;">Who buys <span style="color:#3d7030;">Black Cumin Seeds (Nigella)?</span></h2>
         <p style="font-size:.9rem;color:#666;margin-bottom:22px;line-height:1.7;">Suitable for a wide range of B2B buyers across food, pharma and industrial sectors:</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="usecase-chips" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(26,60,52,.04);border:1px solid rgba(26,60,52,.08);border-radius:10px;">
       <i class="fa-solid fa-circle-check" style="color:#3d7030;font-size:.9rem;flex-shrink:0;"></i>
       <span style="font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:600;color:#333;">Middle East cooking</span>
@@ -632,7 +835,7 @@ document.querySelectorAll('.faq-chevron').forEach(function(c){c.closest('.faq-it
       <span class="brand-tag"><i class="fa-solid fa-layer-group"></i> Related Products</span>
       <h3 style="font-size:1.6rem;font-weight:900;color:#1a3c34">You May Also Be Interested In</h3>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px"><a href="cumin-seeds-jeera-exporter.html" style="display:block;background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:16px;padding:20px;text-decoration:none;transition:.3s" onmouseover="this.style.borderColor='rgba(238,191,69,.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(26,60,52,.08)';this.style.transform=''">
+    <div class="related-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px"><a href="cumin-seeds-jeera-exporter.html" style="display:block;background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:16px;padding:20px;text-decoration:none;transition:.3s" onmouseover="this.style.borderColor='rgba(238,191,69,.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(26,60,52,.08)';this.style.transform=''">
 <div style="font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:800;color:#1a3c34;margin-bottom:6px;display:flex;align-items:center;gap:8px"><i class="fa-solid fa-seedling" style="color:#3d7030"></i>Cumin Seeds Jeera</div>
 <div style="font-family:'Montserrat',sans-serif;font-size:.68rem;color:#aaa;font-weight:600;text-transform:uppercase;letter-spacing:.8px">Export from India →</div>
 </a><a href="coriander-seeds-exporter.html" style="display:block;background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:16px;padding:20px;text-decoration:none;transition:.3s" onmouseover="this.style.borderColor='rgba(238,191,69,.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(26,60,52,.08)';this.style.transform=''">
