@@ -198,7 +198,7 @@
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         font-size: 32px;
@@ -326,24 +326,25 @@
 <script>
     document.getElementById('footer-year').innerText = new Date().getFullYear();
 
-    // Smart WhatsApp Logic
-    document.addEventListener('DOMContentLoaded', () => {
+    // Smart WhatsApp Widget Logic
+    // Runs synchronously after footer is injected — no DOMContentLoaded needed
+    (function() {
         const waLink = document.getElementById('smart-wa-link');
-        /* Hide the footer WA widget if the page already has a .wa-fab button */
-        if (waLink && document.querySelector('.wa-fab')) {
-            waLink.style.display = 'none';
-        }
-        if (waLink) {
-            // Get product name if on product page, else use document title
+        if (!waLink) return;
+
+        // Show widget ONLY if this page has no existing .wa-fab button
+        if (!document.querySelector('.wa-fab')) {
+            waLink.style.display = 'flex';
+
+            // Build context-aware WhatsApp message
             let interest = document.title.split('|')[0].trim();
             const h1 = document.querySelector('h1');
-            if (h1 && window.location.pathname.includes('-exporter')) {
-                interest = h1.innerText.trim();
-            }
-            
-            const message = `Hello JFT Agro, I am interested in ${interest}. Please share the latest FOB/CIF prices and specifications.`;
-            waLink.href = `https://wa.me/918425057274?text=${encodeURIComponent(message)}`;
+            if (h1) interest = h1.innerText.replace(/\n/g, ' ').trim().split('\n')[0];
+
+            const message = 'Hello JFT Agro, I am interested in ' + interest + '. Please share the latest FOB/CIF prices and specifications.';
+            waLink.href = 'https://wa.me/918425057274?text=' + encodeURIComponent(message);
         }
-    });
+        // If page already has .wa-fab, widget stays display:none (CSS default)
+    })();
 </script>
 
