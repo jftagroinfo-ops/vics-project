@@ -1,0 +1,71 @@
+<!--
+  ╔═══════════════════════════════════════════════════════════════════════╗
+  ║  JFT AGRO — INNER PAGE HERO SNIPPET                                 ║
+  ║  Replace the plain <h1> / breadcrumb at the top of every inner page  ║
+  ║  with this component. Adjust variables per page.                     ║
+  ╚═══════════════════════════════════════════════════════════════════════╝
+
+  USAGE: paste this block immediately after <div id="header-placeholder"></div>
+  Customise: PAGE_TITLE, PAGE_SUBTITLE, BG_IMAGE, BREADCRUMB_LABEL, HERO_TAGS
+-->
+
+<!-- ════════ INNER PAGE HERO — standard for all non-homepage pages ════════ -->
+<section class="jft-page-hero">
+  <!-- Background image (optional — set to your page's hero image) -->
+  <div class="jft-page-hero-bg" style="background-image:url('images/products/basmati_rice_hd.webp');"></div>
+  <div class="jft-page-hero-glow"></div>
+  <div class="jft-page-hero-gold-stripe"></div>
+
+  <div class="jft-wide-container jft-page-hero-inner">
+    <!-- Breadcrumb -->
+    <nav class="jft-breadcrumb" aria-label="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span style="color:var(--gold)">PAGE_BREADCRUMB_LABEL</span>
+    </nav>
+
+    <!-- Tag + H1 + subtitle + CTA -->
+    <span class="brand-tag brand-tag-white">
+      <i class="fa-solid fa-ICON_CLASS"></i> PAGE_TAG
+    </span>
+    <h1 class="jft-page-hero-title" style="margin-top:16px;">
+      PAGE_H1_LINE1<br><em>PAGE_H1_ITALIC</em>
+    </h1>
+    <p class="jft-page-hero-sub">PAGE_SUBTITLE</p>
+    <div class="jft-page-hero-meta">
+      <span class="jft-hero-tag"><i class="fa-solid fa-star"></i> Star Export House</span>
+      <span class="jft-hero-tag"><i class="fa-solid fa-certificate"></i> ISO 9001:2015</span>
+      <span class="jft-hero-tag"><i class="fa-solid fa-globe"></i> 20+ Countries</span>
+    </div>
+  </div>
+</section>
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+
+
+<!--
+  ╔═══════════════════════════════════════════════════════════════════════╗
+  ║  EXAMPLES FOR EACH PAGE TYPE                                         ║
+  ╚═══════════════════════════════════════════════════════════════════════╝
+
+  ── CONTACT PAGE ──────────────────────────────────────────────────────
+  <h1>Global Trade <em>Enquiry Desk</em></h1>
+  <p class="jft-page-hero-sub">Send us your requirement — quantity, destination, Incoterms. We respond within 4 business hours with a competitive factory-direct quote.</p>
+
+  ── FAQ PAGE ──────────────────────────────────────────────────────────
+  <h1>Trade <em>FAQ & Glossary</em></h1>
+  <p class="jft-page-hero-sub">Everything international buyers need to know about Indian agro commodity exports — MOQs, payment terms, documentation and shipping.</p>
+
+  ── ABOUT PAGE (already has its own hero — keep as-is) ────────────────
+
+  ── AFRICA TRADE ──────────────────────────────────────────────────────
+  <h1>India to <em>Africa</em><br>Trade Corridor</h1>
+  <p class="jft-page-hero-sub">JFT Agro Overseas supplies premium Indian rice, spices and grains to 8+ African nations — Benin, Togo, Ghana, Kenya, Tanzania and more.</p>
+
+  ── BLOG PAGE ─────────────────────────────────────────────────────────
+  <h1>Market <em>Intelligence</em><br>& Trade Insights</h1>
+  <p class="jft-page-hero-sub">In-depth guides, market analysis and regulatory updates for international buyers of Indian agricultural commodities.</p>
+
+  ── CERTIFICATES PAGE ─────────────────────────────────────────────────
+  <h1>Certifications <em>& Accreditations</em></h1>
+  <p class="jft-page-hero-sub">Our Star Export House, APEDA, FSSAI and ISO certifications prove every claim we make about quality and compliance.</p>
+-->
