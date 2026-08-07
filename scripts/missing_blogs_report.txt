@@ -1,0 +1,178 @@
+Scanned: 45 unique blog references
+Existing blog files discovered: 148
+Missing targets: 11
+
+Missing blog files and their source contexts:
+
+--- blog-basmati-rice-import-uae-esma-standards.html
+  ar\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  ar\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  es\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  es\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  fr\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  fr\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  id\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  id\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  ms\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  ms\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  pt\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  pt\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  ru\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  ru\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  si\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  si\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  th\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  th\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  vi\blog.html#L405: <a href="blog-basmati-rice-import-uae-esma-standards.html" class="article-card" data-cat="market">
+  vi\uae-trade.html#L333: <a href="blog-basmati-rice-import-uae-esma-standards.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+
+--- blog-black-pepper-powder-export-india-2026.html
+  ar\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+  es\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+  fr\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+  id\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+  ms\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+  pt\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+  ru\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+  si\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+  th\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+  vi\blog.html#L345: <a href="blog-black-pepper-powder-export-india-2026.html" class="article-card" data-cat="market">
+
+--- blog-fennel-seeds-export-india-2026.html
+  ar\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  es\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  fr\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  id\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  ms\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  pt\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  ru\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  si\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  th\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  vi\blog.html#L333: <a href="blog-fennel-seeds-export-india-2026.html" class="article-card" data-cat="market">
+
+--- blog-fenugreek-seeds-export-india-2026.html
+  ar\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  es\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  fr\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  id\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  ms\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  pt\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  ru\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  si\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  th\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+  vi\blog.html#L321: <a href="blog-fenugreek-seeds-export-india-2026.html" class="article-card" data-cat="market">
+
+--- blog-fssai-apeda-agmark-certifications-explained.html
+  ar\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  ar\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  es\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  es\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  fr\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  fr\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  id\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  id\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  ms\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  ms\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  pt\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  pt\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  ru\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  ru\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  si\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  si\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  th\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  th\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  vi\blog.html#L537: <a href="blog-fssai-apeda-agmark-certifications-explained.html" class="article-card" data-cat="market">
+  vi\faq.html#L237: <a href="blog-fssai-apeda-agmark-certifications-explained.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+
+--- blog-indian-spice-export-middle-east-gulf.html
+  ar\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  ar\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  es\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  es\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  fr\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  fr\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  id\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  id\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  ms\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  ms\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  pt\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  pt\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  ru\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  ru\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  si\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  si\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  th\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  th\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+  vi\blog.html#L441: <a href="blog-indian-spice-export-middle-east-gulf.html" class="article-card" data-cat="market">
+  vi\uae-trade.html#L338: <a href="blog-indian-spice-export-middle-east-gulf.html" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid #e8e8e8;border-radius:14px;text-decoration:none;color:inherit;transition:0.3s;" onmouseover="this.style.borderColor='#4e8c3e';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(78,140,62,0.12)'" onmouseout="this.style.borderColor='#e8e8e8';this.style.transform='none';this.style.boxShadow='none'">
+
+--- blog-moringa-powder-export-india-2026.html
+  ar\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+  es\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+  fr\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+  id\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+  ms\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+  pt\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+  ru\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+  si\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+  th\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+  vi\blog.html#L309: <a href="blog-moringa-powder-export-india-2026.html" class="article-card" data-cat="market">
+
+--- blog-phytosanitary-certificate-india-exports.html
+  ar\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+  es\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+  fr\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+  id\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+  ms\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+  pt\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+  ru\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+  si\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+  th\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+  vi\blog.html#L501: <a href="blog-phytosanitary-certificate-india-exports.html" class="article-card" data-cat="market">
+
+--- blog-sugar-s30-export-india-2026.html
+  ar\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  ar\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+  es\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  es\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+  fr\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  fr\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+  id\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  id\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+  ms\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  ms\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+  pt\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  pt\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+  ru\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  ru\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+  si\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  si\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+  th\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  th\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+  vi\blog.html#L369: <a href="blog-sugar-s30-export-india-2026.html" class="article-card" data-cat="market">
+  vi\sugar-s30-supplier.html#L477: <a href="blog-sugar-s30-export-india-2026.html" style="font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--jft-navy,#1a3c34);text-decoration:none;line-height:1.4;display:block;margin-bottom:6px;">Indian White Sugar S-30 Export 2026: ICUMSA, Specs & FOB Prices →</a>
+
+--- blog-wheat-flour-atta-export-india-2026.html
+  ar\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+  es\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+  fr\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+  id\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+  ms\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+  pt\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+  ru\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+  si\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+  th\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+  vi\blog.html#L285: <a href="blog-wheat-flour-atta-export-india-2026.html" class="article-card" data-cat="market">
+
+--- blog-yellow-maize-export-india-2026.html
+  ar\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+  es\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+  fr\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+  id\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+  ms\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+  pt\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+  ru\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+  si\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+  th\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+  vi\blog.html#L297: <a href="blog-yellow-maize-export-india-2026.html" class="article-card" data-cat="market">
+
