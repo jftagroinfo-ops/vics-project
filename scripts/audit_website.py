@@ -1,10 +1,23 @@
 import os
 import re
+from urllib.parse import unquote
 from bs4 import BeautifulSoup
 
 # Configuration
 BASE_DIR = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
 IGNORE_DIRS = ['.git', '.github', 'images', 'assets', 'tools']
+SKIP_FILES = {
+    'footer.html',
+    'header.html',
+    'inner-page-hero-snippet.html',
+    'seo-universal-head-snippet.html',
+    'yandex_3fbd4b91e2017518.html'
+}
+
+
+def is_renderable_html(content):
+    lower = content.lower()
+    return '<html' in lower or '<!doctype' in lower
 
 def audit_website():
     print("--- Starting Professional Website Audit ---")
@@ -36,9 +49,14 @@ def audit_website():
             valid_files.add(rel_path)
 
     for file_path in all_files:
-        rel_file_path = os.path.relpath(file_path, BASE_DIR)
+        rel_file_path = os.path.relpath(file_path, BASE_DIR).replace('\\', '/')
+        if os.path.basename(rel_file_path) in SKIP_FILES:
+            continue
+
         with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
             content = f.read()
+            if not is_renderable_html(content):
+                continue
             soup = BeautifulSoup(content, 'html.parser')
             
             # 1. SEO Checks
@@ -66,34 +84,32 @@ def audit_website():
             for img in imgs:
                 src = img.get('src')
                 if src and not src.startswith('http') and not src.startswith('data:'):
-                    # Handle relative paths
                     clean_src = src.split('?')[0].split('#')[0]
-                    # If in subfolder like 'ar/', we need to adjust
-                    if '/' in rel_file_path.replace('\\','/'):
-                        # Simplified check: try relative to file and relative to root
-                        img_rel = os.path.normpath(os.path.join(os.path.dirname(rel_file_path), clean_src)).replace('\\', '/')
+                    clean_src_decoded = unquote(clean_src)
+                    if '/' in rel_file_path:
+                        img_rel = os.path.normpath(os.path.join(os.path.dirname(rel_file_path), clean_src_decoded)).replace('\\', '/')
                     else:
-                        img_rel = clean_src
-                    
-                    if img_rel not in valid_files and clean_src not in valid_files:
+                        img_rel = clean_src_decoded
+
+                    if img_rel not in valid_files and clean_src_decoded not in valid_files and clean_src not in valid_files:
                         errors["missing_images"].append(f"{rel_file_path} -> {src}")
 
             # 4. Internal Link Checks
             links = soup.find_all('a')
             for link in links:
                 href = link.get('href')
-                if href and not href.startswith('http') and not href.startswith('#') and not href.startswith('mailto:') and not href.startswith('tel:'):
+                if href and not href.startswith('http') and not href.startswith('#') and not href.lower().startswith('mailto:') and not href.lower().startswith('tel:') and not href.lower().startswith('javascript:'):
                     clean_href = href.split('?')[0].split('#')[0]
-                    if not clean_href: continue
-                    
-                    if '/' in rel_file_path.replace('\\','/'):
-                        link_rel = os.path.normpath(os.path.join(os.path.dirname(rel_file_path), clean_href)).replace('\\', '/')
+                    if not clean_href:
+                        continue
+                    clean_href_decoded = unquote(clean_href)
+                    if '/' in rel_file_path:
+                        link_rel = os.path.normpath(os.path.join(os.path.dirname(rel_file_path), clean_href_decoded)).replace('\\', '/')
                     else:
-                        link_rel = clean_href
+                        link_rel = clean_href_decoded
                     
-                    if link_rel not in valid_files and clean_href not in valid_files and (clean_href + 'index.html' not in valid_files):
-                        if clean_href.endswith('/'):
-                             if (clean_href + 'index.html') in valid_files: continue
+                    candidate_paths = {link_rel, clean_href_decoded, clean_href, f'{clean_href_decoded}index.html', f'{clean_href}index.html'}
+                    if not candidate_paths & valid_files:
                         errors["broken_links"].append(f"{rel_file_path} -> {href}")
 
     # Print Results

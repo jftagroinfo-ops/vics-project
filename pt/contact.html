@@ -615,7 +615,12 @@ function updateClocks() {
 }
 setInterval(updateClocks, 1000); updateClocks();
 async function handleRFQ(e) {
-  e.preventDefault();
+    e.preventDefault();
+    const fdCheck = new FormData(e.target);
+    const emailStr = fdCheck.get('email');
+    const phoneStr = fdCheck.get('phone');
+    if (emailStr && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailStr)) { alert('Please enter a valid email address.'); return; }
+    if (phoneStr && !/^[\d\+\-\s\(\)]+$/.test(phoneStr)) { alert('Please enter a valid phone number.'); return; }
   const btn = document.getElementById('submitBtn');
   const btext = document.getElementById('sBtnText');
   const spin = document.getElementById('sSpinner');

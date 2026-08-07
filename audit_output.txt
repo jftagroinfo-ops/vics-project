@@ -1,0 +1,84 @@
+--- Starting Professional Website Audit ---
+Total HTML files found: 1509
+
+--- Audit Results ---
+
+[!] BROKEN_LINKS (352 items):
+  - asia-trade.html -> blog-india-rice-export-sri-lanka-bangladesh.html
+  - asia-trade.html -> blog-green-mung-beans-export-india-2026.html
+  - blog-bill-of-lading-explained-importers.html -> blog-letter-of-credit-food-imports-india.html
+  - blog-bill-of-lading-explained-importers.html -> blog-how-to-read-proforma-invoice-india-export.html
+  - blog-how-to-choose-indian-agro-exporter.html -> blog-sgs-inspection-indian-agro-exports.html
+  - blog-red-chilli-teja-export-india-2026.html -> blog-coriander-seeds-export-india-2026.html
+  - blog-red-chilli-teja-export-india-2026.html -> blog-import-indian-spices-uk-europe.html
+  - blog.html -> blog-coriander-seeds-export-india-2026.html
+  - blog.html -> blog-groundnut-peanut-export-india-2026.html
+  - blog.html -> blog-toor-dal-export-india-2026.html
+  ... and 342 more.
+
+[!] MISSING_IMAGES (1815 items):
+  - 10-parboiled-rice-ir-64-exporter.html -> images/jft%20logo.png
+  - 10-parboiled-rice-ir-64-exporter.html -> images/products/10%25%20Parboiled%20Rice%20%28IR-64%29.webp
+  - 100-broken-rice-exporter.html -> images/jft%20logo.png
+  - 100-broken-rice-exporter.html -> images/products/100%25%20Broken%20Rice.webp
+  - 1121-basmati-rice-exporter.html -> images/jft%20logo.png
+  - 1121-basmati-rice-exporter.html -> images/products/Premium%201121%20Basmati%20Rice.webp
+  - 1121-raw-basmati-rice-exporter.html -> images/jft%20logo.png
+  - 1121-raw-basmati-rice-exporter.html -> images/products/1121%20Raw%20Basmati%20Rice.webp
+  - 1121-steam-basmati-rice-exporter.html -> images/jft%20logo.png
+  - 1121-steam-basmati-rice-exporter.html -> images/products/1121%20Steam%20Basmati%20Rice.webp
+  ... and 1805 more.
+
+[!] SEO_MISSING_DESC (35 items):
+  - footer.html
+  - header.html
+  - inner-page-hero-snippet.html
+  - seo-universal-head-snippet.html
+  - yandex_3fbd4b91e2017518.html
+  - ar\inner-page-hero-snippet.html
+  - ar\seo-universal-head-snippet.html
+  - ar\yandex_3fbd4b91e2017518.html
+  - es\inner-page-hero-snippet.html
+  - es\seo-universal-head-snippet.html
+  ... and 25 more.
+
+[!] SEO_MISSING_TITLE (35 items):
+  - footer.html
+  - header.html
+  - inner-page-hero-snippet.html
+  - seo-universal-head-snippet.html
+  - yandex_3fbd4b91e2017518.html
+  - ar\inner-page-hero-snippet.html
+  - ar\seo-universal-head-snippet.html
+  - ar\yandex_3fbd4b91e2017518.html
+  - es\inner-page-hero-snippet.html
+  - es\seo-universal-head-snippet.html
+  ... and 25 more.
+
+[!] SEO_MISSING_CANONICAL (35 items):
+  - footer.html
+  - header.html
+  - inner-page-hero-snippet.html
+  - seo-universal-head-snippet.html
+  - yandex_3fbd4b91e2017518.html
+  - ar\inner-page-hero-snippet.html
+  - ar\seo-universal-head-snippet.html
+  - ar\yandex_3fbd4b91e2017518.html
+  - es\inner-page-hero-snippet.html
+  - es\seo-universal-head-snippet.html
+  ... and 25 more.
+
+[!] MISSING_HEADER_FOOTER (13 items):
+  - footer.html (Header)
+  - header.html (Header)
+  - seo-universal-head-snippet.html (Header)
+  - ar\seo-universal-head-snippet.html (Header)
+  - es\seo-universal-head-snippet.html (Header)
+  - fr\seo-universal-head-snippet.html (Header)
+  - id\seo-universal-head-snippet.html (Header)
+  - ms\seo-universal-head-snippet.html (Header)
+  - pt\seo-universal-head-snippet.html (Header)
+  - ru\seo-universal-head-snippet.html (Header)
+  ... and 3 more.
+
+[OK] BROKEN_JS_CSS
