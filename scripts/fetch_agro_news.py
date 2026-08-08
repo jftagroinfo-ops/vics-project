@@ -3,9 +3,10 @@ import json
 import os
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from pathlib import Path
 
 # Configuration
-NEWS_FILE = 'news.json'
+NEWS_FILE = Path(__file__).resolve().parent.parent / 'news.json'
 # Google News RSS for Indian Agricultural Exports
 RSS_URL = 'https://news.google.com/rss/search?q=Indian+Agriculture+Export+Rice+Spices+Trade&hl=en-IN&gl=IN&ceid=IN:en'
 

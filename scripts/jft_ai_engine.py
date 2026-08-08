@@ -2,16 +2,18 @@ import os
 import re
 import argparse
 import json
+import subprocess
+import sys
 from datetime import datetime
 
 # Paths
 # Portable Paths
 TOOLS_DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.abspath(TOOLS_DIR)
+BASE_DIR = os.path.abspath(os.path.join(TOOLS_DIR, '..'))
 TEMPLATE_FILE = os.path.join(BASE_DIR, 'blog-basmati-export-guide.html')
 BLOG_LIST_FILE = os.path.join(BASE_DIR, 'blog.html')
-SITEMAP_SCRIPT = os.path.join(BASE_DIR, 'generate_sitemap.py')
-TRANS_SCRIPT = os.path.join(BASE_DIR, 'generate_hreflang.py')
+SITEMAP_SCRIPT = os.path.join(TOOLS_DIR, 'generate_sitemap.py')
+TRANS_SCRIPT = os.path.join(TOOLS_DIR, 'generate_hreflang.py')
 
 def generate_slug(title):
     slug = title.lower().strip()
@@ -105,8 +107,8 @@ def main():
     
     # Update Sitemap & Translations
     print("Refreshing sitemap and translations...")
-    os.system(f"python {SITEMAP_SCRIPT}")
-    os.system(f"python {TRANS_SCRIPT}")
+    subprocess.run([sys.executable, TRANS_SCRIPT], check=True)
+    subprocess.run([sys.executable, SITEMAP_SCRIPT], check=True)
     
     print("\n[SUCCESS] New blog post is live in all languages!")
 

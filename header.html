@@ -31,6 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
+if(document.querySelector('script[src*="embed.tawk.to"]')) return;
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
 s1.src='https://embed.tawk.to/69f470aa8523f61c32f239ee/default';
@@ -650,7 +651,7 @@ s0.parentNode.insertBefore(s1,s0);
   <!-- Logo row: always visible, desktop nav lives here too -->
   <div class="nav-flex">
     <a href="index.html" class="nav-logo-link">
-      <img src="images/jft logo.png" alt="JFT Agro" class="nav-logo-img" width="200" height="75">
+      <img src="/images/jft logo.png" alt="JFT Agro" class="nav-logo-img" width="200" height="75">
     </a>
 
     <!-- Desktop nav links (hidden on mobile via CSS) -->
@@ -709,6 +710,7 @@ s0.parentNode.insertBefore(s1,s0);
           <a href="packing-calculator.html"><i class="fa-solid fa-boxes-stacked dd-icon"></i> Packing Calculator</a>
           <a href="shipment-tracker.html"><i class="fa-solid fa-ship dd-icon"></i> Shipment Tracker</a>
           <a href="port-transit-calculator.html"><i class="fa-solid fa-map-location-dot dd-icon"></i> Port Transit Time</a>
+          <a href="sample-request.html"><i class="fa-solid fa-flask-vial dd-icon"></i> Request Sample</a>
           <div class="dd-divider"></div>
           <a href="whatsapp-catalog.html" style="color:#25d366!important;font-weight:700"><i class="fa-brands fa-whatsapp dd-icon" style="color:#25d366!important;opacity:1"></i> WhatsApp Catalog</a>
         </div>
@@ -801,6 +803,7 @@ s0.parentNode.insertBefore(s1,s0);
       <a href="packing-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-boxes-stacked mnav-tool-icon"></i> Packing Calculator</a>
       <a href="shipment-tracker.html" onclick="closeMenu()"><i class="fa-solid fa-ship mnav-tool-icon"></i> Shipment Tracker</a>
       <a href="port-transit-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-map-location-dot mnav-tool-icon"></i> Port Transit Time</a>
+      <a href="sample-request.html" onclick="closeMenu()"><i class="fa-solid fa-flask-vial mnav-tool-icon"></i> Request Sample</a>
       <a href="whatsapp-catalog.html" onclick="closeMenu()" style="color:rgba(37,211,102,.9);font-weight:700"><i class="fa-brands fa-whatsapp mnav-tool-icon" style="color:#25d366"></i> WhatsApp Catalog</a>
     </div>
   </div>
@@ -921,6 +924,21 @@ s0.parentNode.insertBefore(s1,s0);
     // Initial load with fallbacks to avoid "---"
     Object.keys(fallbacks).forEach(id => updateTickerDOM(id, labels[id], fallbacks[id]));
 
+    /* Reuse a recent response across page views instead of calling three
+       third-party APIs on every navigation. */
+    try {
+      const cached = JSON.parse(localStorage.getItem('jft_forex_cache') || 'null');
+      if (cached && Date.now() - cached.savedAt < 30 * 60 * 1000 && cached.rates) {
+        updateTickerDOM('fx-usd', 'USD/INR', cached.rates.usd);
+        updateTickerDOM('fx-eur', 'EUR/INR', cached.rates.eur);
+        updateTickerDOM('fx-gbp', 'GBP/INR', cached.rates.gbp);
+        updateTickerDOM('fx-aed', 'AED/INR', cached.rates.aed);
+        return;
+      }
+    } catch (e) {
+      /* Storage can be unavailable in strict privacy modes; continue safely. */
+    }
+
     /* Try multiple APIs in order — fallbacks ensure rates always show */
     const APIS = [
       {
@@ -968,6 +986,9 @@ s0.parentNode.insertBefore(s1,s0);
           updateTickerDOM('fx-eur', 'EUR/INR', rates.eur);
           updateTickerDOM('fx-gbp', 'GBP/INR', rates.gbp);
           updateTickerDOM('fx-aed', 'AED/INR', rates.aed);
+          try {
+            localStorage.setItem('jft_forex_cache', JSON.stringify({ savedAt: Date.now(), rates }));
+          } catch (e) {}
           ratesFetched = true;
           console.log('Forex loaded from:', api.url.split('/')[2]);
         }
@@ -1025,21 +1046,16 @@ s0.parentNode.insertBefore(s1,s0);
     const isSub = window.location.pathname.includes('/ar/') || window.location.pathname.includes('/vi/') || window.location.pathname.includes('/fr/') || window.location.pathname.includes('/ru/') || window.location.pathname.includes('/es/') || window.location.pathname.includes('/pt/') || window.location.pathname.includes('/ms/') || window.location.pathname.includes('/id/') || window.location.pathname.includes('/th/') || window.location.pathname.includes('/si/');
     const prefix = isSub ? '../' : '';
     
-    // Self-healing path logic for Header Assets
-    if (isSub) {
-      document.querySelectorAll('.nav-logo-img').forEach(img => {
-        if (!img.src.includes('../')) img.src = '../' + (img.getAttribute('src') || 'images/jft logo.png');
-      });
-      document.querySelectorAll('.nav-menu a, .markets-menu a').forEach(a => {
-        const h = a.getAttribute('href');
-        if (h && !h.startsWith('http') && !h.startsWith('#') && !h.includes('../')) {
-           a.setAttribute('href', '../' + h);
-        }
-      });
-    }
-
     const page = window.location.pathname.split('/').pop() || 'index.html';
-    const langs = [
+    const englishOnly = new Set([
+      'blog-green-mung-beans-export-india-2026.html',
+      'blog-how-to-read-proforma-invoice-india-export.html',
+      'blog-india-rice-export-sri-lanka-bangladesh.html',
+      'blog-letter-of-credit-food-imports-india.html',
+      'blog-sgs-inspection-indian-agro-exports.html',
+      'blog-toor-dal-export-india-2026.html'
+    ]);
+    let langs = [
       { code: 'en', name: 'English', flag: 'https://flagcdn.com/w40/us.png', path: prefix + page },
       { code: 'ar', name: 'العربية', flag: 'https://flagcdn.com/w40/ae.png', path: prefix + 'ar/' + page },
       { code: 'fr', name: 'Français', flag: 'https://flagcdn.com/w40/fr.png', path: prefix + 'fr/' + page },
@@ -1052,15 +1068,29 @@ s0.parentNode.insertBefore(s1,s0);
       { code: 'th', name: 'ไทย', flag: 'https://flagcdn.com/w40/th.png', path: prefix + 'th/' + page },
       { code: 'si', name: 'සිංහල', flag: 'https://flagcdn.com/w40/lk.png', path: prefix + 'si/' + page }
     ];
+    if (englishOnly.has(page)) langs = langs.filter(l => l.code === 'en');
     grid.innerHTML = langs.map(l => `<a href="${l.path}"><img src="${l.flag}" class="lang-flag" alt="${l.code}"> ${l.name}</a>`).join('');
   }
 
   /* ── INIT: run immediately if DOM already loaded (header injected via fetch),
      or wait for DOMContentLoaded if somehow loaded synchronously ── */
   function jftHeaderInit() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(function(err) {
+        console.warn('Service worker registration failed:', err);
+      });
+    }
     fetchLiveForex();
     fetchMarketNews();
     initLocalizationLinks();
+    document.querySelectorAll('.nav-links-desktop a, .mobile-nav-drawer a').forEach(function(link) {
+      try {
+        const target = new URL(link.getAttribute('href'), window.location.href);
+        if (target.pathname === window.location.pathname && target.search === window.location.search) {
+          link.setAttribute('aria-current', 'page');
+        }
+      } catch (e) {}
+    });
     const dateSpan = document.getElementById('forex-date');
     if (dateSpan) dateSpan.innerText = 'RATES AS OF ' + new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
   }

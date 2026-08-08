@@ -1,0 +1,50 @@
+name: JFT Global Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */12 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - '**/*.html'
+      - 'scripts/*.py'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: global-sync-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Refresh generated data and metadata
+        run: |
+          python scripts/fetch_agro_news.py
+          python scripts/generate_hreflang.py
+          python scripts/generate_sitemap.py
+
+      - name: Commit generated changes
+        run: |
+          git config user.name "JFT Automation"
+          git config user.email "exports@jftagro.com"
+          git add news.json sitemap.xml '*.html' ar es fr id ms pt ru si th vi
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: refresh market data and search metadata"
+          git push

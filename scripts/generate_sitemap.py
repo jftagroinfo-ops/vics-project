@@ -1,75 +1,67 @@
-import os
-from datetime import datetime
+#!/usr/bin/env python3
+"""Build a complete sitemap containing every indexable localized URL."""
 
-base_url = "https://jftagro.com/"
-directory = os.path.abspath(os.path.dirname(__file__))
+from __future__ import annotations
 
-LANGS = ["ar","es","fr","id","ms","pt","ru","si","th","vi"]
+import html
+import re
+from datetime import date
+from pathlib import Path
 
-EXCLUDE = {
-    "header.html","footer.html","inner-page-hero-snippet.html",
-    "seo-universal-head-snippet.html","product-page-template.html",
-    "cookie-consent-snippet.html","thank-you.html","404.html"
-}
+from generate_hreflang import LANGS, ROOT, is_indexable, locale, public_url
 
-today = datetime.now().strftime("%Y-%m-%d")
-url_count = 0
 
-xml  = '<?xml version="1.0" encoding="UTF-8"?>\n'
-xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
-xml += '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+def priority(path: Path) -> tuple[str, str]:
+    if path.name == "index.html":
+        return "1.0", "weekly"
+    if path.name == "products.html":
+        return "0.9", "weekly"
+    if path.name in {"about.html", "contact.html", "quality-control.html"}:
+        return "0.85", "monthly"
+    if "-exporter.html" in path.name or "-supplier.html" in path.name:
+        return "0.80", "monthly"
+    if path.name.startswith("blog"):
+        return "0.70", "monthly"
+    return "0.50", "yearly"
 
-for root_dir, dirs, files in os.walk(directory):
-    dirs[:] = [d for d in dirs if not d.startswith(".")]
 
-    for file in sorted(files):
-        if not file.endswith(".html") or file in EXCLUDE:
-            continue
+def main() -> None:
+    pages = [path for path in ROOT.rglob("*.html") if is_indexable(path)]
+    by_name: dict[str, list[Path]] = {}
+    for path in pages:
+        by_name.setdefault(path.name, []).append(path)
 
-        rel = os.path.relpath(os.path.join(root_dir, file), directory).replace(os.sep, "/")
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    ]
+    for path in sorted(pages, key=public_url):
+        url = public_url(path)
+        score, frequency = priority(path)
+        lines.extend(
+            [
+                "  <url>",
+                f"    <loc>{html.escape(url)}</loc>",
+                f"    <lastmod>{date.today().isoformat()}</lastmod>",
+                f"    <changefreq>{frequency}</changefreq>",
+                f"    <priority>{score}</priority>",
+            ]
+        )
+        for item in sorted(by_name[path.name], key=lambda candidate: (locale(candidate) != "en", locale(candidate))):
+            lines.append(
+                f'    <xhtml:link rel="alternate" hreflang="{locale(item)}" href="{html.escape(public_url(item))}"/>'
+            )
+        english = next((item for item in by_name[path.name] if locale(item) == "en"), None)
+        if english:
+            lines.append(
+                f'    <xhtml:link rel="alternate" hreflang="x-default" href="{html.escape(public_url(english))}"/>'
+            )
+        lines.append("  </url>")
+    lines.append("</urlset>")
+    (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"Generated sitemap.xml with {len(pages)} indexable URLs.")
 
-        # Skip lang sub-directories (ar/, fr/, etc.) – hreflang handled below
-        top_dir = rel.split("/")[0]
-        if top_dir in LANGS:
-            continue
 
-        url = base_url if rel == "index.html" else base_url + rel
-
-        # Priority & changefreq
-        if rel == "index.html":
-            priority, changefreq = "1.0", "weekly"
-        elif rel == "products.html":
-            priority, changefreq = "0.9", "weekly"
-        elif rel in ("about.html","contact.html","quality-control.html"):
-            priority, changefreq = "0.85", "monthly"
-        elif "-exporter.html" in rel or "-supplier.html" in rel:
-            priority, changefreq = "0.80", "monthly"
-        elif rel.startswith("blog"):
-            priority, changefreq = "0.70", "monthly"
-        elif rel in ("africa-trade.html","asia-trade.html","europe-trade.html","uae-trade.html"):
-            priority, changefreq = "0.75", "monthly"
-        else:
-            priority, changefreq = "0.50", "yearly"
-
-        # Hreflang block
-        hreflang = f'    <xhtml:link rel="alternate" hreflang="en" href="{url}"/>\n'
-        for lc in LANGS:
-            lang_url = base_url + lc + "/" + rel
-            hreflang += f'    <xhtml:link rel="alternate" hreflang="{lc}" href="{lang_url}"/>\n'
-        hreflang += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url}"/>\n'
-
-        xml += "  <url>\n"
-        xml += f"    <loc>{url}</loc>\n"
-        xml += f"    <lastmod>{today}</lastmod>\n"
-        xml += f"    <changefreq>{changefreq}</changefreq>\n"
-        xml += f"    <priority>{priority}</priority>\n"
-        xml += hreflang
-        xml += "  </url>\n"
-        url_count += 1
-
-xml += "</urlset>"
-
-with open(os.path.join(directory, "sitemap.xml"), "w", encoding="utf-8") as f:
-    f.write(xml)
-
-print(f"[OK] sitemap.xml regenerated — {url_count} URLs with hreflang for {len(LANGS)} languages.")
+if __name__ == "__main__":
+    main()

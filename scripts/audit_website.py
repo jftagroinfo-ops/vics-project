@@ -4,12 +4,14 @@ from urllib.parse import unquote
 from bs4 import BeautifulSoup
 
 # Configuration
-BASE_DIR = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 IGNORE_DIRS = ['.git', '.github', 'images', 'assets', 'tools']
 SKIP_FILES = {
     'footer.html',
     'header.html',
     'inner-page-hero-snippet.html',
+    'product-page-template.html',
+    'cookie-consent-snippet.html',
     'seo-universal-head-snippet.html',
     'yandex_3fbd4b91e2017518.html'
 }

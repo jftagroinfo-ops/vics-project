@@ -1,0 +1,4 @@
+beautifulsoup4>=4.13,<5
+Pillow>=11,<12
+reportlab>=5,<6
+requests>=2.32,<3
