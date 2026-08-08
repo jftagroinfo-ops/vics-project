@@ -1,7 +1,7 @@
 import os
 import re
 
-BASE_DIR = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 def propagate_fix():
     print("--- Propagating Products Page Fix ---")
