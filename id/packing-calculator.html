@@ -553,9 +553,9 @@ async function loadComponent(id, file) {
 
 /* ── DATA ── */
 const CONTAINERS = {
-  '20ft': { name:'20ft FCL', payload:28000,  volume:25.8,  label:'~28,000 kg',  vlabel:'25.8 CBM' },
-  '40ft': { name:'40ft FCL', payload:26500,  volume:56.1,  label:'~26,500 kg',  vlabel:'56.1 CBM' },
-  '40hc': { name:'40ft HC',  payload:26300,  volume:66.7,  label:'~26,300 kg',  vlabel:'66.7 CBM' }
+  '20ft': { name:'20ft FCL', payload:28000,  volume:33.2,  label:'~28,000 kg',  vlabel:'33.2 CBM' },
+  '40ft': { name:'40ft FCL', payload:26500,  volume:67.7,  label:'~26,500 kg',  vlabel:'67.7 CBM' },
+  '40hc': { name:'40ft HC',  payload:26300,  volume:76.3,  label:'~26,300 kg',  vlabel:'76.3 CBM' }
 };
 
 /* Bulk density kg/CBM (average; varies by moisture & grade) */
@@ -569,13 +569,13 @@ const DENSITY = {
 };
 
 /* Bag overfill factor: filled bags occupy more volume than pure density math */
-const BAG_OVERFILL = { 1:1.35, 5:1.20, 10:1.15, 25:1.10, 50:1.07 };
+const BAG_OVERFILL = { 1:1, 5:1, 10:1, 25:1, 50:1 };
 
 /* Bag material adds weight to tare */
 const BAG_TARE_KG = { pp_woven:{1:.02,5:.06,10:.1,25:.2,50:.35}, non_woven:{1:.02,5:.07,10:.12,25:.22,50:.38}, jute:{1:.025,5:.08,10:.14,25:.28,50:.55}, hdpe:{1:.015,5:.05,10:.09,25:.18,50:.30}, craft_paper:{1:.03,5:.07,10:.12,25:.25,50:.45} };
 
 /* Packing efficiency per bag size (floor-loaded) */
-const PACK_EFF = { 1:.78, 5:.82, 10:.85, 25:.87, 50:.88 };
+const PACK_EFF = { 1:.82, 5:.88, 10:.92, 25:.96, 50:.98 };
 
 var selectedContainer = '20ft';
 

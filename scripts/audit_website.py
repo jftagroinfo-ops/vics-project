@@ -125,6 +125,11 @@ def audit() -> dict[str, list[str]]:
                 text,
             ):
                 findings["broken_dynamic_component_path"].append(relative)
+        if page.name == "packing-calculator.html" and (
+            "volume:25.8" in text
+            or "const PACK_EFF = { 1:.78, 5:.82, 10:.85, 25:.87, 50:.88 }" in text
+        ):
+            findings["outdated_packing_capacity_model"].append(relative)
         if not title or not title.get_text(strip=True):
             findings["missing_title"].append(relative)
         if not description or not description.get("content", "").strip():

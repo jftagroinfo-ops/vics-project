@@ -478,6 +478,41 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             "      const popup = window.open(`https://wa.me/918425057274?text=${msg}`, '_blank', 'noopener');\n      if (popup) popup.opener = null;",
         )
 
+    if path.name == "quote-calculator.html":
+        text = text.replace(
+            '<label for="calc-qty">Quantity (Metric Tons)</label>\n                <input type="number" id="calc-qty" min="1" value="24" placeholder="e.g. 24">',
+            '<label for="calc-qty">Estimated Quantity (Metric Tons)</label>\n                <input type="number" id="calc-qty" value="25.5" readonly aria-readonly="true">',
+        )
+        text = text.replace(
+            '''                  </optgroup>
+                </select>
+              </div>
+            <div class="input-row">
+              <div class="field">
+                <label for="calc-container-size">Container Size</label>''',
+            '''                  </optgroup>
+                </select>
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="field">
+                <label for="calc-container-size">Container Size</label>''',
+        )
+
+    if path.name == "packing-calculator.html":
+        text = text.replace(
+            "'20ft': { name:'20ft FCL', payload:28000,  volume:25.8,  label:'~28,000 kg',  vlabel:'25.8 CBM' },\n  '40ft': { name:'40ft FCL', payload:26500,  volume:56.1,  label:'~26,500 kg',  vlabel:'56.1 CBM' },\n  '40hc': { name:'40ft HC',  payload:26300,  volume:66.7,  label:'~26,300 kg',  vlabel:'66.7 CBM' }",
+            "'20ft': { name:'20ft FCL', payload:28000,  volume:33.2,  label:'~28,000 kg',  vlabel:'33.2 CBM' },\n  '40ft': { name:'40ft FCL', payload:26500,  volume:67.7,  label:'~26,500 kg',  vlabel:'67.7 CBM' },\n  '40hc': { name:'40ft HC',  payload:26300,  volume:76.3,  label:'~26,300 kg',  vlabel:'76.3 CBM' }",
+        )
+        text = text.replace(
+            "const BAG_OVERFILL = { 1:1.35, 5:1.20, 10:1.15, 25:1.10, 50:1.07 };",
+            "const BAG_OVERFILL = { 1:1, 5:1, 10:1, 25:1, 50:1 };",
+        )
+        text = text.replace(
+            "const PACK_EFF = { 1:.78, 5:.82, 10:.85, 25:.87, 50:.88 };",
+            "const PACK_EFF = { 1:.82, 5:.88, 10:.92, 25:.96, 50:.98 };",
+        )
+
     if path.name == "blog.html":
         text = text.replace(
             '<input type="email" class="nl-input" placeholder="your@company.com" required id="nl-email">',
@@ -549,6 +584,10 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             r'<div class="mnav-acc-label" onclick="toggleSubMenu\(\'(acc-[^\']+)\'\)">',
             r'''<div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="\1" onclick="toggleSubMenu('\1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">''',
             text,
+        )
+        text = text.replace(
+            "document.querySelectorAll('.mnav-accordion.open').forEach(function(a) {\n      a.classList.remove('open');\n    });",
+            "document.querySelectorAll('.mnav-accordion.open').forEach(function(a) {\n      a.classList.remove('open');\n      var openLabel = a.querySelector('.mnav-acc-label');\n      if (openLabel) openLabel.setAttribute('aria-expanded', 'false');\n    });",
         )
         text = text.replace(
             "if (a !== parent) a.classList.remove('open');",

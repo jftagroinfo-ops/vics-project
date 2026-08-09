@@ -841,6 +841,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* Close all accordions */
     document.querySelectorAll('.mnav-accordion.open').forEach(function(a) {
       a.classList.remove('open');
+      var openLabel = a.querySelector('.mnav-acc-label');
+      if (openLabel) openLabel.setAttribute('aria-expanded', 'false');
     });
 
     drawer.classList.remove('open');
@@ -864,6 +866,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       if (a !== parent) { a.classList.remove('open'); var otherLabel = a.querySelector('.mnav-acc-label'); if (otherLabel) otherLabel.setAttribute('aria-expanded', 'false'); }
     });
     parent.classList.toggle('open', !isOpen);
+    var label = parent.querySelector('.mnav-acc-label');
+    if (label) label.setAttribute('aria-expanded', String(!isOpen));
+    var label = parent.querySelector('.mnav-acc-label');
+    if (label) label.setAttribute('aria-expanded', String(!isOpen));
+    var label = parent.querySelector('.mnav-acc-label');
+    if (label) label.setAttribute('aria-expanded', String(!isOpen));
     var label = parent.querySelector('.mnav-acc-label');
     if (label) label.setAttribute('aria-expanded', String(!isOpen));
   }
