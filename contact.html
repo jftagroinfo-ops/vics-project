@@ -344,7 +344,7 @@ img{max-width:100%;height:auto;display:block}
               <img src="images/homepage/STAR HOUSE.webp" alt="Star Export House" height="26" width="80" loading="lazy">
             </div>
           </div>
-          <div class="form-success" id="formSuccess">
+          <div class="form-success" id="formSuccess" role="status" aria-live="polite">
             <div class="sring"><i class="fa-solid fa-check"></i></div>
             <h3 class="sh">Inquiry Received!</h3>
             <p class="sp">Your RFQ has been routed to our Export Division. You'll receive a Proforma Invoice on your email within <strong>24 hours</strong>.</p>
@@ -615,10 +615,12 @@ async function handleRFQ(e) {
   try {
     const fd = new FormData(e.target); const obj = {};
     fd.forEach((v, k) => { obj[k] = v; });
-    const resp = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST', headers: {'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(obj)
-    });
-    const result = await resp.json();
+    obj.lead_type = 'request_for_quote';
+    const result = window.JFTConversion
+      ? await window.JFTConversion.submitLead(obj)
+      : await fetch('https://api.web3forms.com/submit', {
+          method: 'POST', headers: {'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(obj)
+        }).then(r => r.json());
     if (result.success) {
       document.getElementById('formBody').style.display = 'none';
       document.getElementById('formSuccess').classList.add('show');

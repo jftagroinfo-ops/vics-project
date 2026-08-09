@@ -7,6 +7,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/"/>
   </url>
   <url>
@@ -184,6 +188,18 @@
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/akarkara-root-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/akarkara-root-exporter.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/ar/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/"/>
   </url>
   <url>
     <loc>https://jftagro.com/asaliya-seeds-exporter.html</loc>
@@ -570,6 +586,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/dry-red-chilli-exporter.html"/>
   </url>
   <url>
+    <loc>https://jftagro.com/es/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/"/>
+  </url>
+  <url>
     <loc>https://jftagro.com/europe-trade.html</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>yearly</changefreq>
@@ -600,6 +628,18 @@
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/fenugreek-seeds-methi-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/fenugreek-seeds-methi-exporter.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/fr/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/"/>
   </url>
   <url>
     <loc>https://jftagro.com/galangal-root-exporter.html</loc>
@@ -816,6 +856,18 @@
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/red-millet-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/red-millet-exporter.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/ru/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/"/>
   </url>
   <url>
     <loc>https://jftagro.com/safflower-seeds-exporter.html</loc>

@@ -340,6 +340,17 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
       if (!/^[\d\+\-\s\(\)]+$/.test(phone)) { alert('Please enter a valid phone number.'); return; }
       sampleSubmitting = true;
+      if (window.JFTConversion) {
+        window.JFTConversion.submitLead({
+          lead_type: 'sample_request',
+          subject: 'New Sample Request from JFT Agro Website',
+          full_name: name, company: company, email: email, phone: phone,
+          products: Array.from(selectedProducts).join(', '),
+          shipping_address: addr, city: city, country: country
+        }).catch(function () {
+          window.JFTConversion.track('lead_fallback_whatsapp', { lead_type: 'sample_request' });
+        });
+      }
       const msg = encodeURIComponent(`Sample Request from JFT Website\n\nProducts: ${Array.from(selectedProducts).join(', ')}\n\nContact:\nName: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nShip to:\n${addr}, ${city}, ${country}\n\nPlease confirm shipping cost and timeline.`);
       const popup = window.open(`https://wa.me/918425057274?text=${msg}`, '_blank', 'noopener');
       if (popup) popup.opener = null;

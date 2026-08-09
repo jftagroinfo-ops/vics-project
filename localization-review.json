@@ -1,0 +1,11 @@
+{
+  "policy": "Localized pages must receive native-language commercial and legal review before publication.",
+  "priority_locales": {
+    "ar": { "homepage": "published", "native_legal_review": "required" },
+    "es": { "homepage": "published", "native_legal_review": "required" },
+    "fr": { "homepage": "published", "native_legal_review": "required" },
+    "ru": { "homepage": "published", "native_legal_review": "required" }
+  },
+  "fallback_locales": ["id", "ms", "pt", "si", "th", "vi"],
+  "fallback_policy": "English fallback pages remain noindex,follow until translated content is materially different from the English source."
+}

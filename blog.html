@@ -485,16 +485,22 @@
       });
     }
 
-    function subscribeNewsletter(e) {
+    async function subscribeNewsletter(e) {
         e.preventDefault();
         const email = document.getElementById('nl-email').value;
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
-      const msg = encodeURIComponent(`Hi JFT Agro — please add me to your monthly trade intelligence newsletter: ${email}`);
-      const popup = window.open(`https://wa.me/918425057274?text=${msg}`, '_blank', 'noopener');
-      if (popup) popup.opener = null;
       const button = e.target.querySelector('.nl-btn');
       button.disabled = true;
-      button.textContent = 'Subscribed!';
+      button.textContent = 'Subscribing...';
+      try {
+        if (!window.JFTConversion) throw new Error('Lead service unavailable');
+        await window.JFTConversion.submitLead({ lead_type: 'newsletter', subject: 'New Trade Intelligence Subscriber', email: email });
+        button.textContent = 'Subscribed';
+        e.target.reset();
+      } catch (_) {
+        button.disabled = false;
+        button.textContent = 'Try Again';
+      }
     }
 
     async function loadComponent(id, file) {
