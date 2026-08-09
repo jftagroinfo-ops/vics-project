@@ -533,7 +533,7 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
     .cert-lbl{color:#53615a}
     #certifications>div:first-child p,#products>.reveal p{color:#5f6964!important}
     .manu-section .section-title span{color:#79bd68}
-    .mobile-hint{color:#4b3a0b!important}
+    .mobile-hint{color:#4b3a0b!important;animation:none!important}
     .pstatus{color:#176b3b}
     #global-reach>.reveal p{color:#5f6964!important}
     .slider-controls{gap:8px}
