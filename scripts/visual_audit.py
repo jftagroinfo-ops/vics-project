@@ -14,7 +14,7 @@ from urllib.parse import quote, urlsplit
 
 from playwright.async_api import BrowserContext, Page, async_playwright
 
-from audit_website import ROOT, page_paths
+from audit_website import ROOT, UNPUBLISHED_BLOGS, page_paths
 
 
 VIEWPORTS = {
@@ -60,7 +60,14 @@ VISUAL_CHECK = r"""
     .filter(visible)
     .filter(el => {
       const r = el.getBoundingClientRect();
-      return r.right < -2 || r.left > innerWidth + 2;
+      let intentionallyClipped = false;
+      for (let parent = el.parentElement; parent; parent = parent.parentElement) {
+        if (['auto', 'scroll', 'hidden'].includes(getComputedStyle(parent).overflowX)) {
+          intentionallyClipped = true;
+          break;
+        }
+      }
+      return !intentionallyClipped && (r.right < -2 || r.left > innerWidth + 2);
     }).map(label).slice(0, 10);
   const interactives = [...document.querySelectorAll('a, button, input, select, textarea')]
     .filter(visible).filter(el => {
@@ -172,7 +179,8 @@ def result_findings(result: dict) -> list[str]:
     if result.get("navigationError"):
         findings.append("navigation error")
     checks = result.get("checks", {})
-    if checks.get("bodyTextLength", 0) < 40 or checks.get("bodyHeight", 0) < 100:
+    redirect_page = Path(result.get("page", "")).name in UNPUBLISHED_BLOGS
+    if not redirect_page and (checks.get("bodyTextLength", 0) < 40 or checks.get("bodyHeight", 0) < 100):
         findings.append("page appears blank")
     if not checks.get("h1Visible", False):
         findings.append("H1 is not visible")

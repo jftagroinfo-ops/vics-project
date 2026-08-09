@@ -1,0 +1,4855 @@
+{
+  "generatedAt": "2026-08-09T21:16:46.200009+00:00",
+  "pageViewports": 200,
+  "pages": 100,
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "results": [
+    {
+      "page": "es/blog-yellow-maize-export-india-2026.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/blog-yellow-maize-export-india-2026.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Yellow Maize Export India 2026 | JFT Agro",
+        "bodyTextLength": 76,
+        "bodyHeight": 76,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": [
+        "page appears blank"
+      ]
+    },
+    {
+      "page": "es/blog-yellow-maize-export-india-2026.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/blog-yellow-maize-export-india-2026.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Yellow Maize Export India 2026 | JFT Agro",
+        "bodyTextLength": 76,
+        "bodyHeight": 113,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/blog.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/blog.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Perspectivas de JFT Agro | Inteligencia comercial para importadores globales",
+        "bodyTextLength": 10206,
+        "bodyHeight": 7583,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/blog.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/blog.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Perspectivas de JFT Agro | Inteligencia comercial para importadores globales",
+        "bodyTextLength": 10015,
+        "bodyHeight": 16244,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/buckwheat-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/buckwheat-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de trigo sarraceno India | JFT Agro en el extranjero",
+        "bodyTextLength": 9662,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/buckwheat-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/buckwheat-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de trigo sarraceno India | JFT Agro en el extranjero",
+        "bodyTextLength": 9427,
+        "bodyHeight": 11763,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/cassia-tora-meal-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/cassia-tora-meal-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de Cassia Tora India | JFT Agro en el extranjero",
+        "bodyTextLength": 9751,
+        "bodyHeight": 7584,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/cassia-tora-meal-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/cassia-tora-meal-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de Cassia Tora India | JFT Agro en el extranjero",
+        "bodyTextLength": 9516,
+        "bodyHeight": 11910,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/cassia-tora-seeds-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/cassia-tora-seeds-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de Cassia Tora India | JFT Agro en el extranjero",
+        "bodyTextLength": 9788,
+        "bodyHeight": 7584,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/cassia-tora-seeds-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/cassia-tora-seeds-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de Cassia Tora India | JFT Agro en el extranjero",
+        "bodyTextLength": 9553,
+        "bodyHeight": 11910,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/celery-seeds-powder-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/celery-seeds-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas y polvo de apio India | JFT Agro en el extranjero",
+        "bodyTextLength": 9849,
+        "bodyHeight": 7658,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/celery-seeds-powder-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/celery-seeds-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas y polvo de apio India | JFT Agro en el extranjero",
+        "bodyTextLength": 9614,
+        "bodyHeight": 12054,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/certificates.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/certificates.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Certificados y Acreditaciones | JFT Agro en el extranjero",
+        "bodyTextLength": 7904,
+        "bodyHeight": 4569,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/certificates.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/certificates.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Certificados y Acreditaciones | JFT Agro en el extranjero",
+        "bodyTextLength": 7720,
+        "bodyHeight": 8563,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/chickpeas-kabuli-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/chickpeas-kabuli-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de garbanzos (Kabuli) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9795,
+        "bodyHeight": 7539,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/chickpeas-kabuli-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/chickpeas-kabuli-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de garbanzos (Kabuli) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9560,
+        "bodyHeight": 11892,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/contact.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/contact.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Contacte a JFT Agro | Mesa de Comercio de Exportación Global y RFQ",
+        "bodyTextLength": 9320,
+        "bodyHeight": 6638,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/contact.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/contact.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Contacte a JFT Agro | Mesa de Comercio de Exportación Global y RFQ",
+        "bodyTextLength": 9129,
+        "bodyHeight": 11694,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/coriander-seeds-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/coriander-seeds-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de cilantro India | JFT Agro en el extranjero",
+        "bodyTextLength": 9846,
+        "bodyHeight": 7631,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/coriander-seeds-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/coriander-seeds-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de cilantro India | JFT Agro en el extranjero",
+        "bodyTextLength": 9608,
+        "bodyHeight": 12055,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/corn-flour-maize-flour-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/corn-flour-maize-flour-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de maíz (harina de maíz) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9849,
+        "bodyHeight": 7613,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/corn-flour-maize-flour-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/corn-flour-maize-flour-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de maíz (harina de maíz) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9614,
+        "bodyHeight": 12039,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/corn-gluten-meal-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/corn-gluten-meal-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de gluten de maíz India | JFT Agro en el extranjero",
+        "bodyTextLength": 9714,
+        "bodyHeight": 7539,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/corn-gluten-meal-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/corn-gluten-meal-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de gluten de maíz India | JFT Agro en el extranjero",
+        "bodyTextLength": 9479,
+        "bodyHeight": 11825,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/corn-starch-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/corn-starch-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de almidón de maíz India | JFT Agro en el extranjero",
+        "bodyTextLength": 9709,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/corn-starch-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/corn-starch-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de almidón de maíz India | JFT Agro en el extranjero",
+        "bodyTextLength": 9474,
+        "bodyHeight": 11809,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/cotton-seed-oil-cake-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/cotton-seed-oil-cake-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de tortas de aceite de semilla de algodón India | JFT Agro en el extranjero",
+        "bodyTextLength": 9821,
+        "bodyHeight": 7658,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/cotton-seed-oil-cake-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/cotton-seed-oil-cake-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de tortas de aceite de semilla de algodón India | JFT Agro en el extranjero",
+        "bodyTextLength": 9586,
+        "bodyHeight": 11927,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/cumin-seeds-jeera-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/cumin-seeds-jeera-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de comino (Jeera) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9902,
+        "bodyHeight": 7631,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/cumin-seeds-jeera-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/cumin-seeds-jeera-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de comino (Jeera) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9664,
+        "bodyHeight": 12087,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/curry-powder-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/curry-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de curry en polvo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9781,
+        "bodyHeight": 7495,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/curry-powder-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/curry-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de curry en polvo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9546,
+        "bodyHeight": 11849,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/deoiled-rice-bran-dorb-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/deoiled-rice-bran-dorb-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de salvado de arroz desaceitado (DORB) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9831,
+        "bodyHeight": 7723,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/deoiled-rice-bran-dorb-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/deoiled-rice-bran-dorb-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de salvado de arroz desaceitado (DORB) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9596,
+        "bodyHeight": 12002,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/dill-seeds-powder-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/dill-seeds-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas y polvo de eneldo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9839,
+        "bodyHeight": 7584,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/dill-seeds-powder-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/dill-seeds-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas y polvo de eneldo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9604,
+        "bodyHeight": 12006,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/dry-ginger-powder-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/dry-ginger-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de jengibre seco y polvo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9896,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/dry-ginger-powder-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/dry-ginger-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de jengibre seco y polvo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9661,
+        "bodyHeight": 12087,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/dry-red-chilli-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/dry-red-chilli-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de chile rojo seco India | JFT Agro en el extranjero",
+        "bodyTextLength": 9834,
+        "bodyHeight": 7543,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/dry-red-chilli-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/dry-red-chilli-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de chile rojo seco India | JFT Agro en el extranjero",
+        "bodyTextLength": 9599,
+        "bodyHeight": 11975,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/europe-trade.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/europe-trade.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Comercio agrícola entre India y Europa | JFT Agro — Basmati y especias a la UE",
+        "bodyTextLength": 7269,
+        "bodyHeight": 5806,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/europe-trade.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/europe-trade.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Comercio agrícola entre India y Europa | JFT Agro — Basmati y especias a la UE",
+        "bodyTextLength": 7085,
+        "bodyHeight": 8632,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/faq.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/faq.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Preguntas frecuentes sobre exportación y glosario comercial | JFT Agro en el extranjero",
+        "bodyTextLength": 6042,
+        "bodyHeight": 3905,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/faq.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/faq.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Preguntas frecuentes sobre exportación y glosario comercial | JFT Agro en el extranjero",
+        "bodyTextLength": 5851,
+        "bodyHeight": 6215,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/fennel-seeds-sounff-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/fennel-seeds-sounff-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de hinojo (Sounff) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9928,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/fennel-seeds-sounff-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/fennel-seeds-sounff-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de hinojo (Sounff) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9693,
+        "bodyHeight": 12057,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/fenugreek-seeds-methi-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/fenugreek-seeds-methi-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de fenogreco (methi) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9951,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/fenugreek-seeds-methi-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/fenugreek-seeds-methi-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de fenogreco (methi) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9716,
+        "bodyHeight": 12163,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/galangal-root-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/galangal-root-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de raíz de galanga India | JFT Agro en el extranjero",
+        "bodyTextLength": 9782,
+        "bodyHeight": 7495,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/galangal-root-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/galangal-root-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de raíz de galanga India | JFT Agro en el extranjero",
+        "bodyTextLength": 9547,
+        "bodyHeight": 11864,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/green-cardamom-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/green-cardamom-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de cardamomo verde India | JFT Agro en el extranjero",
+        "bodyTextLength": 9782,
+        "bodyHeight": 7584,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/green-cardamom-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/green-cardamom-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de cardamomo verde India | JFT Agro en el extranjero",
+        "bodyTextLength": 9547,
+        "bodyHeight": 11974,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/green-millet-bajra-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/green-millet-bajra-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de mijo verde (Bajra) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9779,
+        "bodyHeight": 7539,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/green-millet-bajra-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/green-millet-bajra-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de mijo verde (Bajra) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9544,
+        "bodyHeight": 11871,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/green-mung-beans-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/green-mung-beans-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de frijoles mungo verdes India | JFT Agro en el extranjero",
+        "bodyTextLength": 9757,
+        "bodyHeight": 7539,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/green-mung-beans-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/green-mung-beans-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de frijoles mungo verdes India | JFT Agro en el extranjero",
+        "bodyTextLength": 9522,
+        "bodyHeight": 11877,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/grey-millet-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/grey-millet-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de mijo gris India | JFT Agro en el extranjero",
+        "bodyTextLength": 9640,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/grey-millet-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/grey-millet-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de mijo gris India | JFT Agro en el extranjero",
+        "bodyTextLength": 9405,
+        "bodyHeight": 11718,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/groundnut-oil-cake-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/groundnut-oil-cake-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de tortas de aceite de maní India | JFT Agro en el extranjero",
+        "bodyTextLength": 9800,
+        "bodyHeight": 7584,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/groundnut-oil-cake-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/groundnut-oil-cake-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de tortas de aceite de maní India | JFT Agro en el extranjero",
+        "bodyTextLength": 9565,
+        "bodyHeight": 12006,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/groundnuts-peanuts-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/groundnuts-peanuts-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de maní (cacahuetes) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9884,
+        "bodyHeight": 7658,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/groundnuts-peanuts-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/groundnuts-peanuts-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de maní (cacahuetes) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9646,
+        "bodyHeight": 12006,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/henna-leaves-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/henna-leaves-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de hojas de henna India | JFT Agro en el extranjero",
+        "bodyTextLength": 9718,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/henna-leaves-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/henna-leaves-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de hojas de henna India | JFT Agro en el extranjero",
+        "bodyTextLength": 9482,
+        "bodyHeight": 11794,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/henna-powder-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/henna-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de polvo de henna India | JFT Agro en el extranjero",
+        "bodyTextLength": 9727,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/henna-powder-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/henna-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de polvo de henna India | JFT Agro en el extranjero",
+        "bodyTextLength": 9492,
+        "bodyHeight": 11851,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/index.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/index.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de productos agrícolas de India | JFT Agro Overseas",
+        "bodyTextLength": 1859,
+        "bodyHeight": 3057,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/index.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/index.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de productos agrícolas de India | JFT Agro Overseas",
+        "bodyTextLength": 1830,
+        "bodyHeight": 4535,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/indian-raisins-kishmish-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/indian-raisins-kishmish-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador indio de pasas (Kishmish) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9883,
+        "bodyHeight": 7613,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/indian-raisins-kishmish-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/indian-raisins-kishmish-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador indio de pasas (Kishmish) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9648,
+        "bodyHeight": 12012,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/infrastructure.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/infrastructure.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Molinos de arroz y unidades de procesamiento | JFT Agro Infraestructura",
+        "bodyTextLength": 7414,
+        "bodyHeight": 8656,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/infrastructure.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/infrastructure.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Molinos de arroz y unidades de procesamiento | JFT Agro Infraestructura",
+        "bodyTextLength": 7230,
+        "bodyHeight": 14206,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/legal.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/legal.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Términos de comercio y privacidad | JFT Agro en el extranjero",
+        "bodyTextLength": 3926,
+        "bodyHeight": 3802,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/legal.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/legal.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Términos de comercio y privacidad | JFT Agro en el extranjero",
+        "bodyTextLength": 3779,
+        "bodyHeight": 6644,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/maida-refined-wheat-flour-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/maida-refined-wheat-flour-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de Maida (harina de trigo refinada) | JFT Agro",
+        "bodyTextLength": 9826,
+        "bodyHeight": 7613,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/maida-refined-wheat-flour-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/maida-refined-wheat-flour-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de Maida (harina de trigo refinada) | JFT Agro",
+        "bodyTextLength": 9591,
+        "bodyHeight": 11999,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/maize-grits-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/maize-grits-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de sémola de maíz India | JFT Agro en el extranjero",
+        "bodyTextLength": 9656,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/maize-grits-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/maize-grits-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de sémola de maíz India | JFT Agro en el extranjero",
+        "bodyTextLength": 9421,
+        "bodyHeight": 11734,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/milling-wheat-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/milling-wheat-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de trigo molido India | JFT Agro en el extranjero",
+        "bodyTextLength": 9811,
+        "bodyHeight": 7544,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/milling-wheat-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/milling-wheat-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de trigo molido India | JFT Agro en el extranjero",
+        "bodyTextLength": 9573,
+        "bodyHeight": 11932,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/moringa-leaves-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/moringa-leaves-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de hojas de moringa India | JFT Agro en el extranjero",
+        "bodyTextLength": 9768,
+        "bodyHeight": 7539,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/moringa-leaves-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/moringa-leaves-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de hojas de moringa India | JFT Agro en el extranjero",
+        "bodyTextLength": 9532,
+        "bodyHeight": 11847,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/moringa-powder-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/moringa-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de polvo de moringa India | JFT Agro en el extranjero",
+        "bodyTextLength": 9726,
+        "bodyHeight": 7539,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/moringa-powder-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/moringa-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de polvo de moringa India | JFT Agro en el extranjero",
+        "bodyTextLength": 9491,
+        "bodyHeight": 11874,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/mustard-seeds-powder-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/mustard-seeds-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas y polvo de mostaza India | JFT Agro en el extranjero",
+        "bodyTextLength": 9888,
+        "bodyHeight": 7723,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/mustard-seeds-powder-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/mustard-seeds-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas y polvo de mostaza India | JFT Agro en el extranjero",
+        "bodyTextLength": 9653,
+        "bodyHeight": 12082,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/packing-calculator.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/packing-calculator.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Calculadora de embalaje de contenedores | JFT Agro en el extranjero",
+        "bodyTextLength": 6450,
+        "bodyHeight": 3950,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/packing-calculator.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/packing-calculator.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Calculadora de embalaje de contenedores | JFT Agro en el extranjero",
+        "bodyTextLength": 6259,
+        "bodyHeight": 7037,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/port-transit-calculator.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/port-transit-calculator.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Calculadora de tiempo de tránsito portuario India — JNPT Mundra | JFT Agro",
+        "bodyTextLength": 5875,
+        "bodyHeight": 3291,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/port-transit-calculator.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/port-transit-calculator.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Calculadora de tiempo de tránsito portuario India — JNPT Mundra | JFT Agro",
+        "bodyTextLength": 5684,
+        "bodyHeight": 6148,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [
+          "button.rtab",
+          "button.rtab",
+          "button.rtab",
+          "button.rtab",
+          "button.rtab"
+        ],
+        "overlaps": []
+      },
+      "findings": [
+        "off-screen content: button.rtab, button.rtab, button.rtab"
+      ]
+    },
+    {
+      "page": "es/pr-11-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/pr-11-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "PR 11 Exportador de arroz India | JFT Agro en el extranjero",
+        "bodyTextLength": 9724,
+        "bodyHeight": 7543,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/pr-11-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/pr-11-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "PR 11 Exportador de arroz India | JFT Agro en el extranjero",
+        "bodyTextLength": 9486,
+        "bodyHeight": 11908,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/privacy.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/privacy.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Política de privacidad | JFT Agro en el extranjero",
+        "bodyTextLength": 5636,
+        "bodyHeight": 3244,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/privacy.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/privacy.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Política de privacidad | JFT Agro en el extranjero",
+        "bodyTextLength": 5452,
+        "bodyHeight": 5258,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/products.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/products.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Catálogo de productos de arroz basmati indio y especias | JFT Agro en el extranjero",
+        "bodyTextLength": 35595,
+        "bodyHeight": 25095,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/products.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/products.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Catálogo de productos de arroz basmati indio y especias | JFT Agro en el extranjero",
+        "bodyTextLength": 35417,
+        "bodyHeight": 74920,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [
+          "button.cz-tab",
+          "button.cz-tab",
+          "button.cz-tab",
+          "button.cz-tab",
+          "button.cz-tab",
+          "button.cz-tab.cz-tab-import"
+        ],
+        "overlaps": []
+      },
+      "findings": [
+        "off-screen content: button.cz-tab, button.cz-tab, button.cz-tab"
+      ]
+    },
+    {
+      "page": "es/psyllium-husk-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/psyllium-husk-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de cáscara de psyllium India | JFT Agro en el extranjero",
+        "bodyTextLength": 9777,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/psyllium-husk-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/psyllium-husk-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de cáscara de psyllium India | JFT Agro en el extranjero",
+        "bodyTextLength": 9540,
+        "bodyHeight": 11779,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/quality-control.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/quality-control.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Control de Calidad y Trazabilidad | Certificado SGS e Intertek | JFT Agro",
+        "bodyTextLength": 6256,
+        "bodyHeight": 4135,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/quality-control.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/quality-control.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Control de Calidad y Trazabilidad | Certificado SGS e Intertek | JFT Agro",
+        "bodyTextLength": 6065,
+        "bodyHeight": 7816,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/quote-calculator.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/quote-calculator.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Calculadora de cotización de exportación CIF/FOB | JFT Agro en el extranjero",
+        "bodyTextLength": 6731,
+        "bodyHeight": 3494,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/quote-calculator.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/quote-calculator.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Calculadora de cotización de exportación CIF/FOB | JFT Agro en el extranjero",
+        "bodyTextLength": 6547,
+        "bodyHeight": 6143,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/red-millet-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/red-millet-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de mijo rojo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9627,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/red-millet-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/red-millet-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de mijo rojo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9392,
+        "bodyHeight": 11718,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/safflower-seeds-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/safflower-seeds-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de cártamo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9759,
+        "bodyHeight": 7584,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/safflower-seeds-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/safflower-seeds-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de cártamo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9524,
+        "bodyHeight": 11883,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/samba-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/samba-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de arroz samba India | JFT Agro en el extranjero",
+        "bodyTextLength": 9723,
+        "bodyHeight": 7543,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/samba-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/samba-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de arroz samba India | JFT Agro en el extranjero",
+        "bodyTextLength": 9485,
+        "bodyHeight": 11893,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/sample-request.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/sample-request.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Solicitar muestra de producto | JFT Agro en el extranjero",
+        "bodyTextLength": 5290,
+        "bodyHeight": 3134,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/sample-request.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/sample-request.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Solicitar muestra de producto | JFT Agro en el extranjero",
+        "bodyTextLength": 5106,
+        "bodyHeight": 5378,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/semolina-sooji-rava-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/semolina-sooji-rava-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de sémola (Sooji / Rava) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9812,
+        "bodyHeight": 7613,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/semolina-sooji-rava-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/semolina-sooji-rava-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de sémola (Sooji / Rava) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9577,
+        "bodyHeight": 11883,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/senna-leaves-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/senna-leaves-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Senna deja exportador India | JFT Agro en el extranjero",
+        "bodyTextLength": 9762,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/senna-leaves-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/senna-leaves-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Senna deja exportador India | JFT Agro en el extranjero",
+        "bodyTextLength": 9527,
+        "bodyHeight": 11809,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/senna-pods-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/senna-pods-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de vainas de sen India | JFT Agro en el extranjero",
+        "bodyTextLength": 9730,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/senna-pods-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/senna-pods-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de vainas de sen India | JFT Agro en el extranjero",
+        "bodyTextLength": 9495,
+        "bodyHeight": 11782,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/sesame-seeds-naturalhulled-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/sesame-seeds-naturalhulled-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de sésamo (naturales/descascaradas) | JFT Agro",
+        "bodyTextLength": 9984,
+        "bodyHeight": 7724,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/sesame-seeds-naturalhulled-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/sesame-seeds-naturalhulled-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de sésamo (naturales/descascaradas) | JFT Agro",
+        "bodyTextLength": 9749,
+        "bodyHeight": 12218,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/shipment-tracker.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/shipment-tracker.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Seguimiento de envíos: rastree su contenedor JFT Agro | jftagro.com",
+        "bodyTextLength": 6878,
+        "bodyHeight": 5438,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/shipment-tracker.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/shipment-tracker.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Seguimiento de envíos: rastree su contenedor JFT Agro | jftagro.com",
+        "bodyTextLength": 6687,
+        "bodyHeight": 9332,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/soya-bean-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/soya-bean-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de soja India | JFT Agro en el extranjero",
+        "bodyTextLength": 9692,
+        "bodyHeight": 7450,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/soya-bean-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/soya-bean-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de soja India | JFT Agro en el extranjero",
+        "bodyTextLength": 9457,
+        "bodyHeight": 11797,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/soybean-meal-doc-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/soybean-meal-doc-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de soja (DOC) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9777,
+        "bodyHeight": 7613,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/soybean-meal-doc-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/soybean-meal-doc-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de soja (DOC) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9539,
+        "bodyHeight": 11871,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/sugar-s30-supplier.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/sugar-s30-supplier.html",
+      "events": {
+        "console": [
+          "Connecting to 'https://open.er-api.com/v6/latest/USD' violates the following Content Security Policy directive: \"connect-src 'self' https://api.frankfurter.app https://ok.surf https://translate.googleapis.com https://translate.google.com https://api.exchangerate-api.com\". The action has been blocked.",
+          "Fetch API cannot load https://open.er-api.com/v6/latest/USD. Refused to connect because it violates the document's Content Security Policy."
+        ],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador indio de azúcar blanco (S-30) India | JFT Agro en el extranjero",
+        "bodyTextLength": 8778,
+        "bodyHeight": 7008,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": [
+        "console errors: Connecting to 'https://open.er-api.com/v6/latest/USD' violates the following Content Security Policy directive: \"connect-src 'self' https://api.frankfurter.app https://ok.surf https://translate.googleapis.com https://translate.google.com https://api.exchangerate-api.com\". The action has been blocked."
+      ]
+    },
+    {
+      "page": "es/sugar-s30-supplier.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/sugar-s30-supplier.html",
+      "events": {
+        "console": [
+          "Connecting to 'https://open.er-api.com/v6/latest/USD' violates the following Content Security Policy directive: \"connect-src 'self' https://api.frankfurter.app https://ok.surf https://translate.googleapis.com https://translate.google.com https://api.exchangerate-api.com\". The action has been blocked.",
+          "Fetch API cannot load https://open.er-api.com/v6/latest/USD. Refused to connect because it violates the document's Content Security Policy."
+        ],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador indio de azúcar blanco (S-30) India | JFT Agro en el extranjero",
+        "bodyTextLength": 8576,
+        "bodyHeight": 11135,
+        "horizontalOverflow": true,
+        "overflowPixels": 111,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": [
+        "horizontal overflow (111px)",
+        "console errors: Connecting to 'https://open.er-api.com/v6/latest/USD' violates the following Content Security Policy directive: \"connect-src 'self' https://api.frankfurter.app https://ok.surf https://translate.googleapis.com https://translate.google.com https://api.exchangerate-api.com\". The action has been blocked."
+      ]
+    },
+    {
+      "page": "es/sunflower-seeds-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/sunflower-seeds-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de girasol India | JFT Agro en el extranjero",
+        "bodyTextLength": 9755,
+        "bodyHeight": 7584,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/sunflower-seeds-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/sunflower-seeds-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de semillas de girasol India | JFT Agro en el extranjero",
+        "bodyTextLength": 9520,
+        "bodyHeight": 11955,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/sunflower-seeds-in-shell-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/sunflower-seeds-in-shell-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de Semillas de Girasol (Con Cáscara) | JFT Agro",
+        "bodyTextLength": 9850,
+        "bodyHeight": 7723,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/sunflower-seeds-in-shell-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/sunflower-seeds-in-shell-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de Semillas de Girasol (Con Cáscara) | JFT Agro",
+        "bodyTextLength": 9615,
+        "bodyHeight": 12027,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/tamarind-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/tamarind-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de tamarindo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9711,
+        "bodyHeight": 7498,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/tamarind-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/tamarind-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de tamarindo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9473,
+        "bodyHeight": 11878,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/terms.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/terms.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Términos de Comercio | JFT Agro en el extranjero",
+        "bodyTextLength": 5699,
+        "bodyHeight": 3317,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/terms.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/terms.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Términos de Comercio | JFT Agro en el extranjero",
+        "bodyTextLength": 5515,
+        "bodyHeight": 5289,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/thank-you.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/thank-you.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Consulta recibida | JFT Agro en el extranjero",
+        "bodyTextLength": 4035,
+        "bodyHeight": 900,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": [
+          "a.nav-link <> a"
+        ]
+      },
+      "findings": [
+        "overlapping controls: a.nav-link <> a"
+      ]
+    },
+    {
+      "page": "es/thank-you.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/thank-you.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Consulta recibida | JFT Agro en el extranjero",
+        "bodyTextLength": 3851,
+        "bodyHeight": 844,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/toor-dal-split-pigeon-pea-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/toor-dal-split-pigeon-pea-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de Toor Dal (guandú partido) | JFT Agro",
+        "bodyTextLength": 9870,
+        "bodyHeight": 7613,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/toor-dal-split-pigeon-pea-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/toor-dal-split-pigeon-pea-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de Toor Dal (guandú partido) | JFT Agro",
+        "bodyTextLength": 9635,
+        "bodyHeight": 12009,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/turmeric-finger-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/turmeric-finger-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador indio de dedos y polvo de cúrcuma | JFT Agro",
+        "bodyTextLength": 10247,
+        "bodyHeight": 7936,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/turmeric-finger-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/turmeric-finger-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador indio de dedos y polvo de cúrcuma | JFT Agro",
+        "bodyTextLength": 9994,
+        "bodyHeight": 12173,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/uae-trade.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/uae-trade.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Comercio agrícola entre India y los Emiratos Árabes Unidos | JFT Agro — Basmati y especias a Dubái",
+        "bodyTextLength": 8662,
+        "bodyHeight": 7024,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/uae-trade.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/uae-trade.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Comercio agrícola entre India y los Emiratos Árabes Unidos | JFT Agro — Basmati y especias a Dubái",
+        "bodyTextLength": 8478,
+        "bodyHeight": 11306,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/whatsapp-catalog.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/whatsapp-catalog.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Catálogo de productos WhatsApp | JFT Agro en el extranjero",
+        "bodyTextLength": 5598,
+        "bodyHeight": 3328,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/whatsapp-catalog.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/whatsapp-catalog.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Catálogo de productos WhatsApp | JFT Agro en el extranjero",
+        "bodyTextLength": 5414,
+        "bodyHeight": 6678,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/wheat-flour-chakki-fresh-atta-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/wheat-flour-chakki-fresh-atta-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de trigo (Chakki Fresh Atta) | JFT Agro",
+        "bodyTextLength": 9899,
+        "bodyHeight": 7742,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/wheat-flour-chakki-fresh-atta-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/wheat-flour-chakki-fresh-atta-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de harina de trigo (Chakki Fresh Atta) | JFT Agro",
+        "bodyTextLength": 9661,
+        "bodyHeight": 11969,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/wheat-grass-powder-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/wheat-grass-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de polvo de pasto de trigo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9775,
+        "bodyHeight": 7613,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/wheat-grass-powder-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/wheat-grass-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de polvo de pasto de trigo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9540,
+        "bodyHeight": 11905,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/white-sorghum-jowar-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/white-sorghum-jowar-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de sorgo blanco (Jowar) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9806,
+        "bodyHeight": 7613,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/white-sorghum-jowar-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/white-sorghum-jowar-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de sorgo blanco (Jowar) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9571,
+        "bodyHeight": 11905,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/whole-nutmeg-powder-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/whole-nutmeg-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de nuez moscada entera y en polvo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9887,
+        "bodyHeight": 7658,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/whole-nutmeg-powder-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/whole-nutmeg-powder-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de nuez moscada entera y en polvo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9649,
+        "bodyHeight": 12082,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/yellow-maize-corn-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/yellow-maize-corn-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de maíz amarillo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9814,
+        "bodyHeight": 7539,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/yellow-maize-corn-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/yellow-maize-corn-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de maíz amarillo India | JFT Agro en el extranjero",
+        "bodyTextLength": 9579,
+        "bodyHeight": 11917,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/yellow-peas-matar-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/es/yellow-peas-matar-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de guisantes amarillos (Matar) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9800,
+        "bodyHeight": 7539,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "es/yellow-peas-matar-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/es/yellow-peas-matar-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportador de guisantes amarillos (Matar) India | JFT Agro en el extranjero",
+        "bodyTextLength": 9562,
+        "bodyHeight": 11908,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "europe-trade.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/europe-trade.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "India–Europe Agro Trade | JFT Agro — Basmati & Spices to EU",
+        "bodyTextLength": 7269,
+        "bodyHeight": 5806,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "europe-trade.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/europe-trade.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "India–Europe Agro Trade | JFT Agro — Basmati & Spices to EU",
+        "bodyTextLength": 7085,
+        "bodyHeight": 8632,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "faq.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/faq.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Export FAQ & Trade Glossary | JFT Agro Overseas",
+        "bodyTextLength": 6042,
+        "bodyHeight": 3905,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "faq.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/faq.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Export FAQ & Trade Glossary | JFT Agro Overseas",
+        "bodyTextLength": 5851,
+        "bodyHeight": 6214,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fennel-seeds-sounff-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fennel-seeds-sounff-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Fennel Seeds (Sounff) Exporter India | JFT Agro Overseas",
+        "bodyTextLength": 9928,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fennel-seeds-sounff-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fennel-seeds-sounff-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Fennel Seeds (Sounff) Exporter India | JFT Agro Overseas",
+        "bodyTextLength": 9693,
+        "bodyHeight": 12057,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fenugreek-seeds-methi-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fenugreek-seeds-methi-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Fenugreek Seeds (Methi) Exporter India | JFT Agro Overseas",
+        "bodyTextLength": 9951,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fenugreek-seeds-methi-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fenugreek-seeds-methi-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Fenugreek Seeds (Methi) Exporter India | JFT Agro Overseas",
+        "bodyTextLength": 9716,
+        "bodyHeight": 12163,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/10-parboiled-rice-ir-64-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/10-parboiled-rice-ir-64-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportateur de riz étuvé à 10 % (IR-64) | JFT Agro",
+        "bodyTextLength": 9910,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/10-parboiled-rice-ir-64-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/10-parboiled-rice-ir-64-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportateur de riz étuvé à 10 % (IR-64) | JFT Agro",
+        "bodyTextLength": 9675,
+        "bodyHeight": 12177,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/100-broken-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/100-broken-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportateur de riz 100 % cassé Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9793,
+        "bodyHeight": 7631,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/100-broken-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/100-broken-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportateur de riz 100 % cassé Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9558,
+        "bodyHeight": 11985,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1121-basmati-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1121-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Premium 1121 Exportateur de riz basmati Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 10103,
+        "bodyHeight": 7789,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1121-basmati-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1121-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Premium 1121 Exportateur de riz basmati Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9862,
+        "bodyHeight": 12222,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1121-raw-basmati-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1121-raw-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1121 Exportateur de riz basmati brut Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9900,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1121-raw-basmati-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1121-raw-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1121 Exportateur de riz basmati brut Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9665,
+        "bodyHeight": 12017,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1121-steam-basmati-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1121-steam-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1121 Exportateur de riz basmati à la vapeur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9906,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1121-steam-basmati-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1121-steam-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1121 Exportateur de riz basmati à la vapeur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9668,
+        "bodyHeight": 12091,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1121-white-sella-basmati-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1121-white-sella-basmati-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1121 Blanc Sella Basmati Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9915,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1121-white-sella-basmati-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1121-white-sella-basmati-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1121 Blanc Sella Basmati Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9677,
+        "bodyHeight": 12093,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1401-golden-sella-basmati-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1401-golden-sella-basmati-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1401 Golden Sella Basmati Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9921,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1401-golden-sella-basmati-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1401-golden-sella-basmati-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1401 Golden Sella Basmati Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9683,
+        "bodyHeight": 12162,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1401-sella-basmati-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1401-sella-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1401 Exportateur de riz Sella Basmati Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9874,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1401-sella-basmati-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1401-sella-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1401 Exportateur de riz Sella Basmati Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9636,
+        "bodyHeight": 12065,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1401-steam-basmati-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1401-steam-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1401 Exportateur de riz basmati à la vapeur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9886,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1401-steam-basmati-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1401-steam-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1401 Exportateur de riz basmati à la vapeur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9648,
+        "bodyHeight": 12091,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1509-golden-sella-basmati-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1509-golden-sella-basmati-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1509 Golden Sella Basmati Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9922,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1509-golden-sella-basmati-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1509-golden-sella-basmati-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1509 Golden Sella Basmati Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9684,
+        "bodyHeight": 12132,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1509-steam-basmati-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1509-steam-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1509 Exportateur de riz basmati à la vapeur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9859,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1509-steam-basmati-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1509-steam-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1509 Exportateur de riz basmati à la vapeur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9624,
+        "bodyHeight": 12091,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1718-golden-sella-basmati-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1718-golden-sella-basmati-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1718 Golden Sella Basmati Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9918,
+        "bodyHeight": 7751,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1718-golden-sella-basmati-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1718-golden-sella-basmati-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1718 Golden Sella Basmati Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9680,
+        "bodyHeight": 12189,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1718-steam-basmati-rice-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/1718-steam-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1718 Exportateur de riz basmati à la vapeur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9891,
+        "bodyHeight": 7751,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/1718-steam-basmati-rice-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/1718-steam-basmati-rice-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "1718 Exportateur de riz basmati à la vapeur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9653,
+        "bodyHeight": 12103,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/25-silky-sortex-short-grain-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/25-silky-sortex-short-grain-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportateur de grains courts Sortex soyeux à 25 % | JFT Agro",
+        "bodyTextLength": 9908,
+        "bodyHeight": 7659,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/25-silky-sortex-short-grain-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/25-silky-sortex-short-grain-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportateur de grains courts Sortex soyeux à 25 % | JFT Agro",
+        "bodyTextLength": 9673,
+        "bodyHeight": 12135,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/25-silky-sortex-white-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/25-silky-sortex-white-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "25 % de blanc soyeux Sortex Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9858,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/25-silky-sortex-white-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/25-silky-sortex-white-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "25 % de blanc soyeux Sortex Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9623,
+        "bodyHeight": 11987,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/404.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/404.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Page Not Found | JFT Agro Overseas",
+        "bodyTextLength": 4059,
+        "bodyHeight": 900,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": [
+          "a.nav-link <> a"
+        ]
+      },
+      "findings": [
+        "overlapping controls: a.nav-link <> a"
+      ]
+    },
+    {
+      "page": "fr/404.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/404.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Page Not Found | JFT Agro Overseas",
+        "bodyTextLength": 3868,
+        "bodyHeight": 844,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/5-parboiled-rice-ir-64-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/5-parboiled-rice-ir-64-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Riz étuvé à 5 % (IR-64) Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9878,
+        "bodyHeight": 7705,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/5-parboiled-rice-ir-64-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/5-parboiled-rice-ir-64-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Riz étuvé à 5 % (IR-64) Exportateur Inde | JFT Agro Outre-mer",
+        "bodyTextLength": 9643,
+        "bodyHeight": 12123,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/5-silky-sortex-short-grain-exporter.html",
+      "viewport": "desktop",
+      "url": "http://localhost:8765/fr/5-silky-sortex-short-grain-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportateur de grains courts Sortex soyeux à 5 % | JFT Agro",
+        "bodyTextLength": 9923,
+        "bodyHeight": 7659,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    },
+    {
+      "page": "fr/5-silky-sortex-short-grain-exporter.html",
+      "viewport": "mobile",
+      "url": "http://localhost:8765/fr/5-silky-sortex-short-grain-exporter.html",
+      "events": {
+        "console": [],
+        "pageErrors": [],
+        "failedAssets": []
+      },
+      "status": 200,
+      "checks": {
+        "title": "Exportateur de grains courts Sortex soyeux à 5 % | JFT Agro",
+        "bodyTextLength": 9688,
+        "bodyHeight": 12150,
+        "horizontalOverflow": false,
+        "overflowPixels": 0,
+        "h1Visible": true,
+        "brokenImages": [],
+        "clipped": [],
+        "outside": [],
+        "overlaps": []
+      },
+      "findings": []
+    }
+  ]
+}

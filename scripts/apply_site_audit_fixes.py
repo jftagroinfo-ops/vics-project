@@ -361,10 +361,36 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
     text = text.replace("info@jftagro.com", "exports@jftagro.com")
     text = text.replace("export@jftagro.com", "exports@jftagro.com")
     text = text.replace("https://jftagro.comimages/", "https://jftagro.com/images/")
-    text = text.replace(
-        "https://api.exchangerate-api.com https://translate.googleapis.com",
-        "https://api.exchangerate-api.com https://open.er-api.com https://translate.googleapis.com",
-    )
+    if "Content-Security-Policy" in text and "https://open.er-api.com" not in text:
+        text = re.sub(
+            r"https://api\.exchangerate-api\.com(?=[ ;\"])",
+            "https://api.exchangerate-api.com https://open.er-api.com",
+            text,
+            count=1,
+        )
+    if "jft-design-system.css" in text and "jft-responsive.css" not in text:
+        prefix = "../" if localized else ""
+        text = re.sub(
+            r'(<link[^>]+href=["\'](?:\.\./)?jft-design-system\.css["\'][^>]*>)',
+            rf'\1\n  <link rel="stylesheet" href="{prefix}jft-responsive.css">',
+            text,
+            count=1,
+            flags=re.I,
+        )
+    if path.name in {"404.html", "thank-you.html"}:
+        text = re.sub(
+            r'\s*<div id=["\'](?:header|footer)-placeholder["\'][^>]*></div>',
+            "",
+            text,
+            flags=re.I,
+        )
+        text = re.sub(
+            r"\s*<script>\s*async function loadComp\(id, file\).*?</script>",
+            "",
+            text,
+            count=1,
+            flags=re.I | re.S,
+        )
     text = text.replace(
         "The JFT Agro export team has been shipping Basmati Rice and Spices to 40+ countries since 2010.",
         "The JFT Agro export team has been shipping Basmati Rice and Spices to 25+ countries since 2010.",
