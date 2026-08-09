@@ -7,6 +7,8 @@ import html
 import re
 from pathlib import Path
 
+from PIL import Image
+
 
 ROOT = Path(__file__).resolve().parent.parent
 LANGS = {"ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi"}
@@ -271,7 +273,12 @@ def apply_blog_images(text: str, localized: bool) -> str:
         title_match = re.search(r'class=["\'][^"\']*card-title[^"\']*["\'][^>]*>(.*?)</h[23]>', card, re.I | re.S)
         title = re.sub(r"<[^>]+>", " ", title_match.group(1)) if title_match else "JFT Agro trade insight"
         title = html.escape(re.sub(r"\s+", " ", title).strip(), quote=True)
-        image_html = f'<div class="card-img"><img src="{image}" alt="{title}" loading="lazy"></div>'
+        with Image.open(ROOT / BLOG_IMAGES[href.group(1)]) as source:
+            width, height = source.size
+        image_html = (
+            f'<div class="card-img"><img src="{image}" alt="{title}" loading="lazy" '
+            f'width="{width}" height="{height}"></div>'
+        )
         return re.sub(r'<div class="card-img">.*?</div>', image_html, card, count=1, flags=re.I | re.S)
 
     return re.sub(
@@ -284,7 +291,9 @@ def apply_blog_images(text: str, localized: bool) -> str:
 
 def redirect_cloned_blog(path: Path, text: str, localized: bool) -> str:
     destination = BLOG_REPLACEMENTS.get(path.name)
-    if not destination or "1121 vs 1509 Basmati Rice: Which Variety Should You Import in 2026?" not in text:
+    is_clone = "1121 vs 1509 Basmati Rice: Which Variety Should You Import in 2026?" in text
+    is_redirect = "This article has moved to a verified related guide." in text
+    if not destination or not (is_clone or is_redirect):
         return text
     href = ("../" if localized else "") + destination
     title = re.search(r"<title>(.*?)</title>", text, re.I | re.S)
@@ -296,6 +305,7 @@ def redirect_cloned_blog(path: Path, text: str, localized: bool) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This article has moved to a verified related JFT Agro import and export guide.">
   <meta name="robots" content="noindex,follow">
   <meta http-equiv="refresh" content="0;url={href}">
   <link rel="canonical" href="https://jftagro.com/{destination}">
