@@ -924,6 +924,7 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             "JFT Agro Overseas quality control: multi-stage testing, ISO 9001:2015 certified lab, APEDA approved. Every export batch tested for moisture, purity, and aflatoxin before shipment.'s rigorous quality control process. We guarantee EU MRL compliance, SGS inspections, fumigation, and 100% farm-to-port traceability.",
             "JFT Agro Overseas quality control covers moisture, purity, aflatoxin, pesticide residue, fumigation, and shipment inspection for export consignments.",
         )
+        text = re.sub(r'(</section>)\s*</div>\s*(<div class="container">)', r"\1\n\n    \2", text, count=1)
 
     if path.name == "contact.html":
         prefix = "../" if localized else ""
@@ -933,6 +934,41 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         )
         text = text.replace("fetch('assets/JFT_Agro_Introduction.pdf'", f"fetch('{prefix}assets/JFT_Agro_Introduction.pdf'")
         text = text.replace("a.href='assets/JFT_Agro_Introduction.pdf'", f"a.href='{prefix}assets/JFT_Agro_Introduction.pdf'")
+
+    if path.name == "quote-calculator.html":
+        text = re.sub(
+            r'(</section>)\s*<h2>Instant <span>CIF / FOB</span><br>Export Price Estimator</h2>.*?</div>\s*</div>\s*(<div class="container">)',
+            r"\1\n\n    \2",
+            text,
+            count=1,
+            flags=re.I | re.S,
+        )
+
+    if path.name == "sample-request.html":
+        text = re.sub(
+            r'(</section>)\s*<h2>Request a <span>Product Sample</span><br>Before You Commit</h2>.*?</div>\s*</div>\s*(<div class="container">)',
+            r"\1\n\n    \2",
+            text,
+            count=1,
+            flags=re.I | re.S,
+        )
+        text = text.replace(
+            "We'll email you a shipping quote and confirmation within <strong>48 hours</strong>.",
+            "We'll email you a shipping quote and confirmation within <strong>2 business days</strong>.",
+        )
+        text = text.replace("<h4>48hr Processing</h4>", "<h4>2-Day Processing</h4>")
+
+    if path.name == "sugar-s30-supplier.html":
+        text = re.sub(
+            r'(<div class="jft-wide-container">)\s*(<section class="jft-cta-block">)',
+            r"\2",
+            text,
+            count=1,
+        )
+        text = text.replace(
+            "Free samples available. No commitment required.",
+            "Complimentary product samples are available; courier charges apply. No commitment required.",
+        )
 
     if path.name == "404.html":
         text = re.sub(
