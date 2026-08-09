@@ -118,11 +118,11 @@
       <div class="faq-section">
         <h2>Ordering &amp; MOQs</h2>
         <div class="faq-item">
-          <div class="faq-question">What is your Minimum Order Quantity (MOQ)? <span><i class="fa-solid fa-chevron-down"></i></span></div>
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">What is your Minimum Order Quantity (MOQ)? <span><i class="fa-solid fa-chevron-down"></i></span></div>
           <div class="faq-answer">Generally, our MOQ for export is one 20ft container. However, for high-value spices or trial orders, we can discuss LCL (Less than Container Load) shipments or air freight options.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">Can I request samples before placing a bulk order? <span><i class="fa-solid fa-chevron-down"></i></span></div>
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">Can I request samples before placing a bulk order? <span><i class="fa-solid fa-chevron-down"></i></span></div>
           <div class="faq-answer">Yes, qualified buyers may request up to three complimentary product samples of approximately 500g each. The buyer is responsible for international courier charges, which are confirmed before dispatch.</div>
         </div>
       </div>
@@ -130,11 +130,11 @@
       <div class="faq-section">
         <h2>Payment &amp; Documentation</h2>
         <div class="faq-item">
-          <div class="faq-question">What are your standard payment terms? <span><i class="fa-solid fa-chevron-down"></i></span></div>
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">What are your standard payment terms? <span><i class="fa-solid fa-chevron-down"></i></span></div>
           <div class="faq-answer">We typically work on: 1. 30% Advance and 70% against Scanned Shipping Documents, or 2. 100% Irrevocable Letter of Credit (L/C) at Sight from a first-class international bank.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">Which documents do you provide with the shipment? <span><i class="fa-solid fa-chevron-down"></i></span></div>
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">Which documents do you provide with the shipment? <span><i class="fa-solid fa-chevron-down"></i></span></div>
           <div class="faq-answer">Standard documents include: Commercial Invoice, Packing List, Bill of Lading, Certificate of Origin, Phytosanitary Certificate, and Fumigation Certificate. Additional documents like SGS Inspection reports can be provided upon request.</div>
         </div>
       </div>
@@ -160,6 +160,8 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
 <!-- ── CTA ── -->
 <section class="jft-cta-block">
@@ -230,7 +232,11 @@
       document.querySelectorAll('.faq-question').forEach(q => {
         q.addEventListener('click', () => {
           const item = q.parentElement;
-          item.classList.toggle('active');
+          const active = item.classList.toggle('active');
+          q.setAttribute('aria-expanded', String(active));
+        });
+        q.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); q.click(); }
         });
       });
     });

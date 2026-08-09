@@ -864,11 +864,19 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             "Yes, qualified buyers may request up to three complimentary product samples of approximately 500g each. The buyer is responsible for international courier charges, which are confirmed before dispatch.",
         )
         text = re.sub(
-            r'(</div>\s*</div>\s*</div>)\s*</div>(\s*<!--[^>]*CTA)',
-            r"\1\2",
+            r'(<strong>HS Code</strong>\s*<p>Harmonized System code used globally to classify traded products for customs\.</p>)\s*(?:</div>\s*)+(<!--[^>]*CTA)',
+            r"\1\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\2",
             text,
             count=1,
             flags=re.I,
+        )
+        text = text.replace(
+            '<div class="faq-question">',
+            '<div class="faq-question" role="button" tabindex="0" aria-expanded="false">',
+        )
+        text = text.replace(
+            "item.classList.toggle('active');\n        });",
+            "const active = item.classList.toggle('active');\n          q.setAttribute('aria-expanded', String(active));\n        });\n        q.addEventListener('keydown', event => {\n          if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); q.click(); }\n        });",
         )
 
     if path.name == "legal.html":
