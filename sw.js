@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jft-agro-v9';
+const CACHE_NAME = 'jft-agro-v10';
 
 /* Core shell — pages & assets that EXIST in the project */
 const SHELL_ASSETS = [
@@ -31,6 +31,9 @@ const SHELL_ASSETS = [
   '/manifest.json',
   '/jft-design-system.css',
   '/jft-responsive.css',
+  '/jft-conversion.js',
+  '/images/jft-logo-display.webp',
+  '/images/homepage/export-trust-hero-v2.webp',
   '/images/jft logo.png',
   '/images/icon-192.png',
   '/images/icon-512.png',
@@ -83,7 +86,7 @@ self.addEventListener('fetch', (e) => {
   }
 
   /* Cache-first for images and static assets */
-  if (url.pathname.match(/\.(webp|png|jpg|jpeg|svg|ico|woff2|woff)$/)) {
+  if (url.pathname.match(/\.(webp|png|jpg|jpeg|svg|ico|woff2|woff|css|js|json|pdf)$/)) {
     e.respondWith(
       caches.match(e.request).then((cached) => {
         if (cached) return cached;

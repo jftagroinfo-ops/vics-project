@@ -367,6 +367,18 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
     )
     text = text.replace("20+ countries", "25+ countries")
     text = text.replace("20+ Countries", "25+ Countries")
+    text = text.replace("Quick reply guaranteed", "Business-hours support")
+    text = text.replace("Response guaranteed within 4 business hours", "Typical response within 4 business hours")
+    text = text.replace("Export quality guaranteed.", "Documented export specifications.")
+    text = text.replace("for guaranteed slot\n            allocation and priority booking.", "for planned carrier capacity\n            and coordinated booking options.")
+    text = text.replace(
+        "with guaranteed pricing, routing, and ETA for your specific shipment.",
+        "with confirmed pricing, proposed routing, and an indicative ETA for your specific shipment.",
+    )
+    text = text.replace(
+        "gives you a guaranteed Proforma Invoice — exact CIF price, carrier, vessel ETA, and all documents included.",
+        "provides a formal Proforma Invoice with the CIF price, proposed carrier, indicative vessel schedule, and agreed documents.",
+    )
     text = text.replace(
         "Minimum order is 1 FCL (Full Container Load) — approximately 24–27 MT in a 20ft container. Free samples available worldwide.",
         "Minimum order is 1 FCL (Full Container Load) — approximately 24–27 MT in a 20ft container. Complimentary samples are available for qualified trade inquiries; courier charges apply.",
@@ -447,6 +459,103 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         text = text.replace(
             "if (dots[slideIdx]) dots[slideIdx].classList.add('active');",
             "if (dots[slideIdx]) { dots[slideIdx].classList.add('active'); dots[slideIdx].setAttribute('aria-current', 'true'); }",
+        )
+        if "jft-hero-banner" in text:
+            text = text.replace(
+                "Registered with all major government trade bodies. These certifications are verified by customs authorities at\n        every destination port.",
+                "Our registrations support export operations across relevant product categories. Request current stamped copies for buyer due diligence before contracting.",
+            )
+            text = text.replace("Active Certifications — All Independently Verified", "Registrations &amp; Certifications — Request Current Copies")
+            text = text.replace(
+                "We don't just sell commodities — we deliver contracts. With committed volume agreements, we guarantee\n              container availability even during Ramadan and harvest peak seasons.",
+                "We coordinate commodity supply, carrier options and export documentation as one shipment plan. Container space and sailing schedules are confirmed for each booking.",
+            )
+            text = text.replace("500+ TEUs Monthly", "FCL &amp; Multi-Container")
+            text = text.replace("Pre-booked container slots — no last-minute scrambles", "Carrier routing and equipment options coordinated against the agreed schedule")
+            text = text.replace("Zero Delay Policy", "Document Readiness")
+            text = text.replace("AEO certification — rapid port clearance on every shipment", "Export documents prepared against product, destination and payment terms")
+            text = text.replace(
+                "Committed volume agreements mean guaranteed container availability even in peak\n            season. Zero delay, rapid port clearance, full documentation support.",
+                "Carrier options and equipment are coordinated for each booking, including peak-season planning, port documentation and shipment support.",
+            )
+            text = text.replace(
+                "Dedicated Maersk, MSC &amp; CMA slots — guaranteed transit times, even peak season.",
+                "Routing options across major carriers, with schedules confirmed for each booking.",
+            )
+            text = text.replace(
+                "Every container inspected by third-party surveyors before sealing — no exceptions.",
+                "Independent pre-shipment inspection can be arranged and documented when included in the order.",
+            )
+            text = text.replace(
+                "Every container undergoes minimum two rounds of quality testing — our in-house lab and a third-party\n              certification body. We retain reference samples for 18 months post-shipment.",
+                "Each order follows the testing and inspection scope agreed in the Proforma Invoice. Independent laboratory or pre-shipment inspection can be included, and reference-sample retention is confirmed per contract.",
+            )
+            text = text.replace(
+                "<strong>Zero Claim Guarantee</strong> — In 45+ years, we maintain a near-zero cargo claim record.\n                Prevention, not damage control.",
+                "<strong>Documented Acceptance</strong> — Approved samples, tolerances and inspection scope are recorded before dispatch.",
+            )
+            text = text.replace(
+                "<strong>APEDA Certified</strong> — All rice exports registered with APEDA, ensuring full traceability\n                from paddy to final destination.",
+                "<strong>Shipment Documentation</strong> — Applicable registrations, origin records and export documents are supplied as agreed for the destination.",
+            )
+            text = re.sub(r"\.log-stat h4\b", ".log-stat h3", text)
+            text = re.sub(r'(<div class="log-stat">.*?)(<h4>)(.*?)(</h4>)', r"\1<h3>\3</h3>", text, flags=re.S)
+            text = text.replace('<h4 class="pcountry">', '<h3 class="pcountry">').replace('</h4><span class="prole">', '</h3><span class="prole">')
+            text = re.sub(r'(<div class="tauth">\s*)<h4>(.*?)</h4>', r"\1<h3>\2</h3>", text, flags=re.S)
+            text = text.replace(".tauth h4", ".tauth h3")
+            text = re.sub(
+                r'\s*<!--[^>]*TESTIMONIALS[^>]*-->\s*<section class="testi-section" id="testimonials">.*?</section>',
+                '''\n  <section class="testi-section" id="buyer-due-diligence">
+    <div class="jft-wide-container" style="position:relative;z-index:2;">
+      <div class="section-header center-header reveal">
+        <span class="brand-tag brand-tag-white"><i class="fa-solid fa-shield-halved"></i> Buyer Due Diligence</span>
+        <h2 class="section-title" style="margin-top:15px;">Verify Before You<br><span>Commit to a Shipment</span></h2>
+        <p style="max-width:720px;margin:18px auto;color:rgba(255,255,255,.72);">We encourage importers to validate the company, approve a representative sample, confirm contracted specifications and agree the inspection and document scope before payment.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:34px;">
+        <div class="tcard"><h3>1. Verify registrations</h3><p class="ttext">Request current stamped registration and certification copies relevant to the product.</p></div>
+        <div class="tcard"><h3>2. Approve the sample</h3><p class="ttext">Record the agreed grade, tolerance, packing and lab parameters before production.</p></div>
+        <div class="tcard"><h3>3. Confirm inspection</h3><p class="ttext">Add SGS, Intertek or another independent inspection to the order when required.</p></div>
+        <div class="tcard"><h3>4. Match the documents</h3><p class="ttext">Check the Proforma Invoice, payment terms and destination document list before remittance.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:34px;"><a href="certificates.html" class="btn-gold"><i class="fa-solid fa-shield-halved"></i> Review Verification Process</a></div>
+    </div>
+  </section>''',
+                text,
+                count=1,
+                flags=re.I | re.S,
+            )
+            if 'id="homepage-accessibility-overrides"' not in text:
+                text = text.replace(
+                    "</head>",
+                    '''  <style id="homepage-accessibility-overrides">
+    .feat-text,.region-loc,.node-info p,.pdesc,#global-reach>.reveal p{color:#5f6964}
+    .cert-lbl{color:#53615a}
+    #certifications>div:first-child p,#products>.reveal p{color:#5f6964!important}
+    .manu-section .section-title span{color:#79bd68}
+    .mobile-hint{color:#4b3a0b!important}
+    .pstatus{color:#176b3b}
+    #global-reach>.reveal p{color:#5f6964!important}
+    .slider-controls{gap:8px}
+    .control-dot{width:24px;height:24px;border-width:5px}
+    .control-dot.active{transform:scale(1.08)}
+  </style>\n</head>''',
+                    1,
+                )
+
+    if path.name in {"africa-trade.html", "europe-trade.html", "uae-trade.html"}:
+        text = re.sub(
+            r'\s*<!-- TESTIMONIALS -->.*?<!-- CTA -->',
+            '''\n  <section style="background:#1a3c34;color:#fff;padding:64px 0;">
+    <div class="container">
+      <div class="brand-tag" style="background:rgba(238,191,69,.12);color:#eebf45;border-color:rgba(238,191,69,.3);">Buyer Due Diligence</div>
+      <h2 class="section-title" style="color:#fff;">Verify the Shipment Plan</h2>
+      <p style="max-width:760px;color:rgba(255,255,255,.76);">Before payment, confirm the supplier registrations, approved sample, contracted specification, inspection scope, destination documents and proposed carrier schedule. Current stamped copies and buyer references can be requested directly from the trade desk.</p>
+    </div>
+  </section>\n\n  <!-- CTA -->''',
+            text,
+            count=1,
+            flags=re.I | re.S,
         )
 
     if path.name == "sample-request.html":

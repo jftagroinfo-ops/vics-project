@@ -30,7 +30,7 @@
   <meta property="og:title" content="JFT Agro Overseas | Government Recognized Star Export House">
   <meta property="og:description"
     content="JFT Agro Overseas is a Government Recognized Star Export House and ISO 9001:2015 certified exporter of Premium Indian Basmati Rice, Spices, Grains, and Pulses to 25+ countries.">
-  <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
+  <meta property="og:image" content="https://jftagro.com/images/homepage/export-trust-og.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="JFT Agro Overseas — Premium Indian Basmati Rice, Spices &amp; Grains Exporter">
@@ -39,7 +39,7 @@
   <meta name="twitter:title" content="JFT Agro Overseas | Star Export House — Rice, Spices &amp; Grains">
   <meta name="twitter:description"
     content="Government Recognized Star Export House. ISO 9001:2015 certified. Exporting Premium Basmati Rice, Spices, Grains &amp; Pulses to 25+ countries worldwide.">
-  <meta name="twitter:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
+  <meta name="twitter:image" content="https://jftagro.com/images/homepage/export-trust-og.webp">
   <script
     type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com/","logo":"https://jftagro.com/images/jft%20logo.png","contactPoint":{"@type":"ContactPoint","telephone":"+91-84250-57274","contactType":"sales","areaServed":"Global","email":"exports@jftagro.com"},"sameAs":["https://www.linkedin.com/company/jft-agro-overseas","https://www.facebook.com/jftagro","https://www.instagram.com/jftagro"],"address":{"@type":"PostalAddress","streetAddress":"Godown N-2, APMC Market, Danabunder, Vashi","addressLocality":"Navi Mumbai","postalCode":"400705","addressCountry":"IN"}}</script>
   <script
@@ -52,8 +52,8 @@
     rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-  <link rel="stylesheet" href="jft-design-system.css">
-  <link rel="stylesheet" href="jft-responsive.css">
+  <link rel="stylesheet" href="jft-design-system.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="jft-responsive.css" media="print" onload="this.media='all'">
   <style>
     :root {
       --green: #3d7030;
@@ -1965,7 +1965,7 @@
       flex-shrink: 0
     }
 
-    .log-stat h4 {
+    .log-stat h3 {
       color: #fff;
       font-family: var(--ff-s);
       font-size: 1.05rem;
@@ -2760,7 +2760,7 @@
       border: 2px solid rgba(238, 191, 69, .3)
     }
 
-    .tauth h4 {
+    .tauth h3 {
       font-size: 1rem;
       margin: 0;
       color: #fff;
@@ -3882,7 +3882,7 @@
         font-size: .85rem;
       }
 
-      .tauth h4 {
+      .tauth h3 {
         font-size: .9rem;
       }
 
@@ -3957,7 +3957,7 @@
         flex-wrap: wrap;
       }
 
-      .log-stat h4 {
+      .log-stat h3 {
         font-size: .92rem;
       }
 
@@ -4258,6 +4258,18 @@
   <link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/">
   <link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/">
   <link rel="alternate" hreflang="x-default" href="https://jftagro.com/">
+  <style id="homepage-accessibility-overrides">
+    .feat-text,.region-loc,.node-info p,.pdesc,#global-reach>.reveal p{color:#5f6964}
+    .cert-lbl{color:#53615a}
+    #certifications>div:first-child p,#products>.reveal p{color:#5f6964!important}
+    .manu-section .section-title span{color:#79bd68}
+    .mobile-hint{color:#4b3a0b!important}
+    .pstatus{color:#176b3b}
+    #global-reach>.reveal p{color:#5f6964!important}
+    .slider-controls{gap:8px}
+    .control-dot{width:24px;height:24px;border-width:5px}
+    .control-dot.active{transform:scale(1.08)}
+  </style>
 </head>
 
 <body>
@@ -4271,14 +4283,11 @@
     <div id="hero-slides-container">
       <div class="hero-slide active" style="background-image:url('images/homepage/export-trust-hero-v2.webp');"></div>
       <!-- HD Unsplash fallback images for slides 2–5 -->
-      <div class="hero-slide"
-        style="background-image:url('images/products/basmati_rice_hd.webp');">
+      <div class="hero-slide" data-bg="images/products/basmati_rice_hd.webp">
       </div>
-      <div class="hero-slide"
-        style="background-image:url('images/homepage/SPICES.webp');">
+      <div class="hero-slide" data-bg="images/homepage/SPICES.webp">
       </div>
-      <div class="hero-slide"
-        style="background-image:url('images/INFRASTRUCTURE/logistics.webp');">
+      <div class="hero-slide" data-bg="images/INFRASTRUCTURE/logistics.webp">
       </div>
     </div>
     <div class="hero-grid-overlay"></div>
@@ -4293,12 +4302,6 @@
             <a href="products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
             <a href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Get Custom
               Quote</a>
-          </div>
-        </div>
-        <div class="hero-visual-card">
-          <div class="glass-card tilt-card"><img src="images/products/basmati_rice_hd.webp"
-              alt="Premium Basmati Rice Export" loading="eager" fetchpriority="high"
-              onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&amp;q=80&amp;auto=format&amp;fit=crop'" width="1024" height="1024">
           </div>
         </div>
       </div>
@@ -4339,8 +4342,7 @@
           <span class="hero-tag-modern"><i class="fa-solid fa-ship"></i> Masters of Seas</span>
           <h2 class="hero-title-modern">Borders Are<br><span>Imaginary Lines</span><strong>Maersk &middot; MSC &middot;
               CMA-CGM</strong></h2>
-          <p class="hero-desc-modern">Committed volume agreements mean guaranteed container availability even in peak
-            season. Zero delay, rapid port clearance, full documentation support.</p>
+          <p class="hero-desc-modern">Carrier options and equipment are coordinated for each booking, including peak-season planning, port documentation and shipment support.</p>
           <div class="hero-actions"><a href="contact.html#inquiry-form" class="btn-primary">Get Export Quote</a><a
               href="quote-calculator.html" class="btn-outline">CIF Calculator</a></div>
         </div>
@@ -4415,11 +4417,11 @@
           </div>
           <div class="feat-card d2"><i class="fa-solid fa-ship feat-icon"></i>
             <div class="feat-title">Priority Shipping</div>
-            <p class="feat-text">Dedicated Maersk, MSC &amp; CMA slots — guaranteed transit times, even peak season.</p>
+            <p class="feat-text">Routing options across major carriers, with schedules confirmed for each booking.</p>
           </div>
           <div class="feat-card d3"><i class="fa-solid fa-flask feat-icon"></i>
             <div class="feat-title">SGS / Intertek</div>
-            <p class="feat-text">Every container inspected by third-party surveyors before sealing — no exceptions.</p>
+            <p class="feat-text">Independent pre-shipment inspection can be arranged and documented when included in the order.</p>
           </div>
           <div class="feat-card d4"><i class="fa-solid fa-boxes-stacked feat-icon"></i>
             <div class="feat-title">Bulk Capabilities</div>
@@ -4440,10 +4442,9 @@
   <section class="cert-section" id="certifications">
     <div style="text-align:center;padding:0 20px 0;margin-bottom:12px;">
       <p style="font-family:var(--ff-s);font-size:.78rem;color:#777;max-width:600px;margin:0 auto 6px;line-height:1.6;">
-        Registered with all major government trade bodies. These certifications are verified by customs authorities at
-        every destination port.</p>
+        Our registrations support export operations across relevant product categories. Request current stamped copies for buyer due diligence before contracting.</p>
     </div>
-    <div class="cert-lbl">Active Certifications — All Independently Verified</div>
+    <div class="cert-lbl">Registrations &amp; Certifications — Request Current Copies</div>
     <div class="cert-wrap" id="certSlider">
       <div class="cert-track" id="certTrack">
         <div class="cert-slide">
@@ -4936,8 +4937,7 @@
           <div class="reveal-left">
             <span class="brand-tag brand-tag-white">Export Logistics</span>
             <h2 class="section-title" style="margin:20px 0 25px;">Masters of<br><span>Logistics</span></h2>
-            <p>We don't just sell commodities — we deliver contracts. With committed volume agreements, we guarantee
-              container availability even during Ramadan and harvest peak seasons.</p>
+            <p>We coordinate commodity supply, carrier options and export documentation as one shipment plan. Container space and sailing schedules are confirmed for each booking.</p>
             <a href="quote-calculator.html" class="btn-gold" style="margin-top:10px;">CIF Price Calculator <i
                 class="fa-solid fa-calculator"></i></a>
           </div>
@@ -4945,28 +4945,28 @@
             <div class="log-stat">
               <div class="log-icon"><i class="fa-solid fa-ship"></i></div>
               <div>
-                <h4>Premium Shipping Lines</h4>
+                <h3>Premium Shipping Lines</h3>
                 <p>MSC &middot; Maersk &middot; CMA CGM — dedicated slot agreements</p>
               </div>
             </div>
             <div class="log-stat">
               <div class="log-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
               <div>
-                <h4>500+ TEUs Monthly</h4>
-                <p>Pre-booked container slots — no last-minute scrambles</p>
+                <h3>FCL &amp; Multi-Container</h3>
+                <p>Carrier routing and equipment options coordinated against the agreed schedule</p>
               </div>
             </div>
             <div class="log-stat">
               <div class="log-icon"><i class="fa-solid fa-clock"></i></div>
               <div>
-                <h4>Zero Delay Policy</h4>
-                <p>AEO certification — rapid port clearance on every shipment</p>
+                <h3>Document Readiness</h3>
+                <p>Export documents prepared against product, destination and payment terms</p>
               </div>
             </div>
             <div class="log-stat">
               <div class="log-icon"><i class="fa-solid fa-file-contract"></i></div>
               <div>
-                <h4>Full Doc Support</h4>
+                <h3>Full Doc Support</h3>
                 <p>LC, CAD, TT — every payment and document format handled</p>
               </div>
             </div>
@@ -5107,15 +5107,12 @@
         <div class="process-visual reveal-right">
           <div class="proc-card">
             <h3>Quality is<br><span>Non-Negotiable</span></h3>
-            <p>Every container undergoes minimum two rounds of quality testing — our in-house lab and a third-party
-              certification body. We retain reference samples for 18 months post-shipment.</p>
+            <p>Each order follows the testing and inspection scope agreed in the Proforma Invoice. Independent laboratory or pre-shipment inspection can be included, and reference-sample retention is confirmed per contract.</p>
             <div class="proc-guarantee"><i class="fa-solid fa-shield-halved"></i>
-              <p><strong>Zero Claim Guarantee</strong> — In 45+ years, we maintain a near-zero cargo claim record.
-                Prevention, not damage control.</p>
+              <p><strong>Documented Acceptance</strong> — Approved samples, tolerances and inspection scope are recorded before dispatch.</p>
             </div>
             <div class="proc-guarantee"><i class="fa-solid fa-certificate"></i>
-              <p><strong>APEDA Certified</strong> — All rice exports registered with APEDA, ensuring full traceability
-                from paddy to final destination.</p>
+              <p><strong>Shipment Documentation</strong> — Applicable registrations, origin records and export documents are supplied as agreed for the destination.</p>
             </div>
           </div>
         </div>
@@ -5152,7 +5149,7 @@
         <div class="central-hub desktop-only">
           <div class="pulse-ring pr-1"></div>
           <div class="pulse-ring pr-2"></div>
-          <div class="hub-circle"><img src="images/jft logo.png" alt="JFT Agro" width="80" height="80"
+          <div class="hub-circle"><img src="images/jft-logo-display.webp" alt="JFT Agro" width="80" height="37"
               onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-leaf\' style=\'font-size:32px;color:#3d7030\'></i>'">
           </div>
         </div>
@@ -5200,7 +5197,7 @@
           <div class="pflag">
             <div class="pflag-inner"><img src="images/homepage/Flag-Russia.webp" alt="Russia" loading="lazy" width="1600" height="1072"></div>
           </div>
-          <h4 class="pcountry">Russia</h4><span class="prole">CIS Trade Hub</span>
+          <h3 class="pcountry">Russia</h3><span class="prole">CIS Trade Hub</span>
           <p class="pdesc">Strategic gateway for Northern European &amp; CIS distribution networks.</p>
           <div class="ptag">Customs Clearance Support</div>
         </div>
@@ -5211,7 +5208,7 @@
           <div class="pflag">
             <div class="pflag-inner"><img src="images/homepage/Flag-Vietnam.webp" alt="Vietnam" loading="lazy" width="1280" height="854"></div>
           </div>
-          <h4 class="pcountry">Vietnam</h4><span class="prole">SE Asia Terminal</span>
+          <h3 class="pcountry">Vietnam</h3><span class="prole">SE Asia Terminal</span>
           <p class="pdesc">Key transshipment point for South East Asian agro-trade lanes.</p>
           <div class="ptag">Regional Logistics</div>
         </div>
@@ -5222,7 +5219,7 @@
           <div class="pflag">
             <div class="pflag-inner"><img src="images/homepage/Flag-Srilanka.webp" alt="Sri Lanka" loading="lazy" width="1500" height="901"></div>
           </div>
-          <h4 class="pcountry">Sri Lanka</h4><span class="prole">Colombo Gateway</span>
+          <h3 class="pcountry">Sri Lanka</h3><span class="prole">Colombo Gateway</span>
           <p class="pdesc">Direct supply route management for the Indian Ocean corridor.</p>
           <div class="ptag">Distribution Partner</div>
         </div>
@@ -5234,7 +5231,7 @@
             <div class="pflag-inner"><img src="images/homepage/Flag-United-Arab-Emirates.webp" alt="UAE" loading="lazy" width="1600" height="800">
             </div>
           </div>
-          <h4 class="pcountry">Dubai (UAE)</h4><span class="prole">Global Trade Hub</span>
+          <h3 class="pcountry">Dubai (UAE)</h3><span class="prole">Global Trade Hub</span>
           <p class="pdesc">Centralized command for Middle East &amp; Gulf region operations.</p>
           <div class="ptag">Strategic Warehouse</div>
         </div>
@@ -5245,7 +5242,7 @@
           <div class="pflag">
             <div class="pflag-inner"><img src="images/homepage/Flag-Benin.webp" alt="Benin" loading="lazy" width="1680" height="980"></div>
           </div>
-          <h4 class="pcountry">Benin</h4><span class="prole">West Africa Hub</span>
+          <h3 class="pcountry">Benin</h3><span class="prole">West Africa Hub</span>
           <p class="pdesc">Leading entry point for Bulk Rice and Sugar in the ECOWAS market.</p>
           <div class="ptag">Regional Distribution</div>
         </div>
@@ -5256,7 +5253,7 @@
           <div class="pflag">
             <div class="pflag-inner"><img src="images/homepage/Flag-Zambia.webp" alt="Zambia" loading="lazy" width="1600" height="1067"></div>
           </div>
-          <h4 class="pcountry">Zambia</h4><span class="prole">Southern Africa Hub</span>
+          <h3 class="pcountry">Zambia</h3><span class="prole">Southern Africa Hub</span>
           <p class="pdesc">Empowering landlocked markets with reliable food security solutions.</p>
           <div class="ptag">Logistics Command</div>
         </div>
@@ -5268,7 +5265,7 @@
             <div class="pflag-inner"><img src="images/homepage/Flag-Indonesia.webp" alt="Indonesia" loading="lazy" width="1280" height="854">
             </div>
           </div>
-          <h4 class="pcountry">Indonesia</h4><span class="prole">Archipelago Trade Hub</span>
+          <h3 class="pcountry">Indonesia</h3><span class="prole">Archipelago Trade Hub</span>
           <p class="pdesc">Managing complex maritime supply chains across Indonesian islands.</p>
           <div class="ptag">Supply Chain Partner</div>
         </div>
@@ -5279,7 +5276,7 @@
           <div class="pflag">
             <div class="pflag-inner"><img src="https://flagcdn.com/w80/my.png" alt="Malaysia" loading="lazy" width="80" height="40"></div>
           </div>
-          <h4 class="pcountry">Malaysia</h4><span class="prole">Port Klang Hub</span>
+          <h3 class="pcountry">Malaysia</h3><span class="prole">Port Klang Hub</span>
           <p class="pdesc">Critical transit point for refined oils and grain distribution in SE Asia.</p>
           <div class="ptag">Logistics Partner</div>
         </div>
@@ -5290,7 +5287,7 @@
           <div class="pflag">
             <div class="pflag-inner"><img src="https://flagcdn.com/w80/th.png" alt="Thailand" loading="lazy" width="80" height="53"></div>
           </div>
-          <h4 class="pcountry">Thailand</h4><span class="prole">Bangkok Gateway</span>
+          <h3 class="pcountry">Thailand</h3><span class="prole">Bangkok Gateway</span>
           <p class="pdesc">Managing regional trade flows and high-quality grain sourcing networks.</p>
           <div class="ptag">Regional Hub</div>
         </div>
@@ -5303,7 +5300,7 @@
               style="background:linear-gradient(135deg,#006600,#bb0000,#006600);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">
               🇰🇪</div>
           </div>
-          <h4 class="pcountry">Kenya</h4><span class="prole">East Africa Gateway</span>
+          <h3 class="pcountry">Kenya</h3><span class="prole">East Africa Gateway</span>
           <p class="pdesc">Mombasa port hub for East African rice and grain distribution to inland markets.</p>
           <div class="ptag">Regional Distribution</div>
         </div>
@@ -5317,201 +5314,20 @@
           class="fa-solid fa-paper-plane"></i> Contact Our Export Team</a>
     </div>
   </section>
-
-  <!-- ── TESTIMONIALS ── -->
-  <section class="testi-section" id="testimonials">
-    <div class="jft-wide-container">
+  <section class="testi-section" id="buyer-due-diligence">
+    <div class="jft-wide-container" style="position:relative;z-index:2;">
       <div class="section-header center-header reveal">
-        <span class="brand-tag brand-tag-white"><i class="fa-solid fa-quote-left" style="margin-right:6px;"></i> Real
-          Buyers · Real Shipments</span>
-        <h2 class="section-title" style="margin-top:15px;">Trusted by<br><span>Importers Worldwide</span></h2>
+        <span class="brand-tag brand-tag-white"><i class="fa-solid fa-shield-halved"></i> Buyer Due Diligence</span>
+        <h2 class="section-title" style="margin-top:15px;">Verify Before You<br><span>Commit to a Shipment</span></h2>
+        <p style="max-width:720px;margin:18px auto;color:rgba(255,255,255,.72);">We encourage importers to validate the company, approve a representative sample, confirm contracted specifications and agree the inspection and document scope before payment.</p>
       </div>
-    </div>
-    <div class="testi-scroll reveal">
-      <div class="testi-track">
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"JFT Agro has been supplying 1121 Basmati to our Dubai warehouse for 4 years. Quality is
-            consistent — 12.5% moisture, excellent grain length. 6 containers this Ramadan season without a single
-            delay."</p>
-          <div class="thead">
-            <div class="tavatar">AH</div>
-            <div class="tauth">
-              <h4>Ahmed Al-Hamdan</h4><span><span class="flag-pill">🇦🇪 DUBAI</span> Rice Distributor</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"We import cumin seeds and turmeric quarterly for our UK spice blend factory. JFT's
-            documentation is always complete — SGS inspection, phytosanitary, COO — making HMRC clearance fast and
-            smooth every time."</p>
-          <div class="thead">
-            <div class="tavatar">RP</div>
-            <div class="tauth">
-              <h4>Raj Patel</h4><span><span class="flag-pill">🇬🇧 UK</span> Spice Manufacturer</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"JFT's IR-64 parboiled rice consistency is the best we've received from India. 50 containers
-            delivered without a single quality claim in 3 years of partnership."</p>
-          <div class="thead">
-            <div class="tavatar">AD</div>
-            <div class="tauth">
-              <h4>Abdoulaye Diallo</h4><span><span class="flag-pill">🇧🇯 BENIN</span> Importer</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"Professional documentation and logistics. They understand the urgency of the Middle East
-            market during Ramadan. Highly recommended for bulk Basmati orders."</p>
-          <div class="thead">
-            <div class="tavatar">AF</div>
-            <div class="tauth">
-              <h4>Al-Futtaim Trading</h4><span><span class="flag-pill">🇦🇪 DUBAI</span> Official Partner</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"We rely on JFT for organic certified spices. Their lab reports match our European stringent
-            standards perfectly every single time. SGS approved at every shipment."</p>
-          <div class="thead">
-            <div class="tavatar">SJ</div>
-            <div class="tauth">
-              <h4>Sarah Jenkins</h4><span><span class="flag-pill">🇬🇧 UK</span> Procurement</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"Supply chain transparency is unmatched. We track every shipment in real-time, ensuring
-            inventory is always stocked for our Vietnamese distribution network."</p>
-          <div class="thead">
-            <div class="tavatar">NV</div>
-            <div class="tauth">
-              <h4>Nguyen Van Minh</h4><span><span class="flag-pill">🇻🇳 VIETNAM</span> Senior Trader</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"The Basmati aroma was authentic and premium. Our customers in Riyadh are very satisfied with
-            the 1121 Sella quality every single season — consistent year after year."</p>
-          <div class="thead">
-            <div class="tavatar">KA</div>
-            <div class="tauth">
-              <h4>Khalid Al-Saud</h4><span><span class="flag-pill">🇸🇦 SAUDI</span> Retail Chain</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"Strict adherence to global standards. JFT is our reliable partner for organic spices —
-            delivering purity and consistency without fail across 20+ shipments."</p>
-          <div class="thead">
-            <div class="tavatar">MR</div>
-            <div class="tauth">
-              <h4>Michael Ross</h4><span><span class="flag-pill">🇺🇸 USA</span> Supply Chain</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"Importing IR-64 and broken rice for Benin and Togo since 2021. APEDA certificates pass every
-            port inspection. Competitive FOB pricing, LC at sight accepted."</p>
-          <div class="thead">
-            <div class="tavatar">KK</div>
-            <div class="tauth">
-              <h4>Kofi Koffi</h4><span><span class="flag-pill">🇧🇯 BENIN</span> Commodity Trader</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"Our GCC supermarket chain relies on JFT for private-label Basmati. Custom branding,
-            consistent quality, on-time delivery every month — they never let us down."</p>
-          <div class="thead">
-            <div class="tavatar">MB</div>
-            <div class="tauth">
-              <h4>Mohammed Al-Balushi</h4><span><span class="flag-pill">🇴🇲 OMAN</span> Retail Chain</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"JFT's psyllium husk passes our EU MRL tests every time. Full traceability from farm to port.
-            Our nutraceutical factory in Germany counts on them for 12 containers a year."</p>
-          <div class="thead">
-            <div class="tavatar">HM</div>
-            <div class="tauth">
-              <h4>Hans Mueller</h4><span><span class="flag-pill">🇩🇪 GERMANY</span> Pharma Buyer</span>
-            </div>
-          </div>
-        </div>
-        <!-- Duplicate first 3 for seamless infinite scroll -->
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"JFT Agro has been supplying 1121 Basmati to our Dubai warehouse for 4 years. Quality is
-            consistent — 12.5% moisture, excellent grain length. 6 containers this Ramadan season without a single
-            delay."</p>
-          <div class="thead">
-            <div class="tavatar">AH</div>
-            <div class="tauth">
-              <h4>Ahmed Al-Hamdan</h4><span><span class="flag-pill">🇦🇪 DUBAI</span> Rice Distributor</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"We import cumin seeds and turmeric quarterly for our UK spice blend factory. JFT's
-            documentation is always complete — SGS inspection, phytosanitary, COO — making HMRC clearance fast and
-            smooth every time."</p>
-          <div class="thead">
-            <div class="tavatar">RP</div>
-            <div class="tauth">
-              <h4>Raj Patel</h4><span><span class="flag-pill">🇬🇧 UK</span> Spice Manufacturer</span>
-            </div>
-          </div>
-        </div>
-        <div class="tcard">
-          <div class="tstars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p class="ttext">"JFT's IR-64 parboiled rice consistency is the best we've received from India. 50 containers
-            delivered without a single quality claim in 3 years of partnership."</p>
-          <div class="thead">
-            <div class="tavatar">AD</div>
-            <div class="tauth">
-              <h4>Abdoulaye Diallo</h4><span><span class="flag-pill">🇧🇯 BENIN</span> Importer</span>
-            </div>
-          </div>
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:34px;">
+        <div class="tcard"><h3>1. Verify registrations</h3><p class="ttext">Request current stamped registration and certification copies relevant to the product.</p></div>
+        <div class="tcard"><h3>2. Approve the sample</h3><p class="ttext">Record the agreed grade, tolerance, packing and lab parameters before production.</p></div>
+        <div class="tcard"><h3>3. Confirm inspection</h3><p class="ttext">Add SGS, Intertek or another independent inspection to the order when required.</p></div>
+        <div class="tcard"><h3>4. Match the documents</h3><p class="ttext">Check the Proforma Invoice, payment terms and destination document list before remittance.</p></div>
       </div>
-    </div>
-
-    <!-- Testimonials CTA -->
-    <div style="text-align:center;margin-top:50px;position:relative;z-index:2;" class="reveal">
-      <a href="contact.html#inquiry-form"
-        style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:16px 38px;border-radius:50px;font-family:var(--ff-s);font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:1.5px;box-shadow:0 10px 30px rgba(238,191,69,.3);transition:.4s;"><i
-          class="fa-solid fa-handshake"></i> Join Our Global Importer Network</a>
-      <p style="font-family:var(--ff-s);font-size:.75rem;color:rgba(255,255,255,.3);margin-top:14px;">25+ countries · 84
-        products · Response within 4 hours</p>
+      <div style="text-align:center;margin-top:34px;"><a href="certificates.html" class="btn-gold"><i class="fa-solid fa-shield-halved"></i> Review Verification Process</a></div>
     </div>
   </section>
 
@@ -5647,7 +5463,12 @@
         slides.forEach(function (s) { s.classList.remove('active'); });
         contents.forEach(function (c) { c.classList.remove('active'); });
         dots.forEach(function (d) { d.classList.remove('active'); d.removeAttribute('aria-current'); });
-        if (slides[slideIdx]) slides[slideIdx].classList.add('active');
+        if (slides[slideIdx]) {
+          if (slides[slideIdx].dataset.bg && !slides[slideIdx].style.backgroundImage) {
+            slides[slideIdx].style.backgroundImage = `url('${slides[slideIdx].dataset.bg}')`;
+          }
+          slides[slideIdx].classList.add('active');
+        }
         if (contents[slideIdx]) contents[slideIdx].classList.add('active');
         if (dots[slideIdx]) { dots[slideIdx].classList.add('active'); dots[slideIdx].setAttribute('aria-current', 'true'); }
       }

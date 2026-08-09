@@ -619,7 +619,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Logo row: always visible, desktop nav lives here too -->
   <div class="nav-flex">
     <a href="index.html" class="nav-logo-link">
-      <img src="/images/jft logo.png" alt="JFT Agro" class="nav-logo-img" width="200" height="75">
+      <img src="/images/jft-logo-display.webp" alt="JFT Agro" class="nav-logo-img" width="200" height="93">
     </a>
 
     <!-- Desktop nav links (hidden on mobile via CSS) -->
@@ -913,15 +913,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Try multiple APIs in order — fallbacks ensure rates always show */
     const APIS = [
-      {
-        url: 'https://api.frankfurter.app/latest?from=USD&to=INR,EUR,GBP,AED',
-        parse: (d) => ({
-          usd: d.rates.INR,
-          eur: d.rates.INR / d.rates.EUR,
-          gbp: d.rates.INR / d.rates.GBP,
-          aed: d.rates.INR / d.rates.AED
-        })
-      },
       {
         url: 'https://api.exchangerate-api.com/v4/latest/USD',
         parse: (d) => ({
