@@ -1,0 +1,1 @@
+{"label":"Final blog validation","type":"shell","command":"cmd.exe","args":["/d","/c","scripts\\run_blog_validation.cmd"],"isBackground":false,"problemMatcher":[],"group":"test"}
