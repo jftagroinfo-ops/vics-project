@@ -108,6 +108,23 @@ def audit() -> dict[str, list[str]]:
         html = soup.find("html")
         robots = soup.find("meta", attrs={"name": re.compile(r"^robots$", re.I)})
         noindex = bool(robots and "noindex" in robots.get("content", "").lower())
+        localized = page.parent.name in {"ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi"}
+
+        for malformed in re.findall(r"https?://([^/\s\"'<>]+)", text, re.I):
+            hostname = malformed.lower().rstrip(".")
+            if hostname.startswith("jftagro.com") and hostname != "jftagro.com":
+                findings["malformed_first_party_url"].append(f"{relative}: {hostname}")
+
+        if localized:
+            if re.search(r"\bi:\s*['\"]images/", text):
+                findings["broken_dynamic_product_asset"].append(relative)
+            if re.search(r"(?:fetch\(|\.href\s*=\s*)['\"]assets/", text):
+                findings["broken_dynamic_local_asset"].append(relative)
+            if re.search(
+                r"(?:loadHTML|loadComponent|loadComp)\([^\n]*?['\"](?:header|footer)\.html['\"]",
+                text,
+            ):
+                findings["broken_dynamic_component_path"].append(relative)
         if not title or not title.get_text(strip=True):
             findings["missing_title"].append(relative)
         if not description or not description.get("content", "").strip():

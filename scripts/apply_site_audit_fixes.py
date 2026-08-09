@@ -332,6 +332,27 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
 
     text = text.replace("info@jftagro.com", "exports@jftagro.com")
     text = text.replace("export@jftagro.com", "exports@jftagro.com")
+    text = text.replace("https://jftagro.comimages/", "https://jftagro.com/images/")
+    text = text.replace(
+        "The JFT Agro export team has been shipping Basmati Rice and Spices to 40+ countries since 2010.",
+        "The JFT Agro export team has been shipping Basmati Rice and Spices to 25+ countries since 2010.",
+    )
+    text = text.replace(
+        "Minimum order is 1 FCL (Full Container Load) — approximately 24–27 MT in a 20ft container. Free samples available worldwide.",
+        "Minimum order is 1 FCL (Full Container Load) — approximately 24–27 MT in a 20ft container. Complimentary samples are available for qualified trade inquiries; courier charges apply.",
+    )
+    text = text.replace(
+        "Yes — free samples dispatched worldwide within 24 hours. No minimum weight for samples.",
+        "Yes. Complimentary product samples are available for qualified trade inquiries. Courier charges apply, and dispatch is arranged after confirmation, typically within 2 business days.",
+    )
+    text = text.replace(
+        "Free samples. Factory-direct pricing.",
+        "Complimentary product samples; courier charges apply. Factory-direct pricing.",
+    )
+    text = text.replace(
+        "Free samples available. Factory-direct pricing.",
+        "Complimentary product samples; courier charges apply. Factory-direct pricing.",
+    )
     text = re.sub(
         r'\s*<link\s+rel=["\']preload["\']\s+as=["\']image["\']\s+href=["\'](?:\.\./)?images/homepage/BASMATI\.webp["\'][^>]*>',
         "",
@@ -371,6 +392,18 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             text = text.replace(remote, local)
 
     if path.name == "sample-request.html":
+        text = text.replace(
+            "Samples are dispatched within 48 hours via DHL/FedEx at JFT's cost.",
+            "Samples are prepared within 2 business days after confirmation and dispatched via DHL/FedEx at the buyer's cost.",
+        )
+        text = text.replace(
+            "Samples are dispatched via DHL/FedEx within 48 hours of request confirmation. Delivery takes 3-7 business days depending on destination country.",
+            "Samples are prepared within 2 business days after request confirmation. DHL/FedEx delivery typically takes 3-7 business days depending on the destination country.",
+        )
+        text = text.replace(
+            "Samples up to 2 kg per product are provided free of charge. JFT Agro covers DHL dispatch cost for genuine trade inquiries.",
+            "Product samples are complimentary for qualified trade inquiries. The buyer pays DHL/FedEx courier charges, which are confirmed before dispatch.",
+        )
         validation_block = (
             "      if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }\n"
             "      if (!/^[\\d\\+\\-\\s\\(\\)]+$/.test(phone)) { alert('Please enter a valid phone number.'); return; }\n"
@@ -445,6 +478,8 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             '<div id="product-modal">',
             '<div id="product-modal" role="dialog" aria-modal="true" aria-labelledby="m-title" aria-hidden="true">',
         )
+        if localized:
+            text = re.sub(r"(\bi:\s*['\"])(?!\.\./)images/", r"\1../images/", text)
         text = text.replace(
             "      } else {\n        document.getElementById('m-cultivation').innerText = \"Year-Round Arrivals\";\n      }\n    }\n\n    function downloadPDF()",
             "      } else {\n        document.getElementById('m-cultivation').innerText = \"Year-Round Arrivals\";\n      }\n\n      modal.classList.add('open');\n      modal.setAttribute('aria-hidden', 'false');\n      const closeButton = modal.querySelector('[onclick=\"closeModal()\"]');\n      if (closeButton) closeButton.focus();\n    }\n\n    const catalogueTitle = document.title;\n    function closeModal() {\n      const modal = document.getElementById('product-modal');\n      modal.classList.remove('open');\n      modal.setAttribute('aria-hidden', 'true');\n      document.body.classList.remove('modal-open');\n      document.title = catalogueTitle;\n    }\n    document.getElementById('product-modal').addEventListener('click', function (event) {\n      if (event.target === this) closeModal();\n    });\n    document.addEventListener('keydown', function (event) {\n      if (event.key === 'Escape' && document.getElementById('product-modal').classList.contains('open')) closeModal();\n    });\n\n    function downloadPDF()",
@@ -555,8 +590,13 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
                 text,
             )
         text = re.sub(
-            r"((?:fetch|loadComponent|loadComp)\([^\n]*?[\"'])(header|footer)\.html([\"'])",
+            r"((?:fetch|loadHTML|loadComponent|loadComp)\([^\n]*?[\"'])(header|footer)\.html([\"'])",
             r"\1../\2.html\3",
+            text,
+        )
+        text = re.sub(
+            r"((?:fetch\(|\.href\s*=\s*)['\"])(?!\.\./|/)assets/",
+            r"\1../assets/",
             text,
         )
         text = re.sub(
@@ -662,6 +702,21 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             '<i class="fa-solid fa-download"></i> Download</a>',
             '<i class="fa-solid fa-file-pdf"></i> Company Profile</a>',
         )
+
+    if path.name == "quality-control.html":
+        text = text.replace(
+            "JFT Agro Overseas quality control: multi-stage testing, ISO 9001:2015 certified lab, APEDA approved. Every export batch tested for moisture, purity, and aflatoxin before shipment.'s rigorous quality control process. We guarantee EU MRL compliance, SGS inspections, fumigation, and 100% farm-to-port traceability.",
+            "JFT Agro Overseas quality control covers moisture, purity, aflatoxin, pesticide residue, fumigation, and shipment inspection for export consignments.",
+        )
+
+    if path.name == "contact.html":
+        prefix = "../" if localized else ""
+        text = text.replace(
+            "  const prod = params.get('product'); if (!prod) return;\n  const sel = document.getElementById('product'); if (!sel) return;\n  for (let i = 0; i < sel.options.length; i++) {\n    if (sel.options[i].text.toLowerCase().includes(prod.toLowerCase()) || sel.options[i].value.toLowerCase().includes(prod.toLowerCase())) { sel.selectedIndex = i; break; }\n  }",
+            "  const prod = params.get('product');\n  const port = params.get('port');\n  const sel = document.getElementById('product');\n  if (prod && sel) {\n    for (let i = 0; i < sel.options.length; i++) {\n      if (sel.options[i].text.toLowerCase().includes(prod.toLowerCase()) || sel.options[i].value.toLowerCase().includes(prod.toLowerCase())) { sel.selectedIndex = i; break; }\n    }\n  }\n  const portInput = document.getElementById('port');\n  if (port && portInput) portInput.value = port;",
+        )
+        text = text.replace("fetch('assets/JFT_Agro_Introduction.pdf'", f"fetch('{prefix}assets/JFT_Agro_Introduction.pdf'")
+        text = text.replace("a.href='assets/JFT_Agro_Introduction.pdf'", f"a.href='{prefix}assets/JFT_Agro_Introduction.pdf'")
 
     if path.name == "404.html":
         text = re.sub(

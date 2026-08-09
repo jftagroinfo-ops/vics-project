@@ -528,7 +528,7 @@ img{max-width:100%;height:auto;display:block}
   <div class="jft-wide-container">
     <div class="cta-eyebrow">Start Today</div>
     <h2 class="cta-block-title">Ready to Source from<br><em>India's Star Export House?</em></h2>
-    <p class="cta-block-desc">Free samples. Factory-direct pricing. CIF delivery to any global port. Response guaranteed within 4 business hours.</p>
+    <p class="cta-block-desc">Complimentary product samples; courier charges apply. Factory-direct pricing. CIF delivery to any global port. Response guaranteed within 4 business hours.</p>
     <div class="cta-actions">
       <a href="#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice-dollar"></i> Request Proforma Invoice</a>
       <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Free Product Sample</a>
@@ -588,11 +588,16 @@ function toggleSample(cb) {
 }
 (function() {
   const params = new URLSearchParams(window.location.search);
-  const prod = params.get('product'); if (!prod) return;
-  const sel = document.getElementById('product'); if (!sel) return;
-  for (let i = 0; i < sel.options.length; i++) {
-    if (sel.options[i].text.toLowerCase().includes(prod.toLowerCase()) || sel.options[i].value.toLowerCase().includes(prod.toLowerCase())) { sel.selectedIndex = i; break; }
+  const prod = params.get('product');
+  const port = params.get('port');
+  const sel = document.getElementById('product');
+  if (prod && sel) {
+    for (let i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].text.toLowerCase().includes(prod.toLowerCase()) || sel.options[i].value.toLowerCase().includes(prod.toLowerCase())) { sel.selectedIndex = i; break; }
+    }
   }
+  const portInput = document.getElementById('port');
+  if (port && portInput) portInput.value = port;
 })();
 function updateClocks() {
   const opts = { hour:'2-digit', minute:'2-digit', hour12: false };
