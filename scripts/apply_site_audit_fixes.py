@@ -353,6 +353,10 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         "Free samples available. Factory-direct pricing.",
         "Complimentary product samples; courier charges apply. Factory-direct pricing.",
     )
+    text = text.replace(
+        '''<div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.faq-chevron').classList.toggle('rotated')"''',
+        '''<div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="var answer=this.nextElementSibling;var open=answer.classList.toggle('open');this.setAttribute('aria-expanded',String(open));this.querySelector('.faq-chevron').classList.toggle('rotated',open)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"''',
+    )
     text = re.sub(
         r'\s*<link\s+rel=["\']preload["\']\s+as=["\']image["\']\s+href=["\'](?:\.\./)?images/homepage/BASMATI\.webp["\'][^>]*>',
         "",
@@ -390,6 +394,21 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         }
         for remote, local in replacements.items():
             text = text.replace(remote, local)
+        for index in range(4):
+            active = " active" if index == 0 else ""
+            current = ' aria-current="true"' if index == 0 else ""
+            text = text.replace(
+                f'<div class="control-dot{active}" onclick="setSlide({index})"></div>',
+                f'<div class="control-dot{active}" role="button" tabindex="0" aria-label="Show slide {index + 1}"{current} onclick="setSlide({index})" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){{event.preventDefault();this.click();}}"></div>',
+            )
+        text = text.replace(
+            "dots.forEach(function (d) { d.classList.remove('active'); });",
+            "dots.forEach(function (d) { d.classList.remove('active'); d.removeAttribute('aria-current'); });",
+        )
+        text = text.replace(
+            "if (dots[slideIdx]) dots[slideIdx].classList.add('active');",
+            "if (dots[slideIdx]) { dots[slideIdx].classList.add('active'); dots[slideIdx].setAttribute('aria-current', 'true'); }",
+        )
 
     if path.name == "sample-request.html":
         text = text.replace(
@@ -481,6 +500,10 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         if localized:
             text = re.sub(r"(\bi:\s*['\"])(?!\.\./)images/", r"\1../images/", text)
         text = text.replace(
+            '<div class="mobile-floating-close" onclick="closeModal()" aria-label="Close Modal">',
+            '<div class="mobile-floating-close" role="button" tabindex="0" onclick="closeModal()" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();closeModal();}" aria-label="Close product report">',
+        )
+        text = text.replace(
             "      } else {\n        document.getElementById('m-cultivation').innerText = \"Year-Round Arrivals\";\n      }\n    }\n\n    function downloadPDF()",
             "      } else {\n        document.getElementById('m-cultivation').innerText = \"Year-Round Arrivals\";\n      }\n\n      modal.classList.add('open');\n      modal.setAttribute('aria-hidden', 'false');\n      const closeButton = modal.querySelector('[onclick=\"closeModal()\"]');\n      if (closeButton) closeButton.focus();\n    }\n\n    const catalogueTitle = document.title;\n    function closeModal() {\n      const modal = document.getElementById('product-modal');\n      modal.classList.remove('open');\n      modal.setAttribute('aria-hidden', 'true');\n      document.body.classList.remove('modal-open');\n      document.title = catalogueTitle;\n    }\n    document.getElementById('product-modal').addEventListener('click', function (event) {\n      if (event.target === this) closeModal();\n    });\n    document.addEventListener('keydown', function (event) {\n      if (event.key === 'Escape' && document.getElementById('product-modal').classList.contains('open')) closeModal();\n    });\n\n    function downloadPDF()",
         )
@@ -505,6 +528,35 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             text,
             count=1,
             flags=re.I,
+        )
+
+    if path.name == "africa-trade.html":
+        regions = (("west", "West Africa"), ("east", "East Africa"), ("horn", "Horn of Africa"), ("south", "Southern Africa"))
+        for index, (region, label_text) in enumerate(regions):
+            active = " active" if index == 0 else ""
+            pressed = "true" if index == 0 else "false"
+            text = text.replace(
+                f'<div class="rtab{active}" onclick="showRegion(\'{region}\',this)">{label_text}</div>',
+                f'<div class="rtab{active}" role="button" tabindex="0" aria-pressed="{pressed}" onclick="showRegion(\'{region}\',this)" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){{event.preventDefault();this.click();}}">{label_text}</div>',
+            )
+        text = text.replace(
+            "function showRegion(id, tab) { document.querySelectorAll('.region-content').forEach(r=>r.classList.remove('active')); document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active')); document.getElementById('region-'+id).classList.add('active'); tab.classList.add('active'); }",
+            "function showRegion(id, tab) { document.querySelectorAll('.region-content').forEach(r=>r.classList.remove('active')); document.querySelectorAll('.rtab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-pressed','false');}); document.getElementById('region-'+id).classList.add('active'); tab.classList.add('active'); tab.setAttribute('aria-pressed','true'); }",
+        )
+
+    if path.name == "header.html":
+        text = re.sub(
+            r'<div class="mnav-acc-label" onclick="toggleSubMenu\(\'(acc-[^\']+)\'\)">',
+            r'''<div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="\1" onclick="toggleSubMenu('\1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">''',
+            text,
+        )
+        text = text.replace(
+            "if (a !== parent) a.classList.remove('open');",
+            "if (a !== parent) { a.classList.remove('open'); var otherLabel = a.querySelector('.mnav-acc-label'); if (otherLabel) otherLabel.setAttribute('aria-expanded', 'false'); }",
+        )
+        text = text.replace(
+            "parent.classList.toggle('open', !isOpen);",
+            "parent.classList.toggle('open', !isOpen);\n    var label = parent.querySelector('.mnav-acc-label');\n    if (label) label.setAttribute('aria-expanded', String(!isOpen));",
         )
 
     text = secure_blank_targets(text)

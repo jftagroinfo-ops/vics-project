@@ -189,6 +189,23 @@ def audit() -> dict[str, list[str]]:
                     f"{relative}: {control.name}#{control.get('id', '<no id>')}"
                 )
 
+        for click_target in soup.find_all(["div", "span", "li"], onclick=True):
+            keyboard_ready = (
+                click_target.get("role") in {"button", "checkbox", "link", "tab"}
+                and click_target.get("tabindex") == "0"
+                and click_target.has_attr("onkeydown")
+            )
+            if not keyboard_ready and "nav-overlay" not in click_target.get("class", []):
+                findings["non_keyboard_click_target"].append(
+                    f"{relative}: {click_target.name}.{'.'.join(click_target.get('class', [])) or '<no class>'}"
+                )
+
+        for button in soup.find_all("button"):
+            if button.find_parent("form") and not button.has_attr("type"):
+                findings["implicit_form_button_type"].append(
+                    f"{relative}: button#{button.get('id', '<no id>')}"
+                )
+
         for frame in soup.find_all("iframe"):
             if not frame.get("title", "").strip() and not frame.get("aria-label", "").strip():
                 findings["unnamed_iframe"].append(f"{relative}: {frame.get('src', '<no src>')}")

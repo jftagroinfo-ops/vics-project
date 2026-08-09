@@ -757,7 +757,7 @@ img, video, iframe { max-width: 100%; height: auto; }
       <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#1a3c34;margin-bottom:36px">Frequently Asked <em style="color:#3d7030;font-style:italic">Questions</em></h2>
 
       <div class="faq-item" style="border-bottom:1px solid rgba(26,60,52,.08);margin-bottom:0">
-        <div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.faq-chevron').classList.toggle('rotated')" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="var answer=this.nextElementSibling;var open=answer.classList.toggle('open');this.setAttribute('aria-expanded',String(open));this.querySelector('.faq-chevron').classList.toggle('rotated',open)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
           What is the minimum order quantity (MOQ)?
           <i class="fa-solid fa-chevron-down faq-chevron" style="color:#3d7030;font-size:.75rem;transition:transform .3s;flex-shrink:0"></i>
         </div>
@@ -767,7 +767,7 @@ img, video, iframe { max-width: 100%; height: auto; }
       </div>
 
       <div class="faq-item" style="border-bottom:1px solid rgba(26,60,52,.08)">
-        <div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.faq-chevron').classList.toggle('rotated')" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="var answer=this.nextElementSibling;var open=answer.classList.toggle('open');this.setAttribute('aria-expanded',String(open));this.querySelector('.faq-chevron').classList.toggle('rotated',open)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
           What payment terms do you accept?
           <i class="fa-solid fa-chevron-down faq-chevron" style="color:#3d7030;font-size:.75rem;transition:transform .3s;flex-shrink:0"></i>
         </div>
@@ -777,7 +777,7 @@ img, video, iframe { max-width: 100%; height: auto; }
       </div>
 
       <div class="faq-item" style="border-bottom:1px solid rgba(26,60,52,.08)">
-        <div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.faq-chevron').classList.toggle('rotated')" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="var answer=this.nextElementSibling;var open=answer.classList.toggle('open');this.setAttribute('aria-expanded',String(open));this.querySelector('.faq-chevron').classList.toggle('rotated',open)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
           What certifications and documents do you provide?
           <i class="fa-solid fa-chevron-down faq-chevron" style="color:#3d7030;font-size:.75rem;transition:transform .3s;flex-shrink:0"></i>
         </div>
@@ -787,7 +787,7 @@ img, video, iframe { max-width: 100%; height: auto; }
       </div>
 
       <div class="faq-item" style="border-bottom:1px solid rgba(26,60,52,.08)">
-        <div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.faq-chevron').classList.toggle('rotated')" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="var answer=this.nextElementSibling;var open=answer.classList.toggle('open');this.setAttribute('aria-expanded',String(open));this.querySelector('.faq-chevron').classList.toggle('rotated',open)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
           How long does shipping take?
           <i class="fa-solid fa-chevron-down faq-chevron" style="color:#3d7030;font-size:.75rem;transition:transform .3s;flex-shrink:0"></i>
         </div>
@@ -797,7 +797,7 @@ img, video, iframe { max-width: 100%; height: auto; }
       </div>
 
       <div class="faq-item">
-        <div class="faq-q" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.faq-chevron').classList.toggle('rotated')" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
+        <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="var answer=this.nextElementSibling;var open=answer.classList.toggle('open');this.setAttribute('aria-expanded',String(open));this.querySelector('.faq-chevron').classList.toggle('rotated',open)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
           Can I get a free sample before placing an order?
           <i class="fa-solid fa-chevron-down faq-chevron" style="color:#3d7030;font-size:.75rem;transition:transform .3s;flex-shrink:0"></i>
         </div>

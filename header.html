@@ -712,7 +712,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- PRODUCTS accordion -->
   <div class="mnav-accordion" id="mnav-products">
-    <div class="mnav-acc-label" onclick="toggleSubMenu('acc-products')">
+    <div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="acc-products" onclick="toggleSubMenu('acc-products')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
       <span>Products</span>
       <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-products"></i>
     </div>
@@ -733,7 +733,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- INFRASTRUCTURE accordion -->
   <div class="mnav-accordion" id="mnav-infra">
-    <div class="mnav-acc-label" onclick="toggleSubMenu('acc-infra')">
+    <div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="acc-infra" onclick="toggleSubMenu('acc-infra')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
       <span>Infrastructure</span>
       <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-infra"></i>
     </div>
@@ -746,7 +746,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- TRADE HUB accordion -->
   <div class="mnav-accordion" id="mnav-trade">
-    <div class="mnav-acc-label" onclick="toggleSubMenu('acc-trade')">
+    <div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="acc-trade" onclick="toggleSubMenu('acc-trade')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
       <span>Trade Hub</span>
       <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-trade"></i>
     </div>
@@ -760,7 +760,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- TOOLS accordion -->
   <div class="mnav-accordion" id="mnav-tools">
-    <div class="mnav-acc-label" onclick="toggleSubMenu('acc-tools')">
+    <div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="acc-tools" onclick="toggleSubMenu('acc-tools')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
       <span>Tools</span>
       <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-tools"></i>
     </div>
@@ -861,9 +861,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     var isOpen = parent.classList.contains('open');
     /* Close all others */
     document.querySelectorAll('.mnav-accordion.open').forEach(function(a) {
-      if (a !== parent) a.classList.remove('open');
+      if (a !== parent) { a.classList.remove('open'); var otherLabel = a.querySelector('.mnav-acc-label'); if (otherLabel) otherLabel.setAttribute('aria-expanded', 'false'); }
     });
     parent.classList.toggle('open', !isOpen);
+    var label = parent.querySelector('.mnav-acc-label');
+    if (label) label.setAttribute('aria-expanded', String(!isOpen));
   }
 
   /* Re-position drawer on scroll (navbar may move when top-dashboard scrolls away) */

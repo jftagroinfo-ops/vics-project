@@ -3158,7 +3158,7 @@
       </div>
     </div>
   </div>
-  <div class="mobile-floating-close" onclick="closeModal()" aria-label="Close Modal">
+  <div class="mobile-floating-close" role="button" tabindex="0" onclick="closeModal()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();closeModal();}" aria-label="Close product report">
     <i class="fa-solid fa-xmark"></i> Close Report
   </div>
   </div>

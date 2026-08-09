@@ -4370,10 +4370,10 @@
       </div>
     </div>
     <div class="slider-controls" id="hero-dots-container">
-      <div class="control-dot active" onclick="setSlide(0)"></div>
-      <div class="control-dot" onclick="setSlide(1)"></div>
-      <div class="control-dot" onclick="setSlide(2)"></div>
-      <div class="control-dot" onclick="setSlide(3)"></div>
+      <div class="control-dot active" role="button" tabindex="0" aria-label="Show slide 1" aria-current="true" onclick="setSlide(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"></div>
+      <div class="control-dot" role="button" tabindex="0" aria-label="Show slide 2" onclick="setSlide(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"></div>
+      <div class="control-dot" role="button" tabindex="0" aria-label="Show slide 3" onclick="setSlide(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"></div>
+      <div class="control-dot" role="button" tabindex="0" aria-label="Show slide 4" onclick="setSlide(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"></div>
     </div>
 
   </section>
@@ -5664,10 +5664,10 @@
         var dots = document.querySelectorAll('.control-dot');
         slides.forEach(function (s) { s.classList.remove('active'); });
         contents.forEach(function (c) { c.classList.remove('active'); });
-        dots.forEach(function (d) { d.classList.remove('active'); });
+        dots.forEach(function (d) { d.classList.remove('active'); d.removeAttribute('aria-current'); });
         if (slides[slideIdx]) slides[slideIdx].classList.add('active');
         if (contents[slideIdx]) contents[slideIdx].classList.add('active');
-        if (dots[slideIdx]) dots[slideIdx].classList.add('active');
+        if (dots[slideIdx]) { dots[slideIdx].classList.add('active'); dots[slideIdx].setAttribute('aria-current', 'true'); }
       }
 
       // ── HERO SWIPE ──

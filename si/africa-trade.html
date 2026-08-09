@@ -178,10 +178,10 @@
       <div class="brand-tag">Destinations</div>
       <h2 class="section-title">Our Active <span>African Markets</span></h2>
       <div class="region-tabs">
-        <div class="rtab active" onclick="showRegion('west',this)">West Africa</div>
-        <div class="rtab" onclick="showRegion('east',this)">East Africa</div>
-        <div class="rtab" onclick="showRegion('horn',this)">Horn of Africa</div>
-        <div class="rtab" onclick="showRegion('south',this)">Southern Africa</div>
+        <div class="rtab active" role="button" tabindex="0" aria-pressed="true" onclick="showRegion('west',this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">West Africa</div>
+        <div class="rtab" role="button" tabindex="0" aria-pressed="false" onclick="showRegion('east',this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">East Africa</div>
+        <div class="rtab" role="button" tabindex="0" aria-pressed="false" onclick="showRegion('horn',this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">Horn of Africa</div>
+        <div class="rtab" role="button" tabindex="0" aria-pressed="false" onclick="showRegion('south',this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">Southern Africa</div>
       </div>
 
       <div class="region-content active" id="region-west">
@@ -330,7 +330,7 @@
 </section>
 <div id="footer-placeholder"></div>
   <script>
-    function showRegion(id, tab) { document.querySelectorAll('.region-content').forEach(r=>r.classList.remove('active')); document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active')); document.getElementById('region-'+id).classList.add('active'); tab.classList.add('active'); }
+    function showRegion(id, tab) { document.querySelectorAll('.region-content').forEach(r=>r.classList.remove('active')); document.querySelectorAll('.rtab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-pressed','false');}); document.getElementById('region-'+id).classList.add('active'); tab.classList.add('active'); tab.setAttribute('aria-pressed','true'); }
     async function loadComponent(id, file) { try{const r=await fetch(file);const t=await r.text();document.getElementById(id).innerHTML=t;document.getElementById(id).querySelectorAll('script').forEach(o=>{const s=document.createElement('script');Array.from(o.attributes).forEach(a=>s.setAttribute(a.name,a.value));s.appendChild(document.createTextNode(o.innerHTML));o.parentNode.replaceChild(s,o);});}catch(e){console.error(e);} }
     
   window.addEventListener('scroll',function(){
