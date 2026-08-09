@@ -1,7 +1,7 @@
 # Visual Audit Report
 
-- Pages: 5
-- Page-viewports: 10
+- Pages: 10
+- Page-viewports: 20
 - Failed page-viewports: 0
 
 ## Finding Counts

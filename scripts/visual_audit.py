@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote, urlsplit
 
-from playwright.async_api import Browser, Page, async_playwright
+from playwright.async_api import BrowserContext, Page, async_playwright
 
 from audit_website import ROOT, page_paths
 
@@ -196,15 +196,14 @@ def result_findings(result: dict) -> list[str]:
 
 
 async def audit_page(
-    browser: Browser,
+    context: BrowserContext,
     base_url: str,
     relative: str,
     viewport_name: str,
     screenshot_dir: Path,
 ) -> dict:
-    viewport = VIEWPORTS[viewport_name]
-    context = await browser.new_context(viewport=viewport, service_workers="block")
     page = await context.new_page()
+    await page.set_viewport_size(VIEWPORTS[viewport_name])
     events = {"console": [], "pageErrors": [], "failedAssets": []}
     base_host = urlsplit(base_url).netloc
     await prepare_page(page, base_host, events)
@@ -228,7 +227,7 @@ async def audit_page(
             )
         except Exception:
             pass
-    await context.close()
+    await page.close()
     return result
 
 
@@ -255,17 +254,21 @@ async def run(args: argparse.Namespace) -> list[dict]:
         )
 
         async def worker() -> None:
-            while not queue.empty():
-                try:
-                    relative, viewport = queue.get_nowait()
-                except asyncio.QueueEmpty:
-                    return
-                results.append(
-                    await audit_page(browser, args.base_url, relative, viewport, screenshot_dir)
-                )
-                if len(results) % 100 == 0:
-                    print(f"Audited {len(results)}/{len(jobs)} page-viewports", flush=True)
-                queue.task_done()
+            context = await browser.new_context(service_workers="block")
+            try:
+                while not queue.empty():
+                    try:
+                        relative, viewport = queue.get_nowait()
+                    except asyncio.QueueEmpty:
+                        return
+                    results.append(
+                        await audit_page(context, args.base_url, relative, viewport, screenshot_dir)
+                    )
+                    if len(results) % 50 == 0:
+                        print(f"Audited {len(results)}/{len(jobs)} page-viewports", flush=True)
+                    queue.task_done()
+            finally:
+                await context.close()
 
         await asyncio.gather(*(worker() for _ in range(args.workers)))
         await browser.close()
