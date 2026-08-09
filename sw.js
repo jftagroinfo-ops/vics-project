@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jft-agro-v6';
+const CACHE_NAME = 'jft-agro-v9';
 
 /* Core shell — pages & assets that EXIST in the project */
 const SHELL_ASSETS = [
@@ -32,6 +32,8 @@ const SHELL_ASSETS = [
   '/jft-design-system.css',
   '/jft-responsive.css',
   '/images/jft logo.png',
+  '/images/icon-192.png',
+  '/images/icon-512.png',
   '/images/products/basmati_rice_hd.webp'
 ];
 
@@ -62,15 +64,17 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
 
   /* Only handle same-origin requests */
-  if (url.origin !== self.location.origin) return;
+  if (url.origin !== self.location.origin || e.request.method !== 'GET') return;
 
   /* Network-first for HTML pages — ensures fresh content */
   if (e.request.destination === 'document' || url.pathname.endsWith('.html')) {
     e.respondWith(
       fetch(e.request)
         .then((res) => {
-          const clone = res.clone();
-          caches.open(CACHE_NAME).then((c) => c.put(e.request, clone));
+          if (res.ok) {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(e.request, clone));
+          }
           return res;
         })
         .catch(() => caches.match(e.request).then(r => r || caches.match('/404.html')))
@@ -84,8 +88,10 @@ self.addEventListener('fetch', (e) => {
       caches.match(e.request).then((cached) => {
         if (cached) return cached;
         return fetch(e.request).then((res) => {
-          const clone = res.clone();
-          caches.open(CACHE_NAME).then((c) => c.put(e.request, clone));
+          if (res.ok) {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(e.request, clone));
+          }
           return res;
         });
       })

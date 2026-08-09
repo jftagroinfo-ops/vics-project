@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://embed.tawk.to 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com https://embed.tawk.to https://va.tawk.to; frame-src https://www.marinetraffic.com https://www.vesseltracker.com https://embed.tawk.to https://www.google.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com; frame-src https://www.marinetraffic.com https://www.vesseltracker.com https://www.google.com;">
 <title>Seguimiento de envíos: rastree su contenedor JFT Agro | jftagro.com</title>
 <meta name="description" content="Realice un seguimiento de su envío de JFT Agro en tiempo real. Ingrese su número de contenedor o conocimiento de embarque para ver la posición del barco en vivo, el estado del puerto y la llegada estimada a su destino.">
 <link rel="canonical" href="https://jftagro.com/es/shipment-tracker.html">
@@ -65,7 +65,7 @@ img{max-width:100%;height:auto;display:block}
 
 /* HERO */
 .track-hero{position:relative;min-height:500px;display:flex;align-items:center;overflow:hidden;background:var(--navy-dark)}
-.th-bg{position:absolute;inset:0;background-image:url('images/products/basmati_rice_hd.webp');background-size:cover;background-position:center;opacity:.14;z-index:0}
+.th-bg{position:absolute;inset:0;background-image:url('../images/products/basmati_rice_hd.webp');background-size:cover;background-position:center;opacity:.14;z-index:0}
 .th-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,18,15,.97) 0%,rgba(26,60,52,.88) 60%,rgba(44,81,72,.82) 100%);z-index:1}
 .th-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:56px 56px;z-index:2}
 .th-glow{position:absolute;top:-200px;right:-120px;width:750px;height:750px;background:radial-gradient(circle,rgba(238,191,69,.06),transparent 65%);z-index:2;pointer-events:none}
@@ -406,7 +406,7 @@ img{max-width:100%;height:auto;display:block}
       <p style="max-width:600px;margin:14px 0 0;color:#777;font-size:.97rem;line-height:1.8">Live AIS vessel tracking showing all cargo ships currently in the Indian Ocean, Arabian Sea, and Persian Gulf — the routes all JFT Agro shipments travel.</p>
     </div>
     <div class="map-wrapper reveal">
-      <iframe src="https://www.marinetraffic.com/en/ais/embed/zoom:4/centery:14/centerx:68/maptype:0/shownames:false/mmsi:0/shipid:0/fleet:/fleet_id:/vtypes:/showmenu:/remember:false" loading="lazy" title="Live vessel tracking map — Indian Ocean and Arabian Sea" allowfullscreen></iframe>
+      <a href="https://www.marinetraffic.com/en/ais/home/centerx:72.88/centery:18.96/zoom:8" target="_blank" rel="noopener noreferrer" style="min-height:420px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;background:linear-gradient(rgba(13,31,27,.72),rgba(13,31,27,.72)),url('../images/INFRASTRUCTURE/logistics.webp') center/cover;color:#fff;text-align:center;padding:32px;" aria-label="Open live vessel tracking map in a new tab"><i class="fa-solid fa-location-dot" style="font-size:2.4rem;color:var(--gold)"></i><strong style="font-family:var(--ff-s);font-size:1.1rem">Open Live Vessel Map</strong><span style="font-size:.85rem;color:rgba(255,255,255,.75)">MarineTraffic AIS - Indian Ocean and Gulf</span></a>
     </div>
     <p style="font-size:.78rem;color:#aaa;margin-top:12px;font-family:var(--ff-s);text-align:center"><i class="fa-solid fa-circle-info" style="color:var(--green);margin-right:6px"></i> Map powered by MarineTraffic AIS data. Centred on the Indian Ocean / Arabian Sea to show Mumbai, Mundra, Nhava Sheva and Gulf ports. <a href="https://www.marinetraffic.com" target="_blank" rel="noopener noreferrer" style="color:var(--green);font-weight:700">Open full-screen map ↗</a></p>
   </div>

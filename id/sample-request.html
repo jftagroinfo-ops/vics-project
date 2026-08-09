@@ -136,7 +136,7 @@
   <div class="page-wrapper">
     <!-- ── HERO ── -->
 <section class="jft-page-hero">
-  <div class="jft-page-hero-bg" style="background-image:url('images/products/basmati_rice_hd.webp');"></div>
+  <div class="jft-page-hero-bg" style="background-image:url('../images/products/basmati_rice_hd.webp');"></div>
   <div class="jft-page-hero-glow"></div>
   <div class="jft-page-hero-gold-stripe"></div>
   <div class="jft-wide-container jft-page-hero-inner">
@@ -173,40 +173,40 @@
           <div class="form-section">
             <h3><i class="fa-solid fa-seedling"></i> Step 1 — Choose products to sample <span style="font-size:0.75rem;color:#aaa;margin-left:8px;">(select up to 3)</span></h3>
             <div class="product-grid">
-              <div class="prod-pick" onclick="toggleProduct(this,'1121 Sella Basmati Rice')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'1121 Sella Basmati Rice')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-bowl-rice"></i><span>1121 Sella Basmati</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'1509 Basmati Rice')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'1509 Basmati Rice')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-bowl-rice"></i><span>1509 Basmati Rice</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'IR-64 White Rice 5%')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'IR-64 White Rice 5%')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-bowl-rice"></i><span>IR-64 White Rice</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'IR-64 Parboiled Rice')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'IR-64 Parboiled Rice')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-bowl-rice"></i><span>Parboiled Rice</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'Turmeric Finger')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'Turmeric Finger')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-pepper-hot"></i><span>Turmeric Finger</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'Cumin Seeds')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'Cumin Seeds')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-pepper-hot"></i><span>Cumin Seeds</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'Red Chilli Teja')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'Red Chilli Teja')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-pepper-hot"></i><span>Red Chilli (Teja)</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'Dry Ginger')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'Dry Ginger')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-pepper-hot"></i><span>Dry Ginger</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'Coriander Seeds')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'Coriander Seeds')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-pepper-hot"></i><span>Coriander Seeds</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'Sesame Seeds Natural')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'Sesame Seeds Natural')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-seedling"></i><span>Sesame Seeds</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'Sugar S-30')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'Sugar S-30')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-cube"></i><span>Sugar S-30</span>
               </div>
-              <div class="prod-pick" onclick="toggleProduct(this,'Milling Wheat')">
+              <div class="prod-pick" role="checkbox" tabindex="0" aria-checked="false" onclick="toggleProduct(this,'Milling Wheat')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                 <i class="fa-solid fa-wheat-awn"></i><span>Milling Wheat</span>
               </div>
             </div>
@@ -272,7 +272,7 @@
               <strong>Samples are complimentary.</strong> You only pay DHL / FedEx courier fees.<br>
               We process all requests within <strong>48 business hours</strong>.
             </div>
-            <button class="btn-submit" onclick="submitSampleRequest()">
+            <button type="button" class="btn-submit" onclick="submitSampleRequest()">
               <i class="fa-solid fa-paper-plane" style="margin-right:8px;"></i> Submit Sample Request
             </button>
           </div>
@@ -307,6 +307,7 @@
     function toggleProduct(el, name) {
       if (el.classList.contains('selected')) {
         el.classList.remove('selected');
+        el.setAttribute('aria-checked', 'false');
         selectedProducts.delete(name);
         document.getElementById('product-max').style.display = 'none';
       } else {
@@ -315,6 +316,7 @@
           return;
         }
         el.classList.add('selected');
+        el.setAttribute('aria-checked', 'true');
         selectedProducts.add(name);
         document.getElementById('product-error').style.display = 'none';
       }
@@ -333,7 +335,9 @@
       }
     }
 
+    let sampleSubmitting = false;
     function submitSampleRequest() {
+      if (sampleSubmitting) return;
       if (selectedProducts.size === 0) { document.getElementById('product-error').style.display = 'block'; return; }
       const name = document.getElementById('s-name').value;
       const company = document.getElementById('s-company').value;
@@ -342,9 +346,10 @@
       const addr = document.getElementById('s-addr1').value;
       const city = document.getElementById('s-city').value;
       const country = document.getElementById('s-country').options[document.getElementById('s-country').selectedIndex].text;
-      if (!name || !email || !phone || !addr || !city || document.getElementById('s-country').value === '') {
+      if (!name || !company || !email || !phone || !addr || !city || document.getElementById('s-country').value === '') {
         const missing = [];
         if (!name) missing.push('Full Name');
+        if (!company) missing.push('Company Name');
         if (!email) missing.push('Email');
         if (!phone) missing.push('Phone');
         if (!addr) missing.push('Address');
@@ -352,8 +357,12 @@
         if (document.getElementById('s-country').value === '') missing.push('Country');
         if (missing.length) { alert('Please fill in: ' + missing.join(', ')); return; }
       }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+      if (!/^[\d\+\-\s\(\)]+$/.test(phone)) { alert('Please enter a valid phone number.'); return; }
+      sampleSubmitting = true;
       const msg = encodeURIComponent(`Sample Request from JFT Website\n\nProducts: ${Array.from(selectedProducts).join(', ')}\n\nContact:\nName: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nShip to:\n${addr}, ${city}, ${country}\n\nPlease confirm shipping cost and timeline.`);
-      window.open(`https://wa.me/918425057274?text=${msg}`, '_blank');
+      const popup = window.open(`https://wa.me/918425057274?text=${msg}`, '_blank', 'noopener');
+      if (popup) popup.opener = null;
       document.getElementById('formMain').style.display = 'none';
       document.getElementById('sampleSuccess').classList.add('show');
     }

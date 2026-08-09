@@ -9,38 +9,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
 <!-- GA4 — loads only after cookie consent (GDPR compliant) -->
-<script>
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js',new Date());
-  // Default: deny analytics until consent given
-  gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied'});
-  
-  var _jftConsent = localStorage.getItem('jft_cookie_consent');
-  if(_jftConsent === 'accepted') {
-    gtag('consent','update',{analytics_storage:'granted'});
-    var _s = document.createElement('script');
-    _s.async = true;
-    _s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G';
-    document.head.appendChild(_s);
-    gtag('config','G-MWZ2ZWZP4G');
-  }
-</script>
-
-<!-- Tawk.to Live Chat -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-if(document.querySelector('script[src*="embed.tawk.to"]')) return;
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/69f470aa8523f61c32f239ee/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-
 <meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1135,40 +1103,3 @@ s0.parentNode.insertBefore(s1,s0);
     <button class="cb-decline" onclick="jftCookieDecline()">Essential Only</button>
   </div>
 </div>
-<script>
-(function(){
-  var CONSENT_KEY = 'jft_cookie_consent';
-  var stored = localStorage.getItem(CONSENT_KEY);
-  if (!stored) {
-    setTimeout(function(){
-      var bar = document.getElementById('jft-cookie-bar');
-      if(bar) bar.classList.add('show');
-    }, 1800);
-  } else if (stored === 'declined') {
-    // Disable GA if declined
-    window['ga-disable-G-MWZ2ZWZP4G'] = true;
-  }
-})();
-function jftCookieAccept(){
-  localStorage.setItem('jft_cookie_consent','accepted');
-  var bar = document.getElementById('jft-cookie-bar');
-  if(bar){bar.style.transition='transform .3s ease';bar.classList.remove('show');}
-  // Dynamically load GA4 now that consent is given
-  if(typeof gtag === 'function'){
-    gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted'});
-  }
-  if(!document.querySelector('script[src*="googletagmanager"]')){
-    var _s=document.createElement('script');
-    _s.async=true;
-    _s.src='https://www.googletagmanager.com/gtag/js?id=G-MWZ2ZWZP4G';
-    document.head.appendChild(_s);
-    if(typeof gtag==='function') gtag('config','G-MWZ2ZWZP4G');
-  }
-}
-function jftCookieDecline(){
-  localStorage.setItem('jft_cookie_consent','declined');
-  window['ga-disable-G-MWZ2ZWZP4G'] = true;
-  var bar = document.getElementById('jft-cookie-bar');
-  if(bar){bar.style.transition='transform .3s ease';bar.classList.remove('show');}
-}
-</script>

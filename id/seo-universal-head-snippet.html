@@ -87,9 +87,9 @@
 <!--
   ╔══════════════════════════════════════════════════════════════════════════════╗
   ║  CSP UPDATE — Add to ALL pages' Content-Security-Policy meta tag:           ║
-  ║  Add these to script-src:  https://embed.tawk.to                           ║
-  ║  Add these to connect-src: https://embed.tawk.to https://va.tawk.to        ║
-  ║  Add these to frame-src:   https://embed.tawk.to                           ║
+  ║  Add these to script-src:                           ║
+  ║  Add these to connect-src:        ║
+  ║  Add these to frame-src:                           ║
   ╚══════════════════════════════════════════════════════════════════════════════╝
   
   Updated CSP for pages — replace existing meta http-equiv="Content-Security-Policy" with:
@@ -98,16 +98,15 @@
   default-src 'self';
   script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net
     https://translate.google.com https://www.googletagmanager.com
-    https://translate.googleapis.com https://embed.tawk.to
+    https://translate.googleapis.com
     'unsafe-inline' 'unsafe-eval';
   style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline';
   font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
   img-src 'self' https: data: blob:;
   connect-src 'self' https://api.frankfurter.app https://ok.surf
-    https://translate.googleapis.com https://translate.google.com
-    https://embed.tawk.to https://va.tawk.to https://api.exchangerate-api.com
+    https://translate.googleapis.com https://translate.google.com https://api.exchangerate-api.com
     https://flagcdn.com;
-  frame-src https://www.google.com https://maps.google.com https://embed.tawk.to;
+  frame-src https://www.google.com https://maps.google.com;
   worker-src 'self';
 ">
 -->
