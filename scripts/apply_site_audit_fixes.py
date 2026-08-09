@@ -362,6 +362,10 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
     text = text.replace("export@jftagro.com", "exports@jftagro.com")
     text = text.replace("https://jftagro.comimages/", "https://jftagro.com/images/")
     text = text.replace(
+        "https://api.exchangerate-api.com https://translate.googleapis.com",
+        "https://api.exchangerate-api.com https://open.er-api.com https://translate.googleapis.com",
+    )
+    text = text.replace(
         "The JFT Agro export team has been shipping Basmati Rice and Spices to 40+ countries since 2010.",
         "The JFT Agro export team has been shipping Basmati Rice and Spices to 25+ countries since 2010.",
     )

@@ -150,6 +150,7 @@ async def settle_page(page: Page) -> None:
       *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
       html { scroll-behavior: auto !important; }
       #preloader { display: none !important; }
+      .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; }
     """)
     await page.evaluate("""
       async () => {
@@ -233,6 +234,8 @@ async def audit_page(
 
 async def run(args: argparse.Namespace) -> list[dict]:
     paths = page_paths()
+    if args.offset:
+        paths = paths[args.offset :]
     if args.limit:
         paths = paths[: args.limit]
     jobs = [
@@ -315,6 +318,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--base-url", default="http://localhost:8765")
     parser.add_argument("--workers", type=int, default=6)
+    parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--report", default="reports/visual-audit.json")
     parser.add_argument("--screenshot-dir", default="reports/visual-audit-screenshots")
