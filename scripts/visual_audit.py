@@ -141,11 +141,11 @@ async def settle_page(page: Page) -> None:
               const slot = document.querySelector('#header-placeholder');
               return !slot || slot.children.length > 0;
             }""",
-            timeout=2500,
+            timeout=700,
         )
     except Exception:
         pass
-    await page.wait_for_timeout(350)
+    await page.wait_for_timeout(150)
     await page.add_style_tag(content="""
       *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
       html { scroll-behavior: auto !important; }
@@ -156,10 +156,10 @@ async def settle_page(page: Page) -> None:
         const height = Math.min(document.body.scrollHeight, 12000);
         for (const ratio of [0.35, 0.7, 1]) {
           scrollTo(0, height * ratio);
-          await new Promise(resolve => setTimeout(resolve, 80));
+          await new Promise(resolve => setTimeout(resolve, 30));
         }
         scrollTo(0, 0);
-        await new Promise(resolve => setTimeout(resolve, 120));
+        await new Promise(resolve => setTimeout(resolve, 60));
       }
     """)
 
@@ -210,7 +210,7 @@ async def audit_page(
     url = f"{base_url.rstrip('/')}/{quote(relative, safe='/')}"
     result = {"page": relative, "viewport": viewport_name, "url": url, "events": events}
     try:
-        response = await page.goto(url, wait_until="domcontentloaded", timeout=15000)
+        response = await page.goto(url, wait_until="domcontentloaded", timeout=6000)
         result["status"] = response.status if response else 0
         await settle_page(page)
         result["checks"] = await page.evaluate(VISUAL_CHECK)
@@ -264,7 +264,7 @@ async def run(args: argparse.Namespace) -> list[dict]:
                     results.append(
                         await audit_page(context, args.base_url, relative, viewport, screenshot_dir)
                     )
-                    if len(results) % 50 == 0:
+                    if len(results) % 10 == 0:
                         print(f"Audited {len(results)}/{len(jobs)} page-viewports", flush=True)
                     queue.task_done()
             finally:
