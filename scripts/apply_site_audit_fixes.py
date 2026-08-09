@@ -337,6 +337,8 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         "The JFT Agro export team has been shipping Basmati Rice and Spices to 40+ countries since 2010.",
         "The JFT Agro export team has been shipping Basmati Rice and Spices to 25+ countries since 2010.",
     )
+    text = text.replace("20+ countries", "25+ countries")
+    text = text.replace("20+ Countries", "25+ Countries")
     text = text.replace(
         "Minimum order is 1 FCL (Full Container Load) — approximately 24–27 MT in a 20ft container. Free samples available worldwide.",
         "Minimum order is 1 FCL (Full Container Load) — approximately 24–27 MT in a 20ft container. Complimentary samples are available for qualified trade inquiries; courier charges apply.",
@@ -394,6 +396,15 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         }
         for remote, local in replacements.items():
             text = text.replace(remote, local)
+        text = text.replace(
+            "Samples are available in smaller quantities (1–5 kg) dispatched via DHL within 48 hours.",
+            "Up to three complimentary 500g product samples can be prepared within 2 business days after confirmation; courier charges apply.",
+        )
+        text = text.replace("Free Samples — 2 kg", "Complimentary Samples — 3 Products")
+        text = text.replace(
+            "Any product, DHL\n              dispatched within 48 hours of request",
+            "Up to three 500g products; courier\n              charges confirmed before dispatch",
+        )
         for index in range(4):
             active = " active" if index == 0 else ""
             current = ' aria-current="true"' if index == 0 else ""
@@ -412,6 +423,12 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
 
     if path.name == "sample-request.html":
         text = text.replace(
+            "Order up to 2 kg of any export commodity — courier charges are on us. Evaluate quality before committing to a full container order.",
+            "Choose up to three complimentary 500g product samples. Courier charges are confirmed before dispatch so you can evaluate quality before a full container order.",
+        )
+        text = text.replace("Free up to 2 kg", "Up to 3 products")
+        text = text.replace("Dispatched in 48 hrs", "Prepared in 2 business days")
+        text = text.replace(
             "Samples are dispatched within 48 hours via DHL/FedEx at JFT's cost.",
             "Samples are prepared within 2 business days after confirmation and dispatched via DHL/FedEx at the buyer's cost.",
         )
@@ -422,6 +439,10 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         text = text.replace(
             "Samples up to 2 kg per product are provided free of charge. JFT Agro covers DHL dispatch cost for genuine trade inquiries.",
             "Product samples are complimentary for qualified trade inquiries. The buyer pays DHL/FedEx courier charges, which are confirmed before dispatch.",
+        )
+        text = text.replace(
+            "All sample requests are packed and dispatched within 2 business days.",
+            "Confirmed sample requests are prepared within 2 business days and dispatched after courier approval.",
         )
         validation_block = (
             "      if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }\n"
@@ -518,10 +539,20 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             '<input type="email" class="nl-input" placeholder="your@company.com" required id="nl-email">',
             '<input type="email" class="nl-input" placeholder="your@company.com" required id="nl-email" name="email" autocomplete="email" aria-label="Email address">',
         )
+
         text = text.replace(
             "      window.open(`https://wa.me/918425057274?text=${msg}`, '_blank');\n      e.target.querySelector('.nl-btn').textContent = '✓ Subscribed!';",
             "      const popup = window.open(`https://wa.me/918425057274?text=${msg}`, '_blank', 'noopener');\n      if (popup) popup.opener = null;\n      const button = e.target.querySelector('.nl-btn');\n      button.disabled = true;\n      button.textContent = 'Subscribed!';",
         )
+
+    text = text.replace(
+        "can ship samples within 48 hours.",
+        "can prepare samples within 2 business days after confirmation.",
+    )
+    text = text.replace(
+        "We ship 100–200g samples of any grade globally via DHL within 48 hours.",
+        "We prepare 100–200g samples of any grade within 2 business days after confirmation; courier charges apply.",
+    )
 
     if path.name == "products.html":
         text = text.replace(
@@ -593,9 +624,15 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             "if (a !== parent) a.classList.remove('open');",
             "if (a !== parent) { a.classList.remove('open'); var otherLabel = a.querySelector('.mnav-acc-label'); if (otherLabel) otherLabel.setAttribute('aria-expanded', 'false'); }",
         )
-        text = text.replace(
-            "parent.classList.toggle('open', !isOpen);",
+        text = re.sub(
+            r"parent\.classList\.toggle\('open', !isOpen\);(?:\s*var label = parent\.querySelector\('\.mnav-acc-label'\);\s*if \(label\) label\.setAttribute\('aria-expanded', String\(!isOpen\)\);)+",
             "parent.classList.toggle('open', !isOpen);\n    var label = parent.querySelector('.mnav-acc-label');\n    if (label) label.setAttribute('aria-expanded', String(!isOpen));",
+            text,
+        )
+        text = re.sub(
+            r"parent\.classList\.toggle\('open', !isOpen\);(?!\s*var label)",
+            "parent.classList.toggle('open', !isOpen);\n    var label = parent.querySelector('.mnav-acc-label');\n    if (label) label.setAttribute('aria-expanded', String(!isOpen));",
+            text,
         )
 
     text = secure_blank_targets(text)
@@ -671,8 +708,12 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         text = re.sub(r"\s+wss://\*\.tawk\.to", "", text)
 
     if localized:
+        english_fallback = 'name="jft-localization" content="english-fallback"' in text
         if path.parent.name == "ar":
-            text = re.sub(r'<html\s+lang="ar"(?![^>]*\bdir=)', '<html lang="ar" dir="rtl"', text, count=1)
+            if english_fallback:
+                text = re.sub(r'<html\s+lang="ar"(?:\s+dir="rtl")?', '<html lang="en"', text, count=1)
+            else:
+                text = re.sub(r'<html\s+lang="ar"(?![^>]*\bdir=)', '<html lang="ar" dir="rtl"', text, count=1)
 
         for asset in ("jft-design-system.css", "jft-responsive.css", "manifest.json"):
             text = re.sub(
@@ -715,9 +756,13 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
                 )
 
         canonical = (
-            f"https://jftagro.com/{path.parent.name}/"
-            if path.name == "index.html"
-            else f"https://jftagro.com/{path.parent.name}/{path.name}"
+            f"https://jftagro.com/{'' if path.name == 'index.html' else path.name}"
+            if english_fallback
+            else (
+                f"https://jftagro.com/{path.parent.name}/"
+                if path.name == "index.html"
+                else f"https://jftagro.com/{path.parent.name}/{path.name}"
+            )
         )
         text = re.sub(
             r'(<link\s+rel=["\']canonical["\']\s+href=["\'])[^"\']+(["\'])',

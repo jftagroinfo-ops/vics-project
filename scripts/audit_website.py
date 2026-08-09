@@ -130,6 +130,17 @@ def audit() -> dict[str, list[str]]:
             or "const PACK_EFF = { 1:.78, 5:.82, 10:.85, 25:.87, 50:.88 }" in text
         ):
             findings["outdated_packing_capacity_model"].append(relative)
+        if re.search(r"\b20\+ [Cc]ountries\b", text):
+            findings["inconsistent_country_reach_claim"].append(relative)
+        if any(
+            claim in text
+            for claim in (
+                "courier charges are on us",
+                "Free Samples — 2 kg",
+                "Samples are available in smaller quantities (1–5 kg) dispatched via DHL within 48 hours.",
+            )
+        ):
+            findings["inconsistent_sample_terms"].append(relative)
         if not title or not title.get_text(strip=True):
             findings["missing_title"].append(relative)
         if not description or not description.get("content", "").strip():
