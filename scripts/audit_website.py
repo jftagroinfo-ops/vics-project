@@ -10,6 +10,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from bs4 import BeautifulSoup
+import html5lib
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -99,6 +100,10 @@ def audit() -> dict[str, list[str]]:
     for page in pages:
         relative = label(page)
         text = page.read_text(encoding="utf-8", errors="replace")
+        parser = html5lib.HTMLParser(strict=False)
+        parser.parse(text)
+        for position, code, _details in parser.errors:
+            findings["invalid_html"].append(f"{relative}:{position[0]}:{position[1]} {code}")
         soup = BeautifulSoup(text, "html.parser")
         parsed_pages[page.resolve()] = soup
 

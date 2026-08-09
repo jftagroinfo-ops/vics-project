@@ -264,6 +264,15 @@ def synchronize_blog_filters(text: str) -> str:
 def apply_blog_images(text: str, localized: bool) -> str:
     prefix = "../" if localized else ""
 
+    # Older runs matched only the placeholder's inner closing tag and left an
+    # extra </div> behind. Normalize that generated form before rebuilding it.
+    text = re.sub(
+        r'(<div class="card-img"><img\b[^>]*></div>)</div>',
+        r"\1",
+        text,
+        flags=re.I,
+    )
+
     def update_card(match: re.Match[str]) -> str:
         card = match.group(0)
         href = re.search(r'href=["\'](?:\.\./)?([^"\']+\.html)["\']', card, re.I)
@@ -272,14 +281,20 @@ def apply_blog_images(text: str, localized: bool) -> str:
         image = prefix + BLOG_IMAGES[href.group(1)]
         title_match = re.search(r'class=["\'][^"\']*card-title[^"\']*["\'][^>]*>(.*?)</h[23]>', card, re.I | re.S)
         title = re.sub(r"<[^>]+>", " ", title_match.group(1)) if title_match else "JFT Agro trade insight"
-        title = html.escape(re.sub(r"\s+", " ", title).strip(), quote=True)
+        title = html.escape(html.unescape(re.sub(r"\s+", " ", title).strip()), quote=True)
         with Image.open(ROOT / BLOG_IMAGES[href.group(1)]) as source:
             width, height = source.size
         image_html = (
             f'<div class="card-img"><img src="{image}" alt="{title}" loading="lazy" '
             f'width="{width}" height="{height}"></div>'
         )
-        return re.sub(r'<div class="card-img">.*?</div>', image_html, card, count=1, flags=re.I | re.S)
+        return re.sub(
+            r'<div class="card-img">(?:<div class="card-img-placeholder"[^>]*>.*?</div>|<img\b[^>]*>)</div>',
+            image_html,
+            card,
+            count=1,
+            flags=re.I | re.S,
+        )
 
     return re.sub(
         r'<a\b[^>]*class=["\'][^"\']*article-card[^"\']*["\'][^>]*>.*?</a>',
@@ -287,6 +302,19 @@ def apply_blog_images(text: str, localized: bool) -> str:
         text,
         flags=re.I | re.S,
     )
+
+
+def escape_bare_ampersands(text: str) -> str:
+    """Escape HTML ampersands without altering JavaScript or CSS operators."""
+    protected = re.split(r"(<(?:script|style)\b[^>]*>.*?</(?:script|style)>)", text, flags=re.I | re.S)
+    for index in range(0, len(protected), 2):
+        protected[index] = re.sub(
+            r"&(?!#\d+;|#x[0-9a-f]+;|[a-z][a-z0-9]+;)",
+            "&amp;",
+            protected[index],
+            flags=re.I,
+        )
+    return "".join(protected)
 
 
 def redirect_cloned_blog(path: Path, text: str, localized: bool) -> str:
@@ -804,6 +832,58 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             "blog-yellow-maize-export-india-2026.html": "blog-top-indian-agro-commodities-import-2026.html",
         }.items():
             text = text.replace(f"b: '{unpublished}'", f"b: '{replacement}'")
+        text = re.sub(
+            r'(class="mobile-floating-close"[^>]*>\s*<i[^>]*></i>\s*Close Report\s*</div>)\s*</div>\s*</div>',
+            r"\1",
+            text,
+            count=1,
+            flags=re.I,
+        )
+
+    if path.name == "blog.html":
+        text = re.sub(
+            r'\s*<h2>JFT Agro <span>Insights</span></h2>\s*<p>Trade intelligence, buyer guides, and market analysis for international importers of Indian agricultural commodities\.</p>\s*</div>\s*</div>',
+            "",
+            text,
+            count=1,
+            flags=re.I,
+        )
+
+    if path.name == "blog-basmati-export-guide.html":
+        text = re.sub(
+            r'<div class="related-grid"></div><div class="related-body"><div class="related-title">IR-64 Parboiled Rice: The West Africa Market Standard</div></div></a>\s*</div>',
+            '<div class="related-grid">\n        <a href="blog-ir64-export.html" class="related-card">\n          <div class="related-body"><div class="related-title">IR-64 Parboiled Rice: The West Africa Market Standard</div></div>\n        </a>\n      </div>',
+            text,
+            count=1,
+            flags=re.I,
+        )
+
+    if path.name == "faq.html":
+        text = text.replace(
+            "Yes, we provide free product samples (up to 1-2kg). The buyer is responsible for the international courier charges via DHL/FedEx. Sample costs are often adjusted in your first commercial invoice.",
+            "Yes, qualified buyers may request up to three complimentary product samples of approximately 500g each. The buyer is responsible for international courier charges, which are confirmed before dispatch.",
+        )
+        text = re.sub(
+            r'(</div>\s*</div>\s*</div>)\s*</div>(\s*<!--[^>]*CTA)',
+            r"\1\2",
+            text,
+            count=1,
+            flags=re.I,
+        )
+
+    if path.name == "legal.html":
+        text = re.sub(r'(</section>)\s*</div>\s*</header>', r"\1", text, count=1, flags=re.I)
+
+    if path.name == "contact.html":
+        text = re.sub(
+            r'</head>\s*(<style>.*?</style>)',
+            r"\1\n</head>",
+            text,
+            count=1,
+            flags=re.I | re.S,
+        )
+
+    text = re.sub(r'(<td>)<(?=\s*\d)', r"\1&lt;", text, flags=re.I)
 
     if path.name == "sugar-s30-supplier.html":
         text = re.sub(
@@ -934,6 +1014,7 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         lambda match: match.group(0).replace(" ", "%20"),
         text,
     )
+    text = escape_bare_ampersands(text)
 
     if text != original:
         path.write_text(text, encoding="utf-8")
