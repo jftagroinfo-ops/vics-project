@@ -1,0 +1,20 @@
+name: Production Uptime
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        path: ['/', '/products.html', '/contact.html', '/blog.html', '/quote-calculator.html']
+    steps:
+      - name: Check production route
+        run: curl --fail --silent --show-error --location --retry 2 --max-time 20 "https://jftagro.com${{ matrix.path }}" > /dev/null

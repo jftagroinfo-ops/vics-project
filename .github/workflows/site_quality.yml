@@ -1,0 +1,36 @@
+name: Site Quality Gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Verify deterministic generators
+        run: |
+          python scripts/build_priority_locales.py
+          python scripts/apply_site_audit_fixes.py
+          python scripts/generate_hreflang.py
+          python scripts/generate_sitemap.py
+          git diff --exit-code
+      - name: Audit every page
+        run: python scripts/audit_website.py
+      - name: Audit product contracts and SEO uniqueness
+        run: python scripts/audit_commercial_content.py
+      - name: Validate blog navigation
+        run: python scripts/validate_blog_navigation.py
+      - name: Enforce performance budgets
+        run: python scripts/audit_performance.py

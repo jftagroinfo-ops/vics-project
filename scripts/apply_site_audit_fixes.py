@@ -977,6 +977,19 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             "Free samples available. No commitment required.",
             "Complimentary product samples are available; courier charges apply. No commitment required.",
         )
+        if 'id="sugar-related-products"' not in text:
+            prefix = "../" if localized else ""
+            related = f'''\n<section id="sugar-related-products" style="padding:60px 0;background:#f7f8f5;">
+  <div class="jft-wide-container">
+    <h2 style="font-family:var(--font-head);color:var(--jft-navy);margin:0 0 24px;">Related Bulk Commodities</h2>
+    <div class="related-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;">
+      <a href="{prefix}yellow-maize-corn-exporter.html" style="background:#fff;border:1px solid #dfe6e1;padding:20px;text-decoration:none;color:inherit;"><strong>Yellow Maize</strong><br><small>Feed and industrial grades</small></a>
+      <a href="{prefix}milling-wheat-exporter.html" style="background:#fff;border:1px solid #dfe6e1;padding:20px;text-decoration:none;color:inherit;"><strong>Milling Wheat</strong><br><small>Bulk food-grade supply</small></a>
+      <a href="{prefix}100-broken-rice-exporter.html" style="background:#fff;border:1px solid #dfe6e1;padding:20px;text-decoration:none;color:inherit;"><strong>100% Broken Rice</strong><br><small>Food and processing applications</small></a>
+    </div>
+  </div>
+</section>\n'''
+            text = text.replace('<section class="jft-cta-block">', related + '<section class="jft-cta-block">', 1)
 
     if path.name == "404.html":
         text = re.sub(
@@ -1040,6 +1053,27 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
 
     expected_image = image_map.get(path.name)
     if expected_image:
+        text = text.replace(
+            "Every shipment is tested against the parameters below at our NABL-accredited laboratory before dispatch.",
+            "The parameters below are indicative export specifications. Contract values are confirmed in the approved sample, COA and Proforma Invoice before dispatch.",
+        )
+        text = text.replace(
+            "NABL-accredited laboratory tests every lot for moisture, admixture, aflatoxin and pesticide residues before shipment.",
+            "Testing for contracted parameters can be arranged through accredited laboratories, with the applicable report supplied as agreed in the Proforma Invoice.",
+        )
+        text = text.replace(
+            "All containers are fumigated and carry valid Phytosanitary Certificate from Government of India.",
+            "Fumigation and phytosanitary documentation are arranged where required for the product and destination market.",
+        )
+        if 'class="spec-contract-note"' not in text:
+            text = re.sub(
+                r'(</table>)',
+                r'''\1
+        <p class="spec-contract-note" style="margin:14px 0 0;padding:12px 14px;border-left:3px solid #eebf45;background:#fff;font-size:.78rem;line-height:1.6;color:#59645f;"><strong>Contract note:</strong> Natural agricultural products vary by crop and lot. Final specifications, tolerances, testing scope, packing and documents are governed by the approved sample, COA and Proforma Invoice.</p>''',
+                text,
+                count=1,
+                flags=re.I,
+            )
         expected_path = ("../" if localized else "") + expected_image
         # Product-detail pages only use the product image in metadata, preload,
         # and the hero image; replace any stale product asset consistently.
