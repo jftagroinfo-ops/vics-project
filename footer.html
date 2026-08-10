@@ -295,9 +295,11 @@
             <!-- Col 4: Inquiry -->
             <div class="f-col">
                 <h3>Get Price List</h3>
-                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 24px;">Request our latest commodity prices, grades and packing specifications — no forms, no delays.</p>
-                <a href="https://wa.me/918425057274?text=Hi%2C%20please%20share%20your%20latest%20price%20list%20for%20Rice%2C%20Spices%20and%20other%20commodities." target="_blank" rel="noopener noreferrer" class="f-btn-pro" style="display:block;text-align:center;text-decoration:none;margin-bottom:12px;"><i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i> WhatsApp Price List</a>
-                <a href="mailto:exports@jftagro.com?subject=Price%20List%20Request&amp;body=Hi%20JFT%20Agro%2C%20please%20share%20your%20latest%20price%20list." class="f-btn-pro" style="display:block;text-align:center;text-decoration:none;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.25);margin-bottom:0;"><i class="fa-solid fa-envelope" style="margin-right:8px;"></i> Email Us Directly</a>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 18px;">Choose a commodity to request current grades, packing options and indicative availability.</p>
+                <label for="footer-commodity" style="display:block;color:rgba(255,255,255,.55);font-size:.65rem;font-family:var(--font-sub);font-weight:800;text-transform:uppercase;letter-spacing:.7px;margin-bottom:7px;">Commodity</label>
+                <select class="f-select" id="footer-commodity"><option>Rice</option><option>Spices</option><option>Pulses</option><option>Grains &amp; Flour</option><option>Oilseeds</option><option>Sugar</option><option>Animal Feed</option><option>Full Catalogue</option></select>
+                <button type="button" class="f-btn-pro" onclick="openFooterPriceList()" style="margin-bottom:12px;"><i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i> Request on WhatsApp</button>
+                <a href="contact.html#inquiry-form" class="f-btn-pro" style="display:block;text-align:center;text-decoration:none;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.25);margin-bottom:0;"><i class="fa-solid fa-file-invoice" style="margin-right:8px;"></i> Detailed RFQ</a>
                 <div style="margin-top:15px;font-size:0.72rem;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:8px;">
                     <i class="fa-solid fa-shield-halved"></i> Your data is never shared with third parties
                 </div>
@@ -336,6 +338,17 @@
 
 <script>
     document.getElementById('footer-year').innerText = new Date().getFullYear();
+    function openFooterMarket() {
+        const select = document.getElementById('footer-market');
+        if (!select || !select.value) { if (select) select.focus(); return; }
+        window.location.href = select.value;
+    }
+    function openFooterPriceList() {
+        const select = document.getElementById('footer-commodity');
+        const commodity = select ? select.value : 'Full Catalogue';
+        const message = 'Hi JFT Agro, please share current grades, packing options and indicative availability for ' + commodity + '.';
+        window.open('https://wa.me/918425057274?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+    }
 
     // Smart WhatsApp Widget Logic
     // Runs synchronously after footer is injected — no DOMContentLoaded needed
