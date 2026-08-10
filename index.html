@@ -4543,28 +4543,40 @@
     .o-stamp{min-height:48px;padding:11px 14px;border:1px solid rgba(255,255,255,.14);border-radius:6px;background:rgba(255,255,255,.06);color:#fff;font-size:.72rem}
     .o-stamp:last-child{grid-column:1/-1}
     .o-stamp:hover{border-color:rgba(238,191,69,.55);background:rgba(238,191,69,.08);color:#fff}
-    .origin-regions-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 20px}
+    .origin-regions-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 16px}
     .origin-regions-head h3{margin:0;color:var(--navy);font-family:var(--ff-h);font-size:clamp(1.45rem,2.4vw,2.05rem);line-height:1.2}
-    .origin-regions-head p{max-width:520px;margin:0;color:#65716b;font-size:.85rem;line-height:1.65;text-align:right}
+    .region-slider-meta{display:flex;align-items:center;gap:18px}
+    .origin-regions-head p{max-width:470px;margin:0;color:#65716b;font-size:.82rem;line-height:1.55;text-align:right}
+    .region-slider-nav{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+    .region-slider-nav button{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(26,60,52,.16);border-radius:50%;background:#fff;color:var(--navy);cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+    @media(hover:hover){.region-slider-nav button:hover{background:var(--navy);border-color:var(--navy);color:#fff;transform:translateY(-1px)}}
+    .region-slider-nav button:focus-visible{outline:3px solid rgba(238,191,69,.55);outline-offset:2px}
+    .region-slider-count{min-width:48px;color:var(--navy);font-family:var(--ff-s);font-size:.68rem;font-weight:800;text-align:center}
     .origin-assurance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 12px}
     .origin-assurance span{display:flex;align-items:center;gap:8px;min-height:36px;padding:7px 10px;border:1px solid rgba(26,60,52,.1);border-radius:6px;background:rgba(255,255,255,.72);color:#40564e;font-family:var(--ff-s);font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.45px}
     .origin-assurance i{color:var(--gold-dark);font-size:.8rem}
-    .region-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-    .region-card{position:relative;display:block;border:1px solid rgba(26,60,52,.11);border-radius:6px;background:#fff;box-shadow:0 5px 16px rgba(26,60,52,.04);color:inherit;overflow:hidden}
+    .region-slider{position:relative;overflow:hidden;padding:2px 1px 12px}
+    .region-grid{display:flex;gap:14px;overflow-x:auto;padding:2px 2px 10px;scroll-behavior:smooth;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-inline:contain}
+    .region-grid::-webkit-scrollbar{display:none}
+    .region-card{position:relative;display:block;flex:0 0 calc((100% - 42px)/4);scroll-snap-align:start;border:1px solid rgba(26,60,52,.11);border-radius:6px;background:#fff;box-shadow:0 6px 18px rgba(26,60,52,.055);color:inherit;overflow:hidden}
     .region-card:hover{transform:translateY(-2px);border-color:rgba(61,112,48,.42);box-shadow:0 10px 22px rgba(26,60,52,.09)}
     .region-card:focus-visible{outline:3px solid rgba(238,191,69,.62);outline-offset:3px;border-color:var(--gold-dark)}
     .region-color{position:absolute;inset:0 auto 0 0;width:3px;height:auto;background:linear-gradient(180deg,var(--green),var(--gold))!important}
-    .region-body{display:grid;grid-template-columns:minmax(0,1fr) 26px;grid-template-rows:auto auto auto;column-gap:10px;height:110px;min-height:0;padding:12px 12px 11px 15px}
+    .region-body{display:grid;grid-template-columns:minmax(0,1fr) 28px;grid-template-rows:auto auto auto;column-gap:10px;height:132px;min-height:0;padding:15px 14px 13px 17px}
     .region-prod{grid-column:1/-1;display:flex;align-items:center;gap:7px;margin-bottom:3px;letter-spacing:.85px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .region-prod i{display:grid;place-items:center;width:21px;height:21px;border-radius:50%;background:#f0f6f0;color:var(--green);font-size:.58rem;flex:0 0 21px}
-    .region-name{grid-column:1/-1;align-self:center;min-height:0;margin:0;font-size:.98rem;line-height:1.18;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .region-loc{grid-column:1;align-self:end;margin:0;padding:0;color:#65716b;font-size:.67rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .region-action{grid-column:2;grid-row:3;align-self:end;display:grid;place-items:center;width:26px;height:26px;padding:0;border:1px solid rgba(61,112,48,.18);border-radius:50%;background:#f2f7f2;color:transparent;font-size:0}
+    .region-name{grid-column:1/-1;align-self:center;min-height:0;margin:0;font-size:1.05rem;line-height:1.18;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .region-loc{grid-column:1;align-self:end;margin:0;padding:0;color:#65716b;font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .region-action{grid-column:2;grid-row:3;align-self:end;display:grid;place-items:center;width:28px;height:28px;padding:0;border:1px solid rgba(61,112,48,.18);border-radius:50%;background:#f2f7f2;color:transparent;font-size:0}
     .region-action i{color:var(--green);font-size:.7rem;transition:transform .25s}
     .region-card:hover .region-action i{transform:translateX(4px)}
     .region-card:nth-child(1){order:1}.region-card:nth-child(4){order:2}.region-card:nth-child(8){order:3}.region-card:nth-child(12){order:4}
     .region-card:nth-child(2){order:5}.region-card:nth-child(3){order:6}.region-card:nth-child(6){order:7}.region-card:nth-child(7){order:8}
     .region-card:nth-child(5){order:9}.region-card:nth-child(9){order:10}.region-card:nth-child(10){order:11}.region-card:nth-child(11){order:12}
+    .region-pagination{display:flex;justify-content:center;align-items:center;gap:7px;min-height:18px;margin-top:2px}
+    .region-pagination button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:rgba(26,60,52,.2);cursor:pointer;transition:width .25s,background .25s}
+    .region-pagination button.active{width:24px;border-radius:5px;background:var(--gold)}
+    .region-pagination button:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
     .origin-cta-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1250px;margin:32px auto 0;padding:22px 26px;border:1px solid rgba(26,60,52,.12);border-radius:8px;background:var(--navy);box-shadow:0 16px 34px rgba(26,60,52,.12);text-align:left}
     .origin-cta-copy strong{display:block;margin-bottom:4px;color:#fff;font-family:var(--ff-h);font-size:1.2rem}
     .origin-cta-copy span{color:rgba(255,255,255,.62);font-size:.8rem;line-height:1.5}
@@ -4573,14 +4585,8 @@
     .origin-cta-primary{background:var(--gold);color:var(--navy)}
     .origin-cta-secondary{border:1px solid rgba(255,255,255,.28);color:#fff}
 
-    @media(min-width:1600px){
-      .origin-section .region-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
-      .origin-section .region-body{height:116px}
-      .origin-section .region-name{min-height:2.3em;font-size:.9rem;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
-    }
-
     @media(max-width:1100px){
-      .origin-section .region-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .origin-section .region-card{flex-basis:calc((100% - 28px)/3)}
     }
 
     .testi-section{padding:72px 0}
@@ -4649,25 +4655,31 @@
       .o-stamp:last-child{grid-column:auto}
       .origin-regions-head{display:block;margin-bottom:16px}
       .origin-regions-head p{margin-top:8px;text-align:left;font-size:.8rem}
+      .region-slider-meta{display:block}
+      .region-slider-nav{justify-content:flex-start;margin-top:12px}
       .origin-assurance{display:flex;gap:8px;overflow-x:auto;margin-inline:-16px;padding:0 16px 8px;scrollbar-width:none}
       .origin-assurance::-webkit-scrollbar{display:none}
       .origin-assurance span{flex:0 0 auto;white-space:nowrap}
       .origin-section .region-grid{
-        display:grid;
-        grid-template-columns:repeat(12,minmax(255px,78vw));
+        display:flex;
+        gap:12px;
         overflow-x:auto;
         margin-inline:-16px;
-        padding:0 16px 12px;
-        scroll-snap-type:x proximity;
+        padding:2px 16px 12px;
+        scroll-snap-type:x mandatory;
         scrollbar-width:none
       }
       .origin-section .region-grid::-webkit-scrollbar{display:none}
-      .origin-section .region-card{scroll-snap-align:start}
-      .origin-section .region-body{height:110px;min-height:0}
+      .origin-section .region-card{flex:0 0 calc((100% - 12px)/2);scroll-snap-align:start}
+      .origin-section .region-body{height:126px;min-height:0}
       .origin-cta-bar{display:block;margin:24px 16px 0;padding:20px;text-align:center}
       .origin-cta-actions{display:grid;grid-template-columns:1fr;margin-top:16px}
       .testi-section{padding:54px 0}
       .homepage-resources{padding:24px 0!important}
+    }
+    @media(max-width:560px){
+      .origin-section .region-card{flex-basis:84vw}
+      .origin-section .region-pagination{display:none}
     }
   </style>
   <link rel="alternate" hreflang="en" href="https://jftagro.com/">
@@ -5088,7 +5100,14 @@
       </div>
       <div class="origin-regions-head reveal">
         <h3>India's Specialist Sourcing Belts</h3>
-        <p>Each commodity is matched to established growing regions, contracted specifications and the buyer's destination requirements.</p>
+        <div class="region-slider-meta">
+          <p>Each commodity is matched to established growing regions, contracted specifications and the buyer's destination requirements.</p>
+          <div class="region-slider-nav" aria-label="Sourcing belt slider controls">
+            <button type="button" id="regionPrev" aria-label="Previous sourcing belts"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+            <span class="region-slider-count" id="regionSliderCount" aria-live="polite">01 / 03</span>
+            <button type="button" id="regionNext" aria-label="Next sourcing belts"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+          </div>
+        </div>
       </div>
       <div class="origin-assurance reveal" aria-label="Buyer sourcing assurances">
         <span><i class="fa-solid fa-file-shield" aria-hidden="true"></i> Origin records</span>
@@ -5096,7 +5115,8 @@
         <span><i class="fa-solid fa-list-check" aria-hidden="true"></i> Contracted specifications</span>
         <span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Inspection options</span>
       </div>
-      <div class="region-grid reveal">
+      <div class="region-slider reveal" role="region" aria-roledescription="carousel" aria-label="Indian specialist sourcing belts">
+      <div class="region-grid" id="regionTrack" tabindex="0">
         <a class="region-card" href="products.html?cat=rice" aria-label="View rice grades from Punjab and Haryana">
           <div class="region-color" style="background:linear-gradient(90deg,#f0c430,#e8a820);"></div>
           <div class="region-body">
@@ -5205,6 +5225,8 @@
             <span class="region-action">View sugar grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
         </a>
+      </div>
+      <div class="region-pagination" id="regionPagination" aria-label="Sourcing belt slides"></div>
       </div>
     </div>
 
@@ -6250,12 +6272,113 @@
         }
       };
 
+      function initRegionSlider() {
+        var track = document.getElementById('regionTrack');
+        var prev = document.getElementById('regionPrev');
+        var next = document.getElementById('regionNext');
+        var count = document.getElementById('regionSliderCount');
+        var pagination = document.getElementById('regionPagination');
+        if (!track || !prev || !next || !count || !pagination) return;
+
+        var cards = Array.from(track.querySelectorAll('.region-card'));
+        var pageIndex = 0;
+        var pageTotal = 1;
+        var autoplay;
+        var paused = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var scrollFrame;
+
+        function metrics() {
+          var first = cards[0];
+          var gap = parseFloat(getComputedStyle(track).gap) || 0;
+          var cardWidth = first ? first.getBoundingClientRect().width : track.clientWidth;
+          var perView = Math.max(1, Math.round(track.clientWidth / (cardWidth + gap)));
+          return { perView: perView, step: (cardWidth + gap) * perView };
+        }
+
+        function renderControls() {
+          var data = metrics();
+          pageTotal = Math.max(1, Math.ceil(cards.length / data.perView));
+          pageIndex = Math.min(pageIndex, pageTotal - 1);
+          count.textContent = String(pageIndex + 1).padStart(2, '0') + ' / ' + String(pageTotal).padStart(2, '0');
+          pagination.innerHTML = '';
+          for (var i = 0; i < pageTotal; i += 1) {
+            (function (dotIndex) {
+              var dot = document.createElement('button');
+              dot.type = 'button';
+              dot.setAttribute('aria-label', 'Show sourcing belts page ' + (dotIndex + 1));
+              if (dotIndex === pageIndex) { dot.classList.add('active'); dot.setAttribute('aria-current', 'true'); }
+              dot.addEventListener('click', function () { goTo(dotIndex, true); });
+              pagination.appendChild(dot);
+            }(i));
+          }
+        }
+
+        function updateActive() {
+          count.textContent = String(pageIndex + 1).padStart(2, '0') + ' / ' + String(pageTotal).padStart(2, '0');
+          Array.from(pagination.children).forEach(function (dot, index) {
+            dot.classList.toggle('active', index === pageIndex);
+            if (index === pageIndex) dot.setAttribute('aria-current', 'true');
+            else dot.removeAttribute('aria-current');
+          });
+        }
+
+        function goTo(target, userInitiated) {
+          var data = metrics();
+          pageIndex = (target + pageTotal) % pageTotal;
+          var left = Math.min(pageIndex * data.step, track.scrollWidth - track.clientWidth);
+          track.scrollTo({ left: left, behavior: userInitiated ? 'smooth' : 'smooth' });
+          updateActive();
+          if (userInitiated) startAutoplay();
+        }
+
+        function startAutoplay() {
+          clearInterval(autoplay);
+          if (!paused) autoplay = setInterval(function () { goTo(pageIndex + 1, false); }, 6000);
+        }
+
+        prev.addEventListener('click', function () { goTo(pageIndex - 1, true); });
+        next.addEventListener('click', function () { goTo(pageIndex + 1, true); });
+        track.addEventListener('keydown', function (event) {
+          if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            event.preventDefault();
+            goTo(pageIndex + (event.key === 'ArrowRight' ? 1 : -1), true);
+          }
+        });
+        track.addEventListener('scroll', function () {
+          cancelAnimationFrame(scrollFrame);
+          scrollFrame = requestAnimationFrame(function () {
+            var data = metrics();
+            pageIndex = Math.min(pageTotal - 1, Math.max(0, Math.round(track.scrollLeft / data.step)));
+            updateActive();
+          });
+        }, { passive: true });
+
+        var shell = track.closest('.region-slider');
+        if (shell) {
+          shell.addEventListener('mouseenter', function () { paused = true; clearInterval(autoplay); });
+          shell.addEventListener('mouseleave', function () { paused = false; startAutoplay(); });
+          shell.addEventListener('focusin', function () { paused = true; clearInterval(autoplay); });
+          shell.addEventListener('focusout', function (event) {
+            if (!shell.contains(event.relatedTarget)) { paused = false; startAutoplay(); }
+          });
+        }
+
+        var resizeTimer;
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function () { pageIndex = 0; track.scrollLeft = 0; renderControls(); }, 160);
+        });
+        renderControls();
+        startAutoplay();
+      }
+
       document.addEventListener('DOMContentLoaded', function () {
         loadComp('header-placeholder', 'header.html');
         loadComp('footer-placeholder', 'footer.html');
         updateSlider();
         updatePauseControl();
         startSlider();
+        initRegionSlider();
         setTimeout(preloadHeroBackgrounds, 250);
         var heroSection = document.querySelector('.jft-hero-banner');
         if (heroSection && 'IntersectionObserver' in window) {
