@@ -4260,13 +4260,19 @@
     .mobile-hint{color:#4b3a0b!important;animation:none!important}
     .pstatus{color:#176b3b}
     #global-reach>.reveal p{color:#5f6964!important}
-    .jft-hero-banner{height:clamp(680px,calc(100svh - 120px),760px);min-height:680px;padding-top:112px;cursor:default}
+    .jft-hero-banner{height:clamp(720px,calc(100svh - 120px),760px);min-height:720px;padding-top:112px;cursor:default}
     .hero-content-slide{justify-content:flex-start}
     .hero-content-slide .hero-text-box{max-width:720px}
     .hero-slide--assurance{background-position:center}
     .hero-slide--rice{background-position:center 56%}
     .hero-slide--spices{background-position:center 48%}
     .hero-slide--logistics{background-position:center}
+    .hero-slide--pulses{background-position:center}
+    .hero-slide--packing{background-position:center}
+    .hero-slide--rice::after{background:linear-gradient(105deg,rgba(7,18,15,.95) 0%,rgba(26,60,52,.75) 45%,rgba(7,18,15,.18) 100%)}
+    .hero-slide--spices::after{background:linear-gradient(105deg,rgba(7,18,15,.95) 0%,rgba(26,60,52,.72) 45%,rgba(7,18,15,.1) 100%)}
+    .hero-slide--pulses::after{background:linear-gradient(105deg,rgba(7,18,15,.8) 0%,rgba(26,60,52,.35) 45%,rgba(7,18,15,.02) 100%)}
+    .hero-slide--packing::after{background:linear-gradient(105deg,rgba(7,18,15,.8) 0%,rgba(26,60,52,.3) 45%,rgba(7,18,15,.01) 100%)}
     .hero-navigation{position:absolute;left:50%;bottom:18px;z-index:25;display:flex;align-items:center;gap:4px;transform:translateX(-50%);padding:4px 6px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(7,18,15,.58);backdrop-filter:blur(10px)}
     .slider-controls{position:static;display:flex;align-items:center;gap:2px;transform:none}
     .control-dot{display:grid;place-items:center;width:32px;height:32px;padding:0;border:0;background:transparent;cursor:pointer}
@@ -4279,6 +4285,9 @@
     .hero-in-view .wa-fab,.hero-in-view .smart-wa-widget{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px)}
     @media(min-width:769px){
       .hero-content-wrapper{transform:translateY(-34px)}
+      .hero-tag-modern{margin-bottom:22px}
+      .hero-title-modern{font-size:clamp(2.4rem,4.2vw,3.7rem);line-height:1.08;margin-bottom:22px;letter-spacing:0}
+      .hero-desc-modern{margin-bottom:30px;line-height:1.65}
     }
     @media(max-width:768px){
       .top-dashboard{height:38px!important}
@@ -4291,6 +4300,8 @@
       .hero-slide--rice{background-position:54% center}
       .hero-slide--spices{background-position:52% center}
       .hero-slide--logistics{background-position:71% center}
+      .hero-slide--pulses{background-position:74% center}
+      .hero-slide--packing{background-position:69% center}
       .hero-content-wrapper{padding:0 20px}
       .hero-tag-modern{margin-bottom:18px}
       .hero-title-modern{margin-bottom:18px;line-height:1.1}
@@ -4331,11 +4342,15 @@
     <div id="hero-slides-container">
       <div class="hero-slide hero-slide--assurance active" style="background-image:url('images/homepage/export-trust-hero-v2.webp');"></div>
       <!-- HD Unsplash fallback images for slides 2–5 -->
-      <div class="hero-slide hero-slide--rice" data-bg="images/products/basmati_rice_hd.webp">
+      <div class="hero-slide hero-slide--rice" data-bg="images/homepage/basmati-rice-hero-v2.webp">
       </div>
       <div class="hero-slide hero-slide--spices" data-bg="images/homepage/SPICES.webp">
       </div>
       <div class="hero-slide hero-slide--logistics" data-bg="images/homepage/export-logistics-hero-v2.webp">
+      </div>
+      <div class="hero-slide hero-slide--pulses" data-bg="images/homepage/pulses-oilseeds-hero-v1.webp">
+      </div>
+      <div class="hero-slide hero-slide--packing" data-bg="images/homepage/buyer-ready-packing-hero-v1.webp">
       </div>
     </div>
     <div class="hero-grid-overlay"></div>
@@ -4379,6 +4394,24 @@
               href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Request Export Quote</a></div>
         </div>
       </div>
+      <div class="hero-content-slide">
+        <div class="hero-text-box">
+          <span class="hero-tag-modern"><i class="fa-solid fa-seedling"></i> Pulses &amp; Oilseeds</span>
+          <h2 class="hero-title-modern">Diverse Origins.<br><span>Contracted Quality.</span><strong>Pulses, Sesame &amp; Groundnuts</strong></h2>
+          <p class="hero-desc-modern">Chickpeas, mung beans, pigeon peas, sesame and groundnuts sourced and packed against agreed grade, moisture, purity and packing requirements.</p>
+          <div class="hero-actions"><a href="products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a><a
+              href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Request Export Quote</a></div>
+        </div>
+      </div>
+      <div class="hero-content-slide">
+        <div class="hero-text-box">
+          <span class="hero-tag-modern"><i class="fa-solid fa-box-open"></i> Buyer-Ready Packing</span>
+          <h2 class="hero-title-modern">Your Market.<br><span>Your Pack Format.</span><strong>Bulk, retail &amp; private-label options</strong></h2>
+          <p class="hero-desc-modern">Packing formats, artwork coordination and carton configuration planned against order volume, destination rules and approved buyer requirements.</p>
+          <div class="hero-actions"><a href="products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a><a
+              href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Request Export Quote</a></div>
+        </div>
+      </div>
     </div>
     <div class="hero-navigation" aria-label="Hero carousel controls">
       <button class="hero-nav-button" type="button" onclick="moveHeroSlide(-1)" aria-label="Previous slide" title="Previous slide"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
@@ -4387,6 +4420,8 @@
         <button class="control-dot" type="button" aria-label="Show rice and grains slide" onclick="setSlide(1)"></button>
         <button class="control-dot" type="button" aria-label="Show spices slide" onclick="setSlide(2)"></button>
         <button class="control-dot" type="button" aria-label="Show logistics slide" onclick="setSlide(3)"></button>
+        <button class="control-dot" type="button" aria-label="Show pulses and oilseeds slide" onclick="setSlide(4)"></button>
+        <button class="control-dot" type="button" aria-label="Show buyer-ready packing slide" onclick="setSlide(5)"></button>
       </div>
       <button class="hero-nav-button" id="heroPause" type="button" onclick="toggleHeroPause()" aria-label="Pause carousel" aria-pressed="false" title="Pause carousel"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
       <button class="hero-nav-button" type="button" onclick="moveHeroSlide(1)" aria-label="Next slide" title="Next slide"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
@@ -5515,6 +5550,11 @@
       }
       window.toggleHeroPause = toggleHeroPause;
       function nextSlide() { var slides = document.querySelectorAll('.hero-slide'); if (!slides.length) return; slideIdx = (slideIdx + 1) % slides.length; updateSlider(); }
+      function preloadHeroBackgrounds() {
+        document.querySelectorAll('.hero-slide[data-bg]').forEach(function (slide) {
+          if (!slide.style.backgroundImage) slide.style.backgroundImage = "url('" + slide.dataset.bg + "')";
+        });
+      }
       function updateSlider() {
         var slides = document.querySelectorAll('.hero-slide');
         var contents = document.querySelectorAll('.hero-content-slide');
@@ -5715,6 +5755,7 @@
         updateSlider();
         updatePauseControl();
         startSlider();
+        setTimeout(preloadHeroBackgrounds, 250);
         var heroSection = document.querySelector('.jft-hero-banner');
         if (heroSection && 'IntersectionObserver' in window) {
           new IntersectionObserver(function (entries) {
