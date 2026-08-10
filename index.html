@@ -44,14 +44,9 @@
     type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com/","logo":"https://jftagro.com/images/jft%20logo.png","contactPoint":{"@type":"ContactPoint","telephone":"+91-84250-57274","contactType":"sales","areaServed":"Global","email":"exports@jftagro.com"},"sameAs":["https://www.linkedin.com/company/jft-agro-overseas","https://www.facebook.com/jftagro","https://www.instagram.com/jftagro"],"address":{"@type":"PostalAddress","streetAddress":"Godown N-2, APMC Market, Danabunder, Vashi","addressLocality":"Navi Mumbai","postalCode":"400705","addressCountry":"IN"}}</script>
   <script
     type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"JFT Agro Overseas","url":"https://jftagro.com/","potentialAction":{"@type":"SearchAction","target":"https://jftagro.com/products.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="images/homepage/export-trust-hero-v2.webp" fetchpriority="high">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&amp;family=Montserrat:wght@500;600;700;800;900&amp;display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="assets/fonts/jft-fonts.css">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="jft-design-system.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="jft-responsive.css" media="print" onload="this.media='all'">
   <style>
@@ -4302,6 +4297,48 @@
     .partners-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
     .lead-magnet-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
     .lead-magnet-grid>div:nth-child(3){display:none!important}
+    .awards-strip,.cta-split{display:none!important}
+    .trust-summary{max-width:1180px;margin:18px auto 0;padding:18px 24px 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;border-top:1px solid rgba(26,60,52,.1)}
+    .trust-summary a{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid rgba(26,60,52,.1);border-radius:6px;background:#fff;color:var(--navy);font-family:var(--ff-s);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px;transition:.25s}
+    .trust-summary a:hover{border-color:var(--gold);transform:translateY(-2px)}
+    .trust-summary i{color:var(--green);font-size:1rem}
+    .quick-rfq{padding:72px 0;background:#fff;border-top:1px solid rgba(26,60,52,.08)}
+    .rfq-shell{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:42px;align-items:center}
+    .rfq-copy .section-title{font-size:clamp(2rem,3.2vw,3.1rem);margin:16px 0}
+    .rfq-copy p{color:#5f6964;line-height:1.75;max-width:520px}
+    .rfq-points{display:grid;gap:10px;margin-top:22px}
+    .rfq-points span{display:flex;align-items:center;gap:9px;color:var(--navy);font-family:var(--ff-s);font-size:.76rem;font-weight:700}
+    .rfq-points i{color:var(--green)}
+    .rfq-form{padding:28px;border:1px solid rgba(26,60,52,.12);border-radius:8px;background:var(--cream);box-shadow:0 18px 44px rgba(26,60,52,.08)}
+    .rfq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .rfq-field{display:grid;gap:7px}
+    .rfq-field label{color:var(--navy);font-family:var(--ff-s);font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px}
+    .rfq-field input,.rfq-field select{width:100%;min-height:48px;padding:0 13px;border:1px solid rgba(26,60,52,.18);border-radius:6px;background:#fff;color:var(--navy);font:400 .9rem var(--ff-b)}
+    .rfq-field input:focus,.rfq-field select:focus{outline:3px solid rgba(238,191,69,.3);border-color:var(--gold)}
+    .rfq-consent{display:flex;align-items:flex-start;gap:9px;margin:16px 0;color:#69736e;font-size:.72rem;line-height:1.5}
+    .rfq-consent input{margin-top:3px;accent-color:var(--green)}
+    .rfq-consent a{color:var(--green);font-weight:700}
+    .rfq-submit{width:100%;min-height:50px;border:0;border-radius:6px;background:var(--green);color:#fff;font-family:var(--ff-s);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:.25s}
+    .rfq-submit:hover{background:var(--navy);transform:translateY(-2px)}
+    .rfq-submit:disabled{opacity:.65;cursor:wait;transform:none}
+    .rfq-status{min-height:20px;margin-top:10px;color:#476057;font-size:.76rem;text-align:center}
+    .shipment-proof{padding:76px 0;background:var(--navy-dark);color:#fff}
+    .shipment-proof>.log-inner,.shipment-proof>div.reveal{display:none!important}
+    .proof-head{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:end;margin-bottom:30px}
+    .proof-head .section-title{color:#fff;margin:14px 0 0}
+    .proof-head p{color:rgba(255,255,255,.66);line-height:1.75;margin:0}
+    .proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .proof-figure{margin:0;position:relative;overflow:hidden;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:#10251f}
+    .proof-figure img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:.4s}
+    .proof-figure:hover img{transform:scale(1.025)}
+    .proof-figure figcaption{padding:16px 18px;color:rgba(255,255,255,.72);font-size:.78rem;line-height:1.55}
+    .proof-figure strong{display:block;margin-bottom:4px;color:#fff;font-family:var(--ff-s);font-size:.76rem;text-transform:uppercase;letter-spacing:.7px}
+    .shipment-case{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;margin-top:28px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+    .shipment-case h3{margin:0;color:var(--gold);font-family:var(--ff-h);font-size:1.35rem}
+    .shipment-case p{margin:0;color:rgba(255,255,255,.7);line-height:1.75}
+    .case-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .case-links a{display:inline-flex;align-items:center;gap:8px;color:#fff;font-family:var(--ff-s);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px}
+    .case-links i{color:var(--gold)}
     .conversion-zone-in-view .smart-wa-widget{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
     @media(min-width:769px){
       .hero-content-wrapper{transform:translateY(-34px)}
@@ -4311,7 +4348,8 @@
     }
     @media(max-width:768px){
       .top-dashboard{height:38px!important}
-      .top-dashboard .td-row-1{display:none!important}
+      .top-dashboard .td-row-1{display:flex!important;height:38px!important}
+      .top-dashboard .td-row-2{display:none!important}
       .jft-navbar,.jft-navbar.scrolled{top:38px!important;height:64px!important}
       .nav-logo-img{height:48px!important}
       .jft-hero-banner{height:calc(100svh - 130px);min-height:620px;padding-top:88px!important;padding-bottom:58px!important}
@@ -4376,6 +4414,14 @@
       .tcard h3{font-size:.9rem;margin-bottom:10px}
       .ttext{font-size:.76rem!important;line-height:1.55!important;margin:0!important}
       .lead-magnet-grid{grid-template-columns:1fr!important}
+      .trust-summary{grid-template-columns:repeat(2,minmax(0,1fr));padding:14px 16px 0}
+      .trust-summary a{padding:10px;font-size:.58rem}
+      .quick-rfq,.shipment-proof{padding:54px 0}
+      .rfq-shell,.proof-head,.shipment-case{grid-template-columns:1fr;gap:22px}
+      .rfq-form{padding:18px}
+      .rfq-grid{grid-template-columns:1fr}
+      .proof-grid{grid-template-columns:1fr;gap:12px}
+      .proof-figure img{aspect-ratio:16/9}
     }
     @media(min-width:381px) and (max-width:600px){
       body:has(#jft-cookie-bar.show) .hero-navigation{bottom:120px}
@@ -4424,7 +4470,7 @@
       <div class="hero-content-slide active">
         <div class="hero-text-box">
           <span class="hero-tag-modern"><i class="fa-solid fa-star"></i> Star Export House &middot; ISO 9001:2015</span>
-          <h1 class="hero-title-modern">Indian Agriculture.<br><span class="gold-text">Exported With Proof.</span><strong>Quality checked from source to sealed container</strong></h1>
+          <h1 class="hero-title-modern">Indian Agro Commodity Exporter.<br><span class="gold-text">Quality Shipped With Proof.</span><strong>Rice, spices, pulses, grains and oilseeds from India</strong></h1>
           <p class="hero-desc-modern">Factory-direct rice, spices, pulses, grains and oilseeds for buyers in 25+ countries, backed by batch documentation, third-party inspection options and clear shipment terms.</p>
           <div class="hero-actions">
             <a href="products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
@@ -4630,6 +4676,12 @@
               loading="lazy"><span class="cert-name">Coffee Board</span></div>
         </div>
       </div>
+    </div>
+    <div class="trust-summary reveal" aria-label="Key company verifications">
+      <a href="certificates.html"><i class="fa-solid fa-star"></i><span>Star Export House</span></a>
+      <a href="certificates.html"><i class="fa-solid fa-certificate"></i><span>ISO 9001:2015</span></a>
+      <a href="certificates.html"><i class="fa-solid fa-shield-halved"></i><span>AEO Registered</span></a>
+      <a href="certificates.html"><i class="fa-solid fa-wheat-awn"></i><span>APEDA &amp; FSSAI</span></a>
     </div>
   </section>
 
@@ -5060,9 +5112,59 @@
     </div>
   </section>
 
+  <section class="quick-rfq" id="quick-quote" aria-labelledby="quick-rfq-title">
+    <div class="jft-wide-container rfq-shell">
+      <div class="rfq-copy reveal-left">
+        <span class="brand-tag"><i class="fa-solid fa-file-invoice-dollar"></i> Buyer RFQ</span>
+        <h2 class="section-title" id="quick-rfq-title">Price Your Next<br><span>Import Shipment</span></h2>
+        <p>Send the five details our export desk needs to prepare relevant FOB or CIF guidance. Complete specifications can follow after the initial review.</p>
+        <div class="rfq-points">
+          <span><i class="fa-solid fa-clock"></i> Reviewed within one business day</span>
+          <span><i class="fa-solid fa-shield-halved"></i> Commercial details remain confidential</span>
+          <span><i class="fa-solid fa-file-lines"></i> Clear product, packing and destination scope</span>
+        </div>
+      </div>
+      <form class="rfq-form reveal-right" id="homeRfqForm" onsubmit="handleHomeRFQ(event)">
+        <input type="hidden" name="access_key" value="88f6e4fc-7b15-4519-9408-6946321501b6">
+        <input type="hidden" name="subject" value="Homepage Quick Export RFQ">
+        <input type="hidden" name="from_name" value="JFT Agro Homepage">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+        <div class="rfq-grid">
+          <div class="rfq-field"><label for="hr-company">Company</label><input id="hr-company" name="company" autocomplete="organization" required placeholder="Import company"></div>
+          <div class="rfq-field"><label for="hr-contact">Email or WhatsApp</label><input id="hr-contact" name="contact" required placeholder="buyer@company.com / +971..."></div>
+          <div class="rfq-field"><label for="hr-product">Commodity</label><select id="hr-product" name="product" required><option value="">Select commodity</option><option>Rice</option><option>Spices</option><option>Pulses</option><option>Grains &amp; Flour</option><option>Oilseeds</option><option>Sugar</option><option>Animal Feed</option><option>Other</option></select></div>
+          <div class="rfq-field"><label for="hr-quantity">Quantity (MT)</label><input id="hr-quantity" name="quantity_mt" type="number" min="1" inputmode="numeric" placeholder="e.g. 25" required></div>
+          <div class="rfq-field"><label for="hr-port">Destination port</label><input id="hr-port" name="destination_port" required placeholder="e.g. Jebel Ali"></div>
+          <div class="rfq-field"><label for="hr-packing">Packing</label><select id="hr-packing" name="packing"><option>Bulk export bags</option><option>Retail packs</option><option>Private label</option><option>Buyer specification</option></select></div>
+        </div>
+        <label class="rfq-consent"><input type="checkbox" name="terms" required><span>I agree to the <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms of Trade</a>.</span></label>
+        <button class="rfq-submit" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Requirement</button>
+        <div class="rfq-status" id="homeRfqStatus" role="status" aria-live="polite">No obligation. Product availability and pricing are confirmed after review.</div>
+      </form>
+    </div>
+  </section>
+
   <div class="jft-gold-line"></div>
   <!-- ── LOGISTICS ── -->
-  <section class="logistics-banner">
+  <section class="logistics-banner shipment-proof" id="shipment-proof" aria-labelledby="shipment-proof-title">
+    <div class="jft-wide-container shipment-proof-content">
+      <div class="proof-head">
+        <div class="reveal-left">
+          <span class="brand-tag brand-tag-white">Operational Evidence</span>
+          <h2 class="section-title" id="shipment-proof-title">What Buyers Can<br><span>Inspect and Approve</span></h2>
+        </div>
+        <p class="reveal-right">These operational checkpoints show the milling, packing and dispatch environments used to prepare export orders. Buyers can request current facility details, packing photographs and inspection scope for their specific contract.</p>
+      </div>
+      <div class="proof-grid reveal">
+        <figure class="proof-figure"><img src="images/homepage/proof-rice-milling.webp" alt="Rice milling and grading facility" width="660" height="495" loading="lazy"><figcaption><strong>Rice milling and grading</strong>Cleaning, sorting and grade preparation against the approved commercial specification.</figcaption></figure>
+        <figure class="proof-figure"><img src="images/homepage/proof-packing-unit.webp" alt="Food commodity packing unit" width="1100" height="733" loading="lazy"><figcaption><strong>Packing configuration</strong>Bulk bags, retail packs and private-label formats prepared after artwork and material approval.</figcaption></figure>
+        <figure class="proof-figure"><img src="images/homepage/proof-logistics.webp" alt="Export logistics and container dispatch operations" width="800" height="533" loading="lazy"><figcaption><strong>Container and dispatch planning</strong>Equipment, loading schedule and document scope aligned to the agreed Incoterm.</figcaption></figure>
+      </div>
+      <div class="shipment-case reveal">
+        <h3>Representative 20-foot FCL workflow</h3>
+        <div><p>Requirement confirmation &rarr; approved sample or specification &rarr; production and packing &rarr; optional independent inspection &rarr; container loading &rarr; commercial invoice, packing list, origin and product-specific documents. Timelines and documents vary by commodity and destination.</p><div class="case-links"><a href="quality-control.html"><i class="fa-solid fa-microscope"></i> Quality controls</a><a href="certificates.html"><i class="fa-solid fa-certificate"></i> Current certificates</a><a href="shipment-tracker.html"><i class="fa-solid fa-ship"></i> Shipment tools</a></div></div>
+      </div>
+    </div>
     <div class="log-inner">
       <div class="jft-wide-container">
         <div class="log-layout">
@@ -5815,6 +5917,32 @@
       }
 
       // ── MAIN DOMContentLoaded ──
+      window.handleHomeRFQ = async function (event) {
+        event.preventDefault();
+        var form = event.currentTarget;
+        var button = form.querySelector('.rfq-submit');
+        var status = document.getElementById('homeRfqStatus');
+        if (!button || !status || !form.reportValidity()) return;
+        var original = button.innerHTML;
+        button.disabled = true;
+        button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending requirement';
+        status.textContent = 'Sending securely to the export desk...';
+        try {
+          var response = await fetch('https://api.web3forms.com/submit', { method:'POST', body:new FormData(form) });
+          var result = await response.json();
+          if (!response.ok || result.success === false) throw new Error(result.message || 'Submission failed');
+          form.reset();
+          status.textContent = 'Requirement received. The export desk will respond within one business day.';
+          status.style.color = '#176b3b';
+          button.innerHTML = '<i class="fa-solid fa-circle-check"></i> Requirement sent';
+        } catch (error) {
+          status.innerHTML = 'Could not send automatically. Please use <a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer">WhatsApp +91 84250 57274</a>.';
+          status.style.color = '#9a3d31';
+          button.disabled = false;
+          button.innerHTML = original;
+        }
+      };
+
       document.addEventListener('DOMContentLoaded', function () {
         loadComp('header-placeholder', 'header.html');
         loadComp('footer-placeholder', 'footer.html');

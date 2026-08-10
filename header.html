@@ -10,10 +10,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
 <!-- GA4 — loads only after cookie consent (GDPR compliant) -->
 <meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Merriweather:wght@300;400;700;900&amp;family=Montserrat:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/assets/fonts/jft-fonts.css">
+<link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
 
 <style>
   :root {
@@ -73,12 +71,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .td-row-1 { padding: 0; }
     .td-news-ticker { margin-right: 0; width: 100%; }
     .ticker-label { font-size: 0.68rem; padding: 0 28px 0 14px; clip-path: polygon(0 0,100% 0,84% 100%,0 100%); }
+    .ticker-track { animation:none; flex:1; min-width:0; padding:0 10px; }
+    .ticker-track .t-item { display:none; width:100%; margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:.72rem; }
+    .ticker-track .t-item.mobile-current { display:block; }
     /* Row 2 mobile: USD/INR left, Annapoorna right only */
     .forex-group { gap: 0; padding-right: 0; }
     #forex-date { display: none; } /* hide "Rates as of" text on mobile */
     .forex-item.desktop-only { display: none!important; } /* hide EUR, GBP, AED */
     #fx-eur, #fx-gbp, #fx-aed { display: none!important; }
     #fx-usd { font-size: 0.75rem; padding-left: 4px; }
+    .forex-status { display:none; }
     .visit-plan { font-size: 0.65rem; padding: 0 12px; gap: 6px; clip-path: polygon(10px 0,100% 0,100% 100%,0 100%); }
     .visit-plan .vp-sub { display: none; } /* hide second line of Annapoorna */
   }
@@ -103,8 +105,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-menu { display: flex; align-items: center; gap: 20px; }
   .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; letter-spacing: 1.5px; position: relative; padding: 5px 0; transition: 0.3s; cursor: pointer; }
   .nav-link:hover { color: var(--jft-primary); }
+  .nav-link[aria-current="page"] { color: var(--jft-primary); }
+  .nav-link[aria-current="page"]::after { content:""; position:absolute; left:0; right:0; bottom:-9px; height:3px; background:var(--jft-gold); border-radius:3px; }
   .nav-btn-action { padding: 12px 24px; background: var(--jft-primary); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--jft-primary); transition: 0.3s; box-shadow: 0 4px 15px rgba(61,112,48,0.2); text-decoration: none; white-space: nowrap; font-family: var(--font-sub); }
   .nav-btn-action:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-2px); }
+  .nav-wa-action { width:42px; height:42px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:#25d366; color:#fff; font-size:1.15rem; box-shadow:0 5px 16px rgba(37,211,102,.25); transition:.3s; }
+  .nav-wa-action:hover { background:#1fbd59; transform:translateY(-2px); }
+  .forex-status { color:#777; font-size:.58rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-left:7px; }
+  .forex-status[data-state="live"] { color:#28734a; }
+  .forex-status[data-state="fallback"] { color:#946a0b; }
 
   /* ── STANDARD DROPDOWN (Infrastructure) ── */
   .markets-menu {
@@ -599,12 +608,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="td-row-2">
     <div class="forex-group">
       <span id="forex-date" style="font-size:0.7rem;color:#888;text-transform:uppercase;margin-right:5px;"></span>
+      <span id="forex-status" class="forex-status" data-state="fallback">Indicative rates</span>
       <div class="forex-item" id="fx-usd">USD/INR <span class="forex-up">---</span></div>
       <div class="forex-item" id="fx-eur">EUR/INR <span class="forex-up">---</span></div>
       <div class="forex-item desktop-only" id="fx-gbp">GBP/INR <span class="forex-up">---</span></div>
       <div class="forex-item desktop-only" id="fx-aed">AED/INR <span class="forex-up">---</span></div>
     </div>
-    <a href="contact.html#inquiry-form" class="visit-plan" style="padding-left: 30px; margin-left: 10px; border-left: 1px solid rgba(0,0,0,0.05);">
+    <a href="contact.html#inquiry-form" class="visit-plan" id="trade-event-promo" data-event-end="2026-11-21T23:59:59+05:30" style="padding-left: 30px; margin-left: 10px; border-left: 1px solid rgba(0,0,0,0.05);">
       <i class="fa-solid fa-plane-departure" style="font-size: 1rem; margin-right: 5px;"></i> 
       <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1;">
         <span style="font-size: 0.7rem; letter-spacing: 1.5px; font-weight: 800;">ANNAPOORNA 2026</span>
@@ -685,6 +695,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 
       <a href="contact.html" class="nav-link">Contact</a>
+      <a href="https://wa.me/918425057274?text=Hello%20JFT%20Agro%2C%20I%20need%20an%20export%20quote." class="nav-wa-action" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp export desk" title="WhatsApp export desk"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
       <a href="contact.html#inquiry-form" class="nav-btn-action">Request Quote</a>
     </div>
 
@@ -889,12 +900,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   function initMobileDropdowns() {}
   function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
 
+  function setForexStatus(text, state) {
+    const status = document.getElementById('forex-status');
+    if (!status) return;
+    status.textContent = text;
+    status.dataset.state = state || 'fallback';
+  }
+
   async function fetchLiveForex() {
     const fallbacks = { 'fx-usd': 84.85, 'fx-eur': 91.40, 'fx-gbp': 108.50, 'fx-aed': 23.10 };
     const labels = { 'fx-usd': 'USD/INR', 'fx-eur': 'EUR/INR', 'fx-gbp': 'GBP/INR', 'fx-aed': 'AED/INR' };
     
     // Initial load with fallbacks to avoid "---"
     Object.keys(fallbacks).forEach(id => updateTickerDOM(id, labels[id], fallbacks[id]));
+    setForexStatus('Indicative rates', 'fallback');
 
     /* Reuse a recent response across page views instead of calling three
        third-party APIs on every navigation. */
@@ -905,6 +924,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         updateTickerDOM('fx-eur', 'EUR/INR', cached.rates.eur);
         updateTickerDOM('fx-gbp', 'GBP/INR', cached.rates.gbp);
         updateTickerDOM('fx-aed', 'AED/INR', cached.rates.aed);
+        setForexStatus('Cached ' + new Date(cached.savedAt).toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' }), 'cached');
         return;
       }
     } catch (e) {
@@ -952,6 +972,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           try {
             localStorage.setItem('jft_forex_cache', JSON.stringify({ savedAt: Date.now(), rates }));
           } catch (e) {}
+          setForexStatus('Live updated ' + new Date().toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' }), 'live');
           ratesFetched = true;
           console.log('Forex loaded from:', api.url.split('/')[2]);
         }
@@ -961,6 +982,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     if (!ratesFetched) {
       console.warn('All forex APIs failed. Showing fallback rates.');
+      setForexStatus('Indicative fallback', 'fallback');
     }
   }
 
@@ -994,13 +1016,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           newsHTML += `<div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> ${item.title}</div>`;
         });
         ticker.innerHTML = newsHTML + newsHTML; // Double for seamless loop
+        startMobileTicker();
       } else {
         throw new Error('Empty news feed');
       }
     } catch(err) {
       console.warn('Live news fetch failed, using high-quality curated Pulse.');
       ticker.innerHTML = fallbacks.join('') + fallbacks.join('');
+      startMobileTicker();
     }
+  }
+
+  function startMobileTicker() {
+    const ticker = document.getElementById('dynamic-ticker');
+    if (!ticker) return;
+    const items = Array.from(ticker.querySelectorAll('.t-item'));
+    const uniqueCount = Math.max(1, Math.floor(items.length / 2));
+    let current = 0;
+    function showCurrent() {
+      items.forEach(item => item.classList.remove('mobile-current'));
+      if (items[current]) items[current].classList.add('mobile-current');
+    }
+    showCurrent();
+    clearInterval(window.jftMobileTickerTimer);
+    window.jftMobileTickerTimer = setInterval(function() {
+      if (window.innerWidth <= 768) {
+        current = (current + 1) % uniqueCount;
+        showCurrent();
+      }
+    }, 5000);
   }
 
   function initLocalizationLinks() {
@@ -1046,6 +1090,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     fetchLiveForex();
     fetchMarketNews();
     initLocalizationLinks();
+    const eventPromo = document.getElementById('trade-event-promo');
+    if (eventPromo && Date.now() > new Date(eventPromo.dataset.eventEnd).getTime()) eventPromo.remove();
     document.querySelectorAll('.nav-links-desktop a, .mobile-nav-drawer a').forEach(function(link) {
       try {
         const target = new URL(link.getAttribute('href'), window.location.href);
