@@ -4260,9 +4260,50 @@
     .mobile-hint{color:#4b3a0b!important;animation:none!important}
     .pstatus{color:#176b3b}
     #global-reach>.reveal p{color:#5f6964!important}
-    .slider-controls{gap:8px}
-    .control-dot{width:24px;height:24px;border-width:5px}
-    .control-dot.active{transform:scale(1.08)}
+    .jft-hero-banner{height:clamp(680px,calc(100svh - 120px),760px);min-height:680px;padding-top:112px;cursor:default}
+    .hero-content-slide{justify-content:flex-start}
+    .hero-content-slide .hero-text-box{max-width:720px}
+    .hero-slide--assurance{background-position:center}
+    .hero-slide--rice{background-position:center 56%}
+    .hero-slide--spices{background-position:center 48%}
+    .hero-slide--logistics{background-position:center}
+    .hero-navigation{position:absolute;left:50%;bottom:18px;z-index:25;display:flex;align-items:center;gap:4px;transform:translateX(-50%);padding:4px 6px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(7,18,15,.58);backdrop-filter:blur(10px)}
+    .slider-controls{position:static;display:flex;align-items:center;gap:2px;transform:none}
+    .control-dot{display:grid;place-items:center;width:32px;height:32px;padding:0;border:0;background:transparent;cursor:pointer}
+    .control-dot::before{content:"";width:9px;height:9px;border:2px solid rgba(255,255,255,.68);border-radius:50%;background:transparent;transition:.25s}
+    .control-dot.active{background:transparent;transform:none}
+    .control-dot.active::before{border-color:var(--gold);background:var(--gold);transform:scale(1.2)}
+    .hero-nav-button{display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:4px;background:transparent;color:#fff;cursor:pointer;transition:.25s}
+    .hero-nav-button:hover,.hero-nav-button:focus-visible{background:rgba(255,255,255,.14);color:var(--gold)}
+    .hero-nav-button[aria-pressed="true"]{color:var(--gold)}
+    .hero-in-view .wa-fab{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px)}
+    @media(max-width:768px){
+      .top-dashboard{height:38px!important}
+      .top-dashboard .td-row-1{display:none!important}
+      .jft-navbar,.jft-navbar.scrolled{top:38px!important;height:64px!important}
+      .nav-logo-img{height:48px!important}
+      .jft-hero-banner{height:calc(100svh - 130px);min-height:620px;padding-top:88px!important;padding-bottom:58px!important}
+      .hero-slide::after{background:linear-gradient(180deg,rgba(7,18,15,.48),rgba(7,18,15,.82))}
+      .hero-slide--assurance{background-position:61% center}
+      .hero-slide--rice{background-position:54% center}
+      .hero-slide--spices{background-position:52% center}
+      .hero-slide--logistics{background-position:71% center}
+      .hero-content-wrapper{padding:0 20px}
+      .hero-tag-modern{margin-bottom:18px}
+      .hero-title-modern{margin-bottom:18px;line-height:1.1}
+      .hero-title-modern strong{margin-top:7px}
+      .hero-desc-modern{margin-bottom:22px;line-height:1.62}
+      .hero-actions{gap:12px}
+      .hero-navigation{bottom:12px}
+      .hero-nav-button{width:38px;height:38px}
+      .control-dot{width:34px;height:38px;min-height:38px}
+    }
+    @media(max-width:380px){
+      .jft-hero-banner{min-height:600px;padding-top:76px!important}
+      .hero-navigation{gap:0}
+      .hero-nav-button{width:34px}
+      .control-dot{width:30px}
+    }
   </style>
   <link rel="alternate" hreflang="en" href="https://jftagro.com/">
   <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/">
@@ -4279,15 +4320,15 @@
 
   <!-- ── HERO ── -->
   <div id="main-content"></div>
-  <section class="jft-hero-banner" id="home">
+  <section class="jft-hero-banner" id="home" aria-label="Featured export capabilities" aria-roledescription="carousel">
     <div id="hero-slides-container">
-      <div class="hero-slide active" style="background-image:url('images/homepage/export-trust-hero-v2.webp');"></div>
+      <div class="hero-slide hero-slide--assurance active" style="background-image:url('images/homepage/export-trust-hero-v2.webp');"></div>
       <!-- HD Unsplash fallback images for slides 2–5 -->
-      <div class="hero-slide" data-bg="images/products/basmati_rice_hd.webp">
+      <div class="hero-slide hero-slide--rice" data-bg="images/products/basmati_rice_hd.webp">
       </div>
-      <div class="hero-slide" data-bg="images/homepage/SPICES.webp">
+      <div class="hero-slide hero-slide--spices" data-bg="images/homepage/SPICES.webp">
       </div>
-      <div class="hero-slide" data-bg="images/INFRASTRUCTURE/logistics.webp">
+      <div class="hero-slide hero-slide--logistics" data-bg="images/homepage/export-logistics-hero-v2.webp">
       </div>
     </div>
     <div class="hero-grid-overlay"></div>
@@ -4300,64 +4341,48 @@
           <p class="hero-desc-modern">Factory-direct rice, spices, pulses, grains and oilseeds for buyers in 25+ countries, backed by batch documentation, third-party inspection options and clear shipment terms.</p>
           <div class="hero-actions">
             <a href="products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
-            <a href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Get Custom
-              Quote</a>
+            <a href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Request Export Quote</a>
           </div>
         </div>
       </div>
       <div class="hero-content-slide">
         <div class="hero-text-box">
-          <span class="hero-tag-modern"><i class="fa-solid fa-wheat-awn"></i> Premium Grains</span>
-          <h2 class="hero-title-modern">The Grain Bowl<br><span class="gold-text">Of The World</span><strong>Basmati,
-              Non-Basmati &amp; Wheat</strong></h2>
-          <p class="hero-desc-modern">Extra-long grain 1121 and 1509 Basmati. Sortex-cleaned, fumigated, and packed to
-            your exact specs for any destination port.</p>
-          <div class="hero-actions"><a href="products.html" class="btn-primary">Explore Rice Varieties</a><a
-              href="contact.html#inquiry-form" class="btn-outline">Request Bulk Pricing</a></div>
-        </div>
-        <div class="hero-visual-card">
-          <div class="glass-card tilt-card"><img
-              src="images/products/basmati_rice_hd.webp"
-              alt="Premium Basmati Rice" loading="lazy" width="800" height="533"></div>
+          <span class="hero-tag-modern"><i class="fa-solid fa-wheat-awn"></i> Rice &amp; Grains</span>
+          <h2 class="hero-title-modern">Export-Ready<br><span class="gold-text">Rice &amp; Grains</span><strong>Basmati, Non-Basmati &amp; Wheat</strong></h2>
+          <p class="hero-desc-modern">1121 and 1509 Basmati, non-Basmati rice and milling wheat supplied against approved samples, contracted specifications and destination requirements.</p>
+          <div class="hero-actions"><a href="products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a><a
+              href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Request Export Quote</a></div>
         </div>
       </div>
       <div class="hero-content-slide">
         <div class="hero-text-box">
-          <span class="hero-tag-modern"><i class="fa-solid fa-pepper-hot"></i> Exotic Spices</span>
-          <h2 class="hero-title-modern">The Spice Route<br><span>Reimagined</span><strong>Turmeric, Chilli &amp;
-              Cardamom</strong></h2>
-          <p class="hero-desc-modern">High-curcumin turmeric from Sangli. Stem-cut Guntur chilli. Idukki green cardamom.
-            Every batch third-party certified.</p>
-          <div class="hero-actions"><a href="products.html" class="btn-primary">View Spices</a><a
-              href="contact.html#inquiry-form" class="btn-outline">Get Quote</a></div>
-        </div>
-        <div class="hero-visual-card">
-          <div class="glass-card tilt-card"><img
-              src="images/homepage/SPICES.webp"
-              alt="Indian Spices Export" loading="lazy" width="800" height="533"></div>
+          <span class="hero-tag-modern"><i class="fa-solid fa-pepper-hot"></i> Spices &amp; Botanicals</span>
+          <h2 class="hero-title-modern">Indian Spices.<br><span>Contracted to Specification.</span><strong>Turmeric, Chilli &amp; Cardamom</strong></h2>
+          <p class="hero-desc-modern">Origin-specific turmeric, chilli, cardamom and whole spices with agreed grade parameters, packing options and third-party inspection where contracted.</p>
+          <div class="hero-actions"><a href="products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a><a
+              href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Request Export Quote</a></div>
         </div>
       </div>
       <div class="hero-content-slide">
         <div class="hero-text-box">
-          <span class="hero-tag-modern"><i class="fa-solid fa-ship"></i> Masters of Seas</span>
-          <h2 class="hero-title-modern">Borders Are<br><span>Imaginary Lines</span><strong>Maersk &middot; MSC &middot;
-              CMA-CGM</strong></h2>
-          <p class="hero-desc-modern">Carrier options and equipment are coordinated for each booking, including peak-season planning, port documentation and shipment support.</p>
-          <div class="hero-actions"><a href="contact.html#inquiry-form" class="btn-primary">Get Export Quote</a><a
-              href="quote-calculator.html" class="btn-outline">CIF Calculator</a></div>
-        </div>
-        <div class="hero-visual-card">
-          <div class="glass-card tilt-card"><img
-              src="images/INFRASTRUCTURE/logistics.webp"
-              alt="Export Logistics" loading="lazy" width="800" height="533"></div>
+          <span class="hero-tag-modern"><i class="fa-solid fa-ship"></i> Export Logistics</span>
+          <h2 class="hero-title-modern">From Indian Origin<br><span>To Your Port</span><strong>Shipment planning, documents &amp; inspection</strong></h2>
+          <p class="hero-desc-modern">Container planning, export documentation and inspection coordination aligned to the agreed Incoterm, destination port and shipment schedule.</p>
+          <div class="hero-actions"><a href="products.html" class="btn-primary"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a><a
+              href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice"></i> Request Export Quote</a></div>
         </div>
       </div>
     </div>
-    <div class="slider-controls" id="hero-dots-container">
-      <div class="control-dot active" role="button" tabindex="0" aria-label="Show slide 1" aria-current="true" onclick="setSlide(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"></div>
-      <div class="control-dot" role="button" tabindex="0" aria-label="Show slide 2" onclick="setSlide(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"></div>
-      <div class="control-dot" role="button" tabindex="0" aria-label="Show slide 3" onclick="setSlide(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"></div>
-      <div class="control-dot" role="button" tabindex="0" aria-label="Show slide 4" onclick="setSlide(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"></div>
+    <div class="hero-navigation" aria-label="Hero carousel controls">
+      <button class="hero-nav-button" type="button" onclick="moveHeroSlide(-1)" aria-label="Previous slide" title="Previous slide"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+      <div class="slider-controls" id="hero-dots-container">
+        <button class="control-dot active" type="button" aria-label="Show export assurance slide" aria-current="true" onclick="setSlide(0)"></button>
+        <button class="control-dot" type="button" aria-label="Show rice and grains slide" onclick="setSlide(1)"></button>
+        <button class="control-dot" type="button" aria-label="Show spices slide" onclick="setSlide(2)"></button>
+        <button class="control-dot" type="button" aria-label="Show logistics slide" onclick="setSlide(3)"></button>
+      </div>
+      <button class="hero-nav-button" id="heroPause" type="button" onclick="toggleHeroPause()" aria-label="Pause carousel" aria-pressed="false" title="Pause carousel"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+      <button class="hero-nav-button" type="button" onclick="moveHeroSlide(1)" aria-label="Next slide" title="Next slide"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
     </div>
 
   </section>
