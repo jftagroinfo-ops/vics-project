@@ -58,7 +58,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:175px;overflow-x:hidden;scrollbar-gutter:stable}
 body{margin:0;padding:0;font-family:var(--ff-b);color:#333;background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,h4{font-family:var(--ff-h);margin:0;color:var(--navy);letter-spacing:-.5px}
+h1,h2,h3,h4{font-family:var(--ff-h);margin:0;color:var(--navy);letter-spacing:0}
 p{line-height:1.8;margin-bottom:1.4rem;font-size:clamp(1rem,1.5vw,1.1rem);color:#444}
 a{text-decoration:none;color:inherit;transition:.4s var(--ease)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
@@ -120,7 +120,7 @@ img{max-width:100%;height:auto;display:block}
 .ab-crumb{display:flex;align-items:center;gap:8px;font-family:var(--ff-s);font-size:.72rem;color:rgba(255,255,255,.45);margin-bottom:24px;text-transform:uppercase;letter-spacing:1.5px}
 .ab-crumb a{color:rgba(255,255,255,.45);transition:.3s}.ab-crumb a:hover{color:var(--gold)}
 .ab-crumb i{font-size:.5rem;color:rgba(255,255,255,.3)}
-.ab-hero h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:-2px;margin:18px 0 26px}
+.ab-hero h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:0;margin:18px 0 26px}
 .ab-hero h1 em{color:var(--gold-light);font-style:italic;font-weight:300}
 .ab-hero-sub{font-size:clamp(1rem,1.5vw,1.2rem);color:rgba(215,232,225,.8);line-height:1.8;max-width:540px;margin-bottom:40px;font-weight:300}
 .ab-actions{display:flex;gap:18px;flex-wrap:wrap}
@@ -386,7 +386,7 @@ img{max-width:100%;height:auto;display:block}
 }
 @media(max-width:768px){
   .ab-hero{padding-top:100px;padding-bottom:40px}
-  .ab-hero h1{font-size:clamp(1.8rem,7vw,2.8rem);letter-spacing:-1px}
+  .ab-hero h1{font-size:clamp(1.8rem,7vw,2.8rem);letter-spacing:0}
   .ab-hero-sub{font-size:1rem;max-width:100%}
   .ab-actions{justify-content:center}
   .ss-grid{grid-template-columns:repeat(2,1fr)}
@@ -434,7 +434,7 @@ img{max-width:100%;height:auto;display:block}
   .sp{padding:clamp(48px,8vw,80px) 0}
 }
 @media(max-width:480px){
-  .ab-hero h1{font-size:1.6rem;letter-spacing:-.5px}
+  .ab-hero h1{font-size:1.6rem;letter-spacing:0}
   .ab-hero-sub{font-size:.95rem}
   .ss-grid{grid-template-columns:1fr}
   .ss-item{border-right:none;border-bottom:1px solid var(--border)}
@@ -493,6 +493,45 @@ img{max-width:100%;height:auto;display:block}
   .about-testimonial-card{padding:24px 20px!important}
 }
 
+/* About-page rhythm: distinct bands, compact trust content and consistent geometry. */
+.ab-img-main,.ab-badge-gold,.ab-badge-glass,.story-img,.story-bg-box,
+.mvv-card,.guide-card,.cert-box,.gs-box,.countries-box,.team-card,.qc-card{border-radius:8px}
+.mvv-section,.guide-section,.cert-section,.global-section,.team-section{padding-block:clamp(64px,7vw,88px)}
+.mvv-card{padding:30px 28px}
+.guide-section{background:#eef5ef;border-block:1px solid rgba(26,60,52,.08)}
+.guide-grid{margin-top:38px;gap:18px}
+.guide-card{padding:28px 26px;background:#fff}
+.why-stitle span{color:var(--gold)!important}
+.why-stitle span::after{background:rgba(255,255,255,.22)}
+.cert-section{background-color:#fff;background-image:linear-gradient(rgba(26,60,52,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(26,60,52,.035) 1px,transparent 1px)}
+.cert-grid{gap:12px}
+.cert-box{padding:22px 14px}
+.global-stats{gap:16px;margin-bottom:32px}
+.gs-box{padding:22px 16px}
+.countries-box{padding:28px}
+.team-grid{gap:24px;margin-top:38px}
+.team-card > div:first-child{height:300px!important}
+.team-info{position:relative;bottom:auto;left:auto;padding:20px 24px 30px;background:var(--navy);transform:none}
+.team-card:hover .team-info{transform:none;padding-bottom:30px}
+.team-info::before{bottom:17px;left:24px}
+.about-testimonials{background:#fff!important;padding:clamp(64px,7vw,88px) 0!important}
+.about-insights{background:#f2f7f2!important}
+.about-insights .jft-wide-container{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(0,1.25fr);gap:48px;align-items:start}
+.about-insights .jft-wide-container > div:first-child{margin-bottom:0!important}
+.about-insights .jft-wide-container > div:nth-child(2){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.about-insights .jft-wide-container > div:last-child{grid-column:1/-1;margin-top:4px!important}
+.about-insights a[style*="border-radius:14px"]{border-radius:8px!important}
+.about-contact-prompt{border-radius:8px!important}
+.about-contact-prompt h3{color:#fff!important}
+@media(max-width:800px){
+  .mvv-section,.guide-section,.cert-section,.global-section,.team-section{padding-block:58px}
+  .team-card > div:first-child{height:280px!important}
+  .about-insights .jft-wide-container{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:560px){
+  .about-insights .jft-wide-container > div:nth-child(2){grid-template-columns:1fr!important}
+}
+
 .wa-fab ~ .wa-fab { display: none !important; }
 
 </style>
@@ -537,7 +576,7 @@ img{max-width:100%;height:auto;display:block}
         </div>
         <span class="brand-tag brand-tag-gold">Est. 1980 &nbsp;·&nbsp; Navi Mumbai, India</span>
         <h1>JFT Agro Overseas —<br>India's Trusted <em>Star Export House</em></h1>
-        <p class="ab-hero-sub">From a humble trading desk at Mumbai's APMC market to a Government Recognized Star Export House — 45 years of building the most trusted name in Indian agro-commodity exports.</p>
+        <p class="ab-hero-sub">From a humble trading desk at Mumbai's APMC market to a Government Recognized Star Export House — 45+ years of building trusted Indian agro-commodity supply partnerships.</p>
         <div class="ab-actions">
           <a href="contact.html#inquiry-form" class="btn-primary"><i class="fa-solid fa-file-invoice"></i> Get a Quote</a>
           <a href="products.html" class="btn-outline"><i class="fa-solid fa-boxes-stacked"></i> View Products</a>
@@ -585,7 +624,7 @@ img{max-width:100%;height:auto;display:block}
       </div>
       <div class="story-img-wrapper reveal-right">
         <div class="story-bg-box"></div>
-        <img src="images/homepage/indian-farm-origin-v1.webp" alt="Indian farmers inspecting rice crops in an established sourcing region" class="story-img" width="1600" height="900" loading="lazy">
+        <img src="images/aboutus/indian-sourcing-partnership-premium-v1.webp" alt="Indian farmer and export sourcing professional inspecting a rice sample at a procurement yard" class="story-img" width="1448" height="1086" loading="lazy">
       </div>
     </div>
   </div>
@@ -634,7 +673,7 @@ img{max-width:100%;height:auto;display:block}
   <div class="jft-wide-container">
     <div class="tc reveal">
       <span class="brand-tag">Our Journey</span>
-      <h2 class="section-title" style="margin:18px auto 10px;">45 Years of<br><span>Milestones</span></h2>
+      <h2 class="section-title" style="margin:18px auto 10px;">45+ Years of<br><span>Milestones</span></h2>
       <p class="sdesc tc" style="max-width:620px;margin:18px auto 0;">From a single trading desk to a multi-continent export powerhouse — every decade brought a new chapter in our story.</p>
     </div>
     <div class="growth-container">
@@ -739,7 +778,7 @@ img{max-width:100%;height:auto;display:block}
       <div class="reveal-left">
         <span class="brand-tag brand-tag-white">Our Advantage</span>
         <h2 class="section-title why-stitle" style="margin:18px 0 20px;">Why Global Buyers<br><span>Choose JFT</span></h2>
-        <p class="why-intro">We've spent 45 years earning the trust of importers, distributors, and retailers across 25+ countries. Here's what makes us different from every other exporter in India.</p>
+        <p class="why-intro">We've spent 45+ years earning the trust of importers, distributors, and retailers across 25+ countries. Here's what makes our export approach different.</p>
         <div class="usp-rows">
           <div class="usp-row"><div class="usp-ico"><i class="fa-solid fa-industry"></i></div><div><h4>Manufacturer, Not Just Trader</h4><p>Own 250 MT/day milling facility gives total quality control and factory-direct pricing — no middleman markup.</p></div></div>
           <div class="usp-row"><div class="usp-ico"><i class="fa-solid fa-magnifying-glass-chart"></i></div><div><h4>Third-Party Certified Quality</h4><p>Every container inspected by SGS or Intertek before sealing. Full lab report shared with buyer pre-shipment.</p></div></div>
@@ -753,8 +792,8 @@ img{max-width:100%;height:auto;display:block}
         </div>
       </div>
       <div class="why-img-col reveal-right">
-        <img src="images/aboutus/GRAINS.webp" alt="JFT Agro Export Operations" class="why-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=900&amp;q=80&amp;auto=format&amp;fit=crop'" width="1500" height="1196">
-        <div class="why-stat-badge"><span class="wsb">100%</span><span class="wsl">Customer Retention</span></div>
+        <img src="images/aboutus/buyer-due-diligence-hd-v1.webp" alt="Export quality manager and buyer reviewing an inspection report and sealed rice sample" class="why-img" loading="lazy" width="1448" height="1086">
+        <div class="why-stat-badge"><span class="wsb">25+</span><span class="wsl">Export Markets</span></div>
       </div>
     </div>
   </div>
@@ -827,7 +866,7 @@ img{max-width:100%;height:auto;display:block}
     <div class="global-stats reveal">
       <div class="gs-box d1"><div class="gs-num"><span class="cnt" data-v="25">0</span>+</div><div class="gs-lbl">Countries Served</div></div>
       <div class="gs-box d2"><div class="gs-num"><span class="cnt" data-v="500">0</span>+</div><div class="gs-lbl">Containers / Year</div></div>
-      <div class="gs-box d3"><div class="gs-num"><span class="cnt" data-v="45">0</span></div><div class="gs-lbl">Years Experience</div></div>
+      <div class="gs-box d3"><div class="gs-num"><span class="cnt" data-v="45">0</span>+</div><div class="gs-lbl">Years Experience</div></div>
       <div class="gs-box d4"><div class="gs-num">2</div><div class="gs-lbl">Strategic Ports</div></div>
     </div>
     <div class="countries-box reveal">
@@ -1028,7 +1067,7 @@ img{max-width:100%;height:auto;display:block}
 
 
 <!-- ── FROM OUR BLOG ── -->
-<section style="background:#fdfbf7;padding:clamp(50px,7vw,80px) 0;border-top:1px solid rgba(26,60,52,0.08);">
+<section class="about-insights" id="insights" style="background:#fdfbf7;padding:clamp(50px,7vw,80px) 0;border-top:1px solid rgba(26,60,52,0.08);">
   <div class="jft-wide-container">
     <div style="margin-bottom:36px;">
       <span style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:800;color:#4e8c3e;text-transform:uppercase;letter-spacing:2px;background:rgba(78,140,62,0.08);padding:8px 18px;border-radius:50px;border:1px solid rgba(78,140,62,0.2);margin-bottom:16px;"><i class="fa-solid fa-book-open"></i> Trade Intelligence</span>
@@ -1053,7 +1092,7 @@ img{max-width:100%;height:auto;display:block}
   </div>
 </section>
 <div class="jft-wide-container">
-<div style="background:linear-gradient(135deg,#1a3c34,#2c5148);padding:40px;border-radius:20px;text-align:center;margin:50px 0;color:#fff;">
+<div class="about-contact-prompt" style="background:linear-gradient(135deg,#1a3c34,#2c5148);padding:40px;border-radius:20px;text-align:center;margin:50px 0;color:#fff;">
   <div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;color:#eebf45;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">Talk to Our Export Team</div>
   <h3 style="font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;margin-bottom:8px;">Ready to Source from India?</h3>
   <p style="color:rgba(255,255,255,0.75);margin-bottom:24px;font-size:0.95rem;">Speak to our trade desk directly — Mon–Sat 9AM to 7PM IST</p>
