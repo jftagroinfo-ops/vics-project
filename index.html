@@ -4439,6 +4439,159 @@
       .control-dot{width:30px}
       body:has(#jft-cookie-bar.show) .hero-navigation{display:none}
     }
+
+    /* Homepage rhythm and color audit refinements */
+    .stats-dramatic{
+      padding:30px 0;
+      background:#f2f7f2;
+      border-bottom:1px solid rgba(26,60,52,.1)
+    }
+    .stats-dramatic::before,.stats-dramatic::after{display:none}
+    .stats-gold-line{height:3px;background:linear-gradient(90deg,var(--green),var(--gold),var(--green))}
+    .stat-item{padding:24px 18px;border-right:1px solid rgba(26,60,52,.12)}
+    .stat-item:hover{background:rgba(61,112,48,.045)}
+    .stat-bg{color:rgba(61,112,48,.035);filter:none}
+    .stat-num{font-size:clamp(2.25rem,4vw,3.7rem);color:var(--navy)}
+    .stat-unit{font-size:clamp(1rem,1.7vw,1.35rem);color:var(--green)}
+    .stat-lbl{color:#53615a;letter-spacing:1.4px}
+
+    .cert-section{padding:34px 0;background:#fff}
+    .cert-lbl{margin-bottom:20px}
+    .cert-card{height:112px;padding:18px;border-radius:8px}
+    .cert-logo{height:42px;margin-bottom:8px}
+
+    .products-section{padding:76px 0;background:var(--cream)}
+    .products-section .section-header{margin-bottom:36px}
+    .products-section .prod-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .products-section .pc:first-child{grid-column:auto;grid-row:auto}
+    .products-section .pc,.products-section .pc-inner,.products-section .pc-img,.products-section .pc-ov{border-radius:8px}
+    .products-section .pc-inner,.products-section .pc:first-child .pc-inner{height:300px;min-height:300px}
+    .products-section .pc:first-child .pc-body{padding:24px}
+    .products-section .pc:first-child .pc-title{font-size:1.4rem}
+
+    .shipment-proof{background:linear-gradient(135deg,#0d1f1b,#16372f)}
+    .shipment-proof .section-title span{color:var(--gold-light)!important}
+
+    .identity-section{padding:72px 0 50px}
+    .identity-section .vc-grid{margin-top:40px}
+    .identity-section .vc-card{border-radius:8px}
+
+    .manu-section{
+      padding:72px 0;
+      border-top:0;
+      background:#edf4ee
+    }
+    .manu-section::before{color:rgba(61,112,48,.035)}
+    .manu-section .section-title{color:var(--navy)}
+    .manu-section .section-title span{color:var(--gold-dark)!important}
+    .manu-body{color:#56645e}
+    .manu-spec{color:var(--navy)}
+    .manu-img{height:440px;border-radius:8px;border-color:rgba(61,112,48,.18)}
+    .manu-badge{border-radius:8px;box-shadow:0 18px 36px rgba(26,60,52,.18)}
+
+    .process-section{background:linear-gradient(135deg,#10251f,#183b32)}
+
+    .jft-network-section{
+      padding:72px 0 32px;
+      background:#f7faf7
+    }
+    .network-header{margin-bottom:34px}
+    .network-visual{height:clamp(430px,50vh,570px)}
+    .jft-network-section>.reveal{margin-top:30px!important}
+    .partners-section{
+      padding:28px 0 72px;
+      background:#f7faf7;
+      border-top:1px solid rgba(26,60,52,.08)
+    }
+    .partners-section .section-header{display:none}
+    .partners-grid{margin-top:0;gap:16px}
+    .pcard{border-radius:8px;padding:30px 20px}
+
+    .about-editorial{background:#fff}
+    .about-inner{min-height:520px}
+    .about-left,.about-right{padding:64px clamp(24px,5vw,72px)}
+    .about-editorial .cert-badges{display:none}
+    .feat-grid{gap:14px}
+    .feat-card{padding:21px 19px;border-radius:8px}
+
+    .origin-section{padding:72px 0;background:#f5f8f4}
+    .origin-intro{gap:52px;margin-bottom:38px}
+    .origin-img-wrap img{height:330px;border-radius:8px}
+    .origin-badge-overlay{border-radius:8px}
+    .origin-stamps{margin-top:24px}
+    .o-stamp,.region-card{border-radius:8px}
+    .region-grid{gap:14px}
+    .region-body{padding:19px}
+    .origin-section .region-card:nth-child(n+7){display:none}
+    .origin-section>.reveal{margin-top:30px!important}
+
+    .testi-section{padding:72px 0}
+    .testi-section .tcard{border-radius:8px}
+
+    .homepage-resources{
+      padding:28px 0!important;
+      background:#fff!important;
+      border-top:1px solid rgba(26,60,52,.1)
+    }
+    .homepage-resources .resource-orb{display:none}
+    .homepage-resources .lead-magnet-grid>div{
+      padding:18px!important;
+      border:1px solid rgba(26,60,52,.12)!important;
+      border-radius:8px!important;
+      background:#f7faf7!important
+    }
+    .homepage-resources .lead-magnet-grid>div>div>div{color:var(--navy)!important}
+    .homepage-resources .lead-magnet-grid p{color:#5f6964!important}
+    .homepage-resources .lead-magnet-grid a{color:var(--green)!important}
+
+    @media(max-width:900px){
+      .stat-item{border-color:rgba(26,60,52,.12)}
+    }
+    @media(max-width:768px){
+      .stats-dramatic{padding:18px 0}
+      .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .stat-item{padding:20px 10px}
+      .stat-num{font-size:2.15rem}
+      .stat-lbl{font-size:.6rem;letter-spacing:.8px}
+      .cert-section{padding:28px 0}
+      .products-section{padding:52px 0}
+      .products-section .prod-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .products-section .pc-inner,.products-section .pc:first-child .pc-inner{height:220px;min-height:220px}
+      .identity-section{padding:52px 0 34px}
+      .manu-section{padding:52px 0}
+      .manu-img{height:250px!important}
+      .jft-network-section{padding:54px 0 18px}
+      .network-header{margin-bottom:28px}
+      .jft-network-section .network-visual{display:none}
+      .jft-network-section>.reveal{margin-top:24px!important}
+      .partners-section{padding:18px 0 54px}
+      .about-inner{min-height:0}
+      .about-left,.about-right{padding:48px 20px}
+      .about-p{font-size:.94rem;line-height:1.7;margin-bottom:16px}
+      .about-left .about-p:nth-of-type(2){display:none}
+      .about-right .feat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+      .feat-card{padding:18px 12px}
+      .feat-icon{font-size:1.35rem;margin-bottom:10px}
+      .feat-title{font-size:.96rem}
+      .feat-text{font-size:.76rem;line-height:1.5}
+      .origin-section{padding:54px 0}
+      .origin-intro{gap:28px;margin-bottom:30px}
+      .origin-img-wrap img{height:250px}
+      .origin-section .region-grid{
+        display:grid;
+        grid-template-columns:repeat(6,minmax(250px,78vw));
+        overflow-x:auto;
+        margin-inline:-16px;
+        padding:0 16px 12px;
+        scroll-snap-type:x proximity;
+        scrollbar-width:none
+      }
+      .origin-section .region-grid::-webkit-scrollbar{display:none}
+      .origin-section .region-card{scroll-snap-align:start}
+      .origin-section>.reveal{display:none}
+      .testi-section{padding:54px 0}
+      .homepage-resources{padding:24px 0!important}
+    }
   </style>
   <link rel="alternate" hreflang="en" href="https://jftagro.com/">
   <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/">
@@ -5612,10 +5765,10 @@
 
 
 
-  <!-- ── LEAD MAGNETS ── -->
-  <section
+  <!-- Buyer resources -->
+  <section class="homepage-resources"
     style="background:linear-gradient(135deg,#0d1f1b,#1a3c34);padding:clamp(50px,6vw,80px) 0;position:relative;overflow:hidden;">
-    <div
+    <div class="resource-orb"
       style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(61,112,48,.15),transparent 70%);pointer-events:none;">
     </div>
     <div class="jft-wide-container">
@@ -5630,7 +5783,7 @@
             <p style="font-size:.78rem;color:rgba(255,255,255,.5);margin:0 0 12px;line-height:1.5;">84 products with
               specs, HS codes &amp; FOB price ranges</p><a href="contact.html#inquiry-form"
               style="font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;color:#eebf45;text-decoration:none;">Request
-              by Email →</a>
+              by Email <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
         <div
@@ -5639,11 +5792,11 @@
           <div>
             <div
               style="font-family:Montserrat,sans-serif;font-weight:800;font-size:.82rem;color:#fff;margin-bottom:6px;">
-              Price Alert — Free</div>
+              Price Alert &mdash; Free</div>
             <p style="font-size:.78rem;color:rgba(255,255,255,.5);margin:0 0 12px;line-height:1.5;">Get notified when
               Basmati, Cumin or Sesame prices change</p><a href="contact.html#inquiry-form"
               style="font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;color:#eebf45;text-decoration:none;">Subscribe
-              Free →</a>
+              Free <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
         <div
@@ -5652,17 +5805,43 @@
           <div>
             <div
               style="font-family:Montserrat,sans-serif;font-weight:800;font-size:.82rem;color:#fff;margin-bottom:6px;">
-              Complimentary Samples — 3 Products</div>
+              Complimentary Samples &mdash; 3 Products</div>
             <p style="font-size:.78rem;color:rgba(255,255,255,.5);margin:0 0 12px;line-height:1.5;">Up to three 500g products; courier
               charges confirmed before dispatch</p><a href="sample-request.html"
               style="font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;color:#eebf45;text-decoration:none;">Order
-              Free Sample →</a>
+              Free Sample <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
     </div>
   </section>
   <div id="footer-placeholder"></div>
+  <script>
+    (function arrangeHomepageForBuyers() {
+      var footerAnchor = document.getElementById('footer-placeholder');
+      if (!footerAnchor) return;
+
+      [
+        '.stats-dramatic',
+        '.cert-section',
+        '.products-section',
+        '.shipment-proof',
+        '.quick-rfq',
+        '.identity-section',
+        '.manu-section',
+        '.process-section',
+        '.jft-network-section',
+        '.partners-section',
+        '.about-editorial',
+        '.origin-section',
+        '.testi-section',
+        '.homepage-resources'
+      ].forEach(function (selector) {
+        var section = document.querySelector(selector);
+        if (section) document.body.insertBefore(section, footerAnchor);
+      });
+    }());
+  </script>
   <script>
     (function () {
       'use strict';

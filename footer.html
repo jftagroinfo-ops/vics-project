@@ -187,20 +187,27 @@
         .footer-bottom a { margin: 0 12px; }
     }
     @media (max-width: 650px) {
-        .footer-section { padding:54px 0 20px; }
-        .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: left; margin-bottom:28px; }
+        .footer-section { padding:38px 0 16px; }
+        .footer-grid { grid-template-columns: 1fr; gap: 20px; text-align: left; margin-bottom:18px; }
         .f-col:first-child { text-align:center; }
+        .f-col:first-child > img { width:155px !important; margin-bottom:14px !important; }
+        .f-col:first-child > p { font-size:.84rem !important; line-height:1.6 !important; margin-bottom:16px !important; }
+        .f-verify { margin:12px 0;padding:10px 0;font-size:.7rem; }
         .f-col h3::after { left: 50%; transform: translateX(-50%); }
-        .f-col h3 { text-align:center;margin-bottom:24px; }
+        .f-col h3 { text-align:center;margin-bottom:20px; }
         .f-links { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px;text-align:center; }
-        .f-links li { margin-bottom:9px; }
-        .f-contact li { justify-content: flex-start; text-align: left; flex-direction: row; align-items: flex-start; margin-bottom:14px; }
+        .f-links li { margin-bottom:7px; }
+        .f-links a { font-size:.82rem; }
+        .f-contact li { justify-content: flex-start; text-align: left; flex-direction: row; align-items: flex-start; margin-bottom:10px;font-size:.82rem;line-height:1.5; }
         .f-contact i { margin:4px 0 0; }
+        .f-response { display:none; }
         .trust-group { justify-content: center; }
-        .f-trust-bar { flex-direction: column; text-align: center; margin-top:24px;padding:20px 0;gap:20px; }
+        .f-trust-bar { display:none; }
         .trust-group { gap:15px; }
         .trust-logo { height:32px; }
-        .footer-bottom { padding:24px 0 8px;gap:14px;font-size:.74rem; }
+        .f-select { min-height:42px; }
+        .f-btn-pro { padding:14px; }
+        .footer-bottom { padding:20px 0 6px;gap:12px;font-size:.7rem; }
     }
 
     /* --- Smart WhatsApp Widget --- */
