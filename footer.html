@@ -187,12 +187,20 @@
         .footer-bottom a { margin: 0 12px; }
     }
     @media (max-width: 650px) {
-        .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+        .footer-section { padding:54px 0 20px; }
+        .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: left; margin-bottom:28px; }
+        .f-col:first-child { text-align:center; }
         .f-col h3::after { left: 50%; transform: translateX(-50%); }
-        .f-contact li { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
-        .f-contact i { margin-top: 0; margin-bottom: 10px; }
+        .f-col h3 { text-align:center;margin-bottom:24px; }
+        .f-links { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px;text-align:center; }
+        .f-links li { margin-bottom:9px; }
+        .f-contact li { justify-content: flex-start; text-align: left; flex-direction: row; align-items: flex-start; margin-bottom:14px; }
+        .f-contact i { margin:4px 0 0; }
         .trust-group { justify-content: center; }
-        .f-trust-bar { flex-direction: column; text-align: center; }
+        .f-trust-bar { flex-direction: column; text-align: center; margin-top:24px;padding:20px 0;gap:20px; }
+        .trust-group { gap:15px; }
+        .trust-logo { height:32px; }
+        .footer-bottom { padding:24px 0 8px;gap:14px;font-size:.74rem; }
     }
 
     /* --- Smart WhatsApp Widget --- */
