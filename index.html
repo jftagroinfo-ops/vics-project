@@ -4546,17 +4546,33 @@
     .origin-regions-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 20px}
     .origin-regions-head h3{margin:0;color:var(--navy);font-family:var(--ff-h);font-size:clamp(1.45rem,2.4vw,2.05rem);line-height:1.2}
     .origin-regions-head p{max-width:520px;margin:0;color:#65716b;font-size:.85rem;line-height:1.65;text-align:right}
-    .region-grid{gap:14px}
-    .region-card{position:relative;border:1px solid rgba(26,60,52,.11);border-radius:8px;background:#fff;box-shadow:0 8px 24px rgba(26,60,52,.045)}
+    .origin-assurance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 18px}
+    .origin-assurance span{display:flex;align-items:center;gap:9px;min-height:42px;padding:9px 12px;border:1px solid rgba(26,60,52,.1);border-radius:6px;background:rgba(255,255,255,.72);color:#40564e;font-family:var(--ff-s);font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.55px}
+    .origin-assurance i{color:var(--gold-dark);font-size:.8rem}
+    .region-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .region-card{position:relative;display:block;border:1px solid rgba(26,60,52,.11);border-radius:8px;background:#fff;box-shadow:0 8px 24px rgba(26,60,52,.045);color:inherit;overflow:hidden}
     .region-card:hover{transform:translateY(-5px);border-color:rgba(61,112,48,.42);box-shadow:0 18px 38px rgba(26,60,52,.11)}
+    .region-card:focus-visible{outline:3px solid rgba(238,191,69,.62);outline-offset:3px;border-color:var(--gold-dark)}
     .region-color{height:4px}
-    .region-body{padding:20px 20px 22px}
+    .region-body{display:flex;flex-direction:column;min-height:184px;padding:20px 20px 18px}
     .region-prod{display:flex;align-items:center;gap:8px;margin-bottom:10px;letter-spacing:1.5px}
     .region-prod i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#f2f7f2;color:var(--green);font-size:.75rem}
     .region-name{font-size:1.22rem}
     .region-loc{color:#65716b}
-    .origin-section .region-card:nth-child(n+7){display:none}
-    .origin-section>.reveal{margin-top:30px!important}
+    .region-action{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:15px;color:var(--green);font-family:var(--ff-s);font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.7px}
+    .region-action i{color:var(--gold-dark);transition:transform .25s}
+    .region-card:hover .region-action i{transform:translateX(4px)}
+    .origin-cta-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1250px;margin:32px auto 0;padding:22px 26px;border:1px solid rgba(26,60,52,.12);border-radius:8px;background:var(--navy);box-shadow:0 16px 34px rgba(26,60,52,.12);text-align:left}
+    .origin-cta-copy strong{display:block;margin-bottom:4px;color:#fff;font-family:var(--ff-h);font-size:1.2rem}
+    .origin-cta-copy span{color:rgba(255,255,255,.62);font-size:.8rem;line-height:1.5}
+    .origin-cta-actions{display:flex;gap:10px;flex-shrink:0}
+    .origin-cta-actions a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 18px;border-radius:6px;font-family:var(--ff-s);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.65px}
+    .origin-cta-primary{background:var(--gold);color:var(--navy)}
+    .origin-cta-secondary{border:1px solid rgba(255,255,255,.28);color:#fff}
+
+    @media(max-width:1100px){
+      .origin-section .region-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
 
     .testi-section{padding:72px 0}
     .testi-section .tcard{border-radius:8px}
@@ -4624,9 +4640,12 @@
       .o-stamp:last-child{grid-column:auto}
       .origin-regions-head{display:block;margin-bottom:16px}
       .origin-regions-head p{margin-top:8px;text-align:left;font-size:.8rem}
+      .origin-assurance{display:flex;gap:8px;overflow-x:auto;margin-inline:-16px;padding:0 16px 8px;scrollbar-width:none}
+      .origin-assurance::-webkit-scrollbar{display:none}
+      .origin-assurance span{flex:0 0 auto;white-space:nowrap}
       .origin-section .region-grid{
         display:grid;
-        grid-template-columns:repeat(6,minmax(250px,78vw));
+        grid-template-columns:repeat(12,minmax(255px,78vw));
         overflow-x:auto;
         margin-inline:-16px;
         padding:0 16px 12px;
@@ -4635,7 +4654,9 @@
       }
       .origin-section .region-grid::-webkit-scrollbar{display:none}
       .origin-section .region-card{scroll-snap-align:start}
-      .origin-section>.reveal{display:none}
+      .origin-section .region-body{min-height:178px}
+      .origin-cta-bar{display:block;margin:24px 16px 0;padding:20px;text-align:center}
+      .origin-cta-actions{display:grid;grid-template-columns:1fr;margin-top:16px}
       .testi-section{padding:54px 0}
       .homepage-resources{padding:24px 0!important}
     }
@@ -5060,93 +5081,133 @@
         <h3>India's Specialist Sourcing Belts</h3>
         <p>Each commodity is matched to established growing regions, contracted specifications and the buyer's destination requirements.</p>
       </div>
+      <div class="origin-assurance reveal" aria-label="Buyer sourcing assurances">
+        <span><i class="fa-solid fa-file-shield" aria-hidden="true"></i> Origin records</span>
+        <span><i class="fa-solid fa-box-open" aria-hidden="true"></i> Sample approval</span>
+        <span><i class="fa-solid fa-list-check" aria-hidden="true"></i> Contracted specifications</span>
+        <span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Inspection options</span>
+      </div>
       <div class="region-grid reveal">
-        <div class="region-card">
+        <a class="region-card" href="products.html?cat=rice" aria-label="View rice grades from Punjab and Haryana">
           <div class="region-color" style="background:linear-gradient(90deg,#f0c430,#e8a820);"></div>
           <div class="region-body">
             <div class="region-prod"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i> Premium Rice</div>
             <div class="region-name">Punjab &amp; Haryana Belt</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> North India</div>
+            <span class="region-action">View rice grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
-        </div>
-        <div class="region-card">
+        </a>
+        <a class="region-card" href="turmeric-finger-exporter.html" aria-label="View turmeric grades from Sangli and Erode">
           <div class="region-color" style="background:linear-gradient(90deg,#f5a623,#e07b00);"></div>
           <div class="region-body">
             <div class="region-prod"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Turmeric &amp; Powder</div>
             <div class="region-name">Sangli &amp; Erode</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Maharashtra &middot; Tamil Nadu</div>
+            <span class="region-action">View turmeric grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
-        </div>
-        <div class="region-card">
+        </a>
+        <a class="region-card" href="dry-red-chilli-exporter.html" aria-label="View chilli grades from Guntur">
           <div class="region-color" style="background:linear-gradient(90deg,#e84040,#c02020);"></div>
           <div class="region-body">
             <div class="region-prod"><i class="fa-solid fa-pepper-hot" aria-hidden="true"></i> Chilli &amp; Powder</div>
             <div class="region-name">Guntur Region</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Andhra Pradesh</div>
+            <span class="region-action">View chilli grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
-        </div>
-        <div class="region-card">
+        </a>
+        <a class="region-card" href="milling-wheat-exporter.html" aria-label="View wheat grades from the Sehore belt">
           <div class="region-color" style="background:linear-gradient(90deg,#c8a870,#a07840);"></div>
           <div class="region-body">
             <div class="region-prod"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i> Wheat &amp; Flour</div>
             <div class="region-name">Sehore (Sarbati Belt)</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Madhya Pradesh</div>
+            <span class="region-action">View wheat grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
-        </div>
-        <div class="region-card">
+        </a>
+        <a class="region-card" href="sesame-seeds-naturalhulled-exporter.html" aria-label="View sesame seed grades from Gujarat and West Bengal">
           <div class="region-color" style="background:linear-gradient(90deg,#3d7030,#326127);"></div>
           <div class="region-body">
             <div class="region-prod"><i class="fa-solid fa-droplet" aria-hidden="true"></i> Sesame &amp; Niger Seeds</div>
             <div class="region-name">Gujarat &amp; West Bengal</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> West India</div>
+            <span class="region-action">View seed grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
-        </div>
-        <div class="region-card">
+        </a>
+        <a class="region-card" href="green-cardamom-exporter.html" aria-label="View green cardamom grades from Idukki">
           <div class="region-color" style="background:linear-gradient(90deg,#56c27a,#2a8a50);"></div>
           <div class="region-body">
             <div class="region-prod"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Green Cardamom</div>
             <div class="region-name">Idukki (Cardamom Hills)</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Kerala</div>
+            <span class="region-action">View cardamom grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
-        </div>
-        <div class="region-card">
+        </a>
+        <a class="region-card" href="dry-ginger-powder-exporter.html" aria-label="View dry ginger and pepper grades from Kerala">
           <div class="region-color" style="background:linear-gradient(90deg,#8b5e3c,#6b3f20);"></div>
           <div class="region-body">
-            <div class="region-prod">Dry Ginger &amp; Pepper</div>
+            <div class="region-prod"><i class="fa-solid fa-mortar-pestle" aria-hidden="true"></i> Dry Ginger &amp; Pepper</div>
             <div class="region-name">Wayanad &amp; Kozhikode</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Kerala</div>
+            <span class="region-action">View spice grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
-        </div>
-        <div class="region-card">
+        </a>
+        <a class="region-card" href="products.html?cat=pulses" aria-label="View pulses and lentils from Vidarbha and Marathwada">
           <div class="region-color" style="background:linear-gradient(90deg,#3a7bbd,#1a5a9a);"></div>
           <div class="region-body">
-            <div class="region-prod">Pulses &amp; Lentils</div>
+            <div class="region-prod"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i> Pulses &amp; Lentils</div>
             <div class="region-name">Vidarbha &amp; Marathwada</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Maharashtra</div>
+            <span class="region-action">View pulse grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
-        </div>
-        <div class="region-card">
+        </a>
+        <a class="region-card" href="groundnuts-peanuts-exporter.html" aria-label="View groundnut grades from Junagadh and Rajkot">
           <div class="region-color" style="background:linear-gradient(90deg,#d4a017,#a87700);"></div>
           <div class="region-body">
-            <div class="region-prod">Peanut / Groundnut</div>
+            <div class="region-prod"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Peanut / Groundnut</div>
             <div class="region-name">Junagadh &amp; Rajkot</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Gujarat (Saurashtra)</div>
+            <span class="region-action">View groundnut grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
-        </div>
+        </a>
+        <a class="region-card" href="psyllium-husk-exporter.html" aria-label="View psyllium husk grades from Unjha">
+          <div class="region-color" style="background:linear-gradient(90deg,#8aaa5a,#5f813b);"></div>
+          <div class="region-body">
+            <div class="region-prod"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Psyllium Husk</div>
+            <div class="region-name">Unjha &amp; North Gujarat</div>
+            <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Gujarat</div>
+            <span class="region-action">View psyllium grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+        <a class="region-card" href="indian-raisins-kishmish-exporter.html" aria-label="View Indian raisin grades from Nashik and Sangli">
+          <div class="region-color" style="background:linear-gradient(90deg,#8c5a88,#643c63);"></div>
+          <div class="region-body">
+            <div class="region-prod"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i> Indian Raisins</div>
+            <div class="region-name">Nashik &amp; Sangli Belt</div>
+            <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Maharashtra</div>
+            <span class="region-action">View raisin grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+        <a class="region-card" href="sugar-s30-supplier.html" aria-label="View Indian sugar grades from Maharashtra and Uttar Pradesh">
+          <div class="region-color" style="background:linear-gradient(90deg,#5aa7a3,#347b78);"></div>
+          <div class="region-body">
+            <div class="region-prod"><i class="fa-solid fa-cubes-stacked" aria-hidden="true"></i> Indian Sugar</div>
+            <div class="region-name">Maharashtra &amp; UP Mills</div>
+            <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Western &amp; North India</div>
+            <span class="region-action">View sugar grades <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
       </div>
     </div>
 
-    <!-- Origin CTA -->
-    <div style="text-align:center;margin-top:50px;" class="reveal">
-      <a href="africa-trade.html"
-        style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:15px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;transition:.4s;margin:6px;"><i
-          class="fa-solid fa-wheat-awn"></i> Africa Sourcing Hub</a>
-      <a href="uae-trade.html"
-        style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:15px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;transition:.4s;margin:6px;"><i
-          class="fa-solid fa-mosque"></i> Middle East Hub</a>
-      <a href="europe-trade.html"
-        style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:15px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;transition:.4s;margin:6px;"><i
-          class="fa-solid fa-snowflake"></i> Europe &amp; CIS Hub</a>
+    <div class="origin-cta-bar reveal">
+      <div class="origin-cta-copy">
+        <strong>Need another commodity or origin?</strong>
+        <span>Review the complete export portfolio or send the buying team your required grade, quantity and destination port.</span>
+      </div>
+      <div class="origin-cta-actions">
+        <a class="origin-cta-primary" href="products.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> View 84 Products</a>
+        <a class="origin-cta-secondary" href="contact.html#inquiry-form"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i> Send Sourcing Brief</a>
+      </div>
     </div>
   </section>
 
