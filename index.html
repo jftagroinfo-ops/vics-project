@@ -4276,7 +4276,10 @@
     .hero-nav-button{display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:4px;background:transparent;color:#fff;cursor:pointer;transition:.25s}
     .hero-nav-button:hover,.hero-nav-button:focus-visible{background:rgba(255,255,255,.14);color:var(--gold)}
     .hero-nav-button[aria-pressed="true"]{color:var(--gold)}
-    .hero-in-view .wa-fab{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px)}
+    .hero-in-view .wa-fab,.hero-in-view .smart-wa-widget{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px)}
+    @media(min-width:769px){
+      .hero-content-wrapper{transform:translateY(-34px)}
+    }
     @media(max-width:768px){
       .top-dashboard{height:38px!important}
       .top-dashboard .td-row-1{display:none!important}
@@ -4298,11 +4301,15 @@
       .hero-nav-button{width:38px;height:38px}
       .control-dot{width:34px;height:38px;min-height:38px}
     }
+    @media(min-width:381px) and (max-width:600px){
+      body:has(#jft-cookie-bar.show) .hero-navigation{bottom:120px}
+    }
     @media(max-width:380px){
       .jft-hero-banner{min-height:600px;padding-top:76px!important}
       .hero-navigation{gap:0}
       .hero-nav-button{width:34px}
       .control-dot{width:30px}
+      body:has(#jft-cookie-bar.show) .hero-navigation{display:none}
     }
   </style>
   <link rel="alternate" hreflang="en" href="https://jftagro.com/">
@@ -5476,25 +5483,53 @@
       });
 
       // ── HERO SLIDER ──
-      var slideIdx = 0, sliderTimer;
-      function startSlider() { clearInterval(sliderTimer); sliderTimer = setInterval(nextSlide, 5500); }
+      var slideIdx = 0, sliderTimer, sliderHoverPaused = false;
+      var sliderPaused = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function startSlider() {
+        clearInterval(sliderTimer);
+        if (!sliderPaused && !sliderHoverPaused) sliderTimer = setInterval(nextSlide, 8000);
+      }
       function setSlide(n) { slideIdx = n; updateSlider(); startSlider(); }
       window.setSlide = setSlide;
+      function moveHeroSlide(direction) {
+        var slides = document.querySelectorAll('.hero-slide');
+        if (!slides.length) return;
+        slideIdx = (slideIdx + direction + slides.length) % slides.length;
+        updateSlider();
+        startSlider();
+      }
+      window.moveHeroSlide = moveHeroSlide;
+      function updatePauseControl() {
+        var button = document.getElementById('heroPause');
+        if (!button) return;
+        button.setAttribute('aria-pressed', String(sliderPaused));
+        button.setAttribute('aria-label', sliderPaused ? 'Play carousel' : 'Pause carousel');
+        button.title = sliderPaused ? 'Play carousel' : 'Pause carousel';
+        var icon = button.querySelector('i');
+        if (icon) icon.className = sliderPaused ? 'fa-solid fa-play' : 'fa-solid fa-pause';
+      }
+      function toggleHeroPause() {
+        sliderPaused = !sliderPaused;
+        updatePauseControl();
+        startSlider();
+      }
+      window.toggleHeroPause = toggleHeroPause;
       function nextSlide() { var slides = document.querySelectorAll('.hero-slide'); if (!slides.length) return; slideIdx = (slideIdx + 1) % slides.length; updateSlider(); }
       function updateSlider() {
         var slides = document.querySelectorAll('.hero-slide');
         var contents = document.querySelectorAll('.hero-content-slide');
         var dots = document.querySelectorAll('.control-dot');
-        slides.forEach(function (s) { s.classList.remove('active'); });
-        contents.forEach(function (c) { c.classList.remove('active'); });
+        slides.forEach(function (s) { s.classList.remove('active'); s.setAttribute('aria-hidden', 'true'); });
+        contents.forEach(function (c) { c.classList.remove('active'); c.setAttribute('aria-hidden', 'true'); });
         dots.forEach(function (d) { d.classList.remove('active'); d.removeAttribute('aria-current'); });
         if (slides[slideIdx]) {
           if (slides[slideIdx].dataset.bg && !slides[slideIdx].style.backgroundImage) {
             slides[slideIdx].style.backgroundImage = `url('${slides[slideIdx].dataset.bg}')`;
           }
           slides[slideIdx].classList.add('active');
+          slides[slideIdx].setAttribute('aria-hidden', 'false');
         }
-        if (contents[slideIdx]) contents[slideIdx].classList.add('active');
+        if (contents[slideIdx]) { contents[slideIdx].classList.add('active'); contents[slideIdx].setAttribute('aria-hidden', 'false'); }
         if (dots[slideIdx]) { dots[slideIdx].classList.add('active'); dots[slideIdx].setAttribute('aria-current', 'true'); }
       }
 
@@ -5506,7 +5541,10 @@
         hero.addEventListener('touchend', function (e) { touchEndX = e.changedTouches[0].screenX; handleHeroSwipe(); }, { passive: true });
         hero.addEventListener('mousedown', function (e) { heroMouseDrag = true; touchStartX = e.screenX; });
         hero.addEventListener('mouseup', function (e) { if (!heroMouseDrag) return; heroMouseDrag = false; touchEndX = e.screenX; handleHeroSwipe(); });
-        hero.addEventListener('mouseleave', function () { heroMouseDrag = false; });
+        hero.addEventListener('mouseenter', function () { sliderHoverPaused = true; clearInterval(sliderTimer); });
+        hero.addEventListener('mouseleave', function () { heroMouseDrag = false; sliderHoverPaused = false; startSlider(); });
+        hero.addEventListener('focusin', function () { sliderHoverPaused = true; clearInterval(sliderTimer); });
+        hero.addEventListener('focusout', function (e) { if (!hero.contains(e.relatedTarget)) { sliderHoverPaused = false; startSlider(); } });
       }
       function handleHeroSwipe() {
         var diff = touchEndX - touchStartX;
@@ -5674,7 +5712,15 @@
       document.addEventListener('DOMContentLoaded', function () {
         loadComp('header-placeholder', 'header.html');
         loadComp('footer-placeholder', 'footer.html');
+        updateSlider();
+        updatePauseControl();
         startSlider();
+        var heroSection = document.querySelector('.jft-hero-banner');
+        if (heroSection && 'IntersectionObserver' in window) {
+          new IntersectionObserver(function (entries) {
+            document.body.classList.toggle('hero-in-view', entries[0].isIntersecting && entries[0].intersectionRatio > .25);
+          }, { threshold: [0, .25] }).observe(heroSection);
+        }
         setTimeout(runHeroCounters, 1200);
 
         // Observe all reveal elements
