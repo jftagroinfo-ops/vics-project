@@ -487,6 +487,12 @@ img{max-width:100%;height:auto;display:block}
   .g-box{min-height:250px}
 }
 
+.about-testimonial-card{border-radius:8px!important}
+@media(max-width:800px){
+  .about-testimonial-grid{grid-template-columns:1fr!important;gap:14px!important}
+  .about-testimonial-card{padding:24px 20px!important}
+}
+
 .wa-fab ~ .wa-fab { display: none !important; }
 
 </style>
@@ -804,7 +810,7 @@ img{max-width:100%;height:auto;display:block}
       <div class="cert-box d2"><div class="cert-chk"><i class="fa-solid fa-check"></i></div><img src="images/homepage/AEO.webp" class="cert-box-logo" alt="AEO" loading="lazy" onerror="this.style.display='none'" width="720" height="347"><h4>AEO Status</h4><p>Fast-Track Customs Clearance</p></div>
       <div class="cert-box d3"><div class="cert-chk"><i class="fa-solid fa-check"></i></div><img src="images/homepage/IEC.webp" class="cert-box-logo" alt="IEC" loading="lazy" onerror="this.style.display='none'" width="720" height="347"><h4>IEC Holder</h4><p>Import Export Code, DGFT</p></div>
       <div class="cert-box d4"><div class="cert-chk"><i class="fa-solid fa-check"></i></div><img src="images/homepage/MSME.webp" class="cert-box-logo" alt="MSME" loading="lazy" onerror="this.style.display='none'" width="720" height="347"><h4>MSME Registered</h4><p>Ministry of MSMEs, Govt. of India</p></div>
-      <div class="cert-box d5"><div class="cert-chk"><i class="fa-solid fa-check"></i></div><img src="images/homepage/MSME.webp" class="cert-box-logo" alt="MSME Certified" loading="lazy" onerror="this.style.display='none'" width="720" height="347"><h4>MSME Certified</h4><p>Ministry of MSME, Govt. of India</p></div>
+      <div class="cert-box d5"><div class="cert-chk"><i class="fa-solid fa-check"></i></div><img src="images/homepage/COFFEE_BOARD.webp" class="cert-box-logo" alt="Coffee Board of India registration" loading="lazy" onerror="this.style.display='none'" width="720" height="347"><h4>Coffee Board</h4><p>Registered Indian Coffee Exporter</p></div>
     </div>
   </div>
 </section>
@@ -966,16 +972,16 @@ img{max-width:100%;height:auto;display:block}
 <!-- CTA Section -->
 
 <!-- ── IMPORTER TESTIMONIALS ── -->
-<section style="background:var(--cream,#fdfbf7);padding:clamp(70px,9vw,120px) 0;">
+<section class="about-testimonials" style="background:var(--cream,#fdfbf7);padding:clamp(70px,9vw,120px) 0;">
   <div class="jft-wide-container">
     <div class="section-header center-header reveal" style="text-align:center;max-width:700px;margin:0 auto 55px;">
       <span class="brand-tag" style="display:inline-flex;margin:0 auto 16px;"><i class="fa-solid fa-star"></i> What Our Importers Say</span>
       <h2 class="section-title">Trusted by <span>Global Buyers</span></h2>
       <p class="section-desc" style="margin-top:16px;">Real importers. Real shipments. Real results across 25+ countries.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+    <div class="about-testimonial-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
 
-      <div class="reveal d1" style="background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:20px;padding:32px 28px;position:relative;">
+      <div class="about-testimonial-card reveal d1" style="background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:20px;padding:32px 28px;position:relative;">
         <div style="font-size:2rem;color:rgba(238,191,69,.3);font-family:Georgia,serif;line-height:1;margin-bottom:14px;">"</div>
         <p style="font-size:.92rem;color:#555;line-height:1.75;margin-bottom:22px;font-style:italic;">JFT Agro has been supplying 1121 Basmati to our Dubai warehouse for 4 years. Quality is consistent — 12.5% moisture, excellent grain length. They shipped 6 containers this Ramadan season without a single delay.</p>
         <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(26,60,52,.06);padding-top:18px;">
@@ -988,7 +994,7 @@ img{max-width:100%;height:auto;display:block}
         </div>
       </div>
 
-      <div class="reveal d2" style="background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:20px;padding:32px 28px;position:relative;">
+      <div class="about-testimonial-card reveal d2" style="background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:20px;padding:32px 28px;position:relative;">
         <div style="font-size:2rem;color:rgba(238,191,69,.3);font-family:Georgia,serif;line-height:1;margin-bottom:14px;">"</div>
         <p style="font-size:.92rem;color:#555;line-height:1.75;margin-bottom:22px;font-style:italic;">We import cumin seeds and turmeric powder quarterly for our spice blend factory in the UK. JFT's documentation is always complete — SGS inspection, phytosanitary, COO — which makes our HMRC clearance fast and smooth.</p>
         <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(26,60,52,.06);padding-top:18px;">
@@ -1001,7 +1007,7 @@ img{max-width:100%;height:auto;display:block}
         </div>
       </div>
 
-      <div class="reveal d3" style="background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:20px;padding:32px 28px;position:relative;">
+      <div class="about-testimonial-card reveal d3" style="background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:20px;padding:32px 28px;position:relative;">
         <div style="font-size:2rem;color:rgba(238,191,69,.3);font-family:Georgia,serif;line-height:1;margin-bottom:14px;">"</div>
         <p style="font-size:.92rem;color:#555;line-height:1.75;margin-bottom:22px;font-style:italic;">I've been importing 25% broken rice and IR-64 from JFT for distribution in Benin and Togo since 2021. Their APEDA certificates pass our port inspections every time. Competitive FOB pricing and they accept LC at sight.</p>
         <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(26,60,52,.06);padding-top:18px;">
@@ -1020,23 +1026,6 @@ img{max-width:100%;height:auto;display:block}
 
 
 
-<section class="jft-cta-block">
-  <div class="jft-wide-container">
-    <div class="cta-eyebrow">Let's Work Together</div>
-    <h2 class="cta-block-title">Start Your <em>Export Inquiry</em><br>With JFT Agro Today</h2>
-    <p class="cta-block-desc">Government Recognized Star Export House. Factory-direct pricing. CIF to your port within 24 hours.</p>
-    <div class="cta-actions">
-      <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice-dollar"></i> Request Pricing</a>
-      <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Free Sample</a>
-    </div>
-    <div class="cta-trust-row">
-      <span class="cta-trust-item"><i class="fa-solid fa-star"></i> Star Export House</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-clock"></i> 4-Hour Response</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-globe"></i> 25+ Countries</span>
-    </div>
-  </div>
-</section>
 
 <!-- ── FROM OUR BLOG ── -->
 <section style="background:#fdfbf7;padding:clamp(50px,7vw,80px) 0;border-top:1px solid rgba(26,60,52,0.08);">
