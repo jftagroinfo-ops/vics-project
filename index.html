@@ -4455,10 +4455,22 @@
     .stat-unit{font-size:clamp(1rem,1.7vw,1.35rem);color:var(--green)}
     .stat-lbl{color:#53615a;letter-spacing:1.4px}
 
-    .cert-section{padding:34px 0;background:#fff}
-    .cert-lbl{margin-bottom:20px}
-    .cert-card{height:112px;padding:18px;border-radius:8px}
-    .cert-logo{height:42px;margin-bottom:8px}
+    .cert-section{padding:52px 0;background:#f2f7f2;border-color:rgba(26,60,52,.1)}
+    .cert-intro{max-width:760px;margin:0 auto 28px;padding:0 20px;text-align:center}
+    .cert-intro .brand-tag{margin-bottom:14px}
+    .cert-title{margin:0 0 12px;color:var(--navy);font-family:var(--ff-h);font-size:clamp(1.9rem,3vw,2.7rem);font-weight:900;line-height:1.12}
+    .cert-title span{color:var(--green)}
+    .cert-copy{max-width:650px;margin:0 auto;color:#5f6964;font-size:.92rem;line-height:1.7}
+    .cert-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:var(--green);font-family:var(--ff-s);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.7px}
+    .cert-link i{color:var(--gold-dark);transition:transform .25s}
+    .cert-link:hover i{transform:translateX(4px)}
+    .cert-wrap{width:min(1360px,100%);margin:0 auto;padding:8px clamp(20px,4vw,54px);mask-image:linear-gradient(to right,transparent,black 4%,black 96%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 4%,black 96%,transparent)}
+    .cert-track{gap:14px}
+    .cert-slide{flex-basis:180px}
+    .cert-card{height:118px;padding:18px;border-radius:8px;background:#fff;box-shadow:0 8px 24px rgba(26,60,52,.045)}
+    .cert-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(26,60,52,.1)}
+    .cert-logo{height:44px;margin-bottom:9px}
+    .cert-section .trust-summary{display:none!important}
 
     .products-section{padding:76px 0;background:var(--cream)}
     .products-section .section-header{margin-bottom:36px}
@@ -4553,7 +4565,11 @@
       .stat-item{padding:20px 10px}
       .stat-num{font-size:2.15rem}
       .stat-lbl{font-size:.6rem;letter-spacing:.8px}
-      .cert-section{padding:28px 0}
+      .cert-section{padding:42px 0}
+      .cert-intro{margin-bottom:20px}
+      .cert-copy{font-size:.84rem;line-height:1.6}
+      .cert-wrap{padding-inline:16px;mask-image:none;-webkit-mask-image:none}
+      .cert-slide{flex:0 0 170px}
       .products-section{padding:52px 0}
       .products-section .prod-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .products-section .pc-inner,.products-section .pc:first-child .pc-inner{height:220px;min-height:220px}
@@ -4783,11 +4799,12 @@
 
   <!-- ── CERT TICKER ── -->
   <section class="cert-section" id="certifications">
-    <div style="text-align:center;padding:0 20px 0;margin-bottom:12px;">
-      <p style="font-family:var(--ff-s);font-size:.78rem;color:#777;max-width:600px;margin:0 auto 6px;line-height:1.6;">
-        Our registrations support export operations across relevant product categories. Request current stamped copies for buyer due diligence before contracting.</p>
+    <div class="cert-intro reveal">
+      <span class="brand-tag"><i class="fa-solid fa-shield-halved"></i> Verified Credentials</span>
+      <h2 class="cert-title">Export Registrations<br><span>Available to Verify</span></h2>
+      <p class="cert-copy">Our registrations support export operations across relevant product categories. Buyers can request current stamped copies before contracting.</p>
+      <a class="cert-link" href="certificates.html">Review verification documents <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </div>
-    <div class="cert-lbl">Registrations &amp; Certifications — Request Current Copies</div>
     <div class="cert-wrap" id="certSlider">
       <div class="cert-track" id="certTrack">
         <div class="cert-slide">
@@ -4841,12 +4858,6 @@
               loading="lazy"><span class="cert-name">Coffee Board</span></div>
         </div>
       </div>
-    </div>
-    <div class="trust-summary reveal" aria-label="Key company verifications">
-      <a href="certificates.html"><i class="fa-solid fa-star"></i><span>Star Export House</span></a>
-      <a href="certificates.html"><i class="fa-solid fa-certificate"></i><span>ISO 9001:2015</span></a>
-      <a href="certificates.html"><i class="fa-solid fa-shield-halved"></i><span>AEO Registered</span></a>
-      <a href="certificates.html"><i class="fa-solid fa-wheat-awn"></i><span>APEDA &amp; FSSAI</span></a>
     </div>
   </section>
 
