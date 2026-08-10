@@ -4270,7 +4270,7 @@
     .hero-slide--pulses{background-position:center}
     .hero-slide--packing{background-position:center}
     .hero-slide--rice::after{background:linear-gradient(105deg,rgba(7,18,15,.78) 0%,rgba(26,60,52,.32) 45%,rgba(7,18,15,.02) 100%)}
-    .hero-slide--spices::after{background:linear-gradient(105deg,rgba(7,18,15,.95) 0%,rgba(26,60,52,.72) 45%,rgba(7,18,15,.1) 100%)}
+    .hero-slide--spices::after{background:linear-gradient(105deg,rgba(7,18,15,.8) 0%,rgba(26,60,52,.35) 45%,rgba(7,18,15,.02) 100%)}
     .hero-slide--pulses::after{background:linear-gradient(105deg,rgba(7,18,15,.8) 0%,rgba(26,60,52,.35) 45%,rgba(7,18,15,.02) 100%)}
     .hero-slide--packing::after{background:linear-gradient(105deg,rgba(7,18,15,.8) 0%,rgba(26,60,52,.3) 45%,rgba(7,18,15,.01) 100%)}
     .hero-navigation{position:absolute;left:50%;bottom:18px;z-index:25;display:flex;align-items:center;gap:4px;transform:translateX(-50%);padding:4px 6px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(7,18,15,.58);backdrop-filter:blur(10px)}
@@ -4283,6 +4283,26 @@
     .hero-nav-button:hover,.hero-nav-button:focus-visible{background:rgba(255,255,255,.14);color:var(--gold)}
     .hero-nav-button[aria-pressed="true"]{color:var(--gold)}
     .hero-in-view .wa-fab,.hero-in-view .smart-wa-widget{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px)}
+    .identity-section .section-title span,.process-section .section-title span,.testi-section .section-title span{color:var(--gold-light)!important}
+    .tcard h3{position:relative;z-index:1;margin:0 0 16px;color:#fff;font-family:var(--ff-h);font-size:1.15rem;line-height:1.25}
+    .id-ticker-wrap,.identity-cta,.process-cta{display:none!important}
+    .identity-section{padding-bottom:52px}
+    .manu-section{margin-top:0;padding-top:54px;border-top:1px solid rgba(238,191,69,.18);background:linear-gradient(135deg,#112c26,#0d1f1b)}
+    .products-section .pc:nth-child(n+7),.partners-grid .pcard:nth-child(n+5){display:none}
+    .process-section{padding:76px 0}
+    .process-section .section-header{max-width:none!important;text-align:center;margin:0 auto 34px}
+    .process-grid{display:block}
+    .process-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .proc-step{display:block;padding:22px 18px;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:rgba(255,255,255,.035)}
+    .proc-step:hover{padding-left:18px;transform:translateY(-4px)}
+    .proc-step .step-num{margin-bottom:18px}
+    .proc-step h3{font-size:1.05rem}
+    .proc-step p{font-size:.8rem;line-height:1.6}
+    .process-visual{display:none}
+    .partners-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .lead-magnet-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+    .lead-magnet-grid>div:nth-child(3){display:none!important}
+    .conversion-zone-in-view .smart-wa-widget{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
     @media(min-width:769px){
       .hero-content-wrapper{transform:translateY(-34px)}
       .hero-tag-modern{margin-bottom:22px}
@@ -4311,6 +4331,50 @@
       .hero-navigation{bottom:12px}
       .hero-nav-button{width:38px;height:38px}
       .control-dot{width:34px;height:38px;min-height:38px}
+      .top-dashboard,.jft-navbar{transition:transform .25s ease,top .25s ease!important}
+      .mobile-header-condensed .top-dashboard{transform:translateY(-38px)!important;pointer-events:none}
+      .mobile-header-condensed .jft-navbar,.mobile-header-condensed .jft-navbar.scrolled{top:0!important}
+      #backToTop{display:none!important}
+      .smart-wa-widget{right:12px!important;bottom:12px!important;width:44px!important;height:44px!important;font-size:22px!important}
+      .identity-section{padding:56px 0 34px}
+      .identity-section .section-header{margin-bottom:28px}
+      .vc-grid{display:grid!important;grid-template-columns:repeat(5,minmax(260px,82vw))!important;gap:12px!important;overflow-x:auto;padding:0 20px 14px;margin-inline:-20px;scroll-snap-type:x proximity;scrollbar-width:none}
+      .vc-grid::-webkit-scrollbar{display:none}
+      .vc-card{min-height:360px;padding:24px 18px!important;border-radius:8px!important;scroll-snap-align:start}
+      .manu-section{padding:34px 0 52px}
+      .manu-layout{gap:28px!important}
+      .manu-img{height:230px!important;object-fit:cover}
+      .manu-body{font-size:.95rem;line-height:1.7}
+      .manu-spec:nth-child(n+3){display:none}
+      .products-section .prod-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+      .products-section .pc:first-child{grid-column:auto!important}
+      .products-section .pc-inner{min-height:220px!important;height:220px!important;border-radius:8px!important}
+      .products-section .pc-body{padding:16px!important}
+      .products-section .pc-title{font-size:1.08rem!important;line-height:1.15}
+      .products-section .pc-cat{font-size:.58rem!important}
+      .products-section .pc-varieties,.products-section .pc-link{display:none!important}
+      .awards-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+      .award-item{padding:20px 12px!important;border-radius:8px!important;min-height:180px}
+      .award-icon{font-size:1.55rem;margin-bottom:8px}
+      .award-body{display:none}
+      .award-item>div:last-child{font-size:.56rem!important;padding:5px 7px!important}
+      .process-section{padding:56px 0}
+      .process-steps{grid-template-columns:1fr;gap:10px}
+      .proc-step{display:flex;padding:16px!important;gap:14px;border-radius:8px}
+      .proc-step .step-num{width:42px;height:42px;margin:0}
+      .proc-step h3{font-size:1rem;margin-bottom:5px}
+      .proc-step p{font-size:.78rem;line-height:1.5}
+      .partners-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+      .pcard{min-height:245px!important;padding:18px 10px!important;border-radius:8px!important}
+      .pflag{width:58px!important;height:58px!important;margin-bottom:10px!important}
+      .pcountry{font-size:1rem!important}
+      .prole{font-size:.58rem!important}
+      .pdesc,.ptag{display:none!important}
+      #buyer-due-diligence>div>div:nth-child(2){grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin-top:24px!important}
+      .tcard{width:auto!important;min-height:210px;padding:16px 12px!important;border-radius:8px!important}
+      .tcard h3{font-size:.9rem;margin-bottom:10px}
+      .ttext{font-size:.76rem!important;line-height:1.55!important;margin:0!important}
+      .lead-magnet-grid{grid-template-columns:1fr!important}
     }
     @media(min-width:381px) and (max-width:600px){
       body:has(#jft-cookie-bar.show) .hero-navigation{bottom:120px}
@@ -4344,7 +4408,7 @@
       <!-- HD Unsplash fallback images for slides 2–5 -->
       <div class="hero-slide hero-slide--rice" data-bg="images/homepage/rice-grains-export-hero-v3.webp">
       </div>
-      <div class="hero-slide hero-slide--spices" data-bg="images/homepage/SPICES.webp">
+      <div class="hero-slide hero-slide--spices" data-bg="images/homepage/spices-export-facility-hero-v2.webp">
       </div>
       <div class="hero-slide hero-slide--logistics" data-bg="images/homepage/export-logistics-hero-v2.webp">
       </div>
@@ -4670,7 +4734,7 @@
     </div>
 
     <!-- Identity CTA -->
-    <div style="text-align:center;margin-top:50px;position:relative;z-index:2;" class="reveal">
+    <div style="text-align:center;margin-top:50px;position:relative;z-index:2;" class="reveal identity-cta">
       <p
         style="font-family:var(--ff-s);font-size:.82rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">
         Ready to source directly from India's most complete agro exporter?</p>
@@ -4826,15 +4890,15 @@
   <section class="products-section section-padding" id="products">
     <div class="jft-wide-container">
       <div class="section-header center-header reveal">
-        <span class="brand-tag"><i class="fa-solid fa-boxes-stacked"></i> 84 Export-Ready Products · 10
-          Categories</span>
+        <span class="brand-tag"><i class="fa-solid fa-boxes-stacked"></i> 6 Featured Categories · 84
+          Export Products</span>
         <h2 class="section-title">Premium<br><span>Commodities</span></h2>
-        <p class="section-desc">Sourced, processed, and packed to FDA, EU, and SFDA standards. Hover any card to explore
-          varieties — or browse the full catalogue below.</p>
+        <p class="section-desc">A focused selection of rice, spices, sugar, grains, oilseeds and pulses. The complete
+          catalogue includes specifications, grades and packing options.</p>
       </div>
       <div class="prod-grid reveal">
         <div class="pc">
-          <div class="pc-inner"><img src="images/products/basmati_rice_hd.webp" class="pc-img" alt="Basmati Rice Export"
+          <div class="pc-inner"><img src="images/homepage/rice-grains-export-hero-v3.webp" class="pc-img" alt="Export-ready Basmati and non-Basmati rice"
               loading="lazy"
               onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&amp;q=80&amp;auto=format&amp;fit=crop'" width="1024" height="1024">
             <div class="pc-ov"></div>
@@ -5187,7 +5251,7 @@
     </div>
 
     <!-- Process CTA -->
-    <div style="position:relative;z-index:2;margin-top:50px;text-align:center;" class="reveal">
+    <div style="position:relative;z-index:2;margin-top:50px;text-align:center;" class="reveal process-cta">
       <p
         style="font-family:var(--ff-s);font-size:.8rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">
         Ready to start? Your order follows this exact process.</p>
@@ -5220,7 +5284,6 @@
               onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-leaf\' style=\'font-size:32px;color:#3d7030\'></i>'">
           </div>
         </div>
-        <div class="mobile-hint"><i class="fa-solid fa-left-right"></i> Swipe &amp; Tap to Explore</div>
         <div class="nodes-container" id="jft_nodes_container"></div>
       </div>
     </div>
@@ -5375,10 +5438,10 @@
     </div>
 
     <!-- Partners CTA -->
-    <div style="text-align:center;margin-top:48px;" class="reveal">
-      <a href="contact.html#inquiry-form"
+    <div style="text-align:center;margin-top:38px;" class="reveal partners-cta">
+      <a href="about.html"
         style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:15px 34px;border-radius:50px;font-family:var(--ff-s);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;transition:.4s;"><i
-          class="fa-solid fa-paper-plane"></i> Contact Our Export Team</a>
+          class="fa-solid fa-earth-asia"></i> View All Export Markets</a>
     </div>
   </section>
   <section class="testi-section" id="buyer-due-diligence">
@@ -5626,7 +5689,9 @@
       var btt = document.getElementById('backToTop');
       window.addEventListener('scroll', function () {
     var _pb=document.getElementById('page-progress');
-    if(_pb){var _s=document.documentElement.scrollTop||document.body.scrollTop;var _h=document.documentElement.scrollHeight-document.documentElement.clientHeight;_pb.style.width=(_h>0?(_s/_h)*100:0)+'%';} if (btt) btt.classList.toggle('show', window.scrollY > 400); });
+    if(_pb){var _s=document.documentElement.scrollTop||document.body.scrollTop;var _h=document.documentElement.scrollHeight-document.documentElement.clientHeight;_pb.style.width=(_h>0?(_s/_h)*100:0)+'%';}
+    document.body.classList.toggle('mobile-header-condensed', window.innerWidth <= 768 && window.scrollY > 140);
+    if (btt) btt.classList.toggle('show', window.scrollY > 400); });
       if (btt) btt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
       // ── INTERSECTION OBSERVER ──
@@ -5761,6 +5826,17 @@
           new IntersectionObserver(function (entries) {
             document.body.classList.toggle('hero-in-view', entries[0].isIntersecting && entries[0].intersectionRatio > .25);
           }, { threshold: [0, .25] }).observe(heroSection);
+        }
+        if ('IntersectionObserver' in window) {
+          var conversionState = new Map();
+          var conversionObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) { conversionState.set(entry.target, entry.isIntersecting); });
+            document.body.classList.toggle('conversion-zone-in-view', Array.from(conversionState.values()).some(Boolean));
+          }, { threshold: .08 });
+          document.querySelectorAll('.cta-split,#footer-placeholder').forEach(function (zone) {
+            conversionState.set(zone, false);
+            conversionObserver.observe(zone);
+          });
         }
         setTimeout(runHeroCounters, 1200);
 
