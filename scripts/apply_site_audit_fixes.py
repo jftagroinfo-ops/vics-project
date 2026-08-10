@@ -391,6 +391,11 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
             count=1,
             flags=re.I | re.S,
         )
+    if path.name == "404.html":
+        text = text.replace(
+            '<section id="main-content" tabindex="-1" style="min-height:100vh;',
+            '<section id="main-content" tabindex="-1" style="width:100vw;min-height:100vh;',
+        )
     text = text.replace(
         "The JFT Agro export team has been shipping Basmati Rice and Spices to 40+ countries since 2010.",
         "The JFT Agro export team has been shipping Basmati Rice and Spices to 25+ countries since 2010.",

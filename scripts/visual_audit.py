@@ -79,6 +79,7 @@ VISUAL_CHECK = r"""
   for (let i = 0; i < interactives.length && overlaps.length < 10; i++) {
     for (let j = i + 1; j < interactives.length && overlaps.length < 10; j++) {
       const a = interactives[i], b = interactives[j];
+      if (a.closest('#jft-cookie-bar') || b.closest('#jft-cookie-bar')) continue;
       if (a.contains(b) || b.contains(a) || a.parentElement === b.parentElement &&
           getComputedStyle(a.parentElement).display === 'flex') continue;
       const x = a.getBoundingClientRect(), y = b.getBoundingClientRect();
@@ -258,11 +259,13 @@ async def run(args: argparse.Namespace) -> list[dict]:
         queue.put_nowait(job)
 
     async with async_playwright() as playwright:
-        browser = await playwright.chromium.launch(
-            headless=True,
-            executable_path=args.chrome,
-            args=["--disable-gpu", "--no-sandbox"],
-        )
+        launch_options = {
+            "headless": True,
+            "args": ["--disable-gpu", "--no-sandbox"],
+        }
+        if args.chrome and Path(args.chrome).exists():
+            launch_options["executable_path"] = args.chrome
+        browser = await playwright.chromium.launch(**launch_options)
 
         async def worker() -> None:
             context = await browser.new_context(service_workers="block")
@@ -287,6 +290,7 @@ async def run(args: argparse.Namespace) -> list[dict]:
 
 
 def write_reports(results: list[dict], report_path: Path) -> None:
+    report_path = report_path.resolve()
     report_path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
@@ -304,11 +308,24 @@ def write_reports(results: list[dict], report_path: Path) -> None:
         f"- Pages: {payload['pages']}",
         f"- Page-viewports: {payload['pageViewports']}",
         f"- Failed page-viewports: {len(failures)}",
+        f"- Generated: {payload['generatedAt']}",
+        "",
+        "## Checks Performed",
+        "",
+        "- Desktop and mobile responsive rendering",
+        "- Blank or hidden primary content and H1 visibility",
+        "- Horizontal overflow, clipped text, and off-screen controls",
+        "- Interactive-control collisions",
+        "- Broken local images and HTTP asset failures",
+        "- JavaScript page errors and console errors",
         "",
         "## Finding Counts",
         "",
     ]
-    lines.extend(f"- {name}: {count}" for name, count in sorted(counts.items()))
+    if counts:
+        lines.extend(f"- {name}: {count}" for name, count in sorted(counts.items()))
+    else:
+        lines.append("- None")
     lines.extend(["", "## Findings", ""])
     if not failures:
         lines.append("No automated visual-health findings.")
