@@ -4526,14 +4526,35 @@
     .feat-grid{gap:14px}
     .feat-card{padding:21px 19px;border-radius:8px}
 
-    .origin-section{padding:72px 0;background:#f5f8f4}
-    .origin-intro{gap:52px;margin-bottom:38px}
-    .origin-img-wrap img{height:330px;border-radius:8px}
-    .origin-badge-overlay{border-radius:8px}
-    .origin-stamps{margin-top:24px}
-    .o-stamp,.region-card{border-radius:8px}
+    .origin-section{padding:78px 0;background:linear-gradient(180deg,#f3f7f2 0%,#fbfcfa 100%);border-top:1px solid rgba(26,60,52,.08)}
+    .origin-intro{grid-template-columns:1.08fr .92fr;gap:0;margin-bottom:38px;border:1px solid rgba(26,60,52,.12);border-radius:8px;background:var(--navy);box-shadow:0 24px 60px rgba(26,60,52,.14);overflow:hidden}
+    .origin-img-wrap{height:100%;min-height:470px;overflow:hidden}
+    .origin-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(7,18,15,.42));pointer-events:none}
+    .origin-img-wrap img{position:absolute;inset:0;width:100%;height:100%;min-height:470px;border-radius:0;object-fit:cover;object-position:center;transition:transform .8s var(--ease)}
+    .origin-intro:hover .origin-img-wrap img{transform:scale(1.025)}
+    .origin-badge-overlay{z-index:2;bottom:24px;left:24px;max-width:300px;padding:19px 22px;border:1px solid rgba(238,191,69,.42);border-radius:8px;background:rgba(13,31,27,.9);box-shadow:0 14px 34px rgba(0,0,0,.2)}
+    .origin-badge-overlay .onum{font-size:1.75rem}
+    .origin-badge-overlay .otxt{font-size:.78rem;color:rgba(255,255,255,.74)}
+    .origin-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(42px,5vw,70px)}
+    .origin-text .section-title{margin:18px 0 20px;color:#fff;font-size:clamp(2.2rem,4vw,3.6rem)}
+    .origin-text .section-title span{color:var(--gold-light)!important}
+    .origin-text .section-desc{color:rgba(255,255,255,.7);font-size:1rem;line-height:1.8}
+    .origin-stamps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+    .o-stamp{min-height:48px;padding:11px 14px;border:1px solid rgba(255,255,255,.14);border-radius:6px;background:rgba(255,255,255,.06);color:#fff;font-size:.72rem}
+    .o-stamp:last-child{grid-column:1/-1}
+    .o-stamp:hover{border-color:rgba(238,191,69,.55);background:rgba(238,191,69,.08);color:#fff}
+    .origin-regions-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 20px}
+    .origin-regions-head h3{margin:0;color:var(--navy);font-family:var(--ff-h);font-size:clamp(1.45rem,2.4vw,2.05rem);line-height:1.2}
+    .origin-regions-head p{max-width:520px;margin:0;color:#65716b;font-size:.85rem;line-height:1.65;text-align:right}
     .region-grid{gap:14px}
-    .region-body{padding:19px}
+    .region-card{position:relative;border:1px solid rgba(26,60,52,.11);border-radius:8px;background:#fff;box-shadow:0 8px 24px rgba(26,60,52,.045)}
+    .region-card:hover{transform:translateY(-5px);border-color:rgba(61,112,48,.42);box-shadow:0 18px 38px rgba(26,60,52,.11)}
+    .region-color{height:4px}
+    .region-body{padding:20px 20px 22px}
+    .region-prod{display:flex;align-items:center;gap:8px;margin-bottom:10px;letter-spacing:1.5px}
+    .region-prod i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#f2f7f2;color:var(--green);font-size:.75rem}
+    .region-name{font-size:1.22rem}
+    .region-loc{color:#65716b}
     .origin-section .region-card:nth-child(n+7){display:none}
     .origin-section>.reveal{margin-top:30px!important}
 
@@ -4591,8 +4612,18 @@
       .feat-title{font-size:.96rem}
       .feat-text{font-size:.76rem;line-height:1.5}
       .origin-section{padding:54px 0}
-      .origin-intro{gap:28px;margin-bottom:30px}
-      .origin-img-wrap img{height:250px}
+      .origin-intro{grid-template-columns:1fr;gap:0;margin-bottom:30px}
+      .origin-img-wrap,.origin-img-wrap img{min-height:270px;height:270px}
+      .origin-img-wrap img{object-position:58% center}
+      .origin-badge-overlay{bottom:14px;left:14px;max-width:245px;padding:14px 16px}
+      .origin-badge-overlay .onum{font-size:1.35rem}
+      .origin-text{padding:34px 20px 38px}
+      .origin-text .section-title{font-size:2rem}
+      .origin-text .section-desc{font-size:.9rem;line-height:1.7}
+      .origin-stamps{grid-template-columns:1fr;margin-top:20px}
+      .o-stamp:last-child{grid-column:auto}
+      .origin-regions-head{display:block;margin-bottom:16px}
+      .origin-regions-head p{margin-top:8px;text-align:left;font-size:.8rem}
       .origin-section .region-grid{
         display:grid;
         grid-template-columns:repeat(6,minmax(250px,78vw));
@@ -5007,14 +5038,14 @@
     <div class="jft-wide-container">
       <div class="origin-intro">
         <div class="origin-img-wrap reveal-left">
-          <img src="images/homepage/farm-home.webp" alt="India Sourcing Map" loading="lazy" width="900" height="886">
+          <img src="images/homepage/indian-farm-origin-v1.webp" alt="Indian farmers inspecting rice crops in a sourcing region" loading="lazy" width="1600" height="900">
           <div class="origin-badge-overlay">
             <div class="onum">GI Tagged</div>
             <p class="otxt">Sourced exclusively from Geographical Indication certified regions of India</p>
           </div>
         </div>
         <div class="origin-text reveal-right">
-          <span class="brand-tag">Origin Guarantee</span>
+          <span class="brand-tag brand-tag-white"><i class="fa-solid fa-location-crosshairs"></i> Origin Guarantee</span>
           <h2 class="section-title">The "Golden Bird"<br><span>Legacy</span></h2>
           <p class="section-desc">We carry the mantle of India's agricultural heritage — sourcing exclusively from
             GI-tagged regions, ensuring authenticity, quality, and traceability for every buyer across the globe.</p>
@@ -5025,11 +5056,15 @@
           </div>
         </div>
       </div>
+      <div class="origin-regions-head reveal">
+        <h3>India's Specialist Sourcing Belts</h3>
+        <p>Each commodity is matched to established growing regions, contracted specifications and the buyer's destination requirements.</p>
+      </div>
       <div class="region-grid reveal">
         <div class="region-card">
           <div class="region-color" style="background:linear-gradient(90deg,#f0c430,#e8a820);"></div>
           <div class="region-body">
-            <div class="region-prod">Premium Rice</div>
+            <div class="region-prod"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i> Premium Rice</div>
             <div class="region-name">Punjab &amp; Haryana Belt</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> North India</div>
           </div>
@@ -5037,7 +5072,7 @@
         <div class="region-card">
           <div class="region-color" style="background:linear-gradient(90deg,#f5a623,#e07b00);"></div>
           <div class="region-body">
-            <div class="region-prod">Turmeric &amp; Powder</div>
+            <div class="region-prod"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Turmeric &amp; Powder</div>
             <div class="region-name">Sangli &amp; Erode</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Maharashtra &middot; Tamil Nadu</div>
           </div>
@@ -5045,7 +5080,7 @@
         <div class="region-card">
           <div class="region-color" style="background:linear-gradient(90deg,#e84040,#c02020);"></div>
           <div class="region-body">
-            <div class="region-prod">Chilli &amp; Powder</div>
+            <div class="region-prod"><i class="fa-solid fa-pepper-hot" aria-hidden="true"></i> Chilli &amp; Powder</div>
             <div class="region-name">Guntur Region</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Andhra Pradesh</div>
           </div>
@@ -5053,7 +5088,7 @@
         <div class="region-card">
           <div class="region-color" style="background:linear-gradient(90deg,#c8a870,#a07840);"></div>
           <div class="region-body">
-            <div class="region-prod">Wheat &amp; Flour</div>
+            <div class="region-prod"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i> Wheat &amp; Flour</div>
             <div class="region-name">Sehore (Sarbati Belt)</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Madhya Pradesh</div>
           </div>
@@ -5061,7 +5096,7 @@
         <div class="region-card">
           <div class="region-color" style="background:linear-gradient(90deg,#3d7030,#326127);"></div>
           <div class="region-body">
-            <div class="region-prod">Sesame &amp; Niger Seeds</div>
+            <div class="region-prod"><i class="fa-solid fa-droplet" aria-hidden="true"></i> Sesame &amp; Niger Seeds</div>
             <div class="region-name">Gujarat &amp; West Bengal</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> West India</div>
           </div>
@@ -5069,7 +5104,7 @@
         <div class="region-card">
           <div class="region-color" style="background:linear-gradient(90deg,#56c27a,#2a8a50);"></div>
           <div class="region-body">
-            <div class="region-prod">Green Cardamom</div>
+            <div class="region-prod"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Green Cardamom</div>
             <div class="region-name">Idukki (Cardamom Hills)</div>
             <div class="region-loc"><i class="fa-solid fa-location-dot"></i> Kerala</div>
           </div>
