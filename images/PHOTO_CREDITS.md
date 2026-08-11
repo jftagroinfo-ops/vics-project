@@ -6,5 +6,8 @@ The following documentary photographs are used under the Pexels license. Images 
 - `homepage/real-container-port-landscape-pexels.webp`: "Cargo Ship in Harbor" by Paparazzi Ratzfatzzi. Source: https://www.pexels.com/photo/cargo-ship-in-harbor-12841119/
 - `aboutus/real-indian-rice-work-pexels.webp`: "Man Working on a Field in India" by Dibakar Roy, photographed in Habra, West Bengal, India. Source: https://www.pexels.com/photo/man-working-on-a-field-in-india-23985739/
 - `aboutus/real-indian-rice-drying-pexels.webp`: "Farmer on Rural Field" by Dibakar Roy, photographed in Habra, West Bengal, India. Source: https://www.pexels.com/photo/farmer-on-rural-field-23985736/
+- `trade/uae-port-real-pexels.jpg`: "Industrial Container Port with Large Crane at Sunset" by Robert So. Source: https://www.pexels.com/photo/industrial-container-port-with-large-crane-at-sunset-36060443/
+- `trade/asia-port-real-pexels.jpg`: "Cranes at a Port" by Kristina Gain. Source: https://www.pexels.com/photo/cranes-at-a-port-4011956/
+- `trade/europe-port-real-pexels.jpg`: "Container Ship at Maasvlakte Rotterdam Harbor" by Ann H. Source: https://www.pexels.com/photo/container-ship-at-maasvlakte-rotterdam-harbor-31688186/
 
 Pexels license: https://www.pexels.com/license/
