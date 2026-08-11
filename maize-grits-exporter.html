@@ -86,14 +86,7 @@
               "name": "Payment Terms",
               "value": "LC at sight / TT advance"
             }
-          ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "url": "https://jftagro.com/maize-grits-exporter.html",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
-    "seller": {"@type": "Organization", "name": "JFT Agro Overseas"}
-  }
+          ]
 }
 </script>
 <script type="application/ld+json">
@@ -181,6 +174,21 @@
 .market-chip:hover { background: rgba(238,191,69,.1); border-color: rgba(238,191,69,.35); transform: translateY(-3px); }
 .market-chip img { width: 28px; height: 20px; object-fit: cover; border-radius: 3px; flex-shrink: 0; }
 .market-chip span { font-family: var(--ff-s); font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.8); }
+
+/* Product information must never depend on scroll timing to remain visible. */
+.reveal, .reveal-left, .reveal-right {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
 
 
   @keyframes ll{to{transform:translateX(0)}}
@@ -458,7 +466,7 @@ img, video, iframe { max-width: 100%; height: auto; }
           <span style="color:var(--gold)">Maize Grits</span>
         </nav>
         <span class="brand-tag brand-tag-white"><i class="fa-solid fa-leaf"></i> Grains &amp; Millets</span>
-        <h1>Maize Grits<em style="display:block;font-size:.62em;margin-top:10px;">Export from India</em></h1>
+        <h1>Maize Grits <em style="display:block;font-size:.62em;margin-top:10px;">Export from India</em></h1>
         <p class="jft-page-hero-sub">Premium quality Maize Grits exported globally. Meticulously sourced and processed to meet stringent international standards. Available in bulk packaging for B2B wholesale.</p>
         <div class="jft-page-hero-meta">
           <span class="jft-hero-tag"><i class="fa-solid fa-tag"></i> HS: 11031300</span>
@@ -467,8 +475,8 @@ img, video, iframe { max-width: 100%; height: auto; }
         </div>
         <div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;">
           <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice"></i> Request Pricing</a>
-          <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Free Sample</a>
-          <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%27m%20interested%20in%20Maize%20Grits%20for%20export.%20Please%20share%20pricing%2C%20MOQ%2C%20and%20availability." class="btn-wa-product" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</a>
+          <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Request Sample</a>
+          <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%27m%20interested%20in%20Maize%20Grits%20for%20export.%20Please%20share%20pricing%2C%20MOQ%2C%20and%20availability." class="btn-wa-product" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp Inquiry</a>
         </div>
       </div>
       <!-- Image -->
@@ -582,9 +590,9 @@ img, video, iframe { max-width: 100%; height: auto; }
     <div class="stats-4col" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border:1px solid rgba(26,60,52,.1);border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(26,60,52,.06);">
       <div style="padding:clamp(24px,3vw,40px) clamp(20px,3vw,36px);border-right:1px solid rgba(26,60,52,.08);text-align:center;">
         <i class="fa-solid fa-tag" style="font-size:1.6rem;color:#eebf45;margin-bottom:12px;display:block;"></i>
-        <div style="font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;color:#aaa;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Indicative FOB Price</div>
-        <div style="font-family:'Merriweather',serif;font-size:1.3rem;font-weight:700;color:#1a3c34;">$260–320<span style="font-size:.75rem;font-weight:400;color:#999;"> /MT</span></div>
-        <div style="font-size:.72rem;color:#bbb;margin-top:4px;">Subject to market · USD</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;color:#aaa;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Export Pricing</div>
+        <div style="font-family:'Merriweather',serif;font-size:1.3rem;font-weight:700;color:#1a3c34;">Quote on Request</div>
+        <div style="font-size:.72rem;color:#bbb;margin-top:4px;">Lot, packing and Incoterm based</div>
       </div>
       <div style="padding:clamp(24px,3vw,40px) clamp(20px,3vw,36px);border-right:1px solid rgba(26,60,52,.08);text-align:center;">
         <i class="fa-solid fa-ship" style="font-size:1.6rem;color:#eebf45;margin-bottom:12px;display:block;"></i>
@@ -595,8 +603,8 @@ img, video, iframe { max-width: 100%; height: auto; }
       <div style="padding:clamp(24px,3vw,40px) clamp(20px,3vw,36px);border-right:1px solid rgba(26,60,52,.08);text-align:center;">
         <i class="fa-solid fa-clock" style="font-size:1.6rem;color:#eebf45;margin-bottom:12px;display:block;"></i>
         <div style="font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;color:#aaa;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">Dispatch Lead Time</div>
-        <div style="font-family:'Merriweather',serif;font-size:1.3rem;font-weight:700;color:#1a3c34;">3–5 Days</div>
-        <div style="font-size:.72rem;color:#bbb;margin-top:4px;">Ready stock · Ex-Nhava Sheva/Mundra</div>
+        <div style="font-family:'Merriweather',serif;font-size:1.3rem;font-weight:700;color:#1a3c34;">Confirmed per Order</div>
+        <div style="font-size:.72rem;color:#bbb;margin-top:4px;">Stock, packing and documents considered</div>
       </div>
       <div style="padding:clamp(24px,3vw,40px) clamp(20px,3vw,36px);text-align:center;">
         <i class="fa-solid fa-scroll" style="font-size:1.6rem;color:#eebf45;margin-bottom:12px;display:block;"></i>
@@ -607,7 +615,7 @@ img, video, iframe { max-width: 100%; height: auto; }
     </div>
     <div style="margin-top:14px;text-align:center;font-size:.8rem;color:#aaa;font-family:'Montserrat',sans-serif;">
       <i class="fa-solid fa-circle-info" style="margin-right:5px;"></i>
-      Prices fluctuate with commodity markets. Request a locked Proforma Invoice valid for 5 business days.
+      Commodity prices and freight fluctuate. Firm pricing and validity are stated in the Proforma Invoice.
       <a href="contact.html#inquiry-form" style="color:#3d7030;font-weight:700;margin-left:6px;">Get Firm Quote →</a>
     </div>
   </div>
@@ -620,7 +628,7 @@ img, video, iframe { max-width: 100%; height: auto; }
     <div class="section-header center-header reveal">
       <span class="brand-tag brand-tag-white"><i class="fa-solid fa-earth-americas"></i> Global Reach</span>
       <h2 class="section-title" style="color:#fff;margin-top:15px;">Where We Export <span>Maize Grits</span></h2>
-      <p class="section-desc" style="color:rgba(255,255,255,.5);margin:18px auto;max-width:560px;">Maize Grits from JFT Agro is trusted by importers across 8 countries. Our established buyer network ensures repeat business and on-time delivery.</p>
+      <p class="section-desc" style="color:rgba(255,255,255,.62);margin:18px auto;max-width:620px;">We support buyer requirements across the markets below, with specifications, documents, packing and shipment terms confirmed for each destination.</p>
     </div>
     <div class="markets-grid reveal">
       <div class="market-chip"><img src="https://flagcdn.com/w40/ae.png" alt="UAE" loading="lazy" width="40" height="28"><span>UAE</span></div>
@@ -635,18 +643,18 @@ img, video, iframe { max-width: 100%; height: auto; }
     <div class="jft-info-grid" style="margin-top:50px;">
       <div class="jft-dark-card reveal d1">
         <div class="jft-dark-card-icon"><i class="fa-solid fa-ship"></i></div>
-        <h3>Container Guarantee</h3>
-        <p>Committed slots with Maersk, MSC, and CMA-CGM ensure your order ships on schedule — even in peak season.</p>
+        <h3>Container Planning</h3>
+        <p>Carrier options, loading plans and sailing schedules are coordinated against the agreed shipment window and destination port.</p>
       </div>
       <div class="jft-dark-card reveal d2">
         <div class="jft-dark-card-icon"><i class="fa-solid fa-certificate"></i></div>
-        <h3>All Certifications</h3>
-        <p>APEDA, Spices Board, FSSAI, AEO, DGFT registered. Every document your customs requires is available.</p>
+        <h3>Export Documentation</h3>
+        <p>Standard documents and destination-specific certificates are arranged according to the contract and applicable requirements.</p>
       </div>
       <div class="jft-dark-card reveal d3">
         <div class="jft-dark-card-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
-        <h3>45-Year Track Record</h3>
-        <p>Since 1980, we have served buyers across the Middle East, Africa, Asia, Europe and the Americas without a single default.</p>
+        <h3>Operating Since 1980</h3>
+        <p>Decades of agricultural trade experience support practical sourcing, quality coordination and export execution.</p>
       </div>
     </div>
   </div>
@@ -755,7 +763,7 @@ img, video, iframe { max-width: 100%; height: auto; }
           <i class="fa-solid fa-chevron-down faq-chevron" style="color:#3d7030;font-size:.75rem;transition:transform .3s;flex-shrink:0"></i>
         </div>
         <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:.93rem;color:#666;line-height:1.8">
-          <div style="padding:0 0 20px">Minimum order is <strong>1 FCL (Full Container Load)</strong> — approximately 24–27 MT in a 20ft container or 26–28 MT in a 40ft container depending on the product. For samples, there is no minimum — we dispatch free samples globally.</div>
+          <div style="padding:0 0 20px">Minimum commercial order is <strong>1 FCL (Full Container Load)</strong>. The loading quantity depends on bag size, packing material and the contracted shipment plan. Smaller product samples are available for qualified trade inquiries; courier charges apply.</div>
         </div>
       </div>
 
@@ -765,7 +773,7 @@ img, video, iframe { max-width: 100%; height: auto; }
           <i class="fa-solid fa-chevron-down faq-chevron" style="color:#3d7030;font-size:.75rem;transition:transform .3s;flex-shrink:0"></i>
         </div>
         <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:.93rem;color:#666;line-height:1.8">
-          <div style="padding:0 0 20px">We accept <strong>LC at sight, TT (T/T), and DP</strong>. For established buyers, we offer open credit terms after initial orders. All prices are quoted CIF (Cost, Insurance, Freight) or FOB as per buyer preference.</div>
+          <div style="padding:0 0 20px">Common options include <strong>LC at sight, TT (T/T), and DP</strong>, subject to commercial approval and the final Proforma Invoice. Pricing can be prepared on FOB, CIF or another agreed Incoterm.</div>
         </div>
       </div>
 
@@ -791,11 +799,11 @@ img, video, iframe { max-width: 100%; height: auto; }
 
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="var answer=this.nextElementSibling;var open=answer.classList.toggle('open');this.setAttribute('aria-expanded',String(open));this.querySelector('.faq-chevron').classList.toggle('rotated',open)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:#1a3c34">
-          Can I get a free sample before placing an order?
+          Can I request a product sample before placing an order?
           <i class="fa-solid fa-chevron-down faq-chevron" style="color:#3d7030;font-size:.75rem;transition:transform .3s;flex-shrink:0"></i>
         </div>
         <div class="faq-a" style="max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:.93rem;color:#666;line-height:1.8">
-          <div style="padding:0 0 20px">Yes. We dispatch <strong>free samples worldwide</strong> — typically 250g–500g by courier. Request your free sample on our <a href="sample-request.html" style="color:#3d7030;font-weight:700">Sample Request page</a>. Processing within 24 hours.</div>
+          <div style="padding:0 0 20px">Yes. Complimentary product samples are available for qualified trade inquiries. Courier charges are confirmed before dispatch, and samples are generally prepared within two business days after confirmation. Submit requirements on the <a href="sample-request.html" style="color:#3d7030;font-weight:700">Sample Request page</a>.</div>
         </div>
       </div>
 
@@ -804,8 +812,7 @@ img, video, iframe { max-width: 100%; height: auto; }
 </section>
 <script>
 document.querySelectorAll('.faq-a.open').forEach(function(el){el.style.maxHeight=el.scrollHeight+'px'});
-document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var a=this.nextElementSibling;if(a.classList.contains('open')){a.style.maxHeight='0';}else{a.style.maxHeight=a.scrollHeight+'px';}});});
-document.querySelectorAll('.faq-chevron').forEach(function(c){c.closest('.faq-item').querySelector('.faq-q').addEventListener('click',function(){c.style.transform=c.style.transform==='rotate(180deg)'?'':'rotate(180deg)';});});
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var a=this.nextElementSibling;var open=a.classList.contains('open');a.style.maxHeight=open?a.scrollHeight+'px':'0';var c=this.querySelector('.faq-chevron');if(c)c.style.transform=open?'rotate(180deg)':'';});});
 </script>
 
 
@@ -814,7 +821,7 @@ document.querySelectorAll('.faq-chevron').forEach(function(c){c.closest('.faq-it
   <div class="jft-wide-container">
     <div class="reveal" style="text-align:center;margin-bottom:32px">
       <span class="brand-tag"><i class="fa-solid fa-layer-group"></i> Related Products</span>
-      <h3 style="font-size:1.6rem;font-weight:900;color:#1a3c34">You May Also Be Interested In</h3>
+      <h2 style="font-size:1.6rem;font-weight:900;color:#1a3c34">You May Also Be Interested In</h2>
     </div>
     <div class="related-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px"><a href="1121-basmati-rice-exporter.html" style="display:block;background:#fff;border:1px solid rgba(26,60,52,.08);border-radius:16px;padding:20px;text-decoration:none;transition:.3s" onmouseover="this.style.borderColor='rgba(238,191,69,.4)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='rgba(26,60,52,.08)';this.style.transform=''">
 <div style="font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:800;color:#1a3c34;margin-bottom:6px;display:flex;align-items:center;gap:8px"><i class="fa-solid fa-seedling" style="color:#3d7030"></i>1121 Basmati Rice</div>
@@ -835,11 +842,11 @@ document.querySelectorAll('.faq-chevron').forEach(function(c){c.closest('.faq-it
 <section class="jft-cta-block">
   <div class="jft-wide-container">
     <div class="cta-eyebrow">Ready to Source?</div>
-    <h2 class="cta-block-title">Start Your <em>Maize Grits</em><br>Import Order Today</h2>
-    <p class="cta-block-desc">Free samples available. No commitment required. Our export team will guide you through documentation, certification, and logistics.</p>
+    <h2 class="cta-block-title">Start Your <em>Maize Grits</em> <br>Import Order Today</h2>
+    <p class="cta-block-desc">Complimentary product samples are available for qualified trade inquiries; courier charges apply. Our export team will guide you through specifications, documentation and logistics.</p>
     <div class="cta-actions">
       <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice-dollar"></i> Request Bulk Pricing</a>
-      <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Order Free Sample</a>
+      <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Request Product Sample</a>
       <a href="quote-calculator.html" class="btn-outline"><i class="fa-solid fa-calculator"></i> CIF Calculator</a>
     </div>
     <div class="cta-trust-row">
