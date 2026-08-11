@@ -1,0 +1,1582 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Container Bag &amp; Payload Planning Calculator | JFT Agro</title>
+  <meta name="description" content="Estimate a safe bag count, net cargo, payload and volume utilisation for 20ft, 40ft and 40ft High Cube agricultural export containers.">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"><meta name="author" content="JFT Agro Overseas"><meta name="theme-color" content="#173d35">
+  <link rel="canonical" href="https://jftagro.com/packing-calculator.html"><link rel="alternate" hreflang="en" href="https://jftagro.com/packing-calculator.html"><link rel="alternate" hreflang="x-default" href="https://jftagro.com/packing-calculator.html"><link rel="icon" href="images/jft logo.png"><link rel="apple-touch-icon" href="images/jft logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Merriweather:ital,wght@0,300;0,700;0,900;1,300&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="jft-design-system.css"><link rel="stylesheet" href="jft-responsive.css"><link rel="stylesheet" href="packing-calculator-page.css"><link rel="manifest" href="manifest.json">
+  <meta property="og:type" content="website"><meta property="og:title" content="Container Bag &amp; Payload Planning Calculator | JFT Agro"><meta property="og:description" content="Plan agricultural export bag counts using equipment payload, route cap, packing tare, pallets, volume and safety buffer."><meta property="og:image" content="https://jftagro.com/images/INFRASTRUCTURE/packing%20unit.webp"><meta property="og:url" content="https://jftagro.com/packing-calculator.html">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JFT Agro Container Packing Planning Calculator","description":"A planning calculator for bag count, net cargo, payload and volume utilisation in standard dry containers.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"url":"https://jftagro.com/packing-calculator.html","provider":{"@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Packing Calculator","item":"https://jftagro.com/packing-calculator.html"}]}</script>
+</head>
+<body>
+  <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20please%20confirm%20a%20container%20stuffing%20plan." class="wa-fab" target="_blank" rel="noopener" aria-label="Confirm a stuffing plan on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a><button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button><div id="header-placeholder"><!-- Skip to main content (accessibility) -->
+<a href="#main-content" class="skip-link" style="position:absolute;top:-60px;left:20px;background:#eebf45;color:#1a3c34;padding:10px 20px;border-radius:0 0 8px 8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.85rem;text-decoration:none;z-index:99999;transition:top .2s;" onblur="this.style.top='-60px'" onfocus="this.style.top='0'">Skip to main content</a>
+
+<!-- Google Tag Manager — REPLACE GTM-XXXXXXX with your real GTM container ID -->
+<!-- If you only use GA4 directly (not GTM), delete this block -->
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+<!-- GA4 — loads only after cookie consent (GDPR compliant) -->
+<meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
+<link rel="stylesheet" href="/assets/fonts/jft-fonts.css">
+<link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+
+<style>
+  :root {
+    --jft-navy: #1a3c34;
+    --jft-gold: #eebf45;
+    --jft-gold-dark: #b88d14;
+    --jft-primary: #3d7030;
+    --jft-dark: #142923;
+    --jft-cream: #f5f1e6;
+    --font-heading: 'Merriweather', serif;
+    --font-sub: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; font-family: var(--font-body); background-color: var(--jft-cream); overflow-x: clip; width: 100%; position: relative; }
+  h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 700; }
+  a { text-decoration: none; color: inherit; }
+  :focus-visible { outline: 3.5px solid var(--jft-gold-dark); outline-offset: 4px; border-radius: 4px; }
+
+  #page-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--jft-gold); z-index: 9999; width: 0%; transition: width 0.1s; }
+
+  /* ─── TOP DASHBOARD ─── */
+  .top-dashboard { position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; background: var(--jft-navy); color: #fff; box-shadow: 0 4px 25px rgba(0,0,0,0.15); font-family: var(--font-sub); }
+  .td-row-1 { display: flex; height: 42px; border-bottom: 1px solid rgba(255,255,255,0.08); align-items: center; justify-content: space-between; }
+  .td-social { padding: 0 25px; display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.05); height: 100%; font-size: 0.8rem; font-weight: 700; white-space: nowrap; border-left: 1px solid rgba(255,255,255,0.1); }
+  .td-social span { color: var(--jft-gold); text-transform: uppercase; letter-spacing: 1px; display: inline-block; }
+  .td-social a { color: rgba(255,255,255,0.8); transition: 0.3s; font-size: 1rem; display: flex; align-items: center; height: 100%; padding: 0 5px; }
+  .td-social a:hover { color: var(--jft-gold); transform: translateY(-2px); }
+  .td-news-ticker { flex: 1; display: flex; align-items: center; overflow: hidden; background: var(--jft-navy); position: relative; height: 100%; min-width: 0; margin-right: 15px; }
+  .ticker-label { background: var(--jft-primary); color: #fff; padding: 0 35px 0 25px; height: 100%; display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2; clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%); padding-right: 45px; white-space: nowrap; flex-shrink: 0; }
+  .live-dot { width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: livePulse 1.5s infinite; }
+  @keyframes livePulse { 0%{transform:scale(0.95);opacity:0.7} 50%{transform:scale(1.1);opacity:1;box-shadow:0 0 8px rgba(255,255,255,0.8)} 100%{transform:scale(0.95);opacity:0.7} }
+  .ticker-track { display: flex; animation: scrollText 60s linear infinite; white-space: nowrap; padding-left: 10px; align-items: center; height: 100%; will-change: transform; }
+  .td-news-ticker:hover .ticker-track { animation-play-state: paused; }
+  .t-item { margin-right: 50px; font-family: var(--font-body); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); }
+  .t-item i { color: var(--jft-gold); font-size: 0.8rem; }
+  .t-item span { color: #fff; font-weight: 800; font-family: var(--font-sub); font-size: 0.75rem; text-transform: uppercase; }
+  @keyframes scrollText { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .td-utilities { display: flex; align-items: center; padding: 0 20px; background: rgba(0,0,0,0.2); height: 100%; font-size: 0.75rem; font-weight: 700; white-space: nowrap; }
+  .lang-dropdown { position: relative; cursor: pointer; height: 100%; display: flex; align-items: center; }
+  .lang-btn { background: none; border: none; color: #fff; font-family: var(--font-sub); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; gap: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; height: 100%; }
+  .lang-btn i { color: var(--jft-gold); }
+  .lang-menu { position: absolute; top: 40px; right: 0; width: 340px; background: #fff; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 1000; padding: 15px 0; border: 1px solid rgba(0,0,0,0.05); }
+  .lang-menu.show { opacity: 1; visibility: visible; transform: translateY(5px); }
+  .lang-section-title { font-family: var(--font-sub); font-size: 0.65rem; font-weight: 800; color: #999; padding: 10px 20px 5px; text-transform: uppercase; letter-spacing: 1.5px; border-bottom: 1px solid #f0f0f0; margin-bottom: 8px; display: block; width: 100%; box-sizing: border-box; }
+  .lang-grid { display: grid; grid-template-columns: 1fr 1fr; padding: 0 10px; }
+  .lang-menu a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--jft-navy); text-decoration: none; font-size: 0.82rem; transition: 0.2s; font-weight: 500; cursor: pointer; border-radius: 6px; }
+  .lang-menu a:hover { background: #f8f9fa; color: var(--jft-primary); }
+  .lang-flag { width: 22px; height: 16px; border-radius: 2px; object-fit: cover; box-shadow: 0 1px 3px rgba(0,0,0,0.1); flex-shrink: 0; }
+
+  .td-row-2 { display: flex; justify-content: space-between; align-items: center; height: 38px; background: #fff; color: var(--jft-navy); padding-left: 20px; font-weight: 700; border-bottom: 1px solid #eee; overflow: hidden; }
+  /* Mobile: hide social + utilities in row-1, keep full ticker */
+  @media (max-width: 768px) {
+    .td-social { display: none; }
+    .td-utilities { display: none; }
+    .td-row-1 { padding: 0; }
+    .td-news-ticker { margin-right: 0; width: 100%; }
+    .ticker-label { font-size: 0.68rem; padding: 0 28px 0 14px; clip-path: polygon(0 0,100% 0,84% 100%,0 100%); }
+    .ticker-track { animation:none; flex:1; min-width:0; padding:0 10px; }
+    .ticker-track .t-item { display:none; width:100%; margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:.72rem; }
+    .ticker-track .t-item.mobile-current { display:block; }
+    /* Row 2 mobile: USD/INR left, Annapoorna right only */
+    .forex-group { gap: 0; padding-right: 0; }
+    #forex-date { display: none; } /* hide "Rates as of" text on mobile */
+    .forex-item.desktop-only { display: none!important; } /* hide EUR, GBP, AED */
+    #fx-eur, #fx-gbp, #fx-aed { display: none!important; }
+    #fx-usd { font-size: 0.75rem; padding-left: 4px; }
+    .forex-status { display:none; }
+    .visit-plan { font-size: 0.65rem; padding: 0 12px; gap: 6px; clip-path: polygon(10px 0,100% 0,100% 100%,0 100%); }
+    .visit-plan .vp-sub { display: none; } /* hide second line of Annapoorna */
+  }
+  @media (max-width: 380px) {
+    .td-row-1 { height: 36px; }
+    .td-row-2 { height: 34px; }
+    .ticker-label { padding: 0 22px 0 12px; font-size: 0.62rem; }
+    #fx-usd { font-size: 0.7rem; }
+    .visit-plan { font-size: 0.6rem; padding: 0 10px; }
+  }
+  .forex-group { display: flex; gap: 25px; align-items: center; font-size: 0.8rem; flex: 1; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; white-space: nowrap; height: 100%; padding-right: 15px; }
+  .forex-up { color: #3b6d11; background: #ecfdf5; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; }
+  .visit-plan { display: flex; align-items: center; gap: 12px; background: var(--jft-gold); color: var(--jft-navy); height: 100%; padding: 0 30px; font-size: 0.72rem; clip-path: polygon(15px 0, 100% 0, 100% 100%, 0% 100%); transition: 0.3s; letter-spacing: 0.5px; font-weight: 800; white-space: nowrap; text-decoration: none; flex-shrink: 0; position: relative; }
+  .visit-plan:hover { background: var(--jft-navy); color: #fff; transform: translateX(5px); }
+
+  /* ─── NAVBAR ─── */
+  .jft-navbar { position: fixed; top: 80px; left: 0; width: 100%; height: 90px; z-index: 1000; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); overflow: visible; }
+  .jft-navbar.scrolled { top: 80px; height: 70px; background: rgba(255,255,255,0.98); box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+  .nav-flex { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%; padding: 0 clamp(20px, 5vw, 55px); margin: 0 auto; max-width: 1360px; }
+  .nav-logo-link { display: flex; align-items: center; height: 100%; flex-shrink: 0; }
+  .nav-logo-img { height: 75px; width: auto; transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08)); max-width: 240px; }
+  .nav-menu { display: flex; align-items: center; gap: 20px; }
+  .nav-link { font-family: var(--font-sub); font-size: 0.85rem; font-weight: 700; color: var(--jft-navy); text-transform: uppercase; letter-spacing: 1.5px; position: relative; padding: 5px 0; transition: 0.3s; cursor: pointer; }
+  .nav-link:hover { color: var(--jft-primary); }
+  .nav-link[aria-current="page"] { color: var(--jft-primary); }
+  .nav-link[aria-current="page"]::after { content:""; position:absolute; left:0; right:0; bottom:-9px; height:3px; background:var(--jft-gold); border-radius:3px; }
+  .nav-btn-action { padding: 12px 24px; background: var(--jft-primary); color: #fff; border-radius: 50px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--jft-primary); transition: 0.3s; box-shadow: 0 4px 15px rgba(61,112,48,0.2); text-decoration: none; white-space: nowrap; font-family: var(--font-sub); }
+  .nav-btn-action:hover { background: var(--jft-dark); border-color: var(--jft-dark); transform: translateY(-2px); }
+  .nav-wa-action { width:42px; height:42px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:#25d366; color:#fff; font-size:1.15rem; box-shadow:0 5px 16px rgba(37,211,102,.25); transition:.3s; }
+  .nav-wa-action:hover { background:#1fbd59; transform:translateY(-2px); }
+  .forex-status { color:#777; font-size:.58rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-left:7px; }
+  .forex-status[data-state="live"] { color:#28734a; }
+  .forex-status[data-state="fallback"] { color:#946a0b; }
+
+  /* ── STANDARD DROPDOWN (Infrastructure) ── */
+  .markets-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+    border-radius: 14px;
+    min-width: 230px;    /* wide enough for longest item */
+    width: max-content;  /* expands to fit content, never clips */
+    max-width: 320px;    /* cap so it doesn't go too wide */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+    z-index: 2000;
+    padding: 8px 0;
+    border: 1px solid rgba(26,60,52,.08);
+  }
+  .dropdown-markets:hover .markets-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0s;
+  }
+  .markets-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: var(--jft-navy);
+    text-decoration: none;
+    font-family: var(--font-sub);
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;   /* kept — but width:max-content ensures box fits */
+    transition: background 0.2s, color 0.2s, padding-left 0.2s;
+  }
+  .markets-menu a:hover { background: rgba(61,112,48,.05); color: var(--jft-primary); padding-left: 26px; }
+  .markets-menu-divider { height: 1px; background: rgba(26,60,52,.08); margin: 6px 12px; }
+  .markets-icon { font-size: .7rem; width: 14px; color: var(--jft-primary); }
+  /* Clean icon + divider system for all dropdowns */
+  .dd-icon { font-size: .72rem; width: 14px; text-align: center; color: var(--jft-primary); opacity: .65; flex-shrink: 0; transition: opacity .2s; }
+  .markets-menu a:hover .dd-icon { opacity: 1; }
+  .dd-divider { height: 1px; background: rgba(26,60,52,.08); margin: 5px 14px; }
+  .dd-view-all { color: var(--jft-primary) !important; font-weight: 700 !important; }
+  /* Tools and Products dropdowns: align to right edge so they don't overflow viewport */
+  .dd-align-right { left: auto !important; right: 0 !important; }
+
+  /* ── MEGA MENU (Trade Hub) ── */
+  .mega-menu {
+    display: none;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 660px;
+    max-width: 720px;
+    padding: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.14);
+    flex-direction: row;
+    border: 1px solid rgba(26,60,52,.08);
+  }
+  .dropdown-mega:hover .mega-menu {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  /* Override the standard hover rule for mega */
+  .dropdown-mega:hover .markets-menu { transform: translateX(-50%) translateY(0); }
+
+  /* Mega columns */
+  .mega-col {
+    flex: 1;
+    padding: 22px 0 20px;
+    border-right: 1px solid rgba(26,60,52,.07);
+  }
+  .mega-col:last-child { border-right: none; }
+  .mega-col-tools { background: rgba(61,112,48,.03); }
+
+  /* Column header */
+  .mega-col-head {
+    font-family: var(--font-sub);
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: var(--jft-primary);
+    padding: 0 20px 12px;
+    border-bottom: 1px solid rgba(26,60,52,.08);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .mega-col-head i { font-size: 0.7rem; }
+
+  /* Mega links */
+  .mega-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 20px;
+    font-size: 0.81rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #444;
+  }
+  .mega-menu a:hover {
+    background: rgba(61,112,48,.06);
+    color: var(--jft-primary);
+    padding-left: 26px;
+  }
+  .mega-link-icon {
+    font-size: 0.72rem;
+    width: 14px;
+    color: var(--jft-primary);
+    opacity: 0.7;
+    flex-shrink: 0;
+    transition: opacity 0.2s;
+  }
+  .mega-menu a:hover .mega-link-icon { opacity: 1; }
+
+  .mobile-toggle { display: none; }
+
+  /* ════════════════════════════════════════════════════════════════════
+     DESKTOP NAV: show nav-links-desktop, hide mobile elements
+     ════════════════════════════════════════════════════════════════════ */
+  .nav-links-desktop { display: flex; align-items: center; gap: 20px; }
+  .mobile-toggle     { display: none; }
+  .mobile-nav-drawer { display: none; } /* hidden on desktop completely */
+  .nav-overlay       { display: none; position: fixed; inset: 0; z-index: 1499; background: rgba(0,0,0,0.4); }
+  .nav-overlay.show  { display: block; }
+
+  /* ════════════════════════════════════════════════════════════════════
+     MOBILE RESPONSIVE ≤ 1024px
+     ════════════════════════════════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+
+    /* Hide desktop nav links */
+    .nav-links-desktop { display: none !important; }
+
+    /* CRITICAL: Remove backdrop-filter on mobile navbar.
+       backdrop-filter creates a new compositing layer — any child element
+       (including our drawer) gets blurred/washed through it.
+       Solid background on mobile is correct — no frosted glass needed. */
+    .jft-navbar {
+      background: #fff !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .jft-navbar.scrolled {
+      background: #fff !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    /* Show hamburger */
+    .mobile-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      font-size: 1.35rem;
+      color: var(--jft-navy);
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .mobile-toggle:active { background: rgba(0,0,0,0.06); }
+
+    /* Navbar height */
+    .jft-navbar     { height: 72px; overflow: visible; }
+    .nav-logo-img   { height: 52px; max-width: 180px; }
+    .nav-flex       { padding: 0 16px; }
+
+    /* ── MOBILE DRAWER ────────────────────────────────────────────────────
+       Design matches index.html: dark navy gradient, gold accents,
+       Montserrat typography, subtle noise texture, gold top border.
+       position:fixed — top set by JS getBoundingClientRect().bottom       */
+    .mobile-nav-drawer {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 152px;          /* overwritten by JS positionDrawer() on open */
+      left: 0;
+      right: 0;
+      width: 100%;
+      /* index.html dark background gradient */
+      background: linear-gradient(180deg, #0d1f1b 0%, #1a3c34 40%, #0f2820 100%);
+      z-index: 1500;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      max-height: calc(100dvh - 152px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+      /* gold top border — same as index section dividers */
+      border-top: 2px solid var(--jft-gold);
+    }
+    /* Noise texture overlay — same as index.html dark sections */
+    .mobile-nav-drawer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+    .mobile-nav-drawer > * { position: relative; z-index: 1; }
+    .mobile-nav-drawer.open {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.25s ease, visibility 0s linear 0s;
+    }
+    /* Overlay */
+    .nav-overlay {
+      position: fixed;
+      top: 152px;
+      left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1499;
+      display: none;
+      backdrop-filter: blur(1px);
+    }
+    .nav-overlay.show { display: block; }
+  }
+
+  /* ════════════════════════════════════════════════════════════════════
+     MOBILE DRAWER — styled to match index.html hero design language
+     Same gradient bg, grid overlay, gold accents, Montserrat font
+     ════════════════════════════════════════════════════════════════════ */
+
+  /* The drawer itself: index.html hero gradient background */
+  .mobile-nav-drawer {
+    background: linear-gradient(160deg, #07120f 0%, #0d1f1b 35%, #1a3c34 70%, #2c5148 100%);
+  }
+
+  /* Grid overlay — same as index.html hero-grid-overlay */
+  .mobile-nav-drawer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 52px 52px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Gold radial glow — same as index.html hero */
+  .mobile-nav-drawer::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(238,191,69,0.07), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Gold top stripe — same as index.html hero-gold-stripe */
+  .mnav-gold-stripe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--jft-gold) 50%, transparent);
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .mobile-nav-drawer > * { position: relative; z-index: 1; }
+
+    /* Brand header */
+    .mnav-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .mnav-brand-dot {
+      width: 8px; height: 8px;
+      background: var(--jft-gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: mnavPulse 1.8s ease-in-out infinite alternate;
+    }
+    @keyframes mnavPulse {
+      from { opacity: 0.5; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px rgba(238,191,69,0.6); }
+    }
+    .mnav-brand-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 2.5px;
+      color: var(--jft-gold);
+    }
+
+    /* Section label */
+    .mnav-section-label {
+      display: flex; align-items: center; gap: 10px;
+      padding: 18px 24px 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 3px;
+      color: rgba(238,191,69,0.6);
+    }
+    .mnav-section-label::before {
+      content: ''; width: 24px; height: 1px;
+      background: rgba(238,191,69,0.4); flex-shrink: 0;
+    }
+
+    /* Standard link */
+    .mnav-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 58px;
+      color: rgba(255,255,255,0.92);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s, padding-left 0.2s;
+      position: relative;
+    }
+    .mnav-link::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--jft-gold); opacity: 0;
+      transition: opacity 0.2s; border-radius: 0 2px 2px 0;
+    }
+    .mnav-link:hover { background: rgba(255,255,255,0.04); color: var(--jft-gold); padding-left: 30px; }
+    .mnav-link:hover::before { opacity: 1; }
+    .mnav-arrow { font-size: 0.6rem; color: rgba(255,255,255,0.3); transition: transform 0.2s, color 0.2s; }
+    .mnav-link:hover .mnav-arrow { transform: translateX(4px); color: var(--jft-gold); }
+
+    /* Accordion */
+    .mnav-accordion { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .mnav-acc-label {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 58px;
+      color: rgba(255,255,255,0.92);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      cursor: pointer; transition: background 0.2s, color 0.2s;
+      user-select: none; -webkit-user-select: none; position: relative;
+    }
+    .mnav-acc-label::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--jft-gold); opacity: 0;
+      transition: opacity 0.2s; border-radius: 0 2px 2px 0;
+    }
+    .mnav-accordion.open .mnav-acc-label { background: rgba(255,255,255,0.04); color: var(--jft-gold); }
+    .mnav-accordion.open .mnav-acc-label::before { opacity: 1; }
+    .mnav-caret {
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 50%;
+      font-size: 0.62rem; color: rgba(255,255,255,0.45);
+      transition: transform 0.3s, background 0.2s, color 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .mnav-accordion.open .mnav-caret {
+      transform: rotate(180deg);
+      background: rgba(238,191,69,0.15); border-color: rgba(238,191,69,0.4); color: var(--jft-gold);
+    }
+    .mnav-acc-body {
+      max-height: 0; overflow: hidden;
+      background: rgba(0,0,0,0.25);
+      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mnav-accordion.open .mnav-acc-body { max-height: 560px; }
+    .mnav-acc-body a {
+      display: flex; align-items: center; gap: 12px;
+      padding: 0 24px 0 32px; height: 50px;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem; font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.18s, color 0.18s, padding-left 0.18s;
+    }
+    .mnav-acc-body a::before {
+      content: ''; width: 20px; height: 1px;
+      background: rgba(238,191,69,0.45); flex-shrink: 0;
+      transition: width 0.2s, background 0.2s;
+    }
+    .mnav-acc-body a:hover { background: rgba(238,191,69,0.06); color: var(--jft-gold); padding-left: 40px; }
+    .mnav-acc-body a:hover::before { width: 28px; background: var(--jft-gold); }
+
+    /* Footer */
+    .mnav-footer {
+      padding: 22px 24px 28px;
+      display: flex; flex-direction: column; gap: 16px;
+      border-top: 1px solid rgba(255,255,255,0.07); margin-top: 8px;
+    }
+    .mnav-cta {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, var(--jft-gold), #f7ca5e);
+      color: var(--jft-navy); border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(238,191,69,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .mnav-cta:active { transform: scale(0.97); }
+    .mnav-social { display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .mnav-social a {
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .mnav-social a:hover {
+      background: rgba(238,191,69,0.14); border-color: rgba(238,191,69,0.4);
+      color: var(--jft-gold); transform: translateY(-2px);
+    }
+  }
+
+    /* ════════════════════════════════════════════════════════════════════
+     480px — small phones
+     ════════════════════════════════════════════════════════════════════ */
+  @media (max-width: 480px) {
+    .jft-navbar   { height: 68px; }
+    .nav-logo-img { height: 46px; max-width: 160px; }
+    .nav-flex     { padding: 0 14px; }
+    /* drawer top + maxHeight set by JS positionDrawer() — no CSS overrides needed */
+  }
+
+  /* ── MEGA MENU: 2-column Trade Hub dropdown ── */
+  .markets-mega {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    min-width: 460px !important;
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
+  }
+  .dropdown-markets:hover .markets-mega { transform: none !important; }
+  .mega-col { flex: 1; padding: 16px 0 14px; min-width: 0; }
+  .mega-col:first-child { border-right: 1px solid rgba(26,60,52,.07); }
+  .mega-col-label {
+    font-family: var(--font-sub); font-size: .58rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1.8px; color: rgba(26,60,52,.38);
+    padding: 4px 18px 10px; display: flex; align-items: center; gap: 7px;
+    border-bottom: 1px solid rgba(26,60,52,.06); margin-bottom: 4px;
+  }
+  .mega-col-label i { font-size: .65rem; color: var(--jft-primary); }
+  .mega-icon { font-size: .75rem; width: 16px; text-align: center; color: rgba(26,60,52,.3); flex-shrink: 0; transition: color .2s; }
+  .mega-tool { color: var(--jft-primary) !important; }
+  .markets-menu a:hover .mega-icon { color: var(--jft-primary); }
+</style>
+
+<div id="google_translate_element" style="display:none;"></div>
+<div id="page-progress"></div>
+
+<div class="top-dashboard">
+  <div class="td-row-1">
+    <div class="td-news-ticker">
+      <div class="ticker-label"><div class="live-dot"></div> <span class="market-text">MARKET</span> FEED</div>
+      <div class="ticker-track" id="dynamic-ticker"><div class="t-item daily-flash"><i class="fa-solid fa-wheat-awn"></i><span>AGRO PULSE:</span> Live Trade Feed</div><div class="t-item mobile-current"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> The next phase of India’s agricultural transformation must be export-oriented, standards-driven, and value-chain centric</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Denial of speculations on India-US Trade Agreement, farmers’ interests paramount: Union Agriculture Minister Shri Shivraj Singh Chouhan</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> US trade deal to increase agricultural exports in India’s areas of strength: Jitin Prasada</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Are Indians Eating And Exporting Poisonous Food Products?</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> West Asia Conflict Puts India’s $11.8 Billion Agri Exports Under Stress</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Iran war impacts India’s $11.8-billion food exports to West Asia</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Union Minister Shivraj Singh Chouhan says India-US Trade Deal fully safeguards country’s agricultural interests</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> War threatens India’s food exports to Gulf markets; 40% of rice shipments under threat</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> West Asia conflict threatens India’s $11.8 billion agri exports: GTRI</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Agri trade takes centre stage as India, US cut tariffs under interim deal</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> India-US trade deal safeguards farmers' interests, no compromise on agriculture or dairy: Shivraj Singh Chouhan</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Is Every Farm Trade Anti-Farmer?</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> India fully protects sensitive farm and dairy products under US trade pact</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Farmers’ Interests Non-Negotiable In India–US Trade Deal: Agriculture Minister</div><div class="t-item daily-flash"><i class="fa-solid fa-wheat-awn"></i><span>AGRO PULSE:</span> Live Trade Feed</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> The next phase of India’s agricultural transformation must be export-oriented, standards-driven, and value-chain centric</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Denial of speculations on India-US Trade Agreement, farmers’ interests paramount: Union Agriculture Minister Shri Shivraj Singh Chouhan</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> US trade deal to increase agricultural exports in India’s areas of strength: Jitin Prasada</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Are Indians Eating And Exporting Poisonous Food Products?</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> West Asia Conflict Puts India’s $11.8 Billion Agri Exports Under Stress</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Iran war impacts India’s $11.8-billion food exports to West Asia</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Union Minister Shivraj Singh Chouhan says India-US Trade Deal fully safeguards country’s agricultural interests</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> War threatens India’s food exports to Gulf markets; 40% of rice shipments under threat</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> West Asia conflict threatens India’s $11.8 billion agri exports: GTRI</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Agri trade takes centre stage as India, US cut tariffs under interim deal</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> India-US trade deal safeguards farmers' interests, no compromise on agriculture or dairy: Shivraj Singh Chouhan</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Is Every Farm Trade Anti-Farmer?</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> India fully protects sensitive farm and dairy products under US trade pact</div><div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> Farmers’ Interests Non-Negotiable In India–US Trade Deal: Agriculture Minister</div></div>
+    </div>
+    <div class="td-social">
+        <a href="https://www.linkedin.com/company/jft-agro-overseas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+    </div>
+    <div class="td-utilities desktop-only">
+      <div class="lang-dropdown">
+        <button onclick="toggleLang()" class="lang-btn"><i class="fa-solid fa-globe"></i> GLOBAL (EN) <i class="fa-solid fa-caret-down"></i></button>
+        <div class="lang-menu" id="langMenu">
+          <span class="lang-section-title">Localized Sites (Native SEO)</span>
+          <div class="lang-grid" id="localized-links"><a href="packing-calculator.html"><img src="https://flagcdn.com/w40/us.png" class="lang-flag" alt="en"> English</a><a href="ar/packing-calculator.html"><img src="https://flagcdn.com/w40/ae.png" class="lang-flag" alt="ar"> العربية</a><a href="fr/packing-calculator.html"><img src="https://flagcdn.com/w40/fr.png" class="lang-flag" alt="fr"> Français</a><a href="ru/packing-calculator.html"><img src="https://flagcdn.com/w40/ru.png" class="lang-flag" alt="ru"> Русский</a><a href="es/packing-calculator.html"><img src="https://flagcdn.com/w40/es.png" class="lang-flag" alt="es"> Español</a><a href="pt/packing-calculator.html"><img src="https://flagcdn.com/w40/pt.png" class="lang-flag" alt="pt"> Português</a><a href="vi/packing-calculator.html"><img src="https://flagcdn.com/w40/vn.png" class="lang-flag" alt="vi"> Tiếng Việt</a><a href="ms/packing-calculator.html"><img src="https://flagcdn.com/w40/my.png" class="lang-flag" alt="ms"> Melayu</a><a href="id/packing-calculator.html"><img src="https://flagcdn.com/w40/id.png" class="lang-flag" alt="id"> Indonesia</a><a href="th/packing-calculator.html"><img src="https://flagcdn.com/w40/th.png" class="lang-flag" alt="th"> ไทย</a><a href="si/packing-calculator.html"><img src="https://flagcdn.com/w40/lk.png" class="lang-flag" alt="si"> සිංහල</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="td-row-2">
+    <div class="forex-group">
+      <span id="forex-date" style="font-size:0.7rem;color:#888;text-transform:uppercase;margin-right:5px;">RATES AS OF 12 Aug 2026</span>
+      <span id="forex-status" class="forex-status" data-state="live">Live updated 01:12</span>
+      <div class="forex-item" id="fx-usd">USD/INR <span class="forex-up">95.37 ▲</span></div>
+      <div class="forex-item" id="fx-eur">EUR/INR <span class="forex-up">110.13 ▲</span></div>
+      <div class="forex-item desktop-only" id="fx-gbp">GBP/INR <span class="forex-up">128.88 ▲</span></div>
+      <div class="forex-item desktop-only" id="fx-aed">AED/INR <span class="forex-up">25.99 ▲</span></div>
+    </div>
+    <a href="contact.html#inquiry-form" class="visit-plan" id="trade-event-promo" data-event-end="2026-11-21T23:59:59+05:30" style="padding-left: 30px; margin-left: 10px; border-left: 1px solid rgba(0,0,0,0.05);">
+      <i class="fa-solid fa-plane-departure" style="font-size: 1rem; margin-right: 5px;"></i> 
+      <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1;">
+        <span style="font-size: 0.7rem; letter-spacing: 1.5px; font-weight: 800;">ANNAPOORNA 2026</span>
+        <span class="vp-sub" style="font-size: 0.58rem; opacity: 0.8; font-weight: 700; text-transform: uppercase;">19–21 NOV | MUMBAI WJEC</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<nav class="jft-navbar" id="navbar" role="navigation" aria-label="Main navigation">
+
+  <!-- Logo row: always visible, desktop nav lives here too -->
+  <div class="nav-flex">
+    <a href="index.html" class="nav-logo-link">
+      <img src="/images/jft-logo-transparent.webp" alt="JFT Agro" class="nav-logo-img" width="200" height="93">
+    </a>
+
+    <!-- Desktop nav links (hidden on mobile via CSS) -->
+    <div class="nav-links-desktop">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">Company</a>
+
+      <!-- PRODUCTS -->
+      <div class="nav-link dropdown-markets">
+        Products <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
+        <div class="markets-menu">
+          <a href="products.html?cat=rice"><i class="fa-solid fa-seedling dd-icon"></i> Rice</a>
+          <a href="products.html?cat=spices"><i class="fa-solid fa-pepper-hot dd-icon"></i> Spices</a>
+          <a href="products.html?cat=wheat"><i class="fa-solid fa-wheat-awn dd-icon"></i> Wheat</a>
+          <a href="products.html?cat=flour"><i class="fa-solid fa-bowl-food dd-icon"></i> Flour &amp; Grains</a>
+          <a href="products.html?cat=pulses"><i class="fa-solid fa-circle dd-icon"></i> Pulses</a>
+          <a href="products.html?cat=oilseeds"><i class="fa-solid fa-droplet dd-icon"></i> Oilseeds</a>
+          <a href="products.html?cat=herbs"><i class="fa-solid fa-leaf dd-icon"></i> Herbs &amp; Seeds</a>
+          <a href="products.html?cat=feed"><i class="fa-solid fa-cow dd-icon"></i> Animal Feed</a>
+          <a href="products.html?cat=sugar"><i class="fa-solid fa-cubes dd-icon"></i> Sugar</a>
+          <a href="products.html?cat=raisins"><i class="fa-solid fa-apple-whole dd-icon"></i> Fruits</a>
+          <div class="dd-divider"></div>
+          <a href="products.html" class="dd-view-all"><i class="fa-solid fa-grid-2 dd-icon"></i> All Products →</a>
+        </div>
+      </div>
+
+      <!-- INFRASTRUCTURE -->
+      <div class="nav-link dropdown-markets">
+        Infrastructure <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
+        <div class="markets-menu">
+          <a href="infrastructure.html"><i class="fa-solid fa-industry dd-icon"></i> Milling Units</a>
+          <a href="quality-control.html"><i class="fa-solid fa-microscope dd-icon"></i> Quality Control</a>
+          <a href="certificates.html"><i class="fa-solid fa-award dd-icon"></i> Certifications</a>
+        </div>
+      </div>
+
+      <!-- TRADE HUB -->
+      <div class="nav-link dropdown-markets">
+        Trade Hub <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
+        <div class="markets-menu">
+          <a href="africa-trade.html"><i class="fa-solid fa-wheat-awn dd-icon"></i> Africa Trade</a>
+          <a href="uae-trade.html"><i class="fa-solid fa-mosque dd-icon"></i> Middle East Hub</a>
+          <a href="asia-trade.html"><i class="fa-solid fa-ferry dd-icon"></i> Asia Trade</a>
+          <a href="europe-trade.html"><i class="fa-solid fa-snowflake dd-icon"></i> Europe Trade</a>
+        </div>
+      </div>
+
+      <!-- TOOLS -->
+      <div class="nav-link dropdown-markets">
+        Tools <i class="fa-solid fa-caret-down" style="font-size:0.7rem;"></i>
+        <div class="markets-menu dd-align-right">
+          <a href="blog.html"><i class="fa-solid fa-newspaper dd-icon"></i> Market Blog</a>
+          <a href="faq.html"><i class="fa-solid fa-circle-question dd-icon"></i> Trade FAQ</a>
+          <div class="dd-divider"></div>
+          <a href="quote-calculator.html"><i class="fa-solid fa-calculator dd-icon"></i> Quote Calculator</a>
+          <a href="packing-calculator.html" aria-current="page"><i class="fa-solid fa-boxes-stacked dd-icon"></i> Packing Calculator</a>
+          <a href="shipment-tracker.html"><i class="fa-solid fa-ship dd-icon"></i> Shipment Tracker</a>
+          <a href="port-transit-calculator.html"><i class="fa-solid fa-map-location-dot dd-icon"></i> Port Transit Time</a>
+          <a href="sample-request.html"><i class="fa-solid fa-flask-vial dd-icon"></i> Request Sample</a>
+          <div class="dd-divider"></div>
+          <a href="whatsapp-catalog.html" style="color:#25d366!important;font-weight:700"><i class="fa-brands fa-whatsapp dd-icon" style="color:#25d366!important;opacity:1"></i> WhatsApp Catalog</a>
+        </div>
+      </div>
+
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="https://wa.me/918425057274?text=Hello%20JFT%20Agro%2C%20I%20need%20an%20export%20quote." class="nav-wa-action" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp export desk" title="WhatsApp export desk"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+      <a href="contact.html#inquiry-form" class="nav-btn-action">Request Quote</a>
+    </div>
+
+    <!-- Hamburger: mobile only -->
+    <button class="mobile-toggle" id="mobileToggleBtn" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNavMenu">
+      <i class="fa-solid fa-bars" id="menuIcon"></i>
+    </button>
+  </div>
+
+</nav>
+
+<!-- ══ MOBILE NAV DRAWER ══════════════════════════════════════════════
+     HOME · COMPANY · PRODUCTS · INFRASTRUCTURE · TRADE HUB · TOOLS · CONTACT -->
+<div class="mobile-nav-drawer" id="mobileNavMenu" aria-hidden="true">
+  <div class="mnav-gold-stripe"></div>
+  <div class="mnav-header">
+    <div class="mnav-brand-dot"></div>
+    <span class="mnav-brand-text">JFT Agro Overseas &nbsp;·&nbsp; Navigation</span>
+  </div>
+  <div class="mnav-section-label">Main Menu</div>
+
+  <a href="index.html" class="mnav-link" onclick="closeMenu()">Home <i class="fa-solid fa-chevron-right mnav-arrow"></i></a>
+  <a href="about.html" class="mnav-link" onclick="closeMenu()">Company <i class="fa-solid fa-chevron-right mnav-arrow"></i></a>
+
+  <!-- PRODUCTS accordion -->
+  <div class="mnav-accordion" id="mnav-products">
+    <div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="acc-products" onclick="toggleSubMenu('acc-products')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+      <span>Products</span>
+      <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-products"></i>
+    </div>
+    <div class="mnav-acc-body" id="acc-products">
+      <a href="products.html?cat=rice" onclick="closeMenu()"><i class="fa-solid fa-seedling mnav-tool-icon"></i> Rice</a>
+      <a href="products.html?cat=spices" onclick="closeMenu()"><i class="fa-solid fa-pepper-hot mnav-tool-icon"></i> Spices</a>
+      <a href="products.html?cat=wheat" onclick="closeMenu()"><i class="fa-solid fa-wheat-awn mnav-tool-icon"></i> Wheat</a>
+      <a href="products.html?cat=flour" onclick="closeMenu()"><i class="fa-solid fa-bowl-food mnav-tool-icon"></i> Flour &amp; Grains</a>
+      <a href="products.html?cat=pulses" onclick="closeMenu()"><i class="fa-solid fa-circle mnav-tool-icon"></i> Pulses</a>
+      <a href="products.html?cat=oilseeds" onclick="closeMenu()"><i class="fa-solid fa-droplet mnav-tool-icon"></i> Oilseeds</a>
+      <a href="products.html?cat=herbs" onclick="closeMenu()"><i class="fa-solid fa-leaf mnav-tool-icon"></i> Herbs &amp; Seeds</a>
+      <a href="products.html?cat=feed" onclick="closeMenu()"><i class="fa-solid fa-cow mnav-tool-icon"></i> Animal Feed</a>
+      <a href="products.html?cat=sugar" onclick="closeMenu()"><i class="fa-solid fa-cubes mnav-tool-icon"></i> Sugar</a>
+      <a href="products.html?cat=raisins" onclick="closeMenu()"><i class="fa-solid fa-apple-whole mnav-tool-icon"></i> Fruits</a>
+      <a href="products.html" onclick="closeMenu()" style="color:rgba(238,191,69,.9);font-weight:700"><i class="fa-solid fa-grid-2 mnav-tool-icon"></i> All Products →</a>
+    </div>
+  </div>
+
+  <!-- INFRASTRUCTURE accordion -->
+  <div class="mnav-accordion" id="mnav-infra">
+    <div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="acc-infra" onclick="toggleSubMenu('acc-infra')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+      <span>Infrastructure</span>
+      <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-infra"></i>
+    </div>
+    <div class="mnav-acc-body" id="acc-infra">
+      <a href="infrastructure.html" onclick="closeMenu()"><i class="fa-solid fa-industry mnav-tool-icon"></i> Milling Units</a>
+      <a href="quality-control.html" onclick="closeMenu()"><i class="fa-solid fa-microscope mnav-tool-icon"></i> Quality Control</a>
+      <a href="certificates.html" onclick="closeMenu()"><i class="fa-solid fa-award mnav-tool-icon"></i> Certifications</a>
+    </div>
+  </div>
+
+  <!-- TRADE HUB accordion -->
+  <div class="mnav-accordion" id="mnav-trade">
+    <div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="acc-trade" onclick="toggleSubMenu('acc-trade')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+      <span>Trade Hub</span>
+      <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-trade"></i>
+    </div>
+    <div class="mnav-acc-body" id="acc-trade">
+      <a href="africa-trade.html" onclick="closeMenu()"><i class="fa-solid fa-wheat-awn mnav-tool-icon"></i> Africa Trade</a>
+      <a href="uae-trade.html" onclick="closeMenu()"><i class="fa-solid fa-mosque mnav-tool-icon"></i> Middle East Hub</a>
+      <a href="asia-trade.html" onclick="closeMenu()"><i class="fa-solid fa-ferry mnav-tool-icon"></i> Asia Trade</a>
+      <a href="europe-trade.html" onclick="closeMenu()"><i class="fa-solid fa-snowflake mnav-tool-icon"></i> Europe Trade</a>
+    </div>
+  </div>
+
+  <!-- TOOLS accordion -->
+  <div class="mnav-accordion" id="mnav-tools">
+    <div class="mnav-acc-label" role="button" tabindex="0" aria-expanded="false" aria-controls="acc-tools" onclick="toggleSubMenu('acc-tools')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+      <span>Tools</span>
+      <i class="fa-solid fa-chevron-down mnav-caret" id="caret-acc-tools"></i>
+    </div>
+    <div class="mnav-acc-body" id="acc-tools">
+      <a href="blog.html" onclick="closeMenu()"><i class="fa-solid fa-newspaper mnav-tool-icon"></i> Market Blog</a>
+      <a href="faq.html" onclick="closeMenu()"><i class="fa-solid fa-circle-question mnav-tool-icon"></i> Trade FAQ</a>
+      <a href="quote-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-calculator mnav-tool-icon"></i> Quote Calculator</a>
+      <a href="packing-calculator.html" onclick="closeMenu()" aria-current="page"><i class="fa-solid fa-boxes-stacked mnav-tool-icon"></i> Packing Calculator</a>
+      <a href="shipment-tracker.html" onclick="closeMenu()"><i class="fa-solid fa-ship mnav-tool-icon"></i> Shipment Tracker</a>
+      <a href="port-transit-calculator.html" onclick="closeMenu()"><i class="fa-solid fa-map-location-dot mnav-tool-icon"></i> Port Transit Time</a>
+      <a href="sample-request.html" onclick="closeMenu()"><i class="fa-solid fa-flask-vial mnav-tool-icon"></i> Request Sample</a>
+      <a href="whatsapp-catalog.html" onclick="closeMenu()" style="color:rgba(37,211,102,.9);font-weight:700"><i class="fa-brands fa-whatsapp mnav-tool-icon" style="color:#25d366"></i> WhatsApp Catalog</a>
+    </div>
+  </div>
+
+  <a href="contact.html" class="mnav-link" onclick="closeMenu()">Contact <i class="fa-solid fa-chevron-right mnav-arrow"></i></a>
+
+  <div class="mnav-footer">
+    <a href="contact.html#inquiry-form" class="mnav-cta" onclick="closeMenu()">
+      <i class="fa-solid fa-paper-plane"></i> Request Quote
+    </a>
+    <div class="mnav-social">
+      <a href="https://www.linkedin.com/company/jft-agro-overseas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/jftagro/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+<div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+
+<script>
+  /* ══ MOBILE NAV ══════════════════════════════════════════════════════ */
+
+  /* ── positionDrawer: measure navbar bottom via getBoundingClientRect ──
+     This is called every time the menu opens AND on scroll/resize so the
+     drawer always sits flush against the navbar bottom with zero gap.    */
+  function positionDrawer() {
+    var navbar  = document.getElementById('navbar');
+    var drawer  = document.getElementById('mobileNavMenu');
+    var overlay = document.getElementById('navOverlay');
+    if (!navbar || !drawer) return;
+
+    var navBottom = navbar.getBoundingClientRect().bottom; /* exact px from viewport top */
+    var remaining = window.innerHeight - navBottom;        /* space left below navbar    */
+
+    drawer.style.top        = navBottom + 'px';
+    drawer.style.maxHeight  = remaining + 'px';
+    if (overlay) overlay.style.top = navBottom + 'px';
+  }
+
+  function toggleMenu() {
+    var drawer = document.getElementById('mobileNavMenu');
+    if (!drawer) return;
+    if (drawer.classList.contains('open')) { closeMenu(); return; }
+
+    positionDrawer(); /* set exact top BEFORE showing */
+
+    var overlay = document.getElementById('navOverlay');
+    var btn     = document.getElementById('mobileToggleBtn');
+    var icon    = document.getElementById('menuIcon');
+
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (overlay) overlay.classList.add('show');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    if (icon) { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); }
+    document.body.classList.add('mobile-nav-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    var drawer  = document.getElementById('mobileNavMenu');
+    var overlay = document.getElementById('navOverlay');
+    var btn     = document.getElementById('mobileToggleBtn');
+    var icon    = document.getElementById('menuIcon');
+    if (!drawer) return;
+
+    /* Close all accordions */
+    document.querySelectorAll('.mnav-accordion.open').forEach(function(a) {
+      a.classList.remove('open');
+      var openLabel = a.querySelector('.mnav-acc-label');
+      if (openLabel) openLabel.setAttribute('aria-expanded', 'false');
+    });
+
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (overlay) overlay.classList.remove('show');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    if (icon) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
+    document.body.classList.remove('mobile-nav-open');
+    document.body.style.overflow = '';
+  }
+
+  function toggleSubMenu(accId) {
+    var body = document.getElementById(accId);
+    if (!body) return;
+    /* Parent is the .mnav-accordion wrapper — find it by ID convention */
+    var parent = document.getElementById('mnav-acc-' + accId.replace('acc-',''));
+    if (!parent) parent = body.closest('.mnav-accordion');
+    if (!parent) return;
+    var isOpen = parent.classList.contains('open');
+    /* Close all others */
+    document.querySelectorAll('.mnav-accordion.open').forEach(function(a) {
+      if (a !== parent) { a.classList.remove('open'); var otherLabel = a.querySelector('.mnav-acc-label'); if (otherLabel) otherLabel.setAttribute('aria-expanded', 'false'); }
+    });
+    parent.classList.toggle('open', !isOpen);
+    var label = parent.querySelector('.mnav-acc-label');
+    if (label) label.setAttribute('aria-expanded', String(!isOpen));
+  }
+
+  /* Re-position drawer on scroll (navbar may move when top-dashboard scrolls away) */
+  window.addEventListener('scroll', function() {
+    if (document.getElementById('mobileNavMenu').classList.contains('open')) {
+      positionDrawer();
+    }
+  }, { passive: true });
+
+  /* Re-position on resize, close if desktop */
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 1024) { closeMenu(); return; }
+    if (document.getElementById('mobileNavMenu').classList.contains('open')) {
+      positionDrawer();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+  function initMobileDropdowns() {}
+  function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
+
+  function setForexStatus(text, state) {
+    const status = document.getElementById('forex-status');
+    if (!status) return;
+    status.textContent = text;
+    status.dataset.state = state || 'fallback';
+  }
+
+  async function fetchLiveForex() {
+    const fallbacks = { 'fx-usd': 84.85, 'fx-eur': 91.40, 'fx-gbp': 108.50, 'fx-aed': 23.10 };
+    const labels = { 'fx-usd': 'USD/INR', 'fx-eur': 'EUR/INR', 'fx-gbp': 'GBP/INR', 'fx-aed': 'AED/INR' };
+    
+    // Initial load with fallbacks to avoid "---"
+    Object.keys(fallbacks).forEach(id => updateTickerDOM(id, labels[id], fallbacks[id]));
+    setForexStatus('Indicative rates', 'fallback');
+
+    /* Reuse a recent response across page views instead of calling three
+       third-party APIs on every navigation. */
+    try {
+      const cached = JSON.parse(localStorage.getItem('jft_forex_cache') || 'null');
+      if (cached && Date.now() - cached.savedAt < 30 * 60 * 1000 && cached.rates) {
+        updateTickerDOM('fx-usd', 'USD/INR', cached.rates.usd);
+        updateTickerDOM('fx-eur', 'EUR/INR', cached.rates.eur);
+        updateTickerDOM('fx-gbp', 'GBP/INR', cached.rates.gbp);
+        updateTickerDOM('fx-aed', 'AED/INR', cached.rates.aed);
+        setForexStatus('Cached ' + new Date(cached.savedAt).toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' }), 'cached');
+        return;
+      }
+    } catch (e) {
+      /* Storage can be unavailable in strict privacy modes; continue safely. */
+    }
+
+    /* Try multiple APIs in order — fallbacks ensure rates always show */
+    const APIS = [
+      {
+        url: 'https://api.exchangerate-api.com/v4/latest/USD',
+        parse: (d) => ({
+          usd: d.rates.INR,
+          eur: d.rates.INR / d.rates.EUR,
+          gbp: d.rates.INR / d.rates.GBP,
+          aed: d.rates.INR / d.rates.AED
+        })
+      },
+      {
+        url: 'https://open.er-api.com/v6/latest/USD',
+        parse: (d) => ({
+          usd: d.rates.INR,
+          eur: d.rates.INR / d.rates.EUR,
+          gbp: d.rates.INR / d.rates.GBP,
+          aed: d.rates.INR / d.rates.AED
+        })
+      }
+    ];
+
+    let ratesFetched = false;
+    for (const api of APIS) {
+      if (ratesFetched) break;
+      try {
+        const ctrl = new AbortController();
+        const tid = setTimeout(() => ctrl.abort(), 6000);
+        const resp = await fetch(api.url, { signal: ctrl.signal });
+        clearTimeout(tid);
+        if (!resp.ok) throw new Error('API error: ' + resp.status);
+        const data = await resp.json();
+        const rates = api.parse(data);
+        if (rates.usd && rates.usd > 50) { /* sanity check */
+          updateTickerDOM('fx-usd', 'USD/INR', rates.usd);
+          updateTickerDOM('fx-eur', 'EUR/INR', rates.eur);
+          updateTickerDOM('fx-gbp', 'GBP/INR', rates.gbp);
+          updateTickerDOM('fx-aed', 'AED/INR', rates.aed);
+          try {
+            localStorage.setItem('jft_forex_cache', JSON.stringify({ savedAt: Date.now(), rates }));
+          } catch (e) {}
+          setForexStatus('Live updated ' + new Date().toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' }), 'live');
+          ratesFetched = true;
+          console.log('Forex loaded from:', api.url.split('/')[2]);
+        }
+      } catch(e) {
+        console.warn('Forex API failed, trying next:', api.url.split('/')[2], e.message);
+      }
+    }
+    if (!ratesFetched) {
+      console.warn('All forex APIs failed. Showing fallback rates.');
+      setForexStatus('Indicative fallback', 'fallback');
+    }
+  }
+
+  function updateTickerDOM(id, label, value) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const prevText = el.querySelector('span') ? parseFloat(el.querySelector('span').textContent) : 0;
+    const arrow = prevText > 0 ? (value >= prevText ? '▲' : '▼') : '▲';
+    const cls = (prevText > 0 && value < prevText) ? 'forex-down' : 'forex-up';
+    el.innerHTML = `${label} <span class="${cls}">${value.toFixed(2)} ${arrow}</span>`;
+  }
+
+  async function fetchMarketNews() {
+    const ticker = document.getElementById('dynamic-ticker');
+    const fallbacks = [
+      '<div class="t-item"><i class="fa-solid fa-ship"></i><span>SHIPPING:</span> Container Freight Rates Stabilizing for Gulf Routes</div>',
+      '<div class="t-item"><i class="fa-solid fa-seedling"></i><span>RICE:</span> Indian Basmati Demand Surges in EU & Middle East</div>',
+      '<div class="t-item"><i class="fa-solid fa-pepper-hot"></i><span>SPICES:</span> Turmeric & Cumin Market Outlook Bullish for Q3</div>'
+    ];
+    
+    try {
+      /* Resolve news.json relative to site root, not current page depth */
+      const newsUrl = window.location.origin + '/news.json';
+      const response = await fetch(newsUrl);
+      if (!response.ok) throw new Error('News feed not found');
+      const news = await response.json();
+      
+      if (news && news.length > 0) {
+        let newsHTML = `<div class="t-item daily-flash"><i class="fa-solid fa-wheat-awn"></i><span>AGRO PULSE:</span> Live Trade Feed</div>`;
+        news.forEach(item => {
+          newsHTML += `<div class="t-item"><i class="fa-solid fa-arrow-trend-up"></i><span>TRADE:</span> ${item.title}</div>`;
+        });
+        ticker.innerHTML = newsHTML + newsHTML; // Double for seamless loop
+        startMobileTicker();
+      } else {
+        throw new Error('Empty news feed');
+      }
+    } catch(err) {
+      console.warn('Live news fetch failed, using high-quality curated Pulse.');
+      ticker.innerHTML = fallbacks.join('') + fallbacks.join('');
+      startMobileTicker();
+    }
+  }
+
+  function startMobileTicker() {
+    const ticker = document.getElementById('dynamic-ticker');
+    if (!ticker) return;
+    const items = Array.from(ticker.querySelectorAll('.t-item'));
+    const uniqueCount = Math.max(1, Math.floor(items.length / 2));
+    let current = 0;
+    function showCurrent() {
+      items.forEach(item => item.classList.remove('mobile-current'));
+      if (items[current]) items[current].classList.add('mobile-current');
+    }
+    showCurrent();
+    clearInterval(window.jftMobileTickerTimer);
+    window.jftMobileTickerTimer = setInterval(function() {
+      if (window.innerWidth <= 768) {
+        current = (current + 1) % uniqueCount;
+        showCurrent();
+      }
+    }, 5000);
+  }
+
+  function initLocalizationLinks() {
+    const grid = document.getElementById('localized-links');
+    if (!grid) return;
+    const isSub = window.location.pathname.includes('/ar/') || window.location.pathname.includes('/vi/') || window.location.pathname.includes('/fr/') || window.location.pathname.includes('/ru/') || window.location.pathname.includes('/es/') || window.location.pathname.includes('/pt/') || window.location.pathname.includes('/ms/') || window.location.pathname.includes('/id/') || window.location.pathname.includes('/th/') || window.location.pathname.includes('/si/');
+    const prefix = isSub ? '../' : '';
+    
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    const englishOnly = new Set([
+      'blog-green-mung-beans-export-india-2026.html',
+      'blog-how-to-read-proforma-invoice-india-export.html',
+      'blog-india-rice-export-sri-lanka-bangladesh.html',
+      'blog-letter-of-credit-food-imports-india.html',
+      'blog-sgs-inspection-indian-agro-exports.html',
+      'blog-toor-dal-export-india-2026.html'
+    ]);
+    let langs = [
+      { code: 'en', name: 'English', flag: 'https://flagcdn.com/w40/us.png', path: prefix + page },
+      { code: 'ar', name: 'العربية', flag: 'https://flagcdn.com/w40/ae.png', path: prefix + 'ar/' + page },
+      { code: 'fr', name: 'Français', flag: 'https://flagcdn.com/w40/fr.png', path: prefix + 'fr/' + page },
+      { code: 'ru', name: 'Русский', flag: 'https://flagcdn.com/w40/ru.png', path: prefix + 'ru/' + page },
+      { code: 'es', name: 'Español', flag: 'https://flagcdn.com/w40/es.png', path: prefix + 'es/' + page },
+      { code: 'pt', name: 'Português', flag: 'https://flagcdn.com/w40/pt.png', path: prefix + 'pt/' + page },
+      { code: 'vi', name: 'Tiếng Việt', flag: 'https://flagcdn.com/w40/vn.png', path: prefix + 'vi/' + page },
+      { code: 'ms', name: 'Melayu', flag: 'https://flagcdn.com/w40/my.png', path: prefix + 'ms/' + page },
+      { code: 'id', name: 'Indonesia', flag: 'https://flagcdn.com/w40/id.png', path: prefix + 'id/' + page },
+      { code: 'th', name: 'ไทย', flag: 'https://flagcdn.com/w40/th.png', path: prefix + 'th/' + page },
+      { code: 'si', name: 'සිංහල', flag: 'https://flagcdn.com/w40/lk.png', path: prefix + 'si/' + page }
+    ];
+    if (englishOnly.has(page)) langs = langs.filter(l => l.code === 'en');
+    grid.innerHTML = langs.map(l => `<a href="${l.path}"><img src="${l.flag}" class="lang-flag" alt="${l.code}"> ${l.name}</a>`).join('');
+  }
+
+  /* ── INIT: run immediately if DOM already loaded (header injected via fetch),
+     or wait for DOMContentLoaded if somehow loaded synchronously ── */
+  function jftHeaderInit() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(function(err) {
+        console.warn('Service worker registration failed:', err);
+      });
+    }
+    fetchLiveForex();
+    fetchMarketNews();
+    initLocalizationLinks();
+    const eventPromo = document.getElementById('trade-event-promo');
+    if (eventPromo && Date.now() > new Date(eventPromo.dataset.eventEnd).getTime()) eventPromo.remove();
+    document.querySelectorAll('.nav-links-desktop a, .mobile-nav-drawer a').forEach(function(link) {
+      try {
+        const target = new URL(link.getAttribute('href'), window.location.href);
+        if (target.pathname === window.location.pathname && target.search === window.location.search) {
+          link.setAttribute('aria-current', 'page');
+        }
+      } catch (e) {}
+    });
+    const dateSpan = document.getElementById('forex-date');
+    if (dateSpan) dateSpan.innerText = 'RATES AS OF ' + new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      jftHeaderInit();
+      initMobileDropdowns();
+    });
+  } else {
+    /* DOM already loaded — header was injected dynamically */
+    jftHeaderInit();
+    initMobileDropdowns();
+  }
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
+<script src="/jft-conversion.js"></script>
+<style id="cookie-banner-css">
+#jft-cookie-bar{position:fixed;bottom:0;left:0;width:100%;background:#1a3c34;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;z-index:10000;font-family:'Lato',sans-serif;font-size:.88rem;line-height:1.5;border-top:3px solid #eebf45;transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);box-shadow:0 -4px 20px rgba(0,0,0,.25)}
+#jft-cookie-bar.show{transform:translateY(0)}
+body.mobile-nav-open #jft-cookie-bar.show{transform:translateY(100%)}
+.cb-text{flex:1;min-width:240px;color:rgba(255,255,255,.85)}
+.cb-text a{color:#eebf45;font-weight:700}
+.cb-btns{display:flex;gap:10px;flex-shrink:0}
+.cb-accept{background:#eebf45;color:#1a3c34;border:none;padding:10px 22px;border-radius:50px;font-weight:800;font-size:.8rem;cursor:pointer;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.5px;transition:.2s}
+.cb-accept:hover{background:#f7ca5e}
+.cb-decline{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.25);padding:10px 18px;border-radius:50px;font-weight:700;font-size:.8rem;cursor:pointer;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.5px;transition:.2s}
+.cb-decline:hover{border-color:rgba(255,255,255,.5);color:#fff}
+@media(max-width:600px){
+  #jft-cookie-bar{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 12px;font-size:.72rem;line-height:1.4}
+  .cb-text{min-width:0}
+  .cb-btns{display:grid;grid-template-columns:1fr 1fr;width:100%;gap:8px}
+  .cb-accept,.cb-decline{min-height:42px;padding:8px 6px;border-radius:6px;font-size:.64rem;text-align:center}
+}
+</style>
+
+<div id="jft-cookie-bar" role="dialog" aria-label="Cookie consent" class="show">
+  <div class="cb-text">
+    <strong>Analytics preferences</strong> help us understand how trade buyers use the site. No personal data is sold.
+    <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </div>
+  <div class="cb-btns">
+    <button class="cb-accept" onclick="jftCookieAccept()">Accept &amp; Continue</button>
+    <button class="cb-decline" onclick="jftCookieDecline()">Essential Only</button>
+  </div>
+</div>
+</div>
+  <main id="main-content" class="packing-page" tabindex="-1">
+    <section class="jft-page-hero"><div class="jft-page-hero-bg" style="background-image:url('images/INFRASTRUCTURE/packing unit.webp');"></div><div class="jft-page-hero-glow"></div><div class="jft-page-hero-gold-stripe"></div><div class="jft-wide-container jft-page-hero-inner"><nav class="jft-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span style="color:var(--gold)">Packing Calculator</span></nav><span class="brand-tag brand-tag-white"><i class="fa-solid fa-boxes-stacked"></i> Container Planning Tool</span><h1 style="font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:0;margin:18px 0 20px;">Plan Bags, Payload<br><em style="color:var(--gold-light);font-style:italic;font-weight:300;">and Container Space</em></h1><p class="jft-page-hero-sub">Estimate a safe planning count using product density or measured filled-bag dimensions, packaging tare, pallets, route limits and a configurable buffer.</p><div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-weight-scale"></i> Weight Limit</span><span class="jft-hero-tag"><i class="fa-solid fa-cube"></i> Volume Limit</span><span class="jft-hero-tag"><i class="fa-solid fa-shield-halved"></i> Safety Buffer</span></div><div class="packing-hero-note"><i class="fa-solid fa-triangle-exclamation"></i><span><strong>Planning estimate only:</strong> confirm the assigned container CSC plate, carrier booking, road and port limits, actual bag dimensions, pallet layout and verified weights before loading. This tool is not a VGM or stuffing instruction.</span></div></div></section>
+
+    <section class="equipment-strip" aria-label="Reference dry-container capacities"><div class="jft-wide-container"><div class="equipment-grid"><article class="equipment-card"><strong>20ft Standard Dry</strong><span>33.2 CBM reference volume<br>28,300 kg equipment payload</span></article><article class="equipment-card"><strong>40ft Standard Dry</strong><span>67.7 CBM reference volume<br>28,870 kg equipment payload</span></article><article class="equipment-card"><strong>40ft High Cube Dry</strong><span>76.4 CBM reference volume<br>28,690 kg equipment payload</span></article></div><p class="equipment-source"><i class="fa-solid fa-circle-info"></i><span>Reference equipment values from <a href="https://www.maersk.com/support/faqs/2023/10/09/cargo-weight-limit" target="_blank" rel="noopener">Maersk dry-container specifications</a>. Container series and country limits vary; use the assigned unit's CSC plate and booking instructions.</span></p></div></section>
+
+    <section id="calculator" class="packing-workspace"><div class="jft-wide-container"><div class="packing-shell">
+      <form id="packing-form" class="packing-form" onsubmit="return false"><div class="packing-form-head"><div><h2>Configure the Load</h2><p>Start with benchmark data, then replace assumptions with measured shipment details.</p></div><span class="planning-badge"><i class="fa-solid fa-triangle-exclamation"></i> Reference only</span></div>
+        <section class="pack-section"><h3 class="pack-section-title"><i class="fa-solid fa-seedling"></i> Product and bag</h3><div class="pack-row"><div class="pack-field pack-field-full"><label for="product">Product type</label><select id="product"><optgroup label="Rice"><option value="rice_basmati">Basmati Rice</option><option value="rice_nonbasmati">Non-Basmati Rice</option><option value="rice_parboiled">Parboiled Rice</option><option value="rice_broken">Broken Rice</option></optgroup><optgroup label="Grains and flours"><option value="wheat_flour">Wheat Flour / Maida</option><option value="semolina">Semolina / Sooji</option><option value="maize">Yellow Maize</option><option value="barley">Barley Seeds</option></optgroup><optgroup label="Pulses and oilseeds"><option value="pulses">Pulses and Legumes</option><option value="groundnuts">Groundnuts / Peanuts</option><option value="soybean">Soybean</option><option value="sesame">Sesame Seeds</option></optgroup><optgroup label="Spices and botanicals"><option value="cumin">Cumin Seeds</option><option value="coriander">Coriander Seeds</option><option value="turmeric">Turmeric Finger / Powder</option><option value="chilli">Dry Red Chilli</option><option value="pepper">Black Pepper</option><option value="fennel">Fennel / Fenugreek Seeds</option><option value="psyllium">Psyllium Husk / Seeds</option></optgroup><optgroup label="Other"><option value="sugar">Sugar S-30</option><option value="oil_cake">Oil Cake</option></optgroup></select></div></div><div class="pack-row"><div class="pack-field"><label for="bag-size">Net product per bag, kg</label><select id="bag-size"><option value="1">1 kg</option><option value="5">5 kg</option><option value="10">10 kg</option><option value="25">25 kg</option><option value="50" selected="">50 kg</option></select></div><div class="pack-field"><label for="bag-type">Bag material</label><select id="bag-type"><option value="pp_woven">PP woven</option><option value="non_woven">Non-woven</option><option value="jute">Jute</option><option value="hdpe">HDPE</option><option value="kraft_paper">Kraft / multiwall</option></select></div></div><div class="pack-row"><div class="pack-field"><label for="gross-bag-weight">Measured gross bag weight, kg</label><input id="gross-bag-weight" type="number" min="0" step="0.01" placeholder="Optional"><span class="pack-help">When blank, the tool adds reference packaging tare.</span></div><div id="density-field" class="pack-field"><label for="bulk-density">Bulk density, kg/CBM</label><input id="bulk-density" type="number" min="1" step="1"><span class="pack-help">Measure the actual lot when possible.</span></div></div><label class="toggle-card" for="measured-bag"><input id="measured-bag" type="checkbox"><span><strong>Use measured filled-bag dimensions</strong><span>Replaces bulk-density volume with the real bag envelope.</span></span></label><div id="measured-fields" class="pack-row conditional-fields"><div class="pack-field"><label for="bag-length">Filled length, cm</label><input id="bag-length" type="number" min="1" step="0.1" value="80"></div><div class="pack-field"><label for="bag-width">Filled width, cm</label><input id="bag-width" type="number" min="1" step="0.1" value="50"></div><div class="pack-field"><label for="bag-height">Filled thickness, cm</label><input id="bag-height" type="number" min="1" step="0.1" value="15"></div><div class="pack-field"><label for="stack-efficiency">Stacking efficiency, %</label><input id="stack-efficiency" type="number" min="40" max="100" step="1" value="92"></div></div></section>
+
+        <section class="pack-section"><h3 class="pack-section-title"><i class="fa-solid fa-ship"></i> Container and route limit</h3><div class="container-switch" role="group" aria-label="Container type"><button class="container-option active" type="button" data-container="20ft" aria-pressed="true"><strong>20ft Dry</strong><span>33.2 CBM</span></button><button class="container-option" type="button" data-container="40ft" aria-pressed="false"><strong>40ft Dry</strong><span>67.7 CBM</span></button><button class="container-option" type="button" data-container="40hc" aria-pressed="false"><strong>40ft HC</strong><span>76.4 CBM</span></button></div><div class="pack-row" style="margin-top:15px"><div class="pack-field"><label for="cargo-cap">Booked route cargo cap, kg</label><input id="cargo-cap" type="number" min="1" step="10"><span class="pack-help">Use the lower carrier, road or port limit.</span></div><div class="pack-field"><label for="safety-buffer">Weight safety buffer, %</label><input id="safety-buffer" type="number" min="0" max="15" step="0.5"></div></div><div class="pack-row"><div class="pack-field"><label for="dunnage-weight">Dunnage and securing, kg</label><input id="dunnage-weight" type="number" min="0" step="1"></div><div class="pack-field"><label>Selected equipment reference</label><div id="equipment-reference" class="pack-readout" aria-live="polite">28,300 kg maximum payload</div><span class="pack-help">Confirm the assigned container's CSC plate.</span></div></div></section>
+
+        <section class="pack-section"><h3 class="pack-section-title"><i class="fa-solid fa-pallet"></i> Pallet plan</h3><label class="toggle-card" for="palletised"><input id="palletised" type="checkbox"><span><strong>Calculate a palletised load</strong><span>Includes pallet tare and a conservative volume-layout factor.</span></span></label><div id="pallet-fields" class="pack-row conditional-fields"><div class="pack-field"><label for="pallet-count">Number of pallets</label><input id="pallet-count" type="number" min="0" step="1"></div><div class="pack-field"><label for="pallet-tare">Tare per pallet, kg</label><input id="pallet-tare" type="number" min="0" step="0.1"></div></div></section>
+        <button id="calculate-packing" class="packing-action" type="button"><i class="fa-solid fa-calculator"></i> Update Packing Plan</button><p class="packing-note"><i class="fa-solid fa-circle-info"></i><span>The planned payload includes product, bag tare, pallets and dunnage. It does not calculate container tare or certified VGM.</span></p>
+      <input type="hidden" name="landing_page" value="/packing-calculator.html"></form>
+
+      <aside class="packing-results" aria-live="polite"><div class="result-top"><span class="result-kicker">Packing estimate</span><span id="result-mode" class="result-mode">Density benchmark mode</span></div><div id="pack-placeholder" class="pack-placeholder" style="display: none;"><i class="fa-solid fa-boxes-stacked"></i><strong>Loading packing references</strong><p>The calculator is validating container, density and packaging data.</p></div><div id="pack-result-content" class="pack-result-content show"><div class="bag-result"><div id="result-label" class="bag-result-label">20ft Standard Dry safe planning count</div><div id="result-bags" class="bag-result-number">476</div><div id="result-sub" class="bag-result-sub">23.80 MT net product in 50 kg bags</div></div><div class="buffer-callout"><i class="fa-solid fa-shield-halved"></i><span id="buffer-text"><strong>0 bags held back</strong> from the theoretical 476-bag limit by the 3.0% weight buffer.</span></div><div class="result-grid"><div class="result-stat"><span>Total planned payload</span><strong id="stat-gross">24,067 kg</strong></div><div class="result-stat"><span>Route cargo cap</span><strong id="stat-route-cap">26,000 kg</strong></div><div class="result-stat"><span>Equipment payload ref.</span><strong id="stat-equipment">28,300 kg</strong></div><div class="result-stat"><span>Volume used</span><strong id="stat-volume">30.5 / 33.2 CBM</strong></div><div class="result-stat"><span>Pallet + dunnage tare</span><strong id="stat-tare">100 kg</strong></div><div class="result-stat"><span>Limiting factor</span><strong id="stat-limit">Volume / stacking</strong></div></div><div class="util-block"><div><div class="util-head"><span>Route-cap utilisation</span><strong id="weight-util-label">92.6%</strong></div><div class="util-track"><div id="weight-util-bar" class="util-fill warn" style="width: 92.5638%;"></div></div></div><div><div class="util-head"><span>Container-volume utilisation</span><strong id="volume-util-label">91.9%</strong></div><div class="util-track"><div id="volume-util-bar" class="util-fill warn" style="width: 91.9061%;"></div></div></div></div><div id="packing-warning" class="result-warning show"><i class="fa-solid fa-triangle-exclamation"></i><span id="packing-warning-text">Density sensitivity suggests approximately 452-498 bags. Use measured filled-bag dimensions for a firmer plan.</span></div><div class="result-actions"><a class="result-primary" href="contact.html#inquiry-form"><i class="fa-solid fa-clipboard-check"></i> Confirm Stuffing Plan</a><a id="packing-wa" class="result-secondary" href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20please%20confirm%20a%20stuffing%20plan%20for%3A%0AProduct%3A%20Basmati%20Rice%0AContainer%3A%2020ft%20Standard%20Dry%0APacking%3A%2050%20kg%20bags%0APlanning%20result%3A%20476%20bags%20%2F%2023.80%20MT%20net%0AMode%3A%20Bulk-density%20benchmark%0ARoute%20cargo%20cap%20entered%3A%2026000%20kg%0AI%20understand%20this%20is%20a%20planning%20estimate%20and%20requires%20container%2C%20route%20and%20loading%20confirmation." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a><button id="copy-packing" class="result-secondary" type="button"><i class="fa-solid fa-copy"></i> Copy Plan</button><button id="print-packing" class="result-secondary" type="button"><i class="fa-solid fa-print"></i> Print</button></div><div id="copy-status" class="copy-status"><i class="fa-solid fa-check"></i> Packing plan copied</div></div></aside>
+    </div>
+    <section class="comparison-panel"><div class="comparison-head"><h2>Container Comparison</h2><p>Other sizes use their default planning cargo cap; the selected size uses your entered cap.</p></div><div class="comparison-scroll"><table class="comparison-table"><thead><tr><th>Container</th><th>Safe bags</th><th>Net cargo</th><th>Route cap used</th><th>Limiting factor</th></tr></thead><tbody id="comparison-body"><tr class="selected"><td><strong>20ft Standard Dry</strong> (selected)</td><td>476</td><td>23.80 MT</td><td>26,000 kg</td><td>Volume / stacking</td></tr><tr><td><strong>40ft Standard Dry</strong></td><td>527</td><td>26.35 MT</td><td>27,500 kg</td><td>Route / weight cap</td></tr><tr><td><strong>40ft High Cube Dry</strong></td><td>527</td><td>26.35 MT</td><td>27,500 kg</td><td>Route / weight cap</td></tr></tbody></table></div></section>
+    </div></section>
+
+    <section class="packing-method"><div class="jft-wide-container method-layout"><div><h2>What Makes a Packing Plan Reliable?</h2><p>A container's cubic capacity does not mean it can carry that volume at any weight. Heavy commodities usually reach a payload or route limit before filling a 40ft container; low-density products may reach volume first. High Cube equipment adds space, not unlimited legal payload.</p><p>For final planning, replace averages with an assigned container number and CSC plate, carrier booking restrictions, measured gross bag weight, filled-bag dimensions, pallet layout and loading trial. The verified gross mass must follow the applicable shipping process.</p></div><div class="method-cards"><div class="method-card"><i class="fa-solid fa-id-card"></i><div><strong>Assigned equipment</strong><span>Confirm the actual CSC plate and carrier instructions, not only the container type.</span></div></div><div class="method-card"><i class="fa-solid fa-road"></i><div><strong>Route cargo cap</strong><span>Use the lowest applicable carrier, road, terminal or destination limit.</span></div></div><div class="method-card"><i class="fa-solid fa-ruler-combined"></i><div><strong>Measured packaging</strong><span>Use filled-bag envelope dimensions and actual gross weight for a firmer plan.</span></div></div><div class="method-card"><i class="fa-solid fa-shield-halved"></i><div><strong>Operational buffer</strong><span>Allow for moisture, scale variation, packaging tare and loading differences.</span></div></div></div></div></section>
+
+    <section class="jft-cta-block"><div class="jft-wide-container"><div class="cta-eyebrow">Ready to Confirm?</div><h2 class="cta-block-title">Turn the Planning Count Into<br><em>A Verified Stuffing Plan</em></h2><p class="cta-block-desc">Share the product specification, bag dimensions, pallet plan, container booking and destination limits for review.</p><div class="cta-actions"><a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-clipboard-check"></i> Confirm Packing Plan</a><a href="quote-calculator.html" class="btn-outline"><i class="fa-solid fa-calculator"></i> Estimate Export Cost</a></div><div class="cta-trust-row"><span class="cta-trust-item"><i class="fa-solid fa-weight-scale"></i> Gross Weight Check</span><span class="cta-trust-item"><i class="fa-solid fa-pallet"></i> Pallet Review</span><span class="cta-trust-item"><i class="fa-solid fa-cube"></i> Volume Planning</span><span class="cta-trust-item"><i class="fa-solid fa-camera"></i> Loading Records</span></div></div></section>
+  </main><div id="footer-placeholder">
+<style>
+    /* --- Footer Core Styles --- */
+    .footer-section { 
+        background: var(--jft-navy); 
+        color: #fff; 
+        padding: 72px 0 24px 0; 
+        border-top: 5px solid var(--jft-gold);
+        width: 100%;
+        box-sizing: border-box;
+        font-family: var(--font-body);
+        position: relative;
+        overflow: clip;
+    }
+    .footer-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+        background-size: 24px 24px;
+        pointer-events: none;
+    }
+    
+    .jft-wide-container {
+        width: 100%;
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 55px);
+        box-sizing: border-box;
+    }
+    
+    /* Hide Google Translate artifacts */
+    #goog-gt-tt, .goog-te-balloon-frame, .goog-te-banner-frame, .goog-te-menu-frame, .goog-te-menu-value:first-child, .skiptranslate { display: none !important; }
+    .goog-text-highlight { background: none !important; box-shadow: none !important; }
+    body { top: 0 !important; }
+    
+    .footer-grid { 
+        display: grid; 
+        grid-template-columns: 1.15fr 0.75fr 1fr 1.05fr; 
+        gap: 38px; 
+        margin-bottom: 42px; 
+        align-items: start;
+        position: relative;
+        z-index: 2;
+    }
+
+    .f-col h3 { 
+        font-family: var(--font-sub); 
+        font-size: 1rem;
+        margin-bottom: 30px; 
+        color: var(--jft-gold); 
+        text-transform: uppercase;
+        letter-spacing: 2px; 
+        font-weight: 800;
+        position: relative;
+    }
+    .f-col h3::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--jft-primary);
+    }
+
+    .f-links li { margin-bottom: 12px; list-style: none; }
+    .f-links { padding: 0; margin: 0; }
+    .f-links a { 
+        color: rgba(255,255,255,0.6); 
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        display: inline-block;
+    }
+    .f-links a:hover { color: var(--jft-gold); transform: translateX(8px); }
+
+    .f-contact li { 
+        display: flex; 
+        gap: 15px; 
+        margin-bottom: 25px; 
+        font-size: 0.95rem; 
+        color: rgba(255,255,255,0.75); 
+        line-height: 1.6; 
+        align-items: flex-start;
+        list-style: none;
+    }
+    .f-contact { padding: 0; margin: 0; }
+    .f-contact i { color: var(--jft-gold); margin-top: 5px; font-size: 1.1rem; }
+    .f-contact a { color: inherit; text-decoration: none; transition: 0.3s; border-bottom: 1px solid transparent; }
+    .f-contact a:hover { color: var(--jft-gold); border-bottom-color: var(--jft-gold); }
+
+    .f-input { 
+        width: 100%; 
+        padding: 16px; 
+        background: rgba(255,255,255,0.1); 
+        border: 1px solid rgba(255,255,255,0.15); 
+        border-radius: 8px; 
+        color: #fff; 
+        margin-bottom: 15px; 
+        font-size: 0.9rem;
+        transition: 0.3s;
+    }
+    .f-input:focus { outline: none; border-color: var(--jft-gold); background: rgba(255,255,255,0.1); }
+    
+    .f-btn-pro { 
+        width: 100%; 
+        padding: 18px; 
+        background: var(--jft-gold); 
+        color: var(--jft-navy); 
+        border: none; 
+        border-radius: 8px; 
+        font-family: var(--font-sub);
+        font-weight: 800; 
+        text-transform: uppercase; 
+        font-size: 0.85rem; 
+        cursor: pointer; 
+        transition: 0.3s; 
+        letter-spacing: 1.5px; 
+        box-shadow: 0 4px 15px rgba(238, 191, 69, 0.2);
+    }
+    .f-btn-pro:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+    .f-verify { margin:22px 0;padding:14px 0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.62);font-size:.76rem;line-height:1.65; }
+    .f-verify strong { display:block;color:#fff;font-family:var(--font-sub);font-size:.72rem;text-transform:uppercase;letter-spacing:.7px;margin-bottom:4px; }
+    .f-verify a { color:var(--jft-gold);font-weight:700; }
+    .f-select { width:100%;min-height:46px;margin-bottom:10px;padding:0 12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:#24473e;color:#fff;font:600 .78rem var(--font-sub); }
+    .f-select:focus { outline:3px solid rgba(238,191,69,.25);border-color:var(--jft-gold); }
+    .f-response { display:flex;align-items:flex-start;gap:9px;margin:14px 0;color:rgba(255,255,255,.68);font-size:.76rem;line-height:1.55; }
+    .f-response i { color:var(--jft-gold);margin-top:3px; }
+
+    .f-trust-bar {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        margin-top: 48px;
+        padding: 28px 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .trust-group { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+    .trust-logo { height: 45px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.6; transition: 0.4s; }
+    .trust-logo:hover { filter: none; opacity: 1; transform: scale(1.05); }
+
+    .f-social-icon {
+        color: #fff;
+        font-size: 1.3rem;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        margin-right: 12px;
+    }
+    .f-social-icon:hover {
+        background: var(--jft-gold);
+        color: var(--jft-navy);
+        transform: translateY(-5px) rotate(8deg);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .footer-bottom { 
+        border-top: 1px solid rgba(255,255,255,0.08); 
+        padding: 40px 0; 
+        text-align: center; 
+        font-size: 0.85rem; 
+        color: rgba(255,255,255,0.4); 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; margin-left: 25px; transition: 0.3s; font-weight: 600; }
+    .footer-bottom a:hover { color: var(--jft-gold); }
+
+    @media (max-width: 1024px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 50px; }
+        .footer-bottom { justify-content: center; flex-direction: column-reverse; }
+        .footer-bottom div { text-align: center; }
+        .footer-bottom a { margin: 0 12px; }
+    }
+    @media (max-width: 650px) {
+        .footer-section { padding:38px 0 16px; }
+        .footer-grid { grid-template-columns: 1fr; gap: 20px; text-align: left; margin-bottom:18px; }
+        .f-col:first-child { text-align:center; }
+        .f-col:first-child > img { width:155px !important; margin-bottom:14px !important; }
+        .f-col:first-child > p { font-size:.84rem !important; line-height:1.6 !important; margin-bottom:16px !important; }
+        .f-verify { margin:12px 0;padding:10px 0;font-size:.7rem; }
+        .f-col h3::after { left: 50%; transform: translateX(-50%); }
+        .f-col h3 { text-align:center;margin-bottom:20px; }
+        .f-links { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px;text-align:center; }
+        .f-links li { margin-bottom:7px; }
+        .f-links a { font-size:.82rem; }
+        .f-contact li { justify-content: flex-start; text-align: left; flex-direction: row; align-items: flex-start; margin-bottom:10px;font-size:.82rem;line-height:1.5; }
+        .f-contact i { margin:4px 0 0; }
+        .f-response { display:none; }
+        .trust-group { justify-content: center; }
+        .f-trust-bar { display:none; }
+        .trust-group { gap:15px; }
+        .trust-logo { height:32px; }
+        .f-select { min-height:42px; }
+        .f-btn-pro { padding:14px; }
+        .footer-bottom { padding:20px 0 6px;gap:12px;font-size:.7rem; }
+    }
+
+    /* --- Smart WhatsApp Widget --- */
+    .smart-wa-widget {
+        position: fixed;
+        bottom: 95px;
+        right: 30px;
+        background: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        cursor: pointer;
+        z-index: 9999;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .smart-wa-widget:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        color: white;
+    }
+    .smart-wa-tooltip {
+        position: absolute;
+        right: 75px;
+        background: white;
+        color: var(--jft-navy);
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-family: var(--font-sub);
+        font-weight: 700;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, transform 0.3s;
+        transform: translateX(10px);
+        pointer-events: none;
+    }
+    .smart-wa-widget:hover .smart-wa-tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+</style>
+
+<footer class="footer-section">
+    <div class="jft-wide-container">
+        <div class="footer-grid">
+            <!-- Col 1: Branding -->
+            <div class="f-col">
+                <img src="/images/jft-logo-transparent.webp" alt="JFT Agro Overseas" width="200" height="93" style="width:200px;height:auto;filter:brightness(0) invert(1);margin-bottom:30px;">
+                <p style="color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.8; margin-bottom: 30px;">
+                    Government Recognized <strong>Star Export House</strong>. Bridging Indian farms to global ports with excellence in quality, logistics, and transparency since 1980.
+                </p>
+                <div class="f-verify"><strong>Company verification</strong>JFT Agro Overseas LLP · Established 1980<br>Trading office: Godown N-2, APMC Market, Vashi, Navi Mumbai 400705<br><a href="certificates.html">Review current registrations &amp; certificates</a></div>
+                <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                    <a href="https://www.linkedin.com/company/jft-agro-overseas/" target="_blank" rel="noopener noreferrer" class="f-social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/jftagro/" target="_blank" rel="noopener noreferrer" class="f-social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/jftagro/" target="_blank" rel="noopener noreferrer" class="f-social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Navigation -->
+            <div class="f-col">
+                <h3>Quick Links</h3>
+                <ul class="f-links">
+                    <li><a href="about.html">Company Profile</a></li>
+                    <li><a href="products.html">Export Portfolio</a></li>
+                    <li><a href="quality-control.html">Quality Control</a></li>
+                    <li><a href="certificates.html">Certificates</a></li>
+                    <li><a href="sample-request.html">Request Sample</a></li>
+                    <li><a href="quote-calculator.html">CIF/FOB Calculator</a></li>
+                    <li><a href="shipment-tracker.html">Shipment Tools</a></li>
+                    <li><a href="blog.html">Market Insights</a></li>
+                    <li><a href="whatsapp-catalog.html" style="color:#25d366;font-weight:700;"><i class="fa-brands fa-whatsapp" style="margin-right:4px;"></i>WhatsApp Catalog</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Contact -->
+            <div class="f-col">
+                <h3>Global Presence</h3>
+                <ul class="f-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> <span>APMC MARKET, Phase II, Sector 19, Vashi, Navi Mumbai - 400705, India</span></li>
+                    <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:exports@jftagro.com">exports@jftagro.com</a></span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span><a href="tel:+918425057274">+91 84250 57274</a></span></li>
+                    <li><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> <span><a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer"><strong>Instant Trade Desk</strong><br>WhatsApp: Mon–Sat 9AM–7PM IST</a></span></li>
+                </ul>
+                <div class="f-response"><i class="fa-solid fa-clock"></i><span>Complete trade enquiries are reviewed within one business day.</span></div>
+                <label for="footer-market" style="display:block;color:rgba(255,255,255,.55);font-size:.65rem;font-family:var(--font-sub);font-weight:800;text-transform:uppercase;letter-spacing:.7px;margin:16px 0 7px;">Regional trade guidance</label>
+                <select class="f-select" id="footer-market"><option value="">Select market</option><option value="africa-trade.html">Africa</option><option value="uae-trade.html">Middle East &amp; Gulf</option><option value="asia-trade.html">Asia</option><option value="europe-trade.html">Europe &amp; CIS</option></select>
+                <button type="button" class="f-btn-pro" onclick="openFooterMarket()" style="padding:13px;">View Market Guide</button>
+            </div>
+
+            <!-- Col 4: Inquiry -->
+            <div class="f-col">
+                <h3>Get Price List</h3>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 18px;">Choose a commodity to request current grades, packing options and indicative availability.</p>
+                <label for="footer-commodity" style="display:block;color:rgba(255,255,255,.55);font-size:.65rem;font-family:var(--font-sub);font-weight:800;text-transform:uppercase;letter-spacing:.7px;margin-bottom:7px;">Commodity</label>
+                <select class="f-select" id="footer-commodity"><option>Rice</option><option>Spices</option><option>Pulses</option><option>Grains &amp; Flour</option><option>Oilseeds</option><option>Sugar</option><option>Animal Feed</option><option>Full Catalogue</option></select>
+                <button type="button" class="f-btn-pro" onclick="openFooterPriceList()" style="margin-bottom:12px;"><i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i> Request on WhatsApp</button>
+                <a href="contact.html#inquiry-form" class="f-btn-pro" style="display:block;text-align:center;text-decoration:none;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.25);margin-bottom:0;"><i class="fa-solid fa-file-invoice" style="margin-right:8px;"></i> Detailed RFQ</a>
+                <div style="margin-top:15px;font-size:0.72rem;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:8px;">
+                    <i class="fa-solid fa-shield-halved"></i> Your data is never shared with third parties
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Bar -->
+        <div class="f-trust-bar">
+            <div class="trust-group">
+                <img src="/images/homepage/APEDA.webp" alt="APEDA Govt India" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="/images/homepage/FSSAI.webp" alt="FSSAI Food Safety" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="/images/homepage/AEO.webp" alt="Authorized Economic Operator" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="/images/homepage/IEC.webp" alt="Import Export Code" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="/images/homepage/MSME.webp" alt="MSME India" class="trust-logo" width="80" height="45" loading="lazy">
+                <img src="/images/homepage/STAR HOUSE.webp" alt="Star Export House" class="trust-logo" width="80" height="45" loading="lazy">
+            </div>
+            <div style="border: 2px solid var(--jft-gold); padding: 8px 15px; font-size: 0.75rem; color: var(--jft-gold); font-weight: 900; letter-spacing: 2px; border-radius: 4px;">STAR EXPORT HOUSE</div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© <span id="footer-year">2026</span> JFT Agro Overseas LLP. All Rights Reserved.</div>
+            <div>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Trade</a>
+                <a href="/sitemap.xml">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Smart WhatsApp Widget HTML -->
+<a id="smart-wa-link" href="https://wa.me/918425057274?text=Hello" target="_blank" rel="noopener noreferrer" class="smart-wa-widget" aria-label="Chat with us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <div class="smart-wa-tooltip">Get Live Quote</div>
+</a>
+
+<script>
+    document.getElementById('footer-year').innerText = new Date().getFullYear();
+    function openFooterMarket() {
+        const select = document.getElementById('footer-market');
+        if (!select || !select.value) { if (select) select.focus(); return; }
+        window.location.href = select.value;
+    }
+    function openFooterPriceList() {
+        const select = document.getElementById('footer-commodity');
+        const commodity = select ? select.value : 'Full Catalogue';
+        const message = 'Hi JFT Agro, please share current grades, packing options and indicative availability for ' + commodity + '.';
+        window.open('https://wa.me/918425057274?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+    }
+
+    // Smart WhatsApp Widget Logic
+    // Runs synchronously after footer is injected — no DOMContentLoaded needed
+    (function() {
+        const waLink = document.getElementById('smart-wa-link');
+        if (!waLink) return;
+
+        // Show widget ONLY if this page has no existing .wa-fab button
+        if (!document.querySelector('.wa-fab')) {
+            waLink.style.display = 'flex';
+
+            // Build context-aware WhatsApp message
+            let interest = document.title.split('|')[0].trim();
+            const h1 = document.querySelector('h1');
+            if (h1) interest = h1.innerText.replace(/\n/g, ' ').trim().split('\n')[0];
+
+            const message = 'Hello JFT Agro, I am interested in ' + interest + '. Please share the latest FOB/CIF prices and specifications.';
+            waLink.href = 'https://wa.me/918425057274?text=' + encodeURIComponent(message);
+        }
+        // If page already has .wa-fab, widget stays display:none (CSS default)
+    })();
+</script>
+</div><script src="article-shell.js"></script><script src="packing-calculator.js"></script>
+
+</body></html>

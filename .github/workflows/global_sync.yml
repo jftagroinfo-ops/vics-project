@@ -35,8 +35,12 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Refresh generated data and metadata
+        env:
+          QUOTE_RATE_FEED_URL: ${{ secrets.QUOTE_RATE_FEED_URL }}
+          QUOTE_RATE_FEED_TOKEN: ${{ secrets.QUOTE_RATE_FEED_TOKEN }}
         run: |
           python scripts/fetch_agro_news.py
+          python scripts/fetch_quote_market_rates.py
           python scripts/generate_hreflang.py
           python scripts/generate_sitemap.py
 
@@ -44,7 +48,7 @@ jobs:
         run: |
           git config user.name "JFT Automation"
           git config user.email "exports@jftagro.com"
-          git add news.json sitemap.xml '*.html' ar es fr id ms pt ru si th vi
+          git add news.json data/quote-market-rates.json sitemap.xml '*.html' ar es fr id ms pt ru si th vi
           git diff --cached --quiet && exit 0
           git commit -m "chore: refresh market data and search metadata"
           git push

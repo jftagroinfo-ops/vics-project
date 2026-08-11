@@ -353,9 +353,9 @@
   </url>
   <url>
     <loc>https://jftagro.com/africa-trade.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/africa-trade.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/africa-trade.html"/>
   </url>
@@ -4233,9 +4233,9 @@
   </url>
   <url>
     <loc>https://jftagro.com/faq.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/faq.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/faq.html"/>
   </url>
@@ -11095,9 +11095,9 @@
   </url>
   <url>
     <loc>https://jftagro.com/quote-calculator.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/quote-calculator.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/quote-calculator.html"/>
   </url>
@@ -17926,5 +17926,41 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/yellow-peas-matar-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/yellow-peas-matar-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/yellow-peas-matar-exporter.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/blog-coriander-seeds-export-india-2026.html</loc>
+    <lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog-coriander-seeds-export-india-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-coriander-seeds-export-india-2026.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/blog-groundnut-peanut-export-india-2026.html</loc>
+    <lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog-groundnut-peanut-export-india-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-groundnut-peanut-export-india-2026.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/blog-import-indian-spices-uk-europe.html</loc>
+    <lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog-import-indian-spices-uk-europe.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-import-indian-spices-uk-europe.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/blog-lc-vs-tt.html</loc>
+    <lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog-lc-vs-tt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-lc-vs-tt.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/blog-private-label-rice.html</loc>
+    <lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog-private-label-rice.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-private-label-rice.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/blog-sesame-export-2026.html</loc>
+    <lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog-sesame-export-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-sesame-export-2026.html"/>
   </url>
 </urlset>

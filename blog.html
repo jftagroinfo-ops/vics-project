@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" href="images/jft logo.png">
   <meta property="og:title" content="Trade Insights &amp; Export Intelligence | JFT Agro Overseas">
   <meta property="og:description" content="Practical guides for international buyers of Indian agricultural commodities — Basmati rice, spices, grains, and more.">
-  <meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
+  <meta property="og:image" content="https://jftagro.com/images/homepage/real-container-port-landscape-pexels.webp">
   <meta property="og:type" content="website">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="JFT Agro Overseas">
@@ -105,6 +105,7 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jftagro.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jftagro.com/blog.html"}]}</script>
   <link rel="stylesheet" href="jft-design-system.css">
 <link rel="stylesheet" href="jft-responsive.css">
+  <link rel="stylesheet" href="blog-hub.css">
   <link rel="alternate" hreflang="en" href="https://jftagro.com/blog.html">
   <link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog.html">
 </head>
@@ -114,12 +115,12 @@
 <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 <div id="header-placeholder"></div>
-<div id="main-content" tabindex="-1"></div>
+<main id="main-content" tabindex="-1">
 
   <div class="page-wrapper">
     <!-- ── HERO ── -->
 <section class="jft-page-hero">
-  <div class="jft-page-hero-bg" style="background-image:url('images/products/basmati_rice_hd.webp');"></div>
+  <div class="jft-page-hero-bg" style="background-image:url('images/homepage/real-container-port-landscape-pexels.webp');"></div>
   <div class="jft-page-hero-glow"></div>
   <div class="jft-page-hero-gold-stripe"></div>
   <div class="jft-wide-container jft-page-hero-inner">
@@ -129,8 +130,8 @@
     </nav>
     <span class="brand-tag brand-tag-white"><i class="fa-solid fa-newspaper"></i> Market Blog</span>
     <h1 style="font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:-1.5px;margin:18px 0 20px;">Market Intelligence &amp;<br><em style="color:var(--gold-light);font-style:italic;font-weight:300;">Trade Insights</em></h1>
-    <p class="jft-page-hero-sub">In-depth guides, market analysis and regulatory updates for international buyers of Indian agricultural commodities — written by JFT Agro's export team.</p>
-    <div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-chart-line"></i> Market Analysis</span><span class="jft-hero-tag"><i class="fa-solid fa-file-lines"></i> Buyer Guides</span><span class="jft-hero-tag"><i class="fa-solid fa-globe"></i> Global Trade News</span></div>
+    <p class="jft-page-hero-sub">Practical buyer guides, market context and document explainers for sourcing Indian agricultural commodities. Time-sensitive prices, duties and rules should always be reconfirmed before contracting.</p>
+    <div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-chart-line"></i> Market Context</span><span class="jft-hero-tag"><i class="fa-solid fa-file-lines"></i> Buyer Guides</span><span class="jft-hero-tag"><i class="fa-solid fa-shield-halved"></i> Compliance Briefs</span></div>
     <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
       <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-paper-plane"></i> Get Export Quote</a>
       <a href="products.html" class="btn-outline"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
@@ -139,16 +140,25 @@
 </section>
 
     <div class="jft-wide-container">
-      <!-- FILTER BAR -->
-      <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterPosts('all',this)">All Articles <span class="filter-count">20</span></button>
-        <button class="filter-btn" onclick="filterPosts('buyer-guide',this)">Buyer Guides <span class="filter-count">4</span></button>
-        <button class="filter-btn" onclick="filterPosts('market',this)">Market Intelligence <span class="filter-count">5</span></button>
-        <button class="filter-btn" onclick="filterPosts('compliance',this)">Compliance &amp; Docs <span class="filter-count">11</span></button>
-      </div>
+      <!-- SEARCH + FILTERS -->
+      <section class="insights-toolbar" aria-label="Find trade insights">
+        <div class="insights-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <label for="article-search" class="visually-hidden">Search articles</label>
+          <input id="article-search" type="search" placeholder="Search rice, spices, documents or markets" autocomplete="off" aria-controls="articlesGrid" oninput="searchPosts(this.value)">
+          <button type="button" class="search-clear" onclick="clearSearch()" aria-label="Clear article search" title="Clear search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="filter-bar" role="group" aria-label="Article categories">
+          <button class="filter-btn active" aria-pressed="true" onclick="filterPosts('all',this)">All Articles <span class="filter-count">27</span></button>
+          <button class="filter-btn" aria-pressed="false" onclick="filterPosts('buyer-guide',this)">Buyer Guides <span class="filter-count">9</span></button>
+          <button class="filter-btn" aria-pressed="false" onclick="filterPosts('market',this)">Market Intelligence <span class="filter-count">5</span></button>
+          <button class="filter-btn" aria-pressed="false" onclick="filterPosts('compliance',this)">Compliance &amp; Docs <span class="filter-count">13</span></button>
+        </div>
+        <div id="results-summary" class="results-summary" aria-live="polite">Showing 10 of 27 articles</div>
+      </section>
 
       <!-- FEATURED ARTICLE -->
-      <a href="blog-basmati-export-guide.html" class="featured-article" data-cat="buyer-guide">
+      <a href="blog-basmati-export-guide.html" class="featured-article" data-cat="buyer-guide" role="article">
         <div class="featured-img">
           <img src="images/products/basmati_rice_hd.webp" alt="1121 vs 1509 Basmati Rice" loading="lazy" width="1024" height="1024">
           <div class="featured-badge"><i class="fa-solid fa-star" style="margin-right:5px;"></i> Editor's Pick</div>
@@ -160,7 +170,6 @@
           <div class="article-meta-row">
             <span><i class="fa-solid fa-calendar"></i> April 1, 2026</span>
             <span><i class="fa-solid fa-clock"></i> 8 min read</span>
-            <span><i class="fa-solid fa-eye"></i> 4,200 views</span>
           </div>
           <div class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></div>
         </div>
@@ -168,8 +177,32 @@
 
       <!-- ARTICLES GRID -->
       <div class="articles-grid" id="articlesGrid">
+        <a href="blog-import-indian-spices-uk-europe.html" class="article-card" data-cat="compliance">
+          <div class="card-img"><img src="images/products/seed_spices.webp" alt="Assorted Indian whole spices for export" loading="lazy" width="1024" height="1024"></div>
+          <div class="card-body"><span class="article-cat">Compliance Guide</span><h3 class="card-title">Importing Indian Spices to the UK and EU: Buyer Checklist</h3><p class="card-excerpt">Build the specification from the destination backwards: MRLs, contaminants, microbiology, labels, border controls and supplier evidence.</p><div class="card-meta"><span><i class="fa-solid fa-calendar"></i> 12 Aug 2026 &middot; 10 min</span><span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span></div></div>
+        </a>
+        <a href="blog-private-label-rice.html" class="article-card" data-cat="buyer-guide">
+          <div class="card-img"><img src="images/INFRASTRUCTURE/Brand Packing.webp" alt="Rice packing line preparing private-label bags" loading="lazy" width="1680" height="1120"></div>
+          <div class="card-body"><span class="article-cat">Brand Guide</span><h3 class="card-title">Private Label Rice from India: From Grain Selection to Retail Pack</h3><p class="card-excerpt">A controlled workflow for rice selection, packaging formats, artwork approval, pilot production, quality release and container planning.</p><div class="card-meta"><span><i class="fa-solid fa-calendar"></i> 12 Aug 2026 &middot; 9 min</span><span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span></div></div>
+        </a>
+        <a href="blog-groundnut-peanut-export-india-2026.html" class="article-card" data-cat="buyer-guide">
+          <div class="card-img"><img src="images/products/Groundnuts (Peanuts).webp" alt="Indian groundnut kernels prepared for grading" loading="lazy" width="1024" height="1024"></div>
+          <div class="card-body"><span class="article-cat">Buyer's Guide</span><h3 class="card-title">Importing Groundnuts from India: Grades, Testing and Shipment Controls</h3><p class="card-excerpt">Compare Java, Bold and blanched peanuts while defining count, moisture, defects, aflatoxin testing, packing and inspection.</p><div class="card-meta"><span><i class="fa-solid fa-calendar"></i> 12 Aug 2026 &middot; 8 min</span><span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span></div></div>
+        </a>
+        <a href="blog-sesame-export-2026.html" class="article-card" data-cat="buyer-guide">
+          <div class="card-img"><img src="images/products/Sesame Seeds (Natural-Hulled).webp" alt="Natural and hulled Indian sesame seeds" loading="lazy" width="1024" height="1024"></div>
+          <div class="card-body"><span class="article-cat">Buyer's Guide</span><h3 class="card-title">Indian Sesame Seeds: Natural vs Hulled Grades for Importers</h3><p class="card-excerpt">Specify purity, colour, moisture, microbiology, treatment, packing and sampling for natural or hulled sesame.</p><div class="card-meta"><span><i class="fa-solid fa-calendar"></i> 12 Aug 2026 &middot; 7 min</span><span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span></div></div>
+        </a>
+        <a href="blog-coriander-seeds-export-india-2026.html" class="article-card" data-cat="buyer-guide">
+          <div class="card-img"><img src="images/products/Coriander Seeds.webp" alt="Cleaned whole Indian coriander seeds" loading="lazy" width="1024" height="1024"></div>
+          <div class="card-body"><span class="article-cat">Spice Guide</span><h3 class="card-title">Indian Coriander Seeds: Eagle vs Scooter Grade Explained</h3><p class="card-excerpt">Turn commercial grade names into measurable requirements for colour, splits, purity, volatile oil, testing and packing.</p><div class="card-meta"><span><i class="fa-solid fa-calendar"></i> 12 Aug 2026 &middot; 7 min</span><span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span></div></div>
+        </a>
+        <a href="blog-lc-vs-tt.html" class="article-card" data-cat="compliance">
+          <div class="card-img"><img src="images/homepage/real-container-port-landscape-pexels.webp" alt="Container vessel representing international trade payments" loading="lazy" width="1920" height="1280"></div>
+          <div class="card-body"><span class="article-cat">Trade Finance</span><h3 class="card-title">LC vs TT Payment: Which Structure Fits Your Food Import?</h3><p class="card-excerpt">Compare risk allocation, payment triggers, document control, bank charges and safer milestone structures for first and repeat orders.</p><div class="card-meta"><span><i class="fa-solid fa-calendar"></i> 12 Aug 2026 &middot; 8 min</span><span class="card-read">Read <i class="fa-solid fa-arrow-right"></i></span></div></div>
+        </a>
         <a href="blog-how-to-export-india-to-africa.html" class="article-card featured-card" data-cat="compliance">
-          <div class="card-img"><img src="images/INFRASTRUCTURE/logistics.webp" alt="How to Export Goods from India to Africa: Complete Guide with Documents, Payment Terms &amp; Free Templates" loading="lazy" width="800" height="533"></div>
+          <div class="card-img"><img src="images/homepage/real-container-port-landscape-pexels.webp" alt="Cargo vessel at an international port" loading="lazy" width="1920" height="1280"></div>
           <div class="card-body">
             <span class="article-cat">Trade Guide</span>
             <h3 class="card-title">How to Export Goods from India to Africa: Complete Guide with Documents, Payment Terms &amp; Free Templates</h3>
@@ -245,7 +278,7 @@
         </a>
         
         <a href="blog-india-rice-export-sri-lanka-bangladesh.html" class="article-card" data-cat="compliance">
-          <div class="card-img"><img src="images/products/basmati_rice_hd.webp" alt="Indian Rice Export to Sri Lanka &amp; Bangladesh: Terms &amp; Logistics" loading="lazy" width="1024" height="1024"></div>
+          <div class="card-img"><img src="images/products/1121 White Sella Basmati.webp" alt="1121 white sella Basmati rice" loading="lazy" width="1024" height="1024"></div>
           <div class="card-body">
             <span class="article-cat">Trade Guide</span>
             <h3 class="card-title">Indian Rice Export to Sri Lanka &amp; Bangladesh: Terms &amp; Logistics</h3>
@@ -257,7 +290,7 @@
           </div>
         </a>
         <a href="blog-import-indian-agro-kenya-east-africa.html" class="article-card" data-cat="compliance">
-          <div class="card-img"><img src="images/INFRASTRUCTURE/logistics.webp" alt="Importing Indian Agro to Kenya &amp; East Africa: Duties &amp; Docs" loading="lazy" width="800" height="533"></div>
+          <div class="card-img"><img src="images/trade/asia-port-real-pexels.jpg" alt="Container terminal handling international cargo" loading="lazy" width="1920" height="1280"></div>
           <div class="card-body">
             <span class="article-cat">Trade Guide</span>
             <h3 class="card-title">Importing Indian Agro to Kenya &amp; East Africa: Duties &amp; Docs</h3>
@@ -317,7 +350,7 @@
           </div>
         </a>
         <a href="blog-letter-of-credit-food-imports-india.html" class="article-card" data-cat="compliance">
-          <div class="card-img"><img src="images/INFRASTRUCTURE/logistics.webp" alt="Letter of Credit for Indian Food Imports: Step-by-Step Guide" loading="lazy" width="800" height="533"></div>
+          <div class="card-img"><img src="images/INFRASTRUCTURE/Brand Packing.webp" alt="Export goods prepared for shipment" loading="lazy" width="1680" height="1120"></div>
           <div class="card-body">
             <span class="article-cat">Trade Guide</span>
             <h3 class="card-title">Letter of Credit for Indian Food Imports: Step-by-Step Guide</h3>
@@ -329,7 +362,7 @@
           </div>
         </a>
         <a href="blog-bill-of-lading-explained-importers.html" class="article-card" data-cat="compliance">
-          <div class="card-img"><img src="images/INFRASTRUCTURE/logistics.webp" alt="Bill of Lading Explained: Guide for First-Time Importers from India" loading="lazy" width="800" height="533"></div>
+          <div class="card-img"><img src="images/trade/europe-port-real-pexels.jpg" alt="Container ship operating at Rotterdam port" loading="lazy" width="1920" height="1280"></div>
           <div class="card-body">
             <span class="article-cat">Trade Guide</span>
             <h3 class="card-title">Bill of Lading Explained: Guide for First-Time Importers from India</h3>
@@ -415,25 +448,25 @@
         
 
         </div><!-- end articles-grid -->
+        <div id="no-results" class="no-results" role="status"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> No matching articles found.</div>
+        <div class="load-more-wrap">
+          <button id="load-more" type="button" class="load-more-btn" onclick="showMorePosts()"><i class="fa-solid fa-plus"></i> Show More Articles</button>
+        </div>
 
       <!-- TOPICS STRIP -->
       <div style="margin-top:50px;">
         <h2 style="font-family:var(--font-head);font-size:1.3rem;margin-bottom:16px;color:var(--jft-navy);">Browse by Topic</h2>
         <div class="topics-strip">
-          <span class="topic-tag">Basmati Rice</span>
-          <span class="topic-tag">IR-64 Non-Basmati</span>
-          <span class="topic-tag">Spice Export</span>
-          <span class="topic-tag">West Africa Trade</span>
-          <span class="topic-tag">UAE &amp; Gulf</span>
-          <span class="topic-tag">Payment Terms</span>
-          <span class="topic-tag">Incoterms</span>
-          <span class="topic-tag">EU Compliance</span>
-          <span class="topic-tag">Private Labeling</span>
-          <span class="topic-tag">Sugar Export</span>
-          <span class="topic-tag">Sesame Seeds</span>
-          <span class="topic-tag">Container Logistics</span>
-          <span class="topic-tag">APEDA &amp; FSSAI</span>
-          <span class="topic-tag">India–UAE CEPA</span>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('Basmati',this)">Basmati Rice</button>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('IR-64',this)">IR-64 Non-Basmati</button>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('spice',this)">Spice Export</button>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('Africa',this)">Africa Trade</button>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('UAE',this)">UAE &amp; Gulf</button>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('payment',this)">Payment Terms</button>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('EU',this)">EU Compliance</button>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('container',this)">Container Logistics</button>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('APEDA',this)">APEDA &amp; FSSAI</button>
+          <button type="button" class="topic-tag" aria-pressed="false" onclick="selectTopic('CEPA',this)">India-UAE CEPA</button>
         </div>
       </div>
     </div>
@@ -446,9 +479,9 @@
         <p>Price updates, market shifts, regulatory changes, and export intelligence — direct to your inbox. No spam, ever. One digest per month.</p>
         <form class="nl-form" onsubmit="subscribeNewsletter(event)">
           <input type="email" class="nl-input" placeholder="your@company.com" required id="nl-email" name="email" autocomplete="email" aria-label="Email address">
-          <button type="submit" class="nl-btn"><i class="fa-solid fa-paper-plane" style="margin-right:6px;"></i> Subscribe Free</button>
+          <button type="submit" class="nl-btn"><i class="fa-solid fa-paper-plane" style="margin-right:6px;"></i> Subscribe</button>
         </form>
-        <p style="margin-top:12px;font-size:0.78rem;color:rgba(255,255,255,0.45);">Join 2,400+ importers and traders. Unsubscribe anytime.</p>
+        <div id="nl-status" class="nl-status" role="status" aria-live="polite">One concise email per month. Unsubscribe anytime.</div>
       </div>
     </div>
   </div>
@@ -457,49 +490,113 @@
   <div class="jft-wide-container">
     <div class="cta-eyebrow">Ready to Source?</div>
     <h2 class="cta-block-title">Get <em>Factory-Direct Pricing</em><br>from India's Star Export House</h2>
-    <p class="cta-block-desc">Free samples. Proforma Invoice within 24 hours. APEDA registered. ISO 9001:2015 certified.</p>
+    <p class="cta-block-desc">Samples are subject to availability and courier charges. Current registrations and certificates are available for buyer review.</p>
     <div class="cta-actions">
       <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice-dollar"></i> Request Pricing</a>
-      <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Free Sample</a>
+      <a href="sample-request.html" class="btn-outline"><i class="fa-solid fa-box-open"></i> Request Sample</a>
     </div>
     <div class="cta-trust-row">
       <span class="cta-trust-item"><i class="fa-solid fa-star"></i> Star Export House</span>
       <span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-clock"></i> 4-Hour Response</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-file-shield"></i> Buyer Due Diligence</span>
       <span class="cta-trust-item"><i class="fa-solid fa-globe"></i> 25+ Countries</span>
     </div>
   </div>
 </section>
+</main>
 <div id="footer-placeholder"></div>
 
   <script>
+    let activeCategory = 'all';
+    let activeQuery = '';
+    let visibleLimit = 9;
+
+    function matchesPost(post) {
+      const inCategory = activeCategory === 'all' || post.dataset.cat === activeCategory;
+      const inSearch = !activeQuery || post.textContent.toLowerCase().includes(activeQuery);
+      return inCategory && inSearch;
+    }
+
+    function applyPostFilters() {
+      const featured = document.querySelector('.featured-article');
+      const cards = Array.from(document.querySelectorAll('.article-card'));
+      const matchingCards = cards.filter(matchesPost);
+      const featuredMatches = featured && matchesPost(featured);
+
+      if (featured) featured.hidden = !featuredMatches;
+      cards.forEach(card => { card.hidden = true; });
+      matchingCards.slice(0, visibleLimit).forEach(card => { card.hidden = false; });
+
+      const total = matchingCards.length + (featuredMatches ? 1 : 0);
+      const shown = Math.min(matchingCards.length, visibleLimit) + (featuredMatches ? 1 : 0);
+      const summary = document.getElementById('results-summary');
+      summary.textContent = total ? `Showing ${shown} of ${total} article${total === 1 ? '' : 's'}` : 'No matching articles';
+      document.getElementById('no-results').style.display = total ? 'none' : 'block';
+      document.getElementById('load-more').hidden = matchingCards.length <= visibleLimit;
+    }
+
     function filterPosts(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.article-card').forEach(card => {
-        if (cat === 'all' || card.dataset.cat === cat) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+      activeCategory = cat;
+      visibleLimit = 9;
+      document.querySelectorAll('.filter-btn').forEach(button => {
+        const selected = button === btn;
+        button.classList.toggle('active', selected);
+        button.setAttribute('aria-pressed', String(selected));
       });
+      applyPostFilters();
+    }
+
+    function searchPosts(value, preserveTopic) {
+      activeQuery = value.trim().toLowerCase();
+      visibleLimit = 9;
+      if (!preserveTopic) document.querySelectorAll('.topic-tag').forEach(button => button.setAttribute('aria-pressed', 'false'));
+      applyPostFilters();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('article-search');
+      input.value = '';
+      input.focus();
+      searchPosts('');
+    }
+
+    function selectTopic(value, button) {
+      activeCategory = 'all';
+      document.querySelectorAll('.filter-btn').forEach((filter, index) => {
+        filter.classList.toggle('active', index === 0);
+        filter.setAttribute('aria-pressed', String(index === 0));
+      });
+      document.querySelectorAll('.topic-tag').forEach(topic => topic.setAttribute('aria-pressed', String(topic === button)));
+      const input = document.getElementById('article-search');
+      input.value = value;
+      searchPosts(value, true);
+      document.querySelector('.insights-toolbar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function showMorePosts() {
+      visibleLimit += 9;
+      applyPostFilters();
     }
 
     async function subscribeNewsletter(e) {
         e.preventDefault();
         const email = document.getElementById('nl-email').value;
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+        const status = document.getElementById('nl-status');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status.textContent = 'Enter a valid business email address.'; return; }
       const button = e.target.querySelector('.nl-btn');
       button.disabled = true;
-      button.textContent = 'Subscribing...';
+      button.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Subscribing';
+      status.textContent = 'Submitting your subscription...';
       try {
         if (!window.JFTConversion) throw new Error('Lead service unavailable');
         await window.JFTConversion.submitLead({ lead_type: 'newsletter', subject: 'New Trade Intelligence Subscriber', email: email });
-        button.textContent = 'Subscribed';
+        button.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Subscribed';
+        status.textContent = 'Subscription received. Please check your inbox for future dispatches.';
         e.target.reset();
       } catch (_) {
         button.disabled = false;
-        button.textContent = 'Try Again';
+        button.innerHTML = '<i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Try Again';
+        status.textContent = 'We could not subscribe you right now. Please try again.';
       }
     }
 
@@ -514,6 +611,8 @@
     var t=document.getElementById('backToTop');if(t)t.classList.toggle('show',s>400);
   });
   document.addEventListener('DOMContentLoaded',()=>{
+      document.querySelectorAll('.article-card').forEach(card => card.setAttribute('role', 'article'));
+      applyPostFilters();
       loadComponent('header-placeholder','header.html');
       loadComponent('footer-placeholder','footer.html');
     });
