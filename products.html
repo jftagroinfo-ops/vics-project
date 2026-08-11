@@ -1572,6 +1572,10 @@
       }
 
       .mobile-floating-close {
+        display: none;
+      }
+
+      body.modal-open .mobile-floating-close {
         display: flex;
         position: fixed;
         bottom: 20px;
@@ -2546,6 +2550,49 @@
       box-shadow: 0 20px 50px rgba(26, 60, 52, .12);
       border-color: rgba(238, 191, 69, .4);
     }
+
+    .catalogue-load-more {
+      display: flex;
+      justify-content: center;
+      padding: 34px 0 6px;
+    }
+
+    .catalogue-load-more button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 230px;
+      min-height: 48px;
+      padding: 13px 24px;
+      border: 1px solid rgba(26, 60, 52, .18);
+      border-radius: 8px;
+      background: var(--jft-navy);
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(26, 60, 52, .13);
+      transition: .25s ease;
+    }
+
+    .catalogue-load-more button:hover,
+    .catalogue-load-more button:focus-visible {
+      background: var(--jft-primary);
+      border-color: var(--jft-primary);
+      transform: translateY(-2px);
+    }
+
+    .catalogue-load-more button span {
+      color: var(--jft-gold);
+    }
+
+    #product-grid .p-item[hidden] {
+      display: none !important;
+    }
   </style>
 
   <script
@@ -2740,10 +2787,198 @@
     /* ── Sticky filter wrapper: search + tabs stick together ── */
     .cz-sticky-wrap {
       position: static;
-      /* no sticky — flows naturally after stats bar */
+      background: #fff;
+      padding: clamp(16px, 2vw, 24px);
+      margin: 24px 0 32px;
+      border: 1px solid rgba(26, 60, 52, .1);
+      border-top: 3px solid var(--jft-gold);
+      border-radius: 8px;
+      box-shadow: 0 14px 38px rgba(26, 60, 52, .07);
+    }
+
+    .cz-sticky-wrap .cz-search-row {
+      gap: 18px;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(26, 60, 52, .09);
+      flex-wrap: nowrap;
+    }
+
+    .cz-sticky-wrap .cz-search-box {
+      max-width: none;
+    }
+
+    .cz-sticky-wrap .cz-search-input {
+      min-height: 52px;
+      border-radius: 7px;
+      border-width: 1px;
+      background: #fbfcfa;
+      box-shadow: none;
+    }
+
+    .cz-sticky-wrap .cz-search-input:focus {
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(61, 112, 48, .09);
+    }
+
+    .cz-sticky-wrap .cz-result-count {
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: center;
+      min-width: 132px;
+      padding: 10px 14px;
+      border-left: 1px solid rgba(26, 60, 52, .12);
+      color: rgba(26, 60, 52, .62);
+    }
+
+    .cz-sticky-wrap .cz-tabs-zone {
+      position: relative;
+      top: auto;
+      margin: 0;
+      padding: 0;
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
       background: transparent;
-      padding: 24px 0 0;
-      margin-bottom: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .cz-sticky-wrap .cz-tab-scroll {
+      display: grid;
+      grid-template-columns: repeat(11, max-content);
+      justify-content: space-between;
+      gap: 6px;
+      overflow: visible;
+      padding: 0;
+      cursor: default;
+    }
+
+    .cz-sticky-wrap .cz-tab-scroll::before {
+      display: none;
+    }
+
+    .cz-sticky-wrap .cz-tab {
+      min-height: 42px;
+      padding: 9px clamp(10px, 1vw, 16px);
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: #f5f7f3;
+      font-size: clamp(.64rem, .72vw, .76rem);
+      letter-spacing: .3px;
+    }
+
+    .cz-sticky-wrap .cz-tab:hover {
+      border-color: rgba(61, 112, 48, .2);
+      background: #eef4ec;
+    }
+
+    .cz-sticky-wrap .cz-tab.active {
+      border-color: var(--jft-primary);
+      box-shadow: 0 5px 14px rgba(61, 112, 48, .2);
+    }
+
+    .cz-sticky-wrap .cz-tab-arrow {
+      display: none;
+    }
+
+    #rice-sub-filters.cz-subfilters {
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      margin: 16px 0 0;
+      padding: 16px 0 0;
+      border-top: 1px solid rgba(26, 60, 52, .09);
+    }
+
+    .cz-subfilter-label {
+      margin-right: 6px;
+      color: rgba(26, 60, 52, .62);
+      font-family: var(--font-sub);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+    }
+
+    .cz-sticky-wrap .cz-subtab {
+      min-height: 36px;
+      padding: 8px 16px;
+      border: 1px solid rgba(26, 60, 52, .14);
+      border-radius: 6px;
+      background: #f8faf7;
+      font-size: .68rem;
+      letter-spacing: .5px;
+    }
+
+    .cz-sticky-wrap .cz-subtab.active {
+      border-color: var(--jft-gold);
+      background: var(--jft-gold);
+      box-shadow: 0 4px 12px rgba(238, 191, 69, .22);
+    }
+
+    @media (max-width: 1280px) {
+      .cz-sticky-wrap .cz-tab-scroll {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cz-sticky-wrap {
+        padding: 14px;
+        margin: 18px 0 24px;
+      }
+
+      .cz-sticky-wrap .cz-search-row {
+        align-items: stretch;
+        gap: 10px;
+        padding-bottom: 14px;
+        margin-bottom: 14px;
+        flex-direction: column;
+      }
+
+      .cz-sticky-wrap .cz-result-count {
+        justify-content: flex-start;
+        min-width: 0;
+        padding: 0;
+        border-left: 0;
+      }
+
+      .cz-sticky-wrap .cz-tabs-zone {
+        padding: 0 34px;
+        overflow: hidden;
+      }
+
+      .cz-sticky-wrap .cz-tab-scroll {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 6px;
+        overflow-x: auto;
+      }
+
+      .cz-sticky-wrap .cz-tab-arrow {
+        display: flex;
+        width: 30px;
+        height: 30px;
+      }
+
+      #rice-sub-filters.cz-subfilters {
+        align-items: stretch;
+        gap: 6px;
+      }
+
+      .cz-subfilter-label {
+        flex: 0 0 100%;
+        margin: 0 0 2px;
+      }
+
+      .cz-sticky-wrap .cz-subtab {
+        flex: 1 1 auto;
+        padding: 8px 10px;
+      }
     }
   </style>
   <link rel="alternate" hreflang="en" href="https://jftagro.com/products.html">
@@ -2836,12 +3071,12 @@
           <div class="cz-search-box">
             <i class="fa-solid fa-magnifying-glass cz-search-icon"></i>
             <input type="text" id="prod-search" class="cz-search-input"
-              placeholder="Search 84 products — rice, cumin, turmeric, psyllium..." oninput="debouncedSearch()"
+              placeholder="Search by product, HS code or destination..." oninput="debouncedSearch()"
               aria-label="Search Products" autocomplete="off">
             <button class="cz-clear-btn" id="search-clear-btn" onclick="clearSearch()" title="Clear search"
               style="display:none;"><i class="fa-solid fa-xmark"></i></button>
           </div>
-          <div class="cz-result-count" id="result-count">
+          <div class="cz-result-count" id="result-count" aria-live="polite">
             <span id="result-num">84</span> products
           </div>
         </div>
@@ -2851,7 +3086,7 @@
           <button class="cz-tab-arrow cz-tab-left" onclick="scrollTabs(-200)" aria-label="Scroll left"><i
               class="fa-solid fa-chevron-left"></i></button>
           <div class="cz-tab-scroll" id="tab-container" tabindex="0">
-            <button class="cz-tab active" data-cat="all" onclick="filterProducts('all')">
+            <button class="cz-tab active" data-cat="all" onclick="filterProducts('all')" aria-pressed="true">
               <i class="fa-solid fa-grid-2"></i> All Products
             </button>
             <button class="cz-tab" data-cat="rice" onclick="filterProducts('rice')">
@@ -2876,13 +3111,13 @@
               <i class="fa-solid fa-cow"></i> Animal Feed
             </button>
             <button class="cz-tab" data-cat="raisins" onclick="filterProducts('raisins')">
-              <i class="fa-solid fa-apple-whole"></i> Fruits
+              <i class="fa-solid fa-apple-whole"></i> Raisins
             </button>
             <button class="cz-tab" data-cat="sugar" onclick="filterProducts('sugar')">
               <i class="fa-solid fa-cubes"></i> Sugar
             </button>
-            <button class="cz-tab cz-tab-import" data-cat="pulses" onclick="filterProducts('pulses')">
-              <i class="fa-solid fa-ship"></i> Pulses
+            <button class="cz-tab" data-cat="pulses" onclick="filterProducts('pulses')">
+              <i class="fa-solid fa-seedling"></i> Pulses
             </button>
           </div>
           <button class="cz-tab-arrow cz-tab-right" onclick="scrollTabs(200)" aria-label="Scroll right"><i
@@ -2890,10 +3125,11 @@
         </div>
 
         <!-- Rice sub-filters -->
-        <div id="rice-sub-filters" class="cz-subfilters">
-          <button class="cz-subtab active" onclick="filterRice('all', this)">All Rice</button>
-          <button class="cz-subtab" onclick="filterRice('basmati', this)">Basmati</button>
-          <button class="cz-subtab" onclick="filterRice('non-basmati', this)">Non-Basmati</button>
+        <div id="rice-sub-filters" class="cz-subfilters" aria-label="Rice varieties">
+          <span class="cz-subfilter-label">Rice varieties</span>
+          <button class="cz-subtab active" onclick="filterRice('all', this)" aria-pressed="true">All Rice</button>
+          <button class="cz-subtab" onclick="filterRice('basmati', this)" aria-pressed="false">Basmati</button>
+          <button class="cz-subtab" onclick="filterRice('non-basmati', this)" aria-pressed="false">Non-Basmati</button>
         </div>
 
       </div><!-- /.cz-sticky-wrap -->
@@ -2901,8 +3137,15 @@
       <!-- Product grid -->
       <div class="product-catalogue-grid" id="product-grid"></div>
 
+      <div class="catalogue-load-more" id="catalogue-load-more" hidden>
+        <button type="button" onclick="loadMoreProducts()">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          Load more products <span id="catalogue-remaining"></span>
+        </button>
+      </div>
+
       <!-- No results state -->
-      <div id="no-results" style="display:none;text-align:center;padding:80px 20px;">
+      <div id="no-results" role="status" aria-live="polite" style="display:none;text-align:center;padding:80px 20px;">
         <i class="fa-solid fa-magnifying-glass" style="font-size:3rem;color:#ddd;margin-bottom:20px;display:block;"></i>
         <h3 style="font-family:'Merriweather',serif;color:#aaa;margin-bottom:10px;">No products found</h3>
         <p style="color:#bbb;font-size:.9rem;">Try a different search term or <button onclick="clearSearch()"
@@ -3070,7 +3313,7 @@
   </section>
   <div id="footer-placeholder"></div>
 
-  <div id="product-modal" role="dialog" aria-modal="true" aria-labelledby="m-title" aria-hidden="true">
+  <div id="product-modal" role="dialog" aria-modal="true" aria-labelledby="m-title" aria-hidden="true" tabindex="-1">
     <div class="modal-content-pro">
       <div class="modal-main-view">
         <div class="modal-header" style="background: #fff; padding: 30px 40px; border-bottom: 1px solid #eee;">
@@ -3098,8 +3341,8 @@
         <div class="modal-body">
           <div class="modal-grid">
             <div class="modal-left">
-              <div class="m-img-wrapper" style="border:none; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"><img src=""
-                  id="m-img" class="m-img" alt="Product photo"></div>
+              <div class="m-img-wrapper" style="border:none; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"><img src="images/products/basmati_rice_hd.webp"
+                  id="m-img" class="m-img" alt="Product photo" width="900" height="900"></div>
 
               <h4 class="m-section-title">Product Heritage</h4>
               <p class="m-desc" id="m-desc" style="font-size: 0.95rem; color: #444; line-height: 1.7;"></p>
@@ -3147,9 +3390,9 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="mobile-floating-close" role="button" tabindex="0" onclick="closeModal()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();closeModal();}" aria-label="Close product report">
-    <i class="fa-solid fa-xmark"></i> Close Report
+    <button type="button" class="mobile-floating-close" onclick="closeModal()" aria-label="Close product report">
+      <i class="fa-solid fa-xmark"></i> Close Report
+    </button>
   </div>
 
 
@@ -3177,8 +3420,8 @@
       { c: 'rice', t: 'PR 11 Rice', h: [10, 11], i: 'images/products/PR 11 Rice Best.webp', s: [['Length', '6.8mm Avg'], ['Type', 'Steam'], ['Broken', '2% Max'], ['Moisture', '12.5% Max'], ['Cook', 'Non-Sticky'], ['Purity', '95%'], ['Damage', 'Nil'], ['Sortex', '100%'], ['Use', 'Catering'], ['HS Code', '10063090'], ['MOQ', '1 FCL (20ft)']], l: '25-26 MT in 20ft', p: '25kg, 50kg Bags', f: ['Philippines', 'Indonesia', 'UAE', 'Saudi Arabia', 'Kuwait'], k: ['PR 11 Rice', 'Long Grain Steam', 'Non-Basmati Steam', 'Rice Supplier Indonesia', 'JFT Rice'], u: 'pr-11-rice-exporter.html', b: 'blog-india-rice-export-sri-lanka-bangladesh.html' },
       { c: 'spices', t: 'Turmeric Finger & Powder', u: 'turmeric-finger-exporter.html', h: [2, 3, 4], i: 'images/products/Turmeric Finger & Powder.webp', s: [['Curcumin', '2-5%'], ['Polish', 'Double Polished/Unpolished'], ['Moisture', '10% Max'], ['Ash', '7% Max'], ['Lead (Pb)', '2.5 PPM Max'], ['Chromate', 'Negative'], ['Origin', 'Salem/Nizamabad'], ['Type', 'Bulb/Finger'], ['Sortex', 'Clean'], ['HS Code', '09103020'], ['MOQ', '1 FCL (20ft)']], l: '14 MT (Finger) / 18 MT (Powder)', p: '25kg, 50kg Jute/PP/Kraft', f: ['USA', 'Japan', 'Germany', 'UK', 'UAE'], k: ['Turmeric Finger', 'Curcumin Powder', 'Spices Exporter India', 'Haldi Supplier', 'JFT Spices'], b: 'blog-turmeric-market-outlook-2026.html' },
       { c: 'spices', t: 'Dry Ginger & Powder', h: [12, 1, 2], i: 'images/products/Dry Ginger & Powder.webp', s: [['Type', 'Bleached/Unbleached'], ['Moisture', '12% Max'], ['Volatile Oil', '1.5% Min'], ['Ash', '8% Max'], ['Acid Insoluble', '1% Max'], ['Flavor', 'Pungent'], ['Mold', 'Nil'], ['Origin', 'Kerala/Karnataka'], ['Clean', 'Machine Clean'], ['HS Code', '09101110'], ['MOQ', '1 FCL (20ft)']], l: '13 MT in 20ft', p: '25kg, 50kg PP/Jute Bags', f: ['Morocco', 'Saudi Arabia', 'USA', 'UK', 'Germany'], k: ['Dry Ginger', 'Ginger Powder', 'Cochin Ginger', 'Spices Supplier', 'JFT Agro'], u: 'dry-ginger-powder-exporter.html' },
-      { c: 'spices', t: 'Fennel Seeds (Sounff)', h: [3, 4], i: 'images/products/Fennel Seeds.webp', s: [['Purity', '99% / 98%'], ['Color', 'Bright Green'], ['Moisture', '10% Max'], ['Total Ash', '9% Max'], ['Volatile Oil', '1.5% Min'], ['Admixture', '1% Max'], ['Size', 'Medium/Bold'], ['Origin', 'Gujarat/Rajasthan'], ['Clean', 'Machine Clean'], ['HS Code', '09096111'], ['MOQ', '1 FCL (20ft)']], l: '13 MT in 20ft', p: '25kg, 50kg Bags', f: ['UK', 'USA', 'Singapore', 'Malaysia', 'UAE'], k: ['Fennel Seeds', 'Saunf Exporter', 'Indian Spices', 'JFT Fennel', 'Green Fennel'], u: 'fennel-seeds-sounff-exporter.html', b: 'blog-fennel-seeds-export-india-2026.html' },
-      { c: 'spices', t: 'Fenugreek Seeds (Methi)', h: [3, 4], i: 'images/products/Fenugreek Seeds (Methi).webp', s: [['Purity', '99% Machine Clean'], ['Moisture', '10% Max'], ['Total Ash', '5% Max'], ['Acid Insoluble', '1.5% Max'], ['Salmonella', 'Absent'], ['Color', 'Caramel/Yellow'], ['Size', 'Bold'], ['Origin', 'Rajasthan/Gujarat'], ['Aroma', 'Bitter'], ['HS Code', '09109912'], ['MOQ', '1 FCL (20ft)']], l: '22 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Japan', 'South Korea', 'Europe', 'USA', 'UAE'], k: ['Fenugreek Seeds', 'Methi Supplier', 'Spices Exporter', 'JFT Agro Spices', 'Indian Fenugreek'], u: 'fenugreek-seeds-methi-exporter.html', b: 'blog-fenugreek-seeds-export-india-2026.html' },
+      { c: 'spices', t: 'Fennel Seeds (Sounff)', h: [3, 4], i: 'images/products/Fennel Seeds.webp', s: [['Purity', '99% / 98%'], ['Color', 'Bright Green'], ['Moisture', '10% Max'], ['Total Ash', '9% Max'], ['Volatile Oil', '1.5% Min'], ['Admixture', '1% Max'], ['Size', 'Medium/Bold'], ['Origin', 'Gujarat/Rajasthan'], ['Clean', 'Machine Clean'], ['HS Code', '09096111'], ['MOQ', '1 FCL (20ft)']], l: '13 MT in 20ft', p: '25kg, 50kg Bags', f: ['UK', 'USA', 'Singapore', 'Malaysia', 'UAE'], k: ['Fennel Seeds', 'Saunf Exporter', 'Indian Spices', 'JFT Fennel', 'Green Fennel'], u: 'fennel-seeds-sounff-exporter.html' },
+      { c: 'spices', t: 'Fenugreek Seeds (Methi)', h: [3, 4], i: 'images/products/Fenugreek Seeds (Methi).webp', s: [['Purity', '99% Machine Clean'], ['Moisture', '10% Max'], ['Total Ash', '5% Max'], ['Acid Insoluble', '1.5% Max'], ['Salmonella', 'Absent'], ['Color', 'Caramel/Yellow'], ['Size', 'Bold'], ['Origin', 'Rajasthan/Gujarat'], ['Aroma', 'Bitter'], ['HS Code', '09109912'], ['MOQ', '1 FCL (20ft)']], l: '22 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Japan', 'South Korea', 'Europe', 'USA', 'UAE'], k: ['Fenugreek Seeds', 'Methi Supplier', 'Spices Exporter', 'JFT Agro Spices', 'Indian Fenugreek'], u: 'fenugreek-seeds-methi-exporter.html' },
       { c: 'spices', t: 'Coriander Seeds', h: [2, 3, 4], i: 'images/products/Coriander Seeds.webp', s: [['Type', 'Whole/Split'], ['Color', 'Greenish/Brown'], ['Moisture', '10% Max'], ['Purity', '98% / 99%'], ['Split', '5% Max'], ['Volatile Oil', '0.5% Min'], ['Ash', '7% Max'], ['Origin', 'Rajasthan/Gujarat'], ['Clean', 'Machine Clean'], ['HS Code', '09092110'], ['MOQ', '1 FCL (20ft)']], l: '10-11 MT in 20ft', p: '20kg, 25kg, 40kg Bags', f: ['Malaysia', 'UAE', 'USA', 'Sri Lanka', 'Saudi Arabia'], k: ['Coriander Seeds', 'Dhaniya Exporter', 'Eagle Quality Coriander', 'JFT Spices', 'Whole Spices'], u: 'coriander-seeds-exporter.html', b: 'blog-coriander-seeds-export-india-2026.html' },
       { c: 'spices', t: 'Cumin Seeds (Jeera)', h: [2, 3, 4], i: 'images/products/Cumin Seeds (Jeera).webp', s: [['Purity', '99% / 99.5%'], ['Type', 'Singapore/Europe Quality'], ['Moisture', '9% Max'], ['Volatile Oil', '2-4% Min'], ['Ash', '8% Max'], ['Acid Insoluble', '1.5% Max'], ['Color', 'Brown'], ['Origin', 'Gujarat/Rajasthan'], ['Clean', 'Machine Clean'], ['HS Code', '09093129'], ['MOQ', '1 FCL (20ft)']], l: '13-14 MT in 20ft', p: '25kg, 50kg Bags', f: ['USA', 'Brazil', 'UK', 'Vietnam', 'Bangladesh'], k: ['Cumin Seeds', 'Jeera Exporter', 'Singapore Quality Cumin', 'JFT Agro', 'Indian Cumin'], u: 'cumin-seeds-jeera-exporter.html', b: 'blog-cumin-jeera-price-outlook-2026.html' },
       { c: 'spices', t: 'Dry Red Chilli', h: [1, 2, 3], i: 'images/products/Dry Red Chilli Best.webp', s: [['Variety', 'S17 Teja / S4 Sanam'], ['SHU (Heat)', '20k - 100k'], ['Color', 'ASTA 40-60'], ['Moisture', '12% Max'], ['Broken', '3% Max'], ['Loose Seeds', '2% Max'], ['Foreign Matter', '1% Max'], ['Aflatoxin', 'B.D.L.'], ['Origin', 'Guntur'], ['HS Code', '09042110'], ['MOQ', '1 FCL (40ft)']], l: '14 MT in 40ft', p: '5kg, 10kg, 25kg Jute/Carton', f: ['China', 'Thailand', 'Sri Lanka', 'USA', 'Malaysia'], k: ['Dry Red Chilli', 'Teja Chilli', 'S17 Chilli', 'Spices Exporter India', 'JFT Chilli'], u: 'dry-red-chilli-exporter.html', b: 'blog-red-chilli-teja-export-india-2026.html' },
@@ -3186,7 +3429,7 @@
       { c: 'spices', t: 'Ajwain Seeds & Powder', h: [1, 2, 3], i: 'images/products/Ajwain Seeds and Powder.webp', s: [['Purity', '99% Machine Clean'], ['Moisture', '10% Max'], ['Volatile Oil', '2% Min'], ['Ash', '8% Max'], ['Admixture', '1% Max'], ['Color', 'Greyish Brown'], ['Origin', 'Gujarat/Rajasthan'], ['HS Code', '09109914'], ['MOQ', '1 FCL (20ft)']], l: '14 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Canada', 'UK', 'Middle East'], k: ['Ajwain Seeds', 'Carom Seeds', 'Indian Spices'], u: 'ajwain-seeds-powder-exporter.html' },
       { c: 'spices', t: 'Bay Leaf', h: [2, 3, 4], i: 'images/products/Bay Leaf.webp', s: [['Type', 'Whole Leaf'], ['Color', 'Greenish/Brown'], ['Moisture', '13% Max'], ['Volatile Oil', '1% Min'], ['Foreign Matter', '1% Max'], ['Origin', 'India'], ['Grade', 'Hand Selected'], ['HS Code', '09109990'], ['MOQ', '1 FCL (20ft)']], l: '6-7 MT in 20ft', p: '10kg, 20kg Bale/Carton', f: ['USA', 'Europe', 'Middle East', 'Russia'], k: ['Bay Leaf', 'Tej Patta', 'Whole Spices'], u: 'bay-leaf-exporter.html' },
       { c: 'spices', t: 'Whole Nutmeg & Powder', h: [6, 7, 8], i: 'images/products/Whole Nutmeg and Powder.webp', s: [['Type', 'With Shell / Without Shell'], ['Grade', 'ABCD / Sound / Shriveled'], ['Moisture', '10% Max'], ['Volatile Oil', '5% Min'], ['Aflatoxin', 'Negative'], ['Origin', 'Kerala'], ['HS Code', '09081110'], ['MOQ', '1 FCL (20ft)']], l: '14-15 MT in 20ft', p: '25kg, 50kg Jute/PP Bags', f: ['Europe', 'USA', 'UAE', 'China'], k: ['Nutmeg', 'Jaiphal', 'Whole Spices'], u: 'whole-nutmeg-powder-exporter.html' },
-      { c: 'spices', t: 'Black Pepper & Powder', h: [12, 1, 2, 3], i: 'images/products/Black Pepper and Powder.webp', s: [['Density', 'GL 500 / 550 / 570'], ['Moisture', '11% Max'], ['Admixture', '1% Max'], ['Mold', 'Nil'], ['Salmonella', 'Absent'], ['Origin', 'Kerala/Karnataka/Vietnam'], ['HS Code', '09041130'], ['MOQ', '1 FCL (20ft)']], l: '15 MT in 20ft', p: '25kg, 50kg PP/Jute Bags', f: ['USA', 'Europe', 'Vietnam', 'Japan'], k: ['Black Pepper', 'Kali Mirch', 'Peppercorns'], u: 'black-pepper-powder-exporter.html', b: 'blog-black-pepper-powder-export-india-2026.html' },
+      { c: 'spices', t: 'Black Pepper & Powder', h: [12, 1, 2, 3], i: 'images/products/Black Pepper and Powder.webp', s: [['Density', 'GL 500 / 550 / 570'], ['Moisture', '11% Max'], ['Admixture', '1% Max'], ['Mold', 'Nil'], ['Salmonella', 'Absent'], ['Origin', 'Kerala/Karnataka/Vietnam'], ['HS Code', '09041130'], ['MOQ', '1 FCL (20ft)']], l: '15 MT in 20ft', p: '25kg, 50kg PP/Jute Bags', f: ['USA', 'Europe', 'Vietnam', 'Japan'], k: ['Black Pepper', 'Kali Mirch', 'Peppercorns'], u: 'black-pepper-powder-exporter.html' },
       { c: 'spices', t: 'Curry Powder', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Curry Powder.webp', s: [['Type', 'Mild / Hot / Madras'], ['Ingredients', 'Coriander, Turmeric, Cumin, etc.'], ['Moisture', '10% Max'], ['Ash', '7% Max'], ['Additives', 'None'], ['Origin', 'India'], ['HS Code', '09109919'], ['MOQ', '1 FCL (20ft)']], l: '18 MT in 20ft', p: '1kg, 5kg, 10kg, 25kg Bags', f: ['UK', 'Japan', 'USA', 'Australia'], k: ['Curry Powder', 'Indian Curry Blend', 'Masala'], u: 'curry-powder-exporter.html' },
       { c: 'spices', t: 'Celery Seeds & Powder', h: [3, 4, 5], i: 'images/products/Celery Seeds and Powder.webp', s: [['Purity', '99% / 99.5%'], ['Moisture', '10% Max'], ['Volatile Oil', '1.5% Min'], ['Ash', '9% Max'], ['Acid Insoluble', '2% Max'], ['Origin', 'Punjab'], ['HS Code', '09109913'], ['MOQ', '1 FCL (20ft)']], l: '14 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['USA', 'Europe', 'Japan', 'Russia'], k: ['Celery Seeds', 'Radhuni', 'Indian Spices'], u: 'celery-seeds-powder-exporter.html' },
       { c: 'spices', t: 'Dill Seeds & Powder', h: [3, 4, 5], i: 'images/products/Dill Seeds and Powder.webp', s: [['Purity', '98% / 99%'], ['Moisture', '10% Max'], ['Split', '1% Max'], ['Admixture', '1% Max'], ['Origin', 'Rajasthan/Gujarat'], ['Grade', 'Machine Clean'], ['HS Code', '09109915'], ['MOQ', '1 FCL (20ft)']], l: '13 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Europe', 'USA', 'Middle East'], k: ['Dill Seeds', 'Sowa', 'Indian Spices'], u: 'dill-seeds-powder-exporter.html' },
@@ -3201,8 +3444,8 @@
       { c: 'herbs', t: 'Galangal Root', h: [1, 2, 3], i: 'images/products/Indian Galangal Root.webp', s: [['Form', 'Whole Dried / Slices'], ['Moisture', '12% Max'], ['Ash', '8% Max'], ['Foreign Matter', '1% Max'], ['Origin', 'India'], ['Color', 'Reddish Brown'], ['HS Code', '12119050'], ['MOQ', '1 FCL (20ft)']], l: '12 MT in 20ft', p: '25kg, 50kg Jute/PP Bags', f: ['Middle East', 'Europe', 'Southeast Asia'], k: ['Galangal Root', 'Kulanjan', 'Thai Ginger'], u: 'galangal-root-exporter.html' },
       { c: 'herbs', t: 'Akarkara Root', h: [3, 4, 5], i: 'images/products/Indian Akarkara Root.webp', s: [['Type', 'Dried Root'], ['Thickness', '5-10mm'], ['Moisture', '10% Max'], ['Foreign Matter', '2% Max'], ['Origin', 'India'], ['Grade', 'A Grade'], ['HS Code', '12119099'], ['MOQ', '500 kg']], l: '10 MT in 20ft', p: '25kg, 50kg Bags', f: ['Middle East', 'USA', 'Europe'], k: ['Akarkara', 'Pellitory Root', 'Anacyclus Pyrethrum'], u: 'akarkara-root-exporter.html' },
       { c: 'herbs', t: 'Cassia Tora Meal', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Ind Cassia Tora Meal.webp', s: [['Protein', '30% Min'], ['Profat', '35% Min'], ['Moisture', '10% Max'], ['Sand/Silica', '1% Max'], ['Fiber', '12% Max'], ['Origin', 'India'], ['HS Code', '13023290'], ['MOQ', '1 FCL (20ft)']], l: '22 MT in 20ft', p: '50kg PP Bags', f: ['Korea', 'China', 'Vietnam', 'Taiwan'], k: ['Cassia Tora Meal', 'Cattle Feed', 'Cassia Splits'], u: 'cassia-tora-meal-exporter.html' },
-      { c: 'herbs', t: 'Moringa Leaves', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Ind Moringa Leaves.webp', s: [['Type', 'Dried Leaves'], ['Color', 'Green'], ['Moisture', '8% Max'], ['Foreign Matter', 'Nil'], ['Origin', 'Tamil Nadu/Gujarat'], ['Drying', 'Shadow Dried'], ['HS Code', '07129090'], ['MOQ', '1 FCL (20ft)']], l: '6-7 MT in 20ft', p: '10kg, 20kg Carton/Bags', f: ['USA', 'Europe', 'Japan', 'Canada'], k: ['Moringa Leaves', 'Drumstick Leaves', 'Superfood'], u: 'moringa-leaves-exporter.html', b: 'blog-moringa-powder-export-india-2026.html' },
-      { c: 'herbs', t: 'Moringa Powder', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Ind Moringa Powder.webp', s: [['Mesh Size', '80-100 Mesh'], ['Color', 'Bright Green'], ['Moisture', '8% Max'], ['Ash', '10% Max'], ['Additives', 'None'], ['Origin', 'India'], ['HS Code', '07129090'], ['MOQ', '1 FCL (20ft)']], l: '14 MT in 20ft', p: '25kg Drum/Bag', f: ['USA', 'Germany', 'UK', 'Australia'], k: ['Moringa Powder', 'Green Superfood', 'Moringa Oleifera'], u: 'moringa-powder-exporter.html', b: 'blog-moringa-powder-export-india-2026.html' },
+      { c: 'herbs', t: 'Moringa Leaves', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Ind Moringa Leaves.webp', s: [['Type', 'Dried Leaves'], ['Color', 'Green'], ['Moisture', '8% Max'], ['Foreign Matter', 'Nil'], ['Origin', 'Tamil Nadu/Gujarat'], ['Drying', 'Shadow Dried'], ['HS Code', '07129090'], ['MOQ', '1 FCL (20ft)']], l: '6-7 MT in 20ft', p: '10kg, 20kg Carton/Bags', f: ['USA', 'Europe', 'Japan', 'Canada'], k: ['Moringa Leaves', 'Drumstick Leaves', 'Superfood'], u: 'moringa-leaves-exporter.html' },
+      { c: 'herbs', t: 'Moringa Powder', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Ind Moringa Powder.webp', s: [['Mesh Size', '80-100 Mesh'], ['Color', 'Bright Green'], ['Moisture', '8% Max'], ['Ash', '10% Max'], ['Additives', 'None'], ['Origin', 'India'], ['HS Code', '07129090'], ['MOQ', '1 FCL (20ft)']], l: '14 MT in 20ft', p: '25kg Drum/Bag', f: ['USA', 'Germany', 'UK', 'Australia'], k: ['Moringa Powder', 'Green Superfood', 'Moringa Oleifera'], u: 'moringa-powder-exporter.html' },
       { c: 'herbs', t: 'Psyllium Husk', h: [3, 4, 5], i: 'images/products/Ind Psyllium Husk.webp', s: [['Purity', '99% / 98% / 95%'], ['Swell Volume', '50ml/g Min'], ['Moisture', '12% Max'], ['Ash', '4% Max'], ['Color', 'White to Light Yellow'], ['Origin', 'Gujarat/Rajasthan'], ['HS Code', '12119032'], ['MOQ', '1 FCL (20ft)']], l: '9-10 MT in 20ft', p: '25kg, 40kg Paper/PP Bags', f: ['USA', 'Europe', 'Australia', 'China'], k: ['Psyllium Husk', 'Isabgol', 'Dietary Fiber'], u: 'psyllium-husk-exporter.html', b: 'blog-psyllium-husk-export-india-2026.html' },
       { c: 'herbs', t: 'Henna Leaves', h: [4, 5, 6, 10, 11], i: 'images/products/Ind Henna Leaves.webp', s: [['Lawson Content', '2% Min'], ['Moisture', '10% Max'], ['Color', 'Green'], ['Foreign Matter', '2% Max'], ['Origin', 'Sojat, Rajasthan'], ['Type', 'Dried Leaves'], ['HS Code', '14041011'], ['MOQ', '1 FCL (20ft)']], l: '7-8 MT in 20ft', p: '40kg, 50kg Bales', f: ['Middle East', 'North Africa', 'Europe'], k: ['Henna Leaves', 'Mehndi Leaves', 'Natural Dye'], u: 'henna-leaves-exporter.html' },
       { c: 'herbs', t: 'Henna Powder', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Ind Henna Powder.webp', s: [['Mesh', 'Cloth Filtered / Triple Sifted'], ['Lawson Content', '2.5% Min'], ['Moisture', '10% Max'], ['Color', 'Greenish'], ['Origin', 'Sojat'], ['Additives', 'None'], ['HS Code', '14041019'], ['MOQ', '1 FCL (20ft)']], l: '15 MT in 20ft', p: '20kg, 25kg, 50kg Bags', f: ['Middle East', 'USA', 'Europe', 'Malaysia'], k: ['Henna Powder', 'Mehndi Powder', 'Hair Dye'], u: 'henna-powder-exporter.html' },
@@ -3227,9 +3470,9 @@
       { c: 'feed', t: 'Buckwheat', h: [10, 11], i: 'images/products/Buckwheat.webp', s: [['Moisture', '14% Max'], ['Admixture', '1% Max'], ['Foreign Matter', '2% Max'], ['Color', 'Brown/Black'], ['Origin', 'India'], ['Use', 'Bird Feed / Flour'], ['HS Code', '10081000'], ['MOQ', '1 FCL (20ft)']], l: '20 MT in 20ft', p: '25kg, 50kg PP Bag', f: ['Europe', 'Japan', 'USA'], k: ['Buckwheat', 'Kuttu', 'Bird Feed'], u: 'buckwheat-exporter.html' },
       { c: 'feed', t: 'Grey Millet', h: [10, 11], i: 'images/products/Grey Millet.webp', s: [['Moisture', '12% Max'], ['Purity', '99%'], ['Protein', '11% Min'], ['Foreign Matter', '1% Max'], ['Color', 'Grey'], ['Origin', 'India'], ['HS Code', '10082120'], ['MOQ', '1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Middle East', 'Africa'], k: ['Grey Millet', 'Bajra', 'Bird Feed'], u: 'grey-millet-exporter.html' },
       { c: 'feed', t: 'Red Millet', h: [10, 11], i: 'images/products/Red Millet.webp', s: [['Moisture', '12% Max'], ['Purity', '98% / 99%'], ['Protein', '10% Min'], ['Admixture', '1% Max'], ['Color', 'Red'], ['Origin', 'India'], ['HS Code', '10082120'], ['MOQ', '1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Europe', 'USA', 'Middle East'], k: ['Red Millet', 'Bird Feed', 'Finger Millet'], u: 'red-millet-exporter.html' },
-      { c: 'flour', t: 'Wheat Flour (Chakki Fresh Atta)', h: [4, 5, 6, 10, 11], i: 'images/products/Wheat Flour.webp', s: [['Ash', '1.5% Max'], ['Protein', '11% Min'], ['Moisture', '12% Max'], ['Gluten', '9% Min'], ['Color', 'Creamy White'], ['Type', 'Whole Wheat'], ['Origin', 'MP/Punjab'], ['HS Code', '11010000'], ['MOQ', '1 FCL (20ft)']], l: '22-24 MT in 20ft', p: '5kg, 10kg, 25kg, 50kg Bags', f: ['UAE', 'Saudi Arabia', 'USA', 'UK'], k: ['Atta', 'Whole Wheat Flour', 'Chakki Atta', 'Roti Flour'], u: 'wheat-flour-chakki-fresh-atta-exporter.html', b: 'blog-wheat-flour-atta-export-india-2026.html' },
-      { c: 'flour', t: 'Maida (Refined Wheat Flour)', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Maida.webp', s: [['Ash', '0.55% Max'], ['Gluten', '28% Min'], ['Protein', '11% Min'], ['Moisture', '13% Max'], ['Color', 'Super White'], ['Sedimentation', '25ml Min'], ['Origin', 'India'], ['HS Code', '11010000'], ['MOQ', '1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Somalia', 'UAE', 'Yemen', 'Sri Lanka'], k: ['Maida', 'Refined Flour', 'Bakery Flour', 'All Purpose Flour'], u: 'maida-refined-wheat-flour-exporter.html', b: 'blog-wheat-flour-atta-export-india-2026.html' },
-      { c: 'flour', t: 'Semolina (Sooji / Rava)', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Semolina (Sooji -Rava).webp', s: [['Particle Size', 'Coarse / Fine'], ['Moisture', '13% Max'], ['Ash', '0.8% Max'], ['Gluten', '26% Min'], ['Protein', '10% Min'], ['Color', 'Creamy Yellow'], ['Origin', 'India'], ['HS Code', '11031110'], ['MOQ', '1 FCL (20ft)']], l: '24 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Africa', 'Middle East', 'Asia'], k: ['Sooji', 'Rava', 'Semolina', 'Durum Semolina'], u: 'semolina-sooji-rava-exporter.html', b: 'blog-wheat-flour-atta-export-india-2026.html' },
+      { c: 'flour', t: 'Wheat Flour (Chakki Fresh Atta)', h: [4, 5, 6, 10, 11], i: 'images/products/Wheat Flour.webp', s: [['Ash', '1.5% Max'], ['Protein', '11% Min'], ['Moisture', '12% Max'], ['Gluten', '9% Min'], ['Color', 'Creamy White'], ['Type', 'Whole Wheat'], ['Origin', 'MP/Punjab'], ['HS Code', '11010000'], ['MOQ', '1 FCL (20ft)']], l: '22-24 MT in 20ft', p: '5kg, 10kg, 25kg, 50kg Bags', f: ['UAE', 'Saudi Arabia', 'USA', 'UK'], k: ['Atta', 'Whole Wheat Flour', 'Chakki Atta', 'Roti Flour'], u: 'wheat-flour-chakki-fresh-atta-exporter.html' },
+      { c: 'flour', t: 'Maida (Refined Wheat Flour)', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Maida.webp', s: [['Ash', '0.55% Max'], ['Gluten', '28% Min'], ['Protein', '11% Min'], ['Moisture', '13% Max'], ['Color', 'Super White'], ['Sedimentation', '25ml Min'], ['Origin', 'India'], ['HS Code', '11010000'], ['MOQ', '1 FCL (20ft)']], l: '24 MT in 20ft', p: '50kg PP Bag', f: ['Somalia', 'UAE', 'Yemen', 'Sri Lanka'], k: ['Maida', 'Refined Flour', 'Bakery Flour', 'All Purpose Flour'], u: 'maida-refined-wheat-flour-exporter.html' },
+      { c: 'flour', t: 'Semolina (Sooji / Rava)', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Semolina (Sooji -Rava).webp', s: [['Particle Size', 'Coarse / Fine'], ['Moisture', '13% Max'], ['Ash', '0.8% Max'], ['Gluten', '26% Min'], ['Protein', '10% Min'], ['Color', 'Creamy Yellow'], ['Origin', 'India'], ['HS Code', '11031110'], ['MOQ', '1 FCL (20ft)']], l: '24 MT in 20ft', p: '25kg, 50kg PP Bags', f: ['Africa', 'Middle East', 'Asia'], k: ['Sooji', 'Rava', 'Semolina', 'Durum Semolina'], u: 'semolina-sooji-rava-exporter.html' },
       { c: 'flour', t: 'Corn Flour (Maize Flour)', h: [1, 2, 3, 4, 10, 11, 12], i: 'images/products/Corn Flour.webp', s: [['Type', 'Yellow / White'], ['Moisture', '12% Max'], ['Protein', '8% Min'], ['Fat', '3% Max'], ['Ash', '1.5% Max'], ['Fineness', '90% passing 40 mesh'], ['Origin', 'India'], ['HS Code', '11022000'], ['MOQ', '1 FCL (20ft)']], l: '22 MT in 20ft', p: '25kg, 50kg Bags', f: ['Malaysia', 'Vietnam', 'Sri Lanka'], k: ['Makki Atta', 'Maize Flour', 'Corn Meal'], u: 'corn-flour-maize-flour-exporter.html', b: 'blog-top-indian-agro-commodities-import-2026.html' },
       { c: 'flour', t: 'Corn Starch', h: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], i: 'images/products/Maize Corn Starch.webp', s: [['Appearance', 'White Fine Powder'], ['Moisture', '12% Max'], ['Starch Content', '98% Min'], ['Ash', '0.15% Max'], ['Protein', '0.4% Max'], ['PH', '5-7'], ['SO2', '30 PPM Max'], ['HS Code', '11081200'], ['MOQ', '1 FCL (20ft)']], l: '22 MT in 20ft', p: '25kg Paper/PP Bags', f: ['Sri Lanka', 'Bangladesh', 'Kenya', 'Nigeria', 'UAE'], k: ['Corn Starch', 'Maize Starch', 'Food Grade Starch'], u: 'corn-starch-exporter.html' },
       { c: 'wheat', t: 'Milling Wheat', h: [3, 4], i: 'images/products/Indian Milling Wheat.webp', s: [['Protein', '11.5% - 12.5%'], ['Gluten', '26% Min'], ['Moisture', '12% Max'], ['Falling Number', '300 sec'], ['Hectoliter', '77 Kg/hl'], ['Foreign Matter', '1.5% Max'], ['Damaged', '2% Max'], ['Shrunken', '3% Max'], ['Origin', 'MP/Gujarat'], ['Crop', 'Recent'], ['HS Code', '10019910'], ['MOQ', '1 FCL (20ft)']], l: '24-25 MT in 20ft', p: 'Bulk or 50kg Bag', f: ['Bangladesh', 'Yemen', 'Nepal', 'UAE', 'Sri Lanka'], k: ['Milling Wheat', 'Indian Wheat', 'Lokwan Wheat', 'Wheat Exporter India', 'JFT Wheat'], u: 'milling-wheat-exporter.html' },
@@ -3266,6 +3509,36 @@
       }
     }, 4000);
 
+    let catalogueVisibleLimit = 0;
+    let catalogueRenderVersion = 0;
+
+    function cataloguePageSize() {
+      return window.innerWidth < 600 ? 8 : 12;
+    }
+
+    function applyCatalogueLimit() {
+      const items = Array.from(document.querySelectorAll('#product-grid .p-item'));
+      const wrap = document.getElementById('catalogue-load-more');
+      const remainingLabel = document.getElementById('catalogue-remaining');
+      items.forEach((item, index) => { item.hidden = index >= catalogueVisibleLimit; });
+      const remaining = Math.max(0, items.length - catalogueVisibleLimit);
+      if (remainingLabel) remainingLabel.textContent = remaining ? `(${remaining} remaining)` : '';
+      if (wrap) wrap.hidden = remaining === 0;
+    }
+
+    function resetCataloguePagination() {
+      catalogueVisibleLimit = cataloguePageSize();
+      applyCatalogueLimit();
+    }
+
+    function loadMoreProducts() {
+      const firstNewIndex = catalogueVisibleLimit;
+      catalogueVisibleLimit += cataloguePageSize();
+      applyCatalogueLimit();
+      const firstNewCard = document.querySelectorAll('#product-grid .p-item')[firstNewIndex];
+      if (firstNewCard) firstNewCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
     function initPage() {
       var hbg = document.getElementById('header-bg');
       if (hbg) hbg.style.backgroundImage = "url('" + HEADER_BG + "')";
@@ -3274,8 +3547,10 @@
 
     function renderProducts(cat) {
       const container = document.getElementById('product-grid');
+      const renderVersion = ++catalogueRenderVersion;
       container.style.opacity = '0';
       setTimeout(() => {
+        if (renderVersion !== catalogueRenderVersion) return;
         container.innerHTML = '';
         const filtered = cat === 'all' ? PRODUCT_DATA : PRODUCT_DATA.filter(p => p.c === cat);
         updateResultCount(filtered.length);
@@ -3324,7 +3599,7 @@
                             </div>
                             
                             <div class="p-toggle-overlay">
-                                <div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle Specifications" aria-expanded="false"><i class="fa-solid fa-chevron-down"></i></div>
+                                <button type="button" class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle specifications for ${p.t}" aria-expanded="false"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
                             </div>
                         </div>
 
@@ -3354,24 +3629,26 @@
         // Show/hide no-results
         const noRes = document.getElementById('no-results');
         if (noRes) noRes.style.display = container.children.length === 0 ? 'block' : 'none';
+        resetCataloguePagination();
         initDragScroll();
       }, 300);
     }
 
     // --- SEARCH LOGIC ---
     function clearSearch() {
-      /* Close modal when clicking outside the content */
-      document.getElementById('product-modal').addEventListener('click', function (e) {
-        if (e.target === this) closeModal();
-      });
-
       document.getElementById('prod-search').value = '';
       document.getElementById('search-clear-btn').style.display = 'none';
       renderProducts('all');
       updateResultCount(PRODUCT_DATA.length);
-      document.querySelectorAll('.cz-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.cz-tab').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       const allBtn = document.querySelector('.cz-tab[data-cat="all"]');
-      if (allBtn) allBtn.classList.add('active');
+      if (allBtn) {
+        allBtn.classList.add('active');
+        allBtn.setAttribute('aria-pressed', 'true');
+      }
     }
 
     function updateResultCount(n) {
@@ -3403,12 +3680,17 @@
           (p.p && p.p.toLowerCase().includes(query));
       });
 
+      const renderVersion = ++catalogueRenderVersion;
       container.style.opacity = '0';
       setTimeout(() => {
+        if (renderVersion !== catalogueRenderVersion) return;
         container.innerHTML = '';
+        updateResultCount(filtered.length);
+        const noRes = document.getElementById('no-results');
+        if (noRes) noRes.style.display = filtered.length === 0 ? 'block' : 'none';
         if (filtered.length === 0) {
-          const safeQuery = query.replace(/[<>]/g, '');
-          container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #888;">No products found matching "${safeQuery}"</div>`;
+          const loadMore = document.getElementById('catalogue-load-more');
+          if (loadMore) loadMore.hidden = true;
         } else {
           let delay = 0;
           filtered.forEach((p, index) => {
@@ -3432,7 +3714,7 @@
                                 <h3 class="p-title">${p.t}</h3>
                                 <div class="p-specs-wrapper">
                                     <div class="p-specs-scrollable" id="${uniqueId}" tabindex="0"><table class="p-table-shared">${allSpecsHTML}</table></div>
-                                    <div class="p-toggle-overlay"><div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle Specifications"><i class="fa-solid fa-chevron-down"></i></div></div>
+                                    <div class="p-toggle-overlay"><button type="button" class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle specifications for ${p.t}" aria-expanded="false"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></div>
                                 </div>
                                 <div class="p-flags-area"><div class="p-flag-label">Top Importers</div><div class="p-market-list">${marketHTML}</div></div>
                                 <div class="p-tags-container">${tagsHTML}</div>
@@ -3447,6 +3729,7 @@
           });
         }
         container.style.opacity = '1';
+        if (filtered.length) resetCataloguePagination();
         initDragScroll();
       }, 300);
     }
@@ -3512,9 +3795,12 @@
     }
 
     // --- PRODUCT ENCYCLOPEDIA MODAL FUNCTIONS ---
+    let modalReturnFocus = null;
+
     function openModal(index) {
       const p = PRODUCT_DATA[index];
       const modal = document.getElementById('product-modal');
+      modalReturnFocus = document.activeElement;
 
       document.body.classList.add('modal-open');
 
@@ -3699,26 +3985,44 @@
 
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
-      const closeButton = modal.querySelector('[onclick="closeModal()"]');
-      if (closeButton) closeButton.focus();
+      modal.focus();
     }
 
     const catalogueTitle = document.title;
     function closeModal() {
       const modal = document.getElementById('product-modal');
+      if (!modal.classList.contains('open')) return;
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('modal-open');
       document.title = catalogueTitle;
+      if (modalReturnFocus && document.contains(modalReturnFocus)) modalReturnFocus.focus();
+      modalReturnFocus = null;
     }
     document.getElementById('product-modal').addEventListener('click', function (event) {
       if (event.target === this) closeModal();
     });
     document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && document.getElementById('product-modal').classList.contains('open')) closeModal();
+      const modal = document.getElementById('product-modal');
+      if (!modal.classList.contains('open')) return;
+      if (event.key === 'Escape') {
+        closeModal();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = [...modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+        .filter(element => element.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
-
-    function downloadPDF() { alert("Downloading Product Data Sheet..."); }
 
     const scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -3744,17 +4048,39 @@
     }
 
     function filterProducts(cat) {
-      document.querySelectorAll('.cz-tab').forEach(b => b.classList.remove('active'));
+      const searchInput = document.getElementById('prod-search');
+      const clearBtn = document.getElementById('search-clear-btn');
+      if (searchInput) searchInput.value = '';
+      if (clearBtn) clearBtn.style.display = 'none';
+      document.querySelectorAll('.cz-tab').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       const activeBtn = document.querySelector(`.cz-tab[data-cat="${cat}"]`);
-      if (activeBtn) { activeBtn.classList.add('active'); activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); }
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.setAttribute('aria-pressed', 'true');
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
       renderProducts(cat);
       attachScrollObserver();
       document.getElementById('rice-sub-filters').style.display = (cat === 'rice') ? 'flex' : 'none';
+      if (cat === 'rice') {
+        document.querySelectorAll('.cz-subtab').forEach((button, index) => {
+          button.classList.toggle('active', index === 0);
+          button.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+        });
+      }
     }
 
     function filterRice(type, btn) {
-      document.querySelectorAll('.cz-subtab, .sub-cat-btn').forEach(b => b.classList.remove('active'));
+      catalogueRenderVersion += 1;
+      document.querySelectorAll('.cz-subtab, .sub-cat-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
 
       const container = document.getElementById('product-grid');
       container.innerHTML = '';
@@ -3762,9 +4088,15 @@
       const filtered = PRODUCT_DATA.filter(p => {
         if (p.c !== 'rice') return false;
         if (type === 'all') return true;
-        if (type === 'basmati') return p.t.includes('Basmati');
-        if (type === 'non-basmati') return !p.t.includes('Basmati');
+        const title = p.t.toLowerCase();
+        const isNonBasmati = /non[\s-]?basmati/.test(title);
+        const isBasmati = title.includes('basmati') && !isNonBasmati;
+        if (type === 'basmati') return isBasmati;
+        if (type === 'non-basmati') return !isBasmati;
       });
+      updateResultCount(filtered.length);
+      const noRes = document.getElementById('no-results');
+      if (noRes) noRes.style.display = 'none';
 
       let delay = 0;
       filtered.forEach((p, index) => {
@@ -3790,7 +4122,7 @@
                         <h3 class="p-title">${p.u ? `<a href="${p.u}" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--jft-primary)'" onmouseout="this.style.color='inherit'">${p.t}</a>` : p.t}</h3>
                         <div class="p-specs-wrapper">
                             <div class="p-specs-scrollable" id="${uniqueId}" tabindex="0"><table class="p-table-shared">${allSpecsHTML}</table></div>
-                            <div class="p-toggle-overlay"><div class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle Specifications"><i class="fa-solid fa-chevron-down"></i></div></div>
+                            <div class="p-toggle-overlay"><button type="button" class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}', this)" aria-label="Toggle specifications for ${p.t}" aria-expanded="false"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></div>
                         </div>
                         <div class="p-flags-area"><div class="p-flag-label">Top Importers</div><div class="p-market-list">${marketHTML}</div></div>
                         <div class="p-tags-container">${tagsHTML}</div>
@@ -3803,6 +4135,7 @@
         container.innerHTML += html;
         delay += 0.05;
       });
+      resetCataloguePagination();
       initDragScroll();
       attachScrollObserver();
     }
