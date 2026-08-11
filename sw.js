@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jft-agro-v10';
+const CACHE_NAME = 'jft-agro-v11';
 
 /* Core shell — pages & assets that EXIST in the project */
 const SHELL_ASSETS = [

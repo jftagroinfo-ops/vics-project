@@ -18,8 +18,8 @@
 /* ════════════════════════════════════════════════════════════════════════════
    0. UNIVERSAL SAFE DEFAULTS
    ════════════════════════════════════════════════════════════════════════════ */
-html { overflow-x: hidden; }
-body { overflow-x: hidden; min-width: 320px; }
+html { overflow-x: clip; }
+body { overflow-x: clip; min-width: 320px; }
 *,*::before,*::after { box-sizing: border-box; max-width: 100%; }
 img, video, iframe, embed, object { max-width: 100%; height: auto; }
 table { width: 100%; }
@@ -29,7 +29,7 @@ table { width: 100%; }
 .container,
 .page-wrapper,
 section,
-footer { max-width: 100vw; overflow-x: hidden; }
+footer { max-width: 100vw; overflow-x: clip; }
 
 /* ════════════════════════════════════════════════════════════════════════════
    1. HEADER / TOP DASHBOARD
