@@ -22,8 +22,10 @@ jobs:
       - name: Verify deterministic generators
         run: |
           python scripts/optimize_homepage_assets.py
-          python scripts/build_priority_locales.py
           python scripts/apply_site_audit_fixes.py
+          python scripts/create_missing_locale_pages.py
+          python scripts/normalize_locale_metadata.py
+          python scripts/build_locale_ui.py
           python scripts/generate_hreflang.py
           python scripts/generate_sitemap.py
           git diff --exit-code

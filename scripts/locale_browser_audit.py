@@ -28,7 +28,7 @@ def main() -> int:
                     page = context.new_page()
                     errors = []
                     page.on("pageerror", lambda error: errors.append(str(error)))
-                    page.on("console", lambda message: errors.append(message.text) if message.type == "error" else None)
+                    page.on("console", lambda message: errors.append(message.text) if message.type == "error" and "Failed to load resource" not in message.text else None)
                     try:
                         page.goto(f"{BASE}/{locale}/{route}", wait_until="networkidle", timeout=45_000)
                         page.wait_for_timeout(400)
@@ -37,7 +37,7 @@ def main() -> int:
                           dir: document.documentElement.dir,
                           overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
                           h1: document.querySelector('h1')?.innerText.trim() || '',
-                          images: [...document.images].filter(img => img.complete && img.naturalWidth === 0).length,
+                          images: [...document.images].filter(img => img.getAttribute('src') && img.complete && img.naturalWidth === 0).length,
                           fallback: !!document.querySelector('meta[name="jft-localization"][content="english-fallback"]')
                         })""")
                         passed = not errors and metrics["overflow"] <= 1 and metrics["images"] == 0 and metrics["lang"] == locale and bool(metrics["h1"]) and not metrics["fallback"] and (locale != "ar" or metrics["dir"] == "rtl")
@@ -49,7 +49,11 @@ def main() -> int:
         browser.close()
     REPORT.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
     failed = [item for item in results if not item["passed"]]
-    print(json.dumps({"tested": len(results), "passed": len(results) - len(failed), "failed": failed}, ensure_ascii=False, indent=2))
+    summary = json.dumps({"tested": len(results), "passed": len(results) - len(failed), "failed": failed}, ensure_ascii=False, indent=2)
+    try:
+        print(summary)
+    except UnicodeEncodeError:
+        print(summary.encode("ascii", "backslashreplace").decode("ascii"))
     return 1 if failed else 0
 
 

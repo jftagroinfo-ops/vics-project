@@ -124,6 +124,21 @@ def public_url(path: Path) -> str:
 
 def main() -> None:
     marked, restored = synchronize_localization_fallbacks()
+    # Keep noindex and redirect documents tidy too. They are not part of the
+    # hreflang graph, but every renderable page should still have one canonical.
+    for path in ROOT.rglob("*.html"):
+        if path.name in EXCLUDED or path.name.startswith("yandex_"):
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        if not re.search(r"<html\b", text, re.I):
+            continue
+        existing = CANONICAL_RE.findall(text)
+        if len(existing) == 1:
+            continue
+        canonical = existing[0] if existing else f'<link rel="canonical" href="{public_url(path)}">'
+        text = CANONICAL_RE.sub("", text)
+        text = re.sub(r"</head>", f"  {canonical}\n</head>", text, count=1, flags=re.I)
+        path.write_text(text, encoding="utf-8")
     pages = [path for path in ROOT.rglob("*.html") if is_indexable(path)]
     by_name: dict[str, list[Path]] = {}
     for path in pages:

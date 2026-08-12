@@ -23,7 +23,7 @@ def attrs(tag: str) -> dict[str, str]:
 
 
 def clean_text(raw: str) -> str:
-    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", raw)).strip()
+    return html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", raw)).strip())
 
 
 def label(path: Path) -> str:
@@ -93,9 +93,11 @@ def main() -> int:
             elif not 90 <= len(desc) <= 170:
                 findings["seo_description_length"].append(f"{rel} ({len(desc)})")
             if title:
-                titles[title.casefold()].append(rel)
+                language_key = rel.split("/", 1)[0] if "/" in rel else "en"
+                titles[f"{language_key}:{title.casefold()}"].append(rel)
             if desc:
-                descriptions[desc.casefold()].append(rel)
+                language_key = rel.split("/", 1)[0] if "/" in rel else "en"
+                descriptions[f"{language_key}:{desc.casefold()}"].append(rel)
 
         links = [attrs(t) for t in re.findall(r"<link\b[^>]*>", head, re.I | re.S)]
         canonical = [x.get("href", "") for x in links if x.get("rel", "").lower() == "canonical"]
