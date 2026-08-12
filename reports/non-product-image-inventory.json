@@ -1,0 +1,1009 @@
+[
+  {
+    "page": "about.html",
+    "count": 14,
+    "images": [
+      {
+        "src": "images/jft logo.png",
+        "alt": "JFT Agro",
+        "class": "loader-logo-img"
+      },
+      {
+        "src": "images/aboutus/real-indian-rice-work-pexels.webp",
+        "alt": "Farmer spreading harvested rice for drying in Habra, West Bengal",
+        "class": "ab-img-main"
+      },
+      {
+        "src": "images/aboutus/real-indian-rice-drying-pexels.webp",
+        "alt": "Agricultural worker drying harvested rice in Habra, West Bengal",
+        "class": "story-img"
+      },
+      {
+        "src": "images/aboutus/GRAINS.webp",
+        "alt": "Assortment of rice varieties prepared for buyer review",
+        "class": "why-img"
+      },
+      {
+        "src": "images/homepage/STAR HOUSE.webp",
+        "alt": "Star Export House Certificate \u2014 JFT Agro Overseas DGFT India",
+        "class": "cert-box-logo"
+      },
+      {
+        "src": "images/homepage/APEDA.webp",
+        "alt": "APEDA RCMC Registration \u2014 JFT Agro Overseas Agricultural Products",
+        "class": "cert-box-logo"
+      },
+      {
+        "src": "images/homepage/SPICES_BOARD.webp",
+        "alt": "Spices Board India Certification \u2014 JFT Agro Authorized Exporter",
+        "class": "cert-box-logo"
+      },
+      {
+        "src": "images/homepage/FSSAI.webp",
+        "alt": "FSSAI License \u2014 JFT Agro Food Safety Standards Authority India",
+        "class": "cert-box-logo"
+      },
+      {
+        "src": "images/homepage/AEO.webp",
+        "alt": "AEO",
+        "class": "cert-box-logo"
+      },
+      {
+        "src": "images/homepage/IEC.webp",
+        "alt": "IEC",
+        "class": "cert-box-logo"
+      },
+      {
+        "src": "images/homepage/MSME.webp",
+        "alt": "MSME",
+        "class": "cert-box-logo"
+      },
+      {
+        "src": "images/homepage/COFFEE_BOARD.webp",
+        "alt": "Coffee Board of India registration",
+        "class": "cert-box-logo"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg",
+        "alt": "",
+        "class": "global-map-bg"
+      },
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "africa-trade.html",
+    "count": 6,
+    "images": [
+      {
+        "src": "images/products/5 Parboiled Rice (IR-64).webp",
+        "alt": "IR-64 parboiled rice",
+        "class": ""
+      },
+      {
+        "src": "images/products/100 Broken Rice.webp",
+        "alt": "100 percent broken rice",
+        "class": ""
+      },
+      {
+        "src": "images/products/1121 White Sella Basmati.webp",
+        "alt": "1121 white sella basmati rice",
+        "class": ""
+      },
+      {
+        "src": "images/products/Sugar S-30.webp",
+        "alt": "Indian S-30 sugar",
+        "class": ""
+      },
+      {
+        "src": "images/products/Yellow Maize (Corn).webp",
+        "alt": "Indian yellow maize",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/real-container-port-landscape-pexels.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "asia-trade.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/trade/asia-port-real-pexels.jpg",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "blog-apeda-registration-indian-exporter-explained.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-basmati-export-guide.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "Comparing 1121 and 1509 Basmati Rice varieties",
+        "class": "article-hero"
+      }
+    ]
+  },
+  {
+    "page": "blog-bill-of-lading-explained-importers.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-cif-fob-explained.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-coriander-seeds-export-india-2026.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/products/Coriander Seeds.webp",
+        "alt": "Cleaned whole Indian coriander seeds",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "blog-cumin-jeera-price-outlook-2026.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-eu-mrl-basmati.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-green-mung-beans-export-india-2026.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-groundnut-peanut-export-india-2026.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/products/Groundnuts (Peanuts).webp",
+        "alt": "Shelled Indian groundnut kernels ready for grading",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "blog-how-to-export-india-to-africa.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-how-to-import-rice-nigeria-west-africa.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-how-to-read-proforma-invoice-india-export.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-import-duty-indian-rice-by-country.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-import-indian-agro-kenya-east-africa.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-import-indian-spices-uk-europe.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/products/seed_spices.webp",
+        "alt": "Assorted Indian whole spices prepared for export",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "blog-india-rice-export-sri-lanka-bangladesh.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-india-uae-cepa.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-india-vs-thailand-rice-comparison.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-indian-white-rice-export-policy-2026-latest-updates.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-ir64-africa.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-ir64-export.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-lc-vs-tt.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/trade/europe-port-real-pexels.jpg",
+        "alt": "Container vessel representing international food trade payment",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "blog-letter-of-credit-food-imports-india.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-private-label-rice.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/INFRASTRUCTURE/Brand Packing.webp",
+        "alt": "Rice packing line preparing branded export bags",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "blog-psyllium-husk-export-india-2026.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-red-chilli-teja-export-india-2026.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-sesame-export-2026.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/products/Sesame Seeds (Natural-Hulled).webp",
+        "alt": "Natural and hulled Indian sesame seeds",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "blog-sgs-inspection-indian-agro-exports.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-spice-trends-2026.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-toor-dal-export-india-2026.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-top-indian-agro-commodities-import-2026.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-turmeric-finger-export-india-2026.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "blog-turmeric-market-outlook-2026.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/products/turmeric_finger.webp",
+        "alt": "Global Spice Trade: Turmeric Market Outlook 2026",
+        "class": "article-hero"
+      }
+    ]
+  },
+  {
+    "page": "blog.html",
+    "count": 28,
+    "images": [
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "1121 vs 1509 Basmati Rice",
+        "class": ""
+      },
+      {
+        "src": "images/products/seed_spices.webp",
+        "alt": "Assorted Indian whole spices for export",
+        "class": ""
+      },
+      {
+        "src": "images/INFRASTRUCTURE/Brand Packing.webp",
+        "alt": "Rice packing line preparing private-label bags",
+        "class": ""
+      },
+      {
+        "src": "images/products/Groundnuts (Peanuts).webp",
+        "alt": "Indian groundnut kernels prepared for grading",
+        "class": ""
+      },
+      {
+        "src": "images/products/Sesame Seeds (Natural-Hulled).webp",
+        "alt": "Natural and hulled Indian sesame seeds",
+        "class": ""
+      },
+      {
+        "src": "images/products/Coriander Seeds.webp",
+        "alt": "Cleaned whole Indian coriander seeds",
+        "class": ""
+      },
+      {
+        "src": "images/trade/europe-port-real-pexels.jpg",
+        "alt": "Container vessel representing international trade payments",
+        "class": ""
+      },
+      {
+        "src": "images/trade/asia-port-real-pexels.jpg",
+        "alt": "Container terminal serving international trade routes",
+        "class": ""
+      },
+      {
+        "src": "images/products/turmeric_finger.webp",
+        "alt": "Indian Turmeric Finger Export 2026: Salem vs Nizamabad, Grades & Prices",
+        "class": ""
+      },
+      {
+        "src": "images/products/red_chilli_hd.webp",
+        "alt": "Red Chilli Export India 2026: Teja S17, Guntur Grades & FOB Prices",
+        "class": ""
+      },
+      {
+        "src": "images/products/pulses_hd.webp",
+        "alt": "Green Mung Beans Export India 2026: Grades, Sizes & Buyer Guide",
+        "class": ""
+      },
+      {
+        "src": "images/products/ir64.webp",
+        "alt": "IR-64 Parboiled Rice for Export: Grades, Markets & FOB Prices 2026",
+        "class": ""
+      },
+      {
+        "src": "images/products/5 Parboiled Rice (IR-64).webp",
+        "alt": "How to Import Indian Rice to Nigeria & West Africa: Complete Guide",
+        "class": ""
+      },
+      {
+        "src": "images/products/1121 White Sella Basmati.webp",
+        "alt": "1121 white sella Basmati rice",
+        "class": ""
+      },
+      {
+        "src": "images/trade/asia-port-real-pexels.jpg",
+        "alt": "Container terminal handling international cargo",
+        "class": ""
+      },
+      {
+        "src": "images/aboutus/buyer-due-diligence-hd-v1.webp",
+        "alt": "Buyer and exporter reviewing commodity specifications and trade documents",
+        "class": ""
+      },
+      {
+        "src": "images/products/market_update.webp",
+        "alt": "Import Duty on Indian Rice 2026: Country-by-Country Tariff Guide",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/APEDA.webp",
+        "alt": "APEDA Registration Explained: What It Means for Importers",
+        "class": ""
+      },
+      {
+        "src": "images/aboutus/export-quality-inspection-premium-v1.webp",
+        "alt": "Rice quality inspection before export dispatch",
+        "class": ""
+      },
+      {
+        "src": "images/INFRASTRUCTURE/Brand Packing.webp",
+        "alt": "Export goods prepared for shipment",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/proof-logistics.webp",
+        "alt": "Sealed export container leaving an Indian packing facility",
+        "class": ""
+      },
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "India vs Thailand Rice 2026: Which Is Better for Your Market?",
+        "class": ""
+      },
+      {
+        "src": "images/products/market_update.webp",
+        "alt": "Top 10 Indian Agro Commodities to Import in 2026",
+        "class": ""
+      },
+      {
+        "src": "images/INFRASTRUCTURE/rice-factory.webp",
+        "alt": "How to Choose a Reliable Indian Agro Exporter: Buyer's Checklist",
+        "class": ""
+      },
+      {
+        "src": "images/products/Ind Psyllium Husk.webp",
+        "alt": "Psyllium Husk Export from India 2026: Grades, Prices and Buyer Guide",
+        "class": ""
+      },
+      {
+        "src": "images/products/cumin_seeds.webp",
+        "alt": "Indian Cumin (Jeera) Price Outlook 2026: What Importers Need to Know",
+        "class": ""
+      },
+      {
+        "src": "images/products/turmeric_finger.webp",
+        "alt": "Global Spice Trade: Turmeric Market Outlook 2026",
+        "class": ""
+      },
+      {
+        "src": "images/trade/uae-port-real-pexels.jpg",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "certificates.html",
+    "count": 6,
+    "images": [
+      {
+        "src": "images/homepage/STAR HOUSE.webp",
+        "alt": "Star Export House",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/APEDA.webp",
+        "alt": "APEDA",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/FSSAI.webp",
+        "alt": "FSSAI",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/SPICES_BOARD.webp",
+        "alt": "Spices Board",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/AEO.webp",
+        "alt": "AEO",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/real-container-port-landscape-pexels.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "contact.html",
+    "count": 4,
+    "images": [
+      {
+        "src": "images/homepage/FSSAI.webp",
+        "alt": "FSSAI",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/APEDA.webp",
+        "alt": "APEDA",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/STAR HOUSE.webp",
+        "alt": "Star Export House",
+        "class": ""
+      },
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "europe-trade.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/trade/europe-port-real-pexels.jpg",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "faq.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/homepage/real-container-port-landscape-pexels.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "index.html",
+    "count": 41,
+    "images": [
+      {
+        "src": "images/homepage/rice-milling-facility-premium-v1.webp",
+        "alt": "Automated rice milling and export preparation facility in India",
+        "class": "hero-slide-image hero-lcp-image"
+      },
+      {
+        "src": "images/14.webp",
+        "alt": "Export rice in jute sacks prepared for international buyers",
+        "class": "hero-slide-image"
+      },
+      {
+        "src": "images/12.webp",
+        "alt": "Assorted Indian whole spices and ground spice powders",
+        "class": "hero-slide-image"
+      },
+      {
+        "src": "images/homepage/real-container-port-landscape-pexels.webp",
+        "alt": "Container vessel and cargo operations at an export port",
+        "class": "hero-slide-image"
+      },
+      {
+        "src": "images/10.webp",
+        "alt": "Indian lentils and pulses arranged for quality review",
+        "class": "hero-slide-image"
+      },
+      {
+        "src": "images/INFRASTRUCTURE/packing unit.webp",
+        "alt": "Packed agricultural commodities inside an Indian export warehouse",
+        "class": "hero-slide-image"
+      },
+      {
+        "src": "images/homepage/thumbs/FSSAI.webp",
+        "alt": "FSSAI",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/thumbs/STAR HOUSE.webp",
+        "alt": "Star Export House",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/thumbs/APEDA.webp",
+        "alt": "APEDA",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/thumbs/SPICES_BOARD.webp",
+        "alt": "Spices Board",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/thumbs/MSME.webp",
+        "alt": "MSME Certified",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/thumbs/AEO.webp",
+        "alt": "AEO",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/thumbs/IEC.webp",
+        "alt": "IEC",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/thumbs/MSME.webp",
+        "alt": "MSME",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/thumbs/DGFT.webp",
+        "alt": "DGFT",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/thumbs/COFFEE_BOARD.webp",
+        "alt": "Coffee Board",
+        "class": "cert-logo"
+      },
+      {
+        "src": "images/homepage/rice-milling-facility-premium-v1.webp",
+        "alt": "Industrial rice milling and grading facility",
+        "class": "manu-img"
+      },
+      {
+        "src": "images/homepage/real-west-bengal-rice-farmer-pexels.webp",
+        "alt": "Farmer planting rice in a paddy field in West Bengal, India",
+        "class": ""
+      },
+      {
+        "src": "images/14.webp",
+        "alt": "Export-ready Basmati and non-Basmati rice",
+        "class": "pc-img"
+      },
+      {
+        "src": "images/homepage/spices-category-card.webp",
+        "alt": "Indian Spices",
+        "class": "pc-img"
+      },
+      {
+        "src": "images/homepage/SUGAR.webp",
+        "alt": "Indian Sugar",
+        "class": "pc-img"
+      },
+      {
+        "src": "images/homepage/wheat-flour-category-card.webp",
+        "alt": "Wheat Flour",
+        "class": "pc-img"
+      },
+      {
+        "src": "images/homepage/oilseeds-category-card.webp",
+        "alt": "Oilseeds",
+        "class": "pc-img"
+      },
+      {
+        "src": "images/homepage/PULSES.webp",
+        "alt": "Pulses",
+        "class": "pc-img"
+      },
+      {
+        "src": "images/homepage/ANIMAL FEED.webp",
+        "alt": "Animal Feed",
+        "class": "pc-img"
+      },
+      {
+        "src": "images/homepage/RAISINS.webp",
+        "alt": "Raisins",
+        "class": "pc-img"
+      },
+      {
+        "src": "images/homepage/rice-milling-facility-premium-v1.webp",
+        "alt": "Rice milling and grading equipment inside a processing facility",
+        "class": ""
+      },
+      {
+        "src": "images/INFRASTRUCTURE/packing unit.webp",
+        "alt": "Packed rice bags stored inside a warehouse",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/real-container-port-landscape-pexels.webp",
+        "alt": "Cargo vessel berthed at an international freight terminal",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/farm-home.webp",
+        "alt": "",
+        "class": ""
+      },
+      {
+        "src": "images/jft-logo-display.webp",
+        "alt": "JFT Agro",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/Flag-Russia.webp",
+        "alt": "Russia",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/Flag-Vietnam.webp",
+        "alt": "Vietnam",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/Flag-Srilanka.webp",
+        "alt": "Sri Lanka",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/Flag-United-Arab-Emirates.webp",
+        "alt": "UAE",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/Flag-Benin.webp",
+        "alt": "Benin",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/Flag-Zambia.webp",
+        "alt": "Zambia",
+        "class": ""
+      },
+      {
+        "src": "images/homepage/Flag-Indonesia.webp",
+        "alt": "Indonesia",
+        "class": ""
+      },
+      {
+        "src": "https://flagcdn.com/w80/my.png",
+        "alt": "Malaysia",
+        "class": ""
+      },
+      {
+        "src": "https://flagcdn.com/w80/th.png",
+        "alt": "Thailand",
+        "class": ""
+      },
+      {
+        "src": "images/INFRASTRUCTURE/logistics.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "infrastructure.html",
+    "count": 10,
+    "images": [
+      {
+        "src": "images/jft logo.png",
+        "alt": "JFT Loading",
+        "class": "loader-logo-img"
+      },
+      {
+        "src": "images/INFRASTRUCTURE/MTc1Mzg2NTcxNTY4ODlkZGYzN2I4OTI=.webp",
+        "alt": "Satake",
+        "class": "partner-logo"
+      },
+      {
+        "src": "images/INFRASTRUCTURE/Buhler_logo_RGB.webp",
+        "alt": "Buhler",
+        "class": "partner-logo"
+      },
+      {
+        "src": "images/INFRASTRUCTURE/milltec.webp",
+        "alt": "Milltec",
+        "class": "partner-logo"
+      },
+      {
+        "src": "images/INFRASTRUCTURE/rice-factory.webp",
+        "alt": "Rice Milling Unit at JFT Agro",
+        "class": ""
+      },
+      {
+        "src": "images/INFRASTRUCTURE/Flour Mill-factory.webp",
+        "alt": "Wheat Flour Milling Unit",
+        "class": ""
+      },
+      {
+        "src": "images/INFRASTRUCTURE/packing unit.webp",
+        "alt": "Packed rice bags stored in a covered warehouse",
+        "class": "packing-photo"
+      },
+      {
+        "src": "images/INFRASTRUCTURE/logistics.webp",
+        "alt": "Logistics and Shipping",
+        "class": ""
+      },
+      {
+        "src": "images/INFRASTRUCTURE/rice-factory.webp",
+        "alt": "Clean processing floor and rice milling equipment",
+        "class": ""
+      },
+      {
+        "src": "images/INFRASTRUCTURE/rice-factory.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "legal.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "packing-calculator.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/INFRASTRUCTURE/packing unit.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "port-transit-calculator.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "privacy.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "products.html",
+    "count": 5,
+    "images": [
+      {
+        "src": "images/jft logo.png",
+        "alt": "JFT Loading",
+        "class": "loader-logo-img"
+      },
+      {
+        "src": "images/jft logo.png",
+        "alt": "JFT Agro Overseas",
+        "class": ""
+      },
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "Product photo",
+        "class": "m-img"
+      },
+      {
+        "src": "https://www.transparenttextures.com/patterns/cubes.png",
+        "alt": "[CSS background]",
+        "class": ""
+      },
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "quality-control.html",
+    "count": 3,
+    "images": [
+      {
+        "src": "images/jft logo.png",
+        "alt": "JFT Agro",
+        "class": "loader-logo-img"
+      },
+      {
+        "src": "images/aboutus/real-indian-rice-work-pexels.webp",
+        "alt": "Rice being handled and dried at origin in India",
+        "class": "qc-proof-image"
+      },
+      {
+        "src": "images/INFRASTRUCTURE/rice-factory.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "quote-calculator.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/homepage/real-container-port-landscape-pexels.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "sample-request.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/aboutus/export-quality-inspection-premium-v1.webp",
+        "alt": "Export quality inspector examining rice at a warehouse",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "shipment-tracker.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "terms.html",
+    "count": 1,
+    "images": [
+      {
+        "src": "images/products/basmati_rice_hd.webp",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "uae-trade.html",
+    "count": 6,
+    "images": [
+      {
+        "src": "images/products/1121 Golden Sella Basmati.webp",
+        "alt": "1121 golden sella basmati rice",
+        "class": ""
+      },
+      {
+        "src": "images/products/1509 Steam Basmati Rice.webp",
+        "alt": "1509 steam basmati rice",
+        "class": ""
+      },
+      {
+        "src": "images/products/5 Parboiled Rice (IR-64).webp",
+        "alt": "IR-64 parboiled rice",
+        "class": ""
+      },
+      {
+        "src": "images/products/Turmeric Finger & Powder.webp",
+        "alt": "Indian turmeric finger and powder",
+        "class": ""
+      },
+      {
+        "src": "images/products/Sugar S-30.webp",
+        "alt": "Indian S-30 sugar",
+        "class": ""
+      },
+      {
+        "src": "images/trade/uae-port-real-pexels.jpg",
+        "alt": "[CSS background]",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "page": "whatsapp-catalog.html",
+    "count": 0,
+    "images": []
+  },
+  {
+    "page": "yandex_3fbd4b91e2017518.html",
+    "count": 0,
+    "images": []
+  }
+]

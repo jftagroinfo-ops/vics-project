@@ -1,0 +1,973 @@
+{
+  "scope_pages": 57,
+  "unique_images": 77,
+  "images": [
+    {
+      "image": "images/products/basmati_rice_hd.webp",
+      "pages": [
+        "about.html",
+        "blog-basmati-export-guide.html",
+        "blog.html",
+        "contact.html",
+        "legal.html",
+        "privacy.html",
+        "terms.html"
+      ],
+      "page_count": 7,
+      "refs": 8,
+      "width": 1024,
+      "height": 1024,
+      "kb": 31,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/real-container-port-landscape-pexels.webp",
+      "pages": [
+        "africa-trade.html",
+        "certificates.html",
+        "faq.html",
+        "index.html",
+        "quote-calculator.html"
+      ],
+      "page_count": 5,
+      "refs": 6,
+      "width": 1920,
+      "height": 1276,
+      "kb": 417,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/APEDA.webp",
+      "pages": [
+        "about.html",
+        "blog.html",
+        "certificates.html",
+        "contact.html"
+      ],
+      "page_count": 4,
+      "refs": 4,
+      "width": 720,
+      "height": 347,
+      "kb": 70,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/FSSAI.webp",
+      "pages": [
+        "about.html",
+        "certificates.html",
+        "contact.html"
+      ],
+      "page_count": 3,
+      "refs": 3,
+      "width": 720,
+      "height": 347,
+      "kb": 29,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/STAR HOUSE.webp",
+      "pages": [
+        "about.html",
+        "certificates.html",
+        "contact.html"
+      ],
+      "page_count": 3,
+      "refs": 3,
+      "width": 720,
+      "height": 347,
+      "kb": 110,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/INFRASTRUCTURE/rice-factory.webp",
+      "pages": [
+        "blog.html",
+        "infrastructure.html",
+        "quality-control.html"
+      ],
+      "page_count": 3,
+      "refs": 5,
+      "width": 660,
+      "height": 495,
+      "kb": 89,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/5 Parboiled Rice (IR-64).webp",
+      "pages": [
+        "africa-trade.html",
+        "blog.html",
+        "uae-trade.html"
+      ],
+      "page_count": 3,
+      "refs": 3,
+      "width": 1080,
+      "height": 1440,
+      "kb": 95,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/INFRASTRUCTURE/packing unit.webp",
+      "pages": [
+        "index.html",
+        "infrastructure.html",
+        "packing-calculator.html"
+      ],
+      "page_count": 3,
+      "refs": 4,
+      "width": 1680,
+      "height": 1120,
+      "kb": 331,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/Sugar S-30.webp",
+      "pages": [
+        "africa-trade.html",
+        "sugar-s30-supplier.html",
+        "uae-trade.html"
+      ],
+      "page_count": 3,
+      "refs": 4,
+      "width": 1200,
+      "height": 1600,
+      "kb": 187,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/trade/europe-port-real-pexels.jpg",
+      "pages": [
+        "blog-lc-vs-tt.html",
+        "blog.html",
+        "europe-trade.html"
+      ],
+      "page_count": 3,
+      "refs": 3,
+      "width": 1350,
+      "height": 1800,
+      "kb": 352,
+      "format": "JPEG"
+    },
+    {
+      "image": "images/jft logo.png",
+      "pages": [
+        "about.html",
+        "infrastructure.html",
+        "quality-control.html"
+      ],
+      "page_count": 3,
+      "refs": 3,
+      "width": 4501,
+      "height": 2084,
+      "kb": 64,
+      "format": "PNG"
+    },
+    {
+      "image": "images/homepage/AEO.webp",
+      "pages": [
+        "about.html",
+        "certificates.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 720,
+      "height": 347,
+      "kb": 189,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/SPICES_BOARD.webp",
+      "pages": [
+        "about.html",
+        "certificates.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 720,
+      "height": 347,
+      "kb": 110,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/INFRASTRUCTURE/logistics.webp",
+      "pages": [
+        "index.html",
+        "infrastructure.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 800,
+      "height": 533,
+      "kb": 101,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/1121 White Sella Basmati.webp",
+      "pages": [
+        "africa-trade.html",
+        "blog.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 703,
+      "height": 1000,
+      "kb": 159,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/Coriander Seeds.webp",
+      "pages": [
+        "blog-coriander-seeds-export-india-2026.html",
+        "blog.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 768,
+      "height": 1024,
+      "kb": 155,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/Sesame Seeds (Natural-Hulled).webp",
+      "pages": [
+        "blog-sesame-export-2026.html",
+        "blog.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 1000,
+      "height": 1000,
+      "kb": 122,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/seed_spices.webp",
+      "pages": [
+        "blog-import-indian-spices-uk-europe.html",
+        "blog.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 1024,
+      "height": 1024,
+      "kb": 238,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/turmeric_finger.webp",
+      "pages": [
+        "blog-turmeric-market-outlook-2026.html",
+        "blog.html"
+      ],
+      "page_count": 2,
+      "refs": 3,
+      "width": 1024,
+      "height": 1024,
+      "kb": 139,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/Groundnuts (Peanuts).webp",
+      "pages": [
+        "blog-groundnut-peanut-export-india-2026.html",
+        "blog.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 1280,
+      "height": 960,
+      "kb": 285,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/aboutus/real-indian-rice-work-pexels.webp",
+      "pages": [
+        "about.html",
+        "quality-control.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 1440,
+      "height": 960,
+      "kb": 440,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/aboutus/export-quality-inspection-premium-v1.webp",
+      "pages": [
+        "blog.html",
+        "sample-request.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 1448,
+      "height": 1086,
+      "kb": 143,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/trade/asia-port-real-pexels.jpg",
+      "pages": [
+        "asia-trade.html",
+        "blog.html"
+      ],
+      "page_count": 2,
+      "refs": 3,
+      "width": 1600,
+      "height": 1179,
+      "kb": 322,
+      "format": "JPEG"
+    },
+    {
+      "image": "images/trade/uae-port-real-pexels.jpg",
+      "pages": [
+        "blog.html",
+        "uae-trade.html"
+      ],
+      "page_count": 2,
+      "refs": 2,
+      "width": 1920,
+      "height": 1280,
+      "kb": 215,
+      "format": "JPEG"
+    },
+    {
+      "image": "images/INFRASTRUCTURE/Brand Packing.webp",
+      "pages": [
+        "blog-private-label-rice.html",
+        "blog.html"
+      ],
+      "page_count": 2,
+      "refs": 3,
+      "width": 2184,
+      "height": 2552,
+      "kb": 380,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/thumbs/AEO.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 240,
+      "height": 135,
+      "kb": 6,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/thumbs/APEDA.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 240,
+      "height": 135,
+      "kb": 3,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/thumbs/COFFEE_BOARD.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 240,
+      "height": 135,
+      "kb": 5,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/thumbs/DGFT.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 240,
+      "height": 135,
+      "kb": 3,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/thumbs/FSSAI.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 240,
+      "height": 135,
+      "kb": 4,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/thumbs/IEC.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 240,
+      "height": 135,
+      "kb": 5,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/thumbs/MSME.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 2,
+      "width": 240,
+      "height": 135,
+      "kb": 3,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/thumbs/SPICES_BOARD.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 240,
+      "height": 135,
+      "kb": 4,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/thumbs/STAR HOUSE.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 240,
+      "height": 135,
+      "kb": 3,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/jft-logo-display.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 400,
+      "height": 185,
+      "kb": 6,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/COFFEE_BOARD.webp",
+      "pages": [
+        "about.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 720,
+      "height": 347,
+      "kb": 129,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/IEC.webp",
+      "pages": [
+        "about.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 720,
+      "height": 347,
+      "kb": 158,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/MSME.webp",
+      "pages": [
+        "about.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 720,
+      "height": 347,
+      "kb": 105,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/100 Broken Rice.webp",
+      "pages": [
+        "africa-trade.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 500,
+      "height": 500,
+      "kb": 39,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/PULSES.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 600,
+      "height": 450,
+      "kb": 45,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/INFRASTRUCTURE/Flour Mill-factory.webp",
+      "pages": [
+        "infrastructure.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 800,
+      "height": 533,
+      "kb": 148,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/proof-logistics.webp",
+      "pages": [
+        "blog.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 800,
+      "height": 533,
+      "kb": 60,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/Yellow Maize (Corn).webp",
+      "pages": [
+        "africa-trade.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 800,
+      "height": 600,
+      "kb": 92,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/1509 Steam Basmati Rice.webp",
+      "pages": [
+        "uae-trade.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 585,
+      "height": 1000,
+      "kb": 112,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/1121 Golden Sella Basmati.webp",
+      "pages": [
+        "uae-trade.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 654,
+      "height": 1000,
+      "kb": 120,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/Ind Psyllium Husk.webp",
+      "pages": [
+        "blog.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1024,
+      "height": 700,
+      "kb": 92,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/farm-home.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 900,
+      "height": 886,
+      "kb": 87,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/oilseeds-category-card.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 900,
+      "height": 900,
+      "kb": 74,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/spices-category-card.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 900,
+      "height": 900,
+      "kb": 141,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/wheat-flour-category-card.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 900,
+      "height": 900,
+      "kb": 109,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/SUGAR.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 816,
+      "height": 1056,
+      "kb": 139,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/cumin_seeds.webp",
+      "pages": [
+        "blog.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1024,
+      "height": 1024,
+      "kb": 124,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/ir64.webp",
+      "pages": [
+        "blog.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1024,
+      "height": 1024,
+      "kb": 35,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/market_update.webp",
+      "pages": [
+        "blog.html"
+      ],
+      "page_count": 1,
+      "refs": 2,
+      "width": 1024,
+      "height": 1024,
+      "kb": 82,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/pulses_hd.webp",
+      "pages": [
+        "blog.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1024,
+      "height": 1024,
+      "kb": 201,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/red_chilli_hd.webp",
+      "pages": [
+        "blog.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1024,
+      "height": 1024,
+      "kb": 196,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/Flag-Indonesia.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1280,
+      "height": 854,
+      "kb": 2,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/Flag-Vietnam.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1280,
+      "height": 854,
+      "kb": 11,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/Flag-United-Arab-Emirates.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1600,
+      "height": 800,
+      "kb": 3,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/Flag-Srilanka.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1500,
+      "height": 901,
+      "kb": 97,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/aboutus/real-indian-rice-drying-pexels.webp",
+      "pages": [
+        "about.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1440,
+      "height": 960,
+      "kb": 462,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/12.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1600,
+      "height": 900,
+      "kb": 363,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/products/Turmeric Finger & Powder.webp",
+      "pages": [
+        "uae-trade.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1440,
+      "height": 1080,
+      "kb": 368,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/aboutus/buyer-due-diligence-hd-v1.webp",
+      "pages": [
+        "blog.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1448,
+      "height": 1086,
+      "kb": 144,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/rice-milling-facility-premium-v1.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 3,
+      "width": 1448,
+      "height": 1086,
+      "kb": 243,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/Flag-Benin.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1680,
+      "height": 980,
+      "kb": 72,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/real-west-bengal-rice-farmer-pexels.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1800,
+      "height": 935,
+      "kb": 180,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/Flag-Zambia.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1600,
+      "height": 1067,
+      "kb": 29,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/Flag-Russia.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1600,
+      "height": 1072,
+      "kb": 4,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/aboutus/GRAINS.webp",
+      "pages": [
+        "about.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1500,
+      "height": 1196,
+      "kb": 290,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/ANIMAL FEED.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1200,
+      "height": 1600,
+      "kb": 237,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/10.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1920,
+      "height": 1080,
+      "kb": 428,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/14.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 2,
+      "width": 1920,
+      "height": 1080,
+      "kb": 278,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/homepage/RAISINS.webp",
+      "pages": [
+        "index.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 1800,
+      "height": 1200,
+      "kb": 434,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/INFRASTRUCTURE/Buhler_logo_RGB.webp",
+      "pages": [
+        "infrastructure.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 2614,
+      "height": 1073,
+      "kb": 22,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/INFRASTRUCTURE/MTc1Mzg2NTcxNTY4ODlkZGYzN2I4OTI=.webp",
+      "pages": [
+        "infrastructure.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 2614,
+      "height": 1073,
+      "kb": 22,
+      "format": "WEBP"
+    },
+    {
+      "image": "images/INFRASTRUCTURE/milltec.webp",
+      "pages": [
+        "infrastructure.html"
+      ],
+      "page_count": 1,
+      "refs": 1,
+      "width": 2614,
+      "height": 1073,
+      "kb": 37,
+      "format": "WEBP"
+    }
+  ]
+}
