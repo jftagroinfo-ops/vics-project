@@ -12,6 +12,18 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 LANGS = {"ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi"}
+ROBOTS_META_RE = re.compile(
+    r'<meta\b(?=[^>]*\bname=["\']robots["\'])[^>]*>',
+    re.I,
+)
+
+
+def ensure_noindex_follow(text: str) -> str:
+    """Replace any robots variants with one stable noindex directive."""
+    text = ROBOTS_META_RE.sub("", text)
+    return text.replace("<head>", '<head>\n  <meta name="robots" content="noindex,follow">', 1)
+
+
 FULL_ENGLISH_ARTICLES = {
     "blog-green-mung-beans-export-india-2026.html",
     "blog-how-to-read-proforma-invoice-india-export.html",
@@ -949,20 +961,10 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
         )
 
     if "Placeholder page" in text or "Placeholder:" in text:
-        if not re.search(r'<meta\s+name=["\']robots["\']', text, flags=re.I):
-            text = text.replace("<head>", '<head>\n  <meta name="robots" content="noindex,follow">', 1)
+        text = ensure_noindex_follow(text)
 
     if path.name in UNPUBLISHED_BLOGS:
-        if re.search(r'<meta\s+name=["\']robots["\']', text, flags=re.I):
-            text = re.sub(
-                r'<meta\s+name=["\']robots["\'][^>]*>',
-                '<meta name="robots" content="noindex,follow">',
-                text,
-                count=1,
-                flags=re.I,
-            )
-        else:
-            text = text.replace("<head>", '<head>\n  <meta name="robots" content="noindex,follow">', 1)
+        text = ensure_noindex_follow(text)
 
     if path.name == "products.html":
         for unpublished, replacement in {
