@@ -3533,7 +3533,7 @@
       return window.innerWidth < 600 ? 8 : 12;
     }
 
-    function applyCatalogueLimit() {
+    function legacyApplyCatalogueLimit() {
       const items = Array.from(document.querySelectorAll('#product-grid .p-item'));
       const wrap = document.getElementById('catalogue-load-more');
       const remainingLabel = document.getElementById('catalogue-remaining');
@@ -3543,15 +3543,15 @@
       if (wrap) wrap.hidden = remaining === 0;
     }
 
-    function resetCataloguePagination() {
+    function legacyResetCataloguePagination() {
       catalogueVisibleLimit = cataloguePageSize();
-      applyCatalogueLimit();
+      legacyApplyCatalogueLimit();
     }
 
-    function loadMoreProducts() {
+    function legacyLoadMoreProducts() {
       const firstNewIndex = catalogueVisibleLimit;
       catalogueVisibleLimit += cataloguePageSize();
-      applyCatalogueLimit();
+      legacyApplyCatalogueLimit();
       const firstNewCard = document.querySelectorAll('#product-grid .p-item')[firstNewIndex];
       if (firstNewCard) firstNewCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -3562,7 +3562,7 @@
       renderProducts('all');
     }
 
-    function renderProducts(cat) {
+    function legacyRenderProducts(cat) {
       const container = document.getElementById('product-grid');
       const renderVersion = ++catalogueRenderVersion;
       container.style.opacity = '0';
@@ -3646,7 +3646,7 @@
         // Show/hide no-results
         const noRes = document.getElementById('no-results');
         if (noRes) noRes.style.display = container.children.length === 0 ? 'block' : 'none';
-        resetCataloguePagination();
+        legacyResetCataloguePagination();
         initDragScroll();
       }, 300);
     }
@@ -3678,7 +3678,7 @@
       clearTimeout(_searchTimer);
       _searchTimer = setTimeout(performSearch, 220);
     }
-    function performSearch() {
+    function legacyPerformSearch() {
       const query = document.getElementById('prod-search').value.toLowerCase();
       const clearBtn = document.getElementById('search-clear-btn');
       if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
@@ -3746,7 +3746,7 @@
           });
         }
         container.style.opacity = '1';
-        if (filtered.length) resetCataloguePagination();
+        if (filtered.length) legacyResetCataloguePagination();
         initDragScroll();
       }, 300);
     }
@@ -4090,7 +4090,7 @@
       }
     }
 
-    function filterRice(type, btn) {
+    function legacyFilterRice(type, btn) {
       catalogueRenderVersion += 1;
       document.querySelectorAll('.cz-subtab, .sub-cat-btn').forEach(b => {
         b.classList.remove('active');
@@ -4152,13 +4152,117 @@
         container.innerHTML += html;
         delay += 0.05;
       });
-      resetCataloguePagination();
+      legacyResetCataloguePagination();
       initDragScroll();
       attachScrollObserver();
     }
 
     function scrollTabs(amount) { /* works with cz-tab-scroll */
       document.getElementById('tab-container').scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    /* Incremental catalogue renderer: keep only visible cards in the DOM. */
+    let catalogueMatches = [];
+    let catalogueCardSequence = 0;
+
+    function buildCatalogueCard(p, visibleIndex) {
+      const globalIndex = PRODUCT_DATA.indexOf(p);
+      const uniqueId = `specs-visible-${catalogueCardSequence++}`;
+      const specs = p.s.concat([['Load (20ft)', p.l], ['Packing', p.p]])
+        .map(s => `<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`).join('');
+      const markets = (p.f || []).slice(0, 5)
+        .map(m => `<span class="p-market-item">${m}</span>`).join(' ');
+      const detailImage = p.u
+        ? `<a href="${p.u}" aria-label="View ${p.t} details" style="display:block;height:100%;"><img src="${p.i}" alt="${p.t}" loading="${visibleIndex < 4 ? 'eager' : 'lazy'}" decoding="async" width="290" height="260" style="transition:.6s;width:100%;height:100%;object-fit:cover;"><div class="p-cat-badge" style="position:absolute;top:14px;left:14px;background:rgba(26,60,52,.85);backdrop-filter:blur(8px);color:#fff;padding:5px 12px;border-radius:20px;font-family:var(--font-sub);font-weight:800;font-size:.65rem;text-transform:uppercase;letter-spacing:1px;">${p.c}</div></a>`
+        : `<img src="${p.i}" alt="${p.t}" loading="lazy" decoding="async" width="290" height="260" style="width:100%;height:100%;object-fit:cover;">`;
+      return `<div class="p-item" style="animation:dropIn .4s ease forwards;opacity:0;transform:translateY(14px);">
+        <div class="p-img-box" style="position:relative;overflow:hidden;">${detailImage}</div>
+        <div class="p-content">
+          <div class="p-cat">${p.c.toUpperCase()}</div>
+          <h3 class="p-title">${p.u ? `<a href="${p.u}" style="color:inherit;text-decoration:none;">${p.t}</a>` : p.t}</h3>
+          <div class="p-specs-wrapper">
+            <div class="p-specs-scrollable" id="${uniqueId}" tabindex="0"><table class="p-table-shared">${specs}</table></div>
+            <div class="p-toggle-overlay"><button type="button" class="p-toggle-btn" onclick="toggleSpecs('${uniqueId}',this)" aria-label="Toggle specifications for ${p.t}" aria-expanded="false"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></div>
+          </div>
+          <div class="p-flags-area"><div class="p-flag-label">Top Importers</div><div class="p-market-list">${markets}</div></div>
+          <div class="p-hs-strip"><span class="p-hs-code">HS: ${(p.s.find(r => r[0] === 'HS Code') || [,'Not specified'])[1]}</span><span class="p-load-pill"><i class="fa-solid fa-ship"></i> ${p.l.split(' in ')[0]}</span></div>
+          <div class="p-action" style="display:flex;gap:8px;flex-wrap:wrap;">
+            ${p.u ? `<a href="${p.u}" class="btn-jft btn-primary" style="flex:1;padding:11px 8px;font-size:.72rem;text-align:center;"><i class="fa-solid fa-eye" style="margin-right:4px;"></i>View Details</a>` : ''}
+            <a href="contact.html?product=${encodeURIComponent(p.t)}#inquiry-form" class="btn-jft" style="flex:1;padding:11px 8px;font-size:.72rem;text-align:center;background:rgba(26,60,52,.08);color:var(--jft-navy);border:1px solid rgba(26,60,52,.2);border-radius:var(--jft-radius);font-family:var(--font-sub);font-weight:700;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:4px;"><i class="fa-solid fa-paper-plane"></i>Get Quote</a>
+            <button class="p-btn" onclick="openModal(${globalIndex})" style="flex:none;padding:11px 14px;font-size:.72rem;" aria-label="View full specifications for ${p.t}"><i class="fa-solid fa-table-list"></i></button>
+          </div>
+          ${p.b ? `<a href="${p.b}" style="display:block;margin-top:8px;font-family:var(--font-sub);font-size:.72rem;font-weight:700;color:var(--jft-primary);text-align:center;padding:6px 0;border-top:1px solid rgba(78,140,62,.15);text-decoration:none;"><i class="fa-solid fa-book-open" style="margin-right:4px;font-size:.65rem;"></i>Buyer's Guide &amp; Market Outlook</a>` : ''}
+        </div>
+      </div>`;
+    }
+
+    function paintCatalogue(reset) {
+      const container = document.getElementById('product-grid');
+      if (reset) {
+        container.replaceChildren();
+        catalogueVisibleLimit = cataloguePageSize();
+        catalogueCardSequence = 0;
+      }
+      const rendered = container.children.length;
+      const next = catalogueMatches.slice(rendered, catalogueVisibleLimit);
+      if (next.length) container.insertAdjacentHTML('beforeend', next.map((p, i) => buildCatalogueCard(p, rendered + i)).join(''));
+      const remaining = Math.max(0, catalogueMatches.length - container.children.length);
+      const wrap = document.getElementById('catalogue-load-more');
+      const label = document.getElementById('catalogue-remaining');
+      if (wrap) wrap.hidden = remaining === 0;
+      if (label) label.textContent = remaining ? `(${remaining} remaining)` : '';
+      const noRes = document.getElementById('no-results');
+      if (noRes) noRes.style.display = catalogueMatches.length ? 'none' : 'block';
+      updateResultCount(catalogueMatches.length);
+      container.style.opacity = '1';
+      initDragScroll();
+      attachScrollObserver();
+    }
+
+    function setCatalogueMatches(matches) {
+      catalogueRenderVersion += 1;
+      catalogueMatches = matches;
+      paintCatalogue(true);
+    }
+
+    function renderProducts(cat) {
+      setCatalogueMatches(cat === 'all' ? PRODUCT_DATA : PRODUCT_DATA.filter(p => p.c === cat));
+    }
+
+    function loadMoreProducts() {
+      const firstNewIndex = document.getElementById('product-grid').children.length;
+      catalogueVisibleLimit += cataloguePageSize();
+      paintCatalogue(false);
+      const firstNewCard = document.getElementById('product-grid').children[firstNewIndex];
+      if (firstNewCard) firstNewCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function performSearch() {
+      const input = document.getElementById('prod-search');
+      const query = input.value.trim().toLowerCase();
+      const clearBtn = document.getElementById('search-clear-btn');
+      if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
+      setCatalogueMatches(PRODUCT_DATA.filter(p => {
+        const hsCode = (p.s.find(r => r[0] === 'HS Code') || [,''])[1];
+        return !query || [p.t, p.c, p.p, hsCode, ...(p.k || []), ...(p.f || [])]
+          .some(value => String(value).toLowerCase().includes(query));
+      }));
+    }
+
+    function filterRice(type, btn) {
+      document.querySelectorAll('.cz-subtab, .sub-cat-btn').forEach(button => {
+        button.classList.remove('active');
+        button.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      setCatalogueMatches(PRODUCT_DATA.filter(p => {
+        if (p.c !== 'rice') return false;
+        if (type === 'all') return true;
+        const title = p.t.toLowerCase();
+        const nonBasmati = /non[\s-]?basmati/.test(title);
+        return type === 'basmati' ? title.includes('basmati') && !nonBasmati : !title.includes('basmati') || nonBasmati;
+      }));
     }
 
     // --- Universal File Loading ---
