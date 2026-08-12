@@ -6033,7 +6033,7 @@
       });
 
       // ── HERO SLIDER ──
-      var slideIdx = 0, sliderTimer, sliderHoverPaused = false;
+      var slideIdx = 0, sliderTimer, sliderHoverPaused = false, heroTransitionToken = 0;
       var sliderPaused = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       function startSlider() {
         clearInterval(sliderTimer);
@@ -6065,32 +6065,57 @@
       }
       window.toggleHeroPause = toggleHeroPause;
       function nextSlide() { var slides = document.querySelectorAll('.hero-slide'); if (!slides.length) return; slideIdx = (slideIdx + 1) % slides.length; updateSlider(); }
+      function loadHeroBackground(slide) {
+        if (!slide || !slide.dataset.bg || slide.dataset.bgState === 'loaded') return Promise.resolve(true);
+        if (slide._backgroundPromise) return slide._backgroundPromise;
+        slide.dataset.bgState = 'loading';
+        slide._backgroundPromise = new Promise(function (resolve) {
+          var image = new Image();
+          image.onload = function () {
+            var ready = image.decode ? image.decode().catch(function () {}) : Promise.resolve();
+            ready.then(function () {
+              slide.style.backgroundImage = "url('" + slide.dataset.bg + "')";
+              slide.dataset.bgState = 'loaded';
+              resolve(true);
+            });
+          };
+          image.onerror = function () {
+            slide.dataset.bgState = 'error';
+            slide._backgroundPromise = null;
+            resolve(false);
+          };
+          image.src = slide.dataset.bg;
+        });
+        return slide._backgroundPromise;
+      }
       function preloadNextHeroBackground() {
         var slides = document.querySelectorAll('.hero-slide');
         if (!slides.length) return;
         var next = slides[(slideIdx + 1) % slides.length];
-        if (next && next.dataset.bg && !next.style.backgroundImage) {
-          var image = new Image();
-          image.onload = function () { next.style.backgroundImage = "url('" + next.dataset.bg + "')"; };
-          image.src = next.dataset.bg;
-        }
+        loadHeroBackground(next);
       }
-      function updateSlider() {
+      async function updateSlider() {
         var slides = document.querySelectorAll('.hero-slide');
         var contents = document.querySelectorAll('.hero-content-slide');
         var dots = document.querySelectorAll('.control-dot');
+        var requestedIndex = slideIdx;
+        var token = ++heroTransitionToken;
+        var target = slides[requestedIndex];
+        if (!target) return;
+        var loaded = await loadHeroBackground(target);
+        if (token !== heroTransitionToken || requestedIndex !== slideIdx) return;
+        if (!loaded) {
+          slideIdx = 0;
+          requestedIndex = 0;
+          target = slides[0];
+        }
         slides.forEach(function (s) { s.classList.remove('active'); s.setAttribute('aria-hidden', 'true'); });
         contents.forEach(function (c) { c.classList.remove('active'); c.setAttribute('aria-hidden', 'true'); });
         dots.forEach(function (d) { d.classList.remove('active'); d.removeAttribute('aria-current'); });
-        if (slides[slideIdx]) {
-          if (slides[slideIdx].dataset.bg && !slides[slideIdx].style.backgroundImage) {
-            slides[slideIdx].style.backgroundImage = `url('${slides[slideIdx].dataset.bg}')`;
-          }
-          slides[slideIdx].classList.add('active');
-          slides[slideIdx].setAttribute('aria-hidden', 'false');
-        }
-        if (contents[slideIdx]) { contents[slideIdx].classList.add('active'); contents[slideIdx].setAttribute('aria-hidden', 'false'); }
-        if (dots[slideIdx]) { dots[slideIdx].classList.add('active'); dots[slideIdx].setAttribute('aria-current', 'true'); }
+        target.classList.add('active');
+        target.setAttribute('aria-hidden', 'false');
+        if (contents[requestedIndex]) { contents[requestedIndex].classList.add('active'); contents[requestedIndex].setAttribute('aria-hidden', 'false'); }
+        if (dots[requestedIndex]) { dots[requestedIndex].classList.add('active'); dots[requestedIndex].setAttribute('aria-current', 'true'); }
         window.setTimeout(preloadNextHeroBackground, 500);
       }
 
