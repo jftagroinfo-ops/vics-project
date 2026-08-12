@@ -71,9 +71,6 @@ BLOG_REPLACEMENTS = {
     "blog-india-uae-cepa.html": "blog-import-duty-indian-rice-by-country.html",
     "blog-indian-white-rice-export-policy-2026-latest-updates.html": "blog-ir64-export.html",
     "blog-ir64-africa.html": "blog-ir64-export.html",
-    "blog-lc-vs-tt.html": "blog-letter-of-credit-food-imports-india.html",
-    "blog-private-label-rice.html": "blog-how-to-choose-indian-agro-exporter.html",
-    "blog-sesame-export-2026.html": "blog-top-indian-agro-commodities-import-2026.html",
     "blog-spice-trends-2026.html": "blog-turmeric-finger-export-india-2026.html",
 }
 BLOG_IMAGES = {

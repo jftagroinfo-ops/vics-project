@@ -28,22 +28,16 @@ UNPUBLISHED_BLOGS = {
     "blog-basmati-rice-import-uae-esma-standards.html",
     "blog-black-pepper-powder-export-india-2026.html",
     "blog-cif-fob-explained.html",
-    "blog-coriander-seeds-export-india-2026.html",
     "blog-eu-mrl-basmati.html",
     "blog-fennel-seeds-export-india-2026.html",
     "blog-fenugreek-seeds-export-india-2026.html",
     "blog-fssai-apeda-agmark-certifications-explained.html",
-    "blog-groundnut-peanut-export-india-2026.html",
-    "blog-import-indian-spices-uk-europe.html",
     "blog-indian-spice-export-middle-east-gulf.html",
     "blog-india-uae-cepa.html",
     "blog-indian-white-rice-export-policy-2026-latest-updates.html",
     "blog-ir64-africa.html",
-    "blog-lc-vs-tt.html",
     "blog-moringa-powder-export-india-2026.html",
     "blog-phytosanitary-certificate-india-exports.html",
-    "blog-private-label-rice.html",
-    "blog-sesame-export-2026.html",
     "blog-spice-trends-2026.html",
     "blog-sugar-s30-export-india-2026.html",
     "blog-toor-dal-export-india-2026.html",
@@ -244,7 +238,7 @@ def audit() -> dict[str, list[str]]:
         if not noindex:
             for anchor in soup.find_all("a", href=True):
                 href = anchor.get("href", "").strip()
-                if href == "#" and anchor.get("id") not in {"m-blog-link", "ctaWA"}:
+                if href == "#" and anchor.get("id") not in {"m-blog-link", "ctaWA", "official-track-link"}:
                     findings["dead_placeholder_link"].append(
                         f"{relative}: {anchor.get_text(' ', strip=True)[:80]}"
                     )

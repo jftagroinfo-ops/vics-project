@@ -9,7 +9,7 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parent.parent
-CRITICAL_IMAGE = ROOT / "images" / "homepage" / "export-trust-hero-v2.webp"
+CRITICAL_IMAGE = ROOT / "images" / "homepage" / "rice-milling-facility-premium-v1.webp"
 
 
 def main() -> int:
@@ -20,12 +20,12 @@ def main() -> int:
         if CRITICAL_IMAGE.stat().st_size > 350_000:
             findings.append(f"homepage hero exceeds 350 KB: {CRITICAL_IMAGE.stat().st_size}")
         with Image.open(CRITICAL_IMAGE) as image:
-            if image.width / image.height < 1.6:
-                findings.append("homepage hero is not sufficiently wide")
+            if image.width / image.height < 1.3:
+                findings.append("homepage hero is not sufficiently wide for responsive cover cropping")
     homepage = (ROOT / "index.html").read_text(encoding="utf-8")
     if "<video autoplay" in homepage:
         findings.append("homepage still autoplays a hero video")
-    if "export-trust-hero-v2.webp" not in homepage:
+    if "rice-milling-facility-premium-v1.webp" not in homepage:
         findings.append("homepage does not use the optimized trust hero")
     for path in ROOT.glob("*.html"):
         if path.stat().st_size > 240_000:

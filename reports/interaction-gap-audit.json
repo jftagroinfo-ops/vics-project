@@ -1,0 +1,90 @@
+[
+  {
+    "journey": "quote recalculation",
+    "route": "quote-calculator.html",
+    "passed": true,
+    "overflow": -15,
+    "errors": [],
+    "details": {
+      "before": "$692 - $772",
+      "after": "$1493 - $1832",
+      "updated": true
+    }
+  },
+  {
+    "journey": "packing recalculation",
+    "route": "packing-calculator.html",
+    "passed": true,
+    "overflow": -15,
+    "errors": [],
+    "details": {
+      "before": "476",
+      "after": "942",
+      "updated": true
+    }
+  },
+  {
+    "journey": "transit route update",
+    "route": "port-transit-calculator.html",
+    "passed": true,
+    "overflow": -15,
+    "errors": [],
+    "details": {
+      "route": "JNPA / Nhava Sheva to Khalifa Port",
+      "dates": "21 Aug 2026 - 30 Aug 2026"
+    }
+  },
+  {
+    "journey": "tracker invalid reference",
+    "route": "shipment-tracker.html",
+    "passed": true,
+    "overflow": -15,
+    "errors": [],
+    "details": {
+      "error": "Use three owner letters, U/J/Z, six serial digits and one check digit.",
+      "resultHidden": true
+    }
+  },
+  {
+    "journey": "FAQ search",
+    "route": "faq.html",
+    "passed": true,
+    "overflow": -15,
+    "errors": [],
+    "details": {
+      "visibleResults": 2
+    }
+  },
+  {
+    "journey": "blog search",
+    "route": "blog.html",
+    "passed": true,
+    "overflow": -15,
+    "errors": [],
+    "details": {
+      "visibleArticles": 2
+    }
+  },
+  {
+    "journey": "contact validation",
+    "route": "contact.html",
+    "passed": true,
+    "overflow": -15,
+    "errors": [],
+    "details": {
+      "invalidControls": 9,
+      "focusedControl": "full_name"
+    }
+  },
+  {
+    "journey": "localized fallback notice",
+    "route": "ar/about.html",
+    "passed": true,
+    "overflow": -15,
+    "errors": [],
+    "details": {
+      "visible": true,
+      "text": "This page is currently available in English. Open the translated homepage or continue on the English site."
+    }
+  }
+]
