@@ -15,11 +15,3 @@
 
 ### performance_oversized_html (1)
 - index.html (235797)
-
-### seo_title_length (6)
-- fr/blog.html (27)
-- fr/contact.html (29)
-- pt/blog.html (28)
-- si/index.html (28)
-- th/faq.html (67)
-- vi/faq.html (69)

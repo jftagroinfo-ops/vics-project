@@ -8,18 +8,9 @@
   "summary": {
     "performance_large_image": 1,
     "performance_large_video": 1,
-    "performance_oversized_html": 1,
-    "seo_title_length": 6
+    "performance_oversized_html": 1
   },
   "findings": {
-    "seo_title_length": [
-      "fr/blog.html (27)",
-      "fr/contact.html (29)",
-      "pt/blog.html (28)",
-      "si/index.html (28)",
-      "th/faq.html (67)",
-      "vi/faq.html (69)"
-    ],
     "performance_oversized_html": [
       "index.html (235797)"
     ],
