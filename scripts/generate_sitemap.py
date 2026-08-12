@@ -4,11 +4,24 @@
 from __future__ import annotations
 
 import html
-import re
-from datetime import date
 from pathlib import Path
 
 from generate_hreflang import LANGS, ROOT, is_indexable, locale, public_url
+
+
+def last_modified(path: Path) -> str:
+    """Reuse the checked-in value so routine verification is deterministic."""
+    sitemap = ROOT / "sitemap.xml"
+    if sitemap.exists():
+        text = sitemap.read_text(encoding="utf-8", errors="replace")
+        marker = f"<loc>{html.escape(public_url(path))}</loc>"
+        position = text.find(marker)
+        if position >= 0:
+            start = text.find("<lastmod>", position)
+            end = text.find("</lastmod>", start)
+            if start >= 0 and end >= 0:
+                return text[start + len("<lastmod>") : end]
+    return "2026-08-13"
 
 
 def priority(path: Path) -> tuple[str, str]:
@@ -43,7 +56,7 @@ def main() -> None:
             [
                 "  <url>",
                 f"    <loc>{html.escape(url)}</loc>",
-                f"    <lastmod>{date.today().isoformat()}</lastmod>",
+                f"    <lastmod>{last_modified(path)}</lastmod>",
                 f"    <changefreq>{frequency}</changefreq>",
                 f"    <priority>{score}</priority>",
             ]

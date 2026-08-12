@@ -23,8 +23,8 @@ EXCLUDED = {
     "seo-universal-head-snippet.html",
     "thank-you.html",
 }
-ALTERNATE_RE = re.compile(r"\s*<link\b(?=[^>]*\brel=[\"']alternate[\"'])[^>]*>", re.I)
-CANONICAL_RE = re.compile(r"<link\b(?=[^>]*\brel=[\"']canonical[\"'])[^>]*>", re.I)
+ALTERNATE_RE = re.compile(r"[ \t]*<link\b(?=[^>]*\brel=[\"']alternate[\"'])[^>]*>[ \t]*(?:\r?\n)?", re.I)
+CANONICAL_RE = re.compile(r"[ \t]*<link\b(?=[^>]*\brel=[\"']canonical[\"'])[^>]*>[ \t]*(?:\r?\n)?", re.I)
 OG_URL_RE = re.compile(r'<meta\b(?=[^>]*\bproperty=["\']og:url["\'])[^>]*>', re.I)
 FALLBACK_MARKER = '<meta name="jft-localization" content="english-fallback">'
 ROBOTS_RE = re.compile(r'<meta\b(?=[^>]*\bname=["\']robots["\'])[^>]*>', re.I)
@@ -157,7 +157,7 @@ def main() -> None:
         canonical = f'<link rel="canonical" href="{own_url}">'
         # Remove every historical variant before inserting one canonical. This
         # remains stable even when an HTML serializer reorders link attributes.
-        head = CANONICAL_RE.sub("", head)
+        head = CANONICAL_RE.sub("", head).rstrip()
         head += "\n  " + canonical
 
         variants = sorted(by_name[path.name], key=lambda item: (locale(item) != "en", locale(item)))
