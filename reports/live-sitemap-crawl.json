@@ -1,0 +1,101 @@
+{
+  "checked": 1103,
+  "failures": [
+    {
+      "url": "https://jftagro.com/ms/barley-seeds-exporter.html",
+      "status": 503,
+      "location": "",
+      "seconds": 1.573
+    }
+  ],
+  "slow_over_2s": [
+    {
+      "url": "https://jftagro.com/ar/ajwain-seeds-powder-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.44
+    },
+    {
+      "url": "https://jftagro.com/ar/sesame-seeds-naturalhulled-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.221
+    },
+    {
+      "url": "https://jftagro.com/fr/pr-11-rice-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.49
+    },
+    {
+      "url": "https://jftagro.com/fr/safflower-seeds-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.231
+    },
+    {
+      "url": "https://jftagro.com/fr/sunflower-seeds-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.252
+    },
+    {
+      "url": "https://jftagro.com/galangal-root-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.161
+    },
+    {
+      "url": "https://jftagro.com/id/safflower-seeds-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.193
+    },
+    {
+      "url": "https://jftagro.com/ms/moringa-powder-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.546
+    },
+    {
+      "url": "https://jftagro.com/pt/henna-powder-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.247
+    },
+    {
+      "url": "https://jftagro.com/pt/maida-refined-wheat-flour-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.134
+    },
+    {
+      "url": "https://jftagro.com/terms.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.098
+    },
+    {
+      "url": "https://jftagro.com/th/europe-trade.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.015
+    },
+    {
+      "url": "https://jftagro.com/th/senna-pods-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.027
+    },
+    {
+      "url": "https://jftagro.com/th/yellow-peas-matar-exporter.html",
+      "status": 200,
+      "location": "",
+      "seconds": 2.258
+    }
+  ],
+  "status_counts": {
+    "200": 1102,
+    "503": 1
+  }
+}

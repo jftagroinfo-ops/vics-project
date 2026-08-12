@@ -1,5 +1,5 @@
 # JFT Agro Overseas — robots.txt
-# Last updated: 2026-06-13
+# Last updated: 2026-08-12
 
 # Allow all crawlers
 User-agent: *
@@ -26,6 +26,10 @@ Disallow: /jft_ai_engine.py
 Disallow: /final_polish.py
 Disallow: /fix_image_typos.py
 Disallow: /generate_sitemap.py
+Disallow: /scripts/
+Disallow: /reports/
+Disallow: /tmp-
+Disallow: /audit-
 
 # Allow important assets
 Allow: /images/

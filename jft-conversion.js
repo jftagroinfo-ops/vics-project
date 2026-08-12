@@ -105,7 +105,14 @@
       const link = event.target.closest('a[href]');
       if (!link) return;
       if (/wa\.me|api\.whatsapp\.com/.test(link.href)) track('contact_whatsapp', { page_path: location.pathname });
+      if (link.protocol === 'tel:') track('contact_phone', { page_path: location.pathname });
+      if (link.protocol === 'mailto:') track('contact_email', { page_path: location.pathname });
+      if (/\.pdf(?:$|\?)/i.test(link.href)) track('file_download', { file_name: link.pathname.split('/').pop(), page_path: location.pathname });
       if (/contact\.html|sample-request\.html/.test(link.href)) track('conversion_link_click', { destination: link.pathname });
+      if (link.origin !== location.origin && !/wa\.me|api\.whatsapp\.com/.test(link.href)) {
+        track('outbound_click', { destination_host: link.hostname, page_path: location.pathname });
+      }
+      if (link.dataset.track) track(link.dataset.track, { page_path: location.pathname });
     });
     document.addEventListener('securitypolicyviolation', function (event) {
       let blockedHost = '';
@@ -116,6 +123,12 @@
 
   window.jftCookieAccept = function () { setConsent('accepted'); };
   window.jftCookieDecline = function () { setConsent('essential'); };
+  window.jftCookiePreferences = function () {
+    localStorage.removeItem(CONSENT_KEY);
+    if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'denied' });
+    const bar = document.getElementById('jft-cookie-bar');
+    if (bar) bar.classList.add('show');
+  };
   window.JFTConversion = { submitLead: submitLead, track: track, getAttribution: getAttribution };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
