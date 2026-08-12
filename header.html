@@ -62,6 +62,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .lang-menu a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--jft-navy); text-decoration: none; font-size: 0.82rem; transition: 0.2s; font-weight: 500; cursor: pointer; border-radius: 6px; }
   .lang-menu a:hover { background: #f8f9fa; color: var(--jft-primary); }
   .lang-flag { width: 22px; height: 16px; border-radius: 2px; object-fit: cover; box-shadow: 0 1px 3px rgba(0,0,0,0.1); flex-shrink: 0; }
+  .jft-language-fallback { background:#fff8e3; color:#25453c; border-bottom:1px solid #ead18a; font:700 .78rem/1.45 var(--font-sub); padding:9px 20px; text-align:center; }
+  .jft-language-fallback a { color:#2f692d; text-decoration:underline; text-underline-offset:3px; margin-left:6px; }
 
   .td-row-2 { display: flex; justify-content: space-between; align-items: center; height: 38px; background: #fff; color: var(--jft-navy); padding-left: 20px; font-weight: 700; border-bottom: 1px solid #eee; overflow: hidden; }
   /* Mobile: hide social + utilities in row-1, keep full ticker */
@@ -1092,6 +1094,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     fetchLiveForex();
     fetchMarketNews();
     initLocalizationLinks();
+    showLocalizationFallbackNotice();
     const eventPromo = document.getElementById('trade-event-promo');
     if (eventPromo && Date.now() > new Date(eventPromo.dataset.eventEnd).getTime()) eventPromo.remove();
     document.querySelectorAll('.nav-links-desktop a, .mobile-nav-drawer a').forEach(function(link) {
@@ -1104,6 +1107,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     });
     const dateSpan = document.getElementById('forex-date');
     if (dateSpan) dateSpan.innerText = 'RATES AS OF ' + new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  }
+
+  function showLocalizationFallbackNotice() {
+    if (!document.querySelector('meta[name="jft-localization"][content="english-fallback"]') || document.getElementById('jft-language-fallback')) return;
+    const locale = window.location.pathname.split('/').filter(Boolean)[0] || '';
+    const notice = document.createElement('div');
+    notice.id = 'jft-language-fallback';
+    notice.className = 'jft-language-fallback';
+    notice.setAttribute('role', 'status');
+    notice.innerHTML = 'This page is currently available in English. <a href="/' + encodeURIComponent(locale) + '/">Open the translated homepage</a> or <a href="/">continue on the English site</a>.';
+    const header = document.getElementById('header-placeholder');
+    if (header) header.insertAdjacentElement('afterend', notice);
   }
 
   if (document.readyState === 'loading') {
