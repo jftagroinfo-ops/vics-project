@@ -2,61 +2,25 @@
   "summary": {
     "html_files": 1658,
     "classification": {
-      "indexable": 1153,
+      "indexable": 1353,
       "utility_noindex": 163,
-      "locale_fallback": 200,
       "legacy_redirect": 96,
       "helper": 46
     },
     "noindex_by_locale": {
       "en": 9,
-      "ar": 45,
-      "es": 45,
-      "fr": 45,
-      "id": 45,
-      "ms": 45,
-      "pt": 45,
-      "ru": 45,
-      "si": 45,
-      "th": 45,
-      "vi": 45
+      "ar": 25,
+      "es": 25,
+      "fr": 25,
+      "id": 25,
+      "ms": 25,
+      "pt": 25,
+      "ru": 25,
+      "si": 25,
+      "th": 25,
+      "vi": 25
     },
-    "finding_counts": {
-      "indexable_links_to_locale_fallback": 30
-    }
+    "finding_counts": {}
   },
-  "findings": {
-    "indexable_links_to_locale_fallback": [
-      "ar/about.html -> ar/blog-basmati-export-guide.html",
-      "ar/about.html -> ar/blog-how-to-choose-indian-agro-exporter.html",
-      "ar/about.html -> ar/products.html",
-      "es/about.html -> es/blog-basmati-export-guide.html",
-      "es/about.html -> es/blog-how-to-choose-indian-agro-exporter.html",
-      "es/about.html -> es/products.html",
-      "fr/about.html -> fr/blog-basmati-export-guide.html",
-      "fr/about.html -> fr/blog-how-to-choose-indian-agro-exporter.html",
-      "fr/about.html -> fr/products.html",
-      "id/about.html -> id/blog-basmati-export-guide.html",
-      "id/about.html -> id/blog-how-to-choose-indian-agro-exporter.html",
-      "id/about.html -> id/products.html",
-      "ms/about.html -> ms/blog-basmati-export-guide.html",
-      "ms/about.html -> ms/blog-how-to-choose-indian-agro-exporter.html",
-      "ms/about.html -> ms/products.html",
-      "pt/about.html -> pt/blog-basmati-export-guide.html",
-      "pt/about.html -> pt/blog-how-to-choose-indian-agro-exporter.html",
-      "pt/about.html -> pt/products.html",
-      "ru/about.html -> ru/blog-basmati-export-guide.html",
-      "ru/about.html -> ru/blog-how-to-choose-indian-agro-exporter.html",
-      "ru/about.html -> ru/products.html",
-      "si/about.html -> si/blog-basmati-export-guide.html",
-      "si/about.html -> si/blog-how-to-choose-indian-agro-exporter.html",
-      "si/about.html -> si/products.html",
-      "th/about.html -> th/blog-basmati-export-guide.html",
-      "th/about.html -> th/blog-how-to-choose-indian-agro-exporter.html",
-      "th/about.html -> th/products.html",
-      "vi/about.html -> vi/blog-basmati-export-guide.html",
-      "vi/about.html -> vi/blog-how-to-choose-indian-agro-exporter.html",
-      "vi/about.html -> vi/products.html"
-    ]
-  }
+  "findings": {}
 }

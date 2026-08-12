@@ -1,28 +1,28 @@
 <!DOCTYPE html>
+
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com; frame-src;">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com; frame-src;" http-equiv="Content-Security-Policy"/>
 <title>Calculadora de tempo de trânsito portuário Índia | JFT Agro</title>
-<meta name="description" content="Ferramenta gratuita: calcule tempos de trânsito de remessa e estimativas de taxas de frete do JNPT Mumbai, Mundra e Chennai para 29 principais portos de.">
-<link rel="canonical" href="https://jftagro.com/pt/port-transit-calculator.html">
-<link rel="icon" type="image/png" href="../images/jft logo.png">
-
-<meta property="og:title" content="Port Transit Time Calculator — India to 29 Global Ports | JFT Agro">
-<meta property="og:description" content="Free shipping transit time and freight rate tool from JNPT Mumbai, Mundra, and Chennai to Middle East, Africa, Europe, and Asia.">
-<meta property="og:image" content="https://jftagro.com/images/products/basmati_rice_hd.webp">
-<meta property="og:url" content="https://jftagro.com/pt/port-transit-calculator.html">
-<meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:description" content="Calculate sea freight transit time from Indian ports (JNPT, Mundra) to any global destination port.">
+<meta content="Ferramenta gratuita: calcule tempos de trânsito de remessa e estimativas de taxas de frete do JNPT Mumbai, Mundra e Chennai para 29 principais portos de." name="description"/>
+<link href="https://jftagro.com/pt/port-transit-calculator.html" rel="canonical"/>
+<link href="../images/jft logo.png" rel="icon" type="image/png"/>
+<meta content="Port Transit Time Calculator — India to 29 Global Ports | JFT Agro" property="og:title"/>
+<meta content="Free shipping transit time and freight rate tool from JNPT Mumbai, Mundra, and Chennai to Middle East, Africa, Europe, and Asia." property="og:description"/>
+<meta content="https://jftagro.com/images/products/basmati_rice_hd.webp" property="og:image"/>
+<meta content="https://jftagro.com/pt/port-transit-calculator.html" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Calculate sea freight transit time from Indian ports (JNPT, Mundra) to any global destination port." name="twitter:description"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"India Port Transit Time Calculator","applicationCategory":"BusinessApplication","url":"https://jftagro.com/port-transit-calculator.html","description":"Calculate shipping transit times and freight rates from Indian ports to 29 major global destinations.","provider":{"@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Trade Tools","item":"https://jftagro.com/quote-calculator.html"},{"@type":"ListItem","position":3,"name":"Port Transit Calculator","item":"https://jftagro.com/port-transit-calculator.html"}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&amp;family=Montserrat:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="../jft-design-system.css">
-<link rel="stylesheet" href="../jft-responsive.css">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&amp;family=Montserrat:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../jft-design-system.css" rel="stylesheet"/>
+<link href="../jft-responsive.css" rel="stylesheet"/>
 <style>
 :root{
   --green:#3d7030;--green-dark:#2a5220;--navy:#1a3c34;--navy-dark:#0d1f1b;--navy-light:#2c5148;
@@ -203,9 +203,22 @@ img{max-width:100%;height:auto;display:block}
 @media(max-width:768px){.ports-grid{grid-template-columns:1fr}}
 @media(max-width:480px){.ptc-inner .jft-wide-container{gap:28px}.ctrl-section{padding:14px 16px}.cta-actions{flex-direction:column;align-items:center}.cta-actions>*{width:100%;max-width:320px;justify-content:center}.how-grid{grid-template-columns:1fr}}
 </style>
-
-<link rel="manifest" href="../manifest.json">
+<link href="../manifest.json" rel="manifest"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Calculate Sea Freight Transit Time from Indian Ports","description":"Step-by-step guide to estimate shipping time from JNPT Nhava Sheva or Mundra port to any destination port worldwide.","step":[{"@type":"HowToStep","name":"Select Origin Port","text":"Choose JNPT (Nhava Sheva, Mumbai) for most commodities, or Mundra (Gujarat) for Rajasthan-origin spices and cumin."},{"@type":"HowToStep","name":"Select Destination Port","text":"Choose from major importing ports: Jebel Ali (UAE), Mombasa (Kenya), Cotonou (Benin), Rotterdam (EU), etc."},{"@type":"HowToStep","name":"View Transit Time","text":"See estimated transit days and standard shipping lines serving that route."},{"@type":"HowToStep","name":"Plan Your LC or Payment","text":"Use transit time to set document presentation periods in your LC and plan for arrival at destination port."}]}</script>
+<link href="https://jftagro.com/port-transit-calculator.html" hreflang="en" rel="alternate"/>
+<link href="https://jftagro.com/ar/port-transit-calculator.html" hreflang="ar" rel="alternate"/>
+<link href="https://jftagro.com/es/port-transit-calculator.html" hreflang="es" rel="alternate"/>
+<link href="https://jftagro.com/fr/port-transit-calculator.html" hreflang="fr" rel="alternate"/>
+<link href="https://jftagro.com/id/port-transit-calculator.html" hreflang="id" rel="alternate"/>
+<link href="https://jftagro.com/ms/port-transit-calculator.html" hreflang="ms" rel="alternate"/>
+<link href="https://jftagro.com/pt/port-transit-calculator.html" hreflang="pt" rel="alternate"/>
+<link href="https://jftagro.com/ru/port-transit-calculator.html" hreflang="ru" rel="alternate"/>
+<link href="https://jftagro.com/si/port-transit-calculator.html" hreflang="si" rel="alternate"/>
+<link href="https://jftagro.com/th/port-transit-calculator.html" hreflang="th" rel="alternate"/>
+<link href="https://jftagro.com/vi/port-transit-calculator.html" hreflang="vi" rel="alternate"/>
+<link href="https://jftagro.com/port-transit-calculator.html" hreflang="x-default" rel="alternate"/>
+
+  <link rel="canonical" href="https://jftagro.com/pt/port-transit-calculator.html">
   <link rel="alternate" hreflang="en" href="https://jftagro.com/port-transit-calculator.html">
   <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/port-transit-calculator.html">
   <link rel="alternate" hreflang="es" href="https://jftagro.com/es/port-transit-calculator.html">
@@ -220,147 +233,137 @@ img{max-width:100%;height:auto;display:block}
   <link rel="alternate" hreflang="x-default" href="https://jftagro.com/port-transit-calculator.html">
 </head>
 <body>
-
-<div id="preloader"><img src="../images/jft logo.png" alt="JFT Agro" class="loader-logo-img" width="180" height="70"><p class="loader-text">Transit Calculator</p><div class="loader-track"><div class="loader-fill"></div></div></div>
-<a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20need%20a%20freight%20quote%20for%20my%20destination%20port." class="wa-fab" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp JFT Agro"><i class="fa-brands fa-whatsapp"></i></a>
-<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="preloader"><img alt="JFT Agro" class="loader-logo-img" height="70" src="../images/jft logo.png" width="180"/><p class="loader-text">Calculadora de trânsito</p><div class="loader-track"><div class="loader-fill"></div></div></div>
+<a aria-label="WhatsApp JFT Agro" class="wa-fab" href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20need%20a%20freight%20quote%20for%20my%20destination%20port." rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+<button aria-label="Voltar ao topo" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
 <div id="header-placeholder"></div>
-
 <!-- HERO -->
 <section class="ptc-hero" id="main-content">
-  <div class="ptc-bg"></div>
-  <div class="ptc-overlay"></div>
-  <div class="ptc-grid-bg"></div>
-  <div class="ptc-glow"></div>
-  <div class="ptc-inner">
-    <div class="jft-wide-container">
-      <div>
-        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i>
-          <a href="quote-calculator.html">Tools</a><i class="fa-solid fa-chevron-right"></i>
-          <span style="color:rgba(255,255,255,.6)">Transit Calculator</span>
-        </nav>
-        <span class="brand-tag brand-tag-white"><i class="fa-solid fa-map-location-dot"></i> Free Trade Tool</span>
-        <h1 class="ptc-h1">Port Transit Time<br><em>Calculator</em></h1>
-        <p class="ptc-sub">Shipping days and indicative freight rates from JNPT Mumbai, Mundra, and Chennai to 29 major import ports across 6 global regions.</p>
-        <div style="display:flex;gap:13px;flex-wrap:wrap">
-          <a href="#ports" class="btn-gold"><i class="fa-solid fa-ship"></i> View All Ports</a>
-          <a href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-file-invoice-dollar"></i> Get CIF Quote</a>
-        </div>
-        <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:22px">
-          <span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:7px"><i class="fa-solid fa-globe" style="color:var(--gold)"></i> 29 Ports · 6 Regions</span>
-          <span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:7px"><i class="fa-solid fa-indian-rupee-sign" style="color:var(--gold)"></i> USD Freight Estimates</span>
-          <span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:7px"><i class="fa-solid fa-bolt" style="color:var(--gold)"></i> Instant Results</span>
-        </div>
-      </div>
-      <div class="reveal-right">
-        <div class="hero-stats-card">
-          <div class="hsc-label"><i class="fa-solid fa-clock" style="font-size:.7rem"></i> Key transit times — JNPT Mumbai</div>
-          <div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Jebel Ali, UAE</span><span class="hsc-days">8–12 <span>days</span></span></div>
-          <div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Mombasa, Kenya</span><span class="hsc-days">12–18 <span>days</span></span></div>
-          <div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Lagos, Nigeria</span><span class="hsc-days">18–26 <span>days</span></span></div>
-          <div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Rotterdam, Netherlands</span><span class="hsc-days">22–28 <span>days</span></span></div>
-          <div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Colombo, Sri Lanka</span><span class="hsc-days">2–4 <span>days</span></span></div>
-          <div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Singapore</span><span class="hsc-days">13–18 <span>days</span></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="ptc-bg"></div>
+<div class="ptc-overlay"></div>
+<div class="ptc-grid-bg"></div>
+<div class="ptc-glow"></div>
+<div class="ptc-inner">
+<div class="jft-wide-container">
+<div>
+<nav aria-label="Pão ralado" class="hero-breadcrumb">
+<a href="index.html">Página inicial</a><i class="fa-solid fa-chevron-right"></i>
+<a href="quote-calculator.html">Tools</a><i class="fa-solid fa-chevron-right"></i>
+<span style="color:rgba(255,255,255,.6)">Calculadora de trânsito</span>
+</nav>
+<span class="brand-tag brand-tag-white"><i class="fa-solid fa-map-location-dot"></i> Free Trade Tool</span>
+<h1 class="ptc-h1">Port Transit Time<br/><em>Calculator</em></h1>
+<p class="ptc-sub">Shipping days and indicative freight rates from JNPT Mumbai, Mundra, and Chennai to 29 major import ports across 6 global regions.</p>
+<div style="display:flex;gap:13px;flex-wrap:wrap">
+<a class="btn-gold" href="#ports"><i class="fa-solid fa-ship"></i> View All Ports</a>
+<a class="btn-outline" href="contact.html#inquiry-form"><i class="fa-solid fa-file-invoice-dollar"></i> Get CIF Quote</a>
+</div>
+<div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:22px">
+<span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:7px"><i class="fa-solid fa-globe" style="color:var(--gold)"></i> 29 Ports · 6 Regions</span>
+<span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:7px"><i class="fa-solid fa-indian-rupee-sign" style="color:var(--gold)"></i> USD Freight Estimates</span>
+<span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 15px;border-radius:50px;font-family:var(--ff-s);font-size:.7rem;font-weight:700;display:flex;align-items:center;gap:7px"><i class="fa-solid fa-bolt" style="color:var(--gold)"></i> Instant Results</span>
+</div>
+</div>
+<div class="reveal-right">
+<div class="hero-stats-card">
+<div class="hsc-label"><i class="fa-solid fa-clock" style="font-size:.7rem"></i> Key transit times — JNPT Mumbai</div>
+<div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Jebel Ali, Emirados Árabes Unidos</span><span class="hsc-days">8–12 <span>days</span></span></div>
+<div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Mombaça, Quênia</span><span class="hsc-days">12–18 <span>days</span></span></div>
+<div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Lagos, Nigeria</span><span class="hsc-days">18–26 <span>days</span></span></div>
+<div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Roterdã, Holanda</span><span class="hsc-days">22–28 <span>days</span></span></div>
+<div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Colombo, Sri Lanca</span><span class="hsc-days">2–4 <span>days</span></span></div>
+<div class="hsc-row"><span class="hsc-route"><i class="fa-solid fa-flag"></i> Singapura</span><span class="hsc-days">13–18 <span>days</span></span></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <div id="page-progress"></div>
-
 <!-- DISCLAIMER -->
 <div class="disclaimer-bar">
-  <div class="disc-inner">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div class="disc-text"><strong>Indicative estimates only.</strong> Transit times are typical industry ranges and may vary by carrier, routing, weather, and port congestion. Freight rates shown are approximate 20ft FCL ocean freight ranges (excl. surcharges and THC) based on recent market data — actual rates change weekly. <strong>Contact JFT Agro for a binding CIF Proforma Invoice</strong> with confirmed pricing, proposed routing, and an indicative ETA for your specific shipment.</div>
-  </div>
+<div class="disc-inner">
+<i class="fa-solid fa-triangle-exclamation"></i>
+<div class="disc-text"><strong>Indicative estimates only.</strong> Transit times are typical industry ranges and may vary by carrier, routing, weather, and port congestion. Freight rates shown are approximate 20ft FCL ocean freight ranges (excl. surcharges and THC) based on recent market data — actual rates change weekly. <strong>Contact JFT Agro for a binding CIF Proforma Invoice</strong> with confirmed pricing, proposed routing, and an indicative ETA for your specific shipment.</div>
 </div>
-
+</div>
 <!-- CONTROLS -->
 <div class="controls-bar" id="ports">
-  <div class="controls-inner jft-wide-container" style="max-width:100%;padding:0">
-    <div class="ctrl-section" style="padding-left:clamp(20px,5vw,55px)">
-      <div class="ctrl-label"><i class="fa-solid fa-anchor"></i> Origin port</div>
-      <select class="ctrl-select" id="originSelect" onchange="rerender()">
-        <option value="jnpt">JNPT / Nhava Sheva (Mumbai)</option>
-        <option value="mundra">Mundra Port (Gujarat)</option>
-        <option value="chennai">Chennai Port (Tamil Nadu)</option>
-      </select>
-    </div>
-    <div class="ctrl-section">
-      <div class="ctrl-label"><i class="fa-solid fa-sort"></i> Sort by</div>
-      <select class="ctrl-select" id="sortSelect" onchange="rerender()">
-        <option value="transit">Transit time (fastest first)</option>
-        <option value="freight">Freight rate (lowest first)</option>
-        <option value="name">Port name (A–Z)</option>
-      </select>
-    </div>
-    <div class="ctrl-search-wrap">
-      <i class="fa-solid fa-magnifying-glass" style="color:rgba(255,255,255,.35);font-size:.9rem;flex-shrink:0"></i>
-      <input class="ctrl-search" id="searchInput" type="text" placeholder="Search port, country, or region…" oninput="rerender()">
-      <span class="ctrl-count" id="portCount">29 ports</span>
-    </div>
-  </div>
+<div class="controls-inner jft-wide-container" style="max-width:100%;padding:0">
+<div class="ctrl-section" style="padding-left:clamp(20px,5vw,55px)">
+<div class="ctrl-label"><i class="fa-solid fa-anchor"></i> Origin port</div>
+<select class="ctrl-select" id="originSelect" onchange="rerender()">
+<option value="jnpt">JNPT / Nhava Sheva (Mumbai)</option>
+<option value="mundra">Mundra Port (Gujarat)</option>
+<option value="chennai">Chennai Port (Tamil Nadu)</option>
+</select>
 </div>
-
+<div class="ctrl-section">
+<div class="ctrl-label"><i class="fa-solid fa-sort"></i> Sort by</div>
+<select class="ctrl-select" id="sortSelect" onchange="rerender()">
+<option value="transit">Transit time (fastest first)</option>
+<option value="freight">Freight rate (lowest first)</option>
+<option value="name">Port name (A–Z)</option>
+</select>
+</div>
+<div class="ctrl-search-wrap">
+<i class="fa-solid fa-magnifying-glass" style="color:rgba(255,255,255,.35);font-size:.9rem;flex-shrink:0"></i>
+<input class="ctrl-search" id="searchInput" oninput="rerender()" placeholder="Search port, country, or region…" type="text"/>
+<span class="ctrl-count" id="portCount">29 ports</span>
+</div>
+</div>
+</div>
 <!-- REGION TABS -->
 <div class="region-tabs">
-  <div class="region-tabs-inner">
-    <button class="rtab active" data-region="all" onclick="setRegion('all',this)"><i class="fa-solid fa-globe"></i> All Regions <span class="rc" id="rc-all">29</span></button>
-    <button class="rtab" data-region="middle-east" onclick="setRegion('middle-east',this)"><i class="fa-solid fa-mosque"></i> Middle East &amp; Gulf <span class="rc" id="rc-middle-east">6</span></button>
-    <button class="rtab" data-region="east-africa" onclick="setRegion('east-africa',this)"><i class="fa-solid fa-wheat-awn"></i> East Africa <span class="rc" id="rc-east-africa">4</span></button>
-    <button class="rtab" data-region="west-africa" onclick="setRegion('west-africa',this)"><i class="fa-solid fa-drumstick-bite"></i> West Africa <span class="rc" id="rc-west-africa">4</span></button>
-    <button class="rtab" data-region="europe" onclick="setRegion('europe',this)"><i class="fa-solid fa-snowflake"></i> Europe <span class="rc" id="rc-europe">5</span></button>
-    <button class="rtab" data-region="asia" onclick="setRegion('asia',this)"><i class="fa-solid fa-ferry"></i> South &amp; SE Asia <span class="rc" id="rc-asia">6</span></button>
-    <button class="rtab" data-region="east-asia" onclick="setRegion('east-asia',this)"><i class="fa-solid fa-torii-gate"></i> East Asia <span class="rc" id="rc-east-asia">4</span></button>
-  </div>
+<div class="region-tabs-inner">
+<button class="rtab active" data-region="all" onclick="setRegion('all',this)"><i class="fa-solid fa-globe"></i> All Regions <span class="rc" id="rc-all">29</span></button>
+<button class="rtab" data-region="middle-east" onclick="setRegion('middle-east',this)"><i class="fa-solid fa-mosque"></i> Middle East &amp; Gulf <span class="rc" id="rc-middle-east">6</span></button>
+<button class="rtab" data-region="east-africa" onclick="setRegion('east-africa',this)"><i class="fa-solid fa-wheat-awn"></i> África Oriental <span class="rc" id="rc-east-africa">4</span></button>
+<button class="rtab" data-region="west-africa" onclick="setRegion('west-africa',this)"><i class="fa-solid fa-drumstick-bite"></i> África Ocidental <span class="rc" id="rc-west-africa">4</span></button>
+<button class="rtab" data-region="europe" onclick="setRegion('europe',this)"><i class="fa-solid fa-snowflake"></i> Europe <span class="rc" id="rc-europe">5</span></button>
+<button class="rtab" data-region="asia" onclick="setRegion('asia',this)"><i class="fa-solid fa-ferry"></i> Sul e Sudeste Asiático <span class="rc" id="rc-asia">6</span></button>
+<button class="rtab" data-region="east-asia" onclick="setRegion('east-asia',this)"><i class="fa-solid fa-torii-gate"></i> East Asia <span class="rc" id="rc-east-asia">4</span></button>
 </div>
-
+</div>
 <!-- PORTS GRID -->
 <section class="ports-section">
-  <div class="jft-wide-container">
-    <div class="ports-grid" id="portsGrid"></div>
-  </div>
+<div class="jft-wide-container">
+<div class="ports-grid" id="portsGrid"></div>
+</div>
 </section>
-
 <!-- HOW IT WORKS -->
 <section class="how-section">
-  <div class="jft-wide-container">
-    <div class="text-center reveal">
-      <span class="brand-tag">How to Use</span>
-      <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--navy)">Plan your shipment in <span style="color:var(--green)">4 steps</span></h2>
-    </div>
-    <div class="how-grid">
-      <div class="hw reveal d1"><div class="hw-num">1</div><h4>Select origin</h4><p>Choose JNPT Mumbai, Mundra, or Chennai — the main ports JFT Agro ships from.</p></div>
-      <div class="hw reveal d2"><div class="hw-num">2</div><h4>Find your destination</h4><p>Browse 29 ports by region, or search by port name or country to find yours quickly.</p></div>
-      <div class="hw reveal d3"><div class="hw-num">3</div><h4>Review transit &amp; rate</h4><p>Check typical transit days, freight rate range, routing via, and carriers serving the lane.</p></div>
-      <div class="hw reveal" style="transition-delay:.4s"><div class="hw-num">4</div><h4>Request formal quote</h4><p>Click "Get CIF Quote" on any port card to send an inquiry — get a binding Proforma Invoice in 24 hours.</p></div>
-    </div>
-  </div>
+<div class="jft-wide-container">
+<div class="text-center reveal">
+<span class="brand-tag">How to Use</span>
+<h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--navy)">Plan your shipment in <span style="color:var(--green)">4 steps</span></h2>
+</div>
+<div class="how-grid">
+<div class="hw reveal d1"><div class="hw-num">1</div><h4>Select origin</h4><p>Choose JNPT Mumbai, Mundra, or Chennai — the main ports JFT Agro ships from.</p></div>
+<div class="hw reveal d2"><div class="hw-num">2</div><h4>Find your destination</h4><p>Browse 29 ports by region, or search by port name or country to find yours quickly.</p></div>
+<div class="hw reveal d3"><div class="hw-num">3</div><h4>Review transit &amp; rate</h4><p>Check typical transit days, freight rate range, routing via, and carriers serving the lane.</p></div>
+<div class="hw reveal" style="transition-delay:.4s"><div class="hw-num">4</div><h4>Request formal quote</h4><p>Click "Get CIF Quote" on any port card to send an inquiry — get a binding Proforma Invoice in 24 hours.</p></div>
+</div>
+</div>
 </section>
-
 <!-- CTA BLOCK -->
 <section class="jft-cta-block">
-  <div class="jft-wide-container">
-    <div class="cta-eyebrow">Ready to Ship?</div>
-    <h2 class="cta-block-title">Get a <em>Binding CIF Price</em><br>to Your Port typically within one business day</h2>
-    <p class="cta-block-desc">These estimates help you plan. Our trade desk provides a formal Proforma Invoice with the CIF price, proposed carrier, indicative vessel schedule, and agreed documents.</p>
-    <div class="cta-actions">
-      <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-file-invoice-dollar"></i> Request CIF Proforma Invoice</a>
-      <a href="quote-calculator.html" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:50px;border:2px solid rgba(255,255,255,.35);color:#fff;font-family:var(--ff-s);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;transition:.3s" onmouseover="this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.background='transparent'"><i class="fa-solid fa-calculator"></i> Price Calculator</a>
-    </div>
-    <div class="cta-trust-row">
-      <span class="cta-trust-item"><i class="fa-solid fa-star"></i> Star Export House</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-clock"></i> Typical one-business-day review</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-globe"></i> 25+ Countries</span>
-    </div>
-  </div>
+<div class="jft-wide-container">
+<div class="cta-eyebrow">Ready to Ship?</div>
+<h2 class="cta-block-title">Get a <em>Binding CIF Price</em><br/>to Your Port typically within one business day</h2>
+<p class="cta-block-desc">These estimates help you plan. Our trade desk provides a formal Proforma Invoice with the CIF price, proposed carrier, indicative vessel schedule, and agreed documents.</p>
+<div class="cta-actions">
+<a class="btn-gold" href="contact.html#inquiry-form"><i class="fa-solid fa-file-invoice-dollar"></i> Request CIF Proforma Invoice</a>
+<a href="quote-calculator.html" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,.08)'" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:50px;border:2px solid rgba(255,255,255,.35);color:#fff;font-family:var(--ff-s);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:.82rem;transition:.3s"><i class="fa-solid fa-calculator"></i> Price Calculator</a>
+</div>
+<div class="cta-trust-row">
+<span class="cta-trust-item"><i class="fa-solid fa-star"></i> Casa de Exportação Estrela</span>
+<span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
+<span class="cta-trust-item"><i class="fa-solid fa-clock"></i> Typical one-business-day review</span>
+<span class="cta-trust-item"><i class="fa-solid fa-globe"></i> Mais de 25 países</span>
+</div>
+</div>
 </section>
-
 <div id="footer-placeholder"></div>
-
 <script>
 /* ── COMPONENT LOADER ── */
 async function loadComponent(id,file){try{const r=await fetch(file);if(!r.ok)throw new Error(file);const h=await r.text();document.getElementById(id).innerHTML=h;document.getElementById(id).querySelectorAll('script').forEach(o=>{const s=document.createElement('script');Array.from(o.attributes).forEach(a=>s.setAttribute(a.name,a.value));s.appendChild(document.createTextNode(o.innerHTML));o.parentNode.replaceChild(s,o);});}catch(e){console.warn(e);}}
