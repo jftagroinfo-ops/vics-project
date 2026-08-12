@@ -2893,6 +2893,12 @@
 
       <!-- Product grid -->
       <div class="product-catalogue-grid" id="product-grid"></div>
+      <div class="catalogue-load-more" id="catalogue-load-more" hidden style="display:flex;justify-content:center;padding:34px 0 6px;">
+        <button type="button" onclick="loadMoreProducts()" style="min-height:48px;padding:13px 24px;border:0;border-radius:8px;background:#1a3c34;color:#fff;font-family:var(--font-sub);font-weight:800;cursor:pointer;">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i> View more products <span id="catalogue-remaining" style="color:#eebf45;"></span>
+        </button>
+      </div>
+
 
       <!-- No results state -->
       <div id="no-results" style="display:none;text-align:center;padding:80px 20px;">
@@ -3961,6 +3967,7 @@
       /* schema injected */
     })();
   </script>
+  <script src="../catalogue-incremental.js" defer></script>
 </body>
 
 </html>

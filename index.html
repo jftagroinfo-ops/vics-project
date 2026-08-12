@@ -601,7 +601,10 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+      z-index: 0;
     }
+
+    #hero-slides-container { position: absolute; inset: 0; z-index: 1; }
 
     .hero-slide::after {
       content: '';
@@ -4719,8 +4722,9 @@
   <!-- ── HERO ── -->
   <div id="main-content"></div>
   <section class="jft-hero-banner" id="home" aria-label="Featured export capabilities" aria-roledescription="carousel">
+    <img class="hero-lcp-image" src="images/homepage/rice-milling-facility-premium-v1.webp" alt="Automated rice milling and export preparation facility" width="1448" height="1086" fetchpriority="high" decoding="sync">
     <div id="hero-slides-container">
-      <div class="hero-slide hero-slide--assurance active"><img class="hero-lcp-image" src="images/homepage/rice-milling-facility-premium-v1.webp" alt="Automated rice milling and export preparation facility" width="1448" height="1086" fetchpriority="high"></div>
+      <div class="hero-slide hero-slide--assurance active"></div>
       <!-- HD Unsplash fallback images for slides 2–5 -->
       <div class="hero-slide hero-slide--rice" data-bg="images/14.webp">
       </div>
@@ -6060,10 +6064,15 @@
       }
       window.toggleHeroPause = toggleHeroPause;
       function nextSlide() { var slides = document.querySelectorAll('.hero-slide'); if (!slides.length) return; slideIdx = (slideIdx + 1) % slides.length; updateSlider(); }
-      function preloadHeroBackgrounds() {
-        document.querySelectorAll('.hero-slide[data-bg]').forEach(function (slide) {
-          if (!slide.style.backgroundImage) slide.style.backgroundImage = "url('" + slide.dataset.bg + "')";
-        });
+      function preloadNextHeroBackground() {
+        var slides = document.querySelectorAll('.hero-slide');
+        if (!slides.length) return;
+        var next = slides[(slideIdx + 1) % slides.length];
+        if (next && next.dataset.bg && !next.style.backgroundImage) {
+          var image = new Image();
+          image.onload = function () { next.style.backgroundImage = "url('" + next.dataset.bg + "')"; };
+          image.src = next.dataset.bg;
+        }
       }
       function updateSlider() {
         var slides = document.querySelectorAll('.hero-slide');
@@ -6081,6 +6090,7 @@
         }
         if (contents[slideIdx]) { contents[slideIdx].classList.add('active'); contents[slideIdx].setAttribute('aria-hidden', 'false'); }
         if (dots[slideIdx]) { dots[slideIdx].classList.add('active'); dots[slideIdx].setAttribute('aria-current', 'true'); }
+        window.setTimeout(preloadNextHeroBackground, 500);
       }
 
       // ── HERO SWIPE ──
@@ -6394,7 +6404,7 @@
         updatePauseControl();
         startSlider();
         initRegionSlider();
-        setTimeout(preloadHeroBackgrounds, 5000);
+        setTimeout(preloadNextHeroBackground, 5500);
         var heroSection = document.querySelector('.jft-hero-banner');
         if (heroSection && 'IntersectionObserver' in window) {
           new IntersectionObserver(function (entries) {
