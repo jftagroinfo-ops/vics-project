@@ -2,23 +2,23 @@
   "summary": {
     "html_files": 1658,
     "classification": {
-      "indexable": 1353,
-      "utility_noindex": 163,
-      "legacy_redirect": 96,
-      "helper": 46
+      "indexable": 1493,
+      "utility_noindex": 113,
+      "helper": 46,
+      "legacy_redirect": 6
     },
     "noindex_by_locale": {
       "en": 9,
-      "ar": 25,
-      "es": 25,
-      "fr": 25,
-      "id": 25,
-      "ms": 25,
-      "pt": 25,
-      "ru": 25,
-      "si": 25,
-      "th": 25,
-      "vi": 25
+      "ar": 11,
+      "es": 11,
+      "fr": 11,
+      "id": 11,
+      "ms": 11,
+      "pt": 11,
+      "ru": 11,
+      "si": 11,
+      "th": 11,
+      "vi": 11
     },
     "finding_counts": {}
   },

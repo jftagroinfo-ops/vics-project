@@ -28,7 +28,7 @@ def main() -> int:
         translated_comments.discard(None)
         for path in (ROOT / language).glob("*.html"):
             text = path.read_text(encoding="utf-8", errors="replace")
-            soup = BeautifulSoup(text, "html.parser")
+            soup = BeautifulSoup(text, "html5lib")
             count = 0
             for node in list(soup.find_all(string=True)):
                 if isinstance(node, Comment):

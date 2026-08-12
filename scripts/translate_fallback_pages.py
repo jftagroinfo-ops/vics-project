@@ -129,7 +129,7 @@ def replace_node_text(node: NavigableString, mapping: dict[str, str]) -> None:
 
 
 def localize_page(path: Path, language: str, mapping: dict[str, str]) -> None:
-    soup = BeautifulSoup(path.read_text(encoding="utf-8", errors="replace"), "html.parser")
+    soup = BeautifulSoup(path.read_text(encoding="utf-8", errors="replace"), "html5lib")
     was_fallback = bool(soup.select_one('meta[name="jft-localization"][content="english-fallback"]'))
     for marker in soup.select('meta[name="jft-localization"][content="english-fallback"]'):
         marker.decompose()
@@ -154,12 +154,18 @@ def localize_page(path: Path, language: str, mapping: dict[str, str]) -> None:
             if raw in mapping:
                 element["content"] = mapping[raw]
     if was_fallback:
+        source_path = ROOT / path.name
+        source_noindex = False
+        if source_path.exists():
+            source_soup = BeautifulSoup(source_path.read_text(encoding="utf-8", errors="replace"), "html.parser")
+            source_robots = source_soup.find("meta", attrs={"name": lambda value: value and value.lower() == "robots"})
+            source_noindex = bool(source_robots and "noindex" in source_robots.get("content", "").lower())
         robots = soup.find("meta", attrs={"name": "robots"})
         if robots:
-            robots["content"] = "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+            robots["content"] = "noindex,follow" if source_noindex else "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
         elif soup.head:
             tag = soup.new_tag("meta")
-            tag["name"], tag["content"] = "robots", "index,follow,max-snippet:-1,max-image-preview:large"
+            tag["name"], tag["content"] = "robots", "noindex,follow" if source_noindex else "index,follow,max-snippet:-1,max-image-preview:large"
             soup.head.append(tag)
         localized_url = f"https://jftagro.com/{language}/{path.name}"
         canonical = soup.find("link", rel="canonical")
@@ -190,7 +196,8 @@ def main() -> int:
     for language in LOCALES:
         paths = sorted(
             path for path in (ROOT / language).glob("*.html")
-            if MARKER in path.read_text(encoding="utf-8", errors="replace")
+            if BeautifulSoup(path.read_text(encoding="utf-8", errors="replace"), "html.parser")
+            .select_one('meta[name="jft-localization"][content="english-fallback"]')
         )
         if not paths:
             print(f"{language}: no fallback pages")
@@ -228,6 +235,35 @@ def localize_all_pages() -> int:
     return 0
 
 
+def translate_remaining_residue() -> int:
+    """Translate visible English strings still present after exact source matching."""
+    cache = json.loads(CACHE_PATH.read_text(encoding="utf-8")) if CACHE_PATH.exists() else {}
+    total = 0
+    for language in LOCALES:
+        paths = sorted(
+            path for path in (ROOT / language).glob("*.html")
+            if path.name not in {"inner-page-hero-snippet.html", "seo-universal-head-snippet.html"}
+            and "<html" in path.read_text(encoding="utf-8", errors="replace").lower()
+        )
+        values: set[str] = set()
+        for path in paths:
+            soup = BeautifulSoup(path.read_text(encoding="utf-8", errors="replace"), "html.parser")
+            for node in soup.find_all(string=True):
+                if isinstance(node, (Comment, Doctype)) or not node.parent or node.parent.name in SKIP_PARENTS:
+                    continue
+                value = " ".join(str(node).split())
+                if len(value.split()) >= 4 and worth_translating(value) and re.search(r"\b(?:the|and|with|from|this|that|your|buyer|export|import|request|quality|product|shipping|document|price|market)\b", value, re.I):
+                    values.add(value)
+        print(f"{language}: translating {len(values)} remaining English strings", flush=True)
+        mapping = translate_values(language, sorted(values), cache)
+        CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
+        for path in paths:
+            localize_page(path, language, mapping)
+            total += 1
+    print(f"Applied residue cleanup to {total} pages.")
+    return 0
+
+
 if __name__ == "__main__":
     import sys
-    raise SystemExit(localize_all_pages() if "--all" in sys.argv else main())
+    raise SystemExit(translate_remaining_residue() if "--residue" in sys.argv else localize_all_pages() if "--all" in sys.argv else main())

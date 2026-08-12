@@ -23,11 +23,11 @@ EXCLUDED = {
     "seo-universal-head-snippet.html",
     "thank-you.html",
 }
-ALTERNATE_RE = re.compile(r"\s*<link\s+rel=[\"']alternate[\"'][^>]*>", re.I)
-CANONICAL_RE = re.compile(r"<link\s+rel=[\"']canonical[\"'][^>]*>", re.I)
-OG_URL_RE = re.compile(r'<meta\s+property=["\']og:url["\'][^>]*>', re.I)
+ALTERNATE_RE = re.compile(r"\s*<link\b(?=[^>]*\brel=[\"']alternate[\"'])[^>]*>", re.I)
+CANONICAL_RE = re.compile(r"<link\b(?=[^>]*\brel=[\"']canonical[\"'])[^>]*>", re.I)
+OG_URL_RE = re.compile(r'<meta\b(?=[^>]*\bproperty=["\']og:url["\'])[^>]*>', re.I)
 FALLBACK_MARKER = '<meta name="jft-localization" content="english-fallback">'
-ROBOTS_RE = re.compile(r'<meta\s+name=["\']robots["\'][^>]*>', re.I)
+ROBOTS_RE = re.compile(r'<meta\b(?=[^>]*\bname=["\']robots["\'])[^>]*>', re.I)
 
 
 def visible_english_tokens(text: str) -> set[str]:
@@ -104,9 +104,11 @@ def is_indexable(path: Path) -> bool:
     if path.name in EXCLUDED or path.name.startswith("yandex_"):
         return False
     text = path.read_text(encoding="utf-8")
-    return bool(re.search(r"<html\b", text, re.I)) and not bool(
-        re.search(r'<meta\s+name=["\']robots["\'][^>]*\bnoindex\b', text, re.I)
-    )
+    if not re.search(r"<html\b", text, re.I):
+        return False
+    soup = BeautifulSoup(text, "html.parser")
+    robots = soup.find("meta", attrs={"name": lambda value: value and value.lower() == "robots"})
+    return not bool(robots and "noindex" in robots.get("content", "").lower())
 
 
 def locale(path: Path) -> str:

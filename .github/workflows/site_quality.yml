@@ -33,5 +33,7 @@ jobs:
         run: python scripts/audit_commercial_content.py
       - name: Validate blog navigation
         run: python scripts/validate_blog_navigation.py
+      - name: Audit localized pages
+        run: python scripts/audit_localizations.py
       - name: Enforce performance budgets
         run: python scripts/audit_performance.py
