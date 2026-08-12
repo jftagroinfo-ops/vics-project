@@ -349,6 +349,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
   </url>
   <url>
@@ -746,6 +756,24 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/5-silky-sortex-white-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/5-silky-sortex-white-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/ar/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
   </url>
   <url>
     <loc>https://jftagro.com/ar/africa-trade.html</loc>
@@ -3268,6 +3296,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
   </url>
   <url>
+    <loc>https://jftagro.com/es/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
+  </url>
+  <url>
     <loc>https://jftagro.com/es/africa-trade.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>yearly</changefreq>
@@ -5156,6 +5202,24 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/5-silky-sortex-white-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/5-silky-sortex-white-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/fr/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
   </url>
   <url>
     <loc>https://jftagro.com/fr/africa-trade.html</loc>
@@ -7138,6 +7202,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
   </url>
   <url>
+    <loc>https://jftagro.com/id/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
+  </url>
+  <url>
     <loc>https://jftagro.com/id/africa-trade.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>yearly</changefreq>
@@ -9090,6 +9172,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
   </url>
   <url>
+    <loc>https://jftagro.com/ms/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
+  </url>
+  <url>
     <loc>https://jftagro.com/ms/africa-trade.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>yearly</changefreq>
@@ -11024,6 +11124,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
   </url>
   <url>
+    <loc>https://jftagro.com/pt/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
+  </url>
+  <url>
     <loc>https://jftagro.com/pt/africa-trade.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>yearly</changefreq>
@@ -12894,6 +13012,24 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/5-silky-sortex-white-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/5-silky-sortex-white-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/ru/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
   </url>
   <url>
     <loc>https://jftagro.com/ru/africa-trade.html</loc>
@@ -14858,6 +14994,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
   </url>
   <url>
+    <loc>https://jftagro.com/si/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
+  </url>
+  <url>
     <loc>https://jftagro.com/si/africa-trade.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>yearly</changefreq>
@@ -16792,6 +16946,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
   </url>
   <url>
+    <loc>https://jftagro.com/th/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
+  </url>
+  <url>
     <loc>https://jftagro.com/th/africa-trade.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>yearly</changefreq>
@@ -18670,6 +18842,24 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/5-silky-sortex-white-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/5-silky-sortex-white-exporter.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/5-silky-sortex-white-exporter.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/vi/about.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://jftagro.com/id/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://jftagro.com/si/about.html"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/about.html"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/about.html"/>
   </url>
   <url>
     <loc>https://jftagro.com/vi/africa-trade.html</loc>
