@@ -140,10 +140,10 @@ def main() -> None:
 
         own_url = public_url(path)
         canonical = f'<link rel="canonical" href="{own_url}">'
-        if CANONICAL_RE.search(head):
-            head = CANONICAL_RE.sub(canonical, head, count=1)
-        else:
-            head += "\n  " + canonical
+        # Remove every historical variant before inserting one canonical. This
+        # remains stable even when an HTML serializer reorders link attributes.
+        head = CANONICAL_RE.sub("", head)
+        head += "\n  " + canonical
 
         variants = sorted(by_name[path.name], key=lambda item: (locale(item) != "en", locale(item)))
         links = [
