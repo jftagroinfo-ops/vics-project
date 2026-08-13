@@ -24,6 +24,8 @@ jobs:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           python scripts/build_locale_ui.py
+          python scripts/apply_audit_remediation.py
+          python scripts/apply_localization_review_policy.py
           python scripts/generate_hreflang.py
           python scripts/generate_sitemap.py
           git diff --exit-code
@@ -37,3 +39,7 @@ jobs:
         run: python scripts/audit_localizations.py
       - name: Enforce performance budgets
         run: python scripts/audit_performance.py
+      - name: Audit crawl, metadata, accessibility and asset coverage
+        run: |
+          python scripts/full_site_audit.py
+          python scripts/audit_coverage_gaps.py

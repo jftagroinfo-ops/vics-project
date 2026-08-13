@@ -940,6 +940,8 @@ body.nav-open {
 #calc-qty { color: #52605b !important; }
 .field-help span,
 .field-help span span { color: #59645f !important; }
+.filter-btn.active .filter-count { background: #fff !important; color: #284f20 !important; }
+.override-toggle > span > span { color: #59645f !important; }
 @media (max-width: 768px) {
   .footer-bottom a,
   .footer-legal-button { min-height: 44px; padding: 10px 6px; }

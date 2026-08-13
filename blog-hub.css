@@ -114,8 +114,8 @@ body {
 }
 
 .filter-btn.active .filter-count {
-  background: rgba(255, 255, 255, .18) !important;
-  color: #fff !important;
+  background: #fff !important;
+  color: #284f20 !important;
 }
 
 .results-summary {
