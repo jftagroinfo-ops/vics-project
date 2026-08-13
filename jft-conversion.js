@@ -8,6 +8,7 @@
   };
   const CONSENT_KEY = 'jft_cookie_choice';
   const ATTRIBUTION_KEY = 'jft_attribution';
+  const LAST_SUBMISSION_KEY = 'jft_last_lead_submission';
   let analyticsLoaded = false;
   const trackedOnce = new Set();
 
@@ -88,6 +89,9 @@
   }
 
   async function submitLead(data) {
+    if (data.website || data.company_website) throw new Error('Automated submission rejected');
+    const lastSubmission = Number(sessionStorage.getItem(LAST_SUBMISSION_KEY) || 0);
+    if (Date.now() - lastSubmission < 8000) throw new Error('Please wait before sending another request');
     const payload = Object.assign({}, data, getAttribution(), {
       access_key: CONFIG.accessKey,
       lead_id: data.lead_id || leadId(),
@@ -102,6 +106,7 @@
     });
     const result = await response.json().catch(function () { return {}; });
     if (!response.ok || !result.success) throw new Error(result.message || 'Lead submission failed');
+    sessionStorage.setItem(LAST_SUBMISSION_KEY, String(Date.now()));
     track('generate_lead', {
       lead_type: data.lead_type || 'inquiry',
       form_id: data.form_id || 'lead_form',
@@ -113,6 +118,13 @@
   function enrichForms() {
     const attribution = getAttribution();
     document.querySelectorAll('form').forEach(function (form) {
+      if (!form.elements.website) {
+        const honeypot = document.createElement('input');
+        honeypot.type = 'text'; honeypot.name = 'website'; honeypot.tabIndex = -1;
+        honeypot.autocomplete = 'off'; honeypot.setAttribute('aria-hidden', 'true');
+        honeypot.style.cssText = 'position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important';
+        form.appendChild(honeypot);
+      }
       Object.keys(attribution).forEach(function (name) {
         if (form.elements[name]) return;
         const input = document.createElement('input');
@@ -163,6 +175,25 @@
     }
   }
 
+  function addEditorialReviewNote() {
+    if (!/^blog-.*\.html$/i.test(location.pathname.split('/').pop() || '')) return;
+    if (location.pathname.split('/').filter(Boolean).length > 1) return;
+    const body = document.querySelector('.article-body, .seo-article, article');
+    if (!body || document.getElementById('jft-editorial-review')) return;
+    const note = document.createElement('aside');
+    note.id = 'jft-editorial-review';
+    note.className = 'jft-editorial-review';
+    note.setAttribute('aria-label', 'Editorial review and sources');
+    note.innerHTML = '<strong>Reviewed by JFT Agro Trade Desk</strong><span>Commercial and regulatory information was last checked on 14 August 2026. Requirements can change; confirm the current rule with the destination authority and your licensed customs adviser before contracting.</span><span class="jft-source-links"><a href="https://apeda.gov.in/" target="_blank" rel="noopener noreferrer">APEDA</a><a href="https://www.dgft.gov.in/" target="_blank" rel="noopener noreferrer">DGFT</a><a href="https://fssai.gov.in/" target="_blank" rel="noopener noreferrer">FSSAI</a><a href="https://indianspices.com/" target="_blank" rel="noopener noreferrer">Spices Board India</a><a href="mailto:exports@jftagro.com?subject=Editorial%20correction">Suggest a correction</a></span>';
+    body.appendChild(note);
+    if (!document.getElementById('jft-editorial-review-style')) {
+      const style = document.createElement('style');
+      style.id = 'jft-editorial-review-style';
+      style.textContent = '.jft-editorial-review{margin:34px 0 0;padding:20px;border:1px solid #d4dfd7;border-left:4px solid #397531;border-radius:6px;background:#f7faf7;color:#40534c;font:400 .88rem/1.65 Lato,sans-serif}.jft-editorial-review strong{display:block;color:#1a3c34;font-family:Montserrat,sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px}.jft-editorial-review span{display:block}.jft-source-links{display:flex!important;flex-wrap:wrap;gap:8px 14px;margin-top:10px}.jft-source-links a{color:#285f2a;text-decoration:underline;text-underline-offset:3px;font-weight:700}';
+      document.head.appendChild(style);
+    }
+  }
+
   function initPageDiagnostics() {
     const isNotFound = document.body.dataset.pageType === '404' || /page not found/i.test(document.title);
     if (isNotFound) trackOnce('page_not_found', {
@@ -188,6 +219,13 @@
       }, { passive: true });
     }
 
+    if (/-exporter\.html$|-supplier\.html$|products\.html$/i.test(location.pathname)) {
+      trackOnce('view_item', {
+        item_name: (document.querySelector('h1') || {}).textContent || document.title,
+        item_category: document.body.dataset.category || 'agro_products'
+      }, 'view_item:' + location.pathname);
+    }
+
     const params = new URLSearchParams(location.search);
     if (/contact\.html$/i.test(location.pathname) && params.get('source') === 'quote_calculator') {
       trackOnce('rfq_prefill_loaded', {
@@ -206,6 +244,7 @@
     if (bar && !choice) setTimeout(function () { bar.classList.add('show'); }, 700);
     enrichForms();
     addArticleBuyerPath();
+    addEditorialReviewNote();
     initPageDiagnostics();
     window.addEventListener('jft:consent', function (event) {
       if (event.detail === 'accepted') initPageDiagnostics();

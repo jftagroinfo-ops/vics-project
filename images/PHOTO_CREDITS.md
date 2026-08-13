@@ -11,3 +11,9 @@ The following documentary photographs are used under the Pexels license. Images 
 - `trade/europe-port-real-pexels.jpg`: "Container Ship at Maasvlakte Rotterdam Harbor" by Ann H. Source: https://www.pexels.com/photo/container-ship-at-maasvlakte-rotterdam-harbor-31688186/
 
 Pexels license: https://www.pexels.com/license/
+
+## Asset governance
+
+Before publishing any new photograph, logo, certification mark, flag, font or PDF, retain its source URL/file, creator or issuing body, license/permission, permitted use, download date and any attribution requirement. Company-owned facility and product photography should be labeled internally with the shoot date and rights owner. Certification marks must only be shown within the issuer's rules and the certificate's current scope.
+
+If an asset's rights cannot be demonstrated, do not deploy it. Review this register whenever a source image is replaced or a third-party license changes.

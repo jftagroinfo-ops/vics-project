@@ -16,5 +16,15 @@ jobs:
       matrix:
         path: ['/', '/products.html', '/contact.html', '/blog.html', '/quote-calculator.html']
     steps:
-      - name: Check production route
-        run: curl --fail --silent --show-error --location --retry 2 --max-time 20 "https://jftagro.com${{ matrix.path }}" > /dev/null
+      - name: Check production route and latency
+        shell: bash
+        run: |
+          metrics=$(curl --fail --silent --show-error --location --retry 2 --retry-all-errors --connect-timeout 8 --max-time 20 --output /dev/null --write-out '%{http_code} %{time_starttransfer} %{time_total}' "https://jftagro.com${{ matrix.path }}")
+          read -r status ttfb total <<< "$metrics"
+          echo "status=$status ttfb=${ttfb}s total=${total}s"
+          python - "$ttfb" "$total" <<'PY'
+          import sys
+          ttfb, total = map(float, sys.argv[1:])
+          if ttfb > 2.0 or total > 8.0:
+              raise SystemExit(f"Latency budget exceeded: TTFB={ttfb:.3f}s total={total:.3f}s")
+          PY

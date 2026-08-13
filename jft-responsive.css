@@ -901,6 +901,45 @@ body.nav-open {
   width: 100%;
 }
 
+/* WCAG 2.2 shared remediation: readable small text and operable targets. */
+.footer-bottom a,
+.footer-legal-button {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 3px;
+}
+.footer-legal-button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.footer-legal-button:hover,
+.footer-legal-button:focus-visible { color: var(--jft-gold, #eebf45); }
+.forex-group:focus-visible,
+[role="region"][tabindex="0"]:focus-visible {
+  outline: 3px solid #eebf45;
+  outline-offset: 3px;
+}
+.prod-stat-lbl { color: #52645e !important; }
+#result-count { color: #52645e !important; }
+.pkg-label { color: #626b67 !important; }
+.jft-spec-section .brand-tag { color: #285a25 !important; }
+.spec-feature-item .sfi-text p,
+.article-card .card-excerpt { color: #656565 !important; }
+.article-meta-row span,
+.article-card .card-meta span { color: #626262 !important; }
+.field-help,
+.calc-legal,
+.calc-legal span { color: #5b6662 !important; }
+@media (max-width: 768px) {
+  .footer-bottom a,
+  .footer-legal-button { min-height: 44px; padding: 10px 6px; }
+}
+
 /* Hero sections: ensure they clear the fixed header exactly */
 @media (max-width: 1024px) {
   /* All inner page heroes */

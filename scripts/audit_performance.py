@@ -27,6 +27,14 @@ def main() -> int:
         findings.append("homepage still autoplays a hero video")
     if "rice-milling-facility-premium-v1.webp" not in homepage:
         findings.append("homepage does not use the optimized trust hero")
+    if "rice-milling-facility-premium-v1-768.webp" not in homepage:
+        findings.append("homepage does not provide a mobile hero source")
+    if '<img class="hero-slide-image" src="images/14.webp"' in homepage:
+        findings.append("secondary hero media still downloads before interaction")
+    if "var sliderPaused = true" not in homepage:
+        findings.append("homepage carousel is not opt-in")
+    if "fonts.googleapis.com" in homepage or "cdnjs.cloudflare.com/ajax/libs/font-awesome" in homepage:
+        findings.append("homepage still depends on remote render-blocking fonts/icons")
     # The homepage includes the full interactive product/sourcing experience.
     # Keep a narrow, explicit allowance for it while retaining the stricter
     # budget for every other root document.
