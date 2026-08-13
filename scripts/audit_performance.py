@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from PIL import Image
@@ -33,7 +34,7 @@ def main() -> int:
         findings.append("secondary hero media still downloads before interaction")
     if "var sliderPaused = true" not in homepage:
         findings.append("homepage carousel is not opt-in")
-    if "fonts.googleapis.com" in homepage or "cdnjs.cloudflare.com/ajax/libs/font-awesome" in homepage:
+    if re.search(r'<link\b[^>]+href=["\']https://(?:fonts\.googleapis\.com|cdnjs\.cloudflare\.com/ajax/libs/font-awesome)', homepage, re.I):
         findings.append("homepage still depends on remote render-blocking fonts/icons")
     # The homepage includes the full interactive product/sourcing experience.
     # Keep a narrow, explicit allowance for it while retaining the stricter

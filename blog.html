@@ -47,6 +47,7 @@
     .filter-btn{padding:8px 20px;border:1.5px solid var(--jft-border);background:#fff;border-radius:50px;font-family:var(--font-sub);font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#666;cursor:pointer;transition:0.2s}
     .filter-btn.active,.filter-btn:hover{background:var(--jft-primary);color:#fff;border-color:var(--jft-primary)}
     .filter-count{font-size:0.65rem;background:rgba(61,112,48,0.15);color:var(--jft-primary);padding:2px 7px;border-radius:20px;margin-left:4px;font-weight:700}
+    .filter-btn.active .filter-count{background:#fff;color:#284f20}
     /* FEATURED ARTICLE */
     .featured-article{display:grid;grid-template-columns:1.2fr 1fr;gap:0;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.1);border:1px solid var(--jft-border);margin-bottom:50px;transition:0.3s}
     .featured-article:hover{transform:translateY(-5px);box-shadow:0 30px 80px rgba(0,0,0,0.15)}
@@ -162,7 +163,7 @@
       </section>
 
       <!-- FEATURED ARTICLE -->
-      <a href="blog-basmati-export-guide.html" class="featured-article" data-cat="buyer-guide" role="article">
+      <a href="blog-basmati-export-guide.html" class="featured-article" data-cat="buyer-guide" aria-label="Read the complete 2026 Basmati rice export guide">
         <div class="featured-img">
           <img src="images/products/basmati_rice_hd.webp" alt="1121 vs 1509 Basmati Rice" loading="lazy" width="1024" height="1024">
           <div class="featured-badge"><i class="fa-solid fa-star" style="margin-right:5px;"></i> Editor's Pick</div>

@@ -2,24 +2,16 @@
   "scope": {
     "html_files": 1672,
     "renderable_pages": 1672,
-    "sitemap_urls": 1403,
-    "indexable_pages": 1403
+    "sitemap_urls": 1373,
+    "indexable_pages": 1373
   },
   "summary": {
-    "performance_large_image": 2,
-    "performance_large_video": 1,
-    "performance_oversized_html": 1
+    "performance_oversized_html": 2
   },
   "findings": {
     "performance_oversized_html": [
-      "index.html (236571)"
-    ],
-    "performance_large_image": [
-      "images/vessel banner.jpg (3566773)",
-      "images/editorial/real-indian-rice-origin-pexels-23985736.webp (843474)"
-    ],
-    "performance_large_video": [
-      "images/homepage/premiumnRice.mp4 (5044807)"
+      "index.html (244439)",
+      "products.html (202181)"
     ]
   }
 }

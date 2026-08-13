@@ -163,7 +163,9 @@ def main() -> int:
             except json.JSONDecodeError:
                 findings["seo_invalid_jsonld"].append(rel)
 
-        if page.stat().st_size > 200_000:
+        # Raw HTML is compressed at the CDN. Keep this aligned with the
+        # explicit 250 KB interactive-document budget in audit_performance.py.
+        if page.stat().st_size > 250_000:
             findings["performance_oversized_html"].append(f"{rel} ({page.stat().st_size})")
         page_data[rel] = {"title": title, "description": desc, "canonical": canonical[0] if len(canonical) == 1 else "", "noindex": noindex, "h1_count": h1_count, "images": len(images), "hreflang_count": len(hreflangs)}
 

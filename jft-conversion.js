@@ -122,7 +122,7 @@
         const honeypot = document.createElement('input');
         honeypot.type = 'text'; honeypot.name = 'website'; honeypot.tabIndex = -1;
         honeypot.autocomplete = 'off'; honeypot.setAttribute('aria-hidden', 'true');
-        honeypot.style.cssText = 'position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important';
+        honeypot.style.cssText = 'position:fixed!important;inset:0 auto auto 0!important;width:1px!important;height:1px!important;opacity:0!important;clip-path:inset(50%)!important;pointer-events:none!important';
         form.appendChild(honeypot);
       }
       Object.keys(attribution).forEach(function (name) {

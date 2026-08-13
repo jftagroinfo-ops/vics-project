@@ -935,6 +935,11 @@ body.nav-open {
 .field-help,
 .calc-legal,
 .calc-legal span { color: #5b6662 !important; }
+.p-flag-label { color: #595959 !important; }
+.p-hs-code { color: #4f5f59 !important; }
+#calc-qty { color: #52605b !important; }
+.field-help span,
+.field-help span span { color: #59645f !important; }
 @media (max-width: 768px) {
   .footer-bottom a,
   .footer-legal-button { min-height: 44px; padding: 10px 6px; }
