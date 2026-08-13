@@ -596,6 +596,11 @@ document.querySelectorAll('.faq-q').forEach((q, index) => {
   const params = new URLSearchParams(window.location.search);
   const prod = params.get('product');
   const port = params.get('port');
+  const quantity = params.get('quantity');
+  const incoterm = params.get('incoterm');
+  const packing = params.get('packing');
+  const container = params.get('container');
+  const reference = params.get('reference');
   const sel = document.getElementById('product');
   if (prod && sel) {
     for (let i = 0; i < sel.options.length; i++) {
@@ -604,6 +609,21 @@ document.querySelectorAll('.faq-q').forEach((q, index) => {
   }
   const portInput = document.getElementById('port');
   if (port && portInput) portInput.value = port;
+  const quantityInput = document.getElementById('quantity');
+  if (quantity && quantityInput && /^\d+(?:\.\d+)?$/.test(quantity)) quantityInput.value = quantity;
+  const incotermSelect = document.getElementById('incoterms');
+  if (incoterm && incotermSelect) {
+    const normalizedTerm = incoterm === 'CFR' ? 'CNF' : (incoterm === 'ExMill' ? 'Ex-Mill' : incoterm);
+    for (let i = 0; i < incotermSelect.options.length; i++) {
+      if (incotermSelect.options[i].value === normalizedTerm) { incotermSelect.selectedIndex = i; break; }
+    }
+  }
+  const requirements = document.getElementById('requirements');
+  const calculatorDetails = [];
+  if (packing) calculatorDetails.push('Preferred packing: ' + packing);
+  if (container) calculatorDetails.push('Container plan: ' + container);
+  if (reference) calculatorDetails.push('Calculator reference (non-binding): ' + reference);
+  if (requirements && calculatorDetails.length) requirements.value = calculatorDetails.join('\n');
 })();
 function updateClocks() {
   const opts = { hour:'2-digit', minute:'2-digit', hour12: false };
@@ -642,6 +662,8 @@ async function handleRFQ(e) {
     const fd = new FormData(e.target); const obj = {};
     fd.forEach((v, k) => { obj[k] = v; });
     obj.lead_type = 'request_for_quote';
+    obj.form_id = 'rfqForm';
+    obj.lead_source = new URLSearchParams(window.location.search).get('source') || 'contact_page';
     const result = window.JFTConversion
       ? await window.JFTConversion.submitLead(obj)
       : await fetch('https://api.web3forms.com/submit', {

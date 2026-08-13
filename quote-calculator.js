@@ -2,6 +2,7 @@ const RATE_FEED_URL = 'data/quote-market-rates.json';
 const REFRESH_INTERVAL_MS = 15 * 60 * 1000;
 let marketFeed = null;
 let lastResult = null;
+let lastTrackedResult = '';
 
 const byId = (id) => document.getElementById(id);
 
@@ -144,6 +145,34 @@ function renderResults(result) {
 
   const message = encodeURIComponent(`Hi JFT Agro, please confirm a formal quote for:\nProduct: ${result.product.name}\nQuantity: ${result.quantity.toFixed(1)} MT (${result.input.containers} x ${result.input.containerSize})\nDestination: ${result.lane.name}\nIncoterm: ${result.input.incoterm}\nPacking: ${result.packing.name}\nCalculator reference: $${result.low.toFixed(0)}-$${result.high.toFixed(0)}/MT\nI understand this calculator output is non-binding and for reference only.`);
   byId('ctaWA').href = `https://wa.me/918425057274?text=${message}`;
+  const rfqParams = new URLSearchParams({
+    product: result.product.name,
+    quantity: result.quantity.toFixed(1),
+    port: result.lane.name,
+    incoterm: result.input.incoterm,
+    packing: result.packing.name,
+    container: `${result.input.containers} x ${result.input.containerSize}`,
+    reference: `$${result.low.toFixed(0)}-$${result.high.toFixed(0)}/MT`,
+    source: 'quote_calculator'
+  });
+  byId('quote-to-rfq').href = `contact.html?${rfqParams.toString()}#inquiry-form`;
+
+  trackCalculatorResult(result);
+}
+
+function trackCalculatorResult(result) {
+  if (!result || !window.JFTConversion) return;
+  const resultSignature = [result.input.productKey, result.input.portKey, result.input.containerSize, result.input.packingKey, result.input.incoterm, result.input.containers].join(':');
+  if (resultSignature !== lastTrackedResult && window.JFTConversion) {
+    lastTrackedResult = resultSignature;
+    window.JFTConversion.track('quote_calculator_complete', {
+      product_category: result.product.name,
+      destination: result.lane.name,
+      incoterm: result.input.incoterm,
+      container_size: result.input.containerSize,
+      quantity_mt: Number(result.quantity.toFixed(1))
+    });
+  }
 }
 
 function copyQuote() {
@@ -170,6 +199,13 @@ function copyQuote() {
 }
 
 function initialiseCalculator() {
+  const quoteForm = byId('quote-form');
+  if (quoteForm) quoteForm.addEventListener('focusin', function startCalculator() {
+    if (window.JFTConversion) {
+      window.JFTConversion.trackOnce('quote_calculator_start');
+      quoteForm.removeEventListener('focusin', startCalculator);
+    }
+  });
   document.querySelectorAll('#quote-form select, #calc-containers').forEach((field) => field.addEventListener('change', calculate));
   byId('calculate-button').addEventListener('click', calculate);
   byId('rate-refresh').addEventListener('click', () => loadMarketFeed(true));
@@ -185,3 +221,4 @@ function initialiseCalculator() {
 }
 
 document.addEventListener('DOMContentLoaded', initialiseCalculator);
+window.addEventListener('jft:tracker-ready', () => trackCalculatorResult(lastResult));
