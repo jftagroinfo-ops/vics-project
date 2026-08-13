@@ -2,13 +2,23 @@
   "summary": {
     "html_files": 1718,
     "classification": {
-      "indexable": 1663,
-      "utility_noindex": 3,
+      "indexable": 1373,
+      "utility_noindex": 293,
       "helper": 46,
       "legacy_redirect": 6
     },
     "noindex_by_locale": {
-      "en": 9
+      "en": 9,
+      "ar": 29,
+      "es": 29,
+      "fr": 29,
+      "id": 29,
+      "ms": 29,
+      "pt": 29,
+      "ru": 29,
+      "si": 29,
+      "th": 29,
+      "vi": 29
     },
     "finding_counts": {}
   },

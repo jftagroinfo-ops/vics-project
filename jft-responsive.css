@@ -942,6 +942,8 @@ body.nav-open {
 .field-help span span { color: #59645f !important; }
 .filter-btn.active .filter-count { background: #fff !important; color: #284f20 !important; }
 .override-toggle > span > span { color: #59645f !important; }
+.manu-layout .section-title span { color: #7a5b00 !important; }
+#forex-date { color: #595959 !important; }
 @media (max-width: 768px) {
   .footer-bottom a,
   .footer-legal-button { min-height: 44px; padding: 10px 6px; }

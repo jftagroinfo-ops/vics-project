@@ -49,7 +49,9 @@ def main() -> int:
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         renderable = bool(re.search(r"<!doctype\s+html|<html\b", text, re.I))
-        noindex = bool(re.search(r'<meta\s+name=["\']robots["\'][^>]*\bnoindex\b', text, re.I))
+        inventory_soup = BeautifulSoup(text, "html.parser")
+        robots_meta = inventory_soup.find("meta", attrs={"name": lambda value: value and value.lower() == "robots"})
+        noindex = bool(robots_meta and "noindex" in robots_meta.get("content", "").lower())
         fallback = "jft-localization" in text and "english-fallback" in text
         redirect = bool(re.search(r'<meta\s+http-equiv=["\']refresh["\']', text, re.I))
         verification = path.name.startswith("yandex_")
@@ -131,7 +133,8 @@ def main() -> int:
             if target in pages:
                 inbound[target] += 1
                 outbound[path].add(target)
-                if info["kind"] == "indexable" and pages[target]["noindex"] and node.name == "a":
+                intentional_legal_noindex = target.name in {"privacy.html", "terms.html", "legal.html"}
+                if info["kind"] == "indexable" and pages[target]["noindex"] and node.name == "a" and not intentional_legal_noindex:
                     key = "indexable_links_to_locale_fallback" if pages[target]["kind"] == "locale_fallback" else "indexable_links_to_other_noindex"
                     findings[key].append(f"{rel(path)} -> {rel(target)}")
             if fragment and target.suffix.lower() == ".html":
@@ -159,7 +162,7 @@ def main() -> int:
     }
     REPORT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(payload["summary"], ensure_ascii=False, indent=2))
-    return 0
+    return 1 if any(findings.values()) else 0
 
 
 if __name__ == "__main__":
