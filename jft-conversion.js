@@ -138,6 +138,22 @@
     });
   }
 
+  function enrichWhatsAppLinks() {
+    const heading = document.querySelector('h1');
+    const pageContext = ((heading && heading.textContent) || document.title || 'JFT Agro enquiry').trim().replace(/\s+/g, ' ').slice(0, 120);
+    document.querySelectorAll('a[href*="wa.me/"],a[href*="api.whatsapp.com"]').forEach(function (link) {
+      try {
+        const url = new URL(link.href);
+        const existing = url.searchParams.get('text') || 'Hello JFT Agro, I would like export information.';
+        if (!/Source page:/i.test(existing)) {
+          url.searchParams.set('text', existing + '\n\nProduct/page: ' + pageContext + '\nSource page: ' + location.pathname);
+          link.href = url.toString();
+        }
+        link.dataset.leadContext = pageContext;
+      } catch (_) {}
+    });
+  }
+
   function articleTopic() {
     const value = (location.pathname + ' ' + document.title).toLowerCase();
     const topics = [
@@ -243,6 +259,7 @@
     const bar = document.getElementById('jft-cookie-bar');
     if (bar && !choice) setTimeout(function () { bar.classList.add('show'); }, 700);
     enrichForms();
+    enrichWhatsAppLinks();
     addArticleBuyerPath();
     addEditorialReviewNote();
     initPageDiagnostics();
@@ -252,7 +269,7 @@
     document.addEventListener('click', function (event) {
       const link = event.target.closest('a[href]');
       if (!link) return;
-      if (/wa\.me|api\.whatsapp\.com/.test(link.href)) track('contact_whatsapp', { page_path: location.pathname });
+      if (/wa\.me|api\.whatsapp\.com/.test(link.href)) track('contact_whatsapp', { page_path: location.pathname, product_or_page: link.dataset.leadContext || document.title.slice(0, 120) });
       if (link.protocol === 'tel:') track('contact_phone', { page_path: location.pathname });
       if (link.protocol === 'mailto:') track('contact_email', { page_path: location.pathname });
       if (/\.pdf(?:$|\?)/i.test(link.href)) track('file_download', { file_name: link.pathname.split('/').pop(), page_path: location.pathname });

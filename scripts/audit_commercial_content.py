@@ -22,6 +22,9 @@ ABSOLUTE_CLAIMS = (
 
 
 def product_names() -> list[str]:
+    master = ROOT / "data" / "products.json"
+    if master.is_file():
+        return sorted({item["u"] for item in json.loads(master.read_text(encoding="utf-8")) if item.get("u")})
     text = (ROOT / "products.html").read_text(encoding="utf-8")
     return sorted(set(re.findall(r"\bu:\s*'([^']+\.html)'", text)))
 

@@ -3254,6 +3254,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/buckwheat-exporter.html"/>
   </url>
   <url>
+    <loc>https://jftagro.com/buyer-security.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/buyer-security.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/buyer-security.html"/>
+  </url>
+  <url>
     <loc>https://jftagro.com/cassia-tora-meal-exporter.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -5808,6 +5816,14 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/europe-trade.html"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/europe-trade.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/europe-trade.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/export-documentation.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/export-documentation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/export-documentation.html"/>
   </url>
   <url>
     <loc>https://jftagro.com/faq.html</loc>

@@ -24,6 +24,8 @@ jobs:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           python scripts/build_locale_ui.py
+          python scripts/build_product_master.py
+          python scripts/apply_evidence_remediation.py
           python scripts/apply_audit_remediation.py
           python scripts/apply_localization_review_policy.py
           python scripts/generate_hreflang.py
@@ -32,7 +34,9 @@ jobs:
       - name: Audit every page
         run: python scripts/audit_website.py
       - name: Audit product contracts and SEO uniqueness
-        run: python scripts/audit_commercial_content.py
+        run: |
+          python scripts/audit_commercial_content.py
+          python scripts/audit_claims_and_products.py
       - name: Validate blog navigation
         run: python scripts/validate_blog_navigation.py
       - name: Audit localized pages

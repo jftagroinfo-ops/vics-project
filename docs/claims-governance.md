@@ -2,6 +2,16 @@
 
 Public commercial claims must be supportable, current, scoped and owned. This file is the release gate for factual claims that are stronger than ordinary product descriptions.
 
+The working register is `docs/claim-verification-matrix.csv`. `PENDING_VERIFICATION` is not permission to publish an unqualified assertion. Evidence owners must complete every applicable field and change the status to `APPROVED` before restoring stronger wording.
+
+## Status definitions
+
+- `PENDING_VERIFICATION`: evidence has not been recorded; publish only the approved neutral wording.
+- `CONDITIONAL`: the statement is true only for a named order, product, facility, provider or contract.
+- `REJECTED_PENDING_SCOPE`: the wording misstates ownership/accreditation or lacks the required scope.
+- `REJECTED_AS_GUARANTEE`: the absolute claim is not suitable for publication.
+- `APPROVED`: evidence, scope, owner and review/expiry date are recorded and the exact public wording has been signed off.
+
 ## Publication rule
 
 A claim may be published only when the evidence owner records:

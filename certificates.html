@@ -64,6 +64,9 @@
     .cert-actions{display:flex;gap:10px}
     .btn-download{flex:1;padding:10px 14px;background:var(--jft-primary);color:#fff;border:none;border-radius:8px;font-family:var(--font-sub);font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;transition:0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
     .btn-download:hover{background:var(--jft-navy)}
+    .evidence-notice{padding:18px 20px;margin:0 0 24px;border-left:5px solid var(--jft-gold);background:#fff8e7;color:#463a1d;line-height:1.65;border-radius:6px}
+    .evidence-notice strong{display:block;color:var(--jft-navy);margin-bottom:4px}
+    .cert-info .issuer,.cert-meta-item{color:#595959!important}
     .btn-request{padding:10px 14px;background:transparent;color:var(--jft-primary);border:1.5px solid var(--jft-primary);border-radius:8px;font-family:var(--font-sub);font-weight:700;font-size:0.78rem;cursor:pointer;transition:0.2s;white-space:nowrap;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
     .btn-request:hover{background:var(--jft-primary);color:#fff}
     /* REQUEST FORM */
@@ -124,7 +127,7 @@
     <span class="brand-tag brand-tag-white"><i class="fa-solid fa-award"></i> Certificates</span>
     <h1 style="font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:0;margin:18px 0 20px;">Registrations &amp;<br><em style="color:var(--gold-light);font-style:italic;font-weight:300;">Compliance Documents</em></h1>
     <p class="jft-page-hero-sub">Review registration and certification summaries for due diligence, then request current stamped copies from our trade desk before contracting.</p>
-    <div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-star"></i> Star Export House</span><span class="jft-hero-tag"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span><span class="jft-hero-tag"><i class="fa-solid fa-leaf"></i> APEDA Registered</span></div>
+    <div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-file-shield"></i> Evidence-led review</span><span class="jft-hero-tag"><i class="fa-solid fa-calendar-check"></i> Check current validity</span><span class="jft-hero-tag"><i class="fa-solid fa-building"></i> Match the legal entity</span></div>
     <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
       <a href="contact.html#inquiry-form" class="btn-gold"><i class="fa-solid fa-paper-plane"></i> Send Inquiry</a>
       <a href="products.html" class="btn-outline"><i class="fa-solid fa-boxes-stacked"></i> Browse Products</a>
@@ -148,6 +151,7 @@
       <div style="margin-bottom:20px;">
         <h2 style="font-family:var(--font-head);font-size:1.6rem;color:var(--jft-navy);margin-bottom:8px;">Export &amp; Food Safety Certificates</h2>
         <p style="font-size:0.95rem;color:#666;margin-bottom:16px;">These summaries support initial review. Use the relevant request button for a current stamped copy and verify its scope, number and validity before contracting.</p>
+        <div class="evidence-notice" role="note"><strong>No badge on this page replaces the original document.</strong>Certificate number, legal-entity name, covered site or product scope, issuing body, issue date and expiry date must be read from the current copy. Where those fields are not published below, the status is “verification data not published”—not an assertion of current validity.</div>
         <a href="assets/JFT_Agro_Introduction.pdf" download class="btn-download" style="display:inline-flex;flex:none;width:auto;"><i class="fa-solid fa-file-pdf"></i> Download Company Overview</a>
       </div>
 
@@ -157,16 +161,16 @@
           <div class="cert-card-header">
             <div class="cert-logo-wrap"><img src="images/homepage/STAR HOUSE.webp" alt="Star Export House" width="720" height="347"></div>
             <div class="cert-info">
-              <h3>Star Export House</h3>
+              <h3>Star Export House Documentation</h3>
               <div class="issuer">DGFT, Ministry of Commerce, India</div>
               <span class="cert-status status-copy"><i class="fa-solid fa-file-circle-check"></i> Copy on Request</span>
             </div>
           </div>
           <div class="cert-card-body">
-            <p class="cert-desc">Government recognized status for consistent foreign exchange earnings. Entitles us to priority export facilities and relaxed procedures.</p>
+            <p class="cert-desc">Request the current DGFT document and match its holder, recognition category, issue date and validity directly to the contracting legal entity.</p>
             <div class="cert-meta">
-              <div class="cert-meta-item"><strong>Issued By</strong>DGFT Regional Office</div>
-              <div class="cert-meta-item"><strong>Category</strong>One Star Export House</div>
+              <div class="cert-meta-item"><strong>Document number</strong>Not published</div>
+              <div class="cert-meta-item"><strong>Valid until</strong>Check current copy</div>
             </div>
             <div class="cert-actions">
               <a href="https://wa.me/918425057274?text=Hello%2C%20I%20need%20a%20stamped%20copy%20of%20your%20Star%20Export%20House%20certificate%20for%20our%20import%20documentation." target="_blank" class="btn-request" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Request</a>
@@ -178,16 +182,16 @@
           <div class="cert-card-header">
             <div class="cert-logo-wrap"><img src="images/homepage/APEDA.webp" alt="APEDA" width="720" height="347"></div>
             <div class="cert-info">
-              <h3>APEDA Registration</h3>
+              <h3>APEDA Registration Documentation</h3>
               <div class="issuer">Agricultural &amp; Processed Food Products Export Dev. Authority</div>
               <span class="cert-status status-copy"><i class="fa-solid fa-file-circle-check"></i> Copy on Request</span>
             </div>
           </div>
           <div class="cert-card-body">
-            <p class="cert-desc">RCMC (Registration-Cum-Membership Certificate) for exporting scheduled products including rice, spices, and processed foods under APEDA mandate.</p>
+            <p class="cert-desc">Request the current RCMC and verify its holder, registration number, scheduled-product scope and validity before relying on it.</p>
             <div class="cert-meta">
-              <div class="cert-meta-item"><strong>Scope</strong>Rice, Spices, Grains</div>
-              <div class="cert-meta-item"><strong>Document</strong>Current RCMC</div>
+              <div class="cert-meta-item"><strong>Registration number</strong>Not published</div>
+              <div class="cert-meta-item"><strong>Valid until</strong>Check current copy</div>
             </div>
             <div class="cert-actions">
               <a href="https://wa.me/918425057274?text=Hello%2C%20I%20need%20a%20copy%20of%20your%20APEDA%20RCMC%20certificate." target="_blank" class="btn-request" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Request</a>
@@ -199,7 +203,7 @@
           <div class="cert-card-header">
             <div class="cert-logo-wrap"><img src="images/homepage/FSSAI.webp" alt="FSSAI" width="720" height="347"></div>
             <div class="cert-info">
-              <h3>FSSAI License</h3>
+              <h3>FSSAI Licence Documentation</h3>
               <div class="issuer">Food Safety &amp; Standards Authority of India</div>
               <span class="cert-status status-copy"><i class="fa-solid fa-file-circle-check"></i> Copy on Request</span>
             </div>
@@ -207,8 +211,8 @@
           <div class="cert-card-body">
             <p class="cert-desc">Food-business licensing summary for the activities listed on the current FSSAI document. Buyers can request the stamped copy and scope for verification.</p>
             <div class="cert-meta">
-              <div class="cert-meta-item"><strong>Authority</strong>FSSAI</div>
-              <div class="cert-meta-item"><strong>Scope</strong>As per current license</div>
+              <div class="cert-meta-item"><strong>Licence number</strong>Not published</div>
+              <div class="cert-meta-item"><strong>Valid until</strong>Check current copy</div>
             </div>
             <div class="cert-actions">
               <a href="https://wa.me/918425057274?text=Hello%2C%20I%20need%20a%20copy%20of%20your%20FSSAI%20license." target="_blank" class="btn-request" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Request</a>
@@ -220,7 +224,7 @@
           <div class="cert-card-header">
             <div class="cert-logo-wrap"><img src="images/homepage/SPICES_BOARD.webp" alt="Spices Board" width="720" height="347"></div>
             <div class="cert-info">
-              <h3>Spices Board Registration</h3>
+              <h3>Spices Board Registration Documentation</h3>
               <div class="issuer">Spices Board of India, Govt of India</div>
               <span class="cert-status status-copy"><i class="fa-solid fa-file-circle-check"></i> Copy on Request</span>
             </div>
@@ -228,8 +232,8 @@
           <div class="cert-card-body">
             <p class="cert-desc">Spices Board registration summary for regulated spice-export activities. Current scope and validity should be checked against the stamped copy.</p>
             <div class="cert-meta">
-              <div class="cert-meta-item"><strong>Coverage</strong>As per registration</div>
-              <div class="cert-meta-item"><strong>Markets</strong>Global</div>
+              <div class="cert-meta-item"><strong>Registration number</strong>Not published</div>
+              <div class="cert-meta-item"><strong>Valid until</strong>Check current copy</div>
             </div>
             <div class="cert-actions">
               <a href="https://wa.me/918425057274?text=Hello%2C%20I%20need%20a%20copy%20of%20your%20Spices%20Board%20registration." target="_blank" class="btn-request" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Request</a>
@@ -241,16 +245,16 @@
           <div class="cert-card-header">
             <div class="cert-logo-wrap"><i class="fa-solid fa-award"></i></div>
             <div class="cert-info">
-              <h3>ISO 9001:2015</h3>
+              <h3>ISO 9001:2015 Documentation</h3>
               <div class="issuer">Quality Management System — International Standard</div>
               <span class="cert-status status-copy"><i class="fa-solid fa-file-circle-check"></i> Copy on Request</span>
             </div>
           </div>
           <div class="cert-card-body">
-            <p class="cert-desc">Certified Quality Management System covering procurement, milling, packing, and export operations. Ensures consistent product quality across all shipments.</p>
+            <p class="cert-desc">Request the current certificate and verify the named holder, covered sites and activities, certification body, accreditation, issue date and expiry date.</p>
             <div class="cert-meta">
-              <div class="cert-meta-item"><strong>Standard</strong>ISO 9001:2015</div>
-              <div class="cert-meta-item"><strong>Scope</strong>Processing &amp; Export</div>
+              <div class="cert-meta-item"><strong>Certificate number</strong>Not published</div>
+              <div class="cert-meta-item"><strong>Valid until</strong>Check current copy</div>
             </div>
             <div class="cert-actions">
               <a href="https://wa.me/918425057274?text=Hello%2C%20I%20need%20a%20copy%20of%20your%20ISO%209001%3A2015%20certificate." target="_blank" class="btn-request" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Request</a>
@@ -262,7 +266,7 @@
           <div class="cert-card-header">
             <div class="cert-logo-wrap"><i class="fa-solid fa-leaf"></i></div>
             <div class="cert-info">
-              <h3>HACCP Certified</h3>
+              <h3>HACCP Documentation</h3>
               <div class="issuer">Hazard Analysis &amp; Critical Control Points</div>
               <span class="cert-status status-copy"><i class="fa-solid fa-file-circle-check"></i> Copy on Request</span>
             </div>
@@ -270,8 +274,8 @@
           <div class="cert-card-body">
             <p class="cert-desc">Food-safety control framework covering physical, chemical and biological hazards within the scope stated on the current certificate.</p>
             <div class="cert-meta">
-              <div class="cert-meta-item"><strong>Framework</strong>HACCP</div>
-              <div class="cert-meta-item"><strong>Scope</strong>As per certificate</div>
+              <div class="cert-meta-item"><strong>Certificate number</strong>Not published</div>
+              <div class="cert-meta-item"><strong>Valid until</strong>Check current copy</div>
             </div>
             <div class="cert-actions">
               <a href="https://wa.me/918425057274?text=Hello%2C%20I%20need%20a%20copy%20of%20your%20HACCP%20certificate." target="_blank" class="btn-request" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Request</a>
@@ -283,16 +287,16 @@
           <div class="cert-card-header">
             <div class="cert-logo-wrap"><img src="images/homepage/AEO.webp" alt="AEO" width="720" height="347"></div>
             <div class="cert-info">
-              <h3>AEO – Authorized Economic Operator</h3>
+              <h3>AEO Authorization Documentation</h3>
               <div class="issuer">Central Board of Indirect Taxes &amp; Customs, India</div>
               <span class="cert-status status-copy"><i class="fa-solid fa-file-circle-check"></i> Copy on Request</span>
             </div>
           </div>
           <div class="cert-card-body">
-            <p class="cert-desc">Trusted trader status ensuring expedited customs processing, reduced examination, and priority clearance at Indian ports.</p>
+            <p class="cert-desc">Request the current CBIC document and verify the named entity, authorization tier, number and validity. No customs-processing time is guaranteed.</p>
             <div class="cert-meta">
-              <div class="cert-meta-item"><strong>Benefit</strong>Priority Clearance</div>
-              <div class="cert-meta-item"><strong>Issued By</strong>CBIC</div>
+              <div class="cert-meta-item"><strong>Authorization number</strong>Not published</div>
+              <div class="cert-meta-item"><strong>Valid until</strong>Check current copy</div>
             </div>
             <div class="cert-actions">
               <a href="https://wa.me/918425057274?text=Hello%2C%20I%20need%20a%20copy%20of%20your%20AEO%20certificate." target="_blank" class="btn-request" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Request</a>
@@ -388,7 +392,7 @@
       <span class="cta-trust-item"><i class="fa-solid fa-star"></i> Star Export House</span>
       <span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
       <span class="cta-trust-item"><i class="fa-solid fa-clock"></i> One-Business-Day Review</span>
-      <span class="cta-trust-item"><i class="fa-solid fa-globe"></i> 25+ Countries</span>
+      <span class="cta-trust-item"><i class="fa-solid fa-globe"></i> international markets</span>
     </div>
   </div>
 </section>

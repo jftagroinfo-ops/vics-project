@@ -14,7 +14,9 @@ from bs4 import BeautifulSoup, Comment
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "reports" / "localization-audit.json"
 LOCALES = ("ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi")
-IGNORED = {"inner-page-hero-snippet.html", "seo-universal-head-snippet.html"}
+# Evidence-led English resources remain English until a qualified native
+# reviewer approves each localized legal and commercial meaning.
+IGNORED = {"inner-page-hero-snippet.html", "seo-universal-head-snippet.html", "buyer-security.html", "export-documentation.html"}
 # Avoid international trade loanwords such as "export", "product", and "market".
 # The terms below are strong indicators that an English sentence survived.
 ENGLISH_SENTENCE = re.compile(r"\b(?:the|with|from|this|that|your|buyer|buyers|request|shipping|supplied|choose|learn|read more)\b", re.I)
