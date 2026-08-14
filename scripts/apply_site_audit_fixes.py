@@ -367,8 +367,8 @@ def fix_html(path: Path, image_map: dict[str, str]) -> bool:
 
     text = redirect_cloned_blog(path, text, localized)
 
-    text = text.replace("info@jftagro.com", "exports@jftagro.com")
-    text = text.replace("export@jftagro.com", "exports@jftagro.com")
+    text = text.replace("jftagro.info@gmail.com", "jftagro.info@gmail.com")
+    text = text.replace("jftagro.info@gmail.com", "jftagro.info@gmail.com")
     text = text.replace("https://jftagro.comimages/", "https://jftagro.com/images/")
     if "Content-Security-Policy" in text and "https://open.er-api.com" not in text:
         text = re.sub(

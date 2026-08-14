@@ -47,7 +47,7 @@ jobs:
       - name: Commit generated changes
         run: |
           git config user.name "JFT Automation"
-          git config user.email "exports@jftagro.com"
+          git config user.email "jftagro.info@gmail.com"
           git add news.json data/quote-market-rates.json sitemap.xml '*.html' ar es fr id ms pt ru si th vi
           git diff --cached --quiet && exit 0
           git commit -m "chore: refresh market data and search metadata"

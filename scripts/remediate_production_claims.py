@@ -124,7 +124,19 @@ def main() -> None:
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8")
-        updated = text.replace("AABFJ1234C", "[ILLUSTRATIVE IEC]")
+        protected_sections: list[str] = []
+
+        def protect_owner_directed(match: re.Match[str]) -> str:
+            protected_sections.append(match.group(0))
+            return f"<!-- OWNER_DIRECTED_SECTION_{len(protected_sections) - 1} -->"
+
+        updated = re.sub(
+            r'<section\b[^>]*data-claim-status="owner-directed"[^>]*>.*?</section>',
+            protect_owner_directed,
+            text,
+            flags=re.I | re.S,
+        )
+        updated = updated.replace("AABFJ1234C", "[ILLUSTRATIVE IEC]")
         updated = updated.replace("MH/2025/00XXX", "[ILLUSTRATIVE RCMC]")
         updated = updated.replace("27[ILLUSTRATIVE IEC]1ZX", "[ILLUSTRATIVE GSTIN]")
         updated = updated.replace("YESBINBB", "[ILLUSTRATIVE SWIFT/BIC]")
@@ -166,6 +178,8 @@ def main() -> None:
             updated = re.sub(r'<div class="sb-item"><i class="fa-solid fa-industry"></i>.*?</div>', '', updated, flags=re.S)
             updated = re.sub(r'<div class="usp-row"><div class="usp-ico"><i class="fa-solid fa-industry"></i></div><div><h4>.*?</h4><p>.*?</p></div></div>', '', updated, count=1, flags=re.S)
             updated = re.sub(r'<div class="ab-badge-glass">.*?</div>', '<div class="ab-badge-glass"><span class="bgnum">Docs</span><span class="bglbl">Verify Current Evidence</span></div>', updated, count=1, flags=re.S)
+        for index, section in enumerate(protected_sections):
+            updated = updated.replace(f"<!-- OWNER_DIRECTED_SECTION_{index} -->", section)
         if updated != text:
             path.write_text(updated, encoding="utf-8", newline="")
             changed += 1

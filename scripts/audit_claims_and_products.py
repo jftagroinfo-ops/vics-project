@@ -38,6 +38,14 @@ RAW_FORBIDDEN = {
 
 def visible_text(path: Path) -> str:
     text = path.read_text(encoding="utf-8", errors="replace")
+    # The site owner can explicitly approve a narrowly scoped claim block. Keep
+    # that approval visible in source while continuing to audit every other page.
+    text = re.sub(
+        r'<section\b[^>]*data-claim-status="owner-directed"[^>]*>.*?</section>',
+        " ",
+        text,
+        flags=re.I | re.S,
+    )
     text = re.sub(r"<script\b.*?</script>|<style\b.*?</style>", " ", text, flags=re.I | re.S)
     return re.sub(r"<[^>]+>", " ", text)
 

@@ -45,7 +45,7 @@ def page_frame(canvas, doc) -> None:
     canvas.drawString(18 * mm, height - 9 * mm, "JFT AGRO OVERSEAS")
     canvas.setFillColor(NAVY)
     canvas.setFont("Helvetica", 7.5)
-    canvas.drawString(18 * mm, 10 * mm, "jftagro.com  |  exports@jftagro.com  |  +91 84250 57274")
+    canvas.drawString(18 * mm, 10 * mm, "jftagro.com  |  jftagro.info@gmail.com  |  +91 84250 57274")
     canvas.drawRightString(width - 18 * mm, 10 * mm, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -226,7 +226,7 @@ def build() -> None:
             Spacer(1, 9 * mm),
             Paragraph("Start a trade conversation", heading),
             Paragraph(
-                "Email <b>exports@jftagro.com</b> or WhatsApp <b>+91 84250 57274</b><br/>"
+                "Email <b>jftagro.info@gmail.com</b> or WhatsApp <b>+91 84250 57274</b><br/>"
                 "JFT Agro Overseas LLP, APMC Market, Phase II, Sector 19, Vashi, Navi Mumbai 400705, India<br/>"
                 "Website: <b>https://jftagro.com</b>",
                 body,
