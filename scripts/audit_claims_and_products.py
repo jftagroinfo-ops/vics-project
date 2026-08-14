@@ -21,6 +21,18 @@ FORBIDDEN = {
     "unqualified APEDA claim": re.compile(r"APEDA registered(?: exporter)?", re.I),
     "unqualified HACCP claim": re.compile(r"HACCP certified", re.I),
     "unqualified status-holder claim": re.compile(r"Government recogn(?:is|iz)ed Star Export House", re.I),
+    "unsupported company-history date": re.compile(r"\b1980\b", re.I),
+    "fixed response-time promise": re.compile(r"(?:within one business day|4 business hours|under 24 hours)", re.I),
+    "named-carrier guarantee": re.compile(r"(?:Maersk).{0,160}(?:MSC).{0,160}(?:CMA).{0,160}(?:guarantee|ensure|committed slot)", re.I | re.S),
+    "fixed split payment terms": re.compile(r"30\s*%.{0,160}70\s*%", re.I | re.S),
+    "unsafe large sample promise": re.compile(r"(?:1\s*[–-]\s*5\s*kg|DHL within 48 hours)", re.I),
+    "unsupported factory-direct claim": re.compile(r"factory[- ]direct", re.I),
+}
+
+RAW_FORBIDDEN = {
+    "unsafe illustrative IEC": "AABFJ1234C",
+    "unsafe illustrative GSTIN": "27AABFJ1234C1ZX",
+    "unsafe illustrative SWIFT": "YESBINBB",
 }
 
 
@@ -35,9 +47,13 @@ def main() -> int:
     for path in ROOT.rglob("*.html"):
         if ".git" in path.parts or "reports" in path.parts:
             continue
+        raw = path.read_text(encoding="utf-8", errors="replace")
         content = visible_text(path)
         for label, pattern in FORBIDDEN.items():
             if pattern.search(content):
+                findings.append(f"{path.relative_to(ROOT).as_posix()}: {label}")
+        for label, value in RAW_FORBIDDEN.items():
+            if value in raw:
                 findings.append(f"{path.relative_to(ROOT).as_posix()}: {label}")
 
     products = json.loads(MASTER.read_text(encoding="utf-8"))
@@ -66,7 +82,10 @@ def main() -> int:
         for field in ("hs_code", "moq", "container_20ft", "container_40ft", "packaging", "private_label", "fob", "cif", "port_of_loading"):
             if not trade.get(field):
                 findings.append(f"{name}: missing trade.{field}")
-        page_text = BeautifulSoup((ROOT / url).read_text(encoding="utf-8"), "html.parser").get_text(" ") if url and (ROOT / url).is_file() else ""
+        page_html = (ROOT / url).read_text(encoding="utf-8") if url and (ROOT / url).is_file() else ""
+        page_text = BeautifulSoup(page_html, "html.parser").get_text(" ")
+        if 'data-product-specific-faq="true"' not in page_html:
+            findings.append(f"{url}: missing product-specific FAQ generated from the master")
         normalized_page = re.sub(r"[^a-z0-9%]+", "", page_text.casefold())
         for key, value in product.get("s", []):
             if key in {"HS Code", "Moisture", "Purity", "Broken", "Foreign Matter", "Length", "MOQ"}:

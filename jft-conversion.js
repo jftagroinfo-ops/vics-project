@@ -112,6 +112,13 @@
       form_id: data.form_id || 'lead_form',
       lead_source: data.lead_source || getAttribution().utm_source || 'website'
     });
+    const leadType = (data.lead_type || 'inquiry').toLowerCase();
+    const completionEvent = /sample/.test(leadType) ? 'sample_request' : (/rfq|quote/.test(leadType) ? 'rfq_submit' : 'enquiry_submit');
+    track(completionEvent, {
+      lead_type: leadType,
+      form_id: data.form_id || 'lead_form',
+      lead_source: data.lead_source || getAttribution().utm_source || 'website'
+    });
     return Object.assign(result, { lead_id: payload.lead_id });
   }
 
@@ -132,7 +139,10 @@
         form.appendChild(input);
       });
       form.addEventListener('focusin', function begin() {
-        track('form_start', { form_id: form.id || form.className || 'form', page_path: location.pathname });
+        const formId = form.id || form.className || 'form';
+        track('form_start', { form_id: formId, page_path: location.pathname });
+        if (/sample-request\.html/i.test(location.pathname)) track('sample_request_start', { form_id: formId });
+        if (/contact\.html/i.test(location.pathname)) track('rfq_start', { form_id: formId });
         form.removeEventListener('focusin', begin);
       });
     });
@@ -236,10 +246,12 @@
     }
 
     if (/-exporter\.html$|-supplier\.html$|products\.html$/i.test(location.pathname)) {
-      trackOnce('view_item', {
+      const productContext = {
         item_name: (document.querySelector('h1') || {}).textContent || document.title,
         item_category: document.body.dataset.category || 'agro_products'
-      }, 'view_item:' + location.pathname);
+      };
+      trackOnce('view_item', productContext, 'view_item:' + location.pathname);
+      trackOnce('product_view', productContext, 'product_view:' + location.pathname);
     }
 
     const params = new URLSearchParams(location.search);
@@ -269,11 +281,22 @@
     document.addEventListener('click', function (event) {
       const link = event.target.closest('a[href]');
       if (!link) return;
-      if (/wa\.me|api\.whatsapp\.com/.test(link.href)) track('contact_whatsapp', { page_path: location.pathname, product_or_page: link.dataset.leadContext || document.title.slice(0, 120) });
+      if (/wa\.me|api\.whatsapp\.com/.test(link.href)) {
+        const context = link.dataset.leadContext || document.title.slice(0, 120);
+        track('contact_whatsapp', { page_path: location.pathname, product_or_page: context });
+        track('whatsapp_click', { page_path: location.pathname, product_or_page: context });
+      }
       if (link.protocol === 'tel:') track('contact_phone', { page_path: location.pathname });
       if (link.protocol === 'mailto:') track('contact_email', { page_path: location.pathname });
-      if (/\.pdf(?:$|\?)/i.test(link.href)) track('file_download', { file_name: link.pathname.split('/').pop(), page_path: location.pathname });
-      if (/contact\.html|sample-request\.html/.test(link.href)) track('conversion_link_click', { destination: link.pathname });
+      if (/\.pdf(?:$|\?)/i.test(link.href)) {
+        const fileName = link.pathname.split('/').pop();
+        track('file_download', { file_name: fileName, page_path: location.pathname });
+        if (/profile|catalog|brochure/i.test(fileName || '')) track('brochure_download', { file_name: fileName });
+      }
+      if (/contact\.html|sample-request\.html/.test(link.href)) {
+        track('conversion_link_click', { destination: link.pathname });
+        track(/sample-request\.html/.test(link.href) ? 'sample_request_click' : 'rfq_click', { destination: link.pathname });
+      }
       if (link.origin !== location.origin && !/wa\.me|api\.whatsapp\.com/.test(link.href)) {
         track('outbound_click', { destination_host: link.hostname, page_path: location.pathname });
       }
