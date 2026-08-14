@@ -43,6 +43,7 @@ jobs:
           python scripts/fetch_quote_market_rates.py
           python scripts/generate_hreflang.py
           python scripts/generate_sitemap.py
+          python scripts/normalize_analytics_csp.py
 
       - name: Commit generated changes
         run: |
