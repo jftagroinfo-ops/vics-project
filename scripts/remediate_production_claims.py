@@ -131,6 +131,22 @@ def main() -> None:
         updated = re.sub(r'<title>[^<]*1980[^<]*</title>', '<title>About JFT Agro Overseas | Company &amp; Buyer Verification</title>', updated, flags=re.I)
         market_word = {"en":"multiple", "ar":"متعددة", "es":"varios", "fr":"plusieurs", "id":"berbagai", "ms":"pelbagai", "pt":"vários", "ru":"несколько", "si":"බහු", "th":"หลาย", "vi":"nhiều"}[locale]
         updated = updated.replace("25+", market_word)
+        updated = re.sub(r'<h3>[^<]*1980[^<]*</h3>', f'<h3>{c["history_h"]}</h3>', updated, flags=re.I)
+        updated = updated.replace('"foundingDate":"1980",', '')
+        updated = re.sub(r'<p([^>]*)>[^<]*Maersk[^<]*MSC[^<]*CMA[^<]*</p>', lambda m: f'<p{m.group(1)}>{c["carrier_p"]}</p>', updated, flags=re.I)
+        updated = re.sub(r'Factory[- ]direct', 'Contract-based', updated, flags=re.I)
+        updated = re.sub(r'Free samples?', 'Trade samples on request', updated, flags=re.I)
+        updated = re.sub(r'(?:We |Our team )?typically respond(?:s)? within one business day', 'Complete enquiries are reviewed during published business hours', updated, flags=re.I)
+        updated = re.sub(r'(?:Response |Processing )?typically within one business day', 'Timing is confirmed after commercial review', updated, flags=re.I)
+        updated = re.sub(r'(?:Average first-response time is )?under 4 business hours', 'Response timing depends on enquiry completeness and published business hours', updated, flags=re.I)
+        updated = re.sub(r'(?:in|under|within) 24 hours', 'after commercial review', updated, flags=re.I)
+        updated = re.sub(r'within 4 business hours', 'after commercial review', updated, flags=re.I)
+        # Any remaining 1980 reference is a company-history badge or structured
+        # field. Use the supported LLP registration year, not a predecessor claim.
+        updated = updated.replace("1980", "2016")
+        # Remove residual capacity/volume badges from translated landing pages.
+        updated = re.sub(r'(<(?:p|span|div)[^>]*>)(?:(?!</(?:p|span|div)>).)*250\s*(?:MT|TM|طن(?:ًا)?\s*متري(?:ًا)?|ตัน)(?:(?!</(?:p|span|div)>).)*(</(?:p|span|div)>)', lambda m: f'{m.group(1)}{c["capacity"]}{m.group(2)}', updated, flags=re.I | re.S)
+        updated = re.sub(r'(<div class="vc-stat">)500\+.*?(</div>)', rf'\1{c["markets"]}\2', updated, flags=re.I)
         if path.name == "about.html":
             updated = re.sub(r'<div class="global-stats reveal">.*?(?=<div class="countries-box)', '', updated, count=1, flags=re.S)
         if updated != text:
