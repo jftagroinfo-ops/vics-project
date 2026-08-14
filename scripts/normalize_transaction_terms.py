@@ -9,6 +9,30 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SAFE_PAYMENT = "Payment terms are stated only in the signed Proforma Invoice or Sales Contract after buyer, banking and transaction review. Website examples are illustrative and are not payment instructions."
+PAYMENT_I18N = {
+    "ar":"تُحدد شروط الدفع فقط في الفاتورة الأولية أو عقد البيع الموقع بعد مراجعة المشتري والبنك والمعاملة. أمثلة الموقع توضيحية وليست تعليمات دفع.",
+    "es":"Las condiciones de pago se indican únicamente en la factura proforma o el contrato de venta firmado tras la revisión del comprador, el banco y la operación. Los ejemplos del sitio son ilustrativos y no son instrucciones de pago.",
+    "fr":"Les conditions de paiement figurent uniquement dans la facture pro forma ou le contrat de vente signé après examen de l'acheteur, de la banque et de l'opération. Les exemples du site sont illustratifs et ne constituent pas des instructions de paiement.",
+    "id":"Ketentuan pembayaran hanya tercantum dalam Faktur Proforma atau Kontrak Penjualan yang ditandatangani setelah peninjauan pembeli, bank, dan transaksi. Contoh situs hanya ilustrasi dan bukan instruksi pembayaran.",
+    "ms":"Syarat pembayaran hanya dinyatakan dalam Invois Proforma atau Kontrak Jualan yang ditandatangani selepas semakan pembeli, bank dan transaksi. Contoh laman hanyalah ilustrasi dan bukan arahan pembayaran.",
+    "pt":"As condições de pagamento constam apenas da Fatura Proforma ou do Contrato de Venda assinado após análise do comprador, do banco e da operação. Os exemplos do site são ilustrativos e não constituem instruções de pagamento.",
+    "ru":"Условия оплаты указываются только в подписанном счёте-проформе или договоре после проверки покупателя, банка и сделки. Примеры на сайте являются иллюстративными и не служат платёжными инструкциями.",
+    "si":"ගැනුම්කරු, බැංකුව සහ ගනුදෙනුව සමාලෝචනයෙන් පසු අත්සන් කළ Proforma Invoice හෝ විකුණුම් ගිවිසුමේ පමණක් ගෙවීම් කොන්දේසි දක්වයි. වෙබ් අඩවි උදාහරණ නිදර්ශන පමණක් වන අතර ගෙවීම් උපදෙස් නොවේ.",
+    "th":"เงื่อนไขการชำระเงินระบุเฉพาะในใบแจ้งหนี้ล่วงหน้าหรือสัญญาซื้อขายที่ลงนามหลังการตรวจสอบผู้ซื้อ ธนาคาร และธุรกรรม ตัวอย่างบนเว็บไซต์เป็นเพียงภาพประกอบและไม่ใช่คำสั่งชำระเงิน",
+    "vi":"Điều khoản thanh toán chỉ được nêu trong Hóa đơn chiếu lệ hoặc Hợp đồng mua bán đã ký sau khi xem xét người mua, ngân hàng và giao dịch. Ví dụ trên trang chỉ mang tính minh họa, không phải chỉ dẫn thanh toán."
+}
+NOTICE_I18N = {
+    "ar":"إشعار نموذج توضيحي: جميع المعرّفات والعناوين والبيانات المصرفية والمبالغ والنسب ومراجع الشحن أدناه وهمية أو عناصر نائبة. لا تستخدمها للشحن أو الدفع. استبدل كل حقل وتحقق من تعليمات الدفع عبر جهة اتصال معروفة للشركة.",
+    "es":"AVISO DE PLANTILLA ILUSTRATIVA: todos los identificadores, direcciones, datos bancarios, importes, porcentajes y referencias de envío siguientes son ficticios o marcadores. No los utilice para envíos ni pagos. Sustituya cada campo y verifique las instrucciones de pago con un contacto conocido de la empresa.",
+    "fr":"AVIS DE MODÈLE ILLUSTRATIF : tous les identifiants, adresses, coordonnées bancaires, montants, pourcentages et références d'expédition ci-dessous sont fictifs ou provisoires. Ne les utilisez pas pour un envoi ou un paiement. Remplacez chaque champ et vérifiez les instructions de paiement auprès d'un contact connu de l'entreprise.",
+    "id":"PEMBERITAHUAN TEMPLATE ILUSTRATIF: semua identitas, alamat, data bank, jumlah, persentase, dan referensi pengiriman di bawah ini fiktif atau placeholder. Jangan gunakan untuk pengiriman atau pembayaran. Ganti setiap kolom dan verifikasi instruksi pembayaran melalui kontak perusahaan yang dikenal.",
+    "ms":"NOTIS TEMPLAT ILUSTRASI: semua pengenalan, alamat, butiran bank, amaun, peratusan dan rujukan penghantaran di bawah adalah rekaan atau ruang letak. Jangan gunakannya untuk penghantaran atau pembayaran. Gantikan setiap medan dan sahkan arahan pembayaran melalui hubungan syarikat yang diketahui.",
+    "pt":"AVISO DE MODELO ILUSTRATIVO: todos os identificadores, endereços, dados bancários, valores, percentuais e referências de embarque abaixo são fictícios ou marcadores. Não os use para remessas ou pagamentos. Substitua cada campo e verifique as instruções de pagamento com um contato conhecido da empresa.",
+    "ru":"УВЕДОМЛЕНИЕ ОБ ИЛЛЮСТРАТИВНОМ ШАБЛОНЕ: все идентификаторы, адреса, банковские реквизиты, суммы, проценты и ссылки на отправку ниже вымышлены или являются заполнителями. Не используйте их для отправки или оплаты. Замените каждое поле и проверьте платёжные инструкции через известный контакт компании.",
+    "si":"නිදර්ශන ආකෘති දැනුම්දීම: පහත සියලු හඳුනාගැනීම්, ලිපින, බැංකු විස්තර, මුදල්, ප්‍රතිශත සහ නැව් යොමු කල්පිත හෝ ස්ථාන සලකුණු වේ. නැව්ගත කිරීම හෝ ගෙවීම සඳහා භාවිත නොකරන්න. සෑම ක්ෂේත්‍රයක්ම ප්‍රතිස්ථාපනය කර දන්නා සමාගම් සම්බන්ධතාවයකින් ගෙවීම් උපදෙස් තහවුරු කරන්න.",
+    "th":"ประกาศแม่แบบตัวอย่าง: ตัวระบุ ที่อยู่ รายละเอียดธนาคาร จำนวนเงิน เปอร์เซ็นต์ และข้อมูลการจัดส่งทั้งหมดด้านล่างเป็นข้อมูลสมมติหรือตัวยึดตำแหน่ง ห้ามใช้เพื่อการจัดส่งหรือชำระเงิน ให้แทนที่ทุกช่องและยืนยันคำสั่งชำระเงินกับผู้ติดต่อบริษัทที่รู้จัก",
+    "vi":"THÔNG BÁO MẪU MINH HỌA: mọi mã định danh, địa chỉ, thông tin ngân hàng, số tiền, tỷ lệ và tham chiếu lô hàng dưới đây đều là hư cấu hoặc chỗ giữ chỗ. Không sử dụng để giao hàng hoặc thanh toán. Hãy thay thế mọi trường và xác minh chỉ dẫn thanh toán qua đầu mối công ty đã biết."
+}
 SAFE_HOME_FAQ = '''<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is the minimum order quantity confirmed?","acceptedAnswer":{"@type":"Answer","text":"MOQ and container payload are product-specific planning values. The written quotation confirms packing, payload, route and legal weight limits."}},{"@type":"Question","name":"How are payment terms agreed?","acceptedAnswer":{"@type":"Answer","text":"Payment terms are stated only in the signed Proforma Invoice or sales contract after buyer, banking and transaction review. Website examples are not binding instructions."}},{"@type":"Question","name":"Can a trade buyer request samples?","acceptedAnswer":{"@type":"Answer","text":"Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Final size, availability, courier cost and dispatch timing are confirmed before shipment."}},{"@type":"Question","name":"When is a Proforma Invoice issued?","acceptedAnswer":{"@type":"Answer","text":"Complete enquiries are reviewed during published business hours. Quotation timing depends on product specification, availability, packing, destination and freight confirmation."}}]}</script>'''
 
 
@@ -48,6 +72,11 @@ def main() -> None:
         if path.name == "blog-how-to-export-india-to-africa.html" and "ILLUSTRATIVE TEMPLATE NOTICE" not in updated:
             notice = ('<div class="tip-box"><strong>ILLUSTRATIVE TEMPLATE NOTICE:</strong> Every company identifier, address, bank, account, SWIFT/BIC, amount, percentage and shipment reference in the templates below is fictional or a placeholder. Do not use it for a shipment or payment. Replace every field and independently verify payment instructions through a known company contact.</div>\n')
             updated = updated.replace('<div class="doc-widget">', notice + '<div class="doc-widget">', 1)
+
+        locale = path.parts[len(ROOT.parts)] if len(path.parts) > len(ROOT.parts) + 1 and path.parts[len(ROOT.parts)] in PAYMENT_I18N else None
+        if locale:
+            updated = updated.replace(SAFE_PAYMENT, PAYMENT_I18N[locale])
+            updated = re.sub(r'<div class="tip-box"><strong>ILLUSTRATIVE TEMPLATE NOTICE:</strong>.*?</div>', f'<div class="tip-box"><strong>{NOTICE_I18N[locale]}</strong></div>', updated, count=1, flags=re.S)
 
         if updated != text:
             path.write_text(updated, encoding="utf-8", newline="")

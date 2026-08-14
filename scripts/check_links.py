@@ -1,15 +1,10 @@
-import os, re
+import os, re, html
 from collections import defaultdict
 import urllib.parse
+from pathlib import Path
 
-html_files = [f for f in os.listdir('.') if f.endswith('.html')]
-all_files = set(os.listdir('.'))
-for root, dirs, files in os.walk('images'):
-    for file in files:
-        all_files.add(os.path.join(root, file).replace('\\', '/'))
-for root, dirs, files in os.walk('assets'):
-    for file in files:
-        all_files.add(os.path.join(root, file).replace('\\', '/'))
+root_path = Path('.').resolve()
+html_files = [p for p in root_path.rglob('*.html') if '.git' not in p.parts and p.name not in {'product-page-template.html', 'inner-page-hero-snippet.html'}]
 
 broken_links_map = defaultdict(list)
 
@@ -19,19 +14,17 @@ for f in html_files:
         hrefs = re.findall(r'href=[\'\"]([^\'\"]+)[\'\"]', content)
         srcs = re.findall(r'src=[\'\"]([^\'\"]+)[\'\"]', content)
         for link in set(hrefs + srcs):
-            if link.startswith(('http', '#', 'mailto:', 'tel:', 'data:')): 
+            link = html.unescape(link).strip()
+            if not link or '${' in link or '{{' in link or link.startswith(('http', '#', 'mailto:', 'tel:', 'data:', 'javascript:')):
                 continue
             link_clean = link.split('?')[0].split('#')[0]
             if not link_clean: 
                 continue
             
             link_clean = urllib.parse.unquote(link_clean)
-            
-            if link_clean.startswith('/'): 
-                link_clean = link_clean[1:]
-                
-            if link_clean not in all_files and not os.path.exists(link_clean):
-                broken_links_map[link_clean].append(f)
+            target = root_path / link_clean.lstrip('/') if link_clean.startswith('/') else f.parent / link_clean
+            if not target.resolve().exists():
+                broken_links_map[link_clean].append(f.relative_to(root_path).as_posix())
 
 print(f'Total HTML files: {len(html_files)}')
 print(f'Total Unique Broken Links: {len(broken_links_map)}')

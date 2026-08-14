@@ -4,63 +4,114 @@
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 2
     },
     "es": {
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 1
     },
     "fr": {
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 2
     },
     "id": {
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 2
     },
     "ms": {
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 2
     },
     "pt": {
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 2
     },
     "ru": {
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 2
     },
     "si": {
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 2
     },
     "th": {
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 2
     },
     "vi": {
       "renderable_pages": 155,
       "missing_pages": 0,
       "fallback_pages": 0,
-      "high_residue_pages": 0
+      "high_residue_pages": 2
     }
   },
-  "finding_counts": {},
-  "findings": {}
+  "finding_counts": {
+    "ar_english_residue": 2,
+    "es_english_residue": 1,
+    "fr_english_residue": 2,
+    "id_english_residue": 2,
+    "ms_english_residue": 2,
+    "pt_english_residue": 2,
+    "ru_english_residue": 2,
+    "si_english_residue": 2,
+    "th_english_residue": 2,
+    "vi_english_residue": 2
+  },
+  "findings": {
+    "ar_english_residue": [
+      "about.html: 4",
+      "blog-how-to-export-india-to-africa.html: 5"
+    ],
+    "es_english_residue": [
+      "blog-how-to-export-india-to-africa.html: 5"
+    ],
+    "fr_english_residue": [
+      "about.html: 4",
+      "blog-how-to-export-india-to-africa.html: 5"
+    ],
+    "id_english_residue": [
+      "about.html: 4",
+      "blog-how-to-export-india-to-africa.html: 5"
+    ],
+    "ms_english_residue": [
+      "about.html: 4",
+      "blog-how-to-export-india-to-africa.html: 5"
+    ],
+    "pt_english_residue": [
+      "about.html: 4",
+      "blog-how-to-export-india-to-africa.html: 5"
+    ],
+    "ru_english_residue": [
+      "about.html: 4",
+      "blog-how-to-export-india-to-africa.html: 5"
+    ],
+    "si_english_residue": [
+      "about.html: 4",
+      "blog-how-to-export-india-to-africa.html: 6"
+    ],
+    "th_english_residue": [
+      "about.html: 4",
+      "blog-how-to-export-india-to-africa.html: 5"
+    ],
+    "vi_english_residue": [
+      "about.html: 4",
+      "blog-how-to-export-india-to-africa.html: 5"
+    ]
+  }
 }
