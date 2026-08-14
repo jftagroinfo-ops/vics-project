@@ -1,14 +1,14 @@
 {
   "summary": {
-    "html_files": 1720,
+    "html_files": 1721,
     "classification": {
       "indexable": 1375,
       "utility_noindex": 293,
       "helper": 46,
-      "legacy_redirect": 6
+      "legacy_redirect": 7
     },
     "noindex_by_locale": {
-      "en": 9,
+      "en": 10,
       "ar": 29,
       "es": 29,
       "fr": 29,
