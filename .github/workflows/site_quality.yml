@@ -29,6 +29,7 @@ jobs:
           python scripts/remediate_production_claims.py
           python scripts/normalize_transaction_terms.py
           python scripts/repair_claim_markup.py
+          python scripts/add_main_landmarks.py
           python scripts/apply_audit_remediation.py
           python scripts/apply_localization_review_policy.py
           python scripts/generate_hreflang.py

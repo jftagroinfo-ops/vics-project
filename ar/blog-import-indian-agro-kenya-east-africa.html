@@ -88,11 +88,10 @@
   <link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-import-indian-agro-kenya-east-africa.html">
 </head>
 <body>
-<div id="page-progress"></div>
 <a aria-label="واتساب" class="wa-fab" href="https://wa.me/918425057274" rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 <button aria-label="العودة إلى الأعلى" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
 <div id="header-placeholder"></div>
-<div id="main-content" tabindex="-1"></div>
+<main id="main-content" tabindex="-1">
 <div class="page-wrapper">
 <div class="article-wrap">
 <div class="article-meta">
@@ -181,6 +180,7 @@
 </div>
 </div>
 </section>
+</main>
 <div id="footer-placeholder"></div>
 <script>
   window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop||document.body.scrollTop;var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;var b=document.getElementById('page-progress');if(b)b.style.width=(h>0?(s/h)*100:0)+'%';var t=document.getElementById('backToTop');if(t)t.classList.toggle('show',s>400);});

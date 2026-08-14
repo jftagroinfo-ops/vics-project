@@ -100,7 +100,7 @@
 <a aria-label="WhatsApp" class="wa-fab" href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 <button aria-label="Kembali ke atas" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
 <div id="header-placeholder"></div>
-<div id="main-content" tabindex="-1"></div>
+<main id="main-content" tabindex="-1">
 <!-- ── HERO ── -->
 <section class="jft-page-hero">
 <div class="jft-page-hero-bg" style="background-image:url('../images/products/basmati_rice_hd.webp');"></div>
@@ -237,6 +237,7 @@
 </div>
 </div>
 </section>
+</main>
 <div id="footer-placeholder"></div>
 <script>
     async function loadComponent(id, file) { try{const r=await fetch(file);const t=await r.text();document.getElementById(id).innerHTML=t;document.getElementById(id).querySelectorAll('script').forEach(o=>{const s=document.createElement('script');Array.from(o.attributes).forEach(a=>s.setAttribute(a.name,a.value));s.appendChild(document.createTextNode(o.innerHTML));o.parentNode.replaceChild(s,o);});}catch(e){console.error(e);} }

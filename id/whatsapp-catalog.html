@@ -68,11 +68,10 @@
   <link rel="alternate" hreflang="x-default" href="https://jftagro.com/whatsapp-catalog.html">
 </head>
 <body>
-<div id="page-progress"></div>
 <a aria-label="Ada apa" class="wa-fab" href="https://wa.me/918425057274" rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 <button aria-label="Kembali ke atas" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
 <div id="header-placeholder"></div>
-<div id="main-content" tabindex="-1"></div>
+<main id="main-content" tabindex="-1">
 <section class="wa-hero">
 <div style="font-family:var(--font-sub);font-size:0.75rem;font-weight:700;color:#25d366;text-transform:uppercase;letter-spacing:3px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px"><i class="fa-brands fa-whatsapp"></i> Perdagangan Langsung WhatsApp</div>
 <h1>Jelajahi &amp; Pesan Langsung<br/><em style="color:#eebf45;font-style:italic;font-weight:300">di WhatsApp</em></h1>
@@ -151,6 +150,7 @@
     </a>
 </div>
 </section>
+</main>
 <div id="footer-placeholder"></div>
 <script>
   window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop||document.body.scrollTop;var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;var b=document.getElementById('page-progress');if(b)b.style.width=(h>0?(s/h)*100:0)+'%';var t=document.getElementById('backToTop');if(t)t.classList.toggle('show',s>400);});
