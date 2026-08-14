@@ -10,6 +10,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import sys
 from pathlib import Path
 
 
@@ -101,22 +102,27 @@ def localize_product_page(path: Path, locale: str) -> bool:
 
 def main() -> None:
     changed = 0
-    for product in PRODUCTS:
-        for locale in ("en",) + LOCALES:
-            path = ROOT / product["u"] if locale == "en" else ROOT / locale / product["u"]
-            if path.exists() and localize_product_page(path, locale):
+    about_only = "--about-only" in sys.argv
+    if not about_only:
+        for product in PRODUCTS:
+            for locale in ("en",) + LOCALES:
+                path = ROOT / product["u"] if locale == "en" else ROOT / locale / product["u"]
+                if path.exists() and localize_product_page(path, locale):
+                    changed += 1
+            root_path = ROOT / product["u"]
+            text = root_path.read_text(encoding="utf-8")
+            replacement = product_faq(product)
+            updated, count = re.subn(r'<!--[^>]*PRODUCT FAQ SECTION[^>]*-->.*?<section class="prod-faq-section".*?</section>', replacement, text, count=1, flags=re.I | re.S)
+            if count and updated != text:
+                root_path.write_text(updated, encoding="utf-8", newline="")
                 changed += 1
-        root_path = ROOT / product["u"]
-        text = root_path.read_text(encoding="utf-8")
-        replacement = product_faq(product)
-        updated, count = re.subn(r'<!--[^>]*PRODUCT FAQ SECTION[^>]*-->.*?<section class="prod-faq-section".*?</section>', replacement, text, count=1, flags=re.I | re.S)
-        if count and updated != text:
-            root_path.write_text(updated, encoding="utf-8", newline="")
-            changed += 1
 
     # Remove dangerous illustrative identifiers and payment coordinates everywhere,
     # then normalize legacy history/volume badges outside product templates.
-    for path in ROOT.rglob("*.html"):
+    paths = [ROOT / "about.html", *(ROOT / locale / "about.html" for locale in LOCALES)] if about_only else ROOT.rglob("*.html")
+    for path in paths:
+        if not path.exists():
+            continue
         text = path.read_text(encoding="utf-8")
         updated = text.replace("AABFJ1234C", "[ILLUSTRATIVE IEC]")
         updated = updated.replace("MH/2025/00XXX", "[ILLUSTRATIVE RCMC]")
@@ -148,7 +154,18 @@ def main() -> None:
         updated = re.sub(r'(<(?:p|span|div)[^>]*>)(?:(?!</(?:p|span|div)>).)*250\s*(?:MT|TM|طن(?:ًا)?\s*متري(?:ًا)?|ตัน)(?:(?!</(?:p|span|div)>).)*(</(?:p|span|div)>)', lambda m: f'{m.group(1)}{c["capacity"]}{m.group(2)}', updated, flags=re.I | re.S)
         updated = re.sub(r'(<div class="vc-stat">)500\+.*?(</div>)', rf'\1{c["markets"]}\2', updated, flags=re.I)
         if path.name == "about.html":
+            updated = re.sub(r'<div class="stats-strip">.*?(?=<section class="story-section)', '', updated, count=1, flags=re.S)
             updated = re.sub(r'<div class="global-stats reveal">.*?(?=<div class="countries-box)', '', updated, count=1, flags=re.S)
+            updated = re.sub(r'<section class="growth-section sp" id="milestones">.*?</section>', '', updated, count=1, flags=re.S)
+            story_paragraphs = list(re.finditer(r'<p class="story-p">.*?</p>', updated, flags=re.S))
+            if len(story_paragraphs) > 1:
+                item = story_paragraphs[1]
+                replacement = f'<p class="story-p">{c["capacity"]} The publicly listed processing unit is at Balap, Raigad; identity and applicable supporting records are available during buyer due diligence.</p>'
+                updated = updated[:item.start()] + replacement + updated[item.end():]
+            updated = re.sub(r'<div class="story-quote">.*?</div>', '<div class="story-quote">“Verify the entity, specification, sample, inspection scope and payment instructions before committing to a shipment.”</div>', updated, count=1, flags=re.S)
+            updated = re.sub(r'<div class="sb-item"><i class="fa-solid fa-industry"></i>.*?</div>', '', updated, flags=re.S)
+            updated = re.sub(r'<div class="usp-row"><div class="usp-ico"><i class="fa-solid fa-industry"></i></div><div><h4>.*?</h4><p>.*?</p></div></div>', '', updated, count=1, flags=re.S)
+            updated = re.sub(r'<div class="ab-badge-glass">.*?</div>', '<div class="ab-badge-glass"><span class="bgnum">Docs</span><span class="bglbl">Verify Current Evidence</span></div>', updated, count=1, flags=re.S)
         if updated != text:
             path.write_text(updated, encoding="utf-8", newline="")
             changed += 1
