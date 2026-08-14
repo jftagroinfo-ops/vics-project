@@ -445,6 +445,38 @@ img, video, iframe { max-width: 100%; height: auto; }
 
 <div id="preloader"><img src="images/jft%20logo.png" alt="JFT Agro" class="loader-logo-img" width="180" height="70" loading="eager"><p class="loader-text">Loading</p><div class="loader-track"><div class="loader-fill"></div></div></div>
 <div id="header-placeholder"></div>
+<script data-jft-early-header-loader>
+  (function () {
+    var target = document.getElementById('header-placeholder');
+    if (!target || target.dataset.jftHeaderState === 'loading' || target.dataset.jftHeaderState === 'ready') return;
+    function injectHeader() {
+      target.dataset.jftHeaderState = 'loading';
+      target.setAttribute('aria-busy', 'true');
+      return fetch('header.html', { credentials: 'same-origin' }).then(function (response) {
+        if (!response.ok) throw new Error('header.html not found');
+        return response.text();
+      }).then(function (html) {
+        target.innerHTML = html;
+        target.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attribute) {
+            newScript.setAttribute(attribute.name, attribute.value);
+          });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+        target.dataset.jftHeaderState = 'ready';
+        target.removeAttribute('aria-busy');
+        document.dispatchEvent(new CustomEvent('jft:header-ready'));
+      });
+    }
+    injectHeader().catch(function (error) {
+      target.dataset.jftHeaderState = 'error';
+      target.removeAttribute('aria-busy');
+      console.warn(error);
+    });
+  }());
+</script>
 
 <!-- ── WHATSAPP FAB ── -->
 <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20am%20interested%20in%20Soybean%20Meal%20DOC%20export%20pricing." class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp JFT Agro">
@@ -874,7 +906,6 @@ document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('clic
   });
 
   document.addEventListener('DOMContentLoaded', function(){
-    loadComp('header-placeholder','header.html');
     loadComp('footer-placeholder','footer.html');
     document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el){ observer.observe(el); });
   });

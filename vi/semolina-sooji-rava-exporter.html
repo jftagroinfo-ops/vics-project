@@ -428,6 +428,38 @@ img, video, iframe { max-width: 100%; height: auto; }
 <a class="skip-link" href="#main-content" onblur="this.style.top='-40px'" onfocus="this.style.top='0'" style="position:absolute;top:-40px;left:0;background:#1a3c34;color:#fff;padding:8px 16px;z-index:10000;text-decoration:none;border-radius:0 0 4px 0;font-size:14px;">Chuyển đến nội dung chính</a>
 <div id="preloader"><img alt="JFT Agro" class="loader-logo-img" height="70" loading="eager" src="../images/jft%20logo.png" width="180"/><p class="loader-text">Đang tải</p><div class="loader-track"><div class="loader-fill"></div></div></div>
 <div id="header-placeholder"></div>
+<script data-jft-early-header-loader>
+  (function () {
+    var target = document.getElementById('header-placeholder');
+    if (!target || target.dataset.jftHeaderState === 'loading' || target.dataset.jftHeaderState === 'ready') return;
+    function injectHeader() {
+      target.dataset.jftHeaderState = 'loading';
+      target.setAttribute('aria-busy', 'true');
+      return fetch('../header.html', { credentials: 'same-origin' }).then(function (response) {
+        if (!response.ok) throw new Error('../header.html not found');
+        return response.text();
+      }).then(function (html) {
+        target.innerHTML = html;
+        target.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attribute) {
+            newScript.setAttribute(attribute.name, attribute.value);
+          });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+        target.dataset.jftHeaderState = 'ready';
+        target.removeAttribute('aria-busy');
+        document.dispatchEvent(new CustomEvent('jft:header-ready'));
+      });
+    }
+    injectHeader().catch(function (error) {
+      target.dataset.jftHeaderState = 'error';
+      target.removeAttribute('aria-busy');
+      console.warn(error);
+    });
+  }());
+</script>
 <!-- ── WHATSAPP FAB ── -->
 <a aria-label="WhatsApp JFT Agro" class="wa-fab" href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20am%20interested%20in%20Semolina%20Sooji%20%20Rava%20export%20pricing." rel="noopener" target="_blank">
 <i class="fa-brands fa-whatsapp"></i>
@@ -863,7 +895,6 @@ document.querySelectorAll('.faq-chevron').forEach(function(c){c.closest('.faq-it
   });
 
   document.addEventListener('DOMContentLoaded', function(){
-    loadComp('header-placeholder','../header.html');
     loadComp('footer-placeholder','../footer.html');
     document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el){ observer.observe(el); });
   });

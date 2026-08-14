@@ -4262,6 +4262,38 @@
 </div>
 </div>
 <div id="header-placeholder"></div>
+<script data-jft-early-header-loader>
+  (function () {
+    var target = document.getElementById('header-placeholder');
+    if (!target || target.dataset.jftHeaderState === 'loading' || target.dataset.jftHeaderState === 'ready') return;
+    function injectHeader() {
+      target.dataset.jftHeaderState = 'loading';
+      target.setAttribute('aria-busy', 'true');
+      return fetch('../header.html', { credentials: 'same-origin' }).then(function (response) {
+        if (!response.ok) throw new Error('../header.html not found');
+        return response.text();
+      }).then(function (html) {
+        target.innerHTML = html;
+        target.querySelectorAll('script').forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          Array.from(oldScript.attributes).forEach(function (attribute) {
+            newScript.setAttribute(attribute.name, attribute.value);
+          });
+          newScript.textContent = oldScript.textContent;
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+        target.dataset.jftHeaderState = 'ready';
+        target.removeAttribute('aria-busy');
+        document.dispatchEvent(new CustomEvent('jft:header-ready'));
+      });
+    }
+    injectHeader().catch(function (error) {
+      target.dataset.jftHeaderState = 'error';
+      target.removeAttribute('aria-busy');
+      console.warn(error);
+    });
+  }());
+</script>
 <button aria-label="Kembali ke Atas" id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
 <!-- ── HERO ── -->
 <main id="main-content" tabindex="-1">
@@ -5442,7 +5474,6 @@
 
       // ── MAIN DOMContentLoaded ──
       document.addEventListener('DOMContentLoaded', function () {
-        loadComp('header-placeholder', '../header.html');
         loadComp('footer-placeholder', '../footer.html');
         startSlider();
         setTimeout(runHeroCounters, 1200);
