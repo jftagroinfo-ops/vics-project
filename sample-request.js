@@ -39,7 +39,7 @@
       success.hidden=false;success.scrollIntoView({behavior:'smooth',block:'center'});
     }catch(error){
       console.error('Sample request submission failed:',error);
-      formError.innerHTML='We could not record this request. Please retry, or <a href="https://wa.me/918425057274" target="_blank" rel="noopener">contact the sample desk on WhatsApp</a>.';
+      formError.innerHTML='We could not record this request. <a href="mailto:jftagro.info@gmail.com?subject=Website%20enquiry%20submission%20fallback">Email the sample desk</a> or <a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer">contact us on WhatsApp</a>.';
       submit.disabled=false;submit.querySelector('span').textContent='Retry sample request';
     }
   });

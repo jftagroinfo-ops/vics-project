@@ -44,6 +44,7 @@ jobs:
           python scripts/generate_hreflang.py
           python scripts/generate_sitemap.py
           python scripts/normalize_analytics_csp.py
+          python scripts/strengthen_form_fallbacks.py
 
       - name: Commit generated changes
         run: |
