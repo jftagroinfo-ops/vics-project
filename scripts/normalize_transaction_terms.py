@@ -13,7 +13,7 @@ SAFE_HOME_FAQ = '''<script type="application/ld+json">{"@context":"https://schem
 
 
 def replace_outer_line(line: str) -> str:
-    if "30%" not in line or "70%" not in line:
+    if not re.search(r'30(?:\s|&nbsp;)*%', line) or not re.search(r'70(?:\s|&nbsp;)*%', line):
         return line
     newline = "\n" if line.endswith("\n") else ""
     core = line[:-1] if newline else line
@@ -23,7 +23,7 @@ def replace_outer_line(line: str) -> str:
     if "<strong>JFT Agro" in core or "standard terms" in core.lower():
         indent = re.match(r'^\s*', core).group(0)
         return f"{indent}<strong>Payment terms:</strong> {SAFE_PAYMENT}{newline}"
-    return line.replace("30%", "[ILLUSTRATIVE ADVANCE %]").replace("70%", "[ILLUSTRATIVE BALANCE %]")
+    return re.sub(r'30(?:\s|&nbsp;)*%', '[ILLUSTRATIVE ADVANCE %]', re.sub(r'70(?:\s|&nbsp;)*%', '[ILLUSTRATIVE BALANCE %]', line))
 
 
 def main() -> None:
@@ -40,8 +40,10 @@ def main() -> None:
         updated = re.sub(r'<div class="faq-a"><p>We work on .*?</p></div>', f'<div class="faq-a"><p>{SAFE_PAYMENT}</p></div>', updated, flags=re.S)
         updated = re.sub(r'<div class="faq-answer">(?=[^<]*(?:30%|30\s*%)).*?</div>', f'<div class="faq-answer">{SAFE_PAYMENT}</div>', updated, flags=re.S)
         updated = re.sub(r'<div class="reg-item"><h4>Payment Terms[^<]*</h4><p>.*?</p></div>', f'<div class="reg-item"><h4>Payment terms</h4><p>{SAFE_PAYMENT}</p></div>', updated, flags=re.S)
+        if path.name == "terms.html":
+            updated = re.sub(r'(<h2>2\.[^<]*</h2>).*?(?=<h2>3\.)', rf'\1\n        <p>{SAFE_PAYMENT}</p>\n\n        ', updated, count=1, flags=re.S)
         updated = ''.join(replace_outer_line(line) for line in updated.splitlines(keepends=True))
-        updated = re.sub(r'100%\s+Irrevocable', 'Irrevocable', updated, flags=re.I)
+        updated = re.sub(r'100(?:\s|&nbsp;)*%\s+Irrevocable', 'Irrevocable', updated, flags=re.I)
 
         if path.name == "blog-how-to-export-india-to-africa.html" and "ILLUSTRATIVE TEMPLATE NOTICE" not in updated:
             notice = ('<div class="tip-box"><strong>ILLUSTRATIVE TEMPLATE NOTICE:</strong> Every company identifier, address, bank, account, SWIFT/BIC, amount, percentage and shipment reference in the templates below is fictional or a placeholder. Do not use it for a shipment or payment. Replace every field and independently verify payment instructions through a known company contact.</div>\n')
