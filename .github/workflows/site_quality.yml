@@ -26,6 +26,9 @@ jobs:
           python scripts/build_locale_ui.py
           python scripts/build_product_master.py
           python scripts/apply_evidence_remediation.py
+          python scripts/remediate_production_claims.py
+          python scripts/normalize_transaction_terms.py
+          python scripts/repair_claim_markup.py
           python scripts/apply_audit_remediation.py
           python scripts/apply_localization_review_policy.py
           python scripts/generate_hreflang.py

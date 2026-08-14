@@ -1,5 +1,5 @@
 claim_id,public_claim,status,evidence_required,evidence_location,legal_entity,scope,issue_date,expiry_or_review_date,owner,public_pages,approved_public_wording
-CLM-001,Established in 1980,PENDING_VERIFICATION,Certificate of incorporation and legal-entity history,,,,,Company secretary,"Homepage; About",Established year available in company documents on request
+CLM-001,Established in 1980,RETIRED_PENDING_VERIFICATION,Certificate of incorporation plus legally documented predecessor relationship,,,,,Company secretary,None,Do not publish 1980 as the LLP founding date; JFT Agro Overseas LLP is identified separately as registered in 2016
 CLM-002,Star Export House,PENDING_VERIFICATION,Current DGFT status-holder certificate showing entity category scope and validity,,,,,Compliance,"Homepage; Certificates; Product pages",Current recognition copy available for buyer verification
 CLM-003,APEDA registered,PENDING_VERIFICATION,Current APEDA RCMC showing entity products and validity,,,,,Compliance,"Certificates; Product pages",Current registration copy available for buyer verification
 CLM-004,FSSAI licensed,PENDING_VERIFICATION,Current FSSAI licence showing entity premises activity scope and validity,,,,,Compliance,"Certificates; Product pages",Current licence copy available for buyer verification
