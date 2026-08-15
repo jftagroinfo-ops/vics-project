@@ -10,7 +10,7 @@
   },
   "findings": {
     "performance_oversized_html": [
-      "index.html (299908)"
+      "index.html (300181)"
     ]
   }
 }

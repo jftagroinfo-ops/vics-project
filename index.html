@@ -44,9 +44,15 @@
     type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com/","logo":"https://jftagro.com/images/jft%20logo.png","contactPoint":{"@type":"ContactPoint","telephone":"+91-84250-57274","contactType":"sales","areaServed":"Global","email":"jftagro.info@gmail.com"},"sameAs":["https://www.linkedin.com/company/jft-agro-overseas","https://www.facebook.com/jftagro","https://www.instagram.com/jftagro"],"address":{"@type":"PostalAddress","streetAddress":"Godown N-2, APMC Market, Danabunder, Vashi","addressLocality":"Navi Mumbai","postalCode":"400705","addressCountry":"IN"}}</script>
   <script
     type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"JFT Agro Overseas","url":"https://jftagro.com/","potentialAction":{"@type":"SearchAction","target":"https://jftagro.com/products.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
-  <link rel="preload" as="image" href="images/homepage/rice-milling-facility-premium-v1.webp" imagesrcset="images/homepage/rice-milling-facility-premium-v1-768.webp 768w, images/homepage/rice-milling-facility-premium-v1.webp 1448w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="images/homepage/rice-milling-facility-premium-v1-768.webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="images/homepage/rice-milling-facility-premium-v1.webp" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/jft-logo-transparent.webp" fetchpriority="high">
   <link rel="stylesheet" href="assets/fonts/jft-fonts.css">
   <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+  <style id="fontawesome-display-overrides">
+    @font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:900;font-display:swap;src:url("assets/fontawesome/webfonts/fa-solid-900.woff2") format("woff2")}
+    @font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fontawesome/webfonts/fa-brands-400.woff2") format("woff2")}
+  </style>
   <link rel="stylesheet" href="jft-design-system.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="jft-responsive.css" media="print" onload="this.media='all'">
   <style>
@@ -4507,7 +4513,7 @@
     }
     .manu-section::before{color:rgba(61,112,48,.035)}
     .manu-section .section-title{color:var(--navy)}
-    .manu-section .section-title span{color:var(--gold-dark)!important}
+    .manu-section .section-title span{color:#7a5b00!important}
     .manu-body{color:#56645e}
     .manu-spec{color:var(--navy)}
     .manu-img{height:440px;border-radius:8px;border-color:rgba(61,112,48,.18)}
@@ -4729,8 +4735,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
 <!-- GA4 — loads only after cookie consent (GDPR compliant) -->
 <meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
-<link rel="stylesheet" href="/assets/fonts/jft-fonts.css">
-<link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
 
 <style>
   :root {
@@ -5350,7 +5354,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Logo row: always visible, desktop nav lives here too -->
   <div class="nav-flex">
     <a href="index.html" class="nav-logo-link">
-      <img src="/images/jft-logo-transparent.webp" alt="JFT Agro" class="nav-logo-img" width="200" height="93">
+      <img src="/images/jft-logo-transparent.webp" alt="JFT Agro" class="nav-logo-img" width="200" height="93" fetchpriority="high">
     </a>
 
     <!-- Desktop nav links (hidden on mobile via CSS) -->
@@ -7156,8 +7160,12 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
         if (!track || !wrap) return;
         Array.from(track.children).forEach(function (c) { track.appendChild(c.cloneNode(true)) });
         var pos = 0, speed = .55, dragging = false, startX, prevPos, rafId;
+        var loopWidth = track.scrollWidth / 2;
+        function refreshLoopWidth() { loopWidth = track.scrollWidth / 2; }
+        window.addEventListener('load', refreshLoopWidth, { once: true });
+        window.addEventListener('resize', refreshLoopWidth, { passive: true });
         function tick() {
-          if (!dragging) { pos -= speed; if (Math.abs(pos) >= track.scrollWidth / 2) pos = 0; track.style.transform = 'translateX(' + pos + 'px)'; }
+          if (!dragging) { pos -= speed; if (Math.abs(pos) >= loopWidth) pos = 0; track.style.transform = 'translateX(' + pos + 'px)'; }
           rafId = requestAnimationFrame(tick);
         }
         tick();
