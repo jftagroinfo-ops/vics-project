@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 REPORTS = ROOT / "reports"
 LOCALES = {"ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi"}
 HELPERS = {"header.html", "footer.html", "product-page-template.html", "inner-page-hero-snippet.html", "seo-universal-head-snippet.html"}
+IGNORED_DIRS = {".git", ".cloudflare", ".cloudflare-dist", ".wrangler", "__pycache__", "backup", "reports"}
 ATTR = re.compile(r"\b([\w:-]+)\s*=\s*([\"'])(.*?)\2", re.S)
 
 
@@ -28,6 +29,11 @@ def clean_text(raw: str) -> str:
 
 def label(path: Path) -> str:
     return path.relative_to(ROOT).as_posix()
+
+
+def is_ignored(path: Path) -> bool:
+    relative = path.relative_to(ROOT)
+    return any(part in IGNORED_DIRS or part.startswith("backup_") for part in relative.parts)
 
 
 def expected_url(path: Path) -> str:
@@ -56,7 +62,7 @@ def local_path(page: Path, value: str) -> Path | None:
 def main() -> int:
     pages = sorted(
         p for p in ROOT.rglob("*.html")
-        if ".git" not in p.parts
+        if not is_ignored(p)
         and p.name not in HELPERS
         and not p.name.startswith(("yandex_", "tmp-", "audit-"))
     )
@@ -147,7 +153,11 @@ def main() -> int:
         for tag in tags_with_urls:
             data = attrs(tag)
             value = data.get("href") or data.get("src")
-            if not value or value.startswith("#") or "${" in value or "{{" in value:
+            if (
+                not value
+                or value.startswith("#")
+                or any(token in value for token in ("${", "{{", "encodeURIComponent(", "' +", '" +'))
+            ):
                 continue
             if value.startswith("http://"):
                 findings["security_insecure_http_reference"].append(f"{rel}: {value}")
@@ -196,7 +206,7 @@ def main() -> int:
             findings["sitemap_indexable_page_missing"].append(rel)
 
     for path in ROOT.rglob("*"):
-        if not path.is_file() or ".git" in path.parts or "reports" in path.parts or path.name.startswith(("tmp-", "audit-")):
+        if not path.is_file() or is_ignored(path) or path.name.startswith(("tmp-", "audit-")):
             continue
         suffix = path.suffix.lower()
         size = path.stat().st_size

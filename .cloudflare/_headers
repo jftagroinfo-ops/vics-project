@@ -1,8 +1,5 @@
-# Reference copy only. The deployed Workers Static Assets rules live in
-# `.cloudflare/_headers`; do not duplicate them as dashboard Transform Rules.
-# HSTS preload is intentionally omitted until the domain has operated reliably
-# on HTTPS for an extended period.
-
+# Security headers for Cloudflare Workers Static Assets.
+# CSP remains report-only until production violations have been reviewed.
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff

@@ -6,3 +6,6 @@
 - Indexable pages: 1375
 
 ## Findings
+
+### performance_oversized_html (1)
+- index.html (299908)
