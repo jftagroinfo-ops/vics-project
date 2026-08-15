@@ -54,3 +54,18 @@ Deployment: `beef4916-8288-4490-9412-9b41572e82c4`
 - Hero resource discovery remained healthy: 161 ms load delay, high request priority, no redirect, and compressed HTML.
 
 The remaining dominant cost is the late hero render (2.46 s after image download) plus variable edge/network response time. The 1,771-element DOM remains a longer-term structural optimization target.
+
+## Stylesheet extraction pass
+
+Deployment: `8d607cbb-3591-48e2-a663-44f36fc38230`
+
+- Extracted 121 KB of homepage-only CSS into `homepage.css` without changing its selectors or cascade order.
+- Reduced decoded `index.html` from approximately 301 KB to 180 KB, passing the repository's 250 KB homepage budget.
+- The stylesheet is versioned in the HTML and served with `Cache-Control: public, max-age=31536000, immutable`.
+- Cold mobile LCP improved from 5.70 s to 3.66 s on Slow 4G / 4x CPU.
+- LCP render delay improved from 2.46 s to 1.29 s.
+- DOM interactive improved from 7.3 s to 4.1 s; DOM content loaded improved from 9.36 s to 5.82 s.
+- CLS remained good at 0.015.
+- Lighthouse mobile regression check: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100; 57 passed and 0 failed.
+
+Chrome estimated 471 ms of possible FCP savings from the remaining blocking stylesheets, but 0 ms of LCP savings. Per the measured-impact policy, further stylesheet deferral is not prioritized over responsive image work.

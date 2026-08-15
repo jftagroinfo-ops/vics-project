@@ -5,12 +5,6 @@
     "sitemap_urls": 1375,
     "indexable_pages": 1375
   },
-  "summary": {
-    "performance_oversized_html": 1
-  },
-  "findings": {
-    "performance_oversized_html": [
-      "index.html (300181)"
-    ]
-  }
+  "summary": {},
+  "findings": {}
 }

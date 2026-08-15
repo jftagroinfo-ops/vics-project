@@ -7,5 +7,4 @@
 
 ## Findings
 
-### performance_oversized_html (1)
-- index.html (300181)
+No static audit findings.
