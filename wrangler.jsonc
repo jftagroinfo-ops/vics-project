@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "jftagro-site",
+  "account_id": "08ffe7db8b9ce976544478e1ce9b0c50",
+  "main": "./.cloudflare/worker.js",
+  "compatibility_date": "2026-08-15",
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "jftagro.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.jftagro.com",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "./.cloudflare-dist",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "run_worker_first": false
+  }
+}
