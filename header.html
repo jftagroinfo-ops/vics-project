@@ -709,7 +709,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 
 </nav>
-<script src="/locale-ui.js"></script>
+<script>
+  if (/^\/(ar|es|fr|id|ms|pt|ru|si|th|vi)(\/|$)/.test(location.pathname)) {
+    var localeScript = document.createElement('script');
+    localeScript.src = '/locale-ui.js';
+    localeScript.defer = true;
+    document.head.appendChild(localeScript);
+  }
+</script>
 
 <!-- ══ MOBILE NAV DRAWER ══════════════════════════════════════════════
      HOME · COMPANY · PRODUCTS · INFRASTRUCTURE · TRADE HUB · TOOLS · CONTACT -->
