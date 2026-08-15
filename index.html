@@ -989,7 +989,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
   function initMobileDropdowns() {}
-  function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
+  function toggleLang() {
+    const menu = document.getElementById('langMenu');
+    if (!menu) return;
+    const opening = !menu.classList.contains('show');
+    menu.classList.toggle('show');
+    if (opening) {
+      menu.querySelectorAll('img[data-src]').forEach(function (img) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+      });
+    }
+  }
 
   function setForexStatus(text, state) {
     const status = document.getElementById('forex-status');
@@ -1172,7 +1183,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       { code: 'si', name: 'සිංහල', flag: 'https://flagcdn.com/w40/lk.png', path: prefix + 'si/' + page }
     ];
     if (englishOnly.has(page)) langs = langs.filter(l => l.code === 'en');
-    grid.innerHTML = langs.map(l => `<a href="${l.path}"><img src="${l.flag}" class="lang-flag" alt="${l.code}"> ${l.name}</a>`).join('');
+    grid.innerHTML = langs.map(l => `<a href="${l.path}"><img data-src="${l.flag}" class="lang-flag" alt="${l.code}" width="22" height="16" decoding="async"> ${l.name}</a>`).join('');
   }
 
   /* ── INIT: run immediately if DOM already loaded (header injected via fetch),
@@ -1411,53 +1422,53 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
       <div class="cert-track" id="certTrack">
         <div class="cert-slide">
           <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img
-              src="images/homepage/thumbs/FSSAI.webp" class="cert-logo" width="80" height="45" alt="FSSAI" loading="lazy"><span
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/FSSAI.webp" class="cert-logo" width="80" height="45" alt="FSSAI" loading="lazy" fetchpriority="low"><span
               class="cert-name">FSSAI Safety</span></div>
         </div>
         <div class="cert-slide">
           <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img
-              src="images/homepage/thumbs/STAR HOUSE.webp" class="cert-logo" width="80" height="45" alt="Star Export House"
-              loading="lazy"><span class="cert-name">Star House</span></div>
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/STAR HOUSE.webp" class="cert-logo" width="80" height="45" alt="Star Export House"
+              loading="lazy" fetchpriority="low"><span class="cert-name">Star House</span></div>
         </div>
         <div class="cert-slide">
           <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img
-              src="images/homepage/thumbs/APEDA.webp" class="cert-logo" width="80" height="45" alt="APEDA" loading="lazy"><span
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/APEDA.webp" class="cert-logo" width="80" height="45" alt="APEDA" loading="lazy" fetchpriority="low"><span
               class="cert-name">APEDA India</span></div>
         </div>
         <div class="cert-slide">
           <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img
-              src="images/homepage/thumbs/SPICES_BOARD.webp" class="cert-logo" width="80" height="45" alt="Spices Board"
-              loading="lazy"><span class="cert-name">Spices Board</span></div>
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/SPICES_BOARD.webp" class="cert-logo" width="80" height="45" alt="Spices Board"
+              loading="lazy" fetchpriority="low"><span class="cert-name">Spices Board</span></div>
         </div>
         <div class="cert-slide">
-          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/thumbs/MSME.webp"
-              class="cert-logo" width="80" height="45" alt="MSME Certified" loading="lazy"><span class="cert-name">MSME
+          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/MSME.webp"
+              class="cert-logo" width="80" height="45" alt="MSME Certified" loading="lazy" fetchpriority="low"><span class="cert-name">MSME
               Certified</span></div>
         </div>
         <div class="cert-slide">
-          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/thumbs/AEO.webp"
-              class="cert-logo" width="80" height="45" alt="AEO" loading="lazy"><span class="cert-name">AEO
+          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/AEO.webp"
+              class="cert-logo" width="80" height="45" alt="AEO" loading="lazy" fetchpriority="low"><span class="cert-name">AEO
               Operator</span></div>
         </div>
         <div class="cert-slide">
-          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/thumbs/IEC.webp"
-              class="cert-logo" width="80" height="45" alt="IEC" loading="lazy"><span class="cert-name">IEC Code</span>
+          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/IEC.webp"
+              class="cert-logo" width="80" height="45" alt="IEC" loading="lazy" fetchpriority="low"><span class="cert-name">IEC Code</span>
           </div>
         </div>
         <div class="cert-slide">
-          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/thumbs/MSME.webp"
-              class="cert-logo" width="80" height="45" alt="MSME" loading="lazy"><span class="cert-name">MSME
+          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/MSME.webp"
+              class="cert-logo" width="80" height="45" alt="MSME" loading="lazy" fetchpriority="low"><span class="cert-name">MSME
               India</span></div>
         </div>
         <div class="cert-slide">
-          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="images/homepage/thumbs/DGFT.webp"
-              class="cert-logo" width="80" height="45" alt="DGFT" loading="lazy"><span class="cert-name">DGFT
+          <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/DGFT.webp"
+              class="cert-logo" width="80" height="45" alt="DGFT" loading="lazy" fetchpriority="low"><span class="cert-name">DGFT
               Govt</span></div>
         </div>
         <div class="cert-slide">
           <div class="cert-card"><i class="fa-solid fa-circle-check cert-check"></i><img
-              src="images/homepage/thumbs/COFFEE_BOARD.webp" class="cert-logo" width="80" height="45" alt="Coffee Board"
-              loading="lazy"><span class="cert-name">Coffee Board</span></div>
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/thumbs/COFFEE_BOARD.webp" class="cert-logo" width="80" height="45" alt="Coffee Board"
+              loading="lazy" fetchpriority="low"><span class="cert-name">Coffee Board</span></div>
         </div>
       </div>
     </div>
@@ -1781,8 +1792,8 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
       </div>
       <div class="prod-grid reveal">
         <div class="pc">
-          <div class="pc-inner"><img src="images/14.webp" class="pc-img" alt="Export-ready Basmati and non-Basmati rice"
-              loading="lazy"
+          <div class="pc-inner"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/14.webp" class="pc-img" alt="Export-ready Basmati and non-Basmati rice"
+              loading="lazy" fetchpriority="low"
               onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&amp;q=80&amp;auto=format&amp;fit=crop'" width="1672" height="941">
             <div class="pc-ov"></div>
             <div class="pc-body">
@@ -1801,8 +1812,8 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
           </div>
         </div>
         <div class="pc">
-          <div class="pc-inner"><img src="images/homepage/spices-category-card.webp" class="pc-img" alt="Indian Spices"
-              loading="lazy"
+          <div class="pc-inner"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/spices-category-card.webp" class="pc-img" alt="Indian Spices"
+              loading="lazy" fetchpriority="low"
               onerror="this.src='https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&amp;q=80&amp;auto=format&amp;fit=crop'" width="900" height="900">
             <div class="pc-ov"></div>
             <div class="pc-body">
@@ -1819,7 +1830,7 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
           </div>
         </div>
         <div class="pc">
-          <div class="pc-inner"><img src="images/homepage/SUGAR.webp" class="pc-img" alt="Indian Sugar" loading="lazy"
+          <div class="pc-inner"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/SUGAR.webp" class="pc-img" alt="Indian Sugar" loading="lazy" fetchpriority="low"
               onerror="this.src='https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?w=800&amp;q=80&amp;auto=format&amp;fit=crop'" width="816" height="1056">
             <div class="pc-ov"></div>
             <div class="pc-body">
@@ -1835,8 +1846,8 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
           </div>
         </div>
         <div class="pc">
-          <div class="pc-inner"><img src="images/homepage/wheat-flour-category-card.webp" class="pc-img" alt="Wheat Flour"
-              loading="lazy"
+          <div class="pc-inner"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/wheat-flour-category-card.webp" class="pc-img" alt="Wheat Flour"
+              loading="lazy" fetchpriority="low"
               onerror="this.src='https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&amp;q=80&amp;auto=format&amp;fit=crop'" width="900" height="900">
             <div class="pc-ov"></div>
             <div class="pc-body">
@@ -1852,7 +1863,7 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
           </div>
         </div>
         <div class="pc">
-          <div class="pc-inner"><img src="images/homepage/oilseeds-category-card.webp" class="pc-img" alt="Oilseeds" loading="lazy"
+          <div class="pc-inner"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/oilseeds-category-card.webp" class="pc-img" alt="Oilseeds" loading="lazy" fetchpriority="low"
               onerror="this.src='https://images.unsplash.com/photo-1612257416648-3a19c0c5df43?w=800&amp;q=80&amp;auto=format&amp;fit=crop'" width="900" height="900">
             <div class="pc-ov"></div>
             <div class="pc-body">
@@ -1868,7 +1879,7 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
           </div>
         </div>
         <div class="pc">
-          <div class="pc-inner"><img src="images/homepage/PULSES.webp" class="pc-img" alt="Pulses" loading="lazy"
+          <div class="pc-inner"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/PULSES.webp" class="pc-img" alt="Pulses" loading="lazy" fetchpriority="low"
               onerror="this.src='https://images.unsplash.com/photo-1618897996318-5a901fa4f5c3?w=800&amp;q=80&amp;auto=format&amp;fit=crop'" width="600" height="450">
             <div class="pc-ov"></div>
             <div class="pc-body">
@@ -2202,8 +2213,8 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
           Agro ensures rapid transit to international destinations across 6 key regions.</p>
       </div>
       <div class="network-visual reveal">
-        <div class="custom-india-map desktop-only"><img src="images/homepage/farm-home.webp" alt=""
-            style="width:100%;max-width:600px;opacity:.12;" onerror="this.style.display='none'" width="900" height="886"></div>
+        <div class="custom-india-map desktop-only"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/homepage/farm-home.webp" alt=""
+            style="width:100%;max-width:600px;opacity:.12;" onerror="this.style.display='none'" width="900" height="886" loading="lazy" fetchpriority="low"></div>
         <svg class="trade-lines-svg desktop-only" viewBox="0 0 1000 650" preserveAspectRatio="none">
           <g id="jft_svg_lines"></g>
         </svg>
@@ -2211,7 +2222,7 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
         <div class="central-hub desktop-only">
           <div class="pulse-ring pr-1"></div>
           <div class="pulse-ring pr-2"></div>
-          <div class="hub-circle"><img src="images/jft-logo-display.webp" alt="JFT Agro" width="80" height="37"
+          <div class="hub-circle"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-deferred-src="images/jft-logo-display.webp" alt="JFT Agro" width="80" height="37" loading="lazy" fetchpriority="low"
               onerror="this.parentElement.innerHTML='<i class=\'fa-solid fa-leaf\' style=\'font-size:32px;color:#3d7030\'></i>'">
           </div>
         </div>
@@ -2926,6 +2937,24 @@ body.mobile-nav-open #jft-cookie-bar.show{transform:translate(-50%,calc(100% + 2
       }
 
       document.addEventListener('DOMContentLoaded', function () {
+        function loadDeferredImage(img) {
+          if (!img.dataset.deferredSrc) return;
+          img.src = img.dataset.deferredSrc;
+          img.removeAttribute('data-deferred-src');
+        }
+        var deferredImages = document.querySelectorAll('img[data-deferred-src]');
+        if ('IntersectionObserver' in window) {
+          var imageObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              loadDeferredImage(entry.target);
+              imageObserver.unobserve(entry.target);
+            });
+          }, { rootMargin: '500px 0px', threshold: 0.01 });
+          deferredImages.forEach(function (img) { imageObserver.observe(img); });
+        } else {
+          deferredImages.forEach(loadDeferredImage);
+        }
         loadComp('footer-placeholder', 'footer.html');
         updateSlider();
         updatePauseControl();

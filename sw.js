@@ -1,44 +1,8 @@
-const CACHE_NAME = 'jft-agro-v11';
+const CACHE_NAME = 'jft-agro-v12';
 
-/* Core shell — pages & assets that EXIST in the project */
-const SHELL_ASSETS = [
-  '/',
-  '/index.html',
-  '/about.html',
-  '/products.html',
-  '/contact.html',
-  '/blog.html',
-  '/faq.html',
-  '/certificates.html',
-  '/infrastructure.html',
-  '/quality-control.html',
-  '/quote-calculator.html',
-  '/packing-calculator.html',
-  '/port-transit-calculator.html',
-  '/shipment-tracker.html',
-  '/sample-request.html',
-  '/africa-trade.html',
-  '/asia-trade.html',
-  '/europe-trade.html',
-  '/uae-trade.html',
-  '/sugar-s30-supplier.html',
-  '/legal.html',
-  '/terms.html',
-  '/privacy.html',
-  '/404.html',
-  '/header.html',
-  '/footer.html',
-  '/manifest.json',
-  '/jft-design-system.css',
-  '/jft-responsive.css',
-  '/jft-conversion.js',
-  '/images/jft-logo-display.webp',
-  '/images/homepage/export-trust-hero-v2.webp',
-  '/images/jft logo.png',
-  '/images/icon-192.png',
-  '/images/icon-512.png',
-  '/images/products/basmati_rice_hd.webp'
-];
+/* Do not compete with the first page view by preloading the whole site.
+   Static assets are cached on demand by the fetch handler below. */
+const SHELL_ASSETS = [];
 
 /* Install: cache shell assets. Skip missing assets gracefully. */
 self.addEventListener('install', (e) => {
