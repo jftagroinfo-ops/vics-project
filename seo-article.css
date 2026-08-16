@@ -137,6 +137,7 @@
 }
 
 .seo-note--gold { border-color: #ebd998; border-left-color: var(--article-gold); background: #fffaf0; }
+.seo-note h2,
 .seo-note h3,
 .seo-checklist h3 { margin-top: 0; }
 .seo-checklist ul { margin-bottom: 0; list-style: none; padding-left: 0; }
