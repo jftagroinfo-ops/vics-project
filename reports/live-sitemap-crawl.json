@@ -1,29 +1,477 @@
 {
-  "checked": 1403,
-  "failures": [
+  "checked": 1378,
+  "failures": [],
+  "slow_over_2s": [
     {
-      "url": "https://jftagro.com/ar/blog.html",
-      "status": 503,
+      "url": "https://jftagro.com/1401-steam-basmati-rice-exporter.html",
+      "status": 200,
       "location": "",
-      "seconds": 0.688
+      "attempts": 1,
+      "seconds": 2.033
     },
     {
-      "url": "https://jftagro.com/vi/1509-steam-basmati-rice-exporter.html",
-      "status": 503,
+      "url": "https://jftagro.com/1509-golden-sella-basmati-exporter.html",
+      "status": 200,
       "location": "",
-      "seconds": 0.797
-    }
-  ],
-  "slow_over_2s": [
+      "attempts": 1,
+      "seconds": 2.058
+    },
+    {
+      "url": "https://jftagro.com/1509-steam-basmati-rice-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.054
+    },
+    {
+      "url": "https://jftagro.com/ar/1121-steam-basmati-rice-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.043
+    },
+    {
+      "url": "https://jftagro.com/ar/akarkara-root-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.064
+    },
+    {
+      "url": "https://jftagro.com/ar/asia-trade.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.022
+    },
+    {
+      "url": "https://jftagro.com/ar/basil-seeds-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.107
+    },
+    {
+      "url": "https://jftagro.com/ar/bay-leaf-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.11
+    },
+    {
+      "url": "https://jftagro.com/ar/black-cumin-seeds-nigella-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.087
+    },
+    {
+      "url": "https://jftagro.com/ar/black-himaj-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.036
+    },
+    {
+      "url": "https://jftagro.com/ar/blog-apeda-registration-indian-exporter-explained.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.037
+    },
+    {
+      "url": "https://jftagro.com/ar/blog-basmati-export-guide.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.04
+    },
+    {
+      "url": "https://jftagro.com/ar/blog-bill-of-lading-explained-importers.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.014
+    },
+    {
+      "url": "https://jftagro.com/ar/blog-green-mung-beans-export-india-2026.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.181
+    },
+    {
+      "url": "https://jftagro.com/ar/blog-how-to-choose-indian-agro-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.107
+    },
+    {
+      "url": "https://jftagro.com/ar/blog-how-to-export-india-to-africa.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.142
+    },
+    {
+      "url": "https://jftagro.com/ar/corn-starch-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.022
+    },
+    {
+      "url": "https://jftagro.com/ar/cotton-seed-oil-cake-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.07
+    },
+    {
+      "url": "https://jftagro.com/ar/cumin-seeds-jeera-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.011
+    },
+    {
+      "url": "https://jftagro.com/ar/henna-powder-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.087
+    },
+    {
+      "url": "https://jftagro.com/es/1121-white-sella-basmati-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.033
+    },
+    {
+      "url": "https://jftagro.com/es/1401-golden-sella-basmati-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.079
+    },
+    {
+      "url": "https://jftagro.com/es/faq.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.154
+    },
+    {
+      "url": "https://jftagro.com/es/fennel-seeds-sounff-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.214
+    },
+    {
+      "url": "https://jftagro.com/es/fenugreek-seeds-methi-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.054
+    },
+    {
+      "url": "https://jftagro.com/es/henna-leaves-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.056
+    },
+    {
+      "url": "https://jftagro.com/es/maida-refined-wheat-flour-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.433
+    },
+    {
+      "url": "https://jftagro.com/es/maize-grits-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.466
+    },
+    {
+      "url": "https://jftagro.com/es/milling-wheat-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.193
+    },
+    {
+      "url": "https://jftagro.com/es/moringa-leaves-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.04
+    },
+    {
+      "url": "https://jftagro.com/es/moringa-powder-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.045
+    },
+    {
+      "url": "https://jftagro.com/es/mustard-seeds-powder-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.174
+    },
+    {
+      "url": "https://jftagro.com/es/port-transit-calculator.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.022
+    },
+    {
+      "url": "https://jftagro.com/es/pr-11-rice-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.016
+    },
+    {
+      "url": "https://jftagro.com/es/products.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.1
+    },
+    {
+      "url": "https://jftagro.com/es/psyllium-husk-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.186
+    },
+    {
+      "url": "https://jftagro.com/es/quality-control.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.118
+    },
+    {
+      "url": "https://jftagro.com/es/quote-calculator.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.2
+    },
+    {
+      "url": "https://jftagro.com/es/red-millet-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.368
+    },
+    {
+      "url": "https://jftagro.com/es/safflower-seeds-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.427
+    },
+    {
+      "url": "https://jftagro.com/es/samba-rice-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.459
+    },
+    {
+      "url": "https://jftagro.com/es/semolina-sooji-rava-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.135
+    },
+    {
+      "url": "https://jftagro.com/es/senna-leaves-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.118
+    },
+    {
+      "url": "https://jftagro.com/es/senna-pods-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.112
+    },
+    {
+      "url": "https://jftagro.com/es/soya-bean-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.075
+    },
+    {
+      "url": "https://jftagro.com/es/soybean-meal-doc-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.013
+    },
+    {
+      "url": "https://jftagro.com/es/sunflower-seeds-in-shell-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.101
+    },
+    {
+      "url": "https://jftagro.com/es/tamarind-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.032
+    },
     {
       "url": "https://jftagro.com/es/toor-dal-split-pigeon-pea-exporter.html",
       "status": 200,
       "location": "",
-      "seconds": 2.023
+      "attempts": 1,
+      "seconds": 2.008
+    },
+    {
+      "url": "https://jftagro.com/es/uae-trade.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.032
+    },
+    {
+      "url": "https://jftagro.com/es/whole-nutmeg-powder-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.121
+    },
+    {
+      "url": "https://jftagro.com/es/yellow-maize-corn-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.064
+    },
+    {
+      "url": "https://jftagro.com/export-documentation.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.107
+    },
+    {
+      "url": "https://jftagro.com/faq.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.039
+    },
+    {
+      "url": "https://jftagro.com/fennel-seeds-sounff-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.016
+    },
+    {
+      "url": "https://jftagro.com/fr/10-parboiled-rice-ir-64-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.032
+    },
+    {
+      "url": "https://jftagro.com/fr/1121-steam-basmati-rice-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.08
+    },
+    {
+      "url": "https://jftagro.com/fr/1121-white-sella-basmati-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.026
+    },
+    {
+      "url": "https://jftagro.com/fr/1401-golden-sella-basmati-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.03
+    },
+    {
+      "url": "https://jftagro.com/fr/akarkara-root-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.147
+    },
+    {
+      "url": "https://jftagro.com/fr/asia-trade.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.092
+    },
+    {
+      "url": "https://jftagro.com/fr/blog-basmati-export-guide.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.033
+    },
+    {
+      "url": "https://jftagro.com/fr/blog-bill-of-lading-explained-importers.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.067
+    },
+    {
+      "url": "https://jftagro.com/fr/coriander-seeds-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.427
+    },
+    {
+      "url": "https://jftagro.com/fr/fenugreek-seeds-methi-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.384
+    },
+    {
+      "url": "https://jftagro.com/ms/senna-leaves-exporter.html",
+      "status": 200,
+      "location": "",
+      "attempts": 1,
+      "seconds": 2.132
     }
   ],
+  "latency_seconds": {
+    "p50": 1.499,
+    "p95": 1.999,
+    "max": 2.466
+  },
+  "retried": 0,
   "status_counts": {
-    "200": 1401,
-    "503": 2
+    "200": 1378
   }
 }
