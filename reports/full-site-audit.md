@@ -6,5 +6,3 @@
 - Indexable pages: 1375
 
 ## Findings
-
-No static audit findings.

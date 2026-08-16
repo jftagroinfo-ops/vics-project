@@ -426,3 +426,54 @@ input[type=number] { -moz-appearance: textfield; }
 @media (min-width: 1800px) {
   .jft-wide-container { padding: 0 clamp(55px, 5vw, 120px); }
 }
+
+/* Disclosure for temporary editorial visuals that are not operational evidence. */
+.illustrative-image-note {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  background: rgba(7, 18, 15, .78);
+  color: rgba(255, 255, 255, .88);
+  font-family: var(--font-sub, "Montserrat", sans-serif);
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .75px;
+  line-height: 1;
+  text-transform: uppercase;
+  backdrop-filter: blur(7px);
+}
+
+/* Shared editorial image treatment for long-form insight articles. */
+.jft-editorial-hero {
+  margin: 24px 0 34px;
+}
+
+.jft-editorial-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 18px 42px rgba(7, 39, 33, 0.16);
+}
+
+.jft-editorial-hero figcaption {
+  margin-top: 10px;
+  color: #56645f;
+  font: 700 0.72rem/1.4 var(--font-sub, "Montserrat", sans-serif);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Legacy article metadata used #888 on ivory (3.14:1); raise it to WCAG AA. */
+.article-meta {
+  color: #58615e !important;
+}

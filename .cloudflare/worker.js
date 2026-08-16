@@ -13,6 +13,17 @@ const SECURITY_HEADERS = {
 function withSecurityHeaders(assetResponse) {
   const response = new Response(assetResponse.body, assetResponse);
 
+  const contentType = response.headers.get("Content-Type") || "";
+  if (
+    !/charset=/i.test(contentType) &&
+    (contentType.startsWith("text/") ||
+      contentType.startsWith("application/json") ||
+      contentType.startsWith("application/javascript") ||
+      contentType.startsWith("application/xml"))
+  ) {
+    response.headers.set("Content-Type", `${contentType}; charset=utf-8`);
+  }
+
   for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
     response.headers.set(name, value);
   }
@@ -24,7 +35,26 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // Preserve existing explicit .html URLs while supporting directory homes.
+    // Keep one public origin and one homepage URL in every language.
+    // Permanent redirects consolidate backlinks and stale search-index copies.
+    if (url.hostname === "www.jftagro.com") {
+      url.hostname = "jftagro.com";
+      return Response.redirect(url.toString(), 301);
+    }
+
+    if (url.pathname.endsWith("/index.html")) {
+      url.pathname = url.pathname.slice(0, -"index.html".length);
+      return Response.redirect(url.toString(), 301);
+    }
+
+    // Historical crawler URLs such as /?j=123 served the homepage unchanged.
+    // Remove only that known non-content parameter; preserve legitimate query data.
+    if (url.searchParams.has("j")) {
+      url.searchParams.delete("j");
+      return Response.redirect(url.toString(), 301);
+    }
+
+    // Preserve all other explicit .html URLs while supporting directory homes.
     if (url.pathname.endsWith("/")) {
       url.pathname += "index.html";
       const assetResponse = await env.ASSETS.fetch(new Request(url, request));

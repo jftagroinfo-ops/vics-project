@@ -31,6 +31,8 @@ def priority(path: Path) -> tuple[str, str]:
         return "0.9", "weekly"
     if path.name in {"about.html", "contact.html", "quality-control.html"}:
         return "0.85", "monthly"
+    if path.name == "infrastructure.html":
+        return "0.80", "monthly"
     if "-exporter.html" in path.name or "-supplier.html" in path.name:
         return "0.80", "monthly"
     if path.name.startswith("blog"):

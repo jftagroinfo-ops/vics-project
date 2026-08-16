@@ -1148,6 +1148,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
     if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+    document.body.classList.toggle('mobile-header-condensed', window.innerWidth <= 768 && window.scrollY > 140);
+  });
+  window.addEventListener('resize', () => {
+    document.body.classList.toggle('mobile-header-condensed', window.innerWidth <= 768 && window.scrollY > 140);
   });
 </script>
 

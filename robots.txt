@@ -1,21 +1,12 @@
-# JFT Agro Overseas — robots.txt
-# Last updated: 2026-08-12
+# JFT Agro Overseas - robots.txt
+# Last updated: 2026-08-16
 
-# Allow all crawlers
+# Allow all standards-compliant crawlers. A single group ensures that the
+# exclusions below also apply to Google, Bing, Yandex, Baidu and AI crawlers.
 User-agent: *
 Allow: /
-Allow: /ar/
-Allow: /es/
-Allow: /fr/
-Allow: /id/
-Allow: /ms/
-Allow: /pt/
-Allow: /ru/
-Allow: /si/
-Allow: /th/
-Allow: /vi/
 
-# Disallow utility pages
+# Keep internal utilities and non-search destinations out of search results.
 Disallow: /thank-you.html
 Disallow: /generate_hreflang.py
 Disallow: /propagate_products_fix.py
@@ -31,51 +22,5 @@ Disallow: /reports/
 Disallow: /tmp-
 Disallow: /audit-
 
-# Allow important assets
-Allow: /images/
-Allow: /jft-design-system.css
-Allow: /jft-responsive.css
-
-# Sitemaps
+# Canonical sitemap
 Sitemap: https://jftagro.com/sitemap.xml
-
-# Search engine specific
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: facebot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# AI training crawlers — allow indexing where supported
-User-agent: GPTBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: Bytespider
-Allow: /

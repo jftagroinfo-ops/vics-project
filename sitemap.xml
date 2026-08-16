@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jftagro.com/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/"/>
@@ -345,7 +345,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/about.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/about.html"/>
@@ -3353,7 +3353,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/contact.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/contact.html"/>
@@ -10525,9 +10525,9 @@
   </url>
   <url>
     <loc>https://jftagro.com/infrastructure.html</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -12953,7 +12953,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/products.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/products.html"/>
