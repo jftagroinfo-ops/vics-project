@@ -9,8 +9,20 @@ from pathlib import Path
 from generate_hreflang import LANGS, ROOT, is_indexable, locale, public_url
 
 
+UPDATED_2026_08_16 = {
+    "blog.html",
+    "quality-control.html",
+    "infrastructure.html",
+    "blog-how-to-write-agro-commodity-purchase-specification.html",
+    "blog-certificate-of-analysis-food-imports.html",
+    "blog-food-container-loading-inspection-checklist.html",
+}
+
+
 def last_modified(path: Path) -> str:
     """Reuse the checked-in value so routine verification is deterministic."""
+    if locale(path) == "en" and path.name in UPDATED_2026_08_16:
+        return "2026-08-16"
     sitemap = ROOT / "sitemap.xml"
     if sitemap.exists():
         text = sitemap.read_text(encoding="utf-8", errors="replace")
@@ -21,7 +33,7 @@ def last_modified(path: Path) -> str:
             end = text.find("</lastmod>", start)
             if start >= 0 and end >= 0:
                 return text[start + len("<lastmod>") : end]
-    return "2026-08-13"
+    return "2026-08-16"
 
 
 def priority(path: Path) -> tuple[str, str]:
@@ -41,7 +53,13 @@ def priority(path: Path) -> tuple[str, str]:
 
 
 def main() -> None:
-    pages = [path for path in ROOT.rglob("*.html") if is_indexable(path)]
+    # Only source pages belong in the public sitemap. Build/deployment folders
+    # such as .cloudflare-dist contain copies of the same HTML and must never be
+    # crawled as a second set of URLs.
+    candidates = list(ROOT.glob("*.html"))
+    for language in LANGS:
+        candidates.extend((ROOT / language).glob("*.html"))
+    pages = [path for path in candidates if is_indexable(path)]
     by_name: dict[str, list[Path]] = {}
     for path in pages:
         by_name.setdefault(path.name, []).append(path)

@@ -1,8 +1,8 @@
 # Full Site Static Audit
 
-- HTML files: 1675
-- Renderable pages: 1675
-- Sitemap URLs: 1375
-- Indexable pages: 1375
+- HTML files: 1678
+- Renderable pages: 1678
+- Sitemap URLs: 1378
+- Indexable pages: 1378
 
 ## Findings

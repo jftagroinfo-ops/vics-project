@@ -113,3 +113,14 @@ JFT response: JFT's buyer-security, documentation, calculators, samples, and spe
 - Product/grade and destination-guide pages begin earning non-branded impressions.
 - Search Console shows growing clicks to quote, sample, buyer-security, and specification pages—not just homepage impressions.
 
+## Final production validation - 2026-08-16
+
+- Cloudflare Worker version: `e3135eeb-2278-45b1-b8be-04376b577f35`
+- Live homepage: HTTP 200 with `text/html; charset=utf-8`
+- Live robots file: HTTP 200 with `text/plain; charset=utf-8`
+- Robots policy consolidated into one universal group so crawler exclusions apply consistently.
+- Live homepage contains the Yandex verification meta tag.
+- Full local audit: 1,675 HTML files, 1,675 renderable pages, 1,375 sitemap URLs, 1,375 indexable pages, zero reported findings.
+- Mobile Lighthouse homepage: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100.
+- Mobile Lighthouse French homepage: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100.
+- High-risk capacity/laboratory wording was qualified; see `reports/seo-claims-evidence-register-2026-08-16.md`.

@@ -1948,8 +1948,8 @@
   <url>
     <loc>https://jftagro.com/ar/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -2846,6 +2846,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-bill-of-lading-explained-importers.html"/>
   </url>
   <url>
+    <loc>https://jftagro.com/blog-certificate-of-analysis-food-imports.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog-certificate-of-analysis-food-imports.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-certificate-of-analysis-food-imports.html"/>
+  </url>
+  <url>
     <loc>https://jftagro.com/blog-coriander-seeds-export-india-2026.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -2870,6 +2878,14 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/blog-cumin-jeera-price-outlook-2026.html"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/blog-cumin-jeera-price-outlook-2026.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-cumin-jeera-price-outlook-2026.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/blog-food-container-loading-inspection-checklist.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog-food-container-loading-inspection-checklist.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-food-container-loading-inspection-checklist.html"/>
   </url>
   <url>
     <loc>https://jftagro.com/blog-green-mung-beans-export-india-2026.html</loc>
@@ -2968,6 +2984,14 @@
     <xhtml:link rel="alternate" hreflang="th" href="https://jftagro.com/th/blog-how-to-read-proforma-invoice-india-export.html"/>
     <xhtml:link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/blog-how-to-read-proforma-invoice-india-export.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-how-to-read-proforma-invoice-india-export.html"/>
+  </url>
+  <url>
+    <loc>https://jftagro.com/blog-how-to-write-agro-commodity-purchase-specification.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog-how-to-write-agro-commodity-purchase-specification.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jftagro.com/blog-how-to-write-agro-commodity-purchase-specification.html"/>
   </url>
   <url>
     <loc>https://jftagro.com/blog-import-duty-indian-rice-by-country.html</loc>
@@ -3219,7 +3243,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/blog.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/blog.html"/>
@@ -5100,8 +5124,8 @@
   <url>
     <loc>https://jftagro.com/es/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -7412,8 +7436,8 @@
   <url>
     <loc>https://jftagro.com/fr/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -9806,8 +9830,8 @@
   <url>
     <loc>https://jftagro.com/id/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -12172,8 +12196,8 @@
   <url>
     <loc>https://jftagro.com/ms/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -14520,8 +14544,8 @@
   <url>
     <loc>https://jftagro.com/pt/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -15221,7 +15245,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/quality-control.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/quality-control.html"/>
@@ -16806,8 +16830,8 @@
   <url>
     <loc>https://jftagro.com/ru/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -19182,8 +19206,8 @@
   <url>
     <loc>https://jftagro.com/si/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -21530,8 +21554,8 @@
   <url>
     <loc>https://jftagro.com/th/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
@@ -23509,7 +23533,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/dill-seeds-powder-exporter.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/dill-seeds-powder-exporter.html"/>
@@ -23527,7 +23551,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/dry-ginger-powder-exporter.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/dry-ginger-powder-exporter.html"/>
@@ -23545,7 +23569,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/dry-red-chilli-exporter.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/dry-red-chilli-exporter.html"/>
@@ -23563,7 +23587,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/europe-trade.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/europe-trade.html"/>
@@ -23581,7 +23605,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/faq.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.50</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/faq.html"/>
@@ -23599,7 +23623,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/fennel-seeds-sounff-exporter.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/fennel-seeds-sounff-exporter.html"/>
@@ -23617,7 +23641,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/fenugreek-seeds-methi-exporter.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/fenugreek-seeds-methi-exporter.html"/>
@@ -23635,7 +23659,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/galangal-root-exporter.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/galangal-root-exporter.html"/>
@@ -23653,7 +23677,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/green-cardamom-exporter.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/green-cardamom-exporter.html"/>
@@ -23671,7 +23695,7 @@
   </url>
   <url>
     <loc>https://jftagro.com/vi/green-millet-bajra-exporter.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/green-millet-bajra-exporter.html"/>
@@ -23816,8 +23840,8 @@
   <url>
     <loc>https://jftagro.com/vi/infrastructure.html</loc>
     <lastmod>2026-08-12</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://jftagro.com/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/infrastructure.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://jftagro.com/es/infrastructure.html"/>
