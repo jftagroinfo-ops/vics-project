@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt"><head>
+  <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/assets/fonts/jft-fonts.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Controle de Qualidade e Rastreabilidade | JFT Agro</title>
+<meta content="Controle de qualidade JFT Agro Overseas: testes em vários estágios, laboratório certificado ISO 9001:2015, aprovado pela APEDA. Cada lote de exportação é." name="description"/>
+
+<meta content="JFT Agro Overseas" name="author"/>
+<meta content="IN-MH" name="geo.region"/>
+<meta content="Navi Mumbai, Maharashtra, India" name="geo.placename"/>
+<meta content="19.0330;73.0297" name="geo.position"/>
+<meta content="19.0330, 73.0297" name="ICBM"/>
+<meta content="#1a3c34" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<style>
+    :root {
+      --jft-primary: #3d7030; --jft-navy: #1a3c34; --jft-gold: #eebf45;
+      --font-head: 'Merriweather', serif; --font-sub: 'Montserrat', sans-serif; --font-body: 'Lato', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: #fdfcf8; color: #333; overflow-x: hidden; }
+    #header-placeholder { min-height: 80px; display: block; }
+    #footer-placeholder { min-height: 400px; display: block; background: var(--jft-navy); }
+    .page-wrapper{padding-top:30px;padding-bottom:80px}
+    .container { max-width: 1360px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 55px); position: relative; z-index: 5; }
+    
+    .qc-hero { background: linear-gradient(135deg, var(--jft-navy), #2c5148); color: #fff; padding: 70px 0; text-align: center; }
+    .qc-hero h1 { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 12px; }
+    .qc-hero h1 span { color: var(--jft-gold); }
+    .qc-hero p { color: rgba(255,255,255,0.75); max-width: 700px; margin: 0 auto; font-size: 1.05rem; line-height: 1.8; }
+    
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: -30px; position: relative; z-index: 10; }
+    .process-card { background: #fff; border-radius: 20px; padding: 40px 30px; border: 1px solid #eee; box-shadow: 0 20px 40px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; }
+    .process-card:hover { transform: translateY(-10px); border-color: var(--jft-primary); }
+    .icon-box { width: 70px; height: 70px; background: rgba(61,112,48,0.1); color: var(--jft-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 20px; }
+    .process-card h3 { font-family: var(--font-head); font-size: 1.2rem; color: var(--jft-navy); margin-bottom: 15px; }
+    .process-card p { font-size: 0.95rem; color: #666; line-height: 1.6; }
+    
+    .cert-banner { background: #fff; border: 1px solid #eee; border-radius: 20px; padding: 50px; display: flex; align-items: center; gap: 40px; margin-top: 60px; }
+    @media(max-width: 768px) { .cert-banner { flex-direction: column; text-align: center; } }
+    .cert-content { flex: 1; }
+    .cert-content h2 { font-family: var(--font-head); font-size: 2rem; color: var(--jft-navy); margin-bottom: 15px; }
+    .cert-content p { font-size: 1rem; color: #555; line-height: 1.8; margin-bottom: 20px; }
+    .cert-logos { display: flex; gap: 20px; flex-wrap: wrap; }
+    .cert-logos div { padding: 10px 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 10px; font-family: var(--font-sub); font-weight: 700; color: #444; font-size: 0.8rem; }
+    
+    .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
+    @media(max-width: 800px) { .compliance-grid { grid-template-columns: 1fr; } }
+    .c-list { list-style: none; }
+    .c-list li { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
+    .c-list i { color: var(--jft-gold); font-size: 1.2rem; margin-top: 3px; }
+    .c-list h4 { font-family: var(--font-sub); font-size: 1rem; color: var(--jft-navy); margin-bottom: 5px; }
+    .c-list p { font-size: 0.9rem; color: #666; line-height: 1.6; }
+  .section-h2{font-family:var(--font-head,Merriweather,serif);font-size:1.8rem;color:var(--jft-navy,#1a3c34);margin-bottom:30px;}
+      #preloader{position:fixed;inset:0;background:linear-gradient(135deg,#07120f,#1a3c34);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .6s}
+  .loader-logo-img{width:180px;margin-bottom:28px;filter:brightness(0) invert(1);animation:lf 3s ease-in-out infinite}
+  .loader-text{font-family:'Montserrat',sans-serif;font-size:.75rem;color:rgba(255,255,255,.55);font-weight:700;margin-bottom:24px;text-transform:uppercase;letter-spacing:4px}
+  .loader-track{width:200px;height:2px;background:rgba(255,255,255,.1);overflow:hidden;border-radius:2px}
+  .loader-fill{width:100%;height:100%;background:linear-gradient(90deg,#eebf45,#f7ca5e);transform:translateX(-100%);animation:ll 2s cubic-bezier(.85,0,.15,1) forwards}
+  @keyframes ll{to{transform:translateX(0)}}
+  @keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+</style>
+<!-- Google tag (gtag.js) -->
+<link href="../manifest.json" rel="manifest"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/pt/"},{"@type":"ListItem","position":2,"name":"Quality Control","item":"https://jftagro.com/pt/quality-control.html"}]}</script>
+<link href="../jft-design-system.css" rel="stylesheet"/>
+<link href="../jft-responsive.css" rel="stylesheet"/>
+<meta content="Quality Control &amp; Traceability | SGS &amp; Intertek Certified…" property="og:title"/>
+<meta content="Learn about JFT Agro" property="og:description"/>
+<meta content="https://jftagro.com/images/editorial/real-quality-laboratory-team-pexels-8442371.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="JFT Agro Overseas — Indian Rice, Spices &amp; Grains Export" property="og:image:alt"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com/","hasCredential":[{"@type":"EducationalOccupationalCredential","name":"ISO 9001:2015 Quality Management System","credentialCategory":"Certification","recognizedBy":{"@type":"Organization","name":"Bureau Veritas"}},{"@type":"EducationalOccupationalCredential","name":"FSSAI License","credentialCategory":"Food Safety License","recognizedBy":{"@type":"Organization","name":"Food Safety and Standards Authority of India"}},{"@type":"EducationalOccupationalCredential","name":"APEDA Registration","credentialCategory":"Export Authorization","recognizedBy":{"@type":"Organization","name":"Agricultural and Processed Food Products Export Development Authority"}},{"@type":"EducationalOccupationalCredential","name":"Star Export House","credentialCategory":"Government Recognition","recognizedBy":{"@type":"Organization","name":"Directorate General of Foreign Trade, Government of India"}}]}</script>
+  <meta property="og:site_name" content="JFT Agro Overseas">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_IN">
+  <meta property="og:locale:alternate" content="ar_AE">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="id_ID">
+  <meta property="og:locale:alternate" content="ms_MY">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:locale:alternate" content="si_LK">
+  <meta property="og:locale:alternate" content="th_TH">
+  <meta property="og:locale:alternate" content="vi_VN">
+  <link rel="canonical" href="https://jftagro.com/pt/quality-control.html">
+  <link rel="alternate" hreflang="en" href="https://jftagro.com/quality-control.html">
+  <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/quality-control.html">
+  <link rel="alternate" hreflang="es" href="https://jftagro.com/es/quality-control.html">
+  <link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/quality-control.html">
+  <link rel="alternate" hreflang="id" href="https://jftagro.com/id/quality-control.html">
+  <link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/quality-control.html">
+  <link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/quality-control.html">
+  <link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/quality-control.html">
+  <link rel="alternate" hreflang="si" href="https://jftagro.com/si/quality-control.html">
+  <link rel="alternate" hreflang="th" href="https://jftagro.com/th/quality-control.html">
+  <link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/quality-control.html">
+  <link rel="alternate" hreflang="x-default" href="https://jftagro.com/quality-control.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-jft-agro-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-jft-agro-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-jft-agro.png">
+</head>
+<body>
+<!-- FAB + Back-to-top -->
+<a aria-label="WhatsApp" class="wa-fab" href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20an%20export%20inquiry." rel="noopener" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+<button aria-label="Voltar ao topo" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
+<div id="preloader"><img alt="JFT Agro" class="loader-logo-img" height="70" loading="eager" src="../images/jft logo.png" width="180"/><p class="loader-text">Carregando</p><div class="loader-track"><div class="loader-fill"></div></div></div>
+<div id="header-placeholder"></div>
+<main id="main-content" tabindex="-1">
+<div class="page-wrapper">
+<!-- ── HERO ── -->
+<section class="jft-page-hero">
+<div class="jft-page-hero-bg" style="background-image:url('../images/editorial/real-quality-laboratory-team-pexels-8442371.webp');"></div>
+<div class="jft-page-hero-glow"></div>
+<div class="jft-page-hero-gold-stripe"></div>
+<div class="jft-wide-container jft-page-hero-inner">
+<nav aria-label="pão ralado" class="jft-breadcrumb">
+<a href="index.html">Página inicial</a><i class="fa-solid fa-chevron-right"></i>
+<span style="color:var(--gold)">Controle de Qualidade</span>
+</nav>
+<span class="brand-tag brand-tag-white"><i class="fa-solid fa-microscope"></i> Controle de Qualidade</span>
+<h1 style="font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;line-height:1.1;color:#fff;letter-spacing:-1.5px;margin:18px 0 20px;">Zero-Compromise<br/><em style="color:var(--gold-light);font-style:italic;font-weight:300;">Protocolo de Qualidade</em></h1>
+<p class="jft-page-hero-sub">Quatro camadas independentes de testes — desde a entrada da matéria-prima até o recipiente selado. Laboratório NABL, classificação óptica Sortex Z+, inspeção SGS/Intertek e retenção de referência de 18 meses.</p>
+<div class="jft-page-hero-meta"><span class="jft-hero-tag"><i class="fa-solid fa-flask"></i> Accredited Laboratory Testing</span><span class="jft-hero-tag"><i class="fa-solid fa-eye"></i> Sortex Z+ Optical</span><span class="jft-hero-tag"><i class="fa-solid fa-clipboard-check"></i> GV/Intertek</span></div>
+<div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+<a class="btn-gold" href="contact.html#inquiry-form"><i class="fa-solid fa-paper-plane"></i> Enviar consulta</a>
+<a class="btn-outline" href="products.html"><i class="fa-solid fa-boxes-stacked"></i> Navegar pelos produtos</a>
+</div>
+</div>
+</section>
+<div class="container">
+<div class="process-grid">
+<div class="process-card">
+<div class="icon-box"><i class="fa-solid fa-microscope"></i></div>
+<h3>Testes de Laboratório</h3>
+<p>Cada lote de especiarias e arroz é testado quanto a aflatoxina, níveis de umidade, ocratoxina e resíduos de pesticidas (MRL) em laboratórios credenciados pela NABL antes de ser embalado.</p>
+</div>
+<div class="process-card">
+<div class="icon-box"><i class="fa-solid fa-bug-slash"></i></div>
+<h3>Fumigação e Fitossanidade</h3>
+<p>Executamos protocolos rígidos de fumigação (Brometo de Metila ou Fosfeto de Alumínio) de acordo com as regulamentações do país importador para garantir carga livre de pragas.</p>
+</div>
+<div class="process-card">
+<div class="icon-box"><i class="fa-solid fa-file-signature"></i></div>
+<h3>Inspeção de Terceiros</h3>
+<p>Convidamos agências de inspeção globais como SGS, Intertek ou Bureau Veritas para certificação de peso, qualidade e enchimento no porto de carregamento.</p>
+</div>
+</div>
+<div class="cert-banner">
+<div class="cert-content">
+<h2>Compatível com o mercado da UE e dos EUA</h2>
+<p>Exportar para mercados altamente regulamentados exige precisão. A JFT Agro é especializada no fornecimento de produtos livres de pesticidas e IPM (Manejo Integrado de Pragas) que passam facilmente pelos rígidos padrões MRL (Limite Máximo de Resíduos) da União Europeia.</p>
+<div class="cert-logos">
+<div>SGS Certified</div>
+<div>Intertek Inspected</div>
+<div>Phytosanitary Approved</div>
+<div>Accredited Lab Testing Available</div>
+</div>
+</div>
+<div style="flex: 0 0 300px;">
+<img alt="Quality Farming" height="2048" src="../images/Farm.webp" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" width="2080"/>
+</div>
+</div>
+<div class="compliance-grid">
+<div>
+<h2 class="section-h2">Nossa rastreabilidade em 4 estágios</h2>
+<ul class="c-list">
+<li>
+<i class="fa-solid fa-check-circle"></i>
+<div>
+<h4>Compras agrícolas e mandi</h4>
+<p>Nós adquirimos diretamente de redes de agricultores confiáveis e dos principais mandis da APMC, garantindo o frescor da colheita e a origem autêntica.</p>
+</div>
+</li>
+<li>
+<i class="fa-solid fa-check-circle"></i>
+<div>
+<h4>Sortex e processamento</h4>
+<p>As mercadorias passam pelas máquinas color sortx da Bühler para remover 100% de materiais estranhos, grãos descoloridos e impurezas.</p>
+</div>
+</li>
+<li>
+<i class="fa-solid fa-check-circle"></i>
+<div>
+<h4>Embalagem Higiênica</h4>
+<p>Embalado em sacos de PP, juta ou BOPP de qualidade alimentar usando linhas de ensacamento automatizadas para evitar contato humano e contaminação.</p>
+</div>
+</li>
+<li>
+<i class="fa-solid fa-check-circle"></i>
+<div>
+<h4>Recheio de contêineres</h4>
+<p>Os recipientes são inspecionados quanto à limpeza, revestidos com papel artesanal/sílica gel, se necessário, e selados com um selo alfandegário personalizado.</p>
+</div>
+</li>
+</ul>
+</div>
+<div style="background:var(--jft-navy); border-radius:20px; padding:40px; color:#fff;">
+<h2 style="font-family:var(--font-head,Merriweather,serif); font-size:1.6rem; color:#fff; margin-bottom:20px;">Download Spec Sheets</h2>
+<p style="color:rgba(255,255,255,0.7); margin-bottom:30px; font-size:0.95rem;">Você pode visualizar e baixar folhas de especificações técnicas detalhadas (incluindo % de umidade, limites de mistura e detalhes de classificação) diretamente de nosso catálogo de produtos.</p>
+<a href="products.html" style="display:inline-block; padding:15px 30px; background:var(--jft-gold); color:var(--jft-navy); font-family:var(--font-sub); font-weight:700; text-decoration:none; border-radius:50px;">Acesse o Catálogo de Produtos <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<!-- ── CTA ── -->
+<section class="jft-cta-block">
+<div class="jft-wide-container">
+<div class="cta-eyebrow">Pronto para obter?</div>
+<h2 class="cta-block-title">Comece o seu <em>Consulta de exportação</em><br/>Com JFT Agro hoje</h2>
+<p class="cta-block-desc">Amostras de produtos gratuitas; aplicam-se taxas de correio. Preços direto da fábrica. Resposta normalmente dentro de um dia útil.</p>
+<div class="cta-actions">
+<a class="btn-gold" href="contact.html#inquiry-form"><i class="fa-solid fa-file-invoice-dollar"></i> Solicitar preços</a>
+<a class="btn-outline" href="sample-request.html"><i class="fa-solid fa-box-open"></i> Amostra grátis</a>
+</div>
+<div class="cta-trust-row">
+<span class="cta-trust-item"><i class="fa-solid fa-star"></i> Casa de Exportação Estrela</span>
+<span class="cta-trust-item"><i class="fa-solid fa-shield-halved"></i> ISO 9001:2015</span>
+<span class="cta-trust-item"><i class="fa-solid fa-clock"></i> Revisão em um dia útil</span>
+<span class="cta-trust-item"><i class="fa-solid fa-globe"></i> Mais de 25 países</span>
+</div>
+</div>
+</section>
+<div class="jft-wide-container">
+<div style="background:linear-gradient(135deg,#1a3c34,#2c5148);padding:40px;border-radius:20px;text-align:center;margin:50px 0;color:#fff;">
+<div style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:800;color:#eebf45;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">Fale com nossa equipe de exportação</div>
+<h3 style="font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;margin-bottom:8px;">Pronto para obter da Índia?</h3>
+<p style="color:rgba(255,255,255,0.75);margin-bottom:24px;font-size:0.95rem;">Fale diretamente com nossa mesa comercial - de segunda a sábado, das 9h às 19h IST</p>
+<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+<a href="tel:+918425057274" onmouseout="this.style.background='#eebf45'" onmouseover="this.style.background='#fff'" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#eebf45;color:#1a3c34;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:800;text-decoration:none;font-size:0.9rem;transition:0.3s;"><i class="fa-solid fa-phone"></i> +91 84250 57274</a>
+<a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20have%20a%20trade%20enquiry." onmouseout="this.style.background='#25d366'" onmouseover="this.style.background='#1db954'" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#25d366;color:#fff;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:800;text-decoration:none;font-size:0.9rem;transition:0.3s;" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+</div>
+</div></div>
+</main>
+<div id="footer-placeholder"></div>
+<script>
+    async function loadComponent(id, file) {
+      try {
+        const res = await fetch(file);
+        const text = await res.text();
+        document.getElementById(id).innerHTML = text;
+        document.getElementById(id).querySelectorAll('script').forEach(old => {
+          const s = document.createElement('script');
+          Array.from(old.attributes).forEach(a => s.setAttribute(a.name, a.value));
+          s.appendChild(document.createTextNode(old.innerHTML));
+          old.parentNode.replaceChild(s, old);
+        });
+      } catch(e) { console.error(e); }
+    }
+    
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement.scrollTop||document.body.scrollTop;
+    var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    var b=document.getElementById('page-progress');if(b)b.style.width=(h>0?(s/h)*100:0)+'%';
+    var t=document.getElementById('backToTop');if(t)t.classList.toggle('show',s>400);
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+      loadComponent('header-placeholder', '../header.html');
+      loadComponent('footer-placeholder', '../footer.html');
+    });
+  
+    /* Preloader */
+    var plDelay = ('ontouchstart' in window) ? 900 : 1400;
+    setTimeout(function(){ var p=document.getElementById('preloader');if(p){p.style.opacity='0';setTimeout(function(){p.style.display='none';},500);} }, plDelay);
+    setTimeout(function(){ var p=document.getElementById('preloader');if(p){p.style.opacity='0';p.style.display='none';} }, 3000);
+
+</script>
+
+
+</body></html>

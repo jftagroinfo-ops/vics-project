@@ -33,7 +33,13 @@ def label(path: Path) -> str:
 
 def is_ignored(path: Path) -> bool:
     relative = path.relative_to(ROOT)
-    return any(part in IGNORED_DIRS or part.startswith("backup_") for part in relative.parts)
+    return any(
+        part in IGNORED_DIRS
+        or part.startswith(".cloudflare-dist")
+        or part.startswith(".wrangler")
+        or part.startswith("backup_")
+        for part in relative.parts
+    )
 
 
 def expected_url(path: Path) -> str:

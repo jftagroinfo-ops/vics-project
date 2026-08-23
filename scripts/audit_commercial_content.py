@@ -70,8 +70,10 @@ def main() -> int:
         for node in soup.select('script[type="application/ld+json"]'):
             try: schemas.append(json.loads(node.string or node.get_text()))
             except json.JSONDecodeError: pass
-        if not any(isinstance(item, dict) and item.get("@type") in {"Product", "WebPage"} for item in schemas):
-            findings.append(f"{name}: missing Product/WebPage structured data")
+        if any(isinstance(item, dict) and item.get("@type") == "Product" for item in schemas):
+            findings.append(f"{name}: ineligible quote-only Product rich-result schema")
+        if not any(isinstance(item, dict) and item.get("@type") == "WebPage" for item in schemas):
+            findings.append(f"{name}: missing WebPage structured data")
         social = soup.find("meta", attrs={"property": "og:image"})
         image = local_image(social.get("content", "").replace("https://jftagro.com/", "") if social else "")
         if image and not image.is_file(): findings.append(f"{name}: missing social image {image.relative_to(ROOT)}")

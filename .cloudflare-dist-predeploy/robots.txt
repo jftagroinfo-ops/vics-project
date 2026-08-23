@@ -1,0 +1,26 @@
+# JFT Agro Overseas - robots.txt
+# Last updated: 2026-08-16
+
+# Allow all standards-compliant crawlers. A single group ensures that the
+# exclusions below also apply to Google, Bing, Yandex, Baidu and AI crawlers.
+User-agent: *
+Allow: /
+
+# Keep internal utilities and non-search destinations out of search results.
+Disallow: /thank-you.html
+Disallow: /generate_hreflang.py
+Disallow: /propagate_products_fix.py
+Disallow: /thorough_fix.py
+Disallow: /audit_website.py
+Disallow: /fetch_agro_news.py
+Disallow: /jft_ai_engine.py
+Disallow: /final_polish.py
+Disallow: /fix_image_typos.py
+Disallow: /generate_sitemap.py
+Disallow: /scripts/
+Disallow: /reports/
+Disallow: /tmp-
+Disallow: /audit-
+
+# Canonical sitemap
+Sitemap: https://jftagro.com/sitemap.xml

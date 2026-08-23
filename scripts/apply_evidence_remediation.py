@@ -44,25 +44,17 @@ NEW_SCHEMA = r'''
         "url": "https://jftagro.com/products.html",
         "numberOfItems": products.length,
         "itemListElement": products.map(function (product, index) {
-          const properties = (product.s || []).map(function (row) {
-            return { "@type": "PropertyValue", "name": row[0], "value": row[1] };
-          });
-          properties.push({ "@type": "PropertyValue", "name": "Indicative container loading", "value": product.l });
-          properties.push({ "@type": "PropertyValue", "name": "Packing options", "value": product.p });
+          const url = "https://jftagro.com/" + product.u;
           return {
             "@type": "ListItem",
             "position": index + 1,
             "item": {
-              "@type": "Product",
-              "@id": "https://jftagro.com/" + product.u + "#product",
-              "url": "https://jftagro.com/" + product.u,
+              "@type": "WebPage",
+              "@id": url + "#webpage",
+              "url": url,
               "name": product.t,
               "description": "Export specification, packing and shipment planning for " + product.t + ". Final quality parameters and availability are confirmed in writing.",
-              "image": "https://jftagro.com/" + encodeURI(product.i),
-              "category": product.c,
-              "countryOfOrigin": { "@type": "Country", "name": "India" },
-              "brand": { "@type": "Brand", "name": "JFT Agro Overseas" },
-              "additionalProperty": properties
+              "image": "https://jftagro.com/" + encodeURI(product.i)
             }
           };
         })

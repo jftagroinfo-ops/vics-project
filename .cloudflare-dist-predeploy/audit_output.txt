@@ -1,0 +1,15 @@
+JFT Agro Website Audit
+Date: 2026-08-09
+
+Audited 1612 renderable HTML pages.
+
+Checks:
+- Local links, assets, CSS URLs, media sources, form actions, and fragments
+- Titles, descriptions, canonical URLs, language metadata, and H1 structure
+- Duplicate IDs, image alt text and dimensions, JSON-LD validity
+- Form labels, interactive names, iframe titles, tabindex, and new-tab safety
+- Published blog destinations, related-card links, dead placeholders, cloned/stub exposure, and filter counts
+
+Total findings: 0
+
+See AUDIT_REPORT.md for runtime coverage, fixes, and external limitations.

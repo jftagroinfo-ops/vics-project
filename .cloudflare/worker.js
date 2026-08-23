@@ -6,8 +6,8 @@ const SECURITY_HEADERS = {
     "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
   "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
   "X-Frame-Options": "SAMEORIGIN",
-  "Content-Security-Policy-Report-Only":
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://cloudflareinsights.com https://api.web3forms.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.google.com https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com https://ok.surf https://translate.googleapis.com https://translate.google.com; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'self'",
+  "Content-Security-Policy":
+    "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://cloudflareinsights.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.google.com https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com https://ok.surf https://translate.googleapis.com https://translate.google.com; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'",
 };
 
 const LEGACY_PRODUCT_ALIASES = {
@@ -29,6 +29,30 @@ const LEGACY_ARTICLE_REDIRECTS = {
   "blog-spice-trends-2026.html": "/blog-turmeric-finger-export-india-2026.html",
 };
 
+const LEGACY_PRETTY_REDIRECTS = {
+  "/logistics/mundra-rice-exports/certificates.html": "/certificates.html",
+  "/1121-golden-sella-basmati-rice/": "/1121-basmati-rice-exporter.html",
+  "/1121-raw-rice-basmati-rice/": "/1121-raw-basmati-rice-exporter.html",
+  "/1121-steam-basmati-rice/": "/1121-steam-basmati-rice-exporter.html",
+  "/1401-steam-basmati-rice/": "/1401-steam-basmati-rice-exporter.html",
+  "/1509-golden-sella-basmati-rice/": "/1509-golden-sella-basmati-exporter.html",
+  "/1509-raw-basmati-rice/": "/products.html",
+  "/1509-white-sella-basmati-rice/": "/products.html",
+  "/1718-golden-sella-basmati-rice/": "/1718-golden-sella-basmati-exporter.html",
+  "/animal-and-bird-feed/": "/products.html",
+  "/basil-seeds-tukmaria/": "/basil-seeds-exporter.html",
+  "/bay-leaves/": "/bay-leaf-exporter.html",
+  "/blog/": "/blog.html",
+  "/fennel-seeds-powder-sounff-variyali/": "/fennel-seeds-sounff-exporter.html",
+  "/grey-millet/": "/grey-millet-exporter.html",
+  "/indian-basmati-rice/": "/1121-basmati-rice-exporter.html",
+  "/indian-tamarind-with-seeds-and-without-seeds/": "/tamarind-exporter.html",
+  "/products/": "/products.html",
+  "/senna-pods/": "/senna-pods-exporter.html",
+  "/the-basic-processes-of-rice-milling/": "/infrastructure.html",
+  "/whole-red-chilly/": "/dry-red-chilli-exporter.html",
+};
+
 const ROOT_RETIRED_ARTICLES = new Set([
   "blog-cif-fob-explained.html",
   "blog-eu-mrl-basmati.html",
@@ -48,18 +72,22 @@ function permanentRedirect(url, pathname) {
 
 async function legacyProductRedirect(url, env) {
   // Retire the former hosted-store archive that Google still remembers.
-  if (/^\/products\/20325959(?:\/index\.html)?\/?$/.test(url.pathname)) {
+  if (/^\/products\/\d+(?:\/index\.html)?\/?$/.test(url.pathname)) {
+    return permanentRedirect(url, "/products.html");
+  }
+
+  if (/^\/products\/page\/\d+\/?$/.test(url.pathname)) {
     return permanentRedirect(url, "/products.html");
   }
 
   // The previous WordPress catalogue exposed the homepage under query URLs.
   // Redirect only those known legacy parameters; current campaign and RFQ
   // parameters remain untouched for analytics and form pre-filling.
-  if (url.pathname !== "/" && url.pathname !== "/index.html") return null;
-
   if (url.searchParams.get("post_type") === "product") {
     return permanentRedirect(url, "/products.html");
   }
+
+  if (url.pathname !== "/" && url.pathname !== "/index.html") return null;
 
   const product = (url.searchParams.get("product") || "")
     .trim()
@@ -107,9 +135,112 @@ function withSecurityHeaders(assetResponse) {
   return response;
 }
 
+function leadResponse(payload, status = 200) {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "no-referrer",
+    },
+  });
+}
+
+async function readLeadPayload(request) {
+  const contentType = request.headers.get("Content-Type") || "";
+  if (contentType.includes("application/json")) return request.json();
+  const form = await request.formData();
+  return Object.fromEntries(form.entries());
+}
+
+async function verifyTurnstile(request, env, payload) {
+  if (!env.TURNSTILE_SECRET) return true;
+  const token = String(payload["cf-turnstile-response"] || "");
+  if (!token) return false;
+  const response = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret: env.TURNSTILE_SECRET,
+        response: token,
+        remoteip: request.headers.get("CF-Connecting-IP") || undefined,
+      }),
+    },
+  );
+  const result = await response.json();
+  return Boolean(result.success && (!result.hostname || result.hostname === "jftagro.com"));
+}
+
+async function handleLead(request, env) {
+  if (request.method !== "POST") {
+    return leadResponse({ success: false, message: "Method not allowed" }, 405);
+  }
+  const origin = request.headers.get("Origin");
+  if (origin !== "https://jftagro.com" && origin !== "https://www.jftagro.com") {
+    return leadResponse({ success: false, message: "Invalid submission origin" }, 403);
+  }
+  const length = Number(request.headers.get("Content-Length") || 0);
+  if (length > 32_768) {
+    return leadResponse({ success: false, message: "Submission is too large" }, 413);
+  }
+  if (!env.WEB3FORMS_ACCESS_KEY) {
+    return leadResponse({ success: false, message: "Form service is not configured" }, 503);
+  }
+
+  let raw;
+  try {
+    raw = await readLeadPayload(request);
+  } catch (_) {
+    return leadResponse({ success: false, message: "Invalid form payload" }, 400);
+  }
+  if (!raw || typeof raw !== "object" || Object.keys(raw).length > 80) {
+    return leadResponse({ success: false, message: "Invalid form payload" }, 400);
+  }
+  if (raw.website || raw.company_website || raw.botcheck) {
+    return leadResponse({ success: false, message: "Automated submission rejected" }, 400);
+  }
+  if (!(await verifyTurnstile(request, env, raw))) {
+    return leadResponse({ success: false, message: "Security check failed" }, 403);
+  }
+
+  const payload = {};
+  for (const [name, value] of Object.entries(raw)) {
+    if (name === "access_key" || name === "cf-turnstile-response") continue;
+    if (!/^[a-zA-Z0-9_.-]{1,80}$/.test(name)) continue;
+    payload[name] = String(value).trim().slice(0, 2_000);
+  }
+  if (!payload.email && !payload.phone && !payload.whatsapp) {
+    return leadResponse({ success: false, message: "Email or phone is required" }, 400);
+  }
+  payload.access_key = env.WEB3FORMS_ACCESS_KEY;
+  payload.botcheck = "";
+
+  const upstream = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify(payload),
+  });
+  const result = await upstream.json().catch(() => ({ success: false }));
+  return leadResponse(
+    {
+      success: Boolean(upstream.ok && result.success),
+      message: result.message || (upstream.ok ? "Submission received" : "Submission failed"),
+      lead_id: payload.lead_id || "",
+    },
+    upstream.ok && result.success ? 200 : 502,
+  );
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === "/api/lead") {
+      return handleLead(request, env);
+    }
 
     // Keep one public origin and one homepage URL in every language.
     // Permanent redirects consolidate backlinks and stale search-index copies.
@@ -120,6 +251,35 @@ export default {
 
     const legacyProduct = await legacyProductRedirect(url, env);
     if (legacyProduct) return legacyProduct;
+
+    const legacyPretty = LEGACY_PRETTY_REDIRECTS[url.pathname.toLowerCase()];
+    if (legacyPretty) return permanentRedirect(url, legacyPretty);
+
+    // Old generators incorrectly linked locale-prefixed sitemap and shared
+    // asset URLs. Consolidate them only when a real root resource exists.
+    const localeMatch = url.pathname.match(
+      /^\/(?:ar|es|fr|id|ms|pt|ru|si|th|vi)(\/(?:assets|images)\/.*|\/sitemap\.xml)$/i,
+    );
+    if (localeMatch) {
+      const rootPath = localeMatch[1];
+      if (rootPath.toLowerCase() === "/sitemap.xml") {
+        return permanentRedirect(url, "/sitemap.xml");
+      }
+
+      const rootAsset = new URL(rootPath, url.origin);
+      const rootResponse = await env.ASSETS.fetch(
+        new Request(rootAsset, { method: "HEAD" }),
+      );
+      if (rootResponse.status === 200) return permanentRedirect(url, rootPath);
+    }
+
+    // header.html was an internal include, never a public content page.
+    if (/^\/(?:ar|es|fr|id|ms|pt|ru|si|th|vi)\/header\.html$/i.test(url.pathname)) {
+      return new Response("Gone", {
+        status: 410,
+        headers: { "Content-Type": "text/plain; charset=utf-8" },
+      });
+    }
 
     const articleName = url.pathname.split("/").pop();
     const legacyArticle = LEGACY_ARTICLE_REDIRECTS[articleName];

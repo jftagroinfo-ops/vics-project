@@ -1,0 +1,30 @@
+.sample-request-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 9px;
+  color: #397030;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sample-request-link:hover,
+.sample-request-link:focus-visible { text-decoration: underline; }
+
+.faq-q:focus-visible {
+  outline: 3px solid rgba(238, 191, 69, .65);
+  outline-offset: -3px;
+}
+
+@media (max-width: 768px) {
+  .contact-hero { min-height: auto; }
+  .contact-hero-inner { padding: 48px 0 42px; }
+  .contact-hero-inner .jft-wide-container { gap: 28px; }
+  .hero-meta-tags { gap: 7px; }
+  .hero-tag { padding: 7px 9px; }
+  .hero-quick-card { padding: 22px 18px; }
+  .hqc-row { padding: 10px 0; }
+  .contact-hero .reveal-right { display: none; }
+}

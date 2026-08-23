@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local Worker testing. Never commit real values.
+WEB3FORMS_ACCESS_KEY=replace_with_web3forms_key
+# Optional. When configured, /api/lead requires a valid Turnstile token.
+TURNSTILE_SECRET=replace_with_turnstile_secret

@@ -18,9 +18,20 @@ UPDATED_2026_08_16 = {
     "blog-food-container-loading-inspection-checklist.html",
 }
 
+UPDATED_2026_08_20 = {
+    "editorial-policy.html",
+    "india-agricultural-export-market-data-sources.html",
+    "blog-how-to-write-agro-commodity-purchase-specification.html",
+    "blog-certificate-of-analysis-food-imports.html",
+    "blog-food-container-loading-inspection-checklist.html",
+    "blog-how-to-choose-indian-agro-exporter.html",
+}
+
 
 def last_modified(path: Path) -> str:
     """Reuse the checked-in value so routine verification is deterministic."""
+    if locale(path) == "en" and path.name in UPDATED_2026_08_20:
+        return "2026-08-20"
     if locale(path) == "en" and path.name in UPDATED_2026_08_16:
         return "2026-08-16"
     sitemap = ROOT / "sitemap.xml"
@@ -60,6 +71,10 @@ def main() -> None:
     for language in LANGS:
         candidates.extend((ROOT / language).glob("*.html"))
     pages = [path for path in candidates if is_indexable(path)]
+    directory_pages = [
+        path for path in (ROOT / "logistics").glob("*/index.html")
+        if is_indexable(path)
+    ]
     by_name: dict[str, list[Path]] = {}
     for path in pages:
         by_name.setdefault(path.name, []).append(path)
@@ -91,9 +106,24 @@ def main() -> None:
                 f'    <xhtml:link rel="alternate" hreflang="x-default" href="{html.escape(public_url(english))}"/>'
             )
         lines.append("  </url>")
+    for path in sorted(directory_pages):
+        relative = path.parent.relative_to(ROOT).as_posix().strip("/")
+        url = f"https://jftagro.com/{relative}/"
+        lines.extend(
+            [
+                "  <url>",
+                f"    <loc>{html.escape(url)}</loc>",
+                "    <lastmod>2026-08-20</lastmod>",
+                "    <changefreq>monthly</changefreq>",
+                "    <priority>0.70</priority>",
+                f'    <xhtml:link rel="alternate" hreflang="en" href="{html.escape(url)}"/>',
+                f'    <xhtml:link rel="alternate" hreflang="x-default" href="{html.escape(url)}"/>',
+                "  </url>",
+            ]
+        )
     lines.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"Generated sitemap.xml with {len(pages)} indexable URLs.")
+    print(f"Generated sitemap.xml with {len(pages) + len(directory_pages)} indexable URLs.")
 
 
 if __name__ == "__main__":

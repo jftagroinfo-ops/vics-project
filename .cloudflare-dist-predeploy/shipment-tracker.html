@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/assets/fonts/jft-fonts.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://cdnjs.cloudflare.com https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://cloudflareinsights.com https://api.frankfurter.app https://api.exchangerate-api.com https://open.er-api.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.google.com; frame-src 'none';">
+  <title>Container &amp; Shipment Tracking Links | JFT Agro</title>
+  <meta name="description" content="Validate an ISO 6346 container number and open the relevant carrier&#x27;s official tracking portal using a container, Bill of Lading or booking reference.">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <meta name="author" content="JFT Agro Overseas">
+  <meta name="theme-color" content="#173d35">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="jft-design-system.css">
+  <link rel="stylesheet" href="jft-responsive.css">
+  <link rel="stylesheet" href="shipment-tracker-page.css">
+  <link rel="manifest" href="manifest.json">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:locale:alternate" content="ar_AE">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="id_ID">
+  <meta property="og:locale:alternate" content="ms_MY">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:locale:alternate" content="si_LK">
+  <meta property="og:locale:alternate" content="th_TH">
+  <meta property="og:locale:alternate" content="vi_VN">
+  <meta property="og:title" content="Container &amp; Shipment Tracking Links | JFT Agro">
+  <meta property="og:description" content="Validate a container reference and continue securely to the selected carrier's official tracking portal.">
+  <meta property="og:image" content="https://jftagro.com/images/homepage/real-container-port-landscape-pexels.webp">
+  <meta property="og:url" content="https://jftagro.com/shipment-tracker.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JFT Agro Shipment Tracking Portal","description":"A browser-based ISO 6346 container-number validator with links to official carrier tracking portals.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"url":"https://jftagro.com/shipment-tracker.html","provider":{"@type":"Organization","name":"JFT Agro Overseas","url":"https://jftagro.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jftagro.com/"},{"@type":"ListItem","position":2,"name":"Shipment Tracker","item":"https://jftagro.com/shipment-tracker.html"}]}</script>
+  <meta property="og:site_name" content="JFT Agro Overseas">
+  <link rel="canonical" href="https://jftagro.com/shipment-tracker.html">
+  <link rel="alternate" hreflang="en" href="https://jftagro.com/shipment-tracker.html">
+  <link rel="alternate" hreflang="ar" href="https://jftagro.com/ar/shipment-tracker.html">
+  <link rel="alternate" hreflang="es" href="https://jftagro.com/es/shipment-tracker.html">
+  <link rel="alternate" hreflang="fr" href="https://jftagro.com/fr/shipment-tracker.html">
+  <link rel="alternate" hreflang="id" href="https://jftagro.com/id/shipment-tracker.html">
+  <link rel="alternate" hreflang="ms" href="https://jftagro.com/ms/shipment-tracker.html">
+  <link rel="alternate" hreflang="pt" href="https://jftagro.com/pt/shipment-tracker.html">
+  <link rel="alternate" hreflang="ru" href="https://jftagro.com/ru/shipment-tracker.html">
+  <link rel="alternate" hreflang="si" href="https://jftagro.com/si/shipment-tracker.html">
+  <link rel="alternate" hreflang="th" href="https://jftagro.com/th/shipment-tracker.html">
+  <link rel="alternate" hreflang="vi" href="https://jftagro.com/vi/shipment-tracker.html">
+  <link rel="alternate" hreflang="x-default" href="https://jftagro.com/shipment-tracker.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-jft-agro-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-jft-agro-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-jft-agro.png">
+</head>
+<body class="shipment-page">
+  <a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20I%20need%20help%20tracking%20my%20shipment." class="wa-fab" target="_blank" rel="noopener" aria-label="Ask the trade desk for tracking help"><i class="fa-brands fa-whatsapp"></i></a>
+  <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="shipment-hero">
+      <div class="shipment-hero-image" aria-hidden="true"></div>
+      <div class="shipment-hero-overlay" aria-hidden="true"></div>
+      <div class="jft-wide-container shipment-hero-inner">
+        <nav class="jft-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Shipment Tracker</span></nav>
+        <span class="brand-tag brand-tag-white"><i class="fa-solid fa-route"></i> Carrier Tracking Portal</span>
+        <h1>Validate Your Reference.<br><em>Track With the Carrier.</em></h1>
+        <p>Check an ISO container number locally, then continue to the shipping line shown on your Bill of Lading or booking confirmation for current milestone and ETA information.</p>
+        <div class="shipment-hero-tags">
+          <span><i class="fa-solid fa-check-double"></i> ISO Format Check</span>
+          <span><i class="fa-solid fa-shield-halved"></i> No Reference Stored</span>
+          <span><i class="fa-solid fa-arrow-up-right-from-square"></i> Official Carrier Portals</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tracker-workspace" id="tracker">
+      <div class="jft-wide-container">
+        <div class="tracker-notice"><i class="fa-solid fa-circle-info"></i><p><strong>This page does not receive live carrier data.</strong> It validates container-number structure and prepares a secure handoff to the carrier portal you select. Carrier events, vessel assignment and ETA remain subject to the carrier's system and schedule changes.</p></div>
+        <div class="tracker-shell">
+          <form id="shipment-form" class="tracker-form" novalidate>
+            <div class="tracker-form-head"><span class="section-kicker">Shipment Reference</span><h2>Prepare Your Tracking Search</h2><p>Use the carrier named on your transport document. A container owner prefix alone does not confirm the carrying line.</p></div>
+
+            <fieldset class="reference-tabs"><legend>Reference type</legend>
+              <button type="button" class="reference-tab active" data-type="container" aria-pressed="true"><i class="fa-solid fa-box"></i><span>Container</span></button>
+              <button type="button" class="reference-tab" data-type="bl" aria-pressed="false"><i class="fa-solid fa-file-lines"></i><span>Bill of Lading</span></button>
+              <button type="button" class="reference-tab" data-type="booking" aria-pressed="false"><i class="fa-solid fa-bookmark"></i><span>Booking</span></button>
+            </fieldset>
+
+            <div class="tracker-field">
+              <label for="shipment-reference" id="reference-label">Container number</label>
+              <div class="tracker-input-wrap"><i class="fa-solid fa-hashtag"></i><input id="shipment-reference" name="shipment-reference" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="24" placeholder="Example: MSCU1234566" aria-describedby="reference-help reference-error"><span id="validation-mark" aria-hidden="true"></span></div>
+              <span class="field-help" id="reference-help">Four letters followed by seven digits. Spaces and hyphens are accepted.</span>
+              <span class="field-error" id="reference-error" role="alert"></span>
+            </div>
+
+            <div class="container-anatomy" id="container-anatomy" aria-label="ISO 6346 number structure">
+              <div><strong id="owner-code">MSC</strong><span>Owner prefix</span></div>
+              <div><strong id="equipment-code">U</strong><span>Equipment</span></div>
+              <div><strong id="serial-code">123456</strong><span>Serial number</span></div>
+              <div><strong id="check-code">6</strong><span>Check digit</span></div>
+            </div>
+
+            <div class="tracker-field">
+              <label for="carrier-select">Shipping carrier</label>
+              <div class="tracker-select-wrap"><i class="fa-solid fa-ship"></i><select id="carrier-select" name="carrier"><option value="">Select carrier from your BL or booking</option></select><i class="fa-solid fa-chevron-down"></i></div>
+              <span class="field-help">Required for a direct official tracking link.</span>
+              <span class="field-error" id="carrier-error" role="alert"></span>
+            </div>
+
+            <button class="tracker-submit" type="submit"><i class="fa-solid fa-arrow-up-right-from-square"></i><span>Prepare Official Tracking Link</span></button>
+            <div class="privacy-note"><i class="fa-solid fa-lock"></i><span>Your reference is processed only in this browser. It is not saved or transmitted by JFT Agro from this page.</span></div>
+          </form>
+
+          <aside class="tracker-result" aria-live="polite">
+            <div id="result-empty" class="result-empty"><span class="result-empty-icon"><i class="fa-solid fa-location-crosshairs"></i></span><span class="result-eyebrow">Ready when you are</span><h2>Enter a shipment reference</h2><p>We will check the format and build the appropriate carrier handoff without storing your number.</p></div>
+            <div id="result-ready" class="result-ready" hidden>
+              <span class="result-status"><i class="fa-solid fa-circle-check"></i><span id="result-status-text">Reference ready</span></span>
+              <span class="result-eyebrow">Tracking handoff</span>
+              <h2 id="result-title">Open Official Carrier Tracking</h2>
+              <dl class="result-summary"><div><dt>Reference</dt><dd id="result-reference"></dd></div><div><dt>Type</dt><dd id="result-type"></dd></div><div><dt>Selected carrier</dt><dd id="result-carrier"></dd></div></dl>
+              <div id="owner-hint" class="owner-hint" hidden><i class="fa-solid fa-circle-info"></i><span></span></div>
+              <a id="official-track-link" class="official-track-link" href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-ship"></i><span><strong id="official-link-title">Open carrier portal</strong><small>Reference may need to be pasted into the carrier form.</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <button id="copy-reference" class="copy-reference" type="button"><i class="fa-solid fa-copy"></i> Copy Reference</button>
+              <span id="copy-status" class="copy-status" role="status"></span>
+              <p class="result-caveat">Planned dates and ETAs can change. Use carrier-confirmed events and contact the JFT Agro trade desk when a commercial decision depends on arrival timing.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="carrier-section">
+      <div class="jft-wide-container">
+        <div class="carrier-heading"><div><span class="section-kicker">Direct Access</span><h2>Major Carrier Tracking Portals</h2></div><p>Use the shipping line printed on your Bill of Lading or booking confirmation. These links open carrier-operated tracking pages.</p></div>
+        <div id="carrier-grid" class="carrier-grid"></div>
+      </div>
+    </section>
+
+    <section class="tracking-method">
+      <div class="jft-wide-container method-layout">
+        <div><span class="section-kicker section-kicker-light">Reliable Tracking</span><h2>Read Shipment Events<br><em>With the Right Context</em></h2><p>Container milestones usually combine confirmed events with planned movements. A vessel position map alone does not confirm that your container is on that vessel.</p></div>
+        <div class="method-steps">
+          <article><span>01</span><div><h3>Confirm the carrier</h3><p>Use the carrier shown on the BL or booking, not a guess based only on equipment ownership.</p></div></article>
+          <article><span>02</span><div><h3>Open the official portal</h3><p>Search with the exact container, BL or booking reference accepted by that carrier.</p></div></article>
+          <article><span>03</span><div><h3>Separate actual from planned</h3><p>Check which milestones are confirmed and which dates remain estimates.</p></div></article>
+          <article><span>04</span><div><h3>Escalate exceptions</h3><p>Contact the trade desk for rollovers, holds, transshipment changes or document questions.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="jft-cta-block"><div class="jft-wide-container"><div class="cta-eyebrow">Tracking Help</div><h2 class="cta-block-title">Need a Confirmed Shipment Update?</h2><p class="cta-block-desc">Share your JFT Agro order reference privately with our trade desk. We can confirm the carrier, container, current documented milestone and available shipping documents.</p><div class="cta-actions"><a href="https://wa.me/918425057274?text=Hi%20JFT%20Agro%2C%20please%20help%20me%20confirm%20my%20shipment%20status." class="btn-gold" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Ask Trade Desk</a><a href="contact.html#inquiry-form" class="btn-outline"><i class="fa-solid fa-envelope"></i> Send Reference Securely</a></div><div class="cta-trust-row"><span class="cta-trust-item"><i class="fa-solid fa-file-lines"></i> BL Review</span><span class="cta-trust-item"><i class="fa-solid fa-ship"></i> Carrier Confirmation</span><span class="cta-trust-item"><i class="fa-solid fa-clock"></i> Milestone Check</span><span class="cta-trust-item"><i class="fa-solid fa-folder-open"></i> Document Support</span></div></div></section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="article-shell.js"></script>
+  <script src="shipment-tracker.js"></script>
+</body>
+</html>

@@ -11,8 +11,10 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parent.parent
+IGNORED_DIRS = {".git", ".cloudflare-dist", ".cloudflare-dist-predeploy", ".wrangler", "reports", "node_modules"}
 IMG_RE = re.compile(r"<img\b[^>]*>", re.I)
 SRC_RE = re.compile(r"\bsrc=[\"']([^\"']+)[\"']", re.I)
+DIMENSIONS: dict[Path, tuple[int, int] | None] = {}
 
 
 def image_path(page: Path, source: str) -> Path | None:
@@ -34,11 +36,16 @@ def update_tag(page: Path, tag: str) -> str:
     has_height = bool(re.search(r"\bheight\s*=", tag, re.I))
     if has_width and has_height:
         return tag
-    try:
-        with Image.open(target) as image:
-            width, height = image.size
-    except Exception:
+    if target not in DIMENSIONS:
+        try:
+            with Image.open(target) as image:
+                DIMENSIONS[target] = image.size
+        except Exception:
+            DIMENSIONS[target] = None
+    dimensions = DIMENSIONS[target]
+    if dimensions is None:
         return tag
+    width, height = dimensions
     attributes = ""
     if not has_width:
         attributes += f' width="{width}"'
@@ -50,6 +57,9 @@ def update_tag(page: Path, tag: str) -> str:
 def main() -> None:
     changed = 0
     for page in ROOT.rglob("*.html"):
+        relative = page.relative_to(ROOT)
+        if any(part in IGNORED_DIRS or part.startswith("backup_") for part in relative.parts):
+            continue
         original = page.read_text(encoding="utf-8")
         updated = IMG_RE.sub(lambda match: update_tag(page, match.group(0)), original)
         if updated != original:

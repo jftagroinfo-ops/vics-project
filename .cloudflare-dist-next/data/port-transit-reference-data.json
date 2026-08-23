@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-08-12",
+  "method": "Broad port-to-port planning bands compiled for early export planning. They are not live carrier schedules and do not include origin handling, cut-off, customs, destination clearance or inland delivery.",
+  "origins": {
+    "jnpa": { "name": "JNPA / Nhava Sheva", "city": "Navi Mumbai", "code": "INNSA" },
+    "mundra": { "name": "Mundra Port", "city": "Gujarat", "code": "INMUN" },
+    "chennai": { "name": "Chennai Port", "city": "Tamil Nadu", "code": "INMAA" }
+  },
+  "regions": {
+    "middle-east": "Middle East & Gulf",
+    "east-africa": "East Africa",
+    "west-africa": "West Africa",
+    "europe": "Europe",
+    "south-asia": "South & Southeast Asia",
+    "east-asia": "East Asia"
+  },
+  "destinations": [
+    { "id":"jebel-ali", "port":"Jebel Ali", "city":"Dubai", "country":"UAE", "code":"AEJEA", "region":"middle-east", "pattern":"Direct or regional connection", "transit":{"jnpa":[8,14],"mundra":[7,12],"chennai":[11,17]} },
+    { "id":"dammam", "port":"King Abdulaziz Port", "city":"Dammam", "country":"Saudi Arabia", "code":"SADMM", "region":"middle-east", "pattern":"Direct or Gulf connection", "transit":{"jnpa":[10,17],"mundra":[9,16],"chennai":[12,19]} },
+    { "id":"khalifa", "port":"Khalifa Port", "city":"Abu Dhabi", "country":"UAE", "code":"AEKHL", "region":"middle-east", "pattern":"Direct or regional connection", "transit":{"jnpa":[9,15],"mundra":[8,14],"chennai":[11,17]} },
+    { "id":"kuwait", "port":"Shuwaikh / Shuaiba", "city":"Kuwait City", "country":"Kuwait", "code":"KWSWK", "region":"middle-east", "pattern":"Usually Gulf connection", "transit":{"jnpa":[12,20],"mundra":[11,19],"chennai":[14,22]} },
+    { "id":"sohar", "port":"Port of Sohar", "city":"Sohar", "country":"Oman", "code":"OMSOH", "region":"middle-east", "pattern":"Direct or regional connection", "transit":{"jnpa":[8,14],"mundra":[7,13],"chennai":[10,16]} },
+    { "id":"hamad", "port":"Hamad Port", "city":"Doha", "country":"Qatar", "code":"QAHMD", "region":"middle-east", "pattern":"Direct or Gulf connection", "transit":{"jnpa":[11,18],"mundra":[10,17],"chennai":[13,20]} },
+
+    { "id":"mombasa", "port":"Port of Mombasa", "city":"Mombasa", "country":"Kenya", "code":"KEMBA", "region":"east-africa", "pattern":"Direct or regional connection", "transit":{"jnpa":[12,20],"mundra":[13,21],"chennai":[14,22]} },
+    { "id":"dar-es-salaam", "port":"Port of Dar es Salaam", "city":"Dar es Salaam", "country":"Tanzania", "code":"TZDAR", "region":"east-africa", "pattern":"Direct or regional connection", "transit":{"jnpa":[14,22],"mundra":[15,23],"chennai":[16,24]} },
+    { "id":"djibouti", "port":"Port of Djibouti", "city":"Djibouti", "country":"Djibouti", "code":"DJJIB", "region":"east-africa", "pattern":"Direct or feeder connection", "transit":{"jnpa":[10,17],"mundra":[11,18],"chennai":[12,19]} },
+    { "id":"maputo", "port":"Port of Maputo", "city":"Maputo", "country":"Mozambique", "code":"MZMPM", "region":"east-africa", "pattern":"Usually transshipment", "transit":{"jnpa":[19,30],"mundra":[20,31],"chennai":[21,32]} },
+
+    { "id":"lagos", "port":"Apapa / Tin Can Island", "city":"Lagos", "country":"Nigeria", "code":"NGAPP", "region":"west-africa", "pattern":"Service-dependent transshipment", "transit":{"jnpa":[25,38],"mundra":[26,39],"chennai":[27,40]} },
+    { "id":"tema", "port":"Port of Tema", "city":"Tema", "country":"Ghana", "code":"GHTEM", "region":"west-africa", "pattern":"Service-dependent transshipment", "transit":{"jnpa":[25,38],"mundra":[26,39],"chennai":[27,40]} },
+    { "id":"abidjan", "port":"Port of Abidjan", "city":"Abidjan", "country":"Cote d'Ivoire", "code":"CIABJ", "region":"west-africa", "pattern":"Service-dependent transshipment", "transit":{"jnpa":[27,40],"mundra":[28,41],"chennai":[29,42]} },
+    { "id":"dakar", "port":"Port of Dakar", "city":"Dakar", "country":"Senegal", "code":"SNDKR", "region":"west-africa", "pattern":"Service-dependent transshipment", "transit":{"jnpa":[28,42],"mundra":[29,43],"chennai":[30,44]} },
+
+    { "id":"rotterdam", "port":"Port of Rotterdam", "city":"Rotterdam", "country":"Netherlands", "code":"NLRTM", "region":"europe", "pattern":"Direct or European hub connection", "transit":{"jnpa":[22,34],"mundra":[23,35],"chennai":[24,36]} },
+    { "id":"antwerp", "port":"Port of Antwerp-Bruges", "city":"Antwerp", "country":"Belgium", "code":"BEANR", "region":"europe", "pattern":"Direct or European hub connection", "transit":{"jnpa":[23,35],"mundra":[24,36],"chennai":[25,37]} },
+    { "id":"hamburg", "port":"Port of Hamburg", "city":"Hamburg", "country":"Germany", "code":"DEHAM", "region":"europe", "pattern":"Direct or European hub connection", "transit":{"jnpa":[24,36],"mundra":[25,37],"chennai":[26,38]} },
+    { "id":"felixstowe", "port":"Port of Felixstowe", "city":"Felixstowe", "country":"United Kingdom", "code":"GBFXT", "region":"europe", "pattern":"Direct or European hub connection", "transit":{"jnpa":[24,37],"mundra":[25,38],"chennai":[26,39]} },
+    { "id":"piraeus", "port":"Port of Piraeus", "city":"Athens", "country":"Greece", "code":"GRPIR", "region":"europe", "pattern":"Direct or Mediterranean connection", "transit":{"jnpa":[18,30],"mundra":[19,31],"chennai":[20,32]} },
+
+    { "id":"colombo", "port":"Port of Colombo", "city":"Colombo", "country":"Sri Lanka", "code":"LKCMB", "region":"south-asia", "pattern":"Frequent direct services", "transit":{"jnpa":[3,7],"mundra":[4,8],"chennai":[2,6]} },
+    { "id":"chattogram", "port":"Chattogram Port", "city":"Chattogram", "country":"Bangladesh", "code":"BDCGP", "region":"south-asia", "pattern":"Direct or regional connection", "transit":{"jnpa":[7,14],"mundra":[8,15],"chennai":[6,13]} },
+    { "id":"port-klang", "port":"Port Klang", "city":"Klang", "country":"Malaysia", "code":"MYPKG", "region":"south-asia", "pattern":"Direct or regional connection", "transit":{"jnpa":[12,20],"mundra":[13,21],"chennai":[11,19]} },
+    { "id":"singapore", "port":"Port of Singapore", "city":"Singapore", "country":"Singapore", "code":"SGSIN", "region":"south-asia", "pattern":"Direct or regional connection", "transit":{"jnpa":[13,21],"mundra":[14,22],"chennai":[12,20]} },
+    { "id":"jakarta", "port":"Tanjung Priok", "city":"Jakarta", "country":"Indonesia", "code":"IDTPP", "region":"south-asia", "pattern":"Usually regional connection", "transit":{"jnpa":[14,23],"mundra":[15,24],"chennai":[13,22]} },
+    { "id":"manila", "port":"Manila International Container Terminal", "city":"Manila", "country":"Philippines", "code":"PHMNL", "region":"south-asia", "pattern":"Usually regional connection", "transit":{"jnpa":[16,26],"mundra":[17,27],"chennai":[15,25]} },
+
+    { "id":"shanghai", "port":"Port of Shanghai", "city":"Shanghai", "country":"China", "code":"CNSHA", "region":"east-asia", "pattern":"Direct or regional connection", "transit":{"jnpa":[17,27],"mundra":[18,28],"chennai":[16,26]} },
+    { "id":"hong-kong", "port":"Kwai Tsing Container Terminals", "city":"Hong Kong", "country":"Hong Kong", "code":"HKHKG", "region":"east-asia", "pattern":"Direct or regional connection", "transit":{"jnpa":[16,26],"mundra":[17,27],"chennai":[15,25]} },
+    { "id":"busan", "port":"Busan New Port", "city":"Busan", "country":"South Korea", "code":"KRPUS", "region":"east-asia", "pattern":"Direct or regional connection", "transit":{"jnpa":[19,30],"mundra":[20,31],"chennai":[18,29]} },
+    { "id":"yokohama", "port":"Port of Yokohama", "city":"Yokohama", "country":"Japan", "code":"JPYOK", "region":"east-asia", "pattern":"Usually regional connection", "transit":{"jnpa":[21,33],"mundra":[22,34],"chennai":[20,32]} }
+  ],
+  "scheduleLinks": [
+    { "name":"Maersk", "url":"https://www.maersk.com/schedules/" },
+    { "name":"MSC", "url":"https://www.msc.com/en/search-a-schedule" },
+    { "name":"CMA CGM", "url":"https://www.cma-cgm.com/ebusiness/schedules" },
+    { "name":"Hapag-Lloyd", "url":"https://www.hapag-lloyd.com/en/online-business/schedule/vessel-schedule.html" }
+  ]
+}

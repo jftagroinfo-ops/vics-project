@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-08-22T20:42:09.828174+00:00",
+  "status": "failed",
+  "checks": [
+    {
+      "name": "Editorial governance",
+      "status": "passed",
+      "returncode": 0,
+      "output": "Validated 4 editorial records; 0 approved, 4 gated."
+    },
+    {
+      "name": "Localization governance",
+      "status": "passed",
+      "returncode": 0,
+      "output": "Validated 10 locale governance records; 0 approved, 10 gated."
+    },
+    {
+      "name": "Localization technical audit",
+      "status": "failed",
+      "returncode": 1,
+      "output": "{\n  \"summary\": {\n    \"ar\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    },\n    \"es\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    },\n    \"fr\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    },\n    \"id\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    },\n    \"ms\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    },\n    \"pt\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    },\n    \"ru\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    },\n    \"si\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    },\n    \"th\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    },\n    \"vi\": {\n      \"renderable_pages\": 158,\n      \"missing_pages\": 1,\n      \"fallback_pages\": 0,\n      \"high_residue_pages\": 0\n    }\n  },\n  \"finding_counts\": {\n    \"ar_missing_pages\": 1,\n    \"es_missing_pages\": 1,\n    \"fr_missing_pages\": 1,\n    \"id_missing_pages\": 1,\n    \"ms_missing_pages\": 1,\n    \"pt_missing_pages\": 1,\n    \"ru_missing_pages\": 1,\n    \"si_missing_pages\": 1,\n    \"th_missing_pages\": 1,\n    \"vi_missing_pages\": 1\n  }\n}"
+    },
+    {
+      "name": "FAQ/schema and cluster alignment",
+      "status": "passed",
+      "returncode": 0,
+      "output": "Validated 926 FAQPage blocks and 83 cluster pages.\nAll visible FAQ/schema and cluster-link checks passed."
+    },
+    {
+      "name": "Full static audit",
+      "status": "passed",
+      "returncode": 0,
+      "output": "{\n  \"html_files\": 1733,\n  \"renderable_pages\": 1733,\n  \"sitemap_urls\": 1433,\n  \"indexable_pages\": 1433\n}\n{\n  \"performance_large_image\": 4,\n  \"seo_description_length\": 23,\n  \"seo_title_length\": 24\n}"
+    },
+    {
+      "name": "Local link scan",
+      "status": "passed",
+      "returncode": 0,
+      "output": "Indexed 2191 local paths and 1746 HTML files in 0.1s\nChecked 250/1746 HTML files\nChecked 500/1746 HTML files\nChecked 750/1746 HTML files\nChecked 1000/1746 HTML files\nChecked 1250/1746 HTML files\nChecked 1500/1746 HTML files\nTotal HTML files: 1746\nTotal Unique Broken Links: 0"
+    },
+    {
+      "name": "Release manifest",
+      "status": "passed",
+      "returncode": 0,
+      "output": "Manifested 1732 changed HTML files; 1 new URLs; 0 blockers."
+    },
+    {
+      "name": "IndexNow payload dry run",
+      "status": "passed",
+      "returncode": 0,
+      "output": "IndexNow dry run passed for 1433 unique jftagro.com URL(s); no request sent."
+    }
+  ],
+  "scope": {
+    "html_files": 1733,
+    "renderable_pages": 1733,
+    "sitemap_urls": 1433,
+    "indexable_pages": 1433
+  },
+  "editorial_warnings": {
+    "performance_large_image": 4,
+    "seo_description_length": 23,
+    "seo_title_length": 24
+  },
+  "external_gates": [
+    "production deployment and live crawl",
+    "real Search Console and aggregate lead outcomes",
+    "named article reviewer approvals",
+    "native-language commercial/legal approvals",
+    "current credential proof",
+    "earned third-party citations"
+  ]
+}

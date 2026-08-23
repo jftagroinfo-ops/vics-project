@@ -78,6 +78,8 @@ def local_target(page: Path, raw_url: str) -> tuple[Path | None, str]:
         return None, path_text[1:]
     if not path_text:
         return page, unquote(parsed.fragment)
+    if path_text.endswith("/"):
+        path_text += "index.html"
     target = ROOT / path_text.lstrip("/") if path_text.startswith("/") else page.parent / path_text
     return target.resolve(), unquote(parsed.fragment)
 

@@ -122,11 +122,19 @@ def public_url(path: Path) -> str:
     return f"{BASE_URL}/{lc}/{path.name}" if lc != "en" else f"{BASE_URL}/{path.name}"
 
 
+def source_pages() -> list[Path]:
+    """Return only public source pages, never deployment or dependency copies."""
+    pages = list(ROOT.glob("*.html"))
+    for language in LANGS:
+        pages.extend((ROOT / language).glob("*.html"))
+    return pages
+
+
 def main() -> None:
     marked, restored = synchronize_localization_fallbacks()
     # Keep noindex and redirect documents tidy too. They are not part of the
     # hreflang graph, but every renderable page should still have one canonical.
-    for path in ROOT.rglob("*.html"):
+    for path in source_pages():
         if path.name in EXCLUDED or path.name.startswith("yandex_"):
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
@@ -139,7 +147,7 @@ def main() -> None:
         text = CANONICAL_RE.sub("", text)
         text = re.sub(r"</head>", f"  {canonical}\n</head>", text, count=1, flags=re.I)
         path.write_text(text, encoding="utf-8")
-    pages = [path for path in ROOT.rglob("*.html") if is_indexable(path)]
+    pages = [path for path in source_pages() if is_indexable(path)]
     by_name: dict[str, list[Path]] = {}
     for path in pages:
         by_name.setdefault(path.name, []).append(path)

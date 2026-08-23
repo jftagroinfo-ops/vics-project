@@ -1,0 +1,385 @@
+
+<style>
+    /* --- Footer Core Styles --- */
+    .footer-section { 
+        background: var(--jft-navy); 
+        color: #fff; 
+        padding: 72px 0 24px 0; 
+        border-top: 5px solid var(--jft-gold);
+        width: 100%;
+        box-sizing: border-box;
+        font-family: var(--font-body);
+        position: relative;
+        overflow: clip;
+    }
+    .footer-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+        background-size: 24px 24px;
+        pointer-events: none;
+    }
+    
+    .jft-wide-container {
+        width: 100%;
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 55px);
+        box-sizing: border-box;
+    }
+    
+    /* Hide Google Translate artifacts */
+    #goog-gt-tt, .goog-te-balloon-frame, .goog-te-banner-frame, .goog-te-menu-frame, .goog-te-menu-value:first-child, .skiptranslate { display: none !important; }
+    .goog-text-highlight { background: none !important; box-shadow: none !important; }
+    body { top: 0 !important; }
+    
+    .footer-grid { 
+        display: grid; 
+        grid-template-columns: 1.15fr 0.75fr 1fr 1.05fr; 
+        gap: 38px; 
+        margin-bottom: 42px; 
+        align-items: start;
+        position: relative;
+        z-index: 2;
+    }
+
+    .f-col h3 { 
+        font-family: var(--font-sub); 
+        font-size: 1rem;
+        margin-bottom: 30px; 
+        color: var(--jft-gold); 
+        text-transform: uppercase;
+        letter-spacing: 2px; 
+        font-weight: 800;
+        position: relative;
+    }
+    .f-col h3::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--jft-primary);
+    }
+
+    .f-links li { margin-bottom: 12px; list-style: none; }
+    .f-links { padding: 0; margin: 0; }
+    .f-links a { 
+        color: rgba(255,255,255,0.6); 
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        display: inline-block;
+    }
+    .f-links a:hover { color: var(--jft-gold); transform: translateX(8px); }
+
+    .f-contact li { 
+        display: flex; 
+        gap: 15px; 
+        margin-bottom: 25px; 
+        font-size: 0.95rem; 
+        color: rgba(255,255,255,0.75); 
+        line-height: 1.6; 
+        align-items: flex-start;
+        list-style: none;
+    }
+    .f-contact { padding: 0; margin: 0; }
+    .f-contact i { color: var(--jft-gold); margin-top: 5px; font-size: 1.1rem; }
+    .f-contact a { color: inherit; text-decoration: none; transition: 0.3s; border-bottom: 1px solid transparent; }
+    .f-contact a:hover { color: var(--jft-gold); border-bottom-color: var(--jft-gold); }
+
+    .f-input { 
+        width: 100%; 
+        padding: 16px; 
+        background: rgba(255,255,255,0.1); 
+        border: 1px solid rgba(255,255,255,0.15); 
+        border-radius: 8px; 
+        color: #fff; 
+        margin-bottom: 15px; 
+        font-size: 0.9rem;
+        transition: 0.3s;
+    }
+    .f-input:focus { outline: none; border-color: var(--jft-gold); background: rgba(255,255,255,0.1); }
+    
+    .f-btn-pro { 
+        width: 100%; 
+        padding: 18px; 
+        background: var(--jft-gold); 
+        color: var(--jft-navy); 
+        border: none; 
+        border-radius: 8px; 
+        font-family: var(--font-sub);
+        font-weight: 800; 
+        text-transform: uppercase; 
+        font-size: 0.85rem; 
+        cursor: pointer; 
+        transition: 0.3s; 
+        letter-spacing: 1.5px; 
+        box-shadow: 0 4px 15px rgba(238, 191, 69, 0.2);
+    }
+    .f-btn-pro:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+    .f-verify { margin:22px 0;padding:14px 0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.62);font-size:.76rem;line-height:1.65; }
+    .f-verify strong { display:block;color:#fff;font-family:var(--font-sub);font-size:.72rem;text-transform:uppercase;letter-spacing:.7px;margin-bottom:4px; }
+    .f-verify a { color:var(--jft-gold);font-weight:700; }
+    .f-select { width:100%;min-height:46px;margin-bottom:10px;padding:0 12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:#24473e;color:#fff;font:600 .78rem var(--font-sub); }
+    .f-select:focus { outline:3px solid rgba(238,191,69,.25);border-color:var(--jft-gold); }
+    .f-response { display:flex;align-items:flex-start;gap:9px;margin:14px 0;color:rgba(255,255,255,.68);font-size:.76rem;line-height:1.55; }
+    .f-response i { color:var(--jft-gold);margin-top:3px; }
+
+    .f-trust-bar {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        margin-top: 48px;
+        padding: 28px 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .trust-group { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+    .trust-logo { height: 45px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.6; transition: 0.4s; }
+    .trust-logo:hover { filter: none; opacity: 1; transform: scale(1.05); }
+
+    .f-social-icon {
+        color: #fff;
+        font-size: 1.3rem;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        margin-right: 12px;
+    }
+    .f-social-icon:hover {
+        background: var(--jft-gold);
+        color: var(--jft-navy);
+        transform: translateY(-5px) rotate(8deg);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .footer-bottom { 
+        border-top: 1px solid rgba(255,255,255,0.08); 
+        padding: 40px 0; 
+        text-align: center; 
+        font-size: 0.85rem; 
+        color: rgba(255,255,255,0.4); 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; margin-left: 25px; transition: 0.3s; font-weight: 600; }
+    .footer-bottom a:hover { color: var(--jft-gold); }
+
+    @media (max-width: 1024px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 50px; }
+        .footer-bottom { justify-content: center; flex-direction: column-reverse; }
+        .footer-bottom div { text-align: center; }
+        .footer-bottom a { margin: 0 12px; }
+    }
+    @media (max-width: 650px) {
+        .footer-section { padding:38px 0 16px; }
+        .footer-grid { grid-template-columns: 1fr; gap: 20px; text-align: left; margin-bottom:18px; }
+        .f-col:first-child { text-align:center; }
+        .f-col:first-child > img { width:155px !important; margin-bottom:14px !important; }
+        .f-col:first-child > p { font-size:.84rem !important; line-height:1.6 !important; margin-bottom:16px !important; }
+        .f-verify { margin:12px 0;padding:10px 0;font-size:.7rem; }
+        .f-col h3::after { left: 50%; transform: translateX(-50%); }
+        .f-col h3 { text-align:center;margin-bottom:20px; }
+        .f-links { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px;text-align:center; }
+        .f-links li { margin-bottom:7px; }
+        .f-links a { font-size:.82rem; }
+        .f-contact li { justify-content: flex-start; text-align: left; flex-direction: row; align-items: flex-start; margin-bottom:10px;font-size:.82rem;line-height:1.5; }
+        .f-contact i { margin:4px 0 0; }
+        .f-response { display:none; }
+        .trust-group { justify-content: center; }
+        .f-trust-bar { display:none; }
+        .trust-group { gap:15px; }
+        .trust-logo { height:32px; }
+        .f-select { min-height:42px; }
+        .f-btn-pro { padding:14px; }
+        .footer-bottom { padding:20px 0 6px;gap:12px;font-size:.7rem; }
+    }
+
+    /* --- Smart WhatsApp Widget --- */
+    .smart-wa-widget {
+        position: fixed;
+        bottom: 95px;
+        right: 30px;
+        background: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        cursor: pointer;
+        z-index: 9999;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .smart-wa-widget:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        color: white;
+    }
+    .smart-wa-tooltip {
+        position: absolute;
+        right: 75px;
+        background: white;
+        color: var(--jft-navy);
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-family: var(--font-sub);
+        font-weight: 700;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, transform 0.3s;
+        transform: translateX(10px);
+        pointer-events: none;
+    }
+    .smart-wa-widget:hover .smart-wa-tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+</style>
+
+<footer class="footer-section">
+    <div class="jft-wide-container">
+        <div class="footer-grid">
+            <!-- Col 1: Branding -->
+            <div class="f-col">
+                <img src="/images/jft-logo-transparent.webp" alt="JFT Agro Overseas" width="200" height="93" loading="lazy" decoding="async" fetchpriority="low" style="width:200px;height:auto;filter:brightness(0) invert(1);margin-bottom:30px;">
+                <p style="color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.8; margin-bottom: 30px;">
+                    Government Recognized <strong>Star Export House</strong>. Bridging Indian farms to global ports with excellence in quality, logistics, and transparency since 2016.
+                </p>
+                <div class="f-verify"><strong>Company verification</strong>JFT Agro Overseas LLP<br>Trading office: Godown N-2, APMC Market, Vashi, Navi Mumbai 400705<br><a href="certificates.html">Request and verify current company documents</a></div>
+                <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                    <a href="https://www.linkedin.com/company/jft-agro-overseas/" target="_blank" rel="noopener noreferrer" class="f-social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/jftagro/" target="_blank" rel="noopener noreferrer" class="f-social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/jftagro/" target="_blank" rel="noopener noreferrer" class="f-social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Navigation -->
+            <div class="f-col">
+                <h3>Quick Links</h3>
+                <ul class="f-links">
+                    <li><a href="about.html">Company Profile</a></li>
+                    <li><a href="products.html">Export Portfolio</a></li>
+                    <li><a href="quality-control.html">Quality Control</a></li>
+                    <li><a href="certificates.html">Certificates</a></li>
+                    <li><a href="buyer-security.html">Buyer &amp; Payment Security</a></li>
+                    <li><a href="export-documentation.html">Documentation Center</a></li>
+                    <li><a href="sample-request.html">Request Sample</a></li>
+                    <li><a href="quote-calculator.html">CIF/FOB Calculator</a></li>
+                    <li><a href="shipment-tracker.html">Shipment Tools</a></li>
+                    <li><a href="blog.html">Market Insights</a></li>
+                    <li><a href="whatsapp-catalog.html" style="color:#25d366;font-weight:700;"><i class="fa-brands fa-whatsapp" style="margin-right:4px;"></i>WhatsApp Catalog</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Contact -->
+            <div class="f-col">
+                <h3>Global Presence</h3>
+                <ul class="f-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> <span>APMC MARKET, Phase II, Sector 19, Vashi, Navi Mumbai - 400705, India</span></li>
+                    <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:jftagro.info@gmail.com">jftagro.info@gmail.com</a></span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span><a href="tel:+918425057274">+91 84250 57274</a></span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span><a href="tel:+918652362771">+91 86523 62771</a></span></li>
+                    <li><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> <span><a href="https://wa.me/918425057274" target="_blank" rel="noopener noreferrer"><strong>Instant Trade Desk</strong><br>WhatsApp: Mon–Sat 9AM–7PM IST</a></span></li>
+                </ul>
+                <div class="f-response"><i class="fa-solid fa-clock"></i><span>Complete trade enquiries are reviewed during published business hours.</span></div>
+                <label for="footer-market" style="display:block;color:rgba(255,255,255,.55);font-size:.65rem;font-family:var(--font-sub);font-weight:800;text-transform:uppercase;letter-spacing:.7px;margin:16px 0 7px;">Regional trade guidance</label>
+                <select class="f-select" id="footer-market"><option value="">Select market</option><option value="africa-trade.html">Africa</option><option value="uae-trade.html">Middle East &amp; Gulf</option><option value="asia-trade.html">Asia</option><option value="europe-trade.html">Europe &amp; CIS</option></select>
+                <button type="button" class="f-btn-pro" onclick="openFooterMarket()" style="padding:13px;">View Market Guide</button>
+            </div>
+
+            <!-- Col 4: Inquiry -->
+            <div class="f-col">
+                <h3>Get Price List</h3>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 18px;">Choose a commodity to request current grades, packing options and indicative availability.</p>
+                <label for="footer-commodity" style="display:block;color:rgba(255,255,255,.55);font-size:.65rem;font-family:var(--font-sub);font-weight:800;text-transform:uppercase;letter-spacing:.7px;margin-bottom:7px;">Commodity</label>
+                <select class="f-select" id="footer-commodity"><option>Rice</option><option>Spices</option><option>Pulses</option><option>Grains &amp; Flour</option><option>Oilseeds</option><option>Sugar</option><option>Animal Feed</option><option>Full Catalogue</option></select>
+                <button type="button" class="f-btn-pro" onclick="openFooterPriceList()" style="margin-bottom:12px;"><i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i> Request on WhatsApp</button>
+                <a href="contact.html#inquiry-form" class="f-btn-pro" style="display:block;text-align:center;text-decoration:none;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.25);margin-bottom:0;"><i class="fa-solid fa-file-invoice" style="margin-right:8px;"></i> Detailed RFQ</a>
+                <div style="margin-top:15px;font-size:0.72rem;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:8px;">
+                    <i class="fa-solid fa-shield-halved"></i> Enquiry data is handled under our <a href="privacy.html" style="color:inherit;text-decoration:underline;">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Bar -->
+        <div class="f-trust-bar">
+            <div class="trust-group"><span style="color:rgba(255,255,255,.78);font-size:.82rem;line-height:1.6;"><i class="fa-solid fa-file-shield" style="color:var(--jft-gold);margin-right:8px;"></i>Registration and certification summaries are not substitutes for original documents.</span></div>
+            <a href="certificates.html" style="border:2px solid var(--jft-gold);padding:8px 15px;font-size:.75rem;color:var(--jft-gold);font-weight:900;letter-spacing:1px;border-radius:4px;text-decoration:none;">VERIFY CURRENT COPIES</a>
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; <span id="footer-year"></span> JFT Agro Overseas LLP. All Rights Reserved.</div>
+            <div>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Trade</a>
+                <button type="button" class="footer-legal-button" onclick="jftCookiePreferences()">Cookie Preferences</button>
+                <a href="/sitemap.xml">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Smart WhatsApp Widget HTML -->
+<a id="smart-wa-link" href="https://wa.me/918425057274?text=Hello" target="_blank" rel="noopener noreferrer" class="smart-wa-widget" aria-label="Chat with us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <div class="smart-wa-tooltip">Get Live Quote</div>
+</a>
+
+<script>
+    document.getElementById('footer-year').innerText = new Date().getFullYear();
+    function openFooterMarket() {
+        const select = document.getElementById('footer-market');
+        if (!select || !select.value) { if (select) select.focus(); return; }
+        window.location.href = select.value;
+    }
+    function openFooterPriceList() {
+        const select = document.getElementById('footer-commodity');
+        const commodity = select ? select.value : 'Full Catalogue';
+        const message = 'Hi JFT Agro, please share current grades, packing options and indicative availability for ' + commodity + '.';
+        window.open('https://wa.me/918425057274?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+    }
+
+    // Smart WhatsApp Widget Logic
+    // Runs synchronously after footer is injected — no DOMContentLoaded needed
+    (function() {
+        const waLink = document.getElementById('smart-wa-link');
+        if (!waLink) return;
+
+        // Show widget ONLY if this page has no existing .wa-fab button
+        if (!document.querySelector('.wa-fab')) {
+            waLink.style.display = 'flex';
+
+            // Build context-aware WhatsApp message
+            let interest = document.title.split('|')[0].trim();
+            const h1 = document.querySelector('h1');
+            if (h1) interest = h1.innerText.replace(/\n/g, ' ').trim().split('\n')[0];
+
+            const message = 'Hello JFT Agro, I am interested in ' + interest + '. Please share the latest FOB/CIF prices and specifications.';
+            waLink.href = 'https://wa.me/918425057274?text=' + encodeURIComponent(message);
+        }
+        // If page already has .wa-fab, widget stays display:none (CSS default)
+    })();
+</script>

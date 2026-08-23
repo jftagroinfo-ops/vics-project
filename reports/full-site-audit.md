@@ -1,8 +1,60 @@
 # Full Site Static Audit
 
-- HTML files: 1678
-- Renderable pages: 1678
-- Sitemap URLs: 1378
-- Indexable pages: 1378
+- HTML files: 1733
+- Renderable pages: 1733
+- Sitemap URLs: 1433
+- Indexable pages: 1433
 
 ## Findings
+
+### performance_large_image (4)
+- assets/brochures/generated/jft-export-operations-editorial-v1.png (2295010)
+- assets/brochures/generated/jft-indian-farm-origin-editorial-v1.png (2567146)
+- assets/brochures/generated/jft-premium-commodity-cover-v1.png (2517215)
+- assets/brochures/generated/jft-quality-verification-editorial-v1.png (2045402)
+
+### seo_description_length (23)
+- es/blog-certificate-of-analysis-food-imports.html (180)
+- es/blog-food-container-loading-inspection-checklist.html (181)
+- es/blog-how-to-write-agro-commodity-purchase-specification.html (174)
+- es/export-documentation.html (171)
+- fr/blog-certificate-of-analysis-food-imports.html (174)
+- fr/blog-food-container-loading-inspection-checklist.html (246)
+- fr/blog-how-to-write-agro-commodity-purchase-specification.html (210)
+- fr/buyer-security.html (200)
+- fr/export-documentation.html (191)
+- id/blog-certificate-of-analysis-food-imports.html (174)
+- id/blog-food-container-loading-inspection-checklist.html (199)
+- id/blog-how-to-write-agro-commodity-purchase-specification.html (190)
+- ms/blog-food-container-loading-inspection-checklist.html (176)
+- pt/blog-certificate-of-analysis-food-imports.html (175)
+- pt/blog-food-container-loading-inspection-checklist.html (183)
+- pt/blog-how-to-write-agro-commodity-purchase-specification.html (177)
+- ru/blog-certificate-of-analysis-food-imports.html (204)
+- ru/blog-food-container-loading-inspection-checklist.html (192)
+- ru/buyer-security.html (175)
+- ru/export-documentation.html (180)
+- ... 3 more (see JSON report)
+
+### seo_title_length (24)
+- es/blog-certificate-of-analysis-food-imports.html (73)
+- es/blog-food-container-loading-inspection-checklist.html (84)
+- es/blog-how-to-write-agro-commodity-purchase-specification.html (66)
+- es/buyer-security.html (66)
+- es/export-documentation.html (74)
+- fr/blog-certificate-of-analysis-food-imports.html (87)
+- fr/blog-food-container-loading-inspection-checklist.html (83)
+- fr/blog-how-to-write-agro-commodity-purchase-specification.html (71)
+- fr/buyer-security.html (76)
+- fr/export-documentation.html (82)
+- ms/buyer-security.html (69)
+- pt/blog-certificate-of-analysis-food-imports.html (72)
+- pt/blog-food-container-loading-inspection-checklist.html (87)
+- pt/buyer-security.html (70)
+- pt/export-documentation.html (72)
+- ru/blog-certificate-of-analysis-food-imports.html (76)
+- ru/blog-food-container-loading-inspection-checklist.html (68)
+- ru/buyer-security.html (67)
+- si/buyer-security.html (70)
+- th/buyer-security.html (69)
+- ... 4 more (see JSON report)

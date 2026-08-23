@@ -16,7 +16,14 @@ REPORT = ROOT / "reports" / "localization-audit.json"
 LOCALES = ("ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi")
 # Evidence-led English resources remain English until a qualified native
 # reviewer approves each localized legal and commercial meaning.
-IGNORED = {"inner-page-hero-snippet.html", "seo-universal-head-snippet.html", "buyer-security.html", "export-documentation.html"}
+IGNORED = {
+    "inner-page-hero-snippet.html",
+    "seo-universal-head-snippet.html",
+    "buyer-security.html",
+    "export-documentation.html",
+    "editorial-policy.html",
+    "india-agricultural-export-market-data-sources.html",
+}
 # Avoid international trade loanwords such as "export", "product", and "market".
 # The terms below are strong indicators that an English sentence survived.
 ENGLISH_SENTENCE = re.compile(r"\b(?:the|with|from|this|that|your|buyer|buyers|request|shipping|supplied|choose|learn|read more)\b", re.I)

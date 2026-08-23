@@ -1,0 +1,11 @@
+locale,market,url_scope,status,native_reviewer,reviewer_language,reviewer_qualification,commercial_review_date,legal_review_status,source_batch,gsc_evidence_period,gsc_nonbrand_impressions,demand_decision,notes
+ar,Priority Arabic markets,Existing Arabic inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded
+es,Priority Spanish-language markets,Existing Spanish inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded
+fr,Priority French-language markets,Existing French inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded
+id,Indonesia,Existing Indonesian inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded
+ms,Malaysia,Existing Malay inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded
+pt,Priority Portuguese-language markets,Existing Portuguese inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded
+ru,Priority Russian-language markets,Existing Russian inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded
+si,Sri Lanka,Existing Sinhala inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded
+th,Thailand,Existing Thai inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded
+vi,Vietnam,Existing Vietnamese inventory,pending_native_commercial_review,,,,,pending,legacy-2026-08-20,,0,hold,Named native reviewer and country-level Search Console evidence not recorded

@@ -1,5 +1,21 @@
 {
-  "policy": "Localized pages must receive native-language commercial and legal review before publication.",
+  "policy": "Localized pages must receive recorded native-language commercial review before new or materially changed commercial copy is approved for indexation; localized legal copy also requires native legal review.",
+  "policy_version": "2026-08-20",
+  "review_register": "data/localization-review-register.csv",
+  "governance_validator": "scripts/validate_localization_governance.py",
+  "english_only_evidence_pages": [
+    "editorial-policy.html",
+    "india-agricultural-export-market-data-sources.html"
+  ],
+  "approval_requirements": [
+    "native reviewer name",
+    "reviewer language and relevant commercial or legal qualification",
+    "market and URL scope",
+    "source version or review batch",
+    "review date",
+    "commercial and legal status",
+    "Search Console demand evidence or an explicit evidence-unavailable hold"
+  ],
   "priority_locales": {
     "ar": { "homepage": "published", "native_legal_review": "required" },
     "es": { "homepage": "published", "native_legal_review": "required" },
@@ -9,5 +25,6 @@
   "fallback_locales": ["id", "ms", "pt", "si", "th", "vi"],
   "fallback_policy": "English fallback pages remain noindex,follow until translated content is materially different from the English source.",
   "legal_page_policy": "All localized privacy, terms and legal pages remain noindex,follow until a native legal reviewer is recorded. English legal pages remain the x-default source.",
-  "commercial_review_status": "Localized commercial copy requires native review before claims are treated as approved; current certificates and contractual terms remain controlling."
+  "commercial_review_status": "No blanket native approval is inferred from language completeness. Existing pages remain a legacy inventory; new or materially changed localized commercial pages cannot be marked approved without a complete review-register row. Current certificates and contractual terms remain controlling.",
+  "search_demand_policy": "Create or expand localized landing pages only when Search Console query/page/country evidence or documented buyer demand supports distinct intent. Absence of data is a hold, not proof of no demand."
 }

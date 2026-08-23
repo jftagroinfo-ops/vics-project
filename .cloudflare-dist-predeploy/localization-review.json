@@ -1,0 +1,13 @@
+{
+  "policy": "Localized pages must receive native-language commercial and legal review before publication.",
+  "priority_locales": {
+    "ar": { "homepage": "published", "native_legal_review": "required" },
+    "es": { "homepage": "published", "native_legal_review": "required" },
+    "fr": { "homepage": "published", "native_legal_review": "required" },
+    "ru": { "homepage": "published", "native_legal_review": "required" }
+  },
+  "fallback_locales": ["id", "ms", "pt", "si", "th", "vi"],
+  "fallback_policy": "English fallback pages remain noindex,follow until translated content is materially different from the English source.",
+  "legal_page_policy": "All localized privacy, terms and legal pages remain noindex,follow until a native legal reviewer is recorded. English legal pages remain the x-default source.",
+  "commercial_review_status": "Localized commercial copy requires native review before claims are treated as approved; current certificates and contractual terms remain controlling."
+}

@@ -1,0 +1,5 @@
+Contact: mailto:jftagro.info@gmail.com
+Canonical: https://jftagro.com/.well-known/security.txt
+Preferred-Languages: en
+Policy: https://jftagro.com/privacy.html
+Expires: 2027-08-10T00:00:00.000Z
