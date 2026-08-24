@@ -3,146 +3,64 @@
     "ar": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     },
     "es": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     },
     "fr": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     },
     "id": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     },
     "ms": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     },
     "pt": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     },
     "ru": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     },
     "si": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     },
     "th": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     },
     "vi": {
       "renderable_pages": 159,
       "missing_pages": 0,
-      "fallback_pages": 1,
-      "high_residue_pages": 1
+      "fallback_pages": 0,
+      "high_residue_pages": 0
     }
   },
-  "finding_counts": {
-    "ar_fallback_pages": 1,
-    "ar_english_residue": 1,
-    "es_fallback_pages": 1,
-    "es_english_residue": 1,
-    "fr_fallback_pages": 1,
-    "fr_english_residue": 1,
-    "id_fallback_pages": 1,
-    "id_english_residue": 1,
-    "ms_fallback_pages": 1,
-    "ms_english_residue": 1,
-    "pt_fallback_pages": 1,
-    "pt_english_residue": 1,
-    "ru_fallback_pages": 1,
-    "ru_english_residue": 1,
-    "si_fallback_pages": 1,
-    "si_english_residue": 1,
-    "th_fallback_pages": 1,
-    "th_english_residue": 1,
-    "vi_fallback_pages": 1,
-    "vi_english_residue": 1
-  },
-  "findings": {
-    "ar_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "ar_english_residue": [
-      "product-catalogue.html: 12"
-    ],
-    "es_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "es_english_residue": [
-      "product-catalogue.html: 12"
-    ],
-    "fr_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "fr_english_residue": [
-      "product-catalogue.html: 12"
-    ],
-    "id_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "id_english_residue": [
-      "product-catalogue.html: 12"
-    ],
-    "ms_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "ms_english_residue": [
-      "product-catalogue.html: 12"
-    ],
-    "pt_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "pt_english_residue": [
-      "product-catalogue.html: 12"
-    ],
-    "ru_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "ru_english_residue": [
-      "product-catalogue.html: 12"
-    ],
-    "si_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "si_english_residue": [
-      "product-catalogue.html: 12"
-    ],
-    "th_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "th_english_residue": [
-      "product-catalogue.html: 12"
-    ],
-    "vi_fallback_pages": [
-      "product-catalogue.html"
-    ],
-    "vi_english_residue": [
-      "product-catalogue.html: 12"
-    ]
-  }
+  "finding_counts": {},
+  "findings": {}
 }

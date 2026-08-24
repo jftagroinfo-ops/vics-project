@@ -8,25 +8,11 @@
   "summary": {
     "international_missing_x_default": 10,
     "performance_large_image": 4,
-    "seo_canonical_mismatch": 10,
-    "seo_description_length": 23,
-    "seo_duplicate_canonical": 1,
+    "seo_description_length": 25,
     "seo_title_length": 24,
     "sitemap_indexable_page_missing": 10
   },
   "findings": {
-    "seo_canonical_mismatch": [
-      "ar/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
-      "es/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
-      "fr/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
-      "id/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
-      "ms/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
-      "pt/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
-      "ru/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
-      "si/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
-      "th/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
-      "vi/product-catalogue.html -> https://jftagro.com/product-catalogue.html"
-    ],
     "international_missing_x_default": [
       "ar/product-catalogue.html",
       "es/product-catalogue.html",
@@ -70,11 +56,13 @@
       "es/blog-food-container-loading-inspection-checklist.html (181)",
       "es/blog-how-to-write-agro-commodity-purchase-specification.html (174)",
       "es/export-documentation.html (171)",
+      "es/product-catalogue.html (177)",
       "fr/blog-certificate-of-analysis-food-imports.html (174)",
       "fr/blog-food-container-loading-inspection-checklist.html (246)",
       "fr/blog-how-to-write-agro-commodity-purchase-specification.html (210)",
       "fr/buyer-security.html (200)",
       "fr/export-documentation.html (191)",
+      "fr/product-catalogue.html (192)",
       "id/blog-certificate-of-analysis-food-imports.html (174)",
       "id/blog-food-container-loading-inspection-checklist.html (199)",
       "id/blog-how-to-write-agro-commodity-purchase-specification.html (190)",
@@ -89,9 +77,6 @@
       "si/blog-food-container-loading-inspection-checklist.html (175)",
       "si/buyer-security.html (174)",
       "vi/blog-certificate-of-analysis-food-imports.html (189)"
-    ],
-    "seo_duplicate_canonical": [
-      "ar/product-catalogue.html, es/product-catalogue.html, fr/product-catalogue.html, id/product-catalogue.html, ms/product-catalogue.html, product-catalogue.html, pt/product-catalogue.html, ru/product-catalogue.html, si/product-catalogue.html, th/product-catalogue.html, vi/product-catalogue.html"
     ],
     "sitemap_indexable_page_missing": [
       "ar/product-catalogue.html",

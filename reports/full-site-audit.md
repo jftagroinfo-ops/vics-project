@@ -25,28 +25,18 @@
 - assets/brochures/generated/jft-premium-commodity-cover-v1.png (2517215)
 - assets/brochures/generated/jft-quality-verification-editorial-v1.png (2045402)
 
-### seo_canonical_mismatch (10)
-- ar/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-- es/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-- fr/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-- id/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-- ms/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-- pt/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-- ru/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-- si/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-- th/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-- vi/product-catalogue.html -> https://jftagro.com/product-catalogue.html
-
-### seo_description_length (23)
+### seo_description_length (25)
 - es/blog-certificate-of-analysis-food-imports.html (180)
 - es/blog-food-container-loading-inspection-checklist.html (181)
 - es/blog-how-to-write-agro-commodity-purchase-specification.html (174)
 - es/export-documentation.html (171)
+- es/product-catalogue.html (177)
 - fr/blog-certificate-of-analysis-food-imports.html (174)
 - fr/blog-food-container-loading-inspection-checklist.html (246)
 - fr/blog-how-to-write-agro-commodity-purchase-specification.html (210)
 - fr/buyer-security.html (200)
 - fr/export-documentation.html (191)
+- fr/product-catalogue.html (192)
 - id/blog-certificate-of-analysis-food-imports.html (174)
 - id/blog-food-container-loading-inspection-checklist.html (199)
 - id/blog-how-to-write-agro-commodity-purchase-specification.html (190)
@@ -56,12 +46,7 @@
 - pt/blog-how-to-write-agro-commodity-purchase-specification.html (177)
 - ru/blog-certificate-of-analysis-food-imports.html (204)
 - ru/blog-food-container-loading-inspection-checklist.html (192)
-- ru/buyer-security.html (175)
-- ru/export-documentation.html (180)
-- ... 3 more (see JSON report)
-
-### seo_duplicate_canonical (1)
-- ar/product-catalogue.html, es/product-catalogue.html, fr/product-catalogue.html, id/product-catalogue.html, ms/product-catalogue.html, product-catalogue.html, pt/product-catalogue.html, ru/product-catalogue.html, si/product-catalogue.html, th/product-catalogue.html, vi/product-catalogue.html
+- ... 5 more (see JSON report)
 
 ### seo_title_length (24)
 - es/blog-certificate-of-analysis-food-imports.html (73)
