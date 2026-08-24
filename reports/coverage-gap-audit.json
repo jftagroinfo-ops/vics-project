@@ -2,11 +2,11 @@
   "summary": {
     "html_files": 1789,
     "classification": {
-      "indexable": 1442,
+      "indexable": 1438,
       "utility_noindex": 293,
+      "locale_fallback": 5,
       "helper": 46,
-      "legacy_redirect": 7,
-      "locale_fallback": 1
+      "legacy_redirect": 7
     },
     "noindex_by_locale": {
       "en": 10,

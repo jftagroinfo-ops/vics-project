@@ -55,19 +55,19 @@ def prepare(source: Path, target: Path, language: str) -> None:
     marker = BeautifulSoup(FALLBACK_MARKER, "html.parser").meta
     soup.head.insert(0, marker)
     for element in soup.find_all(True):
-        for attribute in ("src", "href", "poster"):
+        for attribute in ("src", "href", "poster", "data-src", "data-deferred-src"):
             value = element.get(attribute)
-            if not value or value.startswith(("../", "/", "#", "http://", "https://", "mailto:", "tel:", "data:", "javascript:")):
+            if not value or value.startswith(("../", "/", "#", "http://", "https://", "mailto:", "tel:", "data:", "javascript:", "${")):
                 continue
             if local_asset(value):
                 element[attribute] = "../" + value
         style = element.get("style")
         if style:
-            element["style"] = re.sub(r"url\((['\"]?)(?!\.\./|/|https?:|data:)([^)'\"]+)\1\)", r"url(\1../\2\1)", style)
+            element["style"] = re.sub(r"url\((['\"]?)(?!\.\./|/|#|https?:|data:)([^)'\"]+)\1\)", r"url(\1../\2\1)", style)
 
     for style in soup.find_all("style"):
         if style.string:
-            style.string.replace_with(re.sub(r"url\((['\"]?)(?!\.\./|/|https?:|data:)([^)'\"]+)\1\)", r"url(\1../\2\1)", style.string))
+            style.string.replace_with(re.sub(r"url\((['\"]?)(?!\.\./|/|#|https?:|data:)([^)'\"]+)\1\)", r"url(\1../\2\1)", style.string))
     for script in soup.find_all("script"):
         if script.string:
             text = script.string

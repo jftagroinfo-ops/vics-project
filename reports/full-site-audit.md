@@ -25,17 +25,25 @@
 - assets/brochures/generated/jft-premium-commodity-cover-v1.png (2517215)
 - assets/brochures/generated/jft-quality-verification-editorial-v1.png (2045402)
 
-### seo_description_length (25)
+### seo_canonical_mismatch (4)
+- ar/index.html -> https://jftagro.com/ar/index.html
+- es/index.html -> https://jftagro.com/es/index.html
+- fr/index.html -> https://jftagro.com/fr/index.html
+- ru/index.html -> https://jftagro.com/ru/index.html
+
+### seo_description_length (28)
 - es/blog-certificate-of-analysis-food-imports.html (180)
 - es/blog-food-container-loading-inspection-checklist.html (181)
 - es/blog-how-to-write-agro-commodity-purchase-specification.html (174)
 - es/export-documentation.html (171)
+- es/index.html (204)
 - es/product-catalogue.html (177)
 - fr/blog-certificate-of-analysis-food-imports.html (174)
 - fr/blog-food-container-loading-inspection-checklist.html (246)
 - fr/blog-how-to-write-agro-commodity-purchase-specification.html (210)
 - fr/buyer-security.html (200)
 - fr/export-documentation.html (191)
+- fr/index.html (193)
 - fr/product-catalogue.html (192)
 - id/blog-certificate-of-analysis-food-imports.html (174)
 - id/blog-food-container-loading-inspection-checklist.html (199)
@@ -44,9 +52,7 @@
 - pt/blog-certificate-of-analysis-food-imports.html (175)
 - pt/blog-food-container-loading-inspection-checklist.html (183)
 - pt/blog-how-to-write-agro-commodity-purchase-specification.html (177)
-- ru/blog-certificate-of-analysis-food-imports.html (204)
-- ru/blog-food-container-loading-inspection-checklist.html (192)
-- ... 5 more (see JSON report)
+- ... 8 more (see JSON report)
 
 ### seo_title_length (24)
 - es/blog-certificate-of-analysis-food-imports.html (73)

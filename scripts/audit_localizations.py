@@ -58,7 +58,7 @@ def main() -> int:
             text = path.read_text(encoding="utf-8", errors="replace")
             soup = BeautifulSoup(text, "html.parser")
             html = soup.html
-            if 'name="jft-localization"' in text and "english-fallback" in text:
+            if soup.find("meta", attrs={"name": "jft-localization", "content": "english-fallback"}):
                 fallback.append(name)
             if not html or html.get("lang") != language or (language == "ar" and html.get("dir") != "rtl"):
                 wrong_lang.append(name)

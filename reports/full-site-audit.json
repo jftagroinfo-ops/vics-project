@@ -8,11 +8,18 @@
   "summary": {
     "international_missing_x_default": 10,
     "performance_large_image": 4,
-    "seo_description_length": 25,
+    "seo_canonical_mismatch": 4,
+    "seo_description_length": 28,
     "seo_title_length": 24,
     "sitemap_indexable_page_missing": 10
   },
   "findings": {
+    "seo_canonical_mismatch": [
+      "ar/index.html -> https://jftagro.com/ar/index.html",
+      "es/index.html -> https://jftagro.com/es/index.html",
+      "fr/index.html -> https://jftagro.com/fr/index.html",
+      "ru/index.html -> https://jftagro.com/ru/index.html"
+    ],
     "international_missing_x_default": [
       "ar/product-catalogue.html",
       "es/product-catalogue.html",
@@ -56,12 +63,14 @@
       "es/blog-food-container-loading-inspection-checklist.html (181)",
       "es/blog-how-to-write-agro-commodity-purchase-specification.html (174)",
       "es/export-documentation.html (171)",
+      "es/index.html (204)",
       "es/product-catalogue.html (177)",
       "fr/blog-certificate-of-analysis-food-imports.html (174)",
       "fr/blog-food-container-loading-inspection-checklist.html (246)",
       "fr/blog-how-to-write-agro-commodity-purchase-specification.html (210)",
       "fr/buyer-security.html (200)",
       "fr/export-documentation.html (191)",
+      "fr/index.html (193)",
       "fr/product-catalogue.html (192)",
       "id/blog-certificate-of-analysis-food-imports.html (174)",
       "id/blog-food-container-loading-inspection-checklist.html (199)",
@@ -74,6 +83,7 @@
       "ru/blog-food-container-loading-inspection-checklist.html (192)",
       "ru/buyer-security.html (175)",
       "ru/export-documentation.html (180)",
+      "ru/index.html (183)",
       "si/blog-food-container-loading-inspection-checklist.html (175)",
       "si/buyer-security.html (174)",
       "vi/blog-certificate-of-analysis-food-imports.html (189)"
