@@ -18,14 +18,16 @@ def main() -> int:
     results: list[dict] = []
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(channel="msedge", headless=True)
-        context = browser.new_context(viewport={"width": 1440, "height": 1000})
+        context = browser.new_context(viewport={"width": 1440, "height": 1000}, service_workers="block")
         context.add_init_script("localStorage.setItem('jft_cookie_choice','essential')")
 
-        def run(name: str, route: str, action) -> None:
+        def run(name: str, route: str, action, setup=None) -> None:
             page = context.new_page()
             errors: list[str] = []
             page.on("pageerror", lambda error: errors.append(str(error)))
             page.on("console", lambda message: errors.append(message.text) if message.type == "error" else None)
+            if setup:
+                setup(page)
             try:
                 page.goto(BASE + route, wait_until="networkidle", timeout=45_000)
                 page.wait_for_timeout(600)
@@ -84,6 +86,18 @@ def main() -> int:
             invalid = page.locator("#rfqForm :invalid")
             return {"invalidControls": invalid.count(), "focusedControl": page.evaluate("document.activeElement && document.activeElement.id")}
 
+        def inject_fallback_marker(page):
+            marker = '<meta name="jft-localization" content="english-fallback">'
+
+            def handle(route):
+                response = route.fetch()
+                body = response.text()
+                if marker not in body:
+                    body = body.replace("<head>", "<head>" + marker, 1)
+                route.fulfill(response=response, body=body)
+
+            page.route("**/ar/about.html", handle)
+
         def fallback(page):
             notice = page.locator("#jft-language-fallback")
             return {"visible": notice.is_visible(), "text": notice.inner_text()}
@@ -95,7 +109,7 @@ def main() -> int:
         run("FAQ search", "faq.html", faq)
         run("blog search", "blog.html", blog)
         run("contact validation", "contact.html", contact)
-        run("localized fallback notice", "ar/about.html", fallback)
+        run("localized fallback notice", "ar/about.html", fallback, setup=inject_fallback_marker)
         browser.close()
 
     REPORT.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")

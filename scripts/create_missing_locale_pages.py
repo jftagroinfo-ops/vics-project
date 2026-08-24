@@ -19,6 +19,13 @@ IGNORED = {
     "product-page-template.html",
     "seo-universal-head-snippet.html",
     "thank-you.html",
+    # Evidence-led English resources remain English until a qualified native
+    # reviewer approves each localized legal and commercial meaning. Kept in
+    # sync with audit_localizations.py's IGNORED set.
+    "buyer-security.html",
+    "export-documentation.html",
+    "editorial-policy.html",
+    "india-agricultural-export-market-data-sources.html",
 }
 FALLBACK_MARKER = '<meta name="jft-localization" content="english-fallback"/>'
 ASSET_SUFFIXES = (

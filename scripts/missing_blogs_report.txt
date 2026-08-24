@@ -1,4 +1,4 @@
-Scanned: 45 unique blog references
-Existing blog files discovered: 159
+Scanned: 48 unique blog references
+Existing blog files discovered: 167
 Missing targets: 0
 

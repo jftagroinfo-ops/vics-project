@@ -31,7 +31,7 @@
     "errors": [],
     "details": {
       "route": "JNPA / Nhava Sheva to Khalifa Port",
-      "dates": "21 Aug 2026 - 30 Aug 2026"
+      "dates": "02 Sept 2026 - 11 Sept 2026"
     }
   },
   {
@@ -72,7 +72,7 @@
     "overflow": -15,
     "errors": [],
     "details": {
-      "invalidControls": 9,
+      "invalidControls": 11,
       "focusedControl": "full_name"
     }
   },

@@ -51,6 +51,9 @@ def update_tag(page: Path, tag: str) -> str:
         attributes += f' width="{width}"'
     if not has_height:
         attributes += f' height="{height}"'
+    self_closing = tag.rstrip().endswith("/>")
+    if self_closing:
+        return tag.rstrip()[:-2].rstrip() + attributes + " />"
     return tag[:-1] + attributes + ">"
 
 
