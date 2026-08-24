@@ -2,34 +2,16 @@
 
 - HTML files: 1743
 - Renderable pages: 1743
-- Sitemap URLs: 1433
+- Sitemap URLs: 1443
 - Indexable pages: 1443
 
 ## Findings
-
-### international_missing_x_default (10)
-- ar/product-catalogue.html
-- es/product-catalogue.html
-- fr/product-catalogue.html
-- id/product-catalogue.html
-- ms/product-catalogue.html
-- pt/product-catalogue.html
-- ru/product-catalogue.html
-- si/product-catalogue.html
-- th/product-catalogue.html
-- vi/product-catalogue.html
 
 ### performance_large_image (4)
 - assets/brochures/generated/jft-export-operations-editorial-v1.png (2295010)
 - assets/brochures/generated/jft-indian-farm-origin-editorial-v1.png (2567146)
 - assets/brochures/generated/jft-premium-commodity-cover-v1.png (2517215)
 - assets/brochures/generated/jft-quality-verification-editorial-v1.png (2045402)
-
-### seo_canonical_mismatch (4)
-- ar/index.html -> https://jftagro.com/ar/index.html
-- es/index.html -> https://jftagro.com/es/index.html
-- fr/index.html -> https://jftagro.com/fr/index.html
-- ru/index.html -> https://jftagro.com/ru/index.html
 
 ### seo_description_length (28)
 - es/blog-certificate-of-analysis-food-imports.html (180)
@@ -76,15 +58,3 @@
 - si/buyer-security.html (70)
 - th/buyer-security.html (69)
 - ... 4 more (see JSON report)
-
-### sitemap_indexable_page_missing (10)
-- ar/product-catalogue.html
-- es/product-catalogue.html
-- fr/product-catalogue.html
-- id/product-catalogue.html
-- ms/product-catalogue.html
-- pt/product-catalogue.html
-- ru/product-catalogue.html
-- si/product-catalogue.html
-- th/product-catalogue.html
-- vi/product-catalogue.html

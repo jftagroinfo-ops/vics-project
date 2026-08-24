@@ -2,36 +2,15 @@
   "scope": {
     "html_files": 1743,
     "renderable_pages": 1743,
-    "sitemap_urls": 1433,
+    "sitemap_urls": 1443,
     "indexable_pages": 1443
   },
   "summary": {
-    "international_missing_x_default": 10,
     "performance_large_image": 4,
-    "seo_canonical_mismatch": 4,
     "seo_description_length": 28,
-    "seo_title_length": 24,
-    "sitemap_indexable_page_missing": 10
+    "seo_title_length": 24
   },
   "findings": {
-    "seo_canonical_mismatch": [
-      "ar/index.html -> https://jftagro.com/ar/index.html",
-      "es/index.html -> https://jftagro.com/es/index.html",
-      "fr/index.html -> https://jftagro.com/fr/index.html",
-      "ru/index.html -> https://jftagro.com/ru/index.html"
-    ],
-    "international_missing_x_default": [
-      "ar/product-catalogue.html",
-      "es/product-catalogue.html",
-      "fr/product-catalogue.html",
-      "id/product-catalogue.html",
-      "ms/product-catalogue.html",
-      "pt/product-catalogue.html",
-      "ru/product-catalogue.html",
-      "si/product-catalogue.html",
-      "th/product-catalogue.html",
-      "vi/product-catalogue.html"
-    ],
     "seo_title_length": [
       "es/blog-certificate-of-analysis-food-imports.html (73)",
       "es/blog-food-container-loading-inspection-checklist.html (84)",
@@ -87,18 +66,6 @@
       "si/blog-food-container-loading-inspection-checklist.html (175)",
       "si/buyer-security.html (174)",
       "vi/blog-certificate-of-analysis-food-imports.html (189)"
-    ],
-    "sitemap_indexable_page_missing": [
-      "ar/product-catalogue.html",
-      "es/product-catalogue.html",
-      "fr/product-catalogue.html",
-      "id/product-catalogue.html",
-      "ms/product-catalogue.html",
-      "pt/product-catalogue.html",
-      "ru/product-catalogue.html",
-      "si/product-catalogue.html",
-      "th/product-catalogue.html",
-      "vi/product-catalogue.html"
     ],
     "performance_large_image": [
       "assets/brochures/generated/jft-export-operations-editorial-v1.png (2295010)",
