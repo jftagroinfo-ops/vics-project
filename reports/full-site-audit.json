@@ -1,16 +1,44 @@
 {
   "scope": {
-    "html_files": 1733,
-    "renderable_pages": 1733,
+    "html_files": 1743,
+    "renderable_pages": 1743,
     "sitemap_urls": 1433,
-    "indexable_pages": 1433
+    "indexable_pages": 1443
   },
   "summary": {
+    "international_missing_x_default": 10,
     "performance_large_image": 4,
+    "seo_canonical_mismatch": 10,
     "seo_description_length": 23,
-    "seo_title_length": 24
+    "seo_duplicate_canonical": 1,
+    "seo_title_length": 24,
+    "sitemap_indexable_page_missing": 10
   },
   "findings": {
+    "seo_canonical_mismatch": [
+      "ar/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
+      "es/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
+      "fr/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
+      "id/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
+      "ms/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
+      "pt/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
+      "ru/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
+      "si/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
+      "th/product-catalogue.html -> https://jftagro.com/product-catalogue.html",
+      "vi/product-catalogue.html -> https://jftagro.com/product-catalogue.html"
+    ],
+    "international_missing_x_default": [
+      "ar/product-catalogue.html",
+      "es/product-catalogue.html",
+      "fr/product-catalogue.html",
+      "id/product-catalogue.html",
+      "ms/product-catalogue.html",
+      "pt/product-catalogue.html",
+      "ru/product-catalogue.html",
+      "si/product-catalogue.html",
+      "th/product-catalogue.html",
+      "vi/product-catalogue.html"
+    ],
     "seo_title_length": [
       "es/blog-certificate-of-analysis-food-imports.html (73)",
       "es/blog-food-container-loading-inspection-checklist.html (84)",
@@ -61,6 +89,21 @@
       "si/blog-food-container-loading-inspection-checklist.html (175)",
       "si/buyer-security.html (174)",
       "vi/blog-certificate-of-analysis-food-imports.html (189)"
+    ],
+    "seo_duplicate_canonical": [
+      "ar/product-catalogue.html, es/product-catalogue.html, fr/product-catalogue.html, id/product-catalogue.html, ms/product-catalogue.html, product-catalogue.html, pt/product-catalogue.html, ru/product-catalogue.html, si/product-catalogue.html, th/product-catalogue.html, vi/product-catalogue.html"
+    ],
+    "sitemap_indexable_page_missing": [
+      "ar/product-catalogue.html",
+      "es/product-catalogue.html",
+      "fr/product-catalogue.html",
+      "id/product-catalogue.html",
+      "ms/product-catalogue.html",
+      "pt/product-catalogue.html",
+      "ru/product-catalogue.html",
+      "si/product-catalogue.html",
+      "th/product-catalogue.html",
+      "vi/product-catalogue.html"
     ],
     "performance_large_image": [
       "assets/brochures/generated/jft-export-operations-editorial-v1.png (2295010)",
