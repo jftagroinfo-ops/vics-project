@@ -216,7 +216,11 @@ def main() -> int:
             continue
         suffix = path.suffix.lower()
         size = path.stat().st_size
-        if suffix in {".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"} and size > 500_000:
+        # PDF-source originals for scripts/build_marketing_documents_v2.py: never served to a
+        # browser, so raw file size here isn't a page-weight problem. Their web-facing use
+        # (product-catalogue.html) already loads optimized .webp siblings instead.
+        is_pdf_source_image = "brochures" in path.relative_to(ROOT).parts and "generated" in path.relative_to(ROOT).parts
+        if suffix in {".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"} and size > 500_000 and not is_pdf_source_image:
             findings["performance_large_image"].append(f"{label(path)} ({size})")
         if suffix in {".mp4", ".webm"} and size > 3_000_000:
             findings["performance_large_video"].append(f"{label(path)} ({size})")
