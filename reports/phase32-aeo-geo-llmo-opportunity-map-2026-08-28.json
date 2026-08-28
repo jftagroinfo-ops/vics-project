@@ -1,0 +1,36 @@
+{
+  "phase": 32,
+  "date": "2026-08-28",
+  "opportunity_matrix": [
+    {"id":"O1","opportunity":"Confirm true LLPIN/registration number via MCA; resolve AAY-5952 discrepancy","area":"Entity/Trust","impact":"Medium","effort":"Low","risk":"Low","website_change":false,"priority":"P1","track":"BUSINESS DECISION REQUIRED"},
+    {"id":"O2","opportunity":"Create/claim a verifiable LinkedIn company page","area":"Authority","impact":"Medium-High","effort":"Low","risk":"Low","website_change":false,"priority":"P1","track":"BUSINESS DECISION REQUIRED"},
+    {"id":"O3","opportunity":"Establish presence on at least one major B2B marketplace (Indiamart/TradeIndia/ExportersIndia)","area":"Authority","impact":"Medium-High","effort":"Medium","risk":"Low","website_change":false,"priority":"P1","track":"BUSINESS DECISION REQUIRED"},
+    {"id":"O4","opportunity":"Confirm FIEO membership status; pursue if not held","area":"Authority","impact":"Medium","effort":"Low-Medium","risk":"Low","website_change":false,"priority":"P1","track":"BUSINESS DECISION REQUIRED"},
+    {"id":"O5","opportunity":"Continue monitoring the 'since 1980' AI misinformation across future phases","area":"Trust/Misinformation","impact":"Low (tracking only)","effort":"Low","risk":"None","website_change":false,"priority":"P1","track":"DO NOW (monitoring only)"},
+    {"id":"O6","opportunity":"Pursue genuine trade-press/association mentions as real opportunities arise","area":"Authority","impact":"Medium","effort":"Medium-High","risk":"Low","website_change":false,"priority":"P2","track":"FUTURE PHASE"},
+    {"id":"O7","opportunity":"Independently confirm JFT's entry in APEDA's full public exporter-list PDF","area":"Authority (clerical)","impact":"Low","effort":"Low","risk":"None","website_change":false,"priority":"P2","track":"DO NOW (verification only)"},
+    {"id":"O8","opportunity":"Real, named subject-matter-expert authorship, only if business identifies willing individuals","area":"E-E-A-T","impact":"Medium","effort":"Low if names exist","risk":"Low","website_change":true,"priority":"P2","track":"BUSINESS DECISION REQUIRED"},
+    {"id":"O9","opportunity":"Consider tightening 'trade hub' wording to preempt AI overstatement","area":"Content clarity","impact":"Low","effort":"Low","risk":"Low","website_change":true,"priority":"P3","track":"FUTURE PHASE (optional, low confidence)"},
+    {"id":"O10","opportunity":"Establish a lightweight recurring AI-visibility monitoring check (quarterly)","area":"Process","impact":"Low-Medium","effort":"Low","risk":"None","website_change":false,"priority":"P3","track":"FUTURE PHASE"}
+  ],
+  "on_site_vs_off_site": [
+    {"finding":"Since 1980 / 5 decades AI fabrication","root_cause":"AI-generated, no identifiable source","website_fix":false,"external_action":"low-confidence correction request","business_input":false},
+    {"finding":"AAY-5952 unverifiable registration number","root_cause":"unknown","website_fix":false,"external_action":"confirm via MCA","business_input":true},
+    {"finding":"Postal code discrepancy (carried from Phase 26)","root_cause":"unresolved, no new evidence","website_fix":false,"external_action":"none","business_input":true},
+    {"finding":"Zero AI visibility on 8/9 generic category queries","root_cause":"off-site authority/citation deficit","website_fix":false,"external_action":"authority-building","business_input":"partial"},
+    {"finding":"No LinkedIn company page","root_cause":"never created or unindexed","website_fix":false,"external_action":"create/claim page","business_input":true},
+    {"finding":"No B2B marketplace listing","root_cause":"never created","website_fix":false,"external_action":"create listing","business_input":true},
+    {"finding":"FIEO membership status unknown","root_cause":"not previously confirmed","website_fix":false,"external_action":"confirm/pursue","business_input":true},
+    {"finding":"llms.txt absence","root_cause":"reasoned decision, reconfirmed","website_fix":false,"external_action":"none","business_input":false},
+    {"finding":"Product schema on quote-only pages","root_cause":"deliberate governance decision, not reopened","website_fix":false,"external_action":"none","business_input":false}
+  ],
+  "do_not_do": [
+    "Create llms.txt",
+    "Buy backlinks, use PBNs, or run automated mass-directory submissions",
+    "Fabricate author bios or a generic editorial-team byline",
+    "Attempt to unilaterally correct the LEI registry or any third-party profile",
+    "Reopen the Product-schema-on-quote-pages decision",
+    "Create new pages solely to chase generic keywords without new first-hand evidence",
+    "Treat a single AI tool's paraphrase as proof of a real website ambiguity"
+  ]
+}

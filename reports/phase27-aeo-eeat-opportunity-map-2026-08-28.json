@@ -1,0 +1,87 @@
+{
+  "phase": 27,
+  "part": "opportunity_map",
+  "date": "2026-08-28",
+  "baseline": {
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "production_status": 200,
+    "production_sitemap_urls": 1453,
+    "phase25_worker_js_fix_status": "confirmed present locally, still not deployed"
+  },
+  "opportunities": [
+    {
+      "id": "P27-O1",
+      "page": "blog-toor-dal-export-india-2026.html",
+      "problem": "unpublished placeholder, noindex",
+      "root_cause": "never completed after initial scaffolding",
+      "value": "HIGH - Pulses is a core category, high-search-interest commodity",
+      "evidence_available": true,
+      "authorized": true,
+      "confidence": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "id": "P27-O2",
+      "page": "wheat-exporter-india.html, sugar-exporter-india.html, raisins-exporter-india.html",
+      "problem": "thin category hub content",
+      "root_cause": "legitimately single-SKU categories",
+      "value": "LOW-MEDIUM",
+      "evidence_available": false,
+      "authorized": false,
+      "reason_not_authorized": "fails gate condition 1 (no proven gap) and 4 (would duplicate product page)",
+      "confidence": "HIGH that this is correctly not actionable"
+    },
+    {
+      "id": "P27-O3",
+      "page": "articles using seo-related-grid without a category card",
+      "problem": "article-category semantic graph incomplete",
+      "root_cause": "template heterogeneity across articles",
+      "value": "MEDIUM",
+      "evidence_available": true,
+      "authorized": true,
+      "scope": "safely-derivable subset only (grid's own first product link resolves to one category)",
+      "confidence": "HIGH for the identified subset",
+      "risk": "LOW"
+    },
+    {
+      "id": "P27-O4",
+      "page": "blog.html",
+      "problem": "filter-count display would become stale after P27-O1",
+      "authorized": true,
+      "confidence": "CERTAIN",
+      "risk": "NONE"
+    },
+    {
+      "id": "P27-O5",
+      "page": "scripts/audit_website.py",
+      "problem": "UNPUBLISHED_BLOGS registry would incorrectly flag the completed article",
+      "authorized": true,
+      "confidence": "CERTAIN",
+      "risk": "NONE"
+    },
+    {
+      "id": "P27-O6",
+      "page": "sitewide Organization schema",
+      "problem": "postal code discrepancy (Phase 26 carryover)",
+      "authorized": false,
+      "reason_not_authorized": "root cause not proven, requires business confirmation"
+    },
+    {
+      "id": "P27-O7",
+      "page": "sitewide",
+      "problem": "off-site/generic-query AI visibility gap",
+      "authorized": false,
+      "reason_not_authorized": "no on-page/website fix exists for an off-site authority gap"
+    }
+  ],
+  "content_creation_decision_gate": [
+    {"candidate": "P27-O1", "result": "PASS", "all_10_conditions_met": true},
+    {"candidate": "P27-O2", "result": "FAIL", "failing_conditions": ["C1 gap not proven", "C4 would duplicate"]},
+    {"candidate": "P27-O3", "result": "PASS for safely-derivable subset only"}
+  ],
+  "ai_query_testing_this_phase": {
+    "new_queries_run": 0,
+    "reason": "15 queries already tested across Phases 24-26 covering all required categories; this phase's effort was directed at verifying the Codex Alimentarius external source used in the P27-O1 implementation instead"
+  },
+  "next_step": "implement P27-O1, P27-O3 (safe subset), P27-O4, P27-O5 only"
+}

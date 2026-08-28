@@ -1,0 +1,63 @@
+{
+  "phase": 16,
+  "report": "conversion-intelligence",
+  "date": "2026-08-28",
+  "commercial_measurement_gap": {
+    "website_measurable_stages": ["website_behavior", "lead_generation_event"],
+    "not_website_measurable_stages": ["lead_quality", "quotation", "negotiation", "purchase_order", "shipment", "repeat_business", "revenue", "gross_margin"],
+    "reason": "stages beyond lead generation require a CRM/ERP system not present in or connected to this repository"
+  },
+  "form_analytics_quality": {
+    "form_view": "implicit via automatic pageview",
+    "form_start": "implemented, live",
+    "form_validation_error": "not implemented",
+    "form_submit_attempt_distinct_from_success": "not implemented",
+    "form_success": "implemented, live, success-gated",
+    "form_failure": "not implemented",
+    "classification": "documented as future measurement opportunity, not implemented - no evidence found that failure tracking is a proven, current need"
+  },
+  "whatsapp_measurement": {
+    "click_tracked": true,
+    "labeled_as_lead_anywhere": false,
+    "correct_terminology_used": "intent signal, not lead, throughout all phase reports"
+  },
+  "consent_privacy_recheck": {
+    "verified_against": "production-identical code (stronger check than Phase 15, which only checked local source)",
+    "static_bypass_in_production_html": false,
+    "pii_in_track_calls": false,
+    "duplicate_ga4_init_in_code": false,
+    "duplicate_ga4_init_in_current_deployment": true,
+    "note": "the live duplicate is a deployment-state fact (old files still live), not a new code defect"
+  },
+  "performance_impact": {
+    "live_duplicate_load_confirmed": true,
+    "affected_production_pages": 22,
+    "impact": "one redundant script fetch + one redundant post-consent gtag.js fetch on those pages, matches Phase 15's analysis exactly"
+  },
+  "production_data_quality": "NOT_VERIFIABLE_WITHOUT_GA4_DATA",
+  "event_taxonomy_governance": {
+    "category_page_view_event": {"proposed": false, "reason": "no traffic exists to measure since category pages are not yet deployed to production"},
+    "calculator_granularity_event": {"proposed": false, "reason": "existing tool-to-RFQ bridge event already covers the highest-value signal"}
+  },
+  "crm_reconciliation_design": {
+    "implemented": false,
+    "design_only": true,
+    "join_key": "lead_id, generated client-side, already flows to both GA4 (as event parameter) and /api/lead (alongside full PII record)",
+    "pii_enters_ga4": false,
+    "missing_pieces": ["a CRM/ERP system", "a way for /api/lead's backend to tag stored leads with the same lead_id", "a periodic offline join process"],
+    "out_of_scope_reason": "requires business/infrastructure systems and access this session does not have"
+  },
+  "final_decision": {
+    "production_analytics": "PARTIAL",
+    "production_data_access": "UNAVAILABLE",
+    "conversion_measurement": "PARTIAL",
+    "attribution": "PARTIAL",
+    "privacy_pii": "PASS",
+    "website_side_fix_required": "NO",
+    "crm_erp_integration_required": "FUTURE",
+    "overall_status": "GREEN WITH DATA-ACCESS LIMITATION for code/architecture; live site is YELLOW pending deployment of Phases 10-15",
+    "deployment": "NOT DEPLOYED",
+    "website_source_changes": 0,
+    "key_recommendation": "deploy the already-built, already-regression-tested Phases 10-15 work as a single release, then obtain live GA4 access to confirm measurability claims against real traffic"
+  }
+}

@@ -46,6 +46,11 @@ RUNTIME_DATA = {
     "quote-market-rates.json",
 }
 
+# Phase 35: exclude accidental public-template artifacts from the built asset set.
+EXCLUDED_ROOT_FILES = {
+    "product-page-template.html",
+}
+
 
 def copy_file(source: Path, destination: Path) -> None:
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -62,6 +67,8 @@ def main() -> None:
 
     for source in ROOT.iterdir():
         if source.is_file() and (source.suffix.lower() in ROOT_SUFFIXES or source.name in ROOT_FILES):
+            if source.name in EXCLUDED_ROOT_FILES:
+                continue
             copy_file(source, OUTPUT / source.name)
 
     for directory in PUBLIC_DIRECTORIES:

@@ -1,0 +1,82 @@
+{
+  "phase": 12,
+  "part": "pre-implementation visual/brand audit",
+  "generated": "2026-08-27",
+  "method": "Direct source inspection of jft-design-system.css, jft-responsive.css, homepage.css, trade-regions.css, header.html, footer.html; exhaustive grep for .hero-btns and .prod-img/.prod-card across the full site; direct image analysis of all 84 product source images via Pillow (actual pixel dimensions vs. declared HTML width/height); direct visual inspection of 2 sample product photos.",
+  "scores": {
+    "brand_perception": {"before": 7.5, "target": 8.5},
+    "visual_hierarchy": {"before": 8, "target": 8.5},
+    "homepage": {"before": 8, "target": 8},
+    "products_page": {"before": 8, "target": 8},
+    "categories": {"before": 6, "target": 8.5},
+    "product_pages": {"before": 7.5, "target": 7.5},
+    "trust": {"before": 8, "target": 8},
+    "cta_ux": {"before": 6.5, "target": 8.5},
+    "mobile": {"before": 7.5, "target": 7.5},
+    "international": {"before": 8, "target": 8},
+    "accessibility": {"before": 8, "target": 8},
+    "performance": {"before": 8, "target": 8},
+    "consistency": {"before": 7, "target": 7.5}
+  },
+  "design_system_inventory": {
+    "colors": {"green": "#4e8c3e", "green_dark": "#326127", "green_light": "#6aad55", "navy": "#1a3c34", "navy_dark": "#0d1f1b", "navy_light": "#2c5148", "gold": "#eebf45", "gold_light": "#f7ca5e", "gold_dark": "#b88d14", "cream": "#fdfbf7"},
+    "classification": "CONSISTENT",
+    "typography": {"heading": "Merriweather (serif)", "sub": "Montserrat (sans)", "body": "Lato (sans)"},
+    "typography_classification": "CONSISTENT",
+    "buttons": ["btn-primary", "btn-gold", "btn-outline", "btn-outline-navy"],
+    "buttons_classification": "CONSISTENT",
+    "card_radius_info_dark_cards": "20px",
+    "card_radius_trade_prod_cards": "8px !important",
+    "card_radius_classification": "MINOR INCONSISTENCY - not fixed, defensible intentional differentiation",
+    "section_padding_sitewide": "clamp(70px, 9vw, 130px)",
+    "section_padding_category_pages": "60px 0 (inline, hardcoded)",
+    "section_padding_classification": "MINOR INCONSISTENCY - not fixed, no visible harm",
+    "product_image_container_object_fit": "NONE FOUND - FUNCTIONAL ISSUE",
+    "regional_hero_cta_visibility": "display:none !important - FUNCTIONAL ISSUE"
+  },
+  "findings": [
+    {
+      "id": "P12-F1",
+      "severity": "P0",
+      "title": "Regional-page primary hero CTA is invisible on all 4 pages",
+      "evidence": "trade-regions.css line ~78-80: .hero-btns { display: none !important; }. All 4 regional pages (africa-trade.html, asia-trade.html, europe-trade.html, uae-trade.html) load trade-regions.css and each has its own inline .hero-btns{display:flex} rule with no !important, so the external rule wins unconditionally.",
+      "affected_pages": ["africa-trade.html", "asia-trade.html", "europe-trade.html", "uae-trade.html"],
+      "impact": "the single highest-value above-the-fold CTA on 4 market-landing pages renders as if it does not exist",
+      "root_cause": "trade-regions.css is a shared override file reused across category and regional templates; the .hero-btns rule appears to be leftover from a different context and was never checked against the regional-page hero, which needs it visible",
+      "fix_planned": true,
+      "fix": "remove/neutralize the display:none !important rule in trade-regions.css"
+    },
+    {
+      "id": "P12-F2",
+      "severity": "P0",
+      "title": "Category-page product-card images render distorted (stretched/squished)",
+      "evidence": "measured all 84 product source images with Pillow: 68/84 (81%) are not square, 45/84 (54%) have a ratio outside 0.75-1.3 (as extreme as 0.58:1 and 2.72:1). scripts/build_category_pages.py declares every card image as width=1024 height=1024 (square) regardless of actual file dimensions. No stylesheet (jft-design-system.css, jft-responsive.css, trade-regions.css) sets object-fit or aspect-ratio on .prod-img/.prod-img img. jft-responsive.css has an object-fit:cover rule but it targets the differently-named .product-img (singular) class, confirmed not to apply here.",
+      "affected_pages": "all 10 Phase 10 category pages, roughly 68 of 84 product cards across them",
+      "impact": "directly undermines the 'professional commodity catalogue' perception that Phase 10's category architecture was built to create",
+      "root_cause": "the Phase 10 category-page generator never gave .prod-img a fixed-ratio container, and no shared stylesheet filled the gap",
+      "fix_planned": true,
+      "fix": "add .prod-img { aspect-ratio: 1/1; overflow: hidden; } and .prod-img img { width:100%; height:100%; object-fit:cover; } to trade-regions.css"
+    },
+    {
+      "id": "P12-F3",
+      "severity": "P1",
+      "title": "Amateur/inconsistent product photography style",
+      "evidence": "direct visual inspection of 2 sample images shows informal hand-held trade/QA-style photography rather than styled product photography, combined with the 81% non-square measurement above",
+      "fix_planned": false,
+      "reason_not_fixed": "Phase 12 requires documenting CURRENT/PROBLEM/REPLACEMENT-REQUIREMENT/WHY for any image replacement and explicitly prohibits fabricating/sourcing imagery without proper rights; this session cannot commission or verify real JFT Agro product photography. Finding 2's fix improves presentation of the existing photos without needing new photography."
+    }
+  ],
+  "findings_not_actioned": [
+    {"topic": "prod-card border-radius 8px vs info-card 20px", "reason": "defensible intentional differentiation (structured catalogue vs. soft trust cards), not a clear defect; normalizing without harm-evidence would be an arbitrary stylistic change"},
+    {"topic": "category-page section padding vs sitewide token", "reason": "both values are in a normal premium range, no visible harm found"},
+    {"topic": "homepage hero CTA order", "reason": "already reviewed in Phase 11; no new evidence this phase to revisit"},
+    {"topic": "global font/color/animation changes", "reason": "no evidence found that any would fix a real problem"}
+  ],
+  "recommended_fixes": [
+    {"file": "trade-regions.css", "change": "remove .hero-btns display:none !important rule", "risk": "very low", "addresses": "P12-F1"},
+    {"file": "trade-regions.css", "change": "add object-fit:cover + aspect-ratio to .prod-img/.prod-img img", "risk": "very low", "addresses": "P12-F2"}
+  ],
+  "images_measured": 84,
+  "images_non_square": 68,
+  "images_extreme_ratio": 45
+}

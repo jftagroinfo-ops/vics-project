@@ -1,0 +1,5746 @@
+{
+  "phase": 8,
+  "title": "Product FAQ Accordion Functional Repair & Interaction Regression",
+  "root_cause": {
+    "location": "inline <script> block after </section> on every locale product page (NOT the .faq-item text content, NOT the inline onclick attribute)",
+    "defect": "click-handler if/else branches setting max-height were reversed relative to the correct (English root) logic",
+    "buggy_pattern": "if(a.classList.contains('open')){a.style.maxHeight='0';}else{a.style.maxHeight=a.scrollHeight+'px';}",
+    "correct_pattern": "if(a.classList.contains('open')){a.style.maxHeight=a.scrollHeight+'px';}else{a.style.maxHeight='0';}",
+    "mechanism": "two click listeners per question (inline onclick toggles .open class + aria-expanded; a second addEventListener sets max-height based on .open) -- inline handler fires first, so by the time the second listener reads .open it already reflects the post-toggle state, and its branches must map open->show, which they did not on locale pages",
+    "verified_uniform": "exactly one byte-identical buggy variant across all 830 locale files; exactly one byte-identical correct variant across all 83 applicable English root files"
+  },
+  "scope": {
+    "files_affected": 830,
+    "products_affected": 83,
+    "locales_affected": [
+      "ar",
+      "es",
+      "fr",
+      "id",
+      "ms",
+      "pt",
+      "ru",
+      "si",
+      "th",
+      "vi"
+    ],
+    "english_affected": false,
+    "shared_code_impact": "none -- faq.html uses native <details>/<summary>; contact.html uses a different .faq-qt/.faq-qi structure with no matching click handler; calculators and header.html contain zero .faq-q/.faq-a occurrences (confirmed by direct search)"
+  },
+  "fix": {
+    "method": "single-line swap of the two branch bodies, applied identically to how the English root pages already do it",
+    "script": "scripts/fix_product_faq_accordion.py",
+    "files_changed": 830,
+    "manual_edits": 0
+  },
+  "audit_protection": [
+    {
+      "type": "static, CI-gating",
+      "location": "scripts/audit_localizations.py: check_faq_accordion_script()",
+      "verified_via_regression_test": true
+    },
+    {
+      "type": "real-browser, on-demand",
+      "location": "scripts/browser_faq_accordion_test.py",
+      "verified_via_regression_test": true
+    }
+  ],
+  "regression_test_proof": {
+    "step1": "ran against fixed pages -- PASS on all 11 languages",
+    "step2": "deliberately reintroduced the inverted script on ar/1121-basmati-rice-exporter.html only",
+    "step3": "re-ran browser test -- FAIL, isolated to ar: 'expected open state after click, got height=0 (scrollHeight=74) aria=true'",
+    "step4": "re-ran static audit check -- FAIL: {'ar_faq_accordion_inverted': 1}",
+    "step5": "restored the fix",
+    "step6": "both checks PASS again"
+  },
+  "determinism": {
+    "runs": 2,
+    "second_run_files_changed": 0,
+    "hash_comparison": "identical (3 sample files)",
+    "network_access": false
+  },
+  "keyboard_interaction": {
+    "tab_focus": "lands on .faq-q, visible 3px solid focus outline",
+    "enter": "opens (maxHeight=74px, aria-expanded=true)",
+    "space": "closes (maxHeight=0px, aria-expanded=false)",
+    "tab_again": "moves to next .faq-q",
+    "new_behavior_added": false,
+    "note": "existing onkeydown handler (Enter/Space -> click()) was not modified; it now works correctly because the underlying click handler is fixed"
+  },
+  "multi_open_behavior": {
+    "model": "multi-open (opening one question does not close another)",
+    "verified": "opened items 1 and 3 of 5; both remained open independently",
+    "changed_by_this_phase": false
+  },
+  "out_of_scope_discovery": {
+    "title": "4 products (psyllium-husk-exporter.html, sugar-s30-supplier.html, indian-raisins-kishmish-exporter.html, yellow-peas-matar-exporter.html) have a bespoke non-interactive English FAQ while their locale pages carry the generic interactive accordion",
+    "predates_phase_8": true,
+    "caused_by_phase_7": "partially -- Phase 7's generator regenerated locale FAQ content wherever 5 stale .faq-item elements already existed, without checking whether the English root had since diverged to bespoke content for these 4 products",
+    "verified_not_a_phase_8_defect": "all 3 (excluding sugar-s30, which has no locale FAQ at all) tested directly and their locale accordions open/close correctly with this phase's fix",
+    "action_taken": "documented only, not fixed -- content-parity decision outside this phase's authorized scope"
+  },
+  "locale_matrix": [
+    {
+      "url": "http://127.0.0.1:8768/1121-basmati-rice-exporter.html",
+      "locale": "en",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 100
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/ar/1121-basmati-rice-exporter.html",
+      "locale": "ar",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "74px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 73.53125
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/es/1121-basmati-rice-exporter.html",
+      "locale": "es",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 100
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/fr/1121-basmati-rice-exporter.html",
+      "locale": "fr",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 100
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/id/1121-basmati-rice-exporter.html",
+      "locale": "id",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 100
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/ms/1121-basmati-rice-exporter.html",
+      "locale": "ms",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 99.99993896484375
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/pt/1121-basmati-rice-exporter.html",
+      "locale": "pt",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 100
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/ru/1121-basmati-rice-exporter.html",
+      "locale": "ru",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 100
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/si/1121-basmati-rice-exporter.html",
+      "locale": "si",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 100
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/th/1121-basmati-rice-exporter.html",
+      "locale": "th",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 100
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8768/vi/1121-basmati-rice-exporter.html",
+      "locale": "vi",
+      "product": "1121-basmati-rice-exporter.html",
+      "viewport": "desktop-1366x900",
+      "initial_state": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "after_open": {
+        "maxHeight": "100px",
+        "aria_expanded": "true",
+        "has_open_class": true,
+        "rendered_height_px": 99.99993896484375
+      },
+      "after_close": {
+        "maxHeight": "0px",
+        "aria_expanded": "false",
+        "has_open_class": false
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS"
+    }
+  ],
+  "product_matrix": [
+    {
+      "url": "http://127.0.0.1:8765/1121-basmati-rice-exporter.html",
+      "locale": "en",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/turmeric-finger-exporter.html",
+      "locale": "en",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/senna-leaves-exporter.html",
+      "locale": "en",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/yellow-maize-corn-exporter.html",
+      "locale": "en",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/groundnuts-peanuts-exporter.html",
+      "locale": "en",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/maida-refined-wheat-flour-exporter.html",
+      "locale": "en",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.28125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/milling-wheat-exporter.html",
+      "locale": "en",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/indian-raisins-kishmish-exporter.html",
+      "locale": "en",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": null,
+      "after_open": null,
+      "after_close": null,
+      "aria_before": null,
+      "aria_after_open": null,
+      "aria_after_close": null,
+      "console_errors": [],
+      "request_errors": [],
+      "result": "FAIL",
+      "reason": "Page.eval_on_selector: Failed to find element matching selector \".prod-faq-section .faq-a\""
+    },
+    {
+      "url": "http://127.0.0.1:8765/chickpeas-kabuli-exporter.html",
+      "locale": "en",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/1121-basmati-rice-exporter.html",
+      "locale": "ar",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/turmeric-finger-exporter.html",
+      "locale": "ar",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.28125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/senna-leaves-exporter.html",
+      "locale": "ar",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.0625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/yellow-maize-corn-exporter.html",
+      "locale": "ar",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.0625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/groundnuts-peanuts-exporter.html",
+      "locale": "ar",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.0625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/maida-refined-wheat-flour-exporter.html",
+      "locale": "ar",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.0625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/milling-wheat-exporter.html",
+      "locale": "ar",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.0625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/indian-raisins-kishmish-exporter.html",
+      "locale": "ar",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/chickpeas-kabuli-exporter.html",
+      "locale": "ar",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53118896484375,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.0625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/1121-basmati-rice-exporter.html",
+      "locale": "es",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/turmeric-finger-exporter.html",
+      "locale": "es",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/senna-leaves-exporter.html",
+      "locale": "es",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/yellow-maize-corn-exporter.html",
+      "locale": "es",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/groundnuts-peanuts-exporter.html",
+      "locale": "es",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/maida-refined-wheat-flour-exporter.html",
+      "locale": "es",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/milling-wheat-exporter.html",
+      "locale": "es",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/indian-raisins-kishmish-exporter.html",
+      "locale": "es",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/chickpeas-kabuli-exporter.html",
+      "locale": "es",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.89056396484375,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/1121-basmati-rice-exporter.html",
+      "locale": "fr",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100.00006103515625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/turmeric-finger-exporter.html",
+      "locale": "fr",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.99993896484375,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/senna-leaves-exporter.html",
+      "locale": "fr",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/yellow-maize-corn-exporter.html",
+      "locale": "fr",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/groundnuts-peanuts-exporter.html",
+      "locale": "fr",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/maida-refined-wheat-flour-exporter.html",
+      "locale": "fr",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/milling-wheat-exporter.html",
+      "locale": "fr",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.99993896484375,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/indian-raisins-kishmish-exporter.html",
+      "locale": "fr",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/chickpeas-kabuli-exporter.html",
+      "locale": "fr",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/1121-basmati-rice-exporter.html",
+      "locale": "id",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/turmeric-finger-exporter.html",
+      "locale": "id",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/senna-leaves-exporter.html",
+      "locale": "id",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/yellow-maize-corn-exporter.html",
+      "locale": "id",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.984375,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/groundnuts-peanuts-exporter.html",
+      "locale": "id",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/maida-refined-wheat-flour-exporter.html",
+      "locale": "id",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90631103515625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/milling-wheat-exporter.html",
+      "locale": "id",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/indian-raisins-kishmish-exporter.html",
+      "locale": "id",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/chickpeas-kabuli-exporter.html",
+      "locale": "id",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/1121-basmati-rice-exporter.html",
+      "locale": "ms",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/turmeric-finger-exporter.html",
+      "locale": "ms",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/senna-leaves-exporter.html",
+      "locale": "ms",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/yellow-maize-corn-exporter.html",
+      "locale": "ms",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/groundnuts-peanuts-exporter.html",
+      "locale": "ms",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/maida-refined-wheat-flour-exporter.html",
+      "locale": "ms",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/milling-wheat-exporter.html",
+      "locale": "ms",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/indian-raisins-kishmish-exporter.html",
+      "locale": "ms",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/chickpeas-kabuli-exporter.html",
+      "locale": "ms",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/1121-basmati-rice-exporter.html",
+      "locale": "pt",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/turmeric-finger-exporter.html",
+      "locale": "pt",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.89068603515625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/senna-leaves-exporter.html",
+      "locale": "pt",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/yellow-maize-corn-exporter.html",
+      "locale": "pt",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/groundnuts-peanuts-exporter.html",
+      "locale": "pt",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/maida-refined-wheat-flour-exporter.html",
+      "locale": "pt",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/milling-wheat-exporter.html",
+      "locale": "pt",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/indian-raisins-kishmish-exporter.html",
+      "locale": "pt",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/chickpeas-kabuli-exporter.html",
+      "locale": "pt",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/1121-basmati-rice-exporter.html",
+      "locale": "ru",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/turmeric-finger-exporter.html",
+      "locale": "ru",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.40625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/senna-leaves-exporter.html",
+      "locale": "ru",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90631103515625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/yellow-maize-corn-exporter.html",
+      "locale": "ru",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/groundnuts-peanuts-exporter.html",
+      "locale": "ru",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.99993896484375,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/maida-refined-wheat-flour-exporter.html",
+      "locale": "ru",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/milling-wheat-exporter.html",
+      "locale": "ru",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/indian-raisins-kishmish-exporter.html",
+      "locale": "ru",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/chickpeas-kabuli-exporter.html",
+      "locale": "ru",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/1121-basmati-rice-exporter.html",
+      "locale": "si",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/turmeric-finger-exporter.html",
+      "locale": "si",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/senna-leaves-exporter.html",
+      "locale": "si",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/yellow-maize-corn-exporter.html",
+      "locale": "si",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/groundnuts-peanuts-exporter.html",
+      "locale": "si",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/maida-refined-wheat-flour-exporter.html",
+      "locale": "si",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/milling-wheat-exporter.html",
+      "locale": "si",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/indian-raisins-kishmish-exporter.html",
+      "locale": "si",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/chickpeas-kabuli-exporter.html",
+      "locale": "si",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.99993896484375,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/1121-basmati-rice-exporter.html",
+      "locale": "th",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/turmeric-finger-exporter.html",
+      "locale": "th",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/senna-leaves-exporter.html",
+      "locale": "th",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.390625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/yellow-maize-corn-exporter.html",
+      "locale": "th",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/groundnuts-peanuts-exporter.html",
+      "locale": "th",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/maida-refined-wheat-flour-exporter.html",
+      "locale": "th",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 73.53125,
+        "scrollHeight": 74,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.0625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/milling-wheat-exporter.html",
+      "locale": "th",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/indian-raisins-kishmish-exporter.html",
+      "locale": "th",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/chickpeas-kabuli-exporter.html",
+      "locale": "th",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/1121-basmati-rice-exporter.html",
+      "locale": "vi",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/turmeric-finger-exporter.html",
+      "locale": "vi",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/senna-leaves-exporter.html",
+      "locale": "vi",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/yellow-maize-corn-exporter.html",
+      "locale": "vi",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/groundnuts-peanuts-exporter.html",
+      "locale": "vi",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 100,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/maida-refined-wheat-flour-exporter.html",
+      "locale": "vi",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.984375,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/milling-wheat-exporter.html",
+      "locale": "vi",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.09375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/indian-raisins-kishmish-exporter.html",
+      "locale": "vi",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.890625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/chickpeas-kabuli-exporter.html",
+      "locale": "vi",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "desktop",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 99.90625,
+        "scrollHeight": 100,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.078125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/1121-basmati-rice-exporter.html",
+      "locale": "en",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/turmeric-finger-exporter.html",
+      "locale": "en",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/senna-leaves-exporter.html",
+      "locale": "en",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 126.875,
+        "scrollHeight": 127,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.109375,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/yellow-maize-corn-exporter.html",
+      "locale": "en",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/groundnuts-peanuts-exporter.html",
+      "locale": "en",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/maida-refined-wheat-flour-exporter.html",
+      "locale": "en",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/milling-wheat-exporter.html",
+      "locale": "en",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/indian-raisins-kishmish-exporter.html",
+      "locale": "en",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": null,
+      "after_open": null,
+      "after_close": null,
+      "aria_before": null,
+      "aria_after_open": null,
+      "aria_after_close": null,
+      "console_errors": [],
+      "request_errors": [],
+      "result": "FAIL",
+      "reason": "Page.eval_on_selector: Failed to find element matching selector \".prod-faq-section .faq-a\""
+    },
+    {
+      "url": "http://127.0.0.1:8765/chickpeas-kabuli-exporter.html",
+      "locale": "en",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/1121-basmati-rice-exporter.html",
+      "locale": "ar",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/turmeric-finger-exporter.html",
+      "locale": "ar",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.82809448242188,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/senna-leaves-exporter.html",
+      "locale": "ar",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/yellow-maize-corn-exporter.html",
+      "locale": "ar",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/groundnuts-peanuts-exporter.html",
+      "locale": "ar",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/maida-refined-wheat-flour-exporter.html",
+      "locale": "ar",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.82809448242188,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/milling-wheat-exporter.html",
+      "locale": "ar",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.578125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/indian-raisins-kishmish-exporter.html",
+      "locale": "ar",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ar/chickpeas-kabuli-exporter.html",
+      "locale": "ar",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.82815551757812,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/1121-basmati-rice-exporter.html",
+      "locale": "es",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/turmeric-finger-exporter.html",
+      "locale": "es",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.796875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/senna-leaves-exporter.html",
+      "locale": "es",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.984375,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/yellow-maize-corn-exporter.html",
+      "locale": "es",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/groundnuts-peanuts-exporter.html",
+      "locale": "es",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/maida-refined-wheat-flour-exporter.html",
+      "locale": "es",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/milling-wheat-exporter.html",
+      "locale": "es",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/indian-raisins-kishmish-exporter.html",
+      "locale": "es",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/es/chickpeas-kabuli-exporter.html",
+      "locale": "es",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/1121-basmati-rice-exporter.html",
+      "locale": "fr",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59381103515625,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/turmeric-finger-exporter.html",
+      "locale": "fr",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/senna-leaves-exporter.html",
+      "locale": "fr",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/yellow-maize-corn-exporter.html",
+      "locale": "fr",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/groundnuts-peanuts-exporter.html",
+      "locale": "fr",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/maida-refined-wheat-flour-exporter.html",
+      "locale": "fr",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/milling-wheat-exporter.html",
+      "locale": "fr",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207.00006103515625,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/indian-raisins-kishmish-exporter.html",
+      "locale": "fr",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/fr/chickpeas-kabuli-exporter.html",
+      "locale": "fr",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/1121-basmati-rice-exporter.html",
+      "locale": "id",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/turmeric-finger-exporter.html",
+      "locale": "id",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/senna-leaves-exporter.html",
+      "locale": "id",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/yellow-maize-corn-exporter.html",
+      "locale": "id",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/groundnuts-peanuts-exporter.html",
+      "locale": "id",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/maida-refined-wheat-flour-exporter.html",
+      "locale": "id",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59378051757812,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/milling-wheat-exporter.html",
+      "locale": "id",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/indian-raisins-kishmish-exporter.html",
+      "locale": "id",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/id/chickpeas-kabuli-exporter.html",
+      "locale": "id",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/1121-basmati-rice-exporter.html",
+      "locale": "ms",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/turmeric-finger-exporter.html",
+      "locale": "ms",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/senna-leaves-exporter.html",
+      "locale": "ms",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/yellow-maize-corn-exporter.html",
+      "locale": "ms",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/groundnuts-peanuts-exporter.html",
+      "locale": "ms",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.79681396484375,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/maida-refined-wheat-flour-exporter.html",
+      "locale": "ms",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/milling-wheat-exporter.html",
+      "locale": "ms",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59378051757812,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.171875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/indian-raisins-kishmish-exporter.html",
+      "locale": "ms",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ms/chickpeas-kabuli-exporter.html",
+      "locale": "ms",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.984375,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/1121-basmati-rice-exporter.html",
+      "locale": "pt",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/turmeric-finger-exporter.html",
+      "locale": "pt",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59381103515625,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/senna-leaves-exporter.html",
+      "locale": "pt",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/yellow-maize-corn-exporter.html",
+      "locale": "pt",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/groundnuts-peanuts-exporter.html",
+      "locale": "pt",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/maida-refined-wheat-flour-exporter.html",
+      "locale": "pt",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/milling-wheat-exporter.html",
+      "locale": "pt",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/indian-raisins-kishmish-exporter.html",
+      "locale": "pt",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/pt/chickpeas-kabuli-exporter.html",
+      "locale": "pt",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.99993896484375,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/1121-basmati-rice-exporter.html",
+      "locale": "ru",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/turmeric-finger-exporter.html",
+      "locale": "ru",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/senna-leaves-exporter.html",
+      "locale": "ru",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/yellow-maize-corn-exporter.html",
+      "locale": "ru",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207.00003051757812,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/groundnuts-peanuts-exporter.html",
+      "locale": "ru",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/maida-refined-wheat-flour-exporter.html",
+      "locale": "ru",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.79690551757812,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/milling-wheat-exporter.html",
+      "locale": "ru",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/indian-raisins-kishmish-exporter.html",
+      "locale": "ru",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 234.00003051757812,
+        "scrollHeight": 234,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.21875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/ru/chickpeas-kabuli-exporter.html",
+      "locale": "ru",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/1121-basmati-rice-exporter.html",
+      "locale": "si",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/turmeric-finger-exporter.html",
+      "locale": "si",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59371948242188,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/senna-leaves-exporter.html",
+      "locale": "si",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/yellow-maize-corn-exporter.html",
+      "locale": "si",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/groundnuts-peanuts-exporter.html",
+      "locale": "si",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/maida-refined-wheat-flour-exporter.html",
+      "locale": "si",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/milling-wheat-exporter.html",
+      "locale": "si",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59381103515625,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/indian-raisins-kishmish-exporter.html",
+      "locale": "si",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/si/chickpeas-kabuli-exporter.html",
+      "locale": "si",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.99993896484375,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/1121-basmati-rice-exporter.html",
+      "locale": "th",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.82818603515625,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/turmeric-finger-exporter.html",
+      "locale": "th",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/senna-leaves-exporter.html",
+      "locale": "th",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59368896484375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.6875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/yellow-maize-corn-exporter.html",
+      "locale": "th",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/groundnuts-peanuts-exporter.html",
+      "locale": "th",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/maida-refined-wheat-flour-exporter.html",
+      "locale": "th",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/milling-wheat-exporter.html",
+      "locale": "th",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 153.828125,
+        "scrollHeight": 154,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.140625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/indian-raisins-kishmish-exporter.html",
+      "locale": "th",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/th/chickpeas-kabuli-exporter.html",
+      "locale": "th",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/1121-basmati-rice-exporter.html",
+      "locale": "vi",
+      "product": "1121-basmati-rice-exporter.html",
+      "commodity_group": "rice",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.171875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/turmeric-finger-exporter.html",
+      "locale": "vi",
+      "product": "turmeric-finger-exporter.html",
+      "commodity_group": "spices",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.203125,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/senna-leaves-exporter.html",
+      "locale": "vi",
+      "product": "senna-leaves-exporter.html",
+      "commodity_group": "herbs",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 206.796875,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/yellow-maize-corn-exporter.html",
+      "locale": "vi",
+      "product": "yellow-maize-corn-exporter.html",
+      "commodity_group": "feed",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/groundnuts-peanuts-exporter.html",
+      "locale": "vi",
+      "product": "groundnuts-peanuts-exporter.html",
+      "commodity_group": "oilseeds",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59375,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/maida-refined-wheat-flour-exporter.html",
+      "locale": "vi",
+      "product": "maida-refined-wheat-flour-exporter.html",
+      "commodity_group": "flour",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59371948242188,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.15625,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/milling-wheat-exporter.html",
+      "locale": "vi",
+      "product": "milling-wheat-exporter.html",
+      "commodity_group": "wheat",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 180.59381103515625,
+        "scrollHeight": 181,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/indian-raisins-kishmish-exporter.html",
+      "locale": "vi",
+      "product": "indian-raisins-kishmish-exporter.html",
+      "commodity_group": "raisins",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/vi/chickpeas-kabuli-exporter.html",
+      "locale": "vi",
+      "product": "chickpeas-kabuli-exporter.html",
+      "commodity_group": "pulses",
+      "viewport": "mobile",
+      "initial_state": {
+        "height": 0,
+        "aria_expanded": "false"
+      },
+      "after_open": {
+        "height": 207,
+        "scrollHeight": 207,
+        "aria_expanded": "true"
+      },
+      "after_close": {
+        "height": 0.1875,
+        "aria_expanded": "false"
+      },
+      "aria_before": "false",
+      "aria_after_open": "true",
+      "aria_after_close": "false",
+      "console_errors": [],
+      "request_errors": [],
+      "result": "PASS",
+      "reason": null
+    }
+  ],
+  "regression": {
+    "audit_locale_ui.py": "PASS",
+    "audit_website.py": "PASS",
+    "audit_commercial_content.py": "PASS",
+    "audit_claims_and_products.py": "PASS",
+    "validate_blog_navigation.py": "PASS",
+    "audit_localizations.py": "PASS (0 findings)",
+    "audit_performance.py": "PASS",
+    "full_site_audit.py": "PASS",
+    "audit_coverage_gaps.py": "PASS",
+    "check_links.py": "PASS, 0 broken links",
+    "html_validity_sample": "valid (60 files)",
+    "cloudflare_build": {
+      "file_count": 2089,
+      "matches_baseline": true,
+      "deployed": false
+    }
+  },
+  "files_changed": [
+    "scripts/fix_product_faq_accordion.py (new)",
+    "scripts/browser_faq_accordion_test.py (new)",
+    "scripts/audit_localizations.py (+check_faq_accordion_script)",
+    "830 locale product HTML files (1 line each)",
+    "reports/product-faq-accordion-fix-2026-08-27.md/.json"
+  ],
+  "deployment": "not performed; all changes remain local, uncommitted working-tree changes"
+}

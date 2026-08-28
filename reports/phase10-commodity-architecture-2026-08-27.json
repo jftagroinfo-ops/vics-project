@@ -1,0 +1,146 @@
+{
+  "phase": 10,
+  "title": "Commodity Architecture + Internal Linking + Governance Fixes",
+  "date": "2026-08-27",
+  "status": "implementation complete, regression suite green, not deployed",
+  "authorized_objectives": [
+    "Design and implement a proper commodity/category architecture.",
+    "Improve contextual internal linking between existing high-value pages.",
+    "Fix the isolated export-documentation contextual-link gap.",
+    "Correct two confirmed governance defects: ManufacturingBusiness schema on locale infrastructure.html pages; two byte-identical Thai product H1s."
+  ],
+  "explicitly_out_of_scope": [
+    "broad SEO rewriting", "mass metadata changes", "mass content rewriting", "new article program",
+    "keyword stuffing", "URL migration", "page deletion", "mass redirects", "redesign",
+    "unauthorized visual design system changes"
+  ],
+  "deliverables": {
+    "new_category_pages": 10,
+    "new_scripts": 6,
+    "reports_produced": [
+      "reports/phase10-current-architecture.md",
+      "reports/phase10-commodity-architecture-2026-08-27.md",
+      "reports/phase10-commodity-architecture-2026-08-27.json",
+      "reports/phase10-link-graph-before-after.json"
+    ]
+  },
+  "commodity_categories": [
+    {"key": "rice", "slug": "rice-exporter-india.html", "product_count": 20},
+    {"key": "spices", "slug": "spices-exporter-india.html", "product_count": 17},
+    {"key": "herbs", "slug": "herbs-seeds-exporter-india.html", "product_count": 15},
+    {"key": "feed", "slug": "animal-feed-exporter-india.html", "product_count": 15},
+    {"key": "oilseeds", "slug": "oilseeds-exporter-india.html", "product_count": 5},
+    {"key": "flour", "slug": "flour-exporter-india.html", "product_count": 5},
+    {"key": "pulses", "slug": "pulses-exporter-india.html", "product_count": 4},
+    {"key": "wheat", "slug": "wheat-exporter-india.html", "product_count": 1},
+    {"key": "sugar", "slug": "sugar-exporter-india.html", "product_count": 1},
+    {"key": "raisins", "slug": "raisins-exporter-india.html", "product_count": 1}
+  ],
+  "total_products_covered": 84,
+  "locale_strategy": {
+    "category_pages": "english-only, 2-entry hreflang (en + x-default), matches existing precedent (editorial-policy.html, privacy.html, 2 logistics pages, 6 blog articles)",
+    "header_nav": "not modified - root-relative locale-agnostic links in header.html would 404 from locale pages if pointed at english-only category pages"
+  },
+  "regression_found_and_fixed_during_phase10": [
+    {
+      "id": "P10-1",
+      "description": "6 of 10 new category pages violated full_site_audit.py's title (30-65 char) / meta-description (90-170 char) length checks",
+      "root_cause": "hand-authored copy in scripts/category_content.py exceeded length bounds",
+      "fix": "shortened title/meta strings for spices, herbs, oilseeds, feed, flour, pulses (title) and rice (description); regenerated all 10 pages",
+      "verified": "full_site_audit.py finding_counts: {} after fix"
+    },
+    {
+      "id": "P10-2",
+      "description": "audit_website.py LINK_TO_UNPUBLISHED_BLOG: category-page generator and reciprocal-link script linked to a placeholder stub article (blog-toor-dal-export-india-2026.html)",
+      "root_cause": "generators did not filter against audit_website.py's own UNPUBLISHED_BLOGS set",
+      "fix": "extracted UNPUBLISHED_BLOGS via regex from audit_website.py's source in both generators; removed the bad link; regenerated",
+      "verified": "audit_website.py: 0 findings after fix"
+    },
+    {
+      "id": "P10-3",
+      "description": "audit_localizations.py missing_pages flagged all 10 new english-only category pages against all 10 locales",
+      "root_cause": "category pages are intentionally english-only (see locale_strategy) but audit_localizations.py's IGNORED allowlist did not yet include them",
+      "fix": "added the 10 category page filenames to the existing IGNORED set",
+      "verified": "rc=0, finding_counts: {}, informational cache-self-identical counts unchanged from Phase 6-9 baseline"
+    }
+  ],
+  "governance_fixes": {
+    "manufacturing_business_schema": {
+      "locales_fixed": ["ar","es","fr","id","ms","pt","ru","si","th","vi"],
+      "change": "@type ManufacturingBusiness -> Organization; @id https://jftagro.com/#organization added",
+      "deliberately_not_fixed": "stale specific capacity numbers and named machinery brands on the same locale pages - out of scope (content rewriting)"
+    },
+    "thai_duplicate_h1": {
+      "file": "th/dill-seeds-powder-exporter.html",
+      "root_cause": "governed cache copy-paste bug in data/localized-copy-cache.json (Dill entry held Celery's Thai translation)",
+      "occurrences_corrected": 21,
+      "fixed_at": ["data/localized-copy-cache.json", "th/dill-seeds-powder-exporter.html"]
+    }
+  },
+  "audit_suite_results": {
+    "audit_locale_ui.py": "pass",
+    "audit_website.py": "0 findings (after P10-2 fix)",
+    "audit_commercial_content.py": "pass",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "pass, 0 stale images",
+    "audit_localizations.py": "0 findings (after P10-3 fix), rc=0",
+    "audit_performance.py": "0 findings",
+    "full_site_audit.py": "0 findings (after P10-1 fix)",
+    "audit_coverage_gaps.py": "0 findings",
+    "check_links.py": "0 broken links across 1766 html files"
+  },
+  "determinism_verification": {
+    "build_category_pages.py": "byte-identical output across 3 runs (md5-verified)",
+    "fix_export_documentation_locale_links.py": "self-guarding, reports 0 added / 460 skipped on rerun",
+    "add_reciprocal_article_links.py": "add_forward_links/add_back_links self-guarding (0/0 on rerun); fix_mismatched_links rewrites unconditionally but is a pure function of static data, confirmed byte-identical via diff inspection",
+    "fix_infrastructure_schema_type.py": "one-shot migration, raises a clear error on rerun rather than silently corrupting or double-applying; confirmed no partial write via diff inspection",
+    "add_category_breadcrumbs.py": "one-shot migration, same safe-failure profile; confirmed via JSON-LD validity spot-checks"
+  },
+  "html_validation": {
+    "method": "html5lib non-strict parse + json.loads on every JSON-LD block",
+    "files_checked": "all 10 category pages, all 84 english product pages, 50 locale product-page samples, products.html, europe-trade.html, 2 logistics index.html files, 10 locale infrastructure.html files, th/dill-seeds-powder-exporter.html",
+    "parse_errors": 0,
+    "jsonld_errors": 0
+  },
+  "performance": {
+    "category_page_size_range_bytes": [11622, 25350],
+    "category_page_avg_size_bytes": 16821,
+    "products_html_size_bytes": 149908,
+    "images_missing_width_or_height": 0,
+    "images_missing_lazy_loading": 0,
+    "new_external_scripts": 0,
+    "new_stylesheets": 0,
+    "shared_css_reused": ["jft-design-system.css", "jft-responsive.css", "trade-regions.css"]
+  },
+  "full_crawl_comparison": {
+    "baseline_source": "reports/seo-page-inventory-2026-08-27.json",
+    "baseline_page_count": 1443,
+    "files_found": 1443,
+    "files_missing": 0,
+    "mismatches_total": 10,
+    "mismatches_expected": 10,
+    "mismatches_unexplained": 0,
+    "mismatch_detail": "10 locale infrastructure.html pages lost ManufacturingBusiness from schema_types - this is the authorized P10 governance fix, not a regression",
+    "current_indexable_pages": 1453,
+    "sitemap_url_count": 1453,
+    "sitemap_diff": "80 insertions(+), 0 deletions(-)"
+  },
+  "cloudflare_build": {
+    "output_dir": ".cloudflare-dist-next",
+    "gitignored": true,
+    "deployed": false,
+    "files_built": 2099,
+    "size_mib": 135.5,
+    "category_pages_present": true,
+    "sensitive_dirs_leaked": false
+  },
+  "not_yet_done_next_phase_candidates": [
+    "localize the 10 category pages",
+    "add category level to locale product breadcrumbs",
+    "correct the pre-existing header.html Fruits/raisins label mismatch",
+    "rewrite stale capacity/brand claims on locale infrastructure.html pages beyond the schema @type fix",
+    "run a live browser-automation validation pass (not available as a tool in this session)"
+  ],
+  "deployment_status": "not deployed",
+  "stop_instruction_followed": true
+}

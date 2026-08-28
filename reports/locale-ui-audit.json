@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "missing_translation": 0,
+    "stale_shipped_key": 0,
+    "raw_english_in_shipped_output": 0,
+    "invalid_json_payload": 0
+  },
+  "findings": {
+    "missing_translation": [],
+    "stale_shipped_key": [],
+    "raw_english_in_shipped_output": [],
+    "invalid_json_payload": []
+  }
+}

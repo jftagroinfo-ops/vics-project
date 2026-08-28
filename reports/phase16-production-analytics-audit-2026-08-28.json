@@ -1,0 +1,117 @@
+{
+  "phase": 16,
+  "date": "2026-08-28",
+  "repository_commit": "e64a3f2b",
+  "analytics_property": {
+    "measurement_id": "G-MWZ2ZWZP4G",
+    "platform": "GA4 (gtag.js)",
+    "gtm_present": false,
+    "other_platforms_present": false
+  },
+  "production_access": {
+    "ga4_dashboard_or_api": "UNAVAILABLE",
+    "gsc_dashboard_or_api": "UNAVAILABLE",
+    "outbound_http_access": "AVAILABLE - used for raw HTML/header-level production verification"
+  },
+  "browser_verification": {
+    "live_browser_automation_available": false,
+    "raw_http_verification_performed": true,
+    "disclosure": "curl-based raw HTML/header inspection is real production evidence but is not a rendered-DOM/network-tab/console test; both kinds of evidence are kept explicitly separate throughout this phase's reports"
+  },
+  "gsc_data_available": true,
+  "gsc_data_classification": "REAL PRODUCTION DATA (reused from Phase 15's already-analyzed export, no new export exists)",
+  "gsc_export_date": "2026-08-20",
+  "gsc_reporting_period": "2026-05-19 to 2026-08-18",
+  "production_vs_local_findings": {
+    "headline": "production is running a pre-Phase-10 snapshot of the site; none of Phase 10-15's fixes are deployed",
+    "jft_conversion_js": {"production_matches_local": true, "verification": "byte-for-byte diff, 19028 bytes both"},
+    "header_html": {"production_matches_local": true, "verification": "byte-for-byte diff"},
+    "ga4_measurement_id_matches": true,
+    "sitemap_url_count_production": 1443,
+    "sitemap_url_count_local": 1453,
+    "category_page_live_status": "404 (rice-exporter-india.html confirmed via direct fetch)",
+    "phase11_rfq_context_fix_live": false,
+    "phase12_hero_btns_fix_live": false,
+    "phase12_image_aspect_ratio_fix_live": false,
+    "phase13_optional_field_fix_live": false,
+    "phase15_duplicate_script_fix_live": false,
+    "phase15_bug_confirmed_still_active_in_production": true,
+    "affected_live_pages": 22,
+    "robots_txt_correctly_excludes_internal_tooling": true,
+    "test_staging_pages_exposed": false
+  },
+  "event_inventory": [
+    {"name": "form_start/rfq_start/sample_request_start", "type": "intent", "production_status": "live, double-fires on 22 affected pages"},
+    {"name": "rfq_click/sample_request_click", "type": "intent", "production_status": "live"},
+    {"name": "generate_lead + rfq_submit/sample_request/enquiry_submit", "type": "conversion", "production_status": "live, success-gated, not at double-fire risk"},
+    {"name": "view_item/product_view", "type": "intent", "production_status": "live"},
+    {"name": "article_view/article_read_depth", "type": "intent", "production_status": "live"},
+    {"name": "whatsapp_click/contact_whatsapp", "type": "intent-high-value", "production_status": "live, double-fires on 22 affected pages"},
+    {"name": "contact_phone/contact_email", "type": "intent", "production_status": "live, double-fire risk on 22 pages"},
+    {"name": "file_download/brochure_download", "type": "intent", "production_status": "live"},
+    {"name": "outbound_click/conversion_link_click", "type": "diagnostic/intent", "production_status": "live"},
+    {"name": "page_not_found", "type": "diagnostic", "production_status": "live"},
+    {"name": "csp_violation", "type": "diagnostic", "production_status": "live"},
+    {"name": "rfq_prefill_loaded", "type": "diagnostic", "production_status": "live"}
+  ],
+  "funnel": {
+    "discovery_to_landing": "MEASURABLE_NOW",
+    "landing_to_category": "NOT_APPLICABLE_TODAY - category pages do not exist in production",
+    "landing_to_article_or_product": "MEASURABLE_NOW",
+    "product_engagement": "MEASURABLE_NOW",
+    "product_to_rfq_with_context": "MEASURABLE_ONLY_AFTER_DEPLOYMENT of Phase 11's fix",
+    "rfq_form_lifecycle": "MEASURABLE_NOW, degraded by double-counting on 22 pages until Phase 15's fix is deployed",
+    "product_to_whatsapp": "MEASURABLE_NOW, same double-counting caveat",
+    "calculator_to_rfq": "MEASURABLE_NOW",
+    "regional_to_product_to_rfq": "MEASURABLE_NOW for pageview/product view; regional hero CTA itself is not clickable live due to the undeployed Phase 12 fix",
+    "session_user_counts": "REQUIRES_GA4_ACCESS",
+    "lead_quality_through_revenue": "REQUIRES_CRM_OFFLINE_DATA"
+  },
+  "attribution": {
+    "utm_capture_and_persistence": "confirmed live via identical code",
+    "product_context_passing": "code exists and confirmed live, but the CTA hrefs that would use it are only deployed as far as the Phase 9 baseline - not yet carrying the parameter live",
+    "locale_attribution": "confirmed live via page_path"
+  },
+  "pii_audit": {"pii_in_ga4_calls": false, "reused_from_phase15": true, "new_issue_found": false},
+  "consent_audit": {
+    "mechanism": "localStorage jft_cookie_choice === 'accepted' gate, confirmed identical in production code",
+    "static_bypass_found_in_raw_html": false,
+    "runtime_verification": "not possible without a browser; structural/static evidence only"
+  },
+  "performance_audit": {
+    "duplicate_script_load_confirmed_live": true,
+    "affected_pages": 22,
+    "impact": "minor extra request + duplicate event firing, matches Phase 15's analysis exactly since the code is identical"
+  },
+  "production_data_findings": "NOT_VERIFIABLE_WITHOUT_GA4_DATA - no live GA4 account access available this session",
+  "measurement_gaps": [
+    {"gap": "duplicate analytics script still live on 22 production pages", "severity": "P0/P1", "fix_exists_locally": true, "deployed": false},
+    {"gap": "product-context RFQ passing not live", "severity": "P1", "fix_exists_locally": true, "deployed": false},
+    {"gap": "category pages not live", "severity": "content/architecture, not analytics", "fix_exists_locally": true, "deployed": false},
+    {"gap": "no GA4 account access this session", "severity": "limitation", "cannot_be_fixed_from_repository": true}
+  ],
+  "crm_reconciliation": "see reports/phase16-conversion-intelligence-2026-08-28.md Part S - design only, not implemented",
+  "fixes": [],
+  "regression": {
+    "audit_website.py": "0 findings",
+    "audit_localizations.py": "0 findings",
+    "full_site_audit.py": "0 findings, 1453 indexable pages (local)",
+    "check_links.py": "0 broken links / 1766 files",
+    "audit_performance.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "pass",
+    "audit_locale_ui.py": "0 findings, determinism PASS"
+  },
+  "build": "not run this phase - no source files changed, per Part AF's own instruction that a build is optional when nothing changed",
+  "deployment": "NOT DEPLOYED - and explicitly out of scope for this phase",
+  "limitations": [
+    "no live GA4 account/API access available this session",
+    "no live Google Search Console account/API access available this session (reused the existing real export from Phase 15 instead)",
+    "no live browser-automation tool available; production verification was raw HTTP/HTML-level only, not a rendered-DOM/console/network-tab test",
+    "cannot verify /api/lead backend storage behavior - no backend source exists in this repository"
+  ],
+  "final_status": "GREEN WITH DATA-ACCESS LIMITATION for the code/architecture itself; the live production site is currently running pre-Phase-10 and does not yet benefit from Phases 10-15's fixes",
+  "recommendation": "deploy the already-verified Phases 10-15 fixes (an explicit business/deployment decision outside this phase's scope), then obtain live GA4 access to confirm the event taxonomy performs as designed against real traffic"
+}

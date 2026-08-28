@@ -1,0 +1,68 @@
+{
+  "phase": 17,
+  "part": "production-verification",
+  "date": "2026-08-28",
+  "deployment": {
+    "executed": true,
+    "tool": "wrangler deploy",
+    "worker_name": "jftagro-site",
+    "version_id": "2b63fb19-28c8-45ca-9fc8-3468fdd105eb",
+    "routes": ["jftagro.com", "www.jftagro.com", "jftagro-site.jftagro-info.workers.dev"],
+    "assets_uploaded_new_or_modified": 1093,
+    "assets_already_current": 1005,
+    "assets_total": 2136,
+    "result": "success"
+  },
+  "before_after_comparison": {
+    "sitemap_url_count": {"before": 1443, "release_candidate": 1453, "after": 1453},
+    "category_pages_status": {"before": "404 (all 10)", "release_candidate": "200 (all 10)", "after": "200 (all 10, verified individually)"},
+    "product_page_rfq_context": {"before": "absent", "release_candidate": "present", "after": "present, correct value"},
+    "hero_btns_bug": {"before": "present", "release_candidate": "removed", "after": "removed"},
+    "image_aspect_ratio_fix": {"before": "absent", "release_candidate": "present", "after": "present"},
+    "contact_optional_field_marker": {"before": "absent", "release_candidate": "present", "after": "present"},
+    "buyer_security_duplicate_script": {"before": "present", "release_candidate": "removed", "after": "removed"},
+    "export_documentation_duplicate_script": {"before": "present", "release_candidate": "removed", "after": "removed"},
+    "header_analytics_delivery": {"before": "intact", "release_candidate": "intact", "after": "intact, verified live"},
+    "legacy_product_redirect": {"before": "working", "release_candidate": "unchanged (worker.js not modified)", "after": "working, correct destination"},
+    "legacy_article_redirect": {"before": "working", "release_candidate": "unchanged", "after": "working, correct destination"}
+  },
+  "phase_10_15_production_checks": [
+    {"phase": 10, "check": "10 category pages", "local": "PASS", "release": "PASS", "production": "PASS"},
+    {"phase": 10, "check": "locale infrastructure Organization schema", "local": "PASS", "release": "PASS", "production": "PASS"},
+    {"phase": 10, "check": "Thai duplicate H1 fix", "local": "PASS", "release": "PASS", "production": "PASS"},
+    {"phase": 11, "check": "?product= RFQ context", "local": "PASS", "release": "PASS", "production": "PASS"},
+    {"phase": 11, "check": "RTL breadcrumb chevron CSS", "local": "PASS", "release": "PASS", "production": "PASS (CSS delivery confirmed; rendered RTL mirroring not independently browser-verified)"},
+    {"phase": 12, "check": "regional hero CTA visible", "local": "PASS", "release": "PASS", "production": "PASS"},
+    {"phase": 12, "check": "product-card object-fit/aspect-ratio", "local": "PASS", "release": "PASS", "production": "PASS"},
+    {"phase": 13, "check": "Port of Discharge optional", "local": "PASS", "release": "PASS", "production": "PASS"},
+    {"phase": 15, "check": "no duplicate analytics script (22 pages)", "local": "PASS", "release": "PASS", "production": "PASS (2 English files + 2-file locale sample fetched and confirmed; remaining 18 locale copies verified at source/bundle hash level, not individually re-fetched)"}
+  ],
+  "analytics_production_check": {
+    "header_html_delivers_script": true,
+    "duplicate_script_removed_on_sampled_pages": true,
+    "live_ga4_event_reception_confirmed": false,
+    "disclosure": "production source/delivery was verified; live GA4 event reception could not be independently confirmed - no GA4 account/API access available"
+  },
+  "rfq_production_check": {
+    "verification_level": "source/DOM only, no live form submission attempted",
+    "reason_no_submission": "a real submission would create a real lead in JFT's backend",
+    "optional_field_marker_confirmed_live": true
+  },
+  "redirect_checks": [
+    {"path": "/1121-golden-sella-basmati-rice/", "expected": 301, "actual": 301, "destination_correct": true},
+    {"path": "blog-cif-fob-explained.html", "expected": 301, "actual": 301, "destination_correct": true}
+  ],
+  "link_check": {
+    "full_production_crawl_performed": false,
+    "reasoning": "local check_links.py (0 broken links / 1766 files) treated as representative since deployed bundle content is byte-identical to what was checked locally"
+  },
+  "no_silent_recovery": true,
+  "rollback_invoked": false,
+  "rollback_reason": "not needed - no unexpected condition occurred",
+  "limitations": [
+    "no live browser-automation tool available - no claim of visual rendering, console errors, click behavior, actual form-submission success, Core Web Vitals, or cross-browser behavior",
+    "no live GA4 or GSC account/API access - no claim that any analytics event was actually received by Google's servers",
+    "18 of 22 previously-duplicated pages verified at source/bundle hash level, not individually re-fetched live post-deployment",
+    "no real RFQ or sample-request form was submitted to production"
+  ]
+}

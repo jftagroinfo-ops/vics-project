@@ -1,0 +1,153 @@
+{
+  "phase": 25,
+  "date": "2026-08-28",
+  "baseline_vs_phase24": {
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "production_status": 200,
+    "production_sitemap_urls": 1453,
+    "renderable_pages": 1753,
+    "product_schema_count": {"value": 1, "file": "product-page-template.html", "classification": "expected, unused generator template, not a regression"},
+    "regression_found": false,
+    "unexpected_difference_found": false
+  },
+  "critical_discovery": {
+    "title": "root cause of Phase 24's AI misinformation finding",
+    "method": "expanded query testing for exact brand name and site: operator",
+    "finding": "6 legacy WordPress-era URLs still surfaced in search results/AI summaries: /aboutus/, /products/, /spices/, /raisins/, /contact-us/, /ricemill/",
+    "production_verification": {
+      "/products/": "200, correctly redirects via existing LEGACY_PRETTY_REDIRECTS entry",
+      "/aboutus/": "404, no redirect existed",
+      "/spices/": "404, no redirect existed",
+      "/raisins/": "404, no redirect existed",
+      "/contact-us/": "404, no redirect existed",
+      "/ricemill/": "404, no redirect existed"
+    },
+    "conclusion": "bare 404s give crawlers no signal to update stale index entries; a 301 redirect does. This is the traceable, fixable root cause of Phase 24's fabricated 'Since 1980' finding."
+  },
+  "fix_1_legacy_redirects": {
+    "file_modified": ".cloudflare/worker.js",
+    "first_modification_to_this_file_in_engagement": true,
+    "entries_added": {
+      "/aboutus/": "/about.html",
+      "/contact-us/": "/contact.html",
+      "/raisins/": "/indian-raisins-kishmish-exporter.html",
+      "/ricemill/": "/infrastructure.html",
+      "/spices/": "/spices-exporter-india.html"
+    },
+    "target_files_confirmed_to_exist": true,
+    "verification_method": "manual Read-based inspection + grep-based structural pattern check",
+    "verification_limitation": "automated node/python syntax-check execution against this file was blocked by the session's permission classifier - disclosed, not glossed over",
+    "deployed": false,
+    "reason_not_deployed": "Phase 25 explicitly requires separate authorization for production deployment"
+  },
+  "fix_2_article_category_links": {
+    "script_created": "scripts/add_article_category_links.py",
+    "gap_confirmed": "0 of 30 substantive articles linked to any of the 10 category hub pages",
+    "method": "used each article's own existing, human-verified product links to derive category, no invented categorization",
+    "existing_component_used": "jft-related-product aside, present on 6/37 articles",
+    "articles_fixed": 5,
+    "articles_fixed_list": [
+      "blog-basmati-export-guide.html",
+      "blog-cumin-jeera-price-outlook-2026.html",
+      "blog-groundnut-peanut-export-india-2026.html",
+      "blog-india-rice-export-sri-lanka-bangladesh.html",
+      "blog-ir64-export.html"
+    ],
+    "articles_correctly_skipped_ambiguous": 1,
+    "articles_correctly_skipped_ambiguous_reason": "blog-top-indian-agro-commodities-import-2026.html references products spanning 2 categories, forcing one link would misrepresent scope",
+    "articles_skipped_no_aside": 31,
+    "idempotency_verified": "0 added, 5 already present on second run"
+  },
+  "investigated_not_changed_certificate_disclosure": {
+    "trigger": "how to verify an Indian commodity exporter query revealed buyers check IEC/GST/NABL-COA numbers",
+    "finding": "about.html shows trust badges, certificates.html discloses certificate types/issuers but explicitly marks numbers 'Not published' with a buyer-request CTA",
+    "classification": "deliberate, correct anti-fraud/anti-scraping design, not a gap",
+    "action_taken": "none - validated existing design"
+  },
+  "buyer_question_map": {
+    "product_questions": "COVERED",
+    "quality_questions": "COVERED",
+    "commercial_questions": "COVERED",
+    "logistics_documentation": "COVERED",
+    "logistics_shipping_mechanics": "PARTIALLY COVERED - judged non-critical, existing calculator+FAQ answers the commercially meaningful part",
+    "risk_verification": "COVERED",
+    "geography": "COVERED"
+  },
+  "category_hub_audit": {
+    "method": "delegated to research agent",
+    "strong_or_adequate": 7,
+    "thin": 3,
+    "thin_categories": ["wheat-exporter-india.html", "sugar-exporter-india.html", "raisins-exporter-india.html"],
+    "thin_reason": "single-SKU categories (legitimate given real catalog breadth), 0-1 supporting articles, no FAQ",
+    "faq_schema_at_category_level": "0/10",
+    "disposition": "documented, not implemented - requires content authorship beyond a structural fix"
+  },
+  "article_authority_audit": {
+    "method": "delegated to research agent",
+    "total_files": 37,
+    "redirect_stubs": 6,
+    "unpublished_placeholder": {"file": "blog-toor-dal-export-india-2026.html", "status": "noindex, literal placeholder text found"},
+    "substantive_articles": 30,
+    "with_specific_expertise": 22,
+    "generic_tone": 8,
+    "linking_to_products": 18,
+    "zero_product_links": 12,
+    "linking_to_category_hubs_before_fix": 0,
+    "linking_to_category_hubs_after_fix": 5,
+    "disposition_for_remaining_gaps": "documented, not implemented - toor dal article requires content authorship, 12 generic articles' missing category links fail semantic-value test"
+  },
+  "ai_query_tests": {
+    "tool_used": "single web-search tool available this session",
+    "explicitly_not_tested": ["Google AI Overviews", "Bing Copilot", "ChatGPT search", "Perplexity", "Gemini"],
+    "total_queries_this_phase": 10,
+    "queries": [
+      {"query": "\"JFT AGRO OVERSEAS LLP\"", "type": "brand", "jft_appears": true, "notes": "surfaced legacy URL evidence, also genuine third-party LEI registry listing"},
+      {"query": "\"JFT Agro Overseas\" rice exporter India", "type": "brand", "jft_appears": true, "notes": "same misinformation pattern as Phase 24, now root-caused"},
+      {"query": "site:jftagro.com", "type": "trust/coverage", "jft_appears": true, "notes": "confirmed same legacy URLs, no new ones found"},
+      {"query": "IR64 rice exporter India", "type": "product", "jft_appears": false, "notes": "competitors: Riceone, Plowexim, Tizara Group"},
+      {"query": "Indian rice exporters IR64 rice exporter India", "type": "product", "jft_appears": false, "notes": "same competitors, consistent with Phase 24"},
+      {"query": "annatto seed exporter India", "type": "product", "jft_appears": false, "notes": "correct absence, JFT does not sell this product"},
+      {"query": "Indian spice exporter turmeric cumin coriander bulk", "type": "category", "jft_appears": false, "notes": "competitors: Botanika Bharat LLP, White Feather Export"},
+      {"query": "Indian pulses exporter bulk", "type": "category", "jft_appears": false, "notes": "competitors: Damodar Exports, S A Enterprises, Leela Sai Exim"},
+      {"query": "bulk rice supplier India request quotation", "type": "commercial", "jft_appears": false, "notes": "competitors: Indiafeast, Grainville"},
+      {"query": "how to verify an Indian commodity exporter", "type": "trust", "jft_appears": false, "notes": "yielded verification-criteria evidence used to validate certificate-disclosure design"}
+    ]
+  },
+  "parts_reconfirmed_no_new_evidence": ["llms.txt remains correctly absent", "robots.txt remains correctly unrestricted", "Product schema correctly not reintroduced"],
+  "fix_decision_gate_results": [
+    {"candidate": "legacy URL redirects", "result": "PASS", "implemented": true},
+    {"candidate": "article-category links (5 articles)", "result": "PASS", "implemented": true},
+    {"candidate": "thin category hubs (Wheat/Sugar/Raisins)", "result": "FAIL - requires content authorship", "implemented": false},
+    {"candidate": "toor dal placeholder article", "result": "FAIL - requires content authorship", "implemented": false},
+    {"candidate": "12 generic articles missing category links", "result": "FAIL - no clear semantic value", "implemented": false},
+    {"candidate": "certificate number disclosure", "result": "FAIL - not a genuine gap, validated existing design", "implemented": false}
+  ],
+  "regression_results": {
+    "audit_website.py": "0 findings, 1753 pages",
+    "full_site_audit.py": "0 findings, 1453 indexable",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "passed, 259 blog cards, 66 legacy redirects, 0 stale images",
+    "audit_locale_ui.py": "0 findings, determinism PASS",
+    "audit_localizations.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_performance.py": "0 findings",
+    "check_links.py": "0 broken links / 1766 files",
+    "validate_seo_alignment.py": "exit 1, identical pre-existing P23-R4 finding, unrelated and unaffected"
+  },
+  "page_count_regression": {"drift": 0},
+  "housekeeping": "removed a stray leftover temp file from Phase 20 (p20_final_audits.txt), unrelated to Phase 25's own changes",
+  "changes_implemented": [
+    {"file": ".cloudflare/worker.js", "change": "5 new LEGACY_PRETTY_REDIRECTS entries"},
+    {"files": ["blog-basmati-export-guide.html", "blog-cumin-jeera-price-outlook-2026.html", "blog-groundnut-peanut-export-india-2026.html", "blog-india-rice-export-sri-lanka-bangladesh.html", "blog-ir64-export.html"], "change": "added category-hub link to existing related-product aside"},
+    {"file": "scripts/add_article_category_links.py", "change": "new governed script"}
+  ],
+  "deployed_to_production": false,
+  "remaining_opportunities": [
+    "deploy the worker.js redirect fix (requires separate authorization)",
+    "future content-authoring phase: toor-dal article, thin category hub depth, category-level FAQ decision",
+    "standardize related-products presentation across 31 articles lacking the reusable aside",
+    "continue monitoring off-site/generic-query visibility (unchanged strategic gap)"
+  ],
+  "stop_instruction": "PHASE 25 COMPLETE - STOPPING FOR AUTHORIZATION."
+}

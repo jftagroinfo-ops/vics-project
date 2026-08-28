@@ -1,0 +1,115 @@
+{
+  "phase": 27,
+  "part": "implementation",
+  "date": "2026-08-28",
+  "deployment_status": "NOT DEPLOYED",
+  "opportunities_implemented": ["P27-O1", "P27-O3", "P27-O4", "P27-O5"],
+  "opportunities_not_implemented": ["P27-O2", "P27-O6", "P27-O7"],
+  "p27_o1_toor_dal_article": {
+    "file": "blog-toor-dal-export-india-2026.html",
+    "before": "bare placeholder, noindex, no header/footer includes, no Article schema",
+    "after": "complete article matching the exact template of a live article (blog-groundnut-peanut-export-india-2026.html)",
+    "facts_sourced_from": "toor-dal-split-pigeon-pea-exporter.html specification table and FAQ",
+    "new_external_citation": {
+      "source": "Codex Alimentarius Standard for Certain Pulses, CODEX STAN 171-1989 (Rev. 1-1995), FAO/WHO",
+      "url": "https://www.fao.org/input/download/standards/56/CXS_171e.pdf",
+      "verified_via_real_search": true,
+      "cited_only_at_confirmed_safety_level": "existence and general scope, no specific numeric threshold quoted beyond what search evidence supported"
+    },
+    "fabrication_check": "no customer, volume, certification number, employee, or superlative claim added",
+    "robots_meta_change": "noindex,follow -> index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"
+  },
+  "downstream_fixes_discovered_via_regression": [
+    {
+      "file": "blog.html",
+      "issue": "stale filter-count display (29/9)",
+      "fix": "corrected to 30/10"
+    },
+    {
+      "file": "scripts/audit_website.py",
+      "issue": "UNPUBLISHED_BLOGS registry still listed the now-completed article, causing 9 false findings",
+      "fix": "removed the single now-inaccurate entry, 17 other entries (retired/redirected articles) left untouched",
+      "verification": "re-ran audit_website.py, returned to 0 findings"
+    }
+  ],
+  "also_added": [
+    {"file": "blog.html", "change": "one new article card"},
+    {"file": "pulses-exporter-india.html", "change": "one new related-buyer-guide link"}
+  ],
+  "p27_o3_seo_related_grid_extension": {
+    "script_created": "scripts/add_seo_related_category_cards.py",
+    "method": "derives category only from the grid's own first existing product-type card, no new categorization judgment",
+    "whole_article_checked_before_adding": true,
+    "articles_updated": 4,
+    "articles_updated_list": [
+      "blog-coriander-seeds-export-india-2026.html",
+      "blog-groundnut-peanut-export-india-2026.html",
+      "blog-private-label-rice.html",
+      "blog-sesame-export-2026.html"
+    ],
+    "notable_case": {
+      "article": "blog-groundnut-peanut-export-india-2026.html",
+      "existing_category_via_other_aside": "Indian Animal Feed Input Exporter (from groundnut-oil-cake-exporter.html)",
+      "new_category_via_grid": "Indian Oilseeds Exporter (from groundnuts-peanuts-exporter.html)",
+      "verified_both_correct_and_not_duplicate": true,
+      "reasoning": "article genuinely discusses both the raw product (Oilseeds) and its byproduct (Animal Feed)"
+    },
+    "idempotency_verified": "second run: 0 added, 5 already present",
+    "remaining_scope_not_touched": "27 articles still lack either reusable component, flagged as future template-standardization work"
+  },
+  "files_changed": [
+    "blog-toor-dal-export-india-2026.html",
+    "blog.html",
+    "pulses-exporter-india.html",
+    "scripts/audit_website.py",
+    "scripts/generate_sitemap.py",
+    "sitemap.xml",
+    "blog-coriander-seeds-export-india-2026.html",
+    "blog-groundnut-peanut-export-india-2026.html",
+    "blog-private-label-rice.html",
+    "blog-sesame-export-2026.html",
+    "scripts/add_seo_related_category_cards.py"
+  ],
+  "determinism_verification": {
+    "generate_sitemap.py": "run twice, SHA-256 identical",
+    "add_seo_related_category_cards.py": "run twice, second run 0 added"
+  },
+  "regression_results": {
+    "audit_website.py": "0 findings (was 9 immediately post-article-completion, root-caused and fixed)",
+    "full_site_audit.py": "0 findings, 1454 indexable (was 1453)",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "passed, 260 published blog cards (was 259)",
+    "audit_locale_ui.py": "0 findings, determinism PASS",
+    "audit_localizations.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_performance.py": "0 findings",
+    "check_unused.py": "confirmed new article image no longer listed as unused",
+    "check_links.py": "0 broken links / 1766 files"
+  },
+  "pre_existing_issue_not_touched": "validate_seo_alignment.py's P23-R4 finding, unrelated pages, not re-run this phase",
+  "build_verification": {
+    "build_succeeded": true,
+    "assets_built": 2099,
+    "new_article_present_in_bundle": true,
+    "scripts_reports_excluded": true,
+    "bundled_sitemap_includes_new_url": true,
+    "artifact_deleted_after_verification": true
+  },
+  "deployment_verification": {
+    "production_tested_directly": true,
+    "production_still_serves_old_placeholder": true,
+    "conclusion": "no deployment occurred"
+  },
+  "diff_discipline": {
+    "files_intentionally_modified": 9,
+    "new_files": 1,
+    "unexplained_changes": 0,
+    "sitemap_xml_diff_investigated": "88 lines shown, confirmed entirely additive (0 deletions), consistent with established cumulative uncommitted drift against stale Phase-1 git baseline plus one genuine new entry"
+  },
+  "limitations": [
+    "no live browser-automation tool available, verification relied on exact template replication plus static validation",
+    "Codex Alimentarius PDF full text not independently read, only existence/scope cited as confirmed by search evidence",
+    "AI query testing not re-run this phase, prior 15-query evidence base from Phases 24-26 remains current"
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "phase": 26,
+  "date": "2026-08-28",
+  "website_source_files_modified": 0,
+  "deployment_status": "NOT DEPLOYED",
+  "baseline": {
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "production_status": 200,
+    "production_sitemap_urls": 1453,
+    "phase25_worker_js_fix_status": "confirmed still local-only, not deployed (production /spices/ still 404)",
+    "regression_found": false
+  },
+  "entity_identity_audit": {
+    "name_consistent": true,
+    "legal_name_consistent": true,
+    "address_consistent_internally": true,
+    "phone_consistent": true,
+    "false_positive_caught": {
+      "description": "PrivacyPolicy/Terms ofTrade apparent missing-space H1 text",
+      "root_cause": "naive tag-stripping artifact of a deliberate <br> two-line hero heading pattern, matching homepage/about.html convention",
+      "classification": "not a defect, correctly dismissed before reporting"
+    },
+    "fragmentation_found": false
+  },
+  "organization_schema_audit": {
+    "sameAs_verified_live": {"facebook.com/jftagro": 200, "instagram.com/jftagro": 200},
+    "conflicting_schemas_found": false,
+    "duplicate_entities_found": false,
+    "unsupported_sameAs_found": false
+  },
+  "eeat_experience_audit": {
+    "specific_checkable_registration_year": "2016, with explicit predecessor-history verification caveat",
+    "distinguishes_demonstrated_experience_from_generic_knowledge": true,
+    "example_demonstrated": "container-load math, HS codes, packaging specifics on product pages",
+    "example_generic_but_correct": "LC/TT payment mechanics explanation on buyer-security.html"
+  },
+  "external_entity_authority_new_finding": {
+    "source": "globallei.in LEI registry",
+    "lei_code": "3358008COTZVRF8ZQE38",
+    "classification": "STRONG",
+    "reasoning": "formal international regulatory credential (Legal Entity Identifier), not a directory listing",
+    "confirmed_facts": {
+      "entity_name": "JFT Agro Overseas LLP",
+      "entity_type": "LLP",
+      "status": "ACTIVE",
+      "business_registration_number": "AAY-5952",
+      "lei_status": "ISSUED",
+      "lei_registered": "2021-11-15",
+      "lei_next_renewal": "2026-11-14"
+    },
+    "discrepancy_found": {
+      "field": "postal code",
+      "website_value": "400705",
+      "lei_registry_value": "400703",
+      "independent_verification_attempted": true,
+      "independent_verification_result": "both codes legitimately used within the same large APMC market complex for different buildings/godowns - one government-affiliated source (National Medicinal Plants Board) confirms 400705 for a specific unit, another source shows 400703 for a broader market designation",
+      "root_cause_proven": false,
+      "classification": "UNKNOWN / REQUIRES HUMAN VERIFICATION",
+      "action_taken": "none - website not modified, third-party registry not contacted, per explicit phase instruction"
+    }
+  },
+  "trust_architecture_audit": {
+    "pages_read_in_full_this_phase": ["buyer-security.html", "export-documentation.html", "privacy.html", "terms.html"],
+    "word_counts": {"buyer-security.html": 507, "export-documentation.html": 755, "privacy.html": 754, "terms.html": 611},
+    "all_substantive_and_specific": true,
+    "certificate_number_disclosure_policy": "confirmed deliberate anti-fraud design (Phase 25 finding, reconfirmed), numbers withheld, buyer-request path provided"
+  },
+  "geo_llmo_extraction_check": {
+    "faq_content_static_html": true,
+    "calculator_static_text_word_count": 671,
+    "js_dependency_extraction_problem_found": false
+  },
+  "ai_query_tests_this_phase": {
+    "tool_used": "single web-search tool available this session",
+    "explicitly_not_tested": ["Google AI Overviews", "Bing Copilot", "ChatGPT search", "Perplexity", "Gemini"],
+    "new_queries_count": 5,
+    "queries": [
+      {"query": "rice supplier India for Africa export", "type": "geography/commercial", "jft_appears": true, "accurate": true, "notes": "africa-trade.html cited directly, summary matched site content, no fabrication this time"},
+      {"query": "documents required from Indian rice exporter", "type": "buyer-intent/trust", "jft_appears": false, "notes": "dominated by APEDA official page"},
+      {"query": "Indian parboiled rice supplier", "type": "commodity", "jft_appears": false, "notes": "competitors: Pramoda Exim, Ashoka Rice Mills, SKRM Foods"},
+      {"query": "how to inspect rice before shipment quality", "type": "trust", "jft_appears": false, "notes": "dominated by third-party inspection services"},
+      {"query": "globallei.in JFT Agro Overseas LLP LEI", "type": "external verification", "jft_appears": true, "notes": "confirmed LEI registration details"}
+    ],
+    "refined_pattern": "JFT appears accurately for at least one geography-specific query matching a dedicated regional trade page, suggesting regional pages have stronger external traction than generic category pages"
+  },
+  "ai_misinformation_recheck": {
+    "since_1980_root_cause": "confirmed identified in Phase 25 (stale legacy WordPress URLs)",
+    "fix_status": "written into worker.js in Phase 25, confirmed still not deployed this phase",
+    "new_misinformation_found": false
+  },
+  "findings_register": [
+    {
+      "id": "P26-F1",
+      "severity": "MEDIUM",
+      "evidence": "LEI registry postal code 400703 vs sitewide 400705",
+      "affected_pages": "127+ files with Organization address",
+      "root_cause": "genuinely ambiguous, both codes legitimately used in same market complex",
+      "on_off_site": "both",
+      "recommendation": "business should confirm correct code directly",
+      "decision": "DOCUMENTED, NOT MODIFIED - root cause not proven, gate condition 3 fails"
+    },
+    {
+      "id": "P26-F2",
+      "severity": "INFORMATIONAL (positive)",
+      "evidence": "africa-trade.html surfaced accurately in geography-specific AI query",
+      "affected_pages": "africa-trade.html",
+      "decision": "no action - informational only"
+    },
+    {
+      "id": "P26-F3",
+      "severity": "INFORMATIONAL (false positive, dismissed)",
+      "evidence": "apparent missing-space H1 text",
+      "affected_pages": "privacy.html, terms.html",
+      "root_cause": "tag-stripping artifact of deliberate br-based heading pattern",
+      "decision": "no action, not a defect"
+    },
+    {
+      "id": "P26-F4",
+      "severity": "INFORMATIONAL",
+      "evidence": "ISO/APEDA/FSSAI/HACCP claims internally consistent but not independently verified against certifying bodies",
+      "decision": "no action, classified UNKNOWN, not converted to false PASS or FAIL"
+    }
+  ],
+  "critical_or_high_findings": 0,
+  "fix_decision_gate_results": [
+    {"candidate": "correct website postal code to match LEI", "result": "FAILS condition 3, root cause not proven"},
+    {"candidate": "correct LEI registry postal code", "result": "OUT OF SCOPE, third-party profile correction explicitly forbidden"}
+  ],
+  "changes_made": [],
+  "regression_results": "not applicable, no file changed",
+  "build_verification": "not applicable, no source change",
+  "deployment": "NOT DEPLOYED",
+  "limitations": [
+    "no live browser-automation tool available this session",
+    "AI query testing used one general web-search tool, not specifically named AI platforms",
+    "certification claims checked for internal consistency only, not verified against issuing bodies' own registries",
+    "postal-code discrepancy could not be resolved with available evidence",
+    "no external profile created, contacted, or modified"
+  ],
+  "open_risk_register": [
+    {"severity": "MEDIUM", "item": "P26-F1 postal code discrepancy, requires business confirmation"},
+    {"severity": "MEDIUM", "item": "P21/22/23 carried forward - TLS 1.0/1.1 acceptance, requires Cloudflare dashboard access"},
+    {"severity": "UNKNOWN", "item": "P19/21/22/23 carried forward - Cloudflare rate-limiting status for /api/lead"},
+    {"severity": "UNKNOWN", "item": "P26-F4 certification claims not independently verified"},
+    {"severity": "LOW-MEDIUM", "item": "P19/22/23 carried forward - Turnstile absent, deliberate"},
+    {"severity": "LOW", "item": "P25 carried forward - 3 thin category hubs, 1 placeholder article"},
+    {"severity": "INFORMATIONAL", "item": "P24/25 carried forward - off-site/generic-query AI visibility gap"}
+  ],
+  "phase27_recommendation": [
+    "a narrowly-scoped content-authorship phase for the toor-dal article, 3 thin category hubs, and category-FAQ decision",
+    "a deployment phase to ship Phase 25's worker.js redirect fix to production with standard pre/post verification",
+    "a business-input item (not a technical phase) to resolve the postal-code discrepancy"
+  ],
+  "stop_instruction": "AUDIT COMPLETE - ZERO WEBSITE SOURCE FILES MODIFIED. Do not begin Phase 27 without explicit authorization."
+}

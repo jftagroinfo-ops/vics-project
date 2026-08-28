@@ -1,0 +1,63 @@
+{
+  "phase": 15,
+  "title": "Analytics, Conversion Measurement & Real-World Performance Audit",
+  "date": "2026-08-28",
+  "status": "implementation complete, regression suite green, not deployed",
+  "changes_implemented": [
+    {
+      "finding_id": "P15-F1",
+      "title": "Duplicate jft-conversion.js execution on 22 pages",
+      "files_changed": 22,
+      "file_list": [
+        "buyer-security.html", "export-documentation.html",
+        "ar/buyer-security.html", "ar/export-documentation.html",
+        "es/buyer-security.html", "es/export-documentation.html",
+        "fr/buyer-security.html", "fr/export-documentation.html",
+        "id/buyer-security.html", "id/export-documentation.html",
+        "ms/buyer-security.html", "ms/export-documentation.html",
+        "pt/buyer-security.html", "pt/export-documentation.html",
+        "ru/buyer-security.html", "ru/export-documentation.html",
+        "si/buyer-security.html", "si/export-documentation.html",
+        "th/buyer-security.html", "th/export-documentation.html",
+        "vi/buyer-security.html", "vi/export-documentation.html"
+      ],
+      "new_script": "scripts/remove_duplicate_analytics_script.py",
+      "root_cause": "redundant direct script tag pre-dating/duplicating the universal header-injection delivery mechanism",
+      "fix": "removed the redundant direct <script src=jft-conversion.js> tag; header.html's injection is now the sole delivery mechanism, matching every other page on the site"
+    }
+  ],
+  "not_fixed": [
+    {"id": "P15-F2", "title": "category pages lack structured custom view event", "severity": "P2", "reason": "automatic pageview already permits path-based analysis, no demonstrated need for a new event type"},
+    {"id": "P15-F3", "title": "calculators lack tool_start/tool_complete granularity", "severity": "P2/P3", "reason": "existing tool-to-RFQ bridge event covers the highest-value signal"}
+  ],
+  "privacy": {"pii_in_ga4_calls": false, "classification": "NO ISSUE"},
+  "regression": {
+    "audit_website.py": "0 findings",
+    "audit_localizations.py": "0 findings, rc=0, informational counts unchanged from Phase 6-14 baseline",
+    "full_site_audit.py": "0 findings, 1453 indexable pages unchanged",
+    "check_links.py": "0 broken links / 1766 files",
+    "audit_performance.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "pass, 0 stale images",
+    "audit_locale_ui.py": "0 findings, determinism PASS",
+    "html5_validation_22_files": "0 parse errors",
+    "post_fix_direct_script_references": {"404.html": "safe, no header injection", "header.html": "source of the shared reference", "index.html": "safe, fully inlined, no fetch", "buyer_security_and_export_documentation_all_locales": "0, correctly relying on header injection only"}
+  },
+  "determinism": {"script": "scripts/remove_duplicate_analytics_script.py", "rerun_result": "SKIPPED (expected 1 occurrence, found 0) on all 22 files - confirmed idempotent and fail-safe"},
+  "build": {"files_built": 2099, "size_mib": 135.7, "sensitive_dirs_leaked": false, "fix_confirmed_in_build": true, "deployed": false, "artifact_cleaned_up": true},
+  "deployment_status": "not deployed",
+  "diff_summary": {"files_changed": 22, "insertions": 22, "deletions": 22, "new_files": 1},
+  "limitations": [
+    "no live GA4 account access available in this session",
+    "no live Google Search Console account access available in this session",
+    "GSC export data in the repository is real but covers only 19 May-18 Aug 2026, 8 days stale relative to today",
+    "no live browser-automation tool was available; verification relied on direct source tracing, HTML5 validation, the full audit suite, and idempotency re-runs"
+  ],
+  "recommendations": [
+    "connect the real GA4 property (external access this session lacks) to confirm the intent/conversion events fire as designed in live production",
+    "begin planning a future CRM/offline-lead reconciliation layer to eventually measure true ROI (quotation -> negotiation -> order), which no website-side change can provide"
+  ],
+  "stop_instruction_followed": true
+}

@@ -1,0 +1,102 @@
+{
+  "phase": 13,
+  "title": "Buyer Psychology, Conversion Architecture & Competitive Commercial Audit",
+  "date": "2026-08-28",
+  "status": "implementation complete, regression suite green, not deployed",
+  "investigated": [
+    "9 buyer journey paths (homepage/category/article/regional -> product -> RFQ; product -> sample; product -> WhatsApp; calculator -> RFQ; tracker -> contact)",
+    "contact.html RFQ form + all 10 locale copies + inline JS",
+    "sample-request.html funnel differentiation",
+    "trust/commercial-anxiety architecture (buyer-security.html, quality-control.html, export-documentation.html, certificates.html)",
+    "jft-conversion.js article buyer-path logic",
+    "all 3 calculators' end-of-result CTAs",
+    "regional-page commercial relevance",
+    "3 targeted external competitive-benchmark web searches"
+  ],
+  "problems_found": [
+    {
+      "id": "P13-F1",
+      "severity": "P1",
+      "title": "RFQ form required Port of Discharge and Target Shipment Month",
+      "fixed": true
+    },
+    {
+      "id": "P13-F2",
+      "severity": "documented, not fixed",
+      "title": "locale contact.html copies missing shipment_month field entirely",
+      "fixed": false
+    }
+  ],
+  "root_causes": ["required-field set was set once early in the build without distinguishing pre-quote-necessary facts from post-quote-refinement facts"],
+  "changes_implemented": [
+    {
+      "file": "contact.html",
+      "change": "added .flabel .opt CSS rule; removed required from port and shipment_month; replaced * marker with (optional) hint on both"
+    },
+    {
+      "file": "ar/contact.html ... vi/contact.html (10 files)",
+      "change": "added .flabel .opt CSS rule; removed required from port; replaced * marker with (optional) hint"
+    },
+    {
+      "file": "scripts/relax_rfq_required_fields.py",
+      "change": "new governed, idempotent script performing the above, verified with exact-match counts per file"
+    }
+  ],
+  "files_changed": ["contact.html", "ar/contact.html", "es/contact.html", "fr/contact.html", "id/contact.html", "ms/contact.html", "pt/contact.html", "ru/contact.html", "si/contact.html", "th/contact.html", "vi/contact.html", "scripts/relax_rfq_required_fields.py"],
+  "conversion_improvements": ["buyers with a real qualified need but no finalized port/shipment-month can now complete the RFQ form"],
+  "trust_improvements": [],
+  "form_improvements": ["explicit (optional) hint replaces ambiguous red asterisk on 2 fields buyers often cannot answer at first contact"],
+  "mobile_improvements": [],
+  "international_improvements": ["fix applied structurally and identically across all 10 locale copies with zero new translated text"],
+  "competitive_insights": [
+    {"pattern": "RFQ forms should require only name/email/product/quantity", "source": "https://chatsku.com/rfq-form-best-practices/", "actioned": true},
+    {"pattern": "commodity exporters display ISO/HACCP/FSSAI/Spices Board + COA documentation", "jft_status": "already present, no change needed"},
+    {"pattern": "WhatsApp alongside (not instead of) a contact form for agro B2B trade", "jft_status": "already present, no change needed"}
+  ],
+  "rejected_recommendations": [
+    {"idea": "make packing optional too", "reason": "packing materially changes FOB/CIF unit economics; JFT cannot return a meaningful quote without it"},
+    {"idea": "build full locale form-field parity", "reason": "separate, larger localization-architecture project outside this phase's scope"},
+    {"idea": "A/B test the change", "reason": "explicitly out of scope"},
+    {"idea": "invent response-time guarantees", "reason": "existing honest language was already correct"}
+  ],
+  "before_after_scores": {
+    "brand_trust": {"before": 8, "after": 8},
+    "buyer_clarity": {"before": 8, "after": 8},
+    "product_evaluation": {"before": 8, "after": 8},
+    "commercial_confidence": {"before": 8, "after": 8},
+    "rfq_clarity": {"before": 7.5, "after": 8},
+    "rfq_friction": {"before": 6.5, "after": 8},
+    "sample_journey": {"before": 8, "after": 8},
+    "whatsapp_journey": {"before": 8.5, "after": 8.5},
+    "calculator_conversion": {"before": 8, "after": 8},
+    "mobile_conversion": {"before": 8, "after": 8},
+    "international_conversion": {"before": 8, "after": 8},
+    "cta_clarity": {"before": 8.5, "after": 8.5},
+    "trust_architecture": {"before": 8, "after": 8},
+    "commercial_differentiation": {"before": 7.5, "after": 7.5},
+    "overall_conversion_ux": {"before": 7.7, "after": 7.9}
+  },
+  "audit_results": {
+    "audit_website.py": "0 findings",
+    "audit_localizations.py": "0 findings, rc=0, informational counts unchanged from Phase 6-12 baseline",
+    "full_site_audit.py": "0 findings, 1453 indexable pages unchanged",
+    "check_links.py": "0 broken links / 1766 files",
+    "audit_performance.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "pass, 0 stale images",
+    "audit_locale_ui.py": "0 findings, determinism PASS",
+    "html5_validation_11_contact_files": "0 parse errors"
+  },
+  "performance_results": {"bytes_added": "a few bytes per file, one CSS rule + two attribute changes", "new_requests": 0, "audit_performance_findings": 0},
+  "build_results": {"files_built": 2099, "size_mib": 135.7, "sensitive_dirs_leaked": false, "fix_confirmed_in_build": true, "deployed": false, "artifact_cleaned_up": true},
+  "determinism_results": "scripts/relax_rfq_required_fields.py reports 'no change' on rerun across all 11 files - confirmed idempotent",
+  "remaining_opportunities": [
+    "full locale form-field parity for contact.html (missing shipment_month, and Phase 11's previously-noted quantity/incoterm gaps)",
+    "revisit whether packing should also move to optional if real field-level abandonment analytics become available"
+  ],
+  "known_limitations": ["no live browser-automation tool was available in this session; verification relied on source tracing, HTML5 validation, the full audit suite, and idempotency re-runs"],
+  "deployment_status": "not deployed",
+  "stop_instruction_followed": true
+}

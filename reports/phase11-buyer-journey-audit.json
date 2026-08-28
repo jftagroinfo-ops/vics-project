@@ -1,0 +1,73 @@
+{
+  "phase": 11,
+  "part": "2-3 - Buyer Journey Audit + Commercial UX Score",
+  "generated": "2026-08-27",
+  "method": "Direct source inspection (HTML/CSS/JS), not sampling or estimation. Every score and finding below is tied to a specific file/line or a direct measurement (e.g. 0/84 CTA hrefs grepped).",
+  "pages_audited": [
+    "index.html", "products.html",
+    "rice-exporter-india.html", "spices-exporter-india.html", "herbs-seeds-exporter-india.html",
+    "oilseeds-exporter-india.html", "animal-feed-exporter-india.html", "flour-exporter-india.html",
+    "wheat-exporter-india.html", "sugar-exporter-india.html", "raisins-exporter-india.html", "pulses-exporter-india.html",
+    "1121-basmati-rice-exporter.html", "black-cumin-seeds-nigella-exporter.html",
+    "contact.html", "ar/contact.html", "es/contact.html", "th/contact.html",
+    "sample-request.html", "buyer-security.html", "export-documentation.html",
+    "quality-control.html", "infrastructure.html",
+    "quote-calculator.html", "packing-calculator.html", "port-transit-calculator.html", "shipment-tracker.html",
+    "europe-trade.html", "header.html", "footer.html",
+    "jft-conversion.js", "sample-request.js", "quote-calculator.js"
+  ],
+  "pre_existing_infrastructure_confirmed_working": [
+    {"feature": "consent-gated GA4 analytics", "source": "jft-conversion.js", "status": "working, privacy-respecting (anonymize_ip, no ad personalization), not modified"},
+    {"feature": "article -> product -> RFQ buyer path", "source": "jft-conversion.js addArticleBuyerPath()", "status": "working on every blog article, not modified"},
+    {"feature": "WhatsApp message context enrichment", "source": "jft-conversion.js enrichWhatsAppLinks()", "status": "working site-wide, not modified"},
+    {"feature": "contact.html URL-param prefill (product/port/quantity/incoterm/packing/container/reference)", "source": "contact.html inline script", "status": "working, used by quote-calculator.js and article buyer-path; extended (not replaced) in this phase - see fixes"},
+    {"feature": "trust-before-CTA sequencing", "source": "buyer-security.html, export-documentation.html, quality-control.html, all 3 calculators", "status": "already implemented consistently, not modified"},
+    {"feature": "3-tier product-page CTA hierarchy (gold/outline/whatsapp)", "source": "all 84 product pages", "status": "already matches recommended hierarchy, not modified"},
+    {"feature": "sticky WhatsApp FAB with collision avoidance", "source": "product page inline script + jft-design-system.css .wa-fab", "status": "already safe (IntersectionObserver-gated, bottom:95px offset), not modified"},
+    {"feature": "sample-request process transparency + no-charge disclaimer + success panel", "source": "sample-request.html", "status": "already implemented, not modified"}
+  ],
+  "gaps_found": [
+    {
+      "id": "P11-GAP-1",
+      "priority": "P0",
+      "title": "Product/category CTAs do not pass product context into RFQ or sample forms",
+      "measurement": "0 of 84 English product pages pass a product query parameter on their Request Pricing/Request Sample CTAs (grepped directly)",
+      "root_cause": "CTA hrefs were never updated to the parameter-passing convention already used by jft-conversion.js's article buyer-path and quote-calculator.js; contact.html's dropdown covers only ~20 broad categories, not all 84 specific products, so a naive fix would still silently lose context for most products",
+      "affected_pages": "all 84 english product pages + up to 840 locale product-page copies (same CTA pattern, locale-safe because contact.html option `value` attributes stay in English across all locales)",
+      "fix_planned": true
+    },
+    {
+      "id": "P11-GAP-2",
+      "priority": "P1",
+      "title": "RTL breadcrumb chevrons point the wrong direction on every Arabic page",
+      "measurement": "jft-design-system.css:235 .jft-breadcrumb has no RTL-specific icon rule; ar/*.html sets html dir=rtl but the chevron glyph (fa-chevron-right) is not mirrored",
+      "root_cause": "shared breadcrumb component never accounted for RTL icon mirroring",
+      "affected_pages": "every Arabic (ar/) page using .jft-breadcrumb - effectively the entire Arabic site",
+      "fix_planned": true
+    }
+  ],
+  "findings_considered_not_acted_on": [
+    {"topic": "homepage hero CTA order", "reason": "Browse Products as primary is a defensible choice for a low-intent first-time visitor; no measured evidence of harm; documented as a hypothesis only, not implemented"},
+    {"topic": "product comparison tool", "reason": "no evidence buyers need this; every product already has an on-page spec table; documented as a future opportunity requiring real evidence before investment, per Part 19's own instruction"},
+    {"topic": "category-page CTA context-passing", "reason": "a category represents a commodity group, not one SKU; a forced product guess would misleadingly preselect the wrong specific grade in contact.html's dropdown - worse than no preselection"},
+    {"topic": "additional sticky CTAs on non-product pages", "reason": "existing WhatsApp FAB on product pages already covers this need safely; brief explicitly cautions against adding sticky UI without justification"},
+    {"topic": "header Fruits/raisins label mismatch", "reason": "pre-existing, already identified and deliberately deferred in Phase 10; not a Phase 11 objective"},
+    {"topic": "new analytics/tracking", "reason": "analytics already exists and was audited, not rebuilt, per Part 30's instruction not to add tracking merely because CRO normally uses it"}
+  ],
+  "commercial_ux_scores": {
+    "scoring_note": "0-10 per dimension, not artificially inflated. Scored on the state found DURING THE AUDIT, i.e. before Gap 1/2 fixes below.",
+    "homepage": {"clarity": 8, "product_confidence": 7, "trust": 8, "commercial_intent": 8, "cta_visibility": 8, "cta_relevance": 7, "friction": 9, "navigation": 8, "mobile_ux": 7, "decision_support": 7},
+    "category_page_rice": {"clarity": 8, "product_confidence": 8, "trust": 7, "commercial_intent": 8, "cta_visibility": 8, "cta_relevance": 8, "friction": 8, "navigation": 8, "mobile_ux": 7, "decision_support": 8},
+    "product_page_1121_basmati": {"clarity": 9, "product_confidence": 9, "trust": 8, "commercial_intent": 9, "cta_visibility": 9, "cta_relevance": 9, "friction": 5, "navigation": 8, "mobile_ux": 7, "decision_support": 8},
+    "contact_page": {"clarity": 8, "product_confidence": "n/a", "trust": 8, "commercial_intent": 9, "cta_visibility": 9, "cta_relevance": 6, "friction": 6, "navigation": 8, "mobile_ux": 7, "decision_support": 7},
+    "sample_request_page": {"clarity": 8, "product_confidence": "n/a", "trust": 7, "commercial_intent": 8, "cta_visibility": 8, "cta_relevance": 6, "friction": 6, "navigation": 7, "mobile_ux": 7, "decision_support": 8},
+    "buyer_security_page": {"clarity": 8, "product_confidence": "n/a", "trust": 9, "commercial_intent": 7, "cta_visibility": 8, "cta_relevance": 8, "friction": 8, "navigation": 8, "mobile_ux": 7, "decision_support": 8},
+    "arabic_product_page": {"clarity": 8, "product_confidence": 9, "trust": 8, "commercial_intent": 9, "cta_visibility": 9, "cta_relevance": 9, "friction": 5, "navigation": 6, "mobile_ux": 7, "decision_support": 8}
+  },
+  "score_interpretation": {
+    "highest_performing_page_types": ["product pages (once Gap 1 is fixed)", "buyer-security.html / export-documentation.html / quality-control.html (trust-before-CTA already strong)", "calculators (honest disclaimers, clear next step)"],
+    "weakest_dimension_before_fixes": "friction and cta_relevance on contact.html, sample-request.html, and product pages - directly caused by Gap 1 (lost product context forces re-entry)",
+    "weakest_page_type": "arabic pages score identically to English on every dimension except navigation, which is dragged down specifically by Gap 2 (breadcrumb chevron direction)",
+    "highest_value_improvement": "Gap 1 fix (product-context preservation) - raises friction and cta_relevance scores on the 3 most commercially important page types (product, contact, sample-request) simultaneously, using entirely pre-existing infrastructure"
+  }
+}

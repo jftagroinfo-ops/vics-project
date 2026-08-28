@@ -1,0 +1,192 @@
+{
+  "phase": 5,
+  "title": "Full Visual UI, Responsive & Component Consistency Audit",
+  "baseline_commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+  "method": "real Chromium (Edge) rendering via Playwright against a local HTTP server; no static-only inference used for any pass/fail claim",
+  "templates": [
+    {"name": "homepage_current", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": ["homepage.css"], "examples": ["index.html", "ar/index.html", "es/index.html", "fr/index.html", "ru/index.html"]},
+    {"name": "homepage_legacy", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": ["homepage.css"], "examples": ["id/index.html", "ms/index.html", "pt/index.html", "si/index.html", "th/index.html", "vi/index.html"], "note": "lighter content block, documented in Phase 3/4, not this phase's scope"},
+    {"name": "product_detail", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": [], "count": "84 products x 11 languages"},
+    {"name": "article_blog", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": ["seo-article.css"], "count": "37 EN + locale copies"},
+    {"name": "regional_guide", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": ["trade-regions.css"]},
+    {"name": "logistics_guide", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": []},
+    {"name": "static_info", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": [], "examples": ["certificates.html", "infrastructure.html", "quality-control.html", "about.html"]},
+    {"name": "self_contained_inline", "base_css": [], "page_css": [], "examples": ["buyer-security.html", "export-documentation.html", "product-catalogue.html"], "note": "no shared base stylesheet by design; verified rendering correctly, not a defect"},
+    {"name": "faq", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": ["faq-page.css"]},
+    {"name": "legal", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": []},
+    {"name": "calculators", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": ["packing-calculator-page.css", "port-transit-page.css", "quote-calculator-page.css"], "examples": ["packing-calculator.html", "port-transit-calculator.html", "quote-calculator.html"]},
+    {"name": "shipment_tracker", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": ["shipment-tracker-page.css"]},
+    {"name": "contact_rfq", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": ["contact-audit-fixes.css"]},
+    {"name": "sample_request", "base_css": [], "page_css": ["sample-request-page.css", "sample-request-offset.css"], "note": "real defect found and fixed here (H1)"},
+    {"name": "products_listing", "base_css": ["jft-design-system.css", "jft-responsive.css"], "page_css": [], "examples": ["products.html", "whatsapp-catalogue.html"]},
+    {"name": "redirect_stub", "base_css": [], "page_css": [], "count": 97}
+  ],
+  "components": [
+    {"name": "header_nav_mobile_forex_cookie_skiplink", "source": "header.html", "injection": "client-side fetch into #header-placeholder", "shared_across": "all 1789 pages, all locales"},
+    {"name": "footer", "source": "footer.html", "injection": "client-side fetch into #footer-placeholder", "shared_across": "all pages"},
+    {"name": "locale_text_swap", "source": "locale-ui.js", "scope": "header/footer only"},
+    {"name": "rfq_prefill_links", "pattern": "contact.html?product=X#inquiry-form", "scope": "product pages, 2 blog posts"},
+    {"name": "whatsapp_cta", "pattern": "btn-wa-product", "scope": "product pages"},
+    {"name": "calculators", "shared": "visual language only, not markup"}
+  ],
+  "viewport_matrix": {
+    "templates_tested": 35,
+    "viewports_tested": 10,
+    "total_cells": 350,
+    "viewports": {
+      "desktop": ["1920x1080", "1440x900", "1366x768", "1280x800"],
+      "tablet": ["1024x768", "820x1180"],
+      "mobile": ["430x932", "390x844", "375x812", "360x800"]
+    },
+    "extra_passes": ["zoom 200%/400% (English homepage)", "RTL desktop+mobile (Arabic product page)", "mobile nav open/close (English, Arabic, Thai)", "cookie bar (English, Arabic, mobile)", "forex ticker (English, Arabic)", "calculators (packing + quote; desktop, mobile, Arabic)"],
+    "locales_tested": ["en", "ar", "es", "fr", "ru", "id", "th", "si", "vi"],
+    "locales_not_individually_retested_this_phase": ["ms", "pt"],
+    "result": "0 horizontal overflow, 0 console errors, 0 failed requests across the 350-cell matrix"
+  },
+  "findings": [
+    {
+      "id": "H1",
+      "severity": "HIGH",
+      "title": "Skip-to-content link visibly overlapping the logo on sample-request.html",
+      "file": "sample-request.html",
+      "css_file_changed": "sample-request-offset.css",
+      "viewport": "all",
+      "root_cause": "margin-collapse: .sample-hero{margin-top:170px} collapses through the empty #header-placeholder into body (page sets body{position:relative}), shifting the containing block of the shared header's position:absolute skip-link so it renders on-screen instead of off-screen at top:-60px",
+      "fix": ".skip-link { position: fixed !important; } added to sample-request-offset.css",
+      "status": "fixed",
+      "validated": true
+    },
+    {
+      "id": "H2",
+      "severity": "HIGH",
+      "title": "Mobile hero image 404 on 4 rebuilt locale homepages",
+      "files": ["ar/index.html", "es/index.html", "fr/index.html", "ru/index.html"],
+      "viewport": "mobile (<=768px source)",
+      "root_cause": "mobile <source srcset> missing ../ prefix required from locale subdirectory; sibling <link rel=preload> already had it correctly",
+      "fix": "added ../ prefix to the mobile <source srcset> path in all 4 files",
+      "status": "fixed",
+      "validated": true,
+      "requests_failed_before": 1,
+      "requests_failed_after": 0
+    },
+    {
+      "id": "M1",
+      "severity": "MEDIUM",
+      "title": "'Order on WhatsApp' CTA renders in English on locale product pages",
+      "occurrences": 830,
+      "locales_affected": ["ar", "es", "fr", "ru", "id", "ms", "pt", "si", "th", "vi"],
+      "root_cause": "no governed translation for this exact source string exists yet in data/localized-copy-cache.json (confirmed null for all 10 locales)",
+      "status": "documented_not_fixed",
+      "reason_not_fixed": "content/translation gap, not a layout defect; this phase's rules forbid machine-translating content; requires a human-reviewed translation per locale similar to the Phase 2 cache-population workflow",
+      "recommended_next_phase": "localization content phase"
+    },
+    {
+      "id": "M2",
+      "severity": "MEDIUM",
+      "title": "audit_localizations.py did not catch the M1 English-residue gap",
+      "status": "documented_not_fixed",
+      "reason_not_fixed": "out of this phase's visual-audit scope; flagged for whoever addresses M1"
+    },
+    {
+      "id": "L1",
+      "severity": "LOW",
+      "title": "product-catalogue.html: skip-link selector not found during a diagnostic pass",
+      "status": "documented_not_fixed",
+      "reason_not_fixed": "could not reproduce an actual visible/functional problem; page passed the full 350-cell matrix (0 overflow, 0 console errors, 0 failed requests); flagged for closer look in a future phase rather than acted on without a confirmed reproduction"
+    },
+    {
+      "id": "L2",
+      "severity": "LOW",
+      "title": "4 pages do not load the base design-system stylesheets",
+      "files": ["buyer-security.html", "export-documentation.html", "product-catalogue.html", "sample-request.html"],
+      "status": "investigated_confirmed_intentional",
+      "note": "each carries a complete, correctly-rendering self-contained inline stylesheet; legitimate architectural variation, not inconsistency; sample-request.html's unrelated H1 bug was still fixed"
+    },
+    {
+      "id": "L3",
+      "severity": "LOW",
+      "title": "href=\"#\" used for several JS-triggered action buttons",
+      "files": ["products.html", "quote-calculator.html (various locales)"],
+      "status": "documented_not_fixed",
+      "reason_not_fixed": "functions correctly, no dead-end navigation; semantic/cosmetic only"
+    },
+    {
+      "id": "L4",
+      "severity": "LOW",
+      "title": "Legacy FontAwesome @font-face declarations report status:unloaded",
+      "status": "documented_not_fixed",
+      "reason_not_fixed": "unused superseded declarations; no visible FOUT/FOIT or layout shift observed"
+    }
+  ],
+  "false_positives_corrected": [
+    {
+      "description": "~300 images flagged 'broken' by an automated check that read img.complete/naturalWidth before scrolling triggered loading=lazy images",
+      "verification": "8 files spot-checked directly on disk (exist); flagcdn.com external resource confirmed reachable via direct curl",
+      "reported_as_defect": false
+    },
+    {
+      "description": "Cookie bar read as 'not dismissable' by Playwright is_visible(), which does not account for transform:translate() moving the element off-screen",
+      "verification": "getBoundingClientRect() showed the bar moves from y:744 to y:860 (off-screen) after clicking Accept; localStorage correctly records 'accepted'",
+      "reported_as_defect": false
+    }
+  ],
+  "interactive_components_tested": {
+    "header_nav": {"locales": ["en", "ar", "th"], "viewports": ["desktop", "mobile"], "result": "pass"},
+    "mobile_accordion": {"locales": ["en", "ar", "th"], "result": "pass"},
+    "cookie_bar": {"locales": ["en", "ar"], "result": "pass, corrected false positive noted above"},
+    "forex_ticker": {"locales": ["en", "ar"], "result": "pass, 0 console errors"},
+    "rfq_prefill": {"result": "pass"},
+    "calculators": {
+      "packing_calculator": {"viewports": ["desktop", "mobile"], "locale": ["en", "ar"], "errors": [], "overflow": "none (scrollWidth<=clientWidth)"},
+      "quote_calculator": {"viewport": "desktop", "locale": "en", "errors": []}
+    },
+    "rtl_audit": {
+      "pages": ["ar/1121-basmati-rice-exporter.html", "ar/packing-calculator.html"],
+      "viewports": ["desktop", "mobile"],
+      "dir_attribute_confirmed": "rtl",
+      "overflow": "none (scrollWidth<=clientWidth)",
+      "finding": "M1 (Order on WhatsApp untranslated) surfaced here"
+    }
+  },
+  "accessibility_visual_spot_check": {
+    "zoom_200_400_homepage": "no horizontal overflow introduced, no overlapping text",
+    "scope_note": "symptom recording only; full WCAG remediation explicitly out of scope for this phase"
+  },
+  "performance_visual_signals": {
+    "layout_shift_observed": false,
+    "fouc_observed": false,
+    "image_pop_in_observed": false,
+    "lazy_loading": "confirmed deliberate and correct usage, not a defect"
+  },
+  "regression_after_fixes": {
+    "audit_scripts": {
+      "audit_locale_ui.py": "PASS",
+      "audit_website.py": "PASS",
+      "audit_commercial_content.py": "PASS",
+      "audit_claims_and_products.py": "PASS",
+      "validate_blog_navigation.py": "PASS",
+      "audit_localizations.py": "PASS",
+      "audit_performance.py": "PASS",
+      "full_site_audit.py": "PASS",
+      "audit_coverage_gaps.py": "PASS",
+      "check_links.py": "PASS"
+    },
+    "html_validity_modified_files": "valid (html5lib)",
+    "cloudflare_build": {
+      "file_count": 2089,
+      "matches_baseline": true,
+      "internal_file_leak": false,
+      "deployed": false
+    }
+  },
+  "files_changed": [
+    {"file": "sample-request-offset.css", "reason": "H1 fix"},
+    {"file": "ar/index.html", "reason": "H2 fix"},
+    {"file": "es/index.html", "reason": "H2 fix"},
+    {"file": "fr/index.html", "reason": "H2 fix"},
+    {"file": "ru/index.html", "reason": "H2 fix"},
+    {"file": "reports/visual-ui-responsive-audit-2026-08-26.md", "reason": "phase report"},
+    {"file": "reports/visual-ui-responsive-audit-2026-08-26.json", "reason": "phase report"}
+  ],
+  "deployment": "not performed; all changes remain local, uncommitted working-tree changes"
+}

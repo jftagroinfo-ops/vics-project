@@ -1,0 +1,57 @@
+{
+  "phase": 14,
+  "generated": "2026-08-27",
+  "method": "Fresh computation, not assumption, for every quantitative claim: product inbound-link scan across all English root HTML, category-page inbound-link scan, title/H1 keyword-overlap check across all 84 products, competing-primary-CTA scan, WhatsApp message-language check on locale samples, plus a full 10-script audit-suite re-run as the baseline.",
+  "baseline": {
+    "commit": "e64a3f2b",
+    "working_tree_changed_paths": 1130,
+    "modified": 1064,
+    "untracked": 66,
+    "phase13_present": true,
+    "phase12_present": true,
+    "product_count": 84,
+    "category_count": 10,
+    "sitemap_urls": 1453,
+    "article_count": 37,
+    "audit_suite_result": "10/10 scripts pass, 0 findings, informational locale counts byte-identical to Phase 6-13 baseline"
+  },
+  "part_results": {
+    "A_baseline": "PASS",
+    "B_buyer_funnel_map": "PASS",
+    "C_product_discovery": {"result": "PASS", "products_zero_inbound_links": 0, "products_with_article_support": 35, "total_products": 84},
+    "D_category_architecture": {"result": "PASS", "orphaned_categories": 0, "inbound_link_range": "11-30 per category"},
+    "E_article_commercial_intent": {
+      "result": "PASS",
+      "note": "initial static scan found 0/37 articles with a direct jft-conversion.js script tag - investigated further and confirmed FALSE POSITIVE: header.html (injected into every page) contains the script tag, and the site's script-recreation injection code correctly executes it, including on all 37 articles"
+    },
+    "F_trust_risk_reduction": "PASS - all 12 buyer questions answered by existing governed content",
+    "G_rfq_sample_request": {"result": "PASS", "carried_forward_gap": "locale contact.html copies still lack shipment_month field and some quantity/incoterm handling (Phase 13's P13-F2, unchanged status, not new)"},
+    "H_cta_hierarchy": {"result": "PASS", "products_with_competing_primary_cta": 0},
+    "I_seo_commercial_intent": {"result": "PASS", "products_title_h1_zero_overlap": 0},
+    "J_internal_link_quality": {"result": "PASS", "broken_links": 0, "files_checked": 1766},
+    "K_locale_commercial_journey": {
+      "result": "1 business-judgment-required item",
+      "finding": "WhatsApp CTA button labels are correctly translated in all locales checked; the prefilled wa.me message text remains in English even on non-English product pages",
+      "classification": "BUSINESS_JUDGMENT_REQUIRED",
+      "reason_not_fixed": "could be an oversight or a deliberate choice so JFT's sales team can act on every enquiry regardless of source locale; translating requires native-review governance and a business decision this session cannot make unilaterally"
+    },
+    "L_mobile_conversion": {"result": "PASS", "note": "static-equivalent only, no live browser tool available this session, limitation disclosed"},
+    "M_accessibility": "PASS - nothing touched this phase",
+    "N_performance": {"result": "PASS", "audit_performance_findings": 0}
+  },
+  "false_positives_investigated": [
+    {
+      "initial_signal": "0/37 articles appear to load jft-conversion.js directly",
+      "resolution": "confirmed delivered via header.html injection + script-recreation mechanism; not a defect"
+    }
+  ],
+  "content_gaps_carried_forward_not_new": [
+    "locale contact.html missing shipment_month field (Phase 13 P13-F2)"
+  ],
+  "business_judgment_required": [
+    "whether WhatsApp prefilled messages should be localized per-page or remain English for internal sales-team processing"
+  ],
+  "fix_decision_gate_result": "no finding satisfied all 10 required conditions for implementation simultaneously; zero fixes implemented this phase",
+  "files_changed_this_phase": 0,
+  "cloudflare_build": {"files_built": 2099, "size_mib": 135.7, "sensitive_dirs_leaked": false, "deployed": false, "artifact_cleaned_up": true}
+}

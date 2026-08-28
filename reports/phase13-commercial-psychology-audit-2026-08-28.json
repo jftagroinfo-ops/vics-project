@@ -1,0 +1,72 @@
+{
+  "phase": 13,
+  "generated": "2026-08-28",
+  "method": "Direct source inspection of contact.html (+10 locale copies), sample-request.html, jft-conversion.js, all 3 calculators, shipment-tracker.html, regional pages, and 3 targeted external web searches for B2B RFQ/commodity-exporter benchmark patterns.",
+  "commercial_maturity_score_before": 7.7,
+  "personas": [
+    {"id": "A", "name": "Established importer", "served": "well"},
+    {"id": "B", "name": "Trader/distributor", "served": "well"},
+    {"id": "C", "name": "Food manufacturer/industrial buyer", "served": "well (COA detail lives on export-documentation.html, a reasonable IA choice)"},
+    {"id": "D", "name": "New/cautious importer", "served": "was the persona most exposed to the RFQ friction fixed this phase"},
+    {"id": "E", "name": "Existing buyer", "served": "well (shipment-tracker.html)"}
+  ],
+  "findings": [
+    {
+      "id": "P13-F1",
+      "severity": "P1",
+      "title": "RFQ form requires Port of Discharge and Target Shipment Month, which a first-time buyer often cannot supply yet",
+      "evidence": "contact.html required 10 fields to submit. External benchmark (chatsku.com RFQ best practices): 'name, email, product, and quantity... those four are required. Everything else is optional.' Port and shipment month are pre-quote unknowns for many genuine buyers; country/packing/product remain required because they are price-determining for a bulk commodity quote.",
+      "fixed": true,
+      "fix": "removed the required attribute and the visual * marker from Port of Discharge (all 11 language copies) and Target Shipment Month (English only - the field does not exist on locale copies), replaced with an '(optional)' hint",
+      "files": ["contact.html", "ar/contact.html", "es/contact.html", "fr/contact.html", "id/contact.html", "ms/contact.html", "pt/contact.html", "ru/contact.html", "si/contact.html", "th/contact.html", "vi/contact.html"]
+    },
+    {
+      "id": "P13-F2",
+      "severity": "documented, not fixed",
+      "title": "Locale contact.html copies lack a shipment_month field entirely (pre-existing structural drift vs English)",
+      "fixed": false,
+      "reason": "a locale form-field-parity project (also missing quantity/incoterm handling in some copies per Phase 11's own finding) is a separate, larger localization-architecture undertaking outside this phase's narrow RFQ-friction scope"
+    }
+  ],
+  "areas_audited_no_defect_found": [
+    "trust/commercial-anxiety architecture (buyer-security.html, quality-control.html, export-documentation.html, certificates.html)",
+    "sample-request funnel differentiation from RFQ",
+    "WhatsApp commercial tone and context-passing",
+    "calculator-to-RFQ bridges (all 3 calculators)",
+    "regional-page commercial relevance (Africa/Asia/Europe/UAE)",
+    "article commercial-intent CTA (jft-conversion.js addArticleBuyerPath)",
+    "mobile conversion risk (no layout touched)",
+    "international/RTL conversion risk (structure-only fix, no new translated text)"
+  ],
+  "competitive_benchmark": [
+    {
+      "pattern": "RFQ forms should require only name/email/product/quantity",
+      "source": "https://chatsku.com/rfq-form-best-practices/",
+      "jft_has_it": "partially before this phase",
+      "relevant": true,
+      "implemented": true
+    },
+    {
+      "pattern": "spice/commodity exporters display ISO/HACCP/FSSAI/Spices Board + COA/lab documentation",
+      "source": "web search on spice exporter trust certifications",
+      "jft_has_it": true,
+      "relevant": true,
+      "implemented": "no change needed, already present"
+    },
+    {
+      "pattern": "WhatsApp used alongside (not instead of) a contact form for agro B2B trade",
+      "source": "web search on agricultural exporter WhatsApp vs contact form",
+      "jft_has_it": true,
+      "relevant": true,
+      "implemented": "no change needed, already present"
+    }
+  ],
+  "rejected_ideas": [
+    {"idea": "make packing optional too", "reason": "packing materially changes FOB/CIF unit economics for a bulk commodity; JFT cannot return a meaningful quote without it"},
+    {"idea": "build locale form-field parity", "reason": "documented as P13-F2 but out of this phase's narrow scope"},
+    {"idea": "A/B test the required-field change", "reason": "explicitly out of scope per the phase brief"},
+    {"idea": "invent response-time guarantees", "reason": "existing honest '1 Day - Typical Review' language is already correct and was not touched"}
+  ],
+  "expected_impact": "fewer abandoned RFQ attempts from qualified buyers who have a real product/quantity/destination need but no firm port or ship-month yet, with zero loss of information from buyers who do provide it",
+  "risk_assessment": "very low - removes only an HTML required constraint and a visual marker; no field deleted, no submission-handler change, no translated copy touched"
+}

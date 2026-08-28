@@ -1,0 +1,97 @@
+{
+  "phase": 19,
+  "date": "2026-08-28",
+  "unknowns_resolved": [
+    {
+      "id": "phase18_unknown_1",
+      "question": "is TURNSTILE_SECRET configured live?",
+      "method": "wrangler secret list (names only, no values)",
+      "result": "NOT configured - only WEB3FORMS_ACCESS_KEY exists",
+      "consequence": "verifyTurnstile() no-ops and returns true unconditionally; /api/lead currently has no active CAPTCHA/challenge verification",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "phase18_unknown_2",
+      "question": "does a Cloudflare dashboard rate-limit rule protect /api/lead?",
+      "method": "direct read-only Cloudflare API calls (GET /zones/{id}/rate_limits and /rulesets) using the existing authenticated OAuth token",
+      "result": "both calls returned Authentication error (code 10000) - token lacks firewall/rulesets permission scope; zone lookup itself succeeded, isolating the failure to this one resource type",
+      "status": "STILL UNKNOWN - genuinely attempted, confirmed access-scope limitation, not an unattempted gap"
+    }
+  ],
+  "broadened_header_verification": {
+    "urls_tested": 6,
+    "url_types": ["category page", "product page", "article", "calculator", "Arabic homepage", "Thai contact page"],
+    "result": "all 6 identical to homepage and to worker.js SECURITY_HEADERS, byte-for-byte",
+    "status": "PASS"
+  },
+  "cache_behavior": {
+    "html_css": {"cf_cache_status": "HIT", "cache_control": "public, max-age=0, must-revalidate"},
+    "images": {"cf_cache_status": "HIT", "cache_control": "public, max-age=604800, stale-while-revalidate=86400"},
+    "api_lead": {"cf_cache_status": "not present (not edge-cached)", "cache_control": "no-store"},
+    "status": "PASS"
+  },
+  "tls_ssl": {
+    "verification_attempted": true,
+    "tooling_limitation": "this environment's curl uses Windows schannel backend, not OpenSSL - negotiated protocol version and certificate subject/issuer are not reliably exposed",
+    "ssl_verify_result": 0,
+    "tlsv1_0_forced_test_result": "returned 200 but cannot be trusted as proof of legacy TLS acceptance due to schannel flag-handling uncertainty",
+    "status": "UNKNOWN (tooling-limited), not converted to PASS",
+    "recommendation": "confirm minimum TLS version directly via Cloudflare dashboard SSL/TLS settings or an external tool (e.g. SSL Labs)"
+  },
+  "security_txt_robots_sitemap": {
+    "security_txt_present": true,
+    "security_txt_status": 200,
+    "security_txt_fields": ["Contact", "Canonical", "Preferred-Languages", "Policy", "Expires"],
+    "robots_txt_confirmed_clean": true,
+    "sitemap_url_count": 1453,
+    "status": "PASS"
+  },
+  "regression_suite": {
+    "audit_website.py": "0 findings (1753 pages, after fixing a stale-artifact false positive)",
+    "audit_localizations.py": "0 findings",
+    "full_site_audit.py": "0 findings, 1453 indexable pages",
+    "check_links.py": "0 broken links / 1766 files",
+    "audit_performance.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings (after fixing a stale-artifact false positive)",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "pass",
+    "audit_locale_ui.py": "0 findings, determinism PASS"
+  },
+  "regression_incident": {
+    "description": "first run of audit_website.py and audit_coverage_gaps.py showed a doubled page count (3506 vs 1753) and 52 false-positive orphan_indexable_page findings",
+    "root_cause": ".cloudflare-dist (the Phase 17 deployed bundle, deliberately kept on disk after deployment) was being scanned as duplicate site content by two audit scripts that have no build-output directory exclusion rule - same class of issue first found in Phase 11",
+    "confirmed_all_52_findings_inside_artifact": true,
+    "fix": "deleted the disposable, gitignored, fully-reproducible .cloudflare-dist artifact; re-ran both scripts fresh, confirmed 0 findings and correct page count",
+    "classification": "audit-hygiene oversight from Phase 17/18, not a code or production defect",
+    "website_source_file_changed": false
+  },
+  "final_crawl": {
+    "sitemap_url_count": 1453,
+    "sample_size": 20,
+    "sample_locales": ["en", "ar", "fr", "th", "id", "es"],
+    "all_returned_200": true
+  },
+  "production_release_parity": {
+    "files_verified_byte_identical": ["jft-conversion.js", "trade-regions.css", "header.html", "footer.html", "locale-ui.js", "contact.html", "sample-request.js", "jft-design-system.css", "sitemap.xml"],
+    "total_files_verified": 9,
+    "mismatches": 0,
+    "status": "PASS"
+  },
+  "remaining_risk_register": [
+    {"id": "P19-R1", "title": "TURNSTILE_SECRET not configured - /api/lead has no active challenge verification", "severity": "LOW-MEDIUM", "status": "confirmed, not fixed", "disposition": "business decision requiring frontend integration + new secret, separate authorization needed"},
+    {"id": "P19-R2", "title": "unknown whether dashboard rate-limit rule protects /api/lead", "severity": "UNKNOWN", "status": "genuinely unresolved", "disposition": "requires dashboard access or broader API token scope"},
+    {"id": "P19-R3", "title": "TLS minimum version/cipher configuration unverified", "severity": "UNKNOWN (tooling-limited)", "status": "genuinely unresolved", "disposition": "requires Cloudflare dashboard or external tool"},
+    {"id": "P18-INFO-1", "title": "Permissions-Policy scope incomplete (accelerometer/gyroscope/autoplay/fullscreen)", "severity": "INFORMATIONAL", "status": "documented, not actionable", "disposition": "carried forward unchanged from Phase 18"},
+    {"id": "P19-R4", "title": "audit scripts lack build-output directory exclusion", "severity": "LOW (tooling, not site)", "status": "root-caused, worked around", "disposition": "future phase could add exclusion rule if recurring; out of scope this phase"}
+  ],
+  "critical_or_high_findings": 0,
+  "website_source_files_modified": 0,
+  "deployment_status": "NOT DEPLOYED - no changes made, none needed",
+  "final_certification": {
+    "decision": "READY WITH DISCLOSED LOW-RISK ITEMS",
+    "not_unconditional_ready_because": "P19-R1 is a real, confirmed gap a business owner should knowingly decide on, not have silently glossed over",
+    "not_not_ready_because": "zero CRITICAL/HIGH findings across two full security phases; complete regression suite passes; 9 critical files verified byte-identical between production and release; 20/20 random sitemap sample returns 200; full header/CSP/api-lead/sensitive-file/path-normalization verification all PASS",
+    "practical_meaning": "site is safe to continue operating as-is; disclosed items are deliberate business/dashboard decisions, not active or trivially exploitable vulnerabilities in what was tested"
+  }
+}

@@ -1,27 +1,84 @@
 {
   "summary": {
-    "html_files": 1789,
+    "html_files": 3587,
     "classification": {
-      "indexable": 1438,
-      "utility_noindex": 293,
-      "locale_fallback": 5,
-      "helper": 46,
-      "legacy_redirect": 7
+      "indexable": 2898,
+      "utility_noindex": 584,
+      "locale_fallback": 10,
+      "helper": 81,
+      "legacy_redirect": 14
     },
     "noindex_by_locale": {
-      "en": 10,
-      "ar": 29,
-      "es": 29,
-      "fr": 29,
-      "id": 29,
-      "ms": 29,
-      "pt": 29,
-      "ru": 29,
-      "si": 29,
-      "th": 29,
-      "vi": 29
+      "en": 18,
+      "ar": 58,
+      "es": 58,
+      "fr": 58,
+      "id": 58,
+      "ms": 58,
+      "pt": 58,
+      "ru": 58,
+      "si": 58,
+      "th": 58,
+      "vi": 58
     },
-    "finding_counts": {}
+    "finding_counts": {
+      "orphan_indexable_page": 52
+    }
   },
-  "findings": {}
+  "findings": {
+    "orphan_indexable_page": [
+      ".cloudflare-dist/ar/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/ar/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/ar/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/ar/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/es/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/es/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/es/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/es/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/fr/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/fr/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/fr/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/fr/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/id/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/id/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/id/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/id/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/id/faq.html",
+      ".cloudflare-dist/id/whatsapp-catalog.html",
+      ".cloudflare-dist/ms/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/ms/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/ms/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/ms/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/ms/faq.html",
+      ".cloudflare-dist/ms/whatsapp-catalog.html",
+      ".cloudflare-dist/pt/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/pt/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/pt/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/pt/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/pt/faq.html",
+      ".cloudflare-dist/pt/whatsapp-catalog.html",
+      ".cloudflare-dist/ru/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/ru/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/ru/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/ru/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/si/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/si/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/si/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/si/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/si/faq.html",
+      ".cloudflare-dist/si/whatsapp-catalog.html",
+      ".cloudflare-dist/th/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/th/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/th/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/th/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/th/faq.html",
+      ".cloudflare-dist/th/whatsapp-catalog.html",
+      ".cloudflare-dist/vi/blog-green-mung-beans-export-india-2026.html",
+      ".cloudflare-dist/vi/blog-how-to-read-proforma-invoice-india-export.html",
+      ".cloudflare-dist/vi/blog-india-rice-export-sri-lanka-bangladesh.html",
+      ".cloudflare-dist/vi/blog-sgs-inspection-indian-agro-exports.html",
+      ".cloudflare-dist/vi/faq.html",
+      ".cloudflare-dist/vi/whatsapp-catalog.html"
+    ]
+  }
 }

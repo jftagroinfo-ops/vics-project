@@ -1,0 +1,181 @@
+{
+  "phase": 28,
+  "date": "2026-08-28",
+  "authorization": "explicit, named Phase 25 and Phase 27; Phase 24's undeployed legalName fix was surfaced and explicitly confirmed by user for inclusion",
+  "pre_deployment_baseline": {
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "local_sitemap_urls": 1454,
+    "local_renderable_pages": 1753,
+    "local_products": 84,
+    "local_categories": 10,
+    "local_articles": 37,
+    "production_version_before": "2b63fb19-28c8-45ca-9fc8-3468fdd105eb",
+    "production_version_before_traffic": "100%",
+    "production_version_before_created": "2026-08-27T18:40:42.459Z",
+    "production_sitemap_urls_before": 1453,
+    "production_critical_url_spot_check": "12/12 returned 200"
+  },
+  "gate1_working_tree_integrity": {
+    "raw_git_status_modified_files": 1472,
+    "explanation": "repository never committed since Phase 1, this count reflects 27 phases of cumulative history not new Phase 28 changes",
+    "methodology_used_instead": "production-vs-local content hash comparison",
+    "discrepancy_found": {
+      "file": "1121-basmati-rice-exporter.html",
+      "root_cause": "Phase 24 legalName fix, confirmed via grep count 0 in production vs 1 locally",
+      "scope": "1326 files sitewide, English + all 10 locales",
+      "status_in_phase24_report": "fully implemented and regression-tested, documented as NOT DEPLOYED",
+      "not_named_in_phase28_authorization": true,
+      "resolution": "surfaced directly to user via AskUserQuestion, user explicitly confirmed including it",
+      "user_decision": "Include Phase 24 in this deployment"
+    },
+    "gate_result": "PASS on expanded, user-confirmed scope"
+  },
+  "intended_production_changes": [
+    {"source": "Phase 24", "change": "legalName added to Organization JSON-LD on 1326 files"},
+    {"source": "Phase 25", "change": "5 new legacy redirect entries in worker.js LEGACY_PRETTY_REDIRECTS; category-hub links on 5 articles"},
+    {"source": "Phase 27", "change": "toor-dal article completed and indexed; blog.html updated; pulses-exporter-india.html new link; category-hub cards on 4 more articles; sitemap regenerated"}
+  ],
+  "gate2_secrets_scan": {"findings": 0, "notes": "only expected env-var names referenced in code, no values"},
+  "gate3_report_leakage": {"build_script_has_hard_assertion": true, "assertion_type": "raise RuntimeError on reports/scripts/docs/cache-file presence in build output"},
+  "gate4_full_regression_pre_deployment": {
+    "scripts_run": 9,
+    "findings": 0,
+    "broken_links": 0,
+    "files_checked": 1766
+  },
+  "all_pre_deployment_gates_passed": true,
+  "phase25_redirect_pre_verification": {
+    "entries_confirmed_present": 5,
+    "target_files_confirmed_exist": 5,
+    "syntax_check_limitation": "automated node/python execution blocked by session permission classifier, same as Phase 25; relied on manual inspection plus eventual live behavior test"
+  },
+  "phase27_content_pre_verification": {
+    "placeholder_text_occurrences": 0,
+    "title_correct": true,
+    "h1_correct": true,
+    "robots_meta_correct": true,
+    "canonical_correct": true,
+    "in_sitemap": true
+  },
+  "build": {
+    "script": "scripts/build_cloudflare_assets.py",
+    "assets_built": 2099,
+    "size_mib": 136.5,
+    "build_succeeded": true
+  },
+  "artifact_inspection": {
+    "new_article_present": true,
+    "legalname_present_in_article": true,
+    "bundled_sitemap_count": 1454,
+    "reports_absent": true,
+    "scripts_absent": true,
+    "env_dev_vars_git_absent": true,
+    "worker_js_absent_from_bundle": "expected, worker is a separate deployment component not a static asset"
+  },
+  "deployment_manifest": {
+    "production_domain": "jftagro.com, www.jftagro.com",
+    "deployment_type": "Cloudflare Worker (jftagro-site) via wrangler deploy",
+    "secrets_exposed": 0,
+    "reports_exposed": 0,
+    "pre_deployment_audit_findings": 0,
+    "pre_deployment_broken_links": 0
+  },
+  "deployment_execution": {
+    "operational_note": "build_cloudflare_assets.py outputs to .cloudflare-dist-next by design, must be promoted to .cloudflare-dist before wrangler deploy picks it up",
+    "first_deploy_attempt_result": "correctly failed with clear error, assets.directory does not exist",
+    "promotion_method": "PowerShell Move-Item (Bash mv failed with Windows permission error on large directory)",
+    "new_version_id": "88ead829-b2b4-45d1-95c4-748cf25ee165",
+    "assets_uploaded_new_or_modified": 1329,
+    "assets_already_uploaded": 769,
+    "warnings": 0,
+    "custom_domains_confirmed": ["jftagro.com", "www.jftagro.com"]
+  },
+  "immediate_smoke_test": {
+    "homepage": 200,
+    "products_html": 200,
+    "toor_dal_article": 200,
+    "toor_dal_placeholder_text_absent": true,
+    "toor_dal_real_content_present": true,
+    "sitemap_status": 200,
+    "sitemap_url_count": 1454,
+    "robots_txt": 200,
+    "security_txt": 200
+  },
+  "redirect_test": [
+    {"url": "/aboutus/", "status": 301, "location": "/about.html", "final_status": 200},
+    {"url": "/contact-us/", "status": 301, "location": "/contact.html", "final_status": 200},
+    {"url": "/raisins/", "status": 301, "location": "/indian-raisins-kishmish-exporter.html", "final_status": 200},
+    {"url": "/ricemill/", "status": 301, "location": "/infrastructure.html", "final_status": 200},
+    {"url": "/spices/", "status": 301, "location": "/spices-exporter-india.html", "final_status": 200},
+    {"url": "/products/", "status": 301, "location": "/products.html", "final_status": 200, "note": "pre-existing regression check"}
+  ],
+  "redirect_test_all_passed": true,
+  "content_test": {
+    "title_correct": true,
+    "h1_correct": true,
+    "canonical_correct": true,
+    "blog_html_filter_count": 30,
+    "new_article_card_present": true,
+    "pulses_page_links_to_article": true,
+    "article_links_back_to_pulses": true,
+    "external_citation_resolves": 200
+  },
+  "seo_test": "sitemap/robots/canonical confirmed correct, no new SEO audit launched per phase instruction",
+  "analytics_test": {
+    "header_html_script_refs": 1,
+    "toor_dal_direct_script_tags": 0,
+    "classification": "correct, no duplication regression"
+  },
+  "security_test": {
+    "headers_confirmed_present": 7,
+    "sensitive_files_tested": [".env", ".git/config", "wrangler.jsonc", "scripts/audit_website.py"],
+    "sensitive_files_exposed": 0,
+    "tls_rate_limit_turnstile_modified": false
+  },
+  "production_parity_hash_verified": {
+    "files_checked": 8,
+    "matches": 8,
+    "mismatches": 0
+  },
+  "post_deployment_regression": {
+    "incident": "stale .cloudflare-dist artifact present immediately after deployment caused audit_website.py timeout, same class of issue as Phases 11/14/19/20",
+    "resolution": "deleted disposable already-uploaded artifact, re-ran clean",
+    "audit_website.py": "0 findings, 1753 pages",
+    "full_site_audit.py": "0 findings, 1454 indexable",
+    "check_links.py": "0 broken links / 1766 files"
+  },
+  "rollback_decision_gate": {
+    "p0_triggers_checked": true,
+    "p0_triggers_occurred": false,
+    "p1_triggers_checked": true,
+    "p1_triggers_occurred": false,
+    "p1_p2_triggers_checked": true,
+    "p1_p2_triggers_occurred": false,
+    "rollback_required": false,
+    "rollback_performed": false
+  },
+  "unexpected_findings": [
+    {"finding": "Phase 24 undeployed legalName fix discovered during Gate 1", "resolution": "surfaced to user, explicitly confirmed for inclusion"},
+    {"finding": "stale .cloudflare-dist artifact post-deployment", "resolution": "root-caused and cleaned up"}
+  ],
+  "limitations": [
+    "worker.js syntax verified via manual inspection and live behavior test, not executed syntax check, due to session permission classifier restriction",
+    "no live browser-automation tool available, verification is HTTP/static-level"
+  ],
+  "final_assessment": {
+    "deployment_safety": "PASS",
+    "production_integrity": "PASS",
+    "redirect_integrity": "PASS",
+    "content_integrity": "PASS",
+    "seo_integrity": "PASS",
+    "analytics_integrity": "PASS",
+    "security_integrity": "PASS",
+    "repository_build_production_parity": "PASS"
+  },
+  "final_release_decision": {
+    "decision": "A",
+    "label": "RELEASE SUCCESSFUL",
+    "rollback_required": false
+  },
+  "stop_instruction": "STOP. Do not begin Phase 29. Wait for explicit authorization."
+}

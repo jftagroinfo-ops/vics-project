@@ -1,0 +1,11 @@
+{
+  "phase": 32,
+  "date": "2026-08-28",
+  "pillars": {
+    "experience": {"assessment": "STRONG", "evidence": ["250 MT/Day Balap Raigad facility", "84-product structured spec data", "functional buyer tools", "honestly-disclaimed 2016 founding narrative"]},
+    "expertise": {"assessment": "STRONG", "evidence": ["export-documentation.html", "buyer-security.html", "37 process-education articles", "governed product FAQ content"]},
+    "authoritativeness": {"assessment": "WEAK-MEDIUM", "evidence_for": ["LEI registration - STRONG, independently confirmed ACTIVE"], "gaps": ["FIEO membership status unknown", "no LinkedIn company page found", "no B2B marketplace presence found", "no trade press/association mentions found"]},
+    "trustworthiness": {"assessment": "STRONG internally / externally undermined", "internal_signals": ["consistent NAP", "deliberate certificate-verification gate", "functional RFQ/sample flow", "verified security posture"], "external_risk": "AI-generated 'since 1980' misinformation contradicts website's own honest 2016 disclaimer - not website-caused"}
+  },
+  "no_fabrication_performed": true
+}

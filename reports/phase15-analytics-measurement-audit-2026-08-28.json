@@ -1,0 +1,157 @@
+{
+  "phase": 15,
+  "generated": "2026-08-28",
+  "baseline": {
+    "commit": "e64a3f2b",
+    "branch": "main",
+    "working_tree_changed_paths_before_fix": 1132,
+    "phase14_end_state": "0 website files modified, confirmed intact"
+  },
+  "analytics": {
+    "implementation_file": "jft-conversion.js",
+    "platform": "Google Analytics 4 (gtag.js)",
+    "measurement_id": "G-MWZ2ZWZP4G",
+    "measurement_id_locations": 1,
+    "delivery_mechanism": "injected via header.html's <script src> tag, delivered to every page via the shared fetch-and-recreate-script header injection",
+    "other_analytics_platforms_found": [],
+    "gtm_found": false,
+    "duplicate_initialization_found": true,
+    "duplicate_initialization_scope": "buyer-security.html + export-documentation.html + 10 locale copies of each = 22 files",
+    "duplicate_initialization_status": "FIXED"
+  },
+  "consent": {
+    "mechanism": "localStorage key jft_cookie_choice, must equal 'accepted' before GA4 script tag is created or gtag('config',...) is called",
+    "default_state": "no analytics until explicit accept",
+    "decline_behavior": "stores 'essential', analytics stays off",
+    "withdrawal_behavior": "clears stored choice, re-shows bar, calls gtag('consent','update',{analytics_storage:'denied'}) if gtag already loaded",
+    "classification": "TECHNICAL - verified as implemented; no legal/compliance conclusion offered"
+  },
+  "events": [
+    {"name": "form_start / rfq_start / sample_request_start", "type": "intent", "trigger": "first focusin on a form"},
+    {"name": "rfq_click / sample_request_click", "type": "intent", "trigger": "click on link to contact.html/sample-request.html"},
+    {"name": "generate_lead, then rfq_submit / sample_request / enquiry_submit", "type": "conversion", "trigger": "only after /api/lead backend returns success:true"},
+    {"name": "view_item / product_view", "type": "intent", "trigger": "first render of a product page, deduped via trackOnce"},
+    {"name": "article_view / article_read_depth", "type": "intent", "trigger": "first render / 50-90% scroll of a blog page"},
+    {"name": "whatsapp_click / contact_whatsapp", "type": "intent, high-value", "trigger": "click on wa.me link"},
+    {"name": "contact_phone / contact_email", "type": "intent", "trigger": "click on tel:/mailto: link"},
+    {"name": "file_download / brochure_download", "type": "intent", "trigger": "click on .pdf link"},
+    {"name": "outbound_click / conversion_link_click", "type": "diagnostic/intent", "trigger": "external or conversion-path link click"},
+    {"name": "page_not_found", "type": "diagnostic", "trigger": "404 page rendered"},
+    {"name": "csp_violation", "type": "diagnostic", "trigger": "securitypolicyviolation event"},
+    {"name": "rfq_prefill_loaded", "type": "diagnostic", "trigger": "contact.html?source=quote_calculator loads"}
+  ],
+  "conversions": {
+    "rfq_submit": {"fires_on": "success only, gated by backend response.success===true", "click_only_risk": false},
+    "sample_request": {"fires_on": "success only, gated by backend response.success===true", "click_only_risk": false},
+    "duplicate_risk_before_fix": "click/intent events doubled on 22 pages; the success-gated conversion events themselves were not at risk since they depend on one form submission, not click-listener count"
+  },
+  "rfq": {"measurable": true, "intent_vs_success_distinguished": true, "product_context_preserved": true, "locale_preserved": "via page_path", "source_medium_preserved": "via sessionStorage attribution + hidden form fields"},
+  "sample_request": {"measurable": true, "intent_vs_success_distinguished": true, "product_context_preserved": "via specification textarea prefill, not a structured event parameter"},
+  "whatsapp": {"measurable": true, "message_content_sent_to_analytics": false, "pii_sent_to_analytics": false, "parameters_sent": ["page_path", "product_or_page (truncated page title/H1)"]},
+  "products": {
+    "count": 84,
+    "identification_mechanism": "document.querySelector('h1').textContent + document.body.dataset.category",
+    "hardcoded_per_product_config": false,
+    "governed": true
+  },
+  "categories": {
+    "count": 10,
+    "custom_event_exists": false,
+    "reason": "trigger regex -exporter.html$|-supplier.html$|products.html$ does not match category page filenames (e.g. rice-exporter-india.html)",
+    "automatic_pageview_still_works": true,
+    "classification": "TRACKING GAP, P2, not implemented"
+  },
+  "articles": {
+    "count": 37,
+    "traffic_measurable": true,
+    "commercial_bridge_measurable": true,
+    "note": "article_view + buyer-path panel click events (view product / calculator / RFQ) together allow distinguishing traffic from commercial value, in principle - no real GA4 data exists in this session to demonstrate actual figures"
+  },
+  "regional": {"pages": ["africa-trade.html", "asia-trade.html", "europe-trade.html", "uae-trade.html"], "custom_event_exists": false, "automatic_pageview_and_product_events_apply": true},
+  "calculators": {
+    "pages": ["quote-calculator.html", "packing-calculator.html", "port-transit-calculator.html"],
+    "tool_to_rfq_bridge_event": true,
+    "tool_start_complete_granularity": false,
+    "classification": "TRACKING GAP, P2/P3, not implemented"
+  },
+  "gsc": {
+    "data_classification": "REAL PRODUCTION DATA",
+    "export_date": "2026-08-20",
+    "reporting_period": "2026-05-19 to 2026-08-18",
+    "total_clicks": 286,
+    "total_impressions": 10410,
+    "weighted_ctr": 0.0275,
+    "avg_position": 10.03,
+    "page_rows": 327,
+    "country_rows": 141,
+    "device_rows": 3,
+    "nonbrand_query_rows": 188,
+    "placeholder_file_reconfirmed": "reports/seo-opportunities-top-100-2026-08-20.csv is estimated keyword research, not real GSC data (Current Rank column literally says 'Requires GSC query export')"
+  },
+  "ga4_export_available": false,
+  "attribution": {
+    "utm_capture": true,
+    "utm_fields": ["utm_source", "utm_medium", "utm_campaign", "utm_id", "utm_term", "utm_content", "gclid", "gbraid", "wbraid", "msclkid", "fbclid", "ttclid", "li_fat_id"],
+    "persistence": "sessionStorage, survives full browsing session",
+    "form_injection": "auto-injected as hidden fields on every form via enrichForms()"
+  },
+  "locales": {
+    "count": 11,
+    "distinguishable_in_analytics": true,
+    "mechanism": "page_path includes locale directory prefix, captured automatically on every event"
+  },
+  "devices": {"distinguishable": true, "mechanism": "GA4 automatic device-category dimension"},
+  "privacy": {
+    "pii_in_ga4_calls": false,
+    "raw_form_data_destination": "/api/lead (site's own backend, not GA4)",
+    "message_content_tracked": false,
+    "classification": "NO ISSUE for the GA4 path"
+  },
+  "performance": {
+    "additional_scripts": 0,
+    "additional_platforms": 0,
+    "gated_behind_consent": true,
+    "duplicate_load_fix_impact": "removes one redundant script fetch (and, post-consent, one redundant gtag.js fetch) on 22 pages"
+  },
+  "findings": [
+    {
+      "id": "P15-F1",
+      "severity": "P0/P1",
+      "title": "Duplicate jft-conversion.js execution on 22 pages",
+      "evidence": "buyer-security.html and export-documentation.html (+10 locale copies each) had a direct <script src=jft-conversion.js> tag in addition to the header-injection delivery that already exists correctly on every other page",
+      "consequence": "click-based events and the form_start intent event fired twice on these 22 pages; gtag.js library and config call also loaded twice",
+      "fixed": true,
+      "fix": "removed the redundant direct script tag; header.html's injection remains the sole, correct delivery mechanism",
+      "files": 22
+    },
+    {
+      "id": "P15-F2",
+      "severity": "P2",
+      "title": "Category pages lack a structured custom view event",
+      "fixed": false,
+      "reason": "automatic pageview already allows path-based analysis; adding a new event type is a taxonomy expansion without a demonstrated business need beyond what exists"
+    },
+    {
+      "id": "P15-F3",
+      "severity": "P2/P3",
+      "title": "Calculators lack tool_start/tool_complete granularity",
+      "fixed": false,
+      "reason": "existing tool-to-RFQ bridge event already covers the highest-value signal; finer granularity not demonstrated as needed"
+    }
+  ],
+  "fixes": [
+    {
+      "id": "P15-F1",
+      "file": "scripts/remove_duplicate_analytics_script.py (new)",
+      "files_changed": 22,
+      "lines_changed": "1 line removed per file, 22 insertions/22 deletions total per git diff",
+      "idempotent": true
+    }
+  ],
+  "measurement_gap_matrix": [
+    {"gap": "duplicate script execution", "severity": "P0/P1", "status": "fixed"},
+    {"gap": "category page custom event", "severity": "P2", "status": "documented, not implemented"},
+    {"gap": "calculator granularity", "severity": "P2/P3", "status": "documented, not implemented"},
+    {"gap": "no GA4 export data available", "severity": "limitation", "status": "cannot be fixed from repository, requires external account access"}
+  ]
+}

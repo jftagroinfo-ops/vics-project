@@ -1,0 +1,111 @@
+{
+  "phase": 12,
+  "title": "Premium Brand, Visual UX & Conversion-Polish",
+  "date": "2026-08-27",
+  "status": "implementation complete, regression suite green, not deployed",
+  "investigated": [
+    "jft-design-system.css design tokens (colors, typography, buttons, cards, spacing, hero pattern)",
+    "jft-responsive.css, homepage.css, trade-regions.css",
+    "header.html, footer.html structure",
+    "first-10-seconds walkthrough: homepage, products.html, category page, product page, article, regional page, contact.html, sample-request.html",
+    "exhaustive grep of .hero-btns and .prod-img/.prod-card usage site-wide",
+    "pixel-level measurement of all 84 product images vs declared HTML dimensions (Pillow)",
+    "direct visual inspection of sample product photography"
+  ],
+  "findings": [
+    {
+      "id": "P12-F1",
+      "severity": "P0",
+      "title": "Regional-page primary hero CTA invisible on all 4 pages",
+      "fixed": true,
+      "file": "trade-regions.css",
+      "root_cause": "leftover .hero-btns { display: none !important; } rule from a different context in a shared override stylesheet, never checked against the regional-page hero which needs the CTA visible",
+      "fix": "removed the display:none !important rule"
+    },
+    {
+      "id": "P12-F2",
+      "severity": "P0",
+      "title": "Product-card images render distorted on category and regional pages",
+      "fixed": true,
+      "file": "trade-regions.css",
+      "root_cause": "no stylesheet defined object-fit for .prod-img img; browser default fill stretched non-square photos (68/84 = 81% of product images are non-square, 45/84 = 54% have ratio outside 0.75-1.3) to fit an incorrectly hardcoded square 1024x1024 declared size from the Phase 10 category-page generator",
+      "fix": "added aspect-ratio:1/1 + overflow:hidden to .prod-img, and width:100%/height:100%/object-fit:cover to .prod-img img",
+      "affected_pages": "10 Phase 10 category pages + europe-trade.html (5 product cards added in Phase 10); africa-trade.html and uae-trade.html already had equivalent local protection, now redundant but harmless"
+    },
+    {
+      "id": "P12-F3",
+      "severity": "P1",
+      "title": "Informal/inconsistent product photography style",
+      "fixed": false,
+      "reason": "requires real new product photography; this session cannot commission, source, or fabricate images. Documented as a future opportunity requiring real photography access."
+    }
+  ],
+  "files_changed": [
+    {"file": "trade-regions.css", "type": "shared CSS", "insertions": 5, "deletions": 4}
+  ],
+  "design_improvements": ["uniform, non-distorted product-card image cropping across all category and regional pages using product cards"],
+  "ux_improvements": ["restored primary hero CTA visibility on 4 regional trade pages"],
+  "conversion_improvements": ["4 regional pages regain their above-the-fold primary conversion action", "category pages present a visually consistent, non-distorted product catalogue"],
+  "accessibility_improvements": [],
+  "accessibility_regressions": "none - neither fix touches contrast, focus, semantics, or ARIA",
+  "performance_impact": {
+    "bytes_added": "net neutral (one rule removed, two small rules added to an already-loaded stylesheet)",
+    "new_requests": 0,
+    "new_images": 0,
+    "new_dependencies": 0,
+    "audit_performance_findings": 0
+  },
+  "before_after_scores": {
+    "brand_perception": {"before": 7.5, "after": 8.5},
+    "visual_hierarchy": {"before": 8, "after": 8.5},
+    "homepage": {"before": 8, "after": 8},
+    "products_page": {"before": 8, "after": 8},
+    "categories": {"before": 6, "after": 8.5},
+    "product_pages": {"before": 7.5, "after": 7.5},
+    "trust": {"before": 8, "after": 8},
+    "cta_ux": {"before": 6.5, "after": 8.5},
+    "mobile": {"before": 7.5, "after": 7.5},
+    "international": {"before": 8, "after": 8},
+    "accessibility": {"before": 8, "after": 8},
+    "performance": {"before": 8, "after": 8},
+    "consistency": {"before": 7, "after": 7.5}
+  },
+  "tests_performed": [
+    "html5lib non-strict parse validation on 14 files loading trade-regions.css - 0 errors",
+    "CSS brace-balance check - balanced",
+    "exhaustive grep confirming scope of .hero-btns and .prod-img usage before applying fixes",
+    "Pillow-based pixel measurement of all 84 product images"
+  ],
+  "audit_results": {
+    "audit_website.py": "0 findings",
+    "audit_localizations.py": "0 findings, rc=0, informational counts unchanged from Phase 6-11 baseline",
+    "full_site_audit.py": "0 findings, 1453 indexable pages unchanged",
+    "check_links.py": "0 broken links / 1766 files",
+    "audit_performance.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "pass, 0 stale images",
+    "audit_locale_ui.py": "0 findings, determinism PASS"
+  },
+  "build_result": {
+    "files_built": 2099,
+    "size_mib": 135.7,
+    "sensitive_dirs_leaked": false,
+    "fix_confirmed_in_build": true,
+    "deployed": false,
+    "artifact_cleaned_up_after_verification": true
+  },
+  "determinism_result": "not applicable - no generator or script was modified this phase, only a hand-authored shared CSS file",
+  "remaining_opportunities": [
+    "commission or source real product photography to replace informal hand-held style photos (requires access this session does not have)",
+    "revisit .prod-card border-radius (8px) vs. site card family (20px) - deliberately left as a judgment call, not a defect",
+    "category-page section padding vs sitewide spacing token - no visible harm found",
+    "per-image object-position tuning for the 45 extreme-ratio images, once a live browser tool is available to verify crops"
+  ],
+  "known_limitations": [
+    "no live browser-automation tool was available in this session; no rendered-DOM or visual-diff screenshot claim is made; both fixes were established with certainty from source-level tracing (unambiguous CSS facts, not visual judgment) before implementation"
+  ],
+  "deployment_status": "not deployed",
+  "stop_instruction_followed": true
+}

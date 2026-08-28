@@ -1,0 +1,65 @@
+{
+  "phase": 10,
+  "generated": "2026-08-27",
+  "method": "Direct grep/regex counts against the working tree before and after Phase 10 implementation. Every count below was independently re-verified against the current file tree during the Phase 10 regression pass (see phase10-commodity-architecture-2026-08-27.md Part AC/AH).",
+  "commodity_category_layer": {
+    "description": "10 new category pages did not exist before Phase 10 (Finding A in the Phase 9 opportunity map).",
+    "pages_before": 0,
+    "pages_after": 10,
+    "inbound_links": {
+      "from_products_html_browse_by_category_section": {"before": 0, "after": 10, "note": "1 link per category, new section on products.html"},
+      "from_product_breadcrumbs": {"before": 0, "after": 84, "note": "every one of the 84 English product pages now links to its own category page from the breadcrumb nav"},
+      "from_other_category_pages_related_categories_section": {"before": 0, "after": 90, "note": "each of the 10 category pages links to the other 9 (full mesh), 10 x 9 = 90"}
+    },
+    "outbound_links_from_category_pages": {
+      "to_products_prod_card_grid": {"before": 0, "after": 84, "note": "every one of the 84 products appears in exactly one category's product grid, 1:1 coverage"},
+      "to_related_articles": {"before": 0, "after": "variable per category, filtered to exclude UNPUBLISHED_BLOGS placeholders"},
+      "to_logistics_pages": {"before": 0, "after": 2, "note": "rice-exporter-india.html links to both Mundra and Nhava Sheva logistics pages; no other category has a dedicated logistics page yet"}
+    }
+  },
+  "export_documentation_locale_gap": {
+    "description": "Finding C in the Phase 9 opportunity map: the .jft-document-path contextual block existed on 46 English product pages (plus 13 pre-existing blog/tool pages) but had never been localized.",
+    "target_page": "export-documentation.html (root) / {locale}/export-documentation.html",
+    "inbound_links": {
+      "en_root_total": {"before": 59, "after": 59, "breakdown": "46 product pages + 13 blog/tool pages, unchanged - these already existed before Phase 10"},
+      "locale_product_pages_total_across_10_locales": {"before": 0, "after": 460, "breakdown": "46 products x 10 locales, all newly added by scripts/fix_export_documentation_locale_links.py"},
+      "locale_blog_pages": {"before": 0, "after": 0, "note": "deliberately out of scope - blog article locale copies were not touched, matching the English precedent where only product pages carry this specific component"}
+    },
+    "grand_total_inbound": {"before": 59, "after": 519}
+  },
+  "regional_page_product_linking": {
+    "description": "Phase 9 originally reported this as a blanket gap; Phase 10 investigation (Part A) found africa-trade.html and uae-trade.html already had .prod-card showcases and asia-trade.html already had contextual prose links. Only europe-trade.html genuinely had zero.",
+    "africa-trade.html": {"prod_card_links_before": 5, "prod_card_links_after": 5, "changed": false},
+    "uae-trade.html": {"prod_card_links_before": 5, "prod_card_links_after": 5, "changed": false},
+    "asia-trade.html": {"contextual_prose_links_before": 5, "contextual_prose_links_after": 5, "changed": false},
+    "europe-trade.html": {"prod_card_links_before": 0, "prod_card_links_after": 5, "changed": true, "products_added": ["1121 Raw Basmati Rice", "Senna Pods", "Sunflower Seeds In Shell", "Red Millet", "Indian Raisins"], "selection_basis": "Europe is each product's primary documented market in data/products.json's f field"}
+  },
+  "article_product_reciprocal_linking": {
+    "mismatched_further_reading_links_corrected": {
+      "count": 7,
+      "products": ["5-silky-sortex-white-exporter.html", "25-silky-sortex-white-exporter.html", "5-silky-sortex-short-grain-exporter.html", "25-silky-sortex-short-grain-exporter.html", "samba-rice-exporter.html", "pr-11-rice-exporter.html", "black-cumin-seeds-nigella-exporter.html"],
+      "note": "these already had a further-reading link; it pointed to the wrong article (e.g. non-Basmati rice pointing to the Basmati export guide). Link count unchanged, link target corrected."
+    },
+    "new_forward_links_product_to_article": {
+      "count": 5,
+      "products": ["yellow-maize-corn-exporter.html", "maize-grits-exporter.html", "corn-flour-maize-flour-exporter.html", "sugar-s30-supplier.html", "toor-dal-split-pigeon-pea-exporter.html"],
+      "before": 0,
+      "after": 5
+    },
+    "new_back_links_article_to_product": {
+      "aside_count": 6,
+      "distinct_product_links_across_asides": 14,
+      "articles": ["blog-basmati-export-guide.html", "blog-cumin-jeera-price-outlook-2026.html", "blog-groundnut-peanut-export-india-2026.html", "blog-india-rice-export-sri-lanka-bangladesh.html", "blog-ir64-export.html", "blog-top-indian-agro-commodities-import-2026.html"],
+      "before": 0,
+      "after": 6
+    },
+    "deliberately_left_unchanged": {
+      "products": ["turmeric-finger-exporter.html", "groundnut-oil-cake-exporter.html"],
+      "reason": "already had a different, genuinely relevant existing link; adding a second forced link was judged to reduce quality, not improve it"
+    }
+  },
+  "governance_fixes_non_linking": {
+    "manufacturing_business_schema": {"locale_pages_fixed": 10, "change": "@type ManufacturingBusiness -> Organization, @id added"},
+    "thai_duplicate_h1": {"pages_fixed": 1, "file": "th/dill-seeds-powder-exporter.html", "occurrences_corrected": 21}
+  }
+}

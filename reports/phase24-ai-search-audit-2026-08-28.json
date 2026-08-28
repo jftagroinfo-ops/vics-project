@@ -1,0 +1,163 @@
+{
+  "phase": 24,
+  "date": "2026-08-28",
+  "baseline": {
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "production_status": 200,
+    "production_sitemap_urls": 1453,
+    "renderable_pages": 1753,
+    "product_pages": 84,
+    "category_pages": 10,
+    "articles": 37,
+    "locales": 10,
+    "llms_txt_exists": false,
+    "robots_txt_status": "unrestricted, single group, explicitly covers AI crawlers",
+    "legalname_present_pre_phase": {"pages": 1, "of_organization_declarations": 127}
+  },
+  "entity_audit": {
+    "name_consistency": "consistent across all checked pages",
+    "address_consistency": "consistent",
+    "phone_consistency": "primary line consistent across 84+ pages; second labeled sales line found on contact/footer only, confirmed intentional not inconsistent",
+    "canonical_entity_id": "https://jftagro.com/#organization, used consistently",
+    "fragmentation_found": false,
+    "legalname_gap_found": true,
+    "legalname_gap_fixed": true
+  },
+  "eeat_audit": {
+    "experience": "specific registration year (2016) with explicit predecessor-history verification caveat, named leadership disclosed",
+    "expertise": "confirmed strong across all 84 products via delegated audit",
+    "authoritativeness": "ISO 9001:2015, Star Export House/DGFT, APEDA, FSSAI, HACCP claims consistent, checkable categories",
+    "trustworthiness": "HTTPS enforced, no PII leakage (Phase 18-23), organizational (not fabricated individual) article authorship confirmed correct"
+  },
+  "structured_data_investigation": {
+    "product_schema": {
+      "initial_state": "0/84 pages",
+      "action_taken": "implemented via scripts/add_product_schema.py, sourced only from existing title/description/image/canonical/category data, no offers/sku/review/rating added",
+      "bug_found_and_fixed": "2/84 pages had unescaped &amp; in image URL field, corrected before final validation",
+      "post_implementation_validation": "84/84 valid, 0 missing fields, 0 entity-escaping issues, correct category distribution",
+      "conflict_discovered": "audit_commercial_content.py:73-74 contains a pre-existing deliberate rule rejecting Product schema on quote-only pages (ineligible for Google rich results without honest offers/price data)",
+      "related_prior_governance_evidence": ["scripts/apply_forensic_audit_remediation.py", "scripts/normalize_commercial_claims.py", "scripts/remediate_production_claims.py"],
+      "final_action": "reverted cleanly via precise JSON-aware removal, verified 0/84 remain, verified all 84 files structurally intact, audit_commercial_content.py findings returned to 0",
+      "final_disposition": "Product schema correctly, deliberately absent - not a gap, a re-confirmed prior decision now documented with rationale for the first time",
+      "script_kept": true,
+      "script_should_be_rerun": false
+    },
+    "legalname_fix": {
+      "checked_against_existing_governance_first": true,
+      "existing_related_script": "scripts/apply_forensic_audit_remediation.py lines 158-162, normalizes existing legalName values but does not add legalName where absent - confirmed no deliberate scoping-restriction policy exists",
+      "action_taken": "implemented via scripts/add_organization_legalname.py, JSON-tree-walking (not string-matching) to handle differing key order between root and locale pages",
+      "files_changed": 1326,
+      "files_already_correct": 1,
+      "idempotency_verified": "0 changed on second run",
+      "sitewide_json_ld_validation": {"files_scanned": 1796, "blocks_checked": 3936, "invalid": 0, "blocks_with_legalname": 1327}
+    }
+  },
+  "ai_citation_query_tests": {
+    "tool_used": "single web-search tool available this session",
+    "explicitly_not_tested": ["Google AI Overviews", "Bing Copilot", "ChatGPT search", "Perplexity", "Gemini"],
+    "queries": [
+      {"query": "\"JFT Agro Overseas\" rice exporter India", "jft_appears": true, "notes": "contains demonstrated factual error, see misinformation_finding"},
+      {"query": "Indian rice exporters IR64 rice exporter India", "jft_appears": false, "notes": "generic query matching real JFT product, competitors surfaced instead"},
+      {"query": "bulk rice supplier India request quotation", "jft_appears": false, "notes": "high commercial intent, competitors surfaced instead"},
+      {"query": "Indian spice exporter turmeric cumin coriander bulk", "jft_appears": false, "notes": "matches JFT spice category, competitors surfaced instead"},
+      {"query": "annatto seed exporter India", "jft_appears": false, "notes": "correct absence - JFT does not sell annatto seeds, verified no such product page exists"}
+    ]
+  },
+  "misinformation_finding": {
+    "claim_tested": "\"Since 1980\" founding year and a fabricated about.html page title",
+    "verification_method": "direct site-wide grep for '1980' (0 occurrences) and direct read of about.html actual title tag",
+    "result": "confirmed fabricated by the external search/synthesis tool, not present anywhere on the site",
+    "mixed_accuracy_note": "some claims in the same summary (Star Export House, ISO/APEDA/FSSAI/HACCP, 250 MT figure, Africa market presence) are genuinely on the site",
+    "classification": "external AI-search-layer risk, not a website defect",
+    "website_fixable": false,
+    "existing_mitigation_validated": "about.html's own meta description already states a specific registration year with an explicit predecessor-history verification caveat - this phase's testing validates that prior decision"
+  },
+  "product_depth_audit_84_pages": {
+    "method": "delegated to research agent, grep-based extraction + ~20 page full-text spot-read",
+    "coverage": {
+      "specific_title": "84/84",
+      "specific_h1": "84/84",
+      "extractable_definition": "84/84 present, 69/84 clean declarative style",
+      "concrete_specifications": "84/84",
+      "packaging_stated": "84/84",
+      "applications_stated": "84/84",
+      "faqpage_schema": "84/84",
+      "product_schema": "0/84, confirmed correct per investigation",
+      "category_page_link": "84/84",
+      "rfq_contact_link": "84/84",
+      "sample_request_link": "84/84",
+      "thin_content_flagged": "0/84"
+    },
+    "minor_unfixed_observation": "~15 pages open with instructional imperative rather than declarative definition, P2, not addressed this phase"
+  },
+  "crawler_accessibility": {
+    "robots_txt": "single unrestricted User-agent: * group, Allow: /, explicitly covers AI crawlers, only internal tooling paths disallowed",
+    "action_needed": false
+  },
+  "llms_txt_decision": {
+    "exists": false,
+    "decision": "do not create at this time",
+    "reasoning": ["no confirmed production consumption by any major AI/search vendor", "duplicates existing sitemap.xml and unrestricted robots.txt", "would require new governance/maintenance surface across 84 products, 37 articles, 10 categories, 10 locales", "staleness risk if not created would be worse than absence"],
+    "reconsideration_trigger": "a major AI/search vendor formally documents production consumption of llms.txt"
+  },
+  "content_governance_editorial_trust": {
+    "existing_framework_found": ["scripts/validate_editorial_governance.py", "scripts/validate_localization_governance.py"],
+    "status": "both pass clean, functioning correctly",
+    "new_framework_created": false,
+    "reason": "not already covered by previous phases gate condition fails - existing framework already adequate"
+  },
+  "competitive_benchmark": {
+    "method": "surfaced via same query tests, no content copied or scraped",
+    "rice_competitors": ["Riceone", "Plowexim", "Tizara Group", "Om Swastik Exports"],
+    "spice_competitors": ["Botanika Bharat LLP", "White Feather Export", "The Spize Tree", "Sai Shagun Food Industries"],
+    "notable_pattern": "Botanika Bharat cites specific accredited-lab testing parameters - JFT's existing FAQ specification detail already substantially matches this in kind, no gap requiring a new feature identified"
+  },
+  "content_gaps_classified": [
+    {"gap": "Organization legalName inconsistency", "classification": "P1", "disposition": "fixed this phase"},
+    {"gap": "Product schema absence", "classification": "not a gap - deliberate decision", "disposition": "investigated, implemented, reverted"},
+    {"gap": "~15 product intros stylistically instructional vs declarative", "classification": "P2", "disposition": "documented, not fixed"},
+    {"gap": "off-site/generic-query AI visibility for core products", "classification": "P2/P3 strategic", "disposition": "documented, out of technical-fix scope"},
+    {"gap": "llms.txt absence", "classification": "not a gap - reasoned decision", "disposition": "documented"},
+    {"gap": "external AI misinformation about founding year", "classification": "out of scope, external system", "disposition": "documented for awareness"}
+  ],
+  "fixes_implemented": [
+    {"change": "legalName added to 1326 files' Organization JSON-LD", "verification": "idempotency confirmed, sitewide JSON-LD validation 0 invalid, full regression clean"}
+  ],
+  "fixes_reverted": [
+    {"change": "Product schema on 84 product pages", "reason": "conflicts with pre-existing audit_commercial_content.py governance rule", "verification": "0/84 remain, files structurally intact, audit finding count returned to 0"}
+  ],
+  "fixes_rejected": [
+    {"candidate": "rewrite ~15 product intros to declarative style", "reason": "stylistic, no demonstrated material impact, fails smallest-safe-fix test"},
+    {"candidate": "off-site authority/backlink work", "reason": "strategic not technical, out of phase scope"},
+    {"candidate": "create llms.txt", "reason": "no confirmed vendor consumption, duplicates existing infrastructure"},
+    {"candidate": "new content-governance framework", "reason": "existing framework already adequate"},
+    {"candidate": "robots.txt changes", "reason": "already optimally configured"}
+  ],
+  "regression_results": {
+    "audit_website.py": "0 findings, 1753 pages",
+    "full_site_audit.py": "0 findings, 1453 indexable",
+    "audit_commercial_content.py": "0 findings (confirms Product schema revert fully resolved introduced regression)",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "passed",
+    "audit_locale_ui.py": "0 findings, determinism PASS",
+    "audit_localizations.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_performance.py": "0 findings",
+    "check_links.py": "0 broken links / 1766 files",
+    "validate_seo_alignment.py": "exit 1, pre-existing finding identical to Phase 23's P23-R4, unrelated to and unaffected by this phase"
+  },
+  "page_count_regression": {"renderable_pages_before": 1753, "renderable_pages_after": 1753, "sitemap_urls_before": 1453, "sitemap_urls_after": 1453, "drift": 0},
+  "limitations": [
+    "no live browser-automation tool available this session",
+    "AI query testing used one general web-search tool, not Google AI Overviews/Bing Copilot/ChatGPT search/Perplexity/Gemini specifically",
+    "competitive benchmark limited to same query-test surfacing, not systematic multi-tool crawl",
+    "no backlink/off-site-authority data available to quantify the generic-query visibility gap"
+  ],
+  "remaining_opportunities": [
+    "off-site authority building for generic-query visibility",
+    "optional future stylistic pass on ~15 product intros",
+    "monitor llms.txt adoption by major AI vendors",
+    "revisit Product schema with honest offers if business model changes to published fixed pricing"
+  ],
+  "stop_instruction": "PHASE 24 COMPLETE - STOPPING FOR AUTHORIZATION. Do not begin Phase 25."
+}

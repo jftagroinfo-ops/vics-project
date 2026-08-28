@@ -1,0 +1,129 @@
+{
+  "phase": 30,
+  "date": "2026-08-28",
+  "deployment_status": "NOT DEPLOYED",
+  "baseline": {
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "production_version_start": "b7d0f0a5-1e8e-4634-9bae-2b36d50cece9",
+    "production_health": 200,
+    "local_renderable_pages": 1753,
+    "local_sitemap_urls": 1454,
+    "pre_phase_regression": "0 findings across 9 scripts, 0 broken links across 1766 files"
+  },
+  "design_system_inventory": {
+    "colors": {"green": "#4e8c3e", "navy": "#1a3c34", "gold": "#eebf45", "cream": "#fdfbf7"},
+    "fonts": {"heading": "Merriweather serif", "sub": "Montserrat sans-serif", "body": "Lato sans-serif"},
+    "layout": {"container_max": "1360px", "container_pad": "clamp(20px,5vw,55px)", "section_pad": "clamp(70px,9vw,130px)"},
+    "buttons": ["btn-primary", "btn-outline", "btn-outline-navy", "btn-gold"],
+    "breakpoints_count": 12,
+    "breakpoint_range": "320px-1800px plus print and reduced-landscape-height",
+    "core_system_defect_found": false
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "class": "A",
+      "pages": ["buyer-security.html", "export-documentation.html"],
+      "issue": "hero content hidden behind fixed header on load",
+      "root_cause": "main{padding-top:80px} far less than real ~170px header clearance, both pages skip jft-design-system.css",
+      "evidence": "sample-request-offset.css already proves and documents the exact correct values (170px desktop, 96px mobile) for this exact bug class",
+      "fix": "padding-top:80px -> 170px, mobile 60px -> 96px, both files",
+      "status": "FIXED"
+    },
+    {
+      "id": "F2",
+      "class": "A",
+      "pages": ["ar/contact.html", "ar/packing-calculator.html", "ar/port-transit-calculator.html", "ar/shipment-tracker.html"],
+      "issue": "RTL breadcrumb chevron not mirrored",
+      "root_cause": "bespoke .hero-breadcrumb component lacks the RTL mirror rule that shared .jft-breadcrumb already has",
+      "evidence": "jft-design-system.css:244 html[dir=rtl] .jft-breadcrumb i {transform:scaleX(-1)} confirmed still working on ar/1121-basmati-rice-exporter.html; all 4 files confirmed to have dir=rtl on html tag",
+      "fix": "added html[dir=rtl] .hero-breadcrumb i{transform:scaleX(-1)} to all 4 files",
+      "status": "FIXED"
+    },
+    {
+      "id": "F3",
+      "class": "B",
+      "pages": ["uae-trade.html"],
+      "issue": "product-image height inconsistent with africa-trade.html/europe-trade.html",
+      "root_cause": "local override used 140px vs the other two pages' 130px",
+      "fix": "changed to 130px to match",
+      "status": "FIXED"
+    },
+    {
+      "id": "F4",
+      "class": "B",
+      "pages": ["contact-audit-fixes.css (used only by contact.html)"],
+      "issue": "hardcoded near-duplicate color value instead of the page's own declared token",
+      "root_cause": "color:#397030 hardcoded, one hex digit off from contact.html's own --green:#3d7030 token",
+      "distinguished_from": "the correctly-rejected Phase 29 color-drift claim, which involved two genuinely distinct intentional shades; this is a single-digit near-duplicate of the same page's own token with no plausible intentional distinction",
+      "fix": "color:#397030 -> color:var(--green)",
+      "status": "FIXED"
+    }
+  ],
+  "deferred_items": [
+    {"item": "Asia Trade missing Buyer Due Diligence section", "class": "D", "reason": "requires content authorship"},
+    {"item": "Insights/article dual-template divergence, 40+ files", "class": "E", "reason": "redesign-scale migration, confirmed still accurate via spot-check"},
+    {"item": "AR tool pages using older bespoke hero template than EN counterparts", "class": "E", "reason": "localization-sync drift, requires markup migration not just CSS, redesign-scale"},
+    {"item": "contact.html bespoke hero/token system", "class": "C", "reason": "intentional, internally consistent, matches sitewide local-token pattern"},
+    {"item": "port-transit-calculator.html/shipment-tracker.html bespoke heroes", "class": "C", "reason": "functionally sound variant, correct clearance, uses shared breadcrumb"}
+  ],
+  "page_family_spot_checks_clean": ["homepage", "products.html", "category pages", "84 product pages", "sample-request.html (admitted bug already resolved)", "ar/1121-basmati-rice-exporter.html breadcrumb"],
+  "files_changed": [
+    "buyer-security.html",
+    "export-documentation.html",
+    "ar/contact.html",
+    "ar/packing-calculator.html",
+    "ar/port-transit-calculator.html",
+    "ar/shipment-tracker.html",
+    "uae-trade.html",
+    "contact-audit-fixes.css"
+  ],
+  "files_changed_count": 8,
+  "new_files": 0,
+  "deleted_files": 0,
+  "fix_decision_gate": "all 4 implemented findings passed all 10 conditions",
+  "regression_results": {
+    "audit_website.py": "0 findings, 1753 pages",
+    "full_site_audit.py": "0 findings, 1454 indexable",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "passed",
+    "audit_locale_ui.py": "0 findings, determinism PASS",
+    "audit_localizations.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_performance.py": "0 findings",
+    "check_links.py": "0 broken links / 1766 files"
+  },
+  "page_count_regression": {"drift": 0},
+  "build": {
+    "build_succeeded": true,
+    "assets_built": 2099,
+    "fixes_confirmed_present": true,
+    "no_internal_leakage": true,
+    "artifact_deleted_after_verification": true
+  },
+  "diff_discipline": {
+    "method": "production-vs-local hash comparison",
+    "changed_files_confirmed_differ": 6,
+    "unchanged_control_file_confirmed_match": "header.html",
+    "unexplained_changes": 0
+  },
+  "deployment": "NOT DEPLOYED, production unchanged at b7d0f0a5-1e8e-4634-9bae-2b36d50cece9",
+  "final_scores": {
+    "visual_consistency": 8.6,
+    "design_system_consistency": 8.5,
+    "responsive_consistency": 8.7,
+    "typography": 9.0,
+    "imagery": 8.8,
+    "navigation_header": 8.8,
+    "cta_consistency": 8.8,
+    "page_family_consistency": 7.8,
+    "rtl_localization_visual_consistency": 8.5,
+    "overall_visual_quality": 8.5
+  },
+  "final_decision": {
+    "decision": "B",
+    "label": "STRONG WITH DOCUMENTED VISUAL OPPORTUNITIES"
+  },
+  "stop_instruction": "STOP. Do not begin Phase 31. Do not deploy."
+}

@@ -1,0 +1,181 @@
+{
+  "phase": 6,
+  "title": "Complete Localization Quality & Language Integrity Audit",
+  "baseline_commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+  "locales": ["en", "ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi"],
+  "architecture": {
+    "governed_cache": "data/localized-copy-cache.json",
+    "header_footer_pipeline": "cache -> scripts/build_locale_ui.py -> locale-ui.js, drift-checked by scripts/audit_locale_ui.py (Phase 2)",
+    "body_content_pipeline": "cache -> one-off historical scripts -> static committed locale/*.html, NO regeneration or drift detection",
+    "root_cause_statement": "Body content has no mechanism to re-sync already-translated static HTML when the English source text changes; this produced both F1/M1 and F2."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "aka": "M1",
+      "severity": "HIGH",
+      "title": "'Order on WhatsApp' stale CTA text",
+      "selector": "a.btn-wa-product",
+      "occurrences": 830,
+      "locales_affected": ["ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi"],
+      "root_cause": "English source renamed 'Order on WhatsApp' -> 'WhatsApp Inquiry'; governed cache updated with translations of the new string for all locales; 830 already-translated locale pages never re-synced and kept shipping the old English text.",
+      "fix": "scripts/fix_stale_ui_strings.py: single governed-cache-driven script, validated cache coverage for all locales before writing, replaced the exact stale fragment in all 830 files.",
+      "status": "fixed",
+      "validated": true,
+      "validation_methods": ["grep sitewide count 830->0", "real-browser check all 11 languages, 0 console errors, 0 failed requests", "regression test: reintroduced defect on 1 file, confirmed new audit check flags it, restored fix"]
+    },
+    {
+      "id": "F2",
+      "severity": "HIGH",
+      "title": "Stale product-page FAQ block leaking English across all 84 products x 10 locales",
+      "occurrences": {
+        "Minimum order is 1 FCL (mixed-language FAQ answer)": 830,
+        "We accept LC (mixed-language FAQ answer)": 747,
+        "Can I get a Trade samples on request... (fully untranslated Q&A pair)": 830
+      },
+      "locales_affected": ["ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi"],
+      "root_cause": "Same mechanism as F1: English root product FAQ content was substantively rewritten (current English root has zero matches for 'Minimum order is 1 FCL' or 'We accept LC' -- confirmed via direct grep); locale pages still carry the retired FAQ content, partially translated at the time, never re-synced.",
+      "cache_coverage": {"Minimum order is 1 FCL": "no entry in any locale", "We accept LC": "no entry in any locale", "Can I get a Trade samples on request before placing an order?": "no entry in any locale"},
+      "status": "documented_not_fixed",
+      "reason_not_fixed": "No governed translation exists for any of these strings in any locale; the underlying English content has been retired/replaced, so a mechanical cache-driven fix (the F1 pattern) is not available without new human translation, which this phase's rules do not permit generating via machine translation.",
+      "human_review_ref": "reports/localization-human-review-2026-08-27.md#3"
+    },
+    {
+      "id": "F3",
+      "severity": "MEDIUM",
+      "title": "wa-fab floating-button aria-label identical to English in governed cache for 7/10 locales",
+      "selector": "a.wa-fab[aria-label]",
+      "occurrences": 588,
+      "locales_affected": ["es", "fr", "id", "ms", "pt", "si", "vi"],
+      "locales_already_correct": {"ar": "واتساب جي اف تي اجرو", "ru": "WhatsApp JFT Агро", "th": "WhatsApp JFT การเกษตร"},
+      "cache_value_for_affected_locales": "WhatsApp JFT Agro (identical to English)",
+      "status": "documented_not_fixed",
+      "reason_not_fixed": "Ambiguous whether 'Agro' should transliterate given the site's own brand-preservation convention for 'JFT Agro Overseas'; 3-locale precedent is not sufficient basis to auto-apply a transliteration to the other 7 without native review.",
+      "human_review_ref": "reports/localization-human-review-2026-08-27.md#2"
+    },
+    {
+      "id": "F4",
+      "severity": "LOW",
+      "classification": "informational",
+      "title": "Cache entries identical to English source (heuristic-filtered)",
+      "total_flagged": 594,
+      "per_locale": {"ar": 8, "es": 59, "fr": 74, "id": 69, "ms": 155, "pt": 52, "ru": 26, "si": 99, "th": 12, "vi": 40},
+      "methodology": "scripts/audit_localizations.py check_cache_self_identical(): flags cache[locale][source]==source where source contains a common English function word or is 4+ words.",
+      "status": "documented_not_fixed",
+      "reason_not_fixed": "Manual sample inspection found the majority are legitimately preserved (company names, shipping lines, port names, grade/HS codes, prices, dates); reported as an informational metric for human triage, not a hard finding, to avoid mass false positives.",
+      "human_review_ref": "reports/localization-human-review-2026-08-27.md#4"
+    },
+    {
+      "id": "F5",
+      "severity": "MEDIUM",
+      "title": "Calculator explainer sections exist only in English across all 3 calculators, all 10 locales",
+      "sections": {
+        "packing-calculator.html": "section.packing-method",
+        "quote-calculator.html": "section.method-section",
+        "port-transit-calculator.html": "section.schedule-section, section.origin-comparison"
+      },
+      "locales_affected": ["ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi"],
+      "status": "documented_not_fixed",
+      "reason_not_fixed": "Content-completeness gap (section absent, nothing to mistranslate), a content-ownership decision rather than a mechanical translation fix.",
+      "human_review_ref": "reports/localization-human-review-2026-08-27.md#5"
+    },
+    {
+      "id": "F6",
+      "severity": "LOW",
+      "classification": "informational",
+      "title": "Byline/caption text left in English inside a translated article body",
+      "file": "ar/blog-bill-of-lading-explained-importers.html",
+      "text": "JFT Agro Editorial • Bill Of Lading Review At An Export Terminal",
+      "status": "documented_not_fixed",
+      "human_review_ref": "reports/localization-human-review-2026-08-27.md#6"
+    }
+  ],
+  "audit_tooling_fix": {
+    "file": "scripts/audit_localizations.py",
+    "why_it_missed_m1": "ENGLISH_SENTENCE residue check requires 5+ words AND a common function word AND 4+ qualifying sentences per page; 'Order on WhatsApp' (3 words, no function word) was structurally invisible to it regardless of occurrence count.",
+    "additions": [
+      {
+        "function": "check_component_drift",
+        "purpose": "Detect locale-page component text/attributes that don't match the governed cache translation of the current dominant English value, for empirically-verified closed-vocabulary components.",
+        "components_registered": [
+          {"selector": "a.btn-wa-product", "file_glob": "*-exporter.html", "dominant_english_value": "WhatsApp Inquiry", "dominance": 1.0},
+          {"selector": "a.wa-fab", "attr": "aria-label", "file_glob": "*-exporter.html", "dominant_english_value": "WhatsApp JFT Agro", "dominance": 1.0}
+        ],
+        "gating": true,
+        "regression_tested": true,
+        "regression_test_method": "Reintroduced 'Order on WhatsApp' on vi/green-mung-beans-exporter.html; audit correctly reported {'vi_a.btn-wa-product': 1}; fix re-applied; audit clean again."
+      },
+      {
+        "function": "check_cache_self_identical",
+        "purpose": "Flag cache entries where translation equals English source and the source reads as ordinary prose, as an informational metric for human review.",
+        "gating": false
+      }
+    ]
+  },
+  "coverage_table": {
+    "methodology": "cache entries per locale vs. union of all 7115 distinct English source strings across all locales (upper-bound estimate; some strings are locale-specific by design)",
+    "total_distinct_source_strings": 7115,
+    "by_locale": {
+      "ar": {"entries": 6658, "missing": 457, "coverage_pct": 93.6},
+      "es": {"entries": 6678, "missing": 437, "coverage_pct": 93.9},
+      "fr": {"entries": 6697, "missing": 418, "coverage_pct": 94.1},
+      "id": {"entries": 6546, "missing": 569, "coverage_pct": 92.0},
+      "ms": {"entries": 6597, "missing": 518, "coverage_pct": 92.7},
+      "pt": {"entries": 6559, "missing": 556, "coverage_pct": 92.2},
+      "ru": {"entries": 6660, "missing": 455, "coverage_pct": 93.6},
+      "si": {"entries": 6557, "missing": 558, "coverage_pct": 92.2},
+      "th": {"entries": 6537, "missing": 578, "coverage_pct": 91.9},
+      "vi": {"entries": 6545, "missing": 570, "coverage_pct": 92.0}
+    }
+  },
+  "metadata_localization_check": {
+    "pages_sampled": ["index.html", "1121-basmati-rice-exporter.html", "blog-cif-fob-explained.html"],
+    "locales_sampled": ["ar", "es", "fr", "id", "ms", "pt", "ru", "si", "th", "vi"],
+    "checks": 30,
+    "title_differs_from_english": 30,
+    "meta_description_differs_from_english": 30,
+    "opengraph_translated_sample": "confirmed on ar/1121-basmati-rice-exporter.html",
+    "jsonld_translated_sample": "confirmed on ar/1121-basmati-rice-exporter.html (WebPage, BreadcrumbList, FAQPage all field-translated; FAQPage answers carry the F2 defect)",
+    "hreflang_count_per_page": 12
+  },
+  "browser_validation": {
+    "tool": "Playwright, Chromium (msedge channel), headless, local HTTP server (not file://, not static inference)",
+    "passes": [
+      {
+        "scope": "1121-basmati-rice-exporter.html across all 11 languages",
+        "checks": ["wa_button_text correct per locale", "console_errors", "failed_requests", "horizontal_overflow"],
+        "result": "0 console errors, 0 failed requests, 0 horizontal overflow, correct translated CTA text confirmed live in DOM for all 11"
+      },
+      {
+        "scope": "4 locales (en, ar, th, ru) x 5 page types (homepage, article, packing-calculator, quote-calculator, contact) = 20 loads",
+        "result": "0 console errors, 0 failed requests, 0 horizontal overflow, footer_injected true on all 20"
+      },
+      {
+        "scope": "mobile nav toggle presence, en + ar, 390x844",
+        "result": "#mobileToggleBtn present on both"
+      }
+    ]
+  },
+  "regression": {
+    "audit_locale_ui.py": "PASS",
+    "audit_website.py": "PASS",
+    "audit_commercial_content.py": "PASS",
+    "audit_claims_and_products.py": "PASS",
+    "validate_blog_navigation.py": "PASS",
+    "audit_localizations.py": "PASS (0 findings, 594 informational)",
+    "audit_performance.py": "PASS",
+    "full_site_audit.py": "PASS",
+    "audit_coverage_gaps.py": "PASS (pre-existing classification bug numbers unchanged, out of scope)",
+    "check_links.py": "PASS, 0 broken links across 1756 HTML files",
+    "cloudflare_build": {"file_count": 2089, "matches_baseline": true, "internal_file_leak": false, "deployed": false}
+  },
+  "files_changed": [
+    {"file": "scripts/fix_stale_ui_strings.py", "reason": "new governed-cache-driven fixer, used once for F1"},
+    {"file": "ar|es|fr|id|ms|pt|ru|si|th|vi/*-exporter.html (830 files)", "reason": "F1 fix: stale CTA text replaced with governed cache translation"},
+    {"file": "scripts/audit_localizations.py", "reason": "Part P fix: added check_component_drift (gating) and check_cache_self_identical (informational)"},
+    {"file": "reports/localization-quality-2026-08-27.md", "reason": "phase report"},
+    {"file": "reports/localization-quality-2026-08-27.json", "reason": "phase report"},
+    {"file": "reports/localization-human-review-2026-08-27.md", "reason": "Part R human-review list"}
+  ],
+  "deployment": "not performed; all changes remain local, uncommitted working-tree changes"
+}

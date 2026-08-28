@@ -1,0 +1,33 @@
+{
+  "phase": 29,
+  "part": "final",
+  "date": "2026-08-28",
+  "status": "2 of 4 issues fixed with confirmed root causes, 2 investigated and correctly left unfixed",
+  "deployment_status": "NOT DEPLOYED",
+  "fixed": [
+    {"id": "P29-1a", "scope": "83 of 84 product pages", "change": "preloader now waits for jft:header-ready event"},
+    {"id": "P29-4", "scope": "11 files (contact.html + 10 locales)", "change": "trust-strip img gains explicit width:auto"}
+  ],
+  "not_fixed": [
+    {"id": "P29-1 (category/articles)", "reason": "no preloader exists, adding one is a new UI component forbidden by Rule 4"},
+    {"id": "P29-2", "reason": "requires content authorship for Asia-specific compliance copy"},
+    {"id": "P29-3", "reason": "redesign-scale template migration, out of scope"},
+    {"id": "P29-3 proposed subfix", "reason": "investigated and found factually incorrect, correctly rejected"}
+  ],
+  "files_changed": [
+    "83 product pages",
+    "contact.html and 10 locale copies",
+    "scripts/fix_preloader_header_timing.py",
+    "scripts/fix_trust_strip_image_distortion.py"
+  ],
+  "regression": "0 findings across 9 scripts, 0 broken links across 1766 files, page counts unchanged",
+  "build": "2099 assets built successfully, fixes confirmed present, no internal file leakage, artifact deleted after verification",
+  "deployment": "NOT DEPLOYED, requires separate explicit authorization",
+  "remaining_items": [
+    "category-page/article header-loading flash - architectural, future deliberate decision needed",
+    "Asia Trade page missing Buyer Due Diligence section - needs content-authorship pass",
+    "Insights/trust-page template divergence from shared design system - dedicated migration project if desired"
+  ],
+  "recommendation": "no remaining item requires urgent attention, each should be its own appropriately-authorized future phase",
+  "stop_instruction": "STOP. Do not begin Phase 30."
+}

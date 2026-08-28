@@ -1,0 +1,154 @@
+{
+  "audit": {
+    "name": "Final Master Audit (post Phase 34)",
+    "audit_date": "2026-08-29",
+    "auditor_mode": "read-only certification (Act-mode artifact persistence only)",
+    "repository_head": "7cd68b0025dfc9edd28f664d8212b5bcd2f242e8",
+    "branch": "main",
+    "deploy_verified": "wrangler da5283be",
+    "overall_score": 8.2,
+    "readiness_classification": "B - PRODUCTION READY WITH DISCLOSED LOW-RISK ITEMS",
+    "blockers_critical": 0,
+    "blockers_high": 0
+  },
+  "production_baseline": {
+    "home": {"url": "https://jftagro.com/", "status": 200, "cf_cache": "HIT"},
+    "www_redirect": {"from": "https://www.jftagro.com/", "to": "https://jftagro.com/", "status": 301},
+    "core_pages": ["/about.html", "/contact.html", "/products.html", "/spices-exporter-india.html", "200"],
+    "sitemap": {"url": "https://jftagro.com/sitemap.xml", "status": 200, "loc_count": 1454, "alternate_links": 17208, "x_default": true},
+    "robots": {"status": 200, "matches_repo": true, "delta": "whitespace-only"},
+    "security_txt": {"status": 200, "bytes": 193},
+    "api_lead_get": 405,
+    "unknown_path": 404,
+    "legacy_redirects_301": [
+      {"from": "/aboutus/", "to": "/about.html"},
+      {"from": "/contact-us/", "to": "/contact.html"},
+      {"from": "/raisins/", "to": "/indian-raisins-kishmish-exporter.html"},
+      {"from": "/ricemill/", "to": "/infrastructure.html"},
+      {"from": "/spices/", "to": "/spices-exporter-india.html"},
+      {"from": "/products/", "to": "/products.html"}
+    ],
+    "legacy_loop_check": "no loops"
+  },
+  "parity": {
+    "note": "Live differs from repo/.cloudflare-dist only by Cloudflare edge HTML minification (byte length only; content verified identical). Classified Category 1 (expected edge transformation).",
+    "assets": [
+      {"file": "about.html", "repo_sha256": "D3864583", "live_sha256": "F080BC0C", "class": "expected_edge_minify"},
+      {"file": "contact.html", "repo_sha256": "687E2E3E", "live_sha256": "1817A3EE", "class": "expected_edge_minify"},
+      {"file": "products.html", "repo_sha256": "37AC0EEF", "live_sha256": "0DA9F2D5", "class": "expected_edge_minify"},
+      {"file": "spices-exporter-india.html", "repo_sha256": "E170A036", "live_sha256": "37D123F6", "class": "expected_edge_minify"},
+      {"file": "sitemap.xml", "repo_sha256": "06C21AAE", "live_sha256": "B54BB867", "class": "expected_edge_minify_whitespace"},
+      {"file": "robots.txt", "repo_sha256": "FD1F2081", "live_sha256": "8954EA4C", "class": "expected_edge_minify_whitespace"},
+      {"file": "security.txt", "repo_sha256": "F5638C56", "live_sha256": "5965A018", "class": "expected_edge_minify"},
+      {"file": "locale-ui.js", "repo_sha256": "57158D01", "live_sha256": "754CADE", "class": "expected_edge_minify"}
+    ],
+    "head_represents_deployed_release": true,
+    "evidence": "about.html repo SHA256 == .cloudflare-dist SHA256 == committed source; live content identical to repo."
+  },
+  "technical": {
+    "secret_scan": {"files_scanned": 1943, "excluded": ["reports/", "normalize_commercial_claims.py"], "hits": 0},
+    "jsonld_malformed_on_real_pages": false,
+    "template_leak": {
+      "id": "O1",
+      "files": ["product-page-template.html", "+10 locale copies"],
+      "live_status": 200,
+      "in_sitemap": false,
+      "internally_linked": false,
+      "literal_placeholder": "{{PRODUCT_NAME}}",
+      "schema": "Product + AggregateOffer without price (invalid per Google rich-result rules)",
+      "severity": "LOW",
+      "fixed_this_operation": false
+    }
+  },
+  "seo": {
+    "robots_allows_crawlers": true,
+    "canonical_self_on_checked_pages": true,
+    "www_strip_301": true,
+    "legacy_301s_correct": true,
+    "locales": ["ar","es","fr","id","ms","pt","ru","si","th","vi","en"],
+    "hreflang_reciprocal_plus_xdefault": true,
+    "rtl_governance": {"ar/about.html": "html dir=rtl lang=ar + self-canonical (correct)"},
+    "i18n_coverage_gap": {"ar/spices-exporter-india.html": "404 consistent absent page (not broken link)"}
+  },
+  "structured_data": {
+    "organization": "consistent (name/legalName JFT Agro Overseas LLP, APMC Vashi, +918425057274, jftagro.info@gmail.com, FB/IG sameAs)",
+    "types_used": ["Organization","BreadcrumbList","WebSite","FAQ","Article","WebApplication"],
+    "products_html_product_schemas": 0,
+    "quote_calculator_offer_price": "0",
+    "only_violation": "product-page-template.html price-less Product schema (O1)"
+  },
+  "eeat": {
+    "heritage_1980_location": "about.html only",
+    "wording": "family trading tradition in Indian agricultural commodities since 1980, JFT Agro Overseas LLP was formed in 2016",
+    "llp_formation_not_misrepresented": true,
+    "false_positives_rejected": ["1980 in data/quote-market-rates.json (freight rate)", "1980 in reports/ (historical audit data)"]
+  },
+  "security_live_headers": {
+    "hsts": "max-age=31536000; includeSubDomains",
+    "csp": "object-src none; base-uri self; form-action self; frame-ancestors self; unsafe-inline for required inline",
+    "coop": "same-origin-allow-popups",
+    "permissions_policy_blocks": ["camera","mic","geolocation","payment","usb"],
+    "referrer_policy": "strict-origin-when-cross-origin",
+    "x_content_type_options": "nosniff",
+    "x_frame_options": "SAMEORIGIN",
+    "unknown_dashboard": ["tls_min_version","rate_limiting","turnstile"]
+  },
+  "false_positives_rejected": [
+    {"item": "ΓÇö in about.html CSS comment", "reason": "PowerShell console mojibake of literal em-dash — UTF-8 file content correct"},
+    {"item": "1980 in data/quote-market-rates.json / reports/", "reason": "freight rate / historical audit data, not company-founding claim"},
+    {"item": "byte-hash differences repo vs live", "reason": "Cloudflare edge minification (Category 1), content verified identical"},
+    {"item": "English-only category architecture", "reason": "intentional governance, not a defect"},
+    {"item": "AggregateOffer price:0 on quote-calculator", "reason": "legitimate free-tool WebApplication offer"},
+    {"item": "ar/spices-exporter-india.html 404", "reason": "consistent absent page, not a broken link"}
+  ],
+  "open_items": [
+    {"id":"O1","item":"product-page-template.html (+10 locale) publicly deployed, unresolved, price-less Product schema","severity":"LOW","status":"confirmed-live","blocking":false,"fixed_this_operation":false},
+    {"id":"O2","item":"Cloudflare min TLS version","severity":"LOW-MED","status":"UNKNOWN","blocking":false},
+    {"id":"O3","item":"Cloudflare rate limiting","severity":"MED","status":"UNKNOWN","blocking":false},
+    {"id":"O4","item":"Turnstile decision","severity":"MED","status":"UNKNOWN","blocking":false},
+    {"id":"O5","item":"Push 7cd68b00 to origin/main","severity":"LOW-ops","status":"authorized-and-performed","blocking":"ops-only-not-site"},
+    {"id":"O6","item":"LEI postal-code discrepancy","severity":"LOW","status":"external-not-verified","blocking":false},
+    {"id":"O7","item":"AAY-5952 discrepancy","severity":"LOW","status":"external-not-verified","blocking":false},
+    {"id":"O8","item":"LinkedIn / external authority absent","severity":"MED","status":"external","blocking":false},
+    {"id":"O9","item":"Marketplace presence absent","severity":"MED","status":"external","blocking":false},
+    {"id":"O10","item":"FIEO status","severity":"LOW","status":"UNKNOWN","blocking":false},
+    {"id":"O11","item":"Insights/article template divergence","severity":"LOW","status":"governed-difference","blocking":false},
+    {"id":"O12","item":"Asia compliance-copy gap","severity":"LOW","status":"governance","blocking":false},
+    {"id":"O13","item":"Arabic calculator/tracker template","severity":"LOW","status":"governance","blocking":false},
+    {"id":"O14","item":"Category locale architecture (English-primary)","severity":"LOW","status":"governance","blocking":false},
+    {"id":"O15","item":"GA4/GSC live access","severity":"MED","status":"UNKNOWN","blocking":false},
+    {"id":"O16","item":"Real conversion/revenue attribution","severity":"MED","status":"UNKNOWN","blocking":false}
+  ],
+  "unknown_items": ["tls_min_version","rate_limiting","turnstile","LEI/AAY_external","FIEO","GA4/GSC_access","field_CWV","real_AI_search_citations","conversion_attribution"],
+  "scorecard": {
+    "technical_quality": 8.5, "seo": 8.5, "international_seo": 8.0, "structured_data": 8.0,
+    "content": 8.0, "conversion_ux": 8.0, "accessibility": 7.0, "performance": 7.5,
+    "security": 9.0, "visual_ui": 8.0, "aeo": 8.0, "geo": 8.0, "llmo_ai_search": 8.0,
+    "eeat_authority": 8.0, "production_reliability": 9.0
+  },
+  "limitations": "Static + live-HTTP audit only. No browser execution (WCAG, JS console, true CWV unmeasured). Cloudflare dashboard controls UNKNOWN. External authority unmeasured. No build re-run (would modify tracked source).",
+  "evidence_index": {
+    "git_log_1": "7cd68b00",
+    "git_status": "4 M + 105 ?? all in reports/ only; zero website source changes",
+    "live_http": "/ -> 200 HIT; www -> 301; 6 legacy -> 301; /api/lead -> 405; unknown -> 404",
+    "sitemap": "1454 loc, 17208 xhtml:link, x-default present",
+    "headers": "HSTS/CSP/COOP/Permissions-Policy/nosniff/XFO/referrer verified",
+    "secret_scan": "1943 files, 0 hits",
+    "heritage_1980": "about.html only (correct); products.html 0 Product schema",
+    "template_leak": "live 200, {{PRODUCT_NAME}} literal, price-less Product schema",
+    "wrangler_deploy": "da5283be"
+  },
+  "change_control": {
+    "files_written_this_operation": [
+      "reports/final-master-audit-2026-08-29.md",
+      "reports/final-master-audit-2026-08-29.json",
+      "reports/QA-CHANGE-CONTROL.md (appended Phase 34 Final Master Audit entry)"
+    ],
+    "website_source_modified": false,
+    "build_source_modified": false,
+    "cloudflare_config_modified": false,
+    "deployment_run": false,
+    "o1_fixed": false,
+    "git_push": {"authorized_commit": "7cd68b0025dfc9edd28f664d8212b5bcd2f242e8", "performed": true}
+  }
+}

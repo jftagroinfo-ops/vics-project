@@ -1,0 +1,132 @@
+{
+  "phase": 11,
+  "baseline": "End of Phase 10 (reports/phase10-commodity-architecture-2026-08-27.md/.json). Buyer-journey audit performed before any implementation and re-verified against actual current source rather than assumed from prior phase reports.",
+  "pages_audited": 33,
+  "changes": [
+    {
+      "id": "P11-FIX-1",
+      "title": "Product-context preservation into RFQ and sample forms",
+      "priority": "P0",
+      "files": [
+        "contact.html", "ar/contact.html", "es/contact.html", "fr/contact.html", "id/contact.html",
+        "ms/contact.html", "pt/contact.html", "ru/contact.html", "si/contact.html", "th/contact.html", "vi/contact.html",
+        "sample-request.js", "scripts/add_rfq_context_links.py (new)"
+      ],
+      "pages_affected_by_generated_link_update": 924,
+      "description": "contact.html's existing URL-param prefill script now falls back to selecting 'Other / Multiple Products' and writing the exact product name into the requirements textarea when no dropdown option matches (true for most of the 84 specific SKUs); sample-request.js now prefills the specification textarea from a ?product= param without forcing a category-button guess; all 84 English + 840 locale product-page CTAs now pass ?product=<name> to contact.html and sample-request.html."
+    },
+    {
+      "id": "P11-FIX-2",
+      "title": "RTL breadcrumb chevron direction",
+      "priority": "P1",
+      "files": ["jft-design-system.css"],
+      "pages_affected": "every page using .jft-breadcrumb in an RTL (Arabic) context - 1,123 files site-wide use this component",
+      "description": "Added html[dir=\"rtl\"] .jft-breadcrumb i { transform: scaleX(-1); } - verified safe by confirming fa-chevron-right is the only icon ever used inside .jft-breadcrumb across all 1,123 files that use it."
+    }
+  ],
+  "cta_changes": [
+    {"page_type": "product pages (84 EN + 840 locale)", "change": "Request Pricing / Request Sample CTAs now carry ?product=<name>", "before": "0/84 measured", "after": "84/84 + 840/840"}
+  ],
+  "form_changes": [
+    {"form": "contact.html RFQ form (11 language copies)", "change": "added unmatched-product fallback (Other / Multiple Products + free-text requirements note)"},
+    {"form": "sample-request.html", "change": "added specification-textarea prefill from ?product= param, no forced category selection"}
+  ],
+  "navigation_changes": [
+    {"change": "RTL breadcrumb chevron direction fixed via shared CSS", "scope": "all Arabic pages"}
+  ],
+  "product_ux_changes": [
+    {"change": "CTA hrefs now carry product context", "scope": "84 English product pages"}
+  ],
+  "category_ux_changes": [],
+  "trust_ux_changes": [],
+  "mobile_changes": [],
+  "accessibility_changes": [],
+  "locale_changes": [
+    {"change": "contact.html inline prefill fallback logic", "scope": "10 locale copies, JS logic only, no visible text changed"},
+    {"change": "product-page CTA hrefs", "scope": "840 locale product pages, query-param only, no visible text changed"}
+  ],
+  "before_after_scores": {
+    "note": "Scores below reflect the friction/cta_relevance dimensions most directly affected by the two fixes; full before-state scores for all dimensions are in reports/phase11-buyer-journey-audit.json",
+    "product_page_friction": {"before": 5, "after_expected": 8, "basis": "context no longer lost on click-through to RFQ/sample forms"},
+    "contact_page_cta_relevance": {"before": 6, "after_expected": 8, "basis": "arriving form now carries or preserves product identity instead of arriving cold"},
+    "arabic_navigation": {"before": 6, "after_expected": 8, "basis": "breadcrumb chevrons now point the correct reading direction"}
+  },
+  "performance": {
+    "bytes_added_per_product_page_estimate": "250-300",
+    "new_http_requests": 0,
+    "new_external_scripts": 0,
+    "new_dependencies": 0,
+    "audit_performance_findings": 0
+  },
+  "seo_regression": {
+    "full_site_audit_findings": 0,
+    "indexable_pages_before": 1453,
+    "indexable_pages_after": 1453,
+    "check_links_broken_links": 0,
+    "check_links_files_checked": 1766
+  },
+  "localization_regression": {
+    "audit_localizations_finding_counts": {},
+    "audit_localizations_rc": 0,
+    "informational_cache_self_identical_counts_unchanged": true,
+    "baseline_counts": {"ar": 8, "es": 59, "fr": 74, "id": 69, "ms": 155, "pt": 52, "ru": 26, "si": 99, "th": 12, "vi": 40}
+  },
+  "browser_validation": {
+    "live_browser_automation_available": false,
+    "disclosure": "No browser-automation tool was available in this session; no rendered-DOM/console test claim is made.",
+    "static_equivalent_performed": {
+      "method": "html5lib non-strict parse + json.loads on every JSON-LD block",
+      "files_checked": 935,
+      "parse_errors": 0,
+      "jsonld_errors": 0,
+      "js_syntax_check": "node --check on all 11 patched contact.html inline scripts and sample-request.js, 0 errors"
+    }
+  },
+  "audit_suite_results": {
+    "audit_website.py": "0 findings",
+    "audit_localizations.py": "0 findings, rc=0",
+    "full_site_audit.py": "0 findings",
+    "check_links.py": "0 broken links / 1766 files",
+    "audit_performance.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings (after removing a stale Phase-10 .cloudflare-dist-next build artifact that was causing 52 false-positive orphan_indexable_page findings - see remaining_findings)",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "pass, 0 stale images",
+    "audit_locale_ui.py": "0 findings, determinism PASS"
+  },
+  "determinism_verification": {
+    "add_rfq_context_links.py": "self-guarding, reports 'Patched 0 files' on rerun",
+    "jft-design-system.css CSS rule": "single occurrence confirmed, not duplicated on inspection",
+    "sample-request.js": "syntax-valid after edit (node --check)"
+  },
+  "cloudflare_build": {
+    "files_built": 2099,
+    "size_mib": 135.7,
+    "deployed": false,
+    "sensitive_dirs_leaked": false,
+    "gitignored_output_cleaned_up_after_verification": true
+  },
+  "remaining_findings": [
+    {
+      "id": "P11-NOTE-1",
+      "type": "operational, not a site content defect",
+      "summary": "audit_coverage_gaps.py has no exclusion rule for .cloudflare-dist-next or other build-output directories; if such a directory is left on disk when the script runs, it double-counts the site and reports orphan_indexable_page false positives for every page inside the build mirror.",
+      "action_taken": "deleted the stale gitignored build artifact and re-confirmed 0 findings; did not modify the audit script itself, since this is a pre-existing script assumption unrelated to any Phase 11 change",
+      "recommendation_for_future_phases": "delete .cloudflare-dist-next (or equivalent) before running audit_coverage_gaps.py, or add a directory exclusion to that script in a future phase if this keeps recurring"
+    },
+    {
+      "id": "P11-NOTE-2",
+      "type": "future opportunity, not implemented",
+      "summary": "contact.html's product dropdown covers ~20 of 84 products by name; the remaining ~64 rely on the new free-text fallback",
+      "recommendation": "expand the dropdown only if real lead data shows sales-team friction from the fallback path"
+    },
+    {
+      "id": "P11-NOTE-3",
+      "type": "future opportunity, not implemented",
+      "summary": "product comparison tool - no evidence found that buyers need this",
+      "recommendation": "investigate with real Search Console query or support-ticket data before building anything, per the phase's own instruction"
+    }
+  ],
+  "deployment_status": "not deployed",
+  "stop_instruction_followed": true
+}

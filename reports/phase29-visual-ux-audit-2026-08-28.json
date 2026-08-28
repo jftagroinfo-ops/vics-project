@@ -1,0 +1,138 @@
+{
+  "phase": 29,
+  "date": "2026-08-28",
+  "deployment_status": "NOT DEPLOYED",
+  "baseline": {
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "production_version_start": "88ead829-b2b4-45d1-95c4-748cf25ee165",
+    "production_health": 200,
+    "stale_artifacts_present": false,
+    "phase28_reports_confirmed": true,
+    "local_renderable_pages": 1753,
+    "local_sitemap_urls": 1454
+  },
+  "limitations_disclosed_upfront": ["no live browser automation available, all verification is source/CSS/HTML-level"],
+  "p29_1_header_loading": {
+    "page_family_mechanisms": {
+      "homepage": {"mechanism": "header content inlined directly in HTML source at build time, JFT_INLINE_HEADER_START marker", "delay": "none"},
+      "product_pages_84": {"mechanism": "data-jft-early-header-loader inline script, fetch('header.html'), placed 6 lines after <body>", "preloader": "83/84 have one (not sugar-s30-supplier.html)", "defect": "preloader hides on fixed 900/1400ms timeout unrelated to actual header-ready state"},
+      "category_pages_and_2_others": {"mechanism": "same fetch mechanism", "preloader": "none", "risk": "any delay directly visible"},
+      "articles_37": {"mechanism": "article-shell.js, fetch gated behind DOMContentLoaded", "preloader": "none", "risk": "most exposed, fetch starts latest and has no mask"}
+    },
+    "root_cause": "jft:header-ready custom event already dispatched on successful header injection but never connected to the preloader-hide logic, which instead used a guessed fixed delay",
+    "fix_implemented": {
+      "script": "scripts/fix_preloader_header_timing.py",
+      "scope_files": 83,
+      "excluded": "sugar-s30-supplier.html (no preloader)",
+      "mechanism": "preloader now hides only once both the original minimum delay has elapsed AND jft:header-ready has fired; existing 3000ms hard fallback untouched",
+      "safety_argument": "zero behavior change in common case (header loads within 900-1400ms); only changes the failure case the bug describes",
+      "idempotent_verified": true
+    },
+    "not_fixed": {
+      "category_pages_articles": "no preloader exists to fix; adding one is a new UI component, forbidden by Rule 4",
+      "status": "documented as architectural limitation"
+    },
+    "homepage_status": "INTENTIONAL, no defect"
+  },
+  "p29_2_regional_pages": {
+    "correction": "middle-east-trade.html does not exist; actual file is uae-trade.html",
+    "css_targeting_verified_correct": true,
+    "real_divergence": "structural completeness, not styling - Asia missing Ports/Products/BuyerDueDiligence sections; Europe uses a self-consistent alternate compliance-grid pattern",
+    "confirmed_finding": {
+      "issue": "Asia Trade page missing the generic Buyer Due Diligence block present byte-identical on Africa/UAE/Europe",
+      "fix_requires": "new region-specific compliance copy (halal/permit/testing framing)",
+      "classification": "content authorship, not a structural fix",
+      "status": "CONFIRMED, NOT FIXED"
+    },
+    "other_differences": "INTENTIONAL, content-driven (Asia's 6-country market diversity, Europe's dual EU/UK regime)"
+  },
+  "p29_3_insights_consistency": {
+    "method": "delegated 12-page-family inventory",
+    "confirmed_pattern": "6 page families (products, category, 84 product pages, trade-regions, privacy, calculators) share canonical .jft-page-hero/.jft-breadcrumb/.btn-gold from jft-design-system.css; articles use 2 different locally-reinvented template systems instead",
+    "not_isolated_to_articles": "same anti-pattern (skipping jft-design-system.css, local :root tokens) also on buyer-security.html, export-documentation.html, sample-request.html",
+    "proposed_subfix_investigated_and_rejected": {
+      "claim": "color drift, #3d7030 should be normalized to canonical --green #4e8c3e",
+      "verification_method": "checked actual jft-design-system.css token definitions and the established jft-related-product aside component this session's own Phase 25/27 work replicated",
+      "result": "#3d7030 is a distinct, long-established, intentional secondary accent color, not a typo or drift",
+      "action_taken": "none - proposed fix correctly rejected after verification"
+    },
+    "fix_decision": "NOT FIXED - genuine structural finding spans 40+ files across 4+ page families, unifying would require a redesign-scale template migration, explicitly forbidden by Rule 3",
+    "status": "CONFIRMED ARCHITECTURAL PATTERN, NOT FIXED"
+  },
+  "p29_4_fssai_image": {
+    "component": "contact.html trust-strip, Secure Trade Desk section, 3 certificate badges",
+    "image_files_verified": "all 3 webp files genuinely 720x347, HTML width/height attributes correctly match",
+    "root_cause": ".trust-strip img CSS sets height:26px only, never sets width, relying on fragile implicit browser aspect-ratio inference instead of an explicit declaration",
+    "fix_implemented": {
+      "script": "scripts/fix_trust_strip_image_distortion.py",
+      "change": "added explicit width:auto to .trust-strip img rule",
+      "scope_files": 11,
+      "files": ["contact.html", "ar/contact.html", "es/contact.html", "fr/contact.html", "id/contact.html", "ms/contact.html", "pt/contact.html", "ru/contact.html", "si/contact.html", "th/contact.html", "vi/contact.html"],
+      "excluded": "certificates.html - same class name, genuinely different unrelated component, confirmed via inspection",
+      "idempotent_verified": true
+    },
+    "status": "FIXED"
+  },
+  "findings_register": [
+    {"id": "P29-1a", "status": "FIXED", "scope": 83},
+    {"id": "P29-1b", "status": "NOT FIXED", "reason": "new UI component forbidden by Rule 4"},
+    {"id": "P29-1c", "status": "NOT FIXED", "reason": "shared file modification risk without live browser verification"},
+    {"id": "P29-1d", "status": "INTENTIONAL"},
+    {"id": "P29-2", "status": "CONFIRMED, NOT FIXED", "reason": "requires content authorship"},
+    {"id": "P29-2b", "status": "INTENTIONAL"},
+    {"id": "P29-3", "status": "CONFIRMED ARCHITECTURAL PATTERN, NOT FIXED", "reason": "redesign-scale scope"},
+    {"id": "P29-3b", "status": "INVESTIGATED AND REJECTED", "reason": "factually incorrect, not a real defect"},
+    {"id": "P29-4", "status": "FIXED", "scope": 11}
+  ],
+  "files_affected": [
+    {"scope": "83 product pages", "change": "preloader-hide logic now waits for jft:header-ready event"},
+    {"scope": "contact.html + 10 locale copies", "change": "trust-strip img gains explicit width:auto"},
+    {"file": "scripts/fix_preloader_header_timing.py", "type": "new governed script"},
+    {"file": "scripts/fix_trust_strip_image_distortion.py", "type": "new governed script"}
+  ],
+  "files_intentionally_not_affected": [
+    "index.html", "10 category pages", "product-page-template.html", "sugar-s30-supplier.html",
+    "37 article files", "article-shell.js", "asia-trade.html", "europe-trade.html",
+    "buyer-security.html", "export-documentation.html", "sample-request.html", "certificates.html"
+  ],
+  "regression_results": {
+    "audit_website.py": "0 findings, 1753 pages",
+    "full_site_audit.py": "0 findings, 1454 indexable",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "passed, 260 blog cards",
+    "audit_locale_ui.py": "0 findings, determinism PASS",
+    "audit_localizations.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_performance.py": "0 findings",
+    "check_links.py": "0 broken links / 1766 files"
+  },
+  "page_count_regression": {"drift": 0, "reason": "no page created or removed, only in-place edits"},
+  "determinism_verification": {
+    "fix_preloader_header_timing.py": "run twice, second run 0 fixed / 83 already fixed",
+    "fix_trust_strip_image_distortion.py": "run twice, second run 0 fixed / 11 already fixed"
+  },
+  "build_results": {
+    "build_succeeded": true,
+    "assets_built": 2099,
+    "fixes_confirmed_present_in_bundle": true,
+    "reports_scripts_env_git_absent": true,
+    "artifact_deleted_after_verification": true
+  },
+  "production_local_diff_check": {
+    "method": "production-vs-local hash comparison",
+    "changed_files_confirmed_differ": ["contact.html", "1121-basmati-rice-exporter.html"],
+    "unchanged_files_confirmed_match": ["header.html", "rice-exporter-india.html"],
+    "unexplained_changes": 0
+  },
+  "limitations": [
+    "no live browser automation available, all findings and fixes verified via source/CSS/HTML inspection",
+    "P29-1 fix's real-world effect under throttled-network conditions cannot be visually confirmed, verified correct by code logic and event-wiring inspection only"
+  ],
+  "remaining_recommendations": [
+    "P29-1: future phase to evaluate build-time header-inlining site-wide, or a deliberate preloader UI decision for category/article pages",
+    "P29-2: content-authorship pass to write Asia-specific Buyer Due Diligence copy",
+    "P29-3: dedicated design-system migration phase to unify articles/trust pages onto shared hero/breadcrumb components, if desired"
+  ],
+  "stop_instruction": "Phase 29 implementation is complete locally and verified. No deployment performed. Deployment requires separate explicit authorization."
+}

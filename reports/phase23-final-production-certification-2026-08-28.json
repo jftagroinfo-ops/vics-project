@@ -1,0 +1,44 @@
+{
+  "phase": 23,
+  "part": "final_certification",
+  "date": "2026-08-28",
+  "certification_table": [
+    {"area": "TLS minimum", "status": "NOT REMEDIATED", "evidence": "API read+write both blocked, code 9109"},
+    {"area": "TLS 1.0", "status": "FAIL (still accepted)", "evidence": "OpenSSL handshake succeeds"},
+    {"area": "TLS 1.1", "status": "FAIL (still accepted)", "evidence": "OpenSSL handshake succeeds, including direct /api/lead test"},
+    {"area": "TLS 1.2", "status": "PASS", "evidence": "OpenSSL handshake succeeds, ECDHE-ECDSA-CHACHA20-POLY1305"},
+    {"area": "TLS 1.3", "status": "PASS", "evidence": "OpenSSL handshake succeeds, TLS_AES_256_GCM_SHA384, default negotiation"},
+    {"area": "/api/lead", "status": "PASS (application layer)", "evidence": "POST-only, Origin allow-list, honeypot, size/field caps, no-store, no PII echo re-verified live"},
+    {"area": "Rate limiting", "status": "UNKNOWN", "evidence": "4 API surfaces blocked read+write; 5-request safe probe inconclusive at scale"},
+    {"area": "Turnstile", "status": "NOT REQUIRED AT THIS TIME (deliberate)", "evidence": "no frontend/backend presence, Phase 22 decision reconfirmed"},
+    {"area": "Security headers", "status": "PASS", "evidence": "all 7 headers present, byte-identical to Phase 18-22"},
+    {"area": "CSP", "status": "PASS", "evidence": "unchanged string, no new/removed origins"},
+    {"area": "CORS", "status": "PASS (by design)", "evidence": "no Access-Control-* headers, Origin validation is the boundary"},
+    {"area": "Sensitive files", "status": "PASS", "evidence": "4 spot-checked paths all 404"},
+    {"area": "Cache", "status": "PASS", "evidence": "/api/lead no-store confirmed"},
+    {"area": "Routing", "status": "PASS", "evidence": "known page 200, unknown 404, www redirect 301"},
+    {"area": "Regression suite", "status": "15/16 PASS, 1 FAIL (out of scope)", "evidence": "validate_seo_alignment.py exit 1, content/conversion matter"},
+    {"area": "Production parity", "status": "PASS", "evidence": "8/8 files SHA-256 identical across repo/bundle/production"},
+    {"area": "Website source changes", "status": "ZERO", "evidence": "git status 1181 before and after"}
+  ],
+  "score_band_determination": {
+    "9_5_plus_disqualified": true,
+    "disqualifying_conditions": ["TLS 1.0 not rejected", "TLS 1.1 not rejected", "rate limiting not verified"],
+    "band_applied": "9.2-9.4",
+    "score": 9.2,
+    "reasoning": "unchanged from Phase 22 - no remediation succeeded to justify raising it, no new CRITICAL/HIGH defect found to justify lowering it further"
+  },
+  "final_decision": {
+    "decision": "B",
+    "label": "READY WITH DISCLOSED LOW-RISK ITEMS",
+    "not_a_because": "TLS 1.0/1.1 not rejected and rate limiting not verified - both explicit 9.5+ prerequisites per this phase's own gating logic",
+    "not_c_because": "zero CRITICAL/HIGH findings, /api/lead application-layer protections fully functional, modern browsers unaffected by TLS finding, hash-verified production parity",
+    "path_to_a": [
+      "Cloudflare administrator sets Minimum TLS Version = 1.2 in dashboard",
+      "Cloudflare administrator creates or confirms a scoped rate-limiting rule for POST /api/lead",
+      "an independent verification phase re-runs the OpenSSL and API tests in the companion audit report and confirms both changes took effect"
+    ],
+    "website_source_change_required_for_path_to_a": false
+  },
+  "stop_instruction": "Per Phase 23's explicit instruction, STOP. Do not begin Phase 24."
+}

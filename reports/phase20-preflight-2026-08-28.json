@@ -1,0 +1,36 @@
+{
+  "phase": 20,
+  "part": "preflight",
+  "date": "2026-08-28",
+  "starting_state": {
+    "commit": "e64a3f2b",
+    "working_tree_changed_paths": 1172,
+    "production_url": "https://jftagro.com/",
+    "production_status": 200,
+    "production_sitemap_url_count": 1453,
+    "local_html_pages_renderable": 1753,
+    "local_indexable_pages": 1453,
+    "stale_build_artifact_present": false
+  },
+  "audit_suite_baseline": {
+    "audit_website.py": "0 findings",
+    "audit_localizations.py": "0 findings",
+    "full_site_audit.py": "0 findings, 1453 indexable",
+    "check_links.py": "0 broken links / 1766 files",
+    "audit_performance.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "pass",
+    "audit_locale_ui.py": "0 findings, determinism PASS"
+  },
+  "phase_19_risk_register_carried_forward": [
+    {"id": "P19-R1", "title": "TURNSTILE_SECRET not configured", "severity": "LOW-MEDIUM", "status": "confirmed, business decision required"},
+    {"id": "P19-R2", "title": "rate-limit status unknown", "severity": "UNKNOWN", "status": "unresolved"},
+    {"id": "P19-R3", "title": "TLS configuration unknown", "severity": "UNKNOWN (tooling-limited)", "status": "unresolved"},
+    {"id": "P18-INFO-1", "title": "Permissions-Policy scope", "severity": "INFORMATIONAL", "status": "not actionable"},
+    {"id": "P19-R4", "title": "audit build-artifact exclusion gap", "severity": "LOW (tooling)", "status": "worked around"},
+    {"id": "whatsapp-locale-language", "title": "WhatsApp message stays English on non-English pages", "severity": "BUSINESS JUDGMENT", "status": "re-confirmed present, unchanged since Phase 14, not a regression"}
+  ],
+  "new_findings_during_preflight": 0
+}

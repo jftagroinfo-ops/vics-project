@@ -1,0 +1,156 @@
+{
+  "phase": 23,
+  "date": "2026-08-28",
+  "website_source_files_modified": 0,
+  "cloudflare_configuration_modified": 0,
+  "baseline": {
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "git_status_before": 1181,
+    "git_status_after": 1181,
+    "production_status": 200,
+    "production_sitemap_urls": 1453,
+    "active_worker_deployment": "2b63fb19-28c8-45ca-9fc8-3468fdd105eb",
+    "deployment_unchanged_since_phase_17": true
+  },
+  "objective_a_tls": {
+    "a1_read_attempt": {"endpoint": "/zones/{id}/settings/min_tls_version", "method": "GET", "result": "failed, code 9109"},
+    "a2_target": "TLS 1.2 minimum, 1.0/1.1 disabled, 1.2/1.3 enabled",
+    "a3_write_attempt": {
+      "endpoint": "/zones/{id}/settings/min_tls_version",
+      "method": "PATCH",
+      "payload": {"value": "1.2"},
+      "result": "failed, code 9109, identical to read failure",
+      "sanity_check": "GET /zones/{id} succeeded with same token in same session, proving token validity",
+      "privilege_escalation_attempted": false,
+      "new_token_created": false
+    },
+    "required_permission": "Zone > Zone Settings > Edit",
+    "a4_independent_verification": {
+      "tooling": "OpenSSL, direct handshake, treated as final authority per phase instruction",
+      "tls_1_3": "succeeds",
+      "tls_1_2": "succeeds, ECDHE-ECDSA-CHACHA20-POLY1305",
+      "tls_1_1": "still succeeds, ECDHE-RSA-AES128-SHA",
+      "tls_1_0": "still succeeds, ECDHE-RSA-AES128-SHA",
+      "targets_tested": ["homepage /", "/api/lead over forced TLS1.1"],
+      "change_confirmed_not_applied": true
+    },
+    "classification": "MEDIUM, CONFIRMED, UNRESOLVED - remediation blocked by permission scope"
+  },
+  "objective_b_rate_limiting": {
+    "b1_read_attempts": [
+      {"endpoint": "/zones/{id}/rate_limits", "result": "failed, code 10000"},
+      {"endpoint": "/zones/{id}/rulesets/phases/http_ratelimit/entrypoint", "result": "failed, code 10000"},
+      {"endpoint": "/zones/{id}/rulesets", "result": "failed, code 10000"},
+      {"endpoint": "/zones/{id}/firewall/rules", "result": "failed, code 10000"}
+    ],
+    "existing_rule_determinable": false,
+    "b5_write_attempt": {
+      "endpoint": "/zones/{id}/rate_limits",
+      "method": "POST",
+      "payload": {"threshold": 10, "period": 60, "match": {"request": {"url": "jftagro.com/api/lead", "methods": ["POST"]}}, "action": {"mode": "challenge", "timeout": 3600}},
+      "result": "failed, code 10000, identical to read failures",
+      "rule_created": false,
+      "production_state_changed": false
+    },
+    "b3_behavioral_signal": {
+      "test": "5 rapid honeypot-triggering non-lead-creating POSTs from single connection",
+      "result": "all 5 returned identical 400, no 429, no challenge interstitial observed",
+      "interpretation": "weak evidence of no low-threshold (<=5 req) rate limit active; does not prove absence at higher threshold",
+      "load_testing_performed": false
+    },
+    "required_permission": "Zone > Firewall Services > Edit (or Zone WAF > Edit)",
+    "recommended_rule": {
+      "scope": "http.request.uri.path eq \"/api/lead\" AND http.request.method eq \"POST\"",
+      "threshold": "10 requests per IP per 10 minutes",
+      "action": "1-hour temporary block",
+      "verification": "small number of safe non-lead POSTs after configuration, confirm Nth returns 429"
+    },
+    "classification": "UNKNOWN, UNRESOLVED - not converted to PASS or FAIL"
+  },
+  "objective_c_api_lead_validation": {
+    "normal_post_missing_contact": "400, generic message",
+    "honeypot": "400, Automated submission rejected",
+    "unsupported_method": "405",
+    "cache_control": "no-store",
+    "pii_leaked": false,
+    "real_lead_created": false,
+    "web3forms_contacted_with_real_data": false
+  },
+  "objective_d_security_regression": {
+    "security_headers_drift": false,
+    "csp_drift": false,
+    "cors_drift": false,
+    "sensitive_files_tested": [".env", ".git/config", "wrangler.jsonc", "reports/QA-CHANGE-CONTROL.md"],
+    "sensitive_files_exposed": 0,
+    "routing_drift": false,
+    "cache_drift": false
+  },
+  "objective_e_parity": {
+    "method": "SHA-256 hash comparison across Repository, freshly-rebuilt-then-deleted bundle, and Production",
+    "files_checked": 8,
+    "all_match": true,
+    "bundle_cleanup_confirmed": true
+  },
+  "objective_f_regression_suite": {
+    "note": "current script inventory checked fresh, not assumed unchanged from Phase 17-22's 10-script set",
+    "total_scripts_identified": 16,
+    "total_scripts_run": 16,
+    "scripts_new_this_phase": ["check_unused.py", "validate_buyer_brief_cards.py", "validate_editorial_governance.py", "validate_localization_governance.py", "validate_nested_component_pages.py", "validate_seo_alignment.py"],
+    "results": {
+      "audit_website.py": {"exit_code": 0, "findings": 0},
+      "audit_localizations.py": {"exit_code": 0, "findings": 0},
+      "full_site_audit.py": {"exit_code": 0, "findings": 0},
+      "audit_performance.py": {"exit_code": 0, "findings": 0},
+      "audit_coverage_gaps.py": {"exit_code": 0, "findings": 0},
+      "audit_commercial_content.py": {"exit_code": 0, "findings": 0},
+      "audit_claims_and_products.py": {"exit_code": 0, "findings": 0},
+      "validate_blog_navigation.py": {"exit_code": 0, "findings": 0},
+      "audit_locale_ui.py": {"exit_code": 0, "findings": 0},
+      "check_links.py": {"exit_code": 0, "findings": 0},
+      "check_unused.py": {"exit_code": 0, "findings": "71 unused files, informational, several expected-by-design"},
+      "validate_buyer_brief_cards.py": {"exit_code": 0, "findings": 0},
+      "validate_editorial_governance.py": {"exit_code": 0, "findings": 0, "note": "0 approved / 4 gated is descriptive of pipeline state, not an error"},
+      "validate_localization_governance.py": {"exit_code": 0, "findings": 0, "note": "0 approved / 10 gated is descriptive of pipeline state, not an error"},
+      "validate_nested_component_pages.py": {"exit_code": 0, "findings": 0},
+      "validate_seo_alignment.py": {"exit_code": 1, "findings": "~34 missing cluster links, mostly product pages missing sample-request.html link"}
+    },
+    "scripts_passing": 15,
+    "scripts_failing": 1
+  },
+  "objective_g_diff_discipline": {
+    "git_status_before": 1181,
+    "git_status_after": 1181,
+    "website_source_files_changed": 0,
+    "cloudflare_configuration_changed": 0,
+    "unexplained_changes": 0,
+    "temporary_working_file_created_and_deleted": "p23_audits.txt"
+  },
+  "incidental_findings_out_of_scope": [
+    {
+      "id": "P23-R4",
+      "title": "validate_seo_alignment.py fails - ~30 product pages and certificates.html missing expected internal cluster links",
+      "severity": "MEDIUM (content/conversion)",
+      "in_scope_for_phase_23": false,
+      "reason_out_of_scope": "internal content linking is an SEO/conversion matter, not Cloudflare/TLS/rate-limiting; Phase 23 rules forbid HTML changes outside proven Cloudflare necessity",
+      "recommendation": "dedicated future phase to root-cause and fix"
+    },
+    {
+      "id": "P23-INFO-1",
+      "title": "71 unused HTML/image files in repository",
+      "severity": "INFORMATIONAL",
+      "in_scope_for_phase_23": false,
+      "reason_out_of_scope": "repository hygiene, zero production impact, unrelated to Cloudflare/security"
+    }
+  ],
+  "risk_register": [
+    {"id": "P23-R1", "alias": "P22-R1/P21-R1", "title": "TLS 1.0/1.1 accepted", "status": "MEDIUM, UNRESOLVED"},
+    {"id": "P23-R2", "alias": "P22-R2/P19-R2", "title": "Rate-limiting status for /api/lead", "status": "UNKNOWN, UNRESOLVED"},
+    {"id": "P23-R3", "alias": "P22-R3/P19-R1", "title": "TURNSTILE_SECRET not configured", "status": "LOW-MEDIUM, OUT OF SCOPE, deliberately preserved"},
+    {"id": "P23-R4", "title": "SEO alignment cluster-link gaps", "status": "MEDIUM (content), OUT OF SCOPE"},
+    {"id": "P23-INFO-1", "title": "71 unused files", "status": "INFORMATIONAL"},
+    {"id": "P18-INFO-1", "title": "Permissions-Policy scope", "status": "INFORMATIONAL"},
+    {"id": "P20-R1", "title": "Category pages not localized", "status": "LOW, OUT OF SCOPE"}
+  ],
+  "critical_or_high_findings": 0,
+  "stop_instruction": "Per Phase 23's explicit instruction, STOP. Do not begin Phase 24."
+}

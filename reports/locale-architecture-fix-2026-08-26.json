@@ -1,0 +1,1394 @@
+{
+  "meta": {
+    "report": "locale-architecture-fix-2026-08-26",
+    "phase": "Phase 4 - Locale Redirect Canonicals & Internal-Link Coverage",
+    "baseline_commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b"
+  },
+  "part_a_redirect_canonicals": {
+    "total_stubs": 90,
+    "fixed": 90,
+    "side_finding_not_fixed": "all 90 redirects resolve to the English-language destination article, not a locale-specific one, even where a locale version of the destination exists -- documented, not changed (out of Step A3 scope)",
+    "records": [
+      {
+        "locale": "ar",
+        "source": "ar/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/ar/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ar/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ar",
+        "source": "ar/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/ar/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ar/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ar",
+        "source": "ar/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/ar/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ar/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ar",
+        "source": "ar/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/ar/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ar/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ar",
+        "source": "ar/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/ar/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ar/blog-ir64-africa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ar",
+        "source": "ar/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/ar/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ar/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ar",
+        "source": "ar/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/ar/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ar/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ar",
+        "source": "ar/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/ar/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ar/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ar",
+        "source": "ar/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/ar/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ar/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "es",
+        "source": "es/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/es/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/es/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "es",
+        "source": "es/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/es/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/es/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "es",
+        "source": "es/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/es/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/es/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "es",
+        "source": "es/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/es/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/es/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "es",
+        "source": "es/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/es/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/es/blog-ir64-africa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "es",
+        "source": "es/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/es/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/es/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "es",
+        "source": "es/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/es/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/es/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "es",
+        "source": "es/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/es/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/es/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "es",
+        "source": "es/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/es/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/es/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "fr",
+        "source": "fr/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/fr/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/fr/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "fr",
+        "source": "fr/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/fr/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/fr/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "fr",
+        "source": "fr/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/fr/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/fr/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "fr",
+        "source": "fr/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/fr/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/fr/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "fr",
+        "source": "fr/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/fr/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/fr/blog-ir64-africa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "fr",
+        "source": "fr/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/fr/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/fr/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "fr",
+        "source": "fr/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/fr/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/fr/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "fr",
+        "source": "fr/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/fr/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/fr/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "fr",
+        "source": "fr/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/fr/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/fr/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "id",
+        "source": "id/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/id/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/id/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "id",
+        "source": "id/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/id/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/id/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "id",
+        "source": "id/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/id/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/id/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "id",
+        "source": "id/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/id/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/id/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "id",
+        "source": "id/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/id/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/id/blog-ir64-africa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "id",
+        "source": "id/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/id/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/id/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "id",
+        "source": "id/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/id/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/id/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "id",
+        "source": "id/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/id/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/id/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "id",
+        "source": "id/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/id/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/id/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ms",
+        "source": "ms/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/ms/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ms/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ms",
+        "source": "ms/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/ms/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ms/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ms",
+        "source": "ms/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/ms/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ms/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ms",
+        "source": "ms/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/ms/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ms/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ms",
+        "source": "ms/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/ms/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ms/blog-ir64-africa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ms",
+        "source": "ms/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/ms/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ms/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ms",
+        "source": "ms/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/ms/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ms/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ms",
+        "source": "ms/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/ms/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ms/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ms",
+        "source": "ms/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/ms/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ms/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "pt",
+        "source": "pt/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/pt/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/pt/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "pt",
+        "source": "pt/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/pt/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/pt/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "pt",
+        "source": "pt/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/pt/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/pt/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "pt",
+        "source": "pt/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/pt/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/pt/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "pt",
+        "source": "pt/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/pt/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/pt/blog-ir64-africa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "pt",
+        "source": "pt/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/pt/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/pt/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "pt",
+        "source": "pt/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/pt/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/pt/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "pt",
+        "source": "pt/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/pt/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/pt/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "pt",
+        "source": "pt/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/pt/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/pt/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ru",
+        "source": "ru/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/ru/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ru/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ru",
+        "source": "ru/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/ru/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ru/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ru",
+        "source": "ru/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/ru/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ru/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ru",
+        "source": "ru/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/ru/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ru/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ru",
+        "source": "ru/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/ru/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ru/blog-ir64-africa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ru",
+        "source": "ru/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/ru/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ru/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ru",
+        "source": "ru/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/ru/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ru/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ru",
+        "source": "ru/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/ru/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ru/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "ru",
+        "source": "ru/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/ru/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/ru/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "si",
+        "source": "si/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/si/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/si/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "si",
+        "source": "si/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/si/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/si/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "si",
+        "source": "si/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/si/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/si/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "si",
+        "source": "si/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/si/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/si/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "si",
+        "source": "si/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/si/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/si/blog-ir64-africa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "si",
+        "source": "si/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/si/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/si/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "si",
+        "source": "si/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/si/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/si/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "si",
+        "source": "si/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/si/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/si/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "si",
+        "source": "si/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/si/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/si/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "th",
+        "source": "th/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/th/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/th/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "th",
+        "source": "th/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/th/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/th/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "th",
+        "source": "th/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/th/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/th/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "th",
+        "source": "th/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/th/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/th/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "th",
+        "source": "th/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/th/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/th/blog-ir64-africa.html\" rel=\"canonical\">\n<meta content=\"https://jftagro.com/images/editorial/blog/ir64-africa-v1.webp\" property=\"og:image\"/>\n<meta content=\"https://jftagro.com/images/editorial/blog/ir64-africa-v1.webp\" name=\"twitter:image\"/>\n<link href=\"/favicon.ico\" rel=\"icon\" sizes=\"any\"/>\n<link href=\"/images/favicon-jft-agro-32.png\" rel=\"icon\" sizes=\"32x32\" type=\"image/png\"/>\n<link href=\"/images/favicon-jft-agro-48.png\" rel=\"icon\" sizes=\"48x48\" type=\"image/png\"/>\n<link href=\"/images/apple-touch-icon-jft-agro.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"/>\n</link>"
+      },
+      {
+        "locale": "th",
+        "source": "th/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/th/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/th/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "th",
+        "source": "th/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/th/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/th/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "th",
+        "source": "th/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/th/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/th/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "th",
+        "source": "th/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/th/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/th/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "vi",
+        "source": "vi/blog-cif-fob-explained.html",
+        "current_canonical": "https://jftagro.com/vi/blog-cif-fob-explained.html",
+        "redirect_raw_target": "../blog-bill-of-lading-explained-importers.html",
+        "redirect_resolved_target": "blog-bill-of-lading-explained-importers.html",
+        "expected_canonical": "https://jftagro.com/blog-bill-of-lading-explained-importers.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/vi/blog-cif-fob-explained.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "vi",
+        "source": "vi/blog-eu-mrl-basmati.html",
+        "current_canonical": "https://jftagro.com/vi/blog-eu-mrl-basmati.html",
+        "redirect_raw_target": "../blog-red-chilli-teja-export-india-2026.html",
+        "redirect_resolved_target": "blog-red-chilli-teja-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-red-chilli-teja-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/vi/blog-eu-mrl-basmati.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "vi",
+        "source": "vi/blog-india-uae-cepa.html",
+        "current_canonical": "https://jftagro.com/vi/blog-india-uae-cepa.html",
+        "redirect_raw_target": "../blog-import-duty-indian-rice-by-country.html",
+        "redirect_resolved_target": "blog-import-duty-indian-rice-by-country.html",
+        "expected_canonical": "https://jftagro.com/blog-import-duty-indian-rice-by-country.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/vi/blog-india-uae-cepa.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "vi",
+        "source": "vi/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "current_canonical": "https://jftagro.com/vi/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/vi/blog-indian-white-rice-export-policy-2026-latest-updates.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "vi",
+        "source": "vi/blog-ir64-africa.html",
+        "current_canonical": "https://jftagro.com/vi/blog-ir64-africa.html",
+        "redirect_raw_target": "../blog-ir64-export.html",
+        "redirect_resolved_target": "blog-ir64-export.html",
+        "expected_canonical": "https://jftagro.com/blog-ir64-export.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/vi/blog-ir64-africa.html\" rel=\"canonical\">\n<meta content=\"https://jftagro.com/images/editorial/blog/ir64-africa-v1.webp\" property=\"og:image\"/>\n<meta content=\"https://jftagro.com/images/editorial/blog/ir64-africa-v1.webp\" name=\"twitter:image\"/>\n<link href=\"/favicon.ico\" rel=\"icon\" sizes=\"any\"/>\n<link href=\"/images/favicon-jft-agro-32.png\" rel=\"icon\" sizes=\"32x32\" type=\"image/png\"/>\n<link href=\"/images/favicon-jft-agro-48.png\" rel=\"icon\" sizes=\"48x48\" type=\"image/png\"/>\n<link href=\"/images/apple-touch-icon-jft-agro.png\" rel=\"apple-touch-icon\" sizes=\"180x180\"/>\n</link>"
+      },
+      {
+        "locale": "vi",
+        "source": "vi/blog-lc-vs-tt.html",
+        "current_canonical": "https://jftagro.com/vi/blog-lc-vs-tt.html",
+        "redirect_raw_target": "../blog-letter-of-credit-food-imports-india.html",
+        "redirect_resolved_target": "blog-letter-of-credit-food-imports-india.html",
+        "expected_canonical": "https://jftagro.com/blog-letter-of-credit-food-imports-india.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/vi/blog-lc-vs-tt.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "vi",
+        "source": "vi/blog-private-label-rice.html",
+        "current_canonical": "https://jftagro.com/vi/blog-private-label-rice.html",
+        "redirect_raw_target": "../blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_resolved_target": "blog-how-to-choose-indian-agro-exporter.html",
+        "expected_canonical": "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/vi/blog-private-label-rice.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "vi",
+        "source": "vi/blog-sesame-export-2026.html",
+        "current_canonical": "https://jftagro.com/vi/blog-sesame-export-2026.html",
+        "redirect_raw_target": "../blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_resolved_target": "blog-top-indian-agro-commodities-import-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-top-indian-agro-commodities-import-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/vi/blog-sesame-export-2026.html\" rel=\"canonical\"/>"
+      },
+      {
+        "locale": "vi",
+        "source": "vi/blog-spice-trends-2026.html",
+        "current_canonical": "https://jftagro.com/vi/blog-spice-trends-2026.html",
+        "redirect_raw_target": "../blog-turmeric-finger-export-india-2026.html",
+        "redirect_resolved_target": "blog-turmeric-finger-export-india-2026.html",
+        "expected_canonical": "https://jftagro.com/blog-turmeric-finger-export-india-2026.html",
+        "redirect_crosses_to_english": true,
+        "canonical_tag_exact_html": "<link href=\"https://jftagro.com/vi/blog-spice-trends-2026.html\" rel=\"canonical\"/>"
+      }
+    ]
+  },
+  "part_b_link_coverage": {
+    "pages_originally_flagged": 37,
+    "code_changes_made": 0,
+    "conclusion": "all 36 locale pages + legal.html are already reachable via the shared header.html/footer.html navigation, injected identically on every page; the Phase 3 orphan finding was a static-crawl methodology limitation (already documented in Phase 3 report Section 8), not a real defect. A supplementary link block was drafted and applied, then reverted after live-browser verification proved it would duplicate existing working navigation.",
+    "verification_method": "loaded id/index.html in a real headless browser against a local HTTP server and read the live DOM's resolved absolute href values for faq.html, packing-calculator.html, and whatsapp-catalog.html -- all correctly resolved to the /id/ locale path via the shared header fragment"
+  },
+  "regression": {
+    "canonical_points_to_redirect_before": 90,
+    "canonical_points_to_redirect_after": 0,
+    "duplicate_canonical_target_before": 6,
+    "duplicate_canonical_target_after": 9,
+    "duplicate_canonical_target_after_verdict": "all 9 are the correct stub+destination consolidation pattern, none are defects",
+    "accidental_orphan_candidate_before": 37,
+    "accidental_orphan_candidate_after": 37,
+    "hreflang_findings_before": 0,
+    "hreflang_findings_after": 0,
+    "broken_internal_links_after": 0
+  },
+  "canonical_hreflang_orphan_depth_after_fix": {
+    "canonical_findings": {
+      "duplicate_canonical_target": [
+        "blog-bill-of-lading-explained-importers.html <- ['ar/blog-cif-fob-explained.html', 'blog-bill-of-lading-explained-importers.html', 'blog-cif-fob-explained.html', 'es/blog-cif-fob-explained.html', 'fr/blog-cif-fob-explained.html', 'id/blog-cif-fob-explained.html', 'ms/blog-cif-fob-explained.html', 'pt/blog-cif-fob-explained.html', 'ru/blog-cif-fob-explained.html', 'si/blog-cif-fob-explained.html', 'th/blog-cif-fob-explained.html', 'vi/blog-cif-fob-explained.html']",
+        "blog-how-to-choose-indian-agro-exporter.html <- ['ar/blog-private-label-rice.html', 'blog-how-to-choose-indian-agro-exporter.html', 'es/blog-private-label-rice.html', 'fr/blog-private-label-rice.html', 'id/blog-private-label-rice.html', 'ms/blog-private-label-rice.html', 'pt/blog-private-label-rice.html', 'ru/blog-private-label-rice.html', 'si/blog-private-label-rice.html', 'th/blog-private-label-rice.html', 'vi/blog-private-label-rice.html']",
+        "blog-import-duty-indian-rice-by-country.html <- ['ar/blog-india-uae-cepa.html', 'blog-import-duty-indian-rice-by-country.html', 'blog-india-uae-cepa.html', 'es/blog-india-uae-cepa.html', 'fr/blog-india-uae-cepa.html', 'id/blog-india-uae-cepa.html', 'ms/blog-india-uae-cepa.html', 'pt/blog-india-uae-cepa.html', 'ru/blog-india-uae-cepa.html', 'si/blog-india-uae-cepa.html', 'th/blog-india-uae-cepa.html', 'vi/blog-india-uae-cepa.html']",
+        "blog-ir64-export.html <- ['ar/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'ar/blog-ir64-africa.html', 'blog-indian-white-rice-export-policy-2026-latest-updates.html', 'blog-ir64-africa.html', 'blog-ir64-export.html', 'es/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'es/blog-ir64-africa.html', 'fr/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'fr/blog-ir64-africa.html', 'id/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'id/blog-ir64-africa.html', 'ms/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'ms/blog-ir64-africa.html', 'pt/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'pt/blog-ir64-africa.html', 'ru/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'ru/blog-ir64-africa.html', 'si/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'si/blog-ir64-africa.html', 'th/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'th/blog-ir64-africa.html', 'vi/blog-indian-white-rice-export-policy-2026-latest-updates.html', 'vi/blog-ir64-africa.html']",
+        "blog-letter-of-credit-food-imports-india.html <- ['ar/blog-lc-vs-tt.html', 'blog-letter-of-credit-food-imports-india.html', 'es/blog-lc-vs-tt.html', 'fr/blog-lc-vs-tt.html', 'id/blog-lc-vs-tt.html', 'ms/blog-lc-vs-tt.html', 'pt/blog-lc-vs-tt.html', 'ru/blog-lc-vs-tt.html', 'si/blog-lc-vs-tt.html', 'th/blog-lc-vs-tt.html', 'vi/blog-lc-vs-tt.html']",
+        "blog-red-chilli-teja-export-india-2026.html <- ['ar/blog-eu-mrl-basmati.html', 'blog-eu-mrl-basmati.html', 'blog-red-chilli-teja-export-india-2026.html', 'es/blog-eu-mrl-basmati.html', 'fr/blog-eu-mrl-basmati.html', 'id/blog-eu-mrl-basmati.html', 'ms/blog-eu-mrl-basmati.html', 'pt/blog-eu-mrl-basmati.html', 'ru/blog-eu-mrl-basmati.html', 'si/blog-eu-mrl-basmati.html', 'th/blog-eu-mrl-basmati.html', 'vi/blog-eu-mrl-basmati.html']",
+        "blog-top-indian-agro-commodities-import-2026.html <- ['ar/blog-sesame-export-2026.html', 'blog-top-indian-agro-commodities-import-2026.html', 'es/blog-sesame-export-2026.html', 'fr/blog-sesame-export-2026.html', 'id/blog-sesame-export-2026.html', 'ms/blog-sesame-export-2026.html', 'pt/blog-sesame-export-2026.html', 'ru/blog-sesame-export-2026.html', 'si/blog-sesame-export-2026.html', 'th/blog-sesame-export-2026.html', 'vi/blog-sesame-export-2026.html']",
+        "blog-turmeric-finger-export-india-2026.html <- ['ar/blog-spice-trends-2026.html', 'blog-spice-trends-2026.html', 'blog-turmeric-finger-export-india-2026.html', 'es/blog-spice-trends-2026.html', 'fr/blog-spice-trends-2026.html', 'id/blog-spice-trends-2026.html', 'ms/blog-spice-trends-2026.html', 'pt/blog-spice-trends-2026.html', 'ru/blog-spice-trends-2026.html', 'si/blog-spice-trends-2026.html', 'th/blog-spice-trends-2026.html', 'vi/blog-spice-trends-2026.html']",
+        "products.html <- ['products.html', 'products/20325959/index.html']"
+      ]
+    },
+    "hreflang_findings": {},
+    "orphans": {
+      "accidental_orphan_candidate": [
+        "id/export-documentation.html",
+        "id/faq.html",
+        "id/packing-calculator.html",
+        "id/port-transit-calculator.html",
+        "id/product-catalogue.html",
+        "id/whatsapp-catalog.html",
+        "legal.html",
+        "ms/export-documentation.html",
+        "ms/faq.html",
+        "ms/packing-calculator.html",
+        "ms/port-transit-calculator.html",
+        "ms/product-catalogue.html",
+        "ms/whatsapp-catalog.html",
+        "pt/export-documentation.html",
+        "pt/faq.html",
+        "pt/packing-calculator.html",
+        "pt/port-transit-calculator.html",
+        "pt/product-catalogue.html",
+        "pt/whatsapp-catalog.html",
+        "si/export-documentation.html",
+        "si/faq.html",
+        "si/packing-calculator.html",
+        "si/port-transit-calculator.html",
+        "si/product-catalogue.html",
+        "si/whatsapp-catalog.html",
+        "th/export-documentation.html",
+        "th/faq.html",
+        "th/packing-calculator.html",
+        "th/port-transit-calculator.html",
+        "th/product-catalogue.html",
+        "th/whatsapp-catalog.html",
+        "vi/export-documentation.html",
+        "vi/faq.html",
+        "vi/packing-calculator.html",
+        "vi/port-transit-calculator.html",
+        "vi/product-catalogue.html",
+        "vi/whatsapp-catalog.html"
+      ]
+    },
+    "depth": {
+      "en": {
+        "max_depth_found": 2,
+        "indexable_pages_deeper_than_3_clicks": [],
+        "indexable_pages_unreachable_from_home_via_links": [
+          "legal.html"
+        ]
+      },
+      "ar": {
+        "max_depth_found": 2,
+        "indexable_pages_deeper_than_3_clicks": [],
+        "indexable_pages_unreachable_from_home_via_links": []
+      },
+      "es": {
+        "max_depth_found": 2,
+        "indexable_pages_deeper_than_3_clicks": [],
+        "indexable_pages_unreachable_from_home_via_links": []
+      },
+      "fr": {
+        "max_depth_found": 2,
+        "indexable_pages_deeper_than_3_clicks": [],
+        "indexable_pages_unreachable_from_home_via_links": []
+      },
+      "id": {
+        "max_depth_found": 4,
+        "indexable_pages_deeper_than_3_clicks": [
+          "id/buyer-security.html",
+          "id/shipment-tracker.html"
+        ],
+        "indexable_pages_unreachable_from_home_via_links": [
+          "id/export-documentation.html",
+          "id/faq.html",
+          "id/packing-calculator.html",
+          "id/port-transit-calculator.html",
+          "id/product-catalogue.html",
+          "id/whatsapp-catalog.html"
+        ]
+      },
+      "ms": {
+        "max_depth_found": 4,
+        "indexable_pages_deeper_than_3_clicks": [
+          "ms/buyer-security.html",
+          "ms/shipment-tracker.html"
+        ],
+        "indexable_pages_unreachable_from_home_via_links": [
+          "ms/export-documentation.html",
+          "ms/faq.html",
+          "ms/packing-calculator.html",
+          "ms/port-transit-calculator.html",
+          "ms/product-catalogue.html",
+          "ms/whatsapp-catalog.html"
+        ]
+      },
+      "pt": {
+        "max_depth_found": 4,
+        "indexable_pages_deeper_than_3_clicks": [
+          "pt/buyer-security.html",
+          "pt/shipment-tracker.html"
+        ],
+        "indexable_pages_unreachable_from_home_via_links": [
+          "pt/export-documentation.html",
+          "pt/faq.html",
+          "pt/packing-calculator.html",
+          "pt/port-transit-calculator.html",
+          "pt/product-catalogue.html",
+          "pt/whatsapp-catalog.html"
+        ]
+      },
+      "ru": {
+        "max_depth_found": 2,
+        "indexable_pages_deeper_than_3_clicks": [],
+        "indexable_pages_unreachable_from_home_via_links": []
+      },
+      "si": {
+        "max_depth_found": 4,
+        "indexable_pages_deeper_than_3_clicks": [
+          "si/buyer-security.html",
+          "si/shipment-tracker.html"
+        ],
+        "indexable_pages_unreachable_from_home_via_links": [
+          "si/export-documentation.html",
+          "si/faq.html",
+          "si/packing-calculator.html",
+          "si/port-transit-calculator.html",
+          "si/product-catalogue.html",
+          "si/whatsapp-catalog.html"
+        ]
+      },
+      "th": {
+        "max_depth_found": 4,
+        "indexable_pages_deeper_than_3_clicks": [
+          "th/buyer-security.html",
+          "th/shipment-tracker.html"
+        ],
+        "indexable_pages_unreachable_from_home_via_links": [
+          "th/export-documentation.html",
+          "th/faq.html",
+          "th/packing-calculator.html",
+          "th/port-transit-calculator.html",
+          "th/product-catalogue.html",
+          "th/whatsapp-catalog.html"
+        ]
+      },
+      "vi": {
+        "max_depth_found": 4,
+        "indexable_pages_deeper_than_3_clicks": [
+          "vi/buyer-security.html",
+          "vi/shipment-tracker.html"
+        ],
+        "indexable_pages_unreachable_from_home_via_links": [
+          "vi/export-documentation.html",
+          "vi/faq.html",
+          "vi/packing-calculator.html",
+          "vi/port-transit-calculator.html",
+          "vi/product-catalogue.html",
+          "vi/whatsapp-catalog.html"
+        ]
+      }
+    }
+  },
+  "browser_test_part_e": {
+    "en": {
+      "http_status": 200,
+      "html_lang": "en",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 81,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": true,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "ar": {
+      "http_status": 200,
+      "html_lang": "ar",
+      "html_dir": "rtl",
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 81,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": false,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "es": {
+      "http_status": 200,
+      "html_lang": "es",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 81,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": false,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "fr": {
+      "http_status": 200,
+      "html_lang": "fr",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 81,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": true,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "id": {
+      "http_status": 200,
+      "html_lang": "id",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 82,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": true,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "ms": {
+      "http_status": 200,
+      "html_lang": "ms",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 82,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": true,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "pt": {
+      "http_status": 200,
+      "html_lang": "pt",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 82,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": true,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "ru": {
+      "http_status": 200,
+      "html_lang": "ru",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 81,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": false,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "si": {
+      "http_status": 200,
+      "html_lang": "si",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 82,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": false,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "th": {
+      "http_status": 200,
+      "html_lang": "th",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 82,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": false,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    "vi": {
+      "http_status": 200,
+      "html_lang": "vi",
+      "html_dir": null,
+      "header_present": true,
+      "footer_present": true,
+      "nav_link_count": 82,
+      "footer_link_count": 26,
+      "product_card_count": 11,
+      "lang_selector_present": true,
+      "hamburger_present": true,
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    }
+  },
+  "audits": {
+    "audit_locale_ui": "PASS",
+    "audit_website": "PASS",
+    "audit_commercial_content": "PASS",
+    "audit_claims_and_products": "PASS",
+    "validate_blog_navigation": "PASS",
+    "audit_localizations": "PASS",
+    "audit_performance": "PASS",
+    "full_site_audit": "PASS",
+    "audit_coverage_gaps": "PASS",
+    "check_links": "PASS"
+  },
+  "cloudflare_build": {
+    "success": true,
+    "file_count": 2089,
+    "locale_ui_js_md5_unchanged": true,
+    "internal_files_leaked": false,
+    "deployed": false
+  },
+  "files_modified": {
+    "html_files": [
+      "ar/blog-cif-fob-explained.html",
+      "ar/blog-eu-mrl-basmati.html",
+      "ar/blog-india-uae-cepa.html",
+      "ar/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "ar/blog-ir64-africa.html",
+      "ar/blog-lc-vs-tt.html",
+      "ar/blog-private-label-rice.html",
+      "ar/blog-sesame-export-2026.html",
+      "ar/blog-spice-trends-2026.html",
+      "es/blog-cif-fob-explained.html",
+      "es/blog-eu-mrl-basmati.html",
+      "es/blog-india-uae-cepa.html",
+      "es/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "es/blog-ir64-africa.html",
+      "es/blog-lc-vs-tt.html",
+      "es/blog-private-label-rice.html",
+      "es/blog-sesame-export-2026.html",
+      "es/blog-spice-trends-2026.html",
+      "fr/blog-cif-fob-explained.html",
+      "fr/blog-eu-mrl-basmati.html",
+      "fr/blog-india-uae-cepa.html",
+      "fr/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "fr/blog-ir64-africa.html",
+      "fr/blog-lc-vs-tt.html",
+      "fr/blog-private-label-rice.html",
+      "fr/blog-sesame-export-2026.html",
+      "fr/blog-spice-trends-2026.html",
+      "id/blog-cif-fob-explained.html",
+      "id/blog-eu-mrl-basmati.html",
+      "id/blog-india-uae-cepa.html",
+      "id/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "id/blog-ir64-africa.html",
+      "id/blog-lc-vs-tt.html",
+      "id/blog-private-label-rice.html",
+      "id/blog-sesame-export-2026.html",
+      "id/blog-spice-trends-2026.html",
+      "ms/blog-cif-fob-explained.html",
+      "ms/blog-eu-mrl-basmati.html",
+      "ms/blog-india-uae-cepa.html",
+      "ms/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "ms/blog-ir64-africa.html",
+      "ms/blog-lc-vs-tt.html",
+      "ms/blog-private-label-rice.html",
+      "ms/blog-sesame-export-2026.html",
+      "ms/blog-spice-trends-2026.html",
+      "pt/blog-cif-fob-explained.html",
+      "pt/blog-eu-mrl-basmati.html",
+      "pt/blog-india-uae-cepa.html",
+      "pt/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "pt/blog-ir64-africa.html",
+      "pt/blog-lc-vs-tt.html",
+      "pt/blog-private-label-rice.html",
+      "pt/blog-sesame-export-2026.html",
+      "pt/blog-spice-trends-2026.html",
+      "ru/blog-cif-fob-explained.html",
+      "ru/blog-eu-mrl-basmati.html",
+      "ru/blog-india-uae-cepa.html",
+      "ru/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "ru/blog-ir64-africa.html",
+      "ru/blog-lc-vs-tt.html",
+      "ru/blog-private-label-rice.html",
+      "ru/blog-sesame-export-2026.html",
+      "ru/blog-spice-trends-2026.html",
+      "si/blog-cif-fob-explained.html",
+      "si/blog-eu-mrl-basmati.html",
+      "si/blog-india-uae-cepa.html",
+      "si/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "si/blog-ir64-africa.html",
+      "si/blog-lc-vs-tt.html",
+      "si/blog-private-label-rice.html",
+      "si/blog-sesame-export-2026.html",
+      "si/blog-spice-trends-2026.html",
+      "th/blog-cif-fob-explained.html",
+      "th/blog-eu-mrl-basmati.html",
+      "th/blog-india-uae-cepa.html",
+      "th/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "th/blog-ir64-africa.html",
+      "th/blog-lc-vs-tt.html",
+      "th/blog-private-label-rice.html",
+      "th/blog-sesame-export-2026.html",
+      "th/blog-spice-trends-2026.html",
+      "vi/blog-cif-fob-explained.html",
+      "vi/blog-eu-mrl-basmati.html",
+      "vi/blog-india-uae-cepa.html",
+      "vi/blog-indian-white-rice-export-policy-2026-latest-updates.html",
+      "vi/blog-ir64-africa.html",
+      "vi/blog-lc-vs-tt.html",
+      "vi/blog-private-label-rice.html",
+      "vi/blog-sesame-export-2026.html",
+      "vi/blog-spice-trends-2026.html"
+    ],
+    "count": 90,
+    "other_files": [
+      "reports/locale-architecture-fix-2026-08-26.md",
+      "reports/locale-architecture-fix-2026-08-26.json"
+    ],
+    "unrelated_files_changed": false
+  }
+}

@@ -1,0 +1,796 @@
+{
+  "phase": 7,
+  "scope": {
+    "products_affected": 83,
+    "products_out_of_scope": [
+      "sugar-s30-supplier.html (bespoke regulatory FAQ, no generic template, no locale FAQ at all)"
+    ],
+    "locales_affected": [
+      "ar",
+      "es",
+      "fr",
+      "id",
+      "ms",
+      "pt",
+      "ru",
+      "si",
+      "th",
+      "vi"
+    ],
+    "stale_strings": {
+      "Minimum order is 1 FCL (old MOQ answer)": 830,
+      "We accept LC (old payment-terms answer)": 747,
+      "Can I get a Trade samples on request... (old sample Q+A, fully untranslated)": 830
+    }
+  },
+  "governed_source_chain": [
+    "data/products.json (product facts)",
+    "data/localized-copy-cache.json (governed vocabulary: names, spec labels, document names)",
+    "data/product-faq-templates.json (governed question/answer templates, NEW this phase)",
+    "scripts/build_product_faq_locale.py (deterministic generator, NEW this phase)",
+    "locale/<product>.html (generated output, 830 files)",
+    "scripts/sync_faq_schema.py (pre-existing, re-run to sync FAQPage JSON-LD from the regenerated visible HTML)"
+  ],
+  "template_inventory": [
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "ar",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "ما هي المواصفات المعلنة لـ {name}؟",
+      "answer_translated_template": "تُدرج المواصفة المرجعية الحالية {spec_text}. هذه قيم تخطيطية إرشادية؛ وتتحكم في الطلب المواصفة الموقعة والعينة المعتمدة والتفاوتات المتفق عليها.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "es",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "¿Qué especificación está publicada para {name}?",
+      "answer_translated_template": "La especificación de referencia actual incluye {spec_text}. Son valores de planificación; la especificación firmada, la muestra aprobada y las tolerancias acordadas rigen el pedido.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "fr",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "Quelle spécification est publiée pour {name} ?",
+      "answer_translated_template": "La spécification de référence actuelle indique {spec_text}. Ce sont des valeurs de planification ; la spécification signée, l'échantillon approuvé et les tolérances convenues régissent la commande.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "id",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "Spesifikasi apa yang dipublikasikan untuk {name}?",
+      "answer_translated_template": "Spesifikasi referensi saat ini mencantumkan {spec_text}. Ini adalah nilai perencanaan; spesifikasi yang ditandatangani, sampel yang disetujui, dan toleransi yang disepakati yang mengatur pesanan.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "ms",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "Spesifikasi apakah yang diterbitkan untuk {name}?",
+      "answer_translated_template": "Spesifikasi rujukan semasa menyenaraikan {spec_text}. Ini adalah nilai perancangan; spesifikasi yang ditandatangani, sampel yang diluluskan dan toleransi yang dipersetujui mengawal pesanan.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "pt",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "Qual especificação está publicada para {name}?",
+      "answer_translated_template": "A especificação de referência atual lista {spec_text}. Estes são valores de planejamento; a especificação assinada, a amostra aprovada e as tolerâncias acordadas regem o pedido.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "ru",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "Какая спецификация опубликована для {name}?",
+      "answer_translated_template": "Действующая справочная спецификация включает {spec_text}. Это плановые значения; заказ регулируется подписанной спецификацией, утверждённым образцом и согласованными допусками.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "si",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "{name} සඳහා ප්‍රකාශිත පිරිවිතරය කුමක්ද?",
+      "answer_translated_template": "වත්මන් යොමු පිරිවිතරයේ {spec_text} ඇතුළත් වේ. මේවා සැලසුම් අගයන් වේ; අත්සන් කළ පිරිවිතරය, අනුමත සාම්පලය සහ එකඟ වූ ඉවසීම් ඇණවුම පාලනය කරයි.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "th",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "มีการเผยแพร่ข้อกำหนดใดสำหรับ {name}?",
+      "answer_translated_template": "ข้อกำหนดอ้างอิงปัจจุบันระบุ {spec_text} ค่าเหล่านี้เป็นค่าสำหรับการวางแผน โดยข้อกำหนดที่ลงนาม ตัวอย่างที่ได้รับอนุมัติ และค่าเผื่อที่ตกลงกันจะเป็นตัวควบคุมคำสั่งซื้อ",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.spec",
+      "locale": "vi",
+      "question_en_template": "What specification is published for {name}?",
+      "answer_en_template": "The current reference specification lists {spec_text}. These are planning values; the signed specification, approved sample and agreed tolerances control the order.",
+      "question_translated_template": "Thông số kỹ thuật nào được công bố cho {name}?",
+      "answer_translated_template": "Thông số kỹ thuật tham chiếu hiện tại liệt kê {spec_text}. Đây là các giá trị lập kế hoạch; thông số kỹ thuật đã ký, mẫu đã được phê duyệt và dung sai đã thỏa thuận sẽ chi phối đơn hàng.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking what technical spec values (length, moisture, purity, etc.) are published for this product. Answer clarifies these are planning/reference values, not a binding guarantee.",
+      "must_not_translate": [
+        "{name}",
+        "{spec_text}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "ar",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "ما هو رمز النظام المنسق (HS code) والحد الأدنى للطلب (MOQ) وخيارات التعبئة لـ {name}؟",
+      "answer_translated_template": "رمز النظام المنسق المرجعي: {hs_code}. الحد الأدنى للطلب (MOQ): {moq}. التعبئة المعلنة: {packaging}. يجب تأكيد التصنيف والتعبئة وحدود الوزن القانونية حسب الوجهة والعقد.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "es",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "¿Cuáles son el código HS, el MOQ y las opciones de embalaje para {name}?",
+      "answer_translated_template": "Código HS de referencia: {hs_code}. MOQ: {moq}. Embalaje publicado: {packaging}. La clasificación, el embalaje y los límites de peso legales deben confirmarse según el destino y el contrato.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "fr",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "Quels sont le code SH, le MOQ et les options d'emballage pour {name} ?",
+      "answer_translated_template": "Code SH de référence : {hs_code}. MOQ : {moq}. Emballage publié : {packaging}. La classification, l'emballage et les limites de poids légales doivent être confirmés selon la destination et le contrat.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "id",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "Apa kode HS, MOQ, dan opsi pengemasan untuk {name}?",
+      "answer_translated_template": "Kode HS referensi: {hs_code}. MOQ: {moq}. Kemasan yang dipublikasikan: {packaging}. Klasifikasi, pengemasan, dan batas berat legal harus dikonfirmasi sesuai tujuan dan kontrak.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "ms",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "Apakah kod HS, MOQ dan pilihan pembungkusan untuk {name}?",
+      "answer_translated_template": "Kod HS rujukan: {hs_code}. MOQ: {moq}. Pembungkusan yang diterbitkan: {packaging}. Klasifikasi, pembungkusan dan had berat sah mesti disahkan mengikut destinasi dan kontrak.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "pt",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "Quais são o código HS, o MOQ e as opções de embalagem para {name}?",
+      "answer_translated_template": "Código HS de referência: {hs_code}. MOQ: {moq}. Embalagem publicada: {packaging}. A classificação, a embalagem e os limites de peso legais devem ser confirmados de acordo com o destino e o contrato.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "ru",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "Какой код ТН ВЭД, MOQ и варианты упаковки предусмотрены для {name}?",
+      "answer_translated_template": "Справочный код ТН ВЭД: {hs_code}. MOQ: {moq}. Опубликованная упаковка: {packaging}. Классификация, упаковка и предельно допустимый вес по закону должны быть подтверждены с учётом пункта назначения и договора.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "si",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "{name} සඳහා HS කේතය, MOQ සහ ඇසුරුම් විකල්ප මොනවාද?",
+      "answer_translated_template": "යොමු HS කේතය: {hs_code}. MOQ: {moq}. ප්‍රකාශිත ඇසුරුම: {packaging}. වර්ගීකරණය, ඇසුරුම සහ නෛතික බර සීමා ගමනාන්තය සහ ගිවිසුමට අනුව තහවුරු කළ යුතුය.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "th",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "รหัส HS, MOQ และตัวเลือกการบรรจุสำหรับ {name} มีอะไรบ้าง?",
+      "answer_translated_template": "รหัส HS อ้างอิง: {hs_code} MOQ: {moq} บรรจุภัณฑ์ที่เผยแพร่: {packaging} ต้องยืนยันการจำแนกประเภท การบรรจุ และขีดจำกัดน้ำหนักตามกฎหมายตามปลายทางและสัญญา",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.hs_moq_packing",
+      "locale": "vi",
+      "question_en_template": "What are the HS code, MOQ and packing options for {name}?",
+      "answer_en_template": "Reference HS code: {hs_code}. MOQ: {moq}. Published packing: {packaging}. Classification, packing and legal weight limits must be confirmed for the destination and contract.",
+      "question_translated_template": "Mã HS, MOQ và các tùy chọn đóng gói cho {name} là gì?",
+      "answer_translated_template": "Mã HS tham chiếu: {hs_code}. MOQ: {moq}. Đóng gói đã công bố: {packaging}. Việc phân loại, đóng gói và giới hạn trọng lượng hợp pháp phải được xác nhận theo điểm đến và hợp đồng.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about customs classification (HS code), minimum order quantity, and packaging. HS code, MOQ are standardized commercial abbreviations and must not be translated.",
+      "must_not_translate": [
+        "{name}",
+        "{hs_code}",
+        "{moq}",
+        "{packaging}",
+        "HS code",
+        "MOQ"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "ar",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "كم كمية {name} التي تسعها الحاوية؟",
+      "answer_translated_template": "المرجع التخطيطي لحاوية 20 قدمًا هو {container_20ft}. تعتمد الحمولة النهائية على تركيب الأكياس والتحميل على المنصات وحدود الناقل والمسار والقانون المعمول به؛ وتتحكم في ذلك خطة التحميل المكتوبة.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "es",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "¿Cuánto {name} cabe en un contenedor?",
+      "answer_translated_template": "La referencia de planificación para un contenedor de 20 pies es {container_20ft}. La carga final depende de la construcción de los sacos, la paletización, los límites del transportista, la ruta y la ley aplicable; el plan de carga por escrito es el que rige.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "fr",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "Quelle quantité de {name} tient dans un conteneur ?",
+      "answer_translated_template": "La référence de planification pour un conteneur de 20 pieds est {container_20ft}. La charge finale dépend de la construction des sacs, de la palettisation, des limites du transporteur, de l'itinéraire et de la loi applicable ; le plan de chargement écrit fait foi.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "id",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "Berapa banyak {name} yang muat dalam satu kontainer?",
+      "answer_translated_template": "Referensi perencanaan untuk kontainer 20 kaki adalah {container_20ft}. Muatan akhir bergantung pada konstruksi karung, paletisasi, batas pengangkut, rute, dan hukum yang berlaku; rencana pemuatan tertulis yang menentukan.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "ms",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "Berapa banyak {name} muat dalam satu kontena?",
+      "answer_translated_template": "Rujukan perancangan bagi kontena 20 kaki ialah {container_20ft}. Muatan akhir bergantung kepada binaan beg, pempaletan, had pengangkut, laluan dan undang-undang yang berkuat kuasa; pelan pemuatan bertulis yang mengawal.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "pt",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "Quanto de {name} cabe em um contêiner?",
+      "answer_translated_template": "A referência de planejamento para um contêiner de 20 pés é {container_20ft}. A carga final depende da construção dos sacos, paletização, limites da transportadora, rota e legislação aplicável; o plano de carregamento por escrito é quem rege.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "ru",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "Сколько {name} помещается в контейнер?",
+      "answer_translated_template": "Плановый ориентир для 20-футового контейнера — {container_20ft}. Итоговая загрузка зависит от конструкции мешков, паллетирования, ограничений перевозчика, маршрута и применимого законодательства; определяющим является письменный план погрузки.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "si",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "20 අඩි කන්ටේනරයකට {name} කොපමණ ප්‍රමාණයක් ගැලපේද?",
+      "answer_translated_template": "20 අඩි කන්ටේනරයක් සඳහා සැලසුම් යොමුව {container_20ft} වේ. අවසාන බර මලු තැනීම, පැලට් කිරීම, ප්‍රවාහක සීමා, මාර්ගය සහ අදාළ නීතිය මත රඳා පවතී; ලිඛිත පැටවීම් සැලැස්ම තීරණාත්මක වේ.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "th",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "{name} บรรจุในตู้คอนเทนเนอร์ได้เท่าใด?",
+      "answer_translated_template": "ค่าอ้างอิงสำหรับการวางแผนสำหรับตู้คอนเทนเนอร์ขนาด 20 ฟุตคือ {container_20ft} น้ำหนักบรรทุกสุดท้ายขึ้นอยู่กับโครงสร้างกระสอบ การจัดวางบนพาเลท ข้อจำกัดของผู้ขนส่ง เส้นทาง และกฎหมายที่บังคับใช้ โดยแผนการบรรทุกที่เป็นลายลักษณ์อักษรจะเป็นตัวควบคุม",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.container",
+      "locale": "vi",
+      "question_en_template": "How much {name} fits in a container?",
+      "answer_en_template": "The planning reference for a 20-foot container is {container_20ft}. Final payload depends on bag construction, palletisation, carrier limits, route and applicable law; the written loading plan controls.",
+      "question_translated_template": "Một container chứa được bao nhiêu {name}?",
+      "answer_translated_template": "Tham chiếu lập kế hoạch cho container 20 feet là {container_20ft}. Trọng tải cuối cùng phụ thuộc vào kết cấu bao, xếp pallet, giới hạn của hãng vận chuyển, tuyến đường và luật áp dụng; kế hoạch xếp hàng bằng văn bản sẽ là yếu tố quyết định.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about container loading capacity. Answer clarifies this is a planning reference, not a guaranteed payload.",
+      "must_not_translate": [
+        "{name}",
+        "{container_20ft}"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "ar",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "ما هي المستندات التي يمكن طلبها لـ {name}؟",
+      "answer_translated_template": "مجموعة المستندات الأساسية هي {documents}. يتم ترتيب {conditional} فقط عند الاقتضاء وكتابتها في عرض السعر أو العقد.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "es",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "¿Qué documentos se pueden solicitar para {name}?",
+      "answer_translated_template": "El conjunto de documentos base es {documents}. {conditional} se gestionan solo cuando corresponde y se incluyen por escrito en la cotización o el contrato.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "fr",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "Quels documents peuvent être demandés pour {name} ?",
+      "answer_translated_template": "L'ensemble de documents de base est {documents}. {conditional} ne sont organisés que lorsque applicable et inscrits par écrit dans le devis ou le contrat.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "id",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "Dokumen apa yang dapat diminta untuk {name}?",
+      "answer_translated_template": "Set dokumen dasar adalah {documents}. {conditional} hanya diatur jika berlaku dan dicantumkan secara tertulis dalam penawaran atau kontrak.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "ms",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "Dokumen apakah yang boleh diminta untuk {name}?",
+      "answer_translated_template": "Set dokumen asas ialah {documents}. {conditional} hanya diatur apabila berkenaan dan ditulis dalam sebut harga atau kontrak.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "pt",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "Quais documentos podem ser solicitados para {name}?",
+      "answer_translated_template": "O conjunto básico de documentos é {documents}. {conditional} são providenciados apenas quando aplicável e formalizados por escrito na cotação ou no contrato.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "ru",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "Какие документы можно запросить для {name}?",
+      "answer_translated_template": "Базовый комплект документов: {documents}. {conditional} оформляются только при необходимости и фиксируются письменно в коммерческом предложении или договоре.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "si",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "{name} සඳහා ඉල්ලා සිටිය හැකි ලේඛන මොනවාද?",
+      "answer_translated_template": "මූලික ලේඛන කට්ටලය {documents} වේ. {conditional} අදාළ වන විට පමණක් සකසා ගණන් කිරීමේ පත්‍රයේ හෝ ගිවිසුමේ ලිඛිතව ඇතුළත් කරනු ලැබේ.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "th",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "สามารถขอเอกสารใดได้บ้างสำหรับ {name}?",
+      "answer_translated_template": "ชุดเอกสารพื้นฐานคือ {documents} ส่วน {conditional} จะจัดเตรียมเฉพาะเมื่อเกี่ยวข้องและระบุเป็นลายลักษณ์อักษรในใบเสนอราคาหรือสัญญา",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.documents",
+      "locale": "vi",
+      "question_en_template": "Which documents can be requested for {name}?",
+      "answer_en_template": "The base document set is {documents}. {conditional} are arranged only when applicable and written into the quotation or contract.",
+      "question_translated_template": "Có thể yêu cầu những chứng từ nào cho {name}?",
+      "answer_translated_template": "Bộ chứng từ cơ bản là {documents}. {conditional} chỉ được sắp xếp khi cần thiết và được ghi thành văn bản trong báo giá hoặc hợp đồng.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking which trade/compliance documents are available. Distinguishes standard documents from conditional (destination-dependent) documents.",
+      "must_not_translate": [
+        "{name}",
+        "{documents}",
+        "{conditional}",
+        "COA"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "ar",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "هل يمكنني طلب عينة تجارية من {name}؟",
+      "answer_translated_template": "يجوز للمشترين التجاريين المؤهلين طلب عينة تقييم قياسية بحجم 250-500 جرام لكل منتج مختار. يتم تأكيد التوفر والحجم النهائي وتكلفة الشحن السريع وتوقيت الإرسال قبل الشحن؛ وتتطلب العينات الأكبر موافقة كتابية منفصلة.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "es",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "¿Puedo solicitar una muestra comercial de {name}?",
+      "answer_translated_template": "Los compradores comerciales calificados pueden solicitar una muestra de evaluación estándar de 250-500 g por producto seleccionado. La disponibilidad, el tamaño final, el costo de mensajería y el tiempo de envío se confirman antes del despacho; las muestras más grandes requieren aprobación por escrito por separado.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "fr",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "Puis-je demander un échantillon commercial de {name} ?",
+      "answer_translated_template": "Les acheteurs professionnels qualifiés peuvent demander un échantillon d'évaluation standard de 250 à 500 g par produit sélectionné. La disponibilité, la taille finale, le coût du transporteur et le délai d'expédition sont confirmés avant l'expédition ; les échantillons plus importants nécessitent une approbation écrite séparée.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "id",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "Bisakah saya meminta sampel dagang {name}?",
+      "answer_translated_template": "Pembeli dagang yang memenuhi syarat dapat meminta sampel evaluasi standar 250-500g per produk yang dipilih. Ketersediaan, ukuran akhir, biaya kurir, dan waktu pengiriman dikonfirmasi sebelum pengiriman; sampel yang lebih besar memerlukan persetujuan tertulis terpisah.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "ms",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "Bolehkah saya meminta sampel perdagangan {name}?",
+      "answer_translated_template": "Pembeli perdagangan yang layak boleh meminta sampel penilaian standard 250-500g bagi setiap produk yang dipilih. Ketersediaan, saiz akhir, kos kurier dan masa penghantaran disahkan sebelum penghantaran; sampel yang lebih besar memerlukan kelulusan bertulis berasingan.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "pt",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "Posso solicitar uma amostra comercial de {name}?",
+      "answer_translated_template": "Compradores comerciais qualificados podem solicitar uma amostra de avaliação padrão de 250-500g por produto selecionado. Disponibilidade, tamanho final, custo de courier e prazo de envio são confirmados antes do despacho; amostras maiores exigem aprovação por escrito separada.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "ru",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "Могу ли я запросить коммерческий образец {name}?",
+      "answer_translated_template": "Квалифицированные коммерческие покупатели могут запросить стандартный оценочный образец массой 250–500 г на каждый выбранный товар. Наличие, окончательный размер, стоимость курьерской доставки и сроки отправки подтверждаются перед отгрузкой; для более крупных образцов требуется отдельное письменное одобрение.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "si",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "{name} හි වෙළඳ සාම්පලයක් ඉල්ලා සිටිය හැකිද?",
+      "answer_translated_template": "සුදුසුකම් ලත් වෙළඳ ගැනුම්කරුවන්ට තෝරාගත් සෑම නිෂ්පාදනයක් සඳහාම සම්මත ග්‍රෑම් 250-500 ඇගයීම් සාම්පලයක් ඉල්ලා සිටිය හැක. තිබෙන බව, අවසාන ප්‍රමාණය, කුරියර් වියදම සහ යැවීමේ කාලසටහන නැව්ගත කිරීමට පෙර තහවුරු කරනු ලැබේ; වඩා විශාල සාම්පල සඳහා වෙනම ලිඛිත අනුමැතියක් අවශ්‍ය වේ.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "th",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "ฉันสามารถขอตัวอย่างสินค้าเพื่อการค้าของ {name} ได้หรือไม่?",
+      "answer_translated_template": "ผู้ซื้อทางการค้าที่มีคุณสมบัติสามารถขอตัวอย่างประเมินมาตรฐานขนาด 250-500 กรัมต่อผลิตภัณฑ์ที่เลือกได้ ความพร้อมจำหน่าย ขนาดสุดท้าย ค่าขนส่งด่วน และกำหนดเวลาจัดส่งจะได้รับการยืนยันก่อนการจัดส่ง ตัวอย่างขนาดใหญ่กว่านี้ต้องได้รับการอนุมัติเป็นลายลักษณ์อักษรแยกต่างหาก",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    },
+    {
+      "faq_key": "product_faq.sample",
+      "locale": "vi",
+      "question_en_template": "Can I request a trade sample of {name}?",
+      "answer_en_template": "Qualified trade buyers may request a standard 250–500g evaluation sample per selected product. Availability, final size, courier cost and dispatch timing are confirmed before shipment; larger samples require separate written approval.",
+      "question_translated_template": "Tôi có thể yêu cầu mẫu thương mại của {name} không?",
+      "answer_translated_template": "Người mua thương mại đủ điều kiện có thể yêu cầu mẫu đánh giá tiêu chuẩn 250-500g cho mỗi sản phẩm được chọn. Tình trạng sẵn có, kích thước cuối cùng, chi phí chuyển phát nhanh và thời gian gửi hàng sẽ được xác nhận trước khi giao hàng; các mẫu lớn hơn cần có sự phê duyệt bằng văn bản riêng.",
+      "status": "draft_pending_native_review",
+      "context": "Buyer is asking about sample availability. Answer preserves the exact quantity range (250-500g) and clarifies conditions, without promising free/immediate fulfillment.",
+      "must_not_translate": [
+        "{name}",
+        "250–500g"
+      ]
+    }
+  ]
+}

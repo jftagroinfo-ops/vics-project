@@ -1,0 +1,85 @@
+{
+  "phase": 32,
+  "date": "2026-08-28",
+  "status": "INVESTIGATION COMPLETE - AUDIT ONLY - ZERO WEBSITE MODIFICATIONS",
+  "tool_disclosure": {
+    "tested": ["General AI-summarized web-search tool (WebSearch) - backing engine not disclosed to this session"],
+    "not_tested": [
+      "Google AI Overviews / AI Mode",
+      "ChatGPT / ChatGPT Search",
+      "Perplexity",
+      "Gemini",
+      "Microsoft Copilot / Bing Chat"
+    ],
+    "not_tested_reason": "TOOL ACCESS LIMITATION - no simulation performed"
+  },
+  "queries_tested": 21,
+  "headline_findings": [
+    {
+      "id": "P32-F1",
+      "finding": "AI-generated 'Star Export House since 1980' / '5 decades experience' fabrication persists unchanged since Phase 24, across at least 8 phases",
+      "classification": "AI-GENERATED",
+      "website_sourced": false,
+      "evidence": "Zero occurrences of the string '1980' in any root-level website HTML file; website's own about.html states 'Established 2016' with an explicit predecessor-history verification disclaimer"
+    },
+    {
+      "id": "P32-F2",
+      "finding": "Fabricated about.html page title claimed by AI summaries does not match the real, current title tag",
+      "classification": "AI-GENERATED",
+      "website_sourced": false,
+      "evidence": "Real title: 'About JFT Agro Overseas | Company & Buyer Verification'"
+    },
+    {
+      "id": "P32-F3",
+      "finding": "'7 branch offices' claim overstates website's actual 'trade hub / target market' framing",
+      "classification": "THIRD-PARTY/AI OVERSTATEMENT",
+      "website_sourced": false,
+      "evidence": "about.html/index.html name these countries as market/trade-hub relationships, not staffed offices"
+    },
+    {
+      "id": "P32-F4",
+      "finding": "'AAY-5952' business registration number cannot be confirmed against the website or the confirmed-real LEI",
+      "classification": "UNKNOWN",
+      "website_sourced": false,
+      "evidence": "Not found anywhere in website HTML; does not match LEI 3358008COTZVRF8ZQE38; MCA LLPIN lookup requires an interactive government portal not accessible this session"
+    },
+    {
+      "id": "P32-F5",
+      "finding": "'Dedicated slots with Maersk/MSC/CMA for guaranteed transit' claim not supported by website content",
+      "classification": "AI-GENERATED/THIRD-PARTY CONFLATION",
+      "website_sourced": false,
+      "evidence": "Website cites Maersk container specs as a reference source and separately lists generic African shipping-lane carrier data in a blog article; neither claims dedicated carrier slots or guaranteed transit"
+    },
+    {
+      "id": "P32-F6",
+      "finding": "JFT has near-zero AI/search visibility for generic, high-commercial-intent category queries across its catalog",
+      "classification": "OFF-SITE AUTHORITY GAP",
+      "website_sourced": false,
+      "evidence": "0/5 generic commercial queries surfaced JFT except one accurate Africa-region citation (reconfirms Phase 26 P26-F2); 0/2 buyer-intent questions; 0/4 additional commodity-specific queries; 0/2 additional geography queries"
+    },
+    {
+      "id": "P32-F7",
+      "finding": "No confirmed LinkedIn company page or B2B marketplace listing (Indiamart/TradeIndia/ExportersIndia) found",
+      "classification": "EXTERNAL AUTHORITY GAP",
+      "website_sourced": false,
+      "evidence": "Direct search found no matching listing; peer-scale competitors (Rivha Traders, VLX Exports, Ashapura Exporters) visibly maintain such presence"
+    }
+  ],
+  "eeat_summary": {
+    "experience": "STRONG - evidenced via specific facility (Balap, Raigad, 250 MT/day, consistently repeated), functional buyer tools, real per-product spec tables",
+    "expertise": "STRONG - 37 process-education articles, governed product FAQ content, functioning documentation/verification pages",
+    "authoritativeness": "WEAK-MEDIUM - one strong independent signal (LEI); no confirmed FIEO/LinkedIn/marketplace/press presence",
+    "trustworthiness": "STRONG internally, undermined externally by AI misinformation not caused by the website"
+  },
+  "llms_txt_reassessment": {
+    "decision": "NO CHANGE - still unnecessary",
+    "new_evidence": "Google's own May 2026 AI-search guidance states llms.txt is not needed for AI Overviews/AI Mode; major AI crawlers overwhelmingly skip the file",
+    "reconsideration_trigger_met": false
+  },
+  "product_schema_decision_reopened": false,
+  "website_files_modified": 0,
+  "cloudflare_files_modified": 0,
+  "deployment_performed": false,
+  "regression_status": "unchanged - not re-run in full this phase, no website file touched",
+  "stop_instruction": "STOP. Do not begin Phase 33. Do not implement recommendations. Do not deploy."
+}

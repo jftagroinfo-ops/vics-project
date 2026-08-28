@@ -1,0 +1,76 @@
+{
+  "phase": 31,
+  "date": "2026-08-28",
+  "objective": "Deploy the already-investigated, already-verified Phase 29 + Phase 30 visual fixes to production and prove production health afterward.",
+  "scope_verified": {
+    "P29-1": "already_live_before_phase",
+    "P29-2": "already_live_before_phase",
+    "P30-1": "deployed_this_phase",
+    "P30-2": "deployed_this_phase",
+    "P30-3": "deployed_this_phase",
+    "P30-4": "deployed_this_phase"
+  },
+  "files_deployed": [
+    "buyer-security.html",
+    "export-documentation.html",
+    "uae-trade.html",
+    "contact-audit-fixes.css",
+    "ar/contact.html",
+    "ar/packing-calculator.html",
+    "ar/port-transit-calculator.html",
+    "ar/shipment-tracker.html"
+  ],
+  "files_deployed_count": 8,
+  "pre_deployment_gates": {
+    "production_baseline": "PASS - version b7d0f0a5-1e8e-4634-9bae-2b36d50cece9",
+    "phase28_functionality_intact": "PASS",
+    "worktree_scope_clean": "PASS - 8 files differ, 11 control files identical",
+    "all_changes_explained": "PASS",
+    "fixes_verified_from_source": "PASS",
+    "full_regression": "PASS - 0 findings across 9 scripts, 0 broken links across 1766 files",
+    "secret_scan": "PASS",
+    "build": "PASS - 2099 assets, no leakage",
+    "bundle_hash_verification": "PASS",
+    "rollback_path_confirmed": "PASS - prior version b7d0f0a5-1e8e-4634-9bae-2b36d50cece9"
+  },
+  "deployment": {
+    "new_version_id": "0bb7f02c-bdf9-4c6f-9e11-5d324949a4ae",
+    "assets_uploaded": 8,
+    "assets_unchanged": 2090,
+    "warnings": 0,
+    "errors": 0,
+    "incidental_note": "wrangler auto-resolved 4.127.0 -> 4.127.1 via npx during deploy"
+  },
+  "production_verification": {
+    "smoke_test": "PASS - all 8 pages + homepage 200",
+    "legacy_redirects": "PASS - all 6, 301",
+    "sitemap": "PASS - 200, 1454 URLs unchanged",
+    "api_lead": "PASS - 405 unchanged",
+    "robots_txt": "PASS - 200",
+    "analytics_single_load": "PASS - 1 reference unchanged",
+    "security_headers": "PASS - all 7 present unchanged",
+    "canonical_tag": "PASS",
+    "locale_page_th_contact": "PASS - 200",
+    "404_handling": "PASS"
+  },
+  "visual_fix_verification": {
+    "P29-1": "confirmed live (pre-existing before this phase)",
+    "P29-2": "confirmed live (pre-existing before this phase)",
+    "P30-1": "confirmed live - padding-top 170px/96px on buyer-security.html and export-documentation.html",
+    "P30-2": "confirmed live - RTL chevron rule on all 4 Arabic pages",
+    "P30-3": "confirmed live - uae-trade.html prod-img height:130px",
+    "P30-4": "confirmed live - contact-audit-fixes.css color: var(--green)"
+  },
+  "production_parity": "all 8 files hash-verified byte-identical between repository and production",
+  "rollback_required": false,
+  "cleanup": {
+    "cloudflare_dist_deleted": true,
+    "post_cleanup_regression": "0 findings across 1753 renderable pages"
+  },
+  "limitations": [
+    "No live browser automation available; verification is HTTP/source-level only",
+    "Responsive breakpoint behavior not independently re-tested this phase (no markup/responsive rule changed)"
+  ],
+  "final_decision": {"decision": "A", "label": "RELEASE SUCCESSFUL"},
+  "stop_instruction": "STOP. Do not begin Phase 32. Do not deploy again. Do not modify Cloudflare settings."
+}

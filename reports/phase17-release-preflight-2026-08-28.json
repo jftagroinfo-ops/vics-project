@@ -1,0 +1,88 @@
+{
+  "phase": 17,
+  "part": "release-preflight",
+  "date": "2026-08-28",
+  "baseline": {
+    "head_commit": "e64a3f2b",
+    "branch": "main",
+    "working_tree_changed_paths": 1163,
+    "modified": 1086,
+    "untracked": 77,
+    "worker_js_modified": false,
+    "wrangler_jsonc_modified": false
+  },
+  "release_manifest_summary": {
+    "html_files_total": 1799,
+    "products": 84,
+    "category_pages": 10,
+    "articles": 37,
+    "sitemap_urls": 1453
+  },
+  "pre_deployment_audit_suite": {
+    "audit_website.py": "0 findings",
+    "audit_localizations.py": "0 findings",
+    "full_site_audit.py": "0 findings, 1453 indexable pages",
+    "check_links.py": "0 broken links / 1766 files",
+    "audit_performance.py": "0 findings",
+    "audit_coverage_gaps.py": "0 findings",
+    "audit_commercial_content.py": "0 findings",
+    "audit_claims_and_products.py": "0 findings",
+    "validate_blog_navigation.py": "pass",
+    "audit_locale_ui.py": "0 findings, determinism PASS"
+  },
+  "content_check": {"products": 84, "duplicate_products": 0, "category_pages_present": 10},
+  "sitemap_check": {"local_sitemap_url_count": 1453, "full_site_audit_indexable_count": 1453, "discrepancy": false},
+  "phase_10_15_regression_check": [
+    {"fix": "10 category pages exist", "status": "PASS"},
+    {"fix": "locale infrastructure Organization schema", "status": "PASS"},
+    {"fix": "Thai duplicate H1 fix", "status": "PASS"},
+    {"fix": "?product= RFQ context", "status": "PASS"},
+    {"fix": "RTL breadcrumb chevron", "status": "PASS"},
+    {"fix": "regional hero CTA visible (hero-btns rule removed)", "status": "PASS"},
+    {"fix": "product-card object-fit/aspect-ratio", "status": "PASS"},
+    {"fix": "Port of Discharge optional", "status": "PASS"},
+    {"fix": "no duplicate analytics script", "status": "PASS"}
+  ],
+  "analytics_release_check": {
+    "measurement_id_source_files": 1,
+    "direct_script_reference_files": ["404.html", "header.html", "index.html"],
+    "buyer_security_and_export_documentation_clean": true
+  },
+  "localization_release_check": {
+    "retired_1980_string_occurrences": 0,
+    "lang_dir_sample_correct": true,
+    "audit_localizations_findings": 0
+  },
+  "cloudflare_build": {"files_built": 2099, "size_mib": 135.7, "output_dir": ".cloudflare-dist-next"},
+  "bundle_content_safety": {
+    "env_files": 0, "dev_vars_files": 0, "credentials_files": 0, "claude_dir": 0,
+    "reports_dir": 0, "scripts_dir": 0, "git_dir": 0, "py_files": 0,
+    "false_positive_investigated": {"pattern": "private", "matches": 12, "resolution": "all 12 are legitimate blog-private-label-rice.html content files/images, not sensitive data"}
+  },
+  "production_before_snapshot": {
+    "timestamp_utc": "2026-08-27T18:38:15Z",
+    "homepage_status": 200,
+    "products_page_status": 200,
+    "category_page_status": 404,
+    "product_page_status": 200,
+    "sitemap_url_count": 1443,
+    "buyer_security_duplicate_script_present": true
+  },
+  "deployment_authorization_gate": {
+    "working_tree_understood": true,
+    "no_unexplained_modifications": true,
+    "full_audit_suite_pass": true,
+    "sitemap_validated": true,
+    "products_validated": true,
+    "category_pages_validated": true,
+    "phase_10_15_regression_pass": true,
+    "localization_checks_pass": true,
+    "analytics_duplicate_check_pass": true,
+    "cloudflare_build_pass": true,
+    "bundle_leak_check_pass": true,
+    "release_manifest_generated": true,
+    "production_before_snapshot_recorded": true,
+    "all_gates_passed": true,
+    "deployment_authorized": true
+  }
+}

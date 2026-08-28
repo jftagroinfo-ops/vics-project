@@ -1,0 +1,137 @@
+{
+  "phase": 18,
+  "date": "2026-08-28",
+  "baseline": {
+    "head_commit": "e64a3f2b",
+    "working_tree_changed_paths": 1168,
+    "worker_js_lines": 315,
+    "bundle_present": true,
+    "bundle_file_count": 2099
+  },
+  "source_of_truth_trace": {
+    "security_headers_definition": ".cloudflare/worker.js SECURITY_HEADERS object",
+    "applied_via": "withSecurityHeaders() function, called on every static-asset response",
+    "api_lead_headers_separate": true,
+    "api_lead_header_set": ["Cache-Control: no-store", "X-Content-Type-Options: nosniff", "Referrer-Policy: no-referrer"],
+    "https_enforcement_location": "Cloudflare zone-level (dashboard) setting, NOT implemented in worker.js code"
+  },
+  "architecture_correction": {
+    "prior_assumption_phase15_16": "/api/lead forwards to JFT's own custom backend",
+    "corrected_finding": "/api/lead is a Cloudflare Worker handler implemented directly in worker.js, which validates/sanitizes submissions and forwards them to Web3Forms (api.web3forms.com), a third-party transactional form API, gated by an env-configured WEB3FORMS_ACCESS_KEY secret and an optional Turnstile check"
+  },
+  "header_inventory": {
+    "strict_transport_security": {"value": "max-age=31536000; includeSubDomains", "local": "PASS", "bundle": "PASS", "production": "PASS"},
+    "content_security_policy": {"local": "PASS", "bundle": "PASS", "production": "PASS", "matches_source_exactly": true},
+    "cross_origin_opener_policy": {"value": "same-origin-allow-popups", "production": "PASS"},
+    "permissions_policy": {"value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()", "production": "PASS"},
+    "referrer_policy": {"value": "strict-origin-when-cross-origin", "production": "PASS"},
+    "x_content_type_options": {"value": "nosniff", "production": "PASS"},
+    "x_frame_options": {"value": "SAMEORIGIN", "production": "PASS"},
+    "cross_origin_resource_policy": {"present": false, "consistent_with_source": true},
+    "cross_origin_embedder_policy": {"present": false, "consistent_with_source": true},
+    "investigation_note": "an initial grep filter appeared to miss several present headers due to a display artifact; a full unfiltered fetch immediately confirmed all headers genuinely present - self-caught, not a site finding"
+  },
+  "csp_functionality_matrix": [
+    {"resource": "'unsafe-inline' script-src", "dependency": "inline scripts throughout static HTML architecture", "required": true, "risk": "medium", "change_recommended": false},
+    {"resource": "static.cloudflareinsights.com", "dependency": "Cloudflare RUM beacon", "required": true, "risk": "low", "change_recommended": false},
+    {"resource": "cdnjs.cloudflare.com", "dependency": "Font Awesome icons", "required": true, "risk": "low", "change_recommended": false},
+    {"resource": "translate.google.com / translate.googleapis.com", "dependency": "Google Website Translate widget", "required": true, "risk": "low", "change_recommended": false},
+    {"resource": "www.googletagmanager.com", "dependency": "GA4 gtag.js loader", "required": true, "risk": "low", "change_recommended": false},
+    {"resource": "fonts.googleapis.com / fonts.gstatic.com", "dependency": "Google Fonts", "required": true, "risk": "low", "change_recommended": false},
+    {"resource": "google-analytics.com domains", "dependency": "GA4 event beacons", "required": true, "risk": "low", "change_recommended": false},
+    {"resource": "frankfurter.app / exchangerate-api.com / open.er-api.com / ok.surf", "dependency": "live currency-rate feeds for quote calculator", "required": true, "risk": "low", "change_recommended": false},
+    {"resource": "www.google.com / maps.google.com frame-src", "dependency": "embedded Google Map on contact.html", "required": true, "risk": "low", "change_recommended": false},
+    {"resource": "img-src 'self' data: https:", "dependency": "broad image loading + lazy-load placeholder GIFs", "required": true, "risk": "low (images cannot execute script under this CSP)", "change_recommended": false},
+    {"resource": "object-src 'none'", "dependency": "N/A - restrictive by design", "required": "n/a", "risk": "n/a", "change_recommended": false},
+    {"resource": "frame-ancestors 'self'", "dependency": "clickjacking protection", "required": true, "risk": "n/a - restrictive", "change_recommended": false}
+  ],
+  "no_untraceable_csp_source_found": true,
+  "clickjacking": {"frame_ancestors": "'self'", "x_frame_options": "SAMEORIGIN", "consistent": true, "status": "PASS"},
+  "mime_content_type": {"css": "text/css; charset=utf-8", "js": "text/javascript; charset=utf-8", "nosniff_present": true, "status": "PASS"},
+  "api_lead_audit": {
+    "endpoint_location": "worker.js handleLead() function",
+    "third_party_forwarder": "api.web3forms.com",
+    "tests_performed": [
+      {"test": "GET /api/lead", "expected": 405, "actual": 405, "result": "PASS"},
+      {"test": "OPTIONS /api/lead", "expected": 405, "actual": 405, "result": "PASS - no CORS preflight support"},
+      {"test": "POST with no Origin header", "expected": 403, "actual": 403, "message": "Invalid submission origin", "result": "PASS"},
+      {"test": "POST correct Origin, empty JSON", "expected": 400, "actual": 400, "message": "Email or phone is required", "result": "PASS"},
+      {"test": "POST with honeypot field filled", "expected": 400, "actual": 400, "message": "Automated submission rejected", "result": "PASS"},
+      {"test": "POST malformed JSON", "expected": 400, "actual": 400, "message": "Invalid form payload", "result": "PASS, no stack trace"},
+      {"test": "PUT/DELETE/PATCH on static routes (control)", "expected": 405, "actual": 405, "result": "PASS"}
+    ],
+    "real_lead_created": false,
+    "cors_header_present": false,
+    "cors_posture": "safe-by-default (fails closed for cross-origin browser access)",
+    "origin_check_bypassable_by_non_browser_clients": true,
+    "origin_check_bypass_disclosure": "inherent limitation of Origin-header checking generally, not a defect specific to this implementation; real defense against non-browser abuse is honeypot + size limits + field validation + optional Turnstile",
+    "pii_echoed_in_responses": false,
+    "turnstile_secret_configured_live": "UNKNOWN - cannot be determined from source or safe HTTP probing",
+    "dashboard_rate_limit_present": "UNKNOWN - would require dashboard access or risk disrupting live service to test",
+    "status": "PASS with 2 UNKNOWN items, neither converted to PASS"
+  },
+  "sensitive_file_exposure": {
+    "paths_tested": 14,
+    "paths": [".env", ".env.local", ".dev.vars", ".git/config", ".git/HEAD", "wrangler.toml", "wrangler.jsonc", "package.json", "package-lock.json", "README.md", "reports/QA-CHANGE-CONTROL.md", "scripts/build_cloudflare_assets.py", ".claude/settings.json", "jft-conversion.js.map"],
+    "all_returned_404": true,
+    "source_maps_in_bundle": 0,
+    "status": "PASS"
+  },
+  "path_normalization": {
+    "tests": ["//", "/./", "/../", "/%2e%2e/", "/index.html?"],
+    "traversal_possible": false,
+    "reasoning": "URL parser normalizes .. segments before any pathname logic runs; the only user input touching path construction (legacyProductRedirect's product param) is regex-sanitized to [a-z0-9-] only",
+    "status": "PASS"
+  },
+  "error_handling": {
+    "404_body": "empty (Content-Length: 0)",
+    "404_headers": "full standard security header set still applied",
+    "stack_traces_found": false,
+    "internal_paths_disclosed": false,
+    "status": "PASS"
+  },
+  "redirect_audit": {
+    "tested": [
+      {"path": "/1121-golden-sella-basmati-rice/", "expected_status": 301, "actual_status": 301, "destination_correct": true},
+      {"path": "blog-cif-fob-explained.html", "expected_status": 301, "actual_status": 301, "destination_correct": true}
+    ],
+    "open_redirect_possible": false,
+    "reasoning": "every redirect target in worker.js is a hardcoded relative path or a sanitized, existence-verified asset path, never user-supplied absolute URL",
+    "status": "PASS"
+  },
+  "production_bundle_local_parity": {
+    "files_compared": ["jft-conversion.js", "trade-regions.css"],
+    "byte_identical": true,
+    "status": "PASS"
+  },
+  "findings": [
+    {
+      "id": "P18-INFO-1",
+      "severity": "INFORMATIONAL",
+      "title": "Permissions-Policy does not explicitly restrict accelerometer/gyroscope/autoplay/fullscreen",
+      "actionable": false,
+      "reason": "no evidence of exploitability or need; these features are gated by other browser mechanisms; documented only per Part 51's zero-unnecessary-change instruction"
+    },
+    {
+      "id": "P18-UNK-1",
+      "severity": "UNKNOWN",
+      "title": "Whether TURNSTILE_SECRET is configured in the live Cloudflare environment",
+      "actionable": false,
+      "reason": "cannot be determined from source or safe HTTP probing; requires dashboard/secrets access this session does not have"
+    },
+    {
+      "id": "P18-UNK-2",
+      "severity": "UNKNOWN",
+      "title": "Whether a Cloudflare dashboard-level rate-limit rule protects /api/lead",
+      "actionable": false,
+      "reason": "testing would require dashboard access or risk disrupting the live service"
+    }
+  ],
+  "critical_high_medium_findings": 0,
+  "fixes_applied": [],
+  "website_source_files_modified": 0,
+  "deployment_status": "NOT DEPLOYED - no changes were made, so no deployment was needed",
+  "destructive_testing_performed": false,
+  "pii_exposed_in_this_report": false,
+  "real_leads_created": false
+}

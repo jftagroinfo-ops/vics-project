@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "report": "production-baseline-2026-08-26",
+    "generated_at": "2026-08-26",
+    "phase": "Phase 1 - Production Baseline (audit only, no source files modified)"
+  },
+  "repository": {
+    "branch": "main",
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "commit_short": "e64a3f2b",
+    "commit_matches_expected_baseline": true,
+    "working_tree_status": "clean except one untracked local directory: .claude/ (Claude Code tool permission settings; not a website source file, not committed)",
+    "runtime_versions": {
+      "node": "v24.15.0",
+      "npm": "11.12.1",
+      "python": "3.11.9",
+      "pip": "24.0",
+      "wrangler": "4.126.0 (resolved via npx at run time; not pinned in a package.json/lockfile)"
+    }
+  },
+  "file_counts": {
+    "html": 1789,
+    "css": 16,
+    "js": 12,
+    "json": 29,
+    "xml": 2,
+    "python_scripts": 81,
+    "markdown_docs": 65,
+    "csv": 23,
+    "pdf": 4,
+    "images_total": 382,
+    "images_by_extension": { "ico": 1, "jpg": 102, "png": 51, "webp": 228 },
+    "fonts_total": 9,
+    "fonts_by_extension": { "woff2": 9 }
+  },
+  "page_classification": {
+    "total_html_files": 1789,
+    "by_kind": {
+      "indexable": 1438,
+      "utility_noindex": 293,
+      "locale_fallback": 5,
+      "helper": 46,
+      "legacy_redirect": 7,
+      "temporary": 0
+    },
+    "by_locale": {
+      "en": { "indexable": 142, "utility_noindex": 3, "legacy_redirect": 7, "helper": 6, "locale_fallback": 1 },
+      "ar": { "indexable": 129, "utility_noindex": 29, "locale_fallback": 1, "helper": 4 },
+      "es": { "indexable": 129, "utility_noindex": 29, "locale_fallback": 1, "helper": 4 },
+      "fr": { "indexable": 129, "utility_noindex": 29, "locale_fallback": 1, "helper": 4 },
+      "id": { "indexable": 130, "utility_noindex": 29, "helper": 4 },
+      "ms": { "indexable": 130, "utility_noindex": 29, "helper": 4 },
+      "pt": { "indexable": 130, "utility_noindex": 29, "helper": 4 },
+      "ru": { "indexable": 129, "utility_noindex": 29, "locale_fallback": 1, "helper": 4 },
+      "si": { "indexable": 130, "utility_noindex": 29, "helper": 4 },
+      "th": { "indexable": 130, "utility_noindex": 29, "helper": 4 },
+      "vi": { "indexable": 130, "utility_noindex": 29, "helper": 4 }
+    },
+    "classification_method": "Reused verbatim from scripts/audit_coverage_gaps.py's own kind-detection logic (helper/verification-file/redirect/locale-fallback/noindex/indexable), applied in a separate read-only analysis script; the existing script itself was not modified or altered."
+  },
+  "product_inventory": {
+    "total_products": 84,
+    "by_category": {
+      "rice": 20, "spices": 17, "herbs": 15, "feed": 15, "oilseeds": 5,
+      "flour": 5, "pulses": 4, "wheat": 1, "sugar": 1, "raisins": 1
+    },
+    "duplicate_urls": {},
+    "products_missing_url": 0,
+    "products_missing_required_field": {},
+    "integrity_status": "clean - no duplicate slugs/URLs, no missing required fields (c, t, u, h, i, s) across all 84 entries"
+  },
+  "cloudflare_deployment_bundle_check": {
+    "method": "Ran scripts/build_cloudflare_assets.py (the project's own, unmodified build script) to produce a disposable local copy of the exact bundle it would deploy, inspected it, then deleted the local copy. Nothing was deployed.",
+    "files_in_bundle": 2089,
+    "size_mib": 134.3,
+    "internal_files_found_in_bundle": {
+      "python_scripts": 0,
+      "scripts_directory": false,
+      "reports_directory": false,
+      "docs_directory": false,
+      "git_directory": false,
+      "env_or_secret_or_credential_files": 0,
+      "localized_copy_cache_json": false,
+      "localization_review_json": false
+    },
+    "benign_markdown_included": [
+      "assets/brochures/generated/README.md",
+      "images/editorial/SOURCES.md",
+      "images/PHOTO_CREDITS.md"
+    ],
+    "worker_script_secret_scan": "No hardcoded API-key/secret/token patterns found in .cloudflare/worker.js",
+    "verdict": "No exposure risk found in the current build output."
+  },
+  "existing_audit_results": {
+    "read_only_ci_gate_scripts": [
+      { "script": "scripts/audit_website.py", "purpose": "Read-only structural audit for every renderable page in the static site.", "result": "PASS", "findings": 0, "scope": "1743 renderable HTML pages" },
+      { "script": "scripts/audit_commercial_content.py", "purpose": "Validate the commercial contract surface of every English product page.", "result": "PASS", "findings": 0, "scope": "84 product pages" },
+      { "script": "scripts/audit_claims_and_products.py", "purpose": "Release gate for unsupported claims and master-product/page consistency.", "result": "PASS", "findings": 0, "scope": "site-wide" },
+      { "script": "scripts/validate_blog_navigation.py", "purpose": "Validate published blog navigation, images, and legacy redirects.", "result": "PASS", "findings": 0, "scope": "259 blog cards, 66 legacy redirects" },
+      { "script": "scripts/audit_localizations.py", "purpose": "Check locale completeness, metadata, text residue, and source parity.", "result": "PASS", "findings": 0, "scope": "10 locales" },
+      { "script": "scripts/audit_performance.py", "purpose": "Enforce lightweight static performance budgets for production pages.", "result": "PASS", "findings": 0, "scope": "site-wide" },
+      { "script": "scripts/full_site_audit.py", "purpose": "Fast, read-only SEO/accessibility/static integrity audit for the whole site.", "result": "PASS", "findings": 0, "scope": "1743 pages, 1443 indexable" },
+      { "script": "scripts/audit_coverage_gaps.py", "purpose": "Audit blind spots: inventory, graph, fragments, forms, schema, locale and encoding.", "result": "PASS", "findings": 0, "scope": "1789 HTML files" }
+    ],
+    "deterministic_generator_chain_ci_step": {
+      "declared_scripts_in_order": [
+        "scripts/build_locale_ui.py", "scripts/build_product_master.py", "scripts/apply_evidence_remediation.py",
+        "scripts/remediate_production_claims.py", "scripts/normalize_transaction_terms.py", "scripts/repair_claim_markup.py",
+        "scripts/add_main_landmarks.py", "scripts/apply_audit_remediation.py", "scripts/apply_localization_review_policy.py",
+        "scripts/generate_hreflang.py", "scripts/generate_sitemap.py"
+      ],
+      "ci_expectation": "git diff --exit-code must show zero difference after re-running all 11 generators against the committed source.",
+      "attempted_locally": true,
+      "result": "INCONCLUSIVE / COULD NOT BE SAFELY COMPLETED",
+      "reason": "The first script (build_locale_ui.py) depends on scripts/translate_fallback_pages.py's translate_values(), which calls the unofficial https://translate.googleapis.com/translate_a/single endpoint for any source string not already present in data/localized-copy-cache.json, with up to 12 retry attempts and up to ~45s sleep between attempts (worst case ~18 minutes per uncached string). A direct read of the cache found 92 header/footer string-locale combinations currently uncached. An actual run hung past 4 minutes with zero output before being stopped to avoid an unbounded delay and to keep this audit read-only-safe. No repository files were modified by the attempt (verified via git status immediately after stopping).",
+      "independent_evidence_of_non_determinism": "Comparing the current header.html/footer.html source text against the already-shipped, committed locale-ui.js dictionary (without running the generator) shows real drift: every one of the 10 locale dictionaries contains 6-7 keys for source text that no longer exists verbatim in the current source (stale/orphaned translations), and is missing translations for 11-18 current source strings per locale. This proves locale-ui.js is presently out of sync with header.html/footer.html, which strongly implies the CI 'git diff --exit-code' check would fail if it completed."
+    }
+  },
+  "critical_content_finding": {
+    "title": "Stale generated locale-ui.js contains a dead key from a corrected factual claim",
+    "detail": "footer.html currently reads '...transparency since 2016.' The committed locale-ui.js dictionary for all 10 locales still keys off the old text '...transparency since 1980.' (translated in all 10 languages). Because the dictionary key no longer matches current source text verbatim, the client-side matcher (locale-ui.js's translateText(), which does an exact dictionary[key] lookup) silently fails to match and does not display the false '1980' date -- but it also means this sentence renders in raw, untranslated English on every non-English page footer, on every page of the site, in all 10 languages.",
+    "root_cause": "The generator (scripts/build_locale_ui.py) was not re-run after the source date correction (1980 -> 2016) was made to header.html/footer.html, so the shipped locale-ui.js was never regenerated to match.",
+    "scope": "All 10 locales; footer is present on effectively every page of the site.",
+    "verified_by": "Direct text comparison of committed locale-ui.js dictionary keys against current header.html/footer.html source strings; no network calls or file writes were used to establish this.",
+    "not_fixed": "Per the change-control rule for this phase, this was documented only and not corrected."
+  },
+  "suspicious_or_stale_files": {
+    "audit_output_txt": {
+      "path": "audit_output.txt",
+      "status": "tracked in git, stale",
+      "last_commit": "2026-08-09",
+      "issue": "States 'Audited 1612 renderable HTML pages' -- current count is 1743. A dead, outdated snapshot sitting at repo root, separate from the properly current reports/*.json outputs."
+    },
+    "tmp_packing_test_cjs": {
+      "path": "tmp-packing-test.cjs",
+      "status": "tracked in git",
+      "last_commit": "2026-08-12",
+      "issue": "Ad-hoc, temp-named Playwright test script for packing-calculator.html. Not referenced by any workflow, script, or other file. Not part of the deploy bundle (wrong extension for build_cloudflare_assets.py's allow-list) but is unnecessary repository clutter at the root."
+    },
+    "fix_all_product_pages_py": {
+      "path": "fix_all_product_pages.py",
+      "status": "tracked in git",
+      "last_commit": "2026-06-14",
+      "issue": "The only .py file living at repo root instead of scripts/; ~2.5 months stale relative to this baseline. Not part of the deploy bundle."
+    },
+    "scripts_without_module_docstrings": [
+      "check_links.py", "check_unused.py", "fetch_agro_news.py", "final_polish.py", "find_missing_blogs.py",
+      "fix_blog_social_images.py", "fix_image_typos.py", "integrate_blog_editorial_images.py", "jft_ai_engine.py",
+      "propagate_products_fix.py", "replace_jute_blog_references.py", "thorough_fix.py", "update_editorial_labels.py",
+      "validate_buyer_brief_cards.py"
+    ]
+  },
+  "duplicate_filenames_reviewed": {
+    "verdict": "All duplicate filenames found across the repository are expected by design (one-per-locale page mirrors, e.g. 11x index.html; thumbnail variants of certification logos; a README.md per asset folder). None indicate an accidental duplicate or drift.",
+    "examples": ["index.html (14 locations: root + 10 locales + 2 logistics pages + 1 legacy product archive)", "AEO.webp / APEDA.webp / etc. (full-size + thumbs/ variant, by design)"]
+  },
+  "secrets_and_config_safety": {
+    "dev_vars_real_file_present": false,
+    "dev_vars_example_present": true,
+    "dev_vars_in_gitignore": false,
+    "note": "No real .dev.vars currently exists, so there is no active exposure. However .gitignore only excludes .wrangler/ and the .cloudflare-dist* build directories -- it does not explicitly list .dev.vars, so there is no repository-level safety net if a developer creates that file locally from the .example template and later runs a broad 'git add'."
+  }
+}

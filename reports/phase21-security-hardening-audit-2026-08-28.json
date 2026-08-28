@@ -1,0 +1,141 @@
+{
+  "phase": 21,
+  "date": "2026-08-28",
+  "scope": "production security hardening, /api/lead protection, Cloudflare edge protection, TLS/security verification only",
+  "website_source_files_modified": 0,
+  "baseline": {
+    "commit": "e64a3f2ba03c114a94ef61db20fbff486dab2a2b",
+    "git_status_paths": 1177,
+    "stale_build_artifact_present": false,
+    "production_status": 200,
+    "production_sitemap_urls": 1453,
+    "worker_js_unchanged": true,
+    "wrangler_jsonc_unchanged": true,
+    "configured_secrets": ["WEB3FORMS_ACCESS_KEY"],
+    "turnstile_secret_configured": false
+  },
+  "api_lead_tests": [
+    {"test": "GET", "expected": 405, "observed": 405, "result": "PASS"},
+    {"test": "PUT", "expected": 405, "observed": 405, "result": "PASS"},
+    {"test": "PATCH", "expected": 405, "observed": 405, "result": "PASS"},
+    {"test": "DELETE", "expected": 405, "observed": 405, "result": "PASS"},
+    {"test": "HEAD", "expected": 405, "observed": 405, "result": "PASS", "note": "initial apparent hang root-caused to Windows schannel curl keep-alive artifact, not server defect; confirmed via Connection:close retest"},
+    {"test": "OPTIONS with CORS preflight headers", "expected": "405, no CORS support", "observed": "405, zero Access-Control-* headers", "result": "PASS"},
+    {"test": "TRACE", "expected": 405, "observed": 405, "result": "PASS"},
+    {"test": "empty POST body, correct Origin", "expected": 400, "observed": 400, "result": "PASS"},
+    {"test": "no Origin header", "expected": 403, "observed": 403, "result": "PASS"},
+    {"test": "wrong Origin", "expected": 403, "observed": 403, "result": "PASS"},
+    {"test": "malformed Origin", "expected": 403, "observed": 403, "result": "PASS"},
+    {"test": "Origin: null", "expected": 403, "observed": 403, "result": "PASS"},
+    {"test": "www subdomain Origin accepted", "expected": "passes origin gate", "observed": "passed gate, rejected downstream by honeypot check as designed", "result": "PASS"},
+    {"test": "honeypot field populated", "expected": 400, "observed": 400, "result": "PASS"},
+    {"test": "malformed JSON", "expected": 400, "observed": 400, "result": "PASS"},
+    {"test": "90 fields (limit 80)", "expected": 400, "observed": 400, "result": "PASS"},
+    {"test": "body ~40KB (limit 32KB)", "expected": 413, "observed": 413, "result": "PASS"},
+    {"test": "text/plain content-type", "expected": 400, "observed": 400, "result": "PASS"},
+    {"test": "missing email/phone/whatsapp", "expected": 400, "observed": 400, "result": "PASS"}
+  ],
+  "pii_exposure_check": {"tested_paths": "all failure paths above", "pii_echoed": false, "stack_traces_exposed": false, "upstream_secrets_exposed": false},
+  "turnstile_verification": {
+    "secret_configured": false,
+    "frontend_widget_present": false,
+    "verify_function_behavior": "unconditional no-op when TURNSTILE_SECRET absent, confirmed by source trace",
+    "reflexive_implementation_avoided": true,
+    "disposition": "confirmed absent, not implemented this phase - requires dashboard-created resource this session cannot obtain"
+  },
+  "rate_limiting_verification": {
+    "token_refreshed_via_wrangler_whoami": true,
+    "zone_read_sanity_check": "succeeded, proving token validity",
+    "rate_limits_api_call": "failed, code 10000 Authentication error",
+    "rulesets_api_call": "failed, code 10000 Authentication error",
+    "classification": "UNKNOWN, genuinely re-confirmed with cleaner evidence than Phase 19"
+  },
+  "tls_verification": {
+    "tooling_used": "OpenSSL 3.5.5 via Git Bash mingw64, genuine non-schannel backend",
+    "default_negotiation": "TLSv1.3, TLS_AES_256_GCM_SHA384",
+    "tls_1_3_forced": "success",
+    "tls_1_2_forced": "success, ECDHE-ECDSA-CHACHA20-POLY1305",
+    "tls_1_1_forced": "success (with SECLEVEL=0 to bypass client-side OpenSSL 3.x default restriction), Protocol: TLSv1.1, ECDHE-RSA-AES128-SHA",
+    "tls_1_0_forced": "success (same method), Protocol: TLSv1, ECDHE-RSA-AES128-SHA",
+    "control_test": "tls-v1-0.badssl.com succeeded identically, ruling out client-side-only restriction as explanation",
+    "finding": "production accepts TLS 1.0 and TLS 1.1 in addition to 1.2/1.3",
+    "severity": "MEDIUM",
+    "remediation_path": "Cloudflare zone-level Minimum TLS Version setting, not a worker.js code change",
+    "remediation_api_attempt": "GET /zones/{id}/settings/min_tls_version and /settings/tls_1_3 both failed with code 9109 Unauthorized to access requested resource",
+    "remediation_status": "cannot be fixed within this session, requires dashboard access or broader API token scope",
+    "upgraded_from": "Phase 19 UNKNOWN (tooling-limited) to Phase 21 CONFIRMED (evidence-backed)"
+  },
+  "security_headers": {
+    "page_types_tested": ["homepage (prior phases)", "category/calculator page", "404 page", "ar locale homepage via redirect chain"],
+    "headers_confirmed_present_on_404": true,
+    "redirect_responses_carry_minimal_headers": true,
+    "assessment": "expected, not a finding - no content to protect on empty-body 301s",
+    "drift_from_phase_18_19": false
+  },
+  "csp_audit": {
+    "origins_checked": 16,
+    "origins_confirmed_actively_used": 16,
+    "stale_or_unused_origins_found": 0,
+    "unsafe_inline_removal_attempted": false,
+    "reason": "static HTML architecture legitimately depends on inline scripts/styles, no demonstrated security requirement to justify rewrite"
+  },
+  "cors_behavior": {
+    "options_preflight_response": "405, zero Access-Control-* headers",
+    "actual_security_boundary": "Origin header validation in handleLead(), not CORS",
+    "classification": "confirmed correct by design, unchanged from Phase 18/19"
+  },
+  "static_file_exposure": {
+    "paths_tested": 13,
+    "paths_exposed": 0,
+    "tested_paths": [".env", ".dev.vars", ".git/config", ".gitignore", "scripts/audit_website.py", "reports/QA-CHANGE-CONTROL.md", "reports/phase19-production-security-closure-2026-08-28.json", "wrangler.jsonc", ".cloudflare/worker.js", "data/localized-copy-cache.json", "package.json", "node_modules/", ".wrangler/"]
+  },
+  "routing_and_path_normalization": {
+    "path_traversal_attempts": 3,
+    "path_traversal_successful": 0,
+    "double_slash_bypass": false,
+    "case_sensitivity_bypass": false,
+    "null_byte_bypass": false,
+    "host_header_mismatch": "403 rejected at Cloudflare edge",
+    "trace_method": "405 rejected",
+    "www_to_apex_redirect": "301, correct",
+    "http_to_https_redirect": "301, correct",
+    "open_redirects_found": 0
+  },
+  "cache_behavior": {
+    "api_lead_cache_control": "no-store, confirmed",
+    "static_assets": "not re-tested, no code touched, Phase 19 finding stands unchanged"
+  },
+  "web3forms_upstream": {
+    "re_tested_live": false,
+    "reason": "avoid creating real submissions",
+    "source_trace_confirms": "access key never exposed to client, only boolean success + generic message returned to browser"
+  },
+  "third_party_dependencies": {
+    "total_inventoried": 16,
+    "all_actively_used": true,
+    "removed": 0
+  },
+  "fix_decision_gate_results": [
+    {"candidate": "TLS 1.0/1.1 acceptance", "gate_passed": false, "failing_condition": "fix within session's access", "disposition": "documented, not fixed"},
+    {"candidate": "Turnstile activation", "gate_passed": false, "failing_condition": "fix achievable now / minimal", "disposition": "documented, not fixed"},
+    {"candidate": "Worker-level rate-limit mitigation", "gate_passed": false, "failing_condition": "root cause proven (absence not confirmed)", "disposition": "documented, not fixed"}
+  ],
+  "changes_made_this_phase": [],
+  "git_status_before": 1177,
+  "git_status_after": 1177,
+  "remaining_risk_register": [
+    {"id": "P21-R1", "title": "TLS 1.0/1.1 accepted alongside 1.2/1.3", "severity": "MEDIUM", "status": "confirmed with direct evidence this phase, remediation outside session access"},
+    {"id": "P19-R1", "title": "TURNSTILE_SECRET not configured, no frontend widget", "severity": "LOW-MEDIUM", "status": "re-confirmed unchanged"},
+    {"id": "P19-R2", "title": "Cloudflare rate-limit/ruleset status for /api/lead", "severity": "UNKNOWN", "status": "re-attempted with verified-fresh token, still inaccessible"},
+    {"id": "P18-INFO-1", "title": "Permissions-Policy scope incomplete", "severity": "INFORMATIONAL", "status": "unchanged"},
+    {"id": "P19-R4", "title": "audit build-artifact exclusion gap", "severity": "LOW (tooling)", "status": "did not recur this phase"},
+    {"id": "P20-R1", "title": "category pages not localized", "severity": "LOW (out of security scope)", "status": "unchanged"}
+  ],
+  "critical_or_high_findings": 0,
+  "recommendation": [
+    "Set Cloudflare zone Minimum TLS Version to 1.2 via dashboard - single toggle, no code change, no legitimate visitor impact",
+    "Confirm or create a rate-limiting rule for /api/lead in the Cloudflare dashboard WAF/Rate Limiting section",
+    "If Turnstile is desired, create the widget in the dashboard first to obtain a site key + secret, then a separately-scoped follow-up phase can wire it into the existing verifyTurnstile() code path"
+  ],
+  "stop_instruction": "Per Phase 21's explicit instruction, STOP. Do not begin Phase 22."
+}
