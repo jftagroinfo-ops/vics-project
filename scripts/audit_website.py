@@ -40,7 +40,6 @@ UNPUBLISHED_BLOGS = {
     "blog-phytosanitary-certificate-india-exports.html",
     "blog-spice-trends-2026.html",
     "blog-sugar-s30-export-india-2026.html",
-    "blog-toor-dal-export-india-2026.html",
     "blog-wheat-flour-atta-export-india-2026.html",
     "blog-yellow-maize-export-india-2026.html",
 }

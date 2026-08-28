@@ -1,6 +1,16 @@
 /* The shared site header is fixed and does not occupy document flow. */
 .sample-hero { margin-top: 170px; }
 
+/* This page doesn't load jft-design-system.css/jft-responsive.css, so the
+   shared header's inline-styled skip-link (position:absolute) loses its
+   viewport-relative positioning: .sample-hero's margin-top collapses through
+   the empty #header-placeholder and body (which this page's own CSS sets to
+   position:relative), pushing the skip-link's containing block down and
+   making it land on-screen over the logo instead of hidden above it. Forcing
+   position:fixed restores the intended behavior without touching the shared
+   header.html markup used correctly by every other page. */
+.skip-link { position: fixed !important; }
+
 @media (max-width: 900px) {
   .sample-hero { margin-top: 96px; }
 }

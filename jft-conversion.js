@@ -190,7 +190,9 @@
     panel.setAttribute('aria-labelledby', 'jft-next-step-title');
     panel.innerHTML = '<div class="jft-next-step-copy"><span>Buyer next step</span><h2 id="jft-next-step-title">Turn this research into a verified requirement</h2><p>Review the relevant export specification, build a planning estimate, or send your quantity and destination for a commercial response.</p></div>' +
       '<div class="jft-next-step-actions"><a href="' + topic.product + '" data-track="article_to_product">View ' + topic.label + '</a><a href="quote-calculator.html" data-track="article_to_calculator">Build Reference Estimate</a><a class="primary" href="contact.html?product=' + encodeURIComponent(topic.label) + '&source=article#inquiry-form" data-track="article_to_rfq">Request Export Quote</a></div>';
-    articleBody.insertAdjacentElement('afterend', panel);
+    const layoutParent = articleBody.parentElement;
+    const insertionAnchor = (layoutParent && layoutParent.classList.contains('seo-article-layout')) ? layoutParent : articleBody;
+    insertionAnchor.insertAdjacentElement('afterend', panel);
     if (!document.getElementById('jft-article-next-step-style')) {
       const style = document.createElement('style');
       style.id = 'jft-article-next-step-style';

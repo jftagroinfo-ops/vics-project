@@ -241,6 +241,7 @@ img { max-width: 100%; height: auto; display: block; }
 .jft-breadcrumb a { color: rgba(255,255,255,.4); transition: .3s; }
 .jft-breadcrumb a:hover { color: var(--gold); }
 .jft-breadcrumb i { font-size: .5rem; color: rgba(255,255,255,.25); }
+html[dir="rtl"] .jft-breadcrumb i { transform: scaleX(-1); }
 .jft-page-hero h1 {
   font-size: clamp(2.2rem,5.5vw,4.2rem); font-weight: 900; line-height: 1.1;
   color: #fff; letter-spacing: -1.5px; margin: 0 0 20px;

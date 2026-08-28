@@ -27,9 +27,15 @@ UPDATED_2026_08_20 = {
     "blog-how-to-choose-indian-agro-exporter.html",
 }
 
+UPDATED_2026_08_28 = {
+    "blog-toor-dal-export-india-2026.html",
+}
+
 
 def last_modified(path: Path) -> str:
     """Reuse the checked-in value so routine verification is deterministic."""
+    if locale(path) == "en" and path.name in UPDATED_2026_08_28:
+        return "2026-08-28"
     if locale(path) == "en" and path.name in UPDATED_2026_08_20:
         return "2026-08-20"
     if locale(path) == "en" and path.name in UPDATED_2026_08_16:

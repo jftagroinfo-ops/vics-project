@@ -74,6 +74,16 @@
     .t-name{font-family:var(--font-sub);font-size:0.85rem;font-weight:700;color:#fff}
     .t-role{font-size:0.75rem;color:rgba(255,255,255,0.5)}
     @media(max-width:480px){.trade-hero{padding:90px 0 60px}}
+    .prod-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;margin-top:30px}
+    .prod-card{background:#fff;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--jft-border);box-shadow:var(--shadow);transition:0.3s}
+    .prod-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.1)}
+    .prod-img{height:130px;background:linear-gradient(135deg,var(--jft-light),#e8e0d0);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
+    .prod-img img{width:100%;height:100%;object-fit:cover}
+    .prod-badge{position:absolute;top:10px;right:10px;background:var(--jft-primary);color:#fff;font-size:0.65rem;font-weight:700;font-family:var(--font-sub);padding:4px 10px;border-radius:20px;text-transform:uppercase}
+    .prod-body{padding:16px}
+    .prod-name{font-family:var(--font-sub);font-size:0.9rem;font-weight:700;color:var(--jft-navy);margin-bottom:4px}
+    .prod-detail{font-size:0.78rem;color:#888;margin-bottom:10px}
+    .prod-fob{font-family:var(--font-sub);font-size:0.8rem;color:var(--jft-primary);font-weight:700}
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -172,6 +182,21 @@
       </div>
     </div>
   </div>
+
+  <!-- PRODUCTS FOR EUROPE -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="brand-tag">Products for Europe</div>
+      <h2 class="section-title">Priority Product Specification<br><span>Paths for European Buyers</span></h2>
+      <div class="prod-row">
+        <a class="prod-card" href="1121-raw-basmati-rice-exporter.html" aria-label="View 1121 raw Basmati rice"><div class="prod-img"><img src="images/products/1121 Raw Basmati Rice.webp" alt="1121 raw basmati rice" width="1024" height="1024"><div class="prod-badge">Core Range</div></div><div class="prod-body"><div class="prod-name">1121 Raw Basmati Rice</div><div class="prod-detail">Grain length and cooking specification defined by buyer</div><div class="prod-fob">Current FOB or CIF quote on inquiry</div></div></a>
+        <a class="prod-card" href="senna-pods-exporter.html" aria-label="View senna pods export page"><div class="prod-img"><img src="images/products/Senna Pods.webp" alt="Indian senna pods" width="1024" height="1024"></div><div class="prod-body"><div class="prod-name">Senna Pods</div><div class="prod-detail">Sennoside content and purity confirmed before order</div><div class="prod-fob">Sample and specification requested before order</div></div></a>
+        <a class="prod-card" href="sunflower-seeds-in-shell-exporter.html" aria-label="View sunflower seeds in shell export page"><div class="prod-img"><img src="images/products/Sunflower Seeds.webp" alt="Indian sunflower seeds in shell" width="1024" height="1024"></div><div class="prod-body"><div class="prod-name">Sunflower Seeds (In Shell)</div><div class="prod-detail">Size grading and admixture defined by buyer</div><div class="prod-fob">Label and pack approval required before quote</div></div></a>
+        <a class="prod-card" href="red-millet-exporter.html" aria-label="View red millet export page"><div class="prod-img"><img src="images/products/Red Millet.webp" alt="Indian red millet" width="1024" height="1024"></div><div class="prod-body"><div class="prod-name">Red Millet</div><div class="prod-detail">Food or feed specification quoted separately</div><div class="prod-fob">Inspection scope agreed in contract</div></div></a>
+        <a class="prod-card" href="indian-raisins-kishmish-exporter.html" aria-label="View Indian raisins export page"><div class="prod-img"><img src="images/products/Indian Raisins (Kishmish).webp" alt="Indian raisins kishmish" width="1024" height="1024"></div><div class="prod-body"><div class="prod-name">Indian Raisins (Kishmish)</div><div class="prod-detail">Size grading and moisture confirmed before order</div><div class="prod-fob">Sample and specification requested before order</div></div></a>
+      </div>
+    </div>
+  </section>
 
   <!-- COMPLIANCE -->
   <section>

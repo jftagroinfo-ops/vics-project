@@ -149,7 +149,7 @@ img{max-width:100%;height:auto;display:block}
 .fch-h em{color:var(--gold-light);font-style:italic;font-weight:300}
 .fch-p{font-size:.87rem;color:rgba(255,255,255,.52);line-height:1.6;position:relative;z-index:1;margin:0 0 18px}
 .trust-strip{display:flex;align-items:center;gap:14px;position:relative;z-index:1;flex-wrap:wrap}
-.trust-strip img{height:26px;filter:brightness(0) invert(1);opacity:.55;transition:.3s}
+.trust-strip img{height:26px;width:auto;filter:brightness(0) invert(1);opacity:.55;transition:.3s}
 .trust-strip img:hover{opacity:1}
 .form-body{padding:34px 38px}
 /* FIELDS */
@@ -158,6 +158,7 @@ img{max-width:100%;height:auto;display:block}
 .fwrap{display:flex;flex-direction:column;gap:5px}
 .flabel{font-family:var(--ff-s);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--navy)}
 .flabel .req{color:#e53935;margin-left:2px}
+.flabel .opt{color:#8a938e;font-weight:400;text-transform:none;letter-spacing:0;margin-left:4px}
 .finput,.fselect,.ftextarea{width:100%;padding:12px 15px;border:1.5px solid rgba(26,60,52,.12);border-radius:11px;font-family:var(--ff-b);font-size:.93rem;color:#333;background:#fdfbf7;transition:.3s;outline:none;appearance:none;-webkit-appearance:none}
 .finput:focus,.fselect:focus,.ftextarea:focus{border-color:var(--green);background:#fff;box-shadow:0 0 0 4px rgba(61,112,48,.08)}
 .finput:valid:not(:placeholder-shown){border-color:var(--green)}
@@ -415,7 +416,7 @@ img{max-width:100%;height:auto;display:block}
 </div>
 </div>
 <div class="frow">
-<div class="fwrap"><label class="flabel" for="port">විසර්ජන වරාය <span class="req">*</span></label><input class="finput" id="port" name="port" placeholder="e.g., Jebel Ali, Rotterdam, Mombasa" required="" type="text"/></div>
+<div class="fwrap"><label class="flabel" for="port">විසර්ජන වරාය <span class="opt">(optional)</span></label><input class="finput" id="port" name="port" placeholder="e.g., Jebel Ali, Rotterdam, Mombasa" type="text"/></div>
 <div class="fwrap"><label class="flabel" for="incoterms">කැමති Incoterms</label>
 <select class="fselect" id="incoterms" name="incoterms">
 <option value="CIF">CIF - පිරිවැය, රක්ෂණය සහ භාණ්ඩ ප්‍රවාහනය</option>
@@ -594,8 +595,16 @@ function toggleSample(cb) {
   const port = params.get('port');
   const sel = document.getElementById('product');
   if (prod && sel) {
+    let productMatched = false;
     for (let i = 0; i < sel.options.length; i++) {
-      if (sel.options[i].text.toLowerCase().includes(prod.toLowerCase()) || sel.options[i].value.toLowerCase().includes(prod.toLowerCase())) { sel.selectedIndex = i; break; }
+      if (sel.options[i].text.toLowerCase().includes(prod.toLowerCase()) || sel.options[i].value.toLowerCase().includes(prod.toLowerCase())) { sel.selectedIndex = i; productMatched = true; break; }
+    }
+    if (!productMatched) {
+      for (let i = 0; i < sel.options.length; i++) {
+        if (/other/i.test(sel.options[i].value)) { sel.selectedIndex = i; break; }
+      }
+      const requirementsFallback = document.getElementById('requirements');
+      if (requirementsFallback && !requirementsFallback.value) requirementsFallback.value = 'Product of interest: ' + prod;
     }
   }
   const portInput = document.getElementById('port');

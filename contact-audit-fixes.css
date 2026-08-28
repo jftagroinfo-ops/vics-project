@@ -3,7 +3,7 @@
   align-items: center;
   gap: 7px;
   margin-top: 9px;
-  color: #397030;
+  color: var(--green);
   font-family: 'Montserrat', sans-serif;
   font-size: .72rem;
   font-weight: 700;

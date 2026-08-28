@@ -11,6 +11,10 @@
   const submit=document.getElementById('sample-submit');
 
   function sync(){hidden.value=[...selected].join(', ');count.textContent=String(selected.size);productError.textContent='';}
+
+  const requestedProduct=new URLSearchParams(window.location.search).get('product');
+  const specificationField=form.elements.specification;
+  if(requestedProduct&&specificationField&&!specificationField.value){specificationField.value=requestedProduct;}
   buttons.forEach(button=>button.addEventListener('click',()=>{
     const product=button.dataset.product;
     if(selected.has(product)){selected.delete(product);button.setAttribute('aria-pressed','false');}

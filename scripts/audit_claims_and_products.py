@@ -85,7 +85,19 @@ def visible_text(path: Path) -> str:
         flags=re.I | re.S,
     )
     text = re.sub(r"<script\b.*?</script>|<style\b.*?</style>", " ", text, flags=re.I | re.S)
-    return re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"<[^>]+>", " ", text)
+    # The site owner explicitly approved exactly one family-heritage history
+    # sentence (Phase 33, A2) that intentionally carries the literal token "1980"
+    # as a predecessor-trading tradition year, paired with the verifiable 2016 LLP
+    # formation year. Suppress ONLY that exact wording from the 1980 gate so the
+    # gate keeps firing on every other unexpected "1980" claim (e.g. a "Star Export
+    # House since 1980" badge). Approved wording is kept visible in source.
+    text = text.replace(
+        "Building on a family trading tradition in Indian agricultural commodities "
+        "since 1980, JFT Agro Overseas LLP was formed in 2016.",
+        " ",
+    )
+    return text
 
 
 def main() -> int:

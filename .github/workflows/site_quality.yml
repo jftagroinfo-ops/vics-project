@@ -35,6 +35,8 @@ jobs:
           python scripts/generate_hreflang.py
           python scripts/generate_sitemap.py
           git diff --exit-code
+      - name: Audit locale UI dictionary (offline, catches header/footer drift)
+        run: python scripts/audit_locale_ui.py
       - name: Audit every page
         run: python scripts/audit_website.py
       - name: Audit product contracts and SEO uniqueness

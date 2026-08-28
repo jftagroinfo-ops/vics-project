@@ -92,6 +92,37 @@ def request_translation(session: requests.Session, language: str, text: str) -> 
     raise RuntimeError(f"Translation request failed after retries: {last_error}")
 
 
+class TranslationCoverageError(Exception):
+    """Raised when the governed cache does not yet cover every current source string.
+
+    Callers that must stay offline and deterministic (e.g. build_locale_ui.py,
+    part of the CI generator chain) should use require_cached_translations()
+    instead of translate_values() and treat this as a hard failure: it means a
+    source page changed and the cache needs an explicit authoring pass (running
+    translate_values()/this module's CLI entry points, which do call the
+    network) before the deterministic build can succeed again.
+    """
+
+
+def require_cached_translations(language: str, values: list[str], cache: dict[str, dict[str, str]]) -> dict[str, str]:
+    """Offline, network-free translation lookup for the deterministic build path.
+
+    Every value must already be present in data/localized-copy-cache.json for
+    this language. Never calls translate.googleapis.com or any other network
+    service, so it is safe to use in CI or with network access disabled. Raises
+    TranslationCoverageError (listing every missing string) rather than
+    silently falling back to English or attempting a live translation.
+    """
+    translated = cache.get(language, {})
+    missing = [value for value in values if value not in translated]
+    if missing:
+        preview = "; ".join(repr(value) for value in missing)
+        raise TranslationCoverageError(
+            f"{language}: {len(missing)} source string(s) not yet in data/localized-copy-cache.json: {preview}"
+        )
+    return {value: translated[value] for value in values}
+
+
 def translate_values(language: str, values: list[str], cache: dict[str, dict[str, str]]) -> dict[str, str]:
     translated = cache.setdefault(language, {})
     missing = [value for value in values if value not in translated]
