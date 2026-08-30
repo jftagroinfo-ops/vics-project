@@ -1,0 +1,13 @@
+category,opportunity,target_authority_type,topical_relevance,authority,editorial_legitimacy,business_relevance,ai_entity_value,feasibility,composite_score,priority,required_evidence,evidence_class
+A,Government export-promotion listings (APEDA/FIEO),Govt/Institutional,5,5,5,4,3,3,82,P1,"Verify exporter registration; cite APEDA commodity data",INFERRED
+B,Commodity boards (Spices/Coffee/Tea/etc.),Govt/Commodity,5,5,5,4,3,3,82,P1,"Confirm product mix; use official board resources",INFERRED
+C,Legitimate B2B trade directories,Directory,4,3,3,4,2,5,66,P2,"Accurate company profile; no paid-link networks",INFERRED
+D,Trade/business press coverage,Media,4,3,4,4,3,3,70,P2,"Real export milestone/news hook (no fabrication)",INFERRED
+E,Logistics/port authority resources,Industry,4,3,4,4,2,3,64,P2,"Cite real shipping/transit data",INFERRED
+F,Chambers of commerce (local/regional),Institutional,3,3,4,3,2,4,62,P2,"Membership + directory listing",INFERRED
+G,Industry associations (rice/spice/pulses),Association,5,4,4,5,3,3,76,P1,"Confirm relevant associations; genuine membership",INFERRED
+H,Original commodity research/guides,Content/Research,5,3,5,5,4,3,78,P1,"Use REAL data only; no fabricated statistics",INFERRED
+I,Interactive calculators (packing/port-transit/quote),Tool/Content,5,3,5,5,4,4,80,P1,"Some calculators may already exist on-site; verify",INFERRED
+J,Buyer/supplier references (case studies),Commercial,4,3,5,5,3,3,72,P2,"Real, approved customer references only",INFERRED
+K,Certification/standards bodies citations,Institutional,4,4,5,4,3,3,74,P1,"Cite real certs held by jftagro",INFERRED
+L,AI-search entity consistency (structured data),Technical/Entity,3,2,4,4,5,4,60,P2,"Align with Phase36 entity/monitor plan",INFERRED

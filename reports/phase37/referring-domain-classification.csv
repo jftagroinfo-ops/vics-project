@@ -1,0 +1,14 @@
+domain,http_status,observed_type,evidence_class,classification,spam_risk,recommended_action,notes
+seo-tip.com,200,automated SEO-tool,OBSERVED,D-automated-seo,medium,INVESTIGATE (no auto-disavow),homepage blank; no jftagro mention observed
+wants.cfd,200,automated SEO-tool,OBSERVED,D-automated-seo,medium,INVESTIGATE (no auto-disavow),"title: seo domain research"
+takes.sbs,200,automated SEO-tool,OBSERVED,D-automated-seo,medium,INVESTIGATE (no auto-disavow),"title: seo domain research"
+quero.party,200,SEO rank/backlink DB,OBSERVED,D-automated-seo,medium,INVESTIGATE (no auto-disavow),"title: ...Keyword Rankings"
+urls-shortener.eu,,shortener/SEO (blank),OBSERVED,D-unverified,unknown,INVESTIGATE (no auto-disavow),timeout/blank on probe
+bye.fyi,,SEO-tool pattern (blank),OBSERVED,D-unverified,unknown,INVESTIGATE (no auto-disavow),timeout/blank on probe
+domains.com.bz,,domain/SEO (blank),OBSERVED,D-unverified,unknown,INVESTIGATE (no auto-disavow),timeout/blank on probe
+drjack.world,,SEO-tool pattern (blank),OBSERVED,D-unverified,unknown,INVESTIGATE (no auto-disavow),timeout/blank on probe
+backlink.wiki,200,backlink DB/scraper,OBSERVED,D-automated-seo,medium,INVESTIGATE (no auto-disavow),homepage blank; no jftagro mention observed
+atomizelink.icu,200,SEO rank/backlink DB,OBSERVED,D-automated-seo,medium,INVESTIGATE (no auto-disavow),"title: ...Keyword Rankings"
+UNLISTED_DOMAIN_1,,DATA NOT PROVIDED,UNKNOWN,UNKNOWN,unknown,AWAIT EXPORT,one of ~34 unlisted of 44; not invented
+UNLISTED_DOMAIN_2,,DATA NOT PROVIDED,UNKNOWN,UNKNOWN,unknown,AWAIT EXPORT,one of ~34 unlisted of 44; not invented
+UNLISTED_DOMAIN_3,,DATA NOT PROVIDED,UNKNOWN,UNKNOWN,unknown,AWAIT EXPORT,one of ~34 unlisted of 44; not invented

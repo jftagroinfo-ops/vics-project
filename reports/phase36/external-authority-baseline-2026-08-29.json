@@ -1,0 +1,159 @@
+{
+  "audit_date": "2026-08-29",
+  "targets_checked": 14,
+  "results": [
+    {
+      "category": "institutional",
+      "source": "APEDA directory (public search landing)",
+      "url": "https://apeda.gov.in/apedawebsite/directory_of_exporters.htm",
+      "status": 404,
+      "reachable": false,
+      "brand_mention_observed": null,
+      "evidence_class": "UNKNOWN",
+      "note": "PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN",
+      "final_url": "https://apeda.gov.in/apedawebsite/directory_of_exporters.htm"
+    },
+    {
+      "category": "institutional",
+      "source": "FIEO member directory (public landing)",
+      "url": "https://www.fieo.in/",
+      "status": 0,
+      "reachable": false,
+      "brand_mention_observed": null,
+      "evidence_class": "INACCESSIBLE",
+      "note": "REQUEST FAILED: HTTPSConnectionPool(host='www.fieo.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.fieo.in', port=443) at 0x1b278aa2450>, 'Connection to www.fieo.in timed out. (connect timeout=8)'))"
+    },
+    {
+      "category": "institutional",
+      "source": "DGFT (public landing)",
+      "url": "https://dgft.gov.in/",
+      "status": 200,
+      "reachable": true,
+      "brand_mention_observed": false,
+      "evidence_class": "OBSERVED",
+      "note": "",
+      "final_url": "https://www.dgft.gov.in:443/"
+    },
+    {
+      "category": "business",
+      "source": "LinkedIn company page",
+      "url": "https://www.linkedin.com/company/jft-agro-overseas",
+      "status": 404,
+      "reachable": false,
+      "brand_mention_observed": null,
+      "evidence_class": "UNKNOWN",
+      "note": "PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN",
+      "final_url": "https://www.linkedin.com/company/jft-agro-overseas"
+    },
+    {
+      "category": "business",
+      "source": "LinkedIn (public people search)",
+      "url": "https://www.linkedin.com/search/results/companies/?keywords=JFT%20Agro%20Overseas",
+      "status": 200,
+      "reachable": true,
+      "brand_mention_observed": false,
+      "evidence_class": "OBSERVED",
+      "note": "",
+      "final_url": "https://www.linkedin.com/uas/login?session_redirect=%2Fsearch%2Fresults%2Fcompanies%2F%3Fkeywords%3DJFT%2520Agro%2520Overseas&skipRedirect=true"
+    },
+    {
+      "category": "business",
+      "source": "Facebook (sameAs in JSON-LD)",
+      "url": "https://www.facebook.com/jftagro",
+      "status": 200,
+      "reachable": true,
+      "brand_mention_observed": true,
+      "evidence_class": "OBSERVED",
+      "note": "",
+      "final_url": "https://www.facebook.com/jftagro"
+    },
+    {
+      "category": "business",
+      "source": "Instagram (sameAs in JSON-LD)",
+      "url": "https://www.instagram.com/jftagro",
+      "status": 200,
+      "reachable": true,
+      "brand_mention_observed": true,
+      "evidence_class": "OBSERVED",
+      "note": "",
+      "final_url": "https://www.instagram.com/jftagro"
+    },
+    {
+      "category": "directory",
+      "source": "ExportHub listing",
+      "url": "https://www.exporthub.com/jft-agro-overseas",
+      "status": 403,
+      "reachable": false,
+      "brand_mention_observed": null,
+      "evidence_class": "INACCESSIBLE",
+      "note": "ACCESS BLOCKED / AUTH REQUIRED - treat brand presence as UNKNOWN",
+      "final_url": "https://www.exporthub.com/jft-agro-overseas"
+    },
+    {
+      "category": "directory",
+      "source": "IndiaMART (brand search)",
+      "url": "https://www.indiamart.com/jft-agro/",
+      "status": 404,
+      "reachable": false,
+      "brand_mention_observed": null,
+      "evidence_class": "UNKNOWN",
+      "note": "PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN",
+      "final_url": "https://www.indiamart.com/jft-agro/"
+    },
+    {
+      "category": "directory",
+      "source": "TradeIndia (brand search)",
+      "url": "https://www.tradeindia.com/search?keyword=JFT+Agro+Overseas",
+      "status": 404,
+      "reachable": false,
+      "brand_mention_observed": null,
+      "evidence_class": "UNKNOWN",
+      "note": "PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN",
+      "final_url": "https://www.tradeindia.com/search/"
+    },
+    {
+      "category": "directory",
+      "source": "Go4WorldBusiness (brand search)",
+      "url": "https://www.go4worldbusiness.com/search.html?kw=JFT+Agro+Overseas",
+      "status": 404,
+      "reachable": false,
+      "brand_mention_observed": null,
+      "evidence_class": "UNKNOWN",
+      "note": "PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN",
+      "final_url": "https://www.go4worldbusiness.com/members/view/search.html"
+    },
+    {
+      "category": "directory",
+      "source": "Kompass (brand search)",
+      "url": "https://www.kompass.com/searchCompanies?text=JFT%20Agro%20Overseas",
+      "status": 403,
+      "reachable": false,
+      "brand_mention_observed": null,
+      "evidence_class": "INACCESSIBLE",
+      "note": "ACCESS BLOCKED / AUTH REQUIRED - treat brand presence as UNKNOWN",
+      "final_url": "https://www.kompass.com/searchCompanies?text=JFT%20Agro%20Overseas"
+    },
+    {
+      "category": "publication",
+      "source": "Google web index (brand query, read-only SERP)",
+      "url": "https://www.google.com/search?q=%22JFT+Agro+Overseas%22",
+      "status": 200,
+      "reachable": true,
+      "brand_mention_observed": false,
+      "evidence_class": "OBSERVED",
+      "note": "",
+      "final_url": "https://www.google.com/search?q=%22JFT+Agro+Overseas%22"
+    },
+    {
+      "category": "publication",
+      "source": "Bing web index (brand query, read-only SERP)",
+      "url": "https://www.bing.com/search?q=%22JFT+Agro+Overseas%22",
+      "status": 200,
+      "reachable": true,
+      "brand_mention_observed": true,
+      "evidence_class": "OBSERVED",
+      "note": "",
+      "final_url": "https://www.bing.com/search?q=%22JFT+Agro+Overseas%22"
+    }
+  ]
+}

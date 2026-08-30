@@ -1,0 +1,58 @@
+{
+  "monitor_date": "2026-08-29",
+  "baseline_date": "2026-08-29",
+  "repository_sha_baseline": "4535656d830c4fb5ede7928cab7f6920597aaa67",
+  "production_baseline_present": true,
+  "scoring_baseline_present": true,
+  "ai_platforms": [
+    {
+      "name": "Perplexity",
+      "reachable": null,
+      "state": "UNKNOWN",
+      "note": "Returned HTTP 403 to unauthenticated curl on 2026-08-29. Requires API key (future phase)."
+    },
+    {
+      "name": "Google AI Overviews",
+      "reachable": null,
+      "state": "UNKNOWN",
+      "note": "Not renderable in unauthenticated SERP HTML on 2026-08-29."
+    },
+    {
+      "name": "Bing Copilot / Chat",
+      "reachable": null,
+      "state": "UNKNOWN",
+      "note": "Not renderable in unauthenticated SERP HTML on 2026-08-29."
+    },
+    {
+      "name": "ChatGPT browse",
+      "reachable": null,
+      "state": "UNKNOWN",
+      "note": "No credentialed access."
+    }
+  ],
+  "external_authority_sources_expected": [
+    "APEDA directory",
+    "FIEO member directory",
+    "DGFT",
+    "LinkedIn company page",
+    "Facebook",
+    "Instagram",
+    "ExportHub",
+    "IndiaMART",
+    "TradeIndia",
+    "Go4WorldBusiness",
+    "Kompass",
+    "Google web index",
+    "Bing web index"
+  ],
+  "regressions_detected": [
+    {
+      "dimension": "ai_citation_rate",
+      "status": "NO DELTA POSSIBLE",
+      "reason": "AI-answer platforms still UNKNOWN/inaccessible; baseline dimension was UNKNOWN."
+    }
+  ],
+  "note": "Template harness. AI-answer-platform dimensions remain UNKNOWN until a future phase grants credentialed access. This script does not modify production.",
+  "comparison_mode": true,
+  "compared_against": "reports\\phase36\\ai-search-baseline-2026-08-29.json"
+}

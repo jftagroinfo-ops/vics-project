@@ -1,0 +1,56 @@
+{
+  "audit_date": "2026-08-29",
+  "repository_sha": "4535656d830c4fb5ede7928cab7f6920597aaa67",
+  "production_url": "https://jftagro.com",
+  "ai_visibility": {
+    "methodology": "Weighted average of 7 dimensions (Stage K). UNKNOWN dims excluded from OBSERVED score, scored 0 in COVERAGE-ADJUSTED.",
+    "weights": {
+      "branded_visibility": 0.15,
+      "commercial_query_visibility": 0.2,
+      "product_visibility": 0.15,
+      "ai_citation_rate": 0.2,
+      "official_page_citation_rate": 0.1,
+      "competitor_share": 0.1,
+      "external_authority": 0.1
+    },
+    "observed_values": {
+      "branded_visibility": 70,
+      "commercial_query_visibility": 25,
+      "product_visibility": 45,
+      "ai_citation_rate": null,
+      "official_page_citation_rate": null,
+      "competitor_share": null,
+      "external_authority": 30
+    },
+    "observed_score": 42.1,
+    "coverage_adjusted_score": 25.2,
+    "unknown_dimensions": [
+      "ai_citation_rate",
+      "official_page_citation_rate",
+      "competitor_share"
+    ],
+    "measured_coverage_pct": 60.0
+  },
+  "external_authority": {
+    "methodology": "Equal-weight average of 9 components (Stage L). UNKNOWN != ZERO.",
+    "observed_values": null,
+    "observed_score": 40.0,
+    "coverage_adjusted_score": 17.8,
+    "unknown_dimensions": [
+      "referring_domains",
+      "institutional_presence",
+      "trade_portals",
+      "marketplace_presence",
+      "publications"
+    ],
+    "measured_coverage_pct": 44.4
+  },
+  "scoring_assumptions": [
+    "Branded_visibility=70 because brand-name SERP returns jftagro.com (Bing observed True; Google reachable).",
+    "Commercial_query_visibility=25 based on local GSC export (low nonbrand impressions, avg position ~9-10).",
+    "Product_visibility=45: full product catalogue indexed with correct canonical/hreflang but weak query coverage.",
+    "ai_citation_rate / official_page_citation_rate / competitor_share = UNKNOWN (AI-answer platforms inaccessible).",
+    "External_authority=30: social sameAs present; directories institutional presence UNKNOWN; LinkedIn company page 404.",
+    "All UNKNOWN dimensions are recorded and excluded from OBSERVED score; never imputed as zero without label."
+  ]
+}

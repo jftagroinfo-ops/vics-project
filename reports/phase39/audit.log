@@ -1,0 +1,5 @@
+2026-08-29T16:21:28 BEFORE total=1788 tracked=1788 untracked=0 loader=940 inlined=5 gated=83 header_lines=1198
+2026-08-29T16:24:37 INLINE DRYRUN scanned=1788 changed=940 already_inlined=5
+2026-08-29T16:24:46 INLINE APPLY scanned=1788 changed=940 already_inlined=5
+2026-08-29T16:43:16 INLINE APPLY scanned=1788 changed=940 already_inlined=5
+2026-08-29T16:52:47 INLINE APPLY scanned=1788 changed=940 already_inlined=5

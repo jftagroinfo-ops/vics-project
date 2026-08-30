@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+"""Phase 36 - Stage C: AI-search query inventory generator (READ-ONLY, no network).
+
+Writes a CSV under reports/phase36/. Does NOT modify website/source/config.
+Columns: query_id,query,category,commercial_intent,priority,target_page,competitor_expected
+"""
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent.parent
+OUT = ROOT / "reports" / "phase36" / "ai-search-query-inventory.csv"
+
+# commercial_intent: none|low|medium|high ; priority: P1 branded/trust|P2 commercial|P3 category|P4 topical
+QUERIES = [
+    ("Q-COMP-01", "JFT Agro Overseas", "company", "none", "P1", "https://jftagro.com/", "other Indian exporters"),
+    ("Q-COMP-02", "JFT Agro Overseas LLP", "company", "none", "P1", "https://jftagro.com/about.html", "other Indian exporters"),
+    ("Q-COMP-03", "JFT Agro", "company", "none", "P1", "https://jftagro.com/", "other Indian exporters"),
+    ("Q-COMP-04", "JFT Agro India", "company", "none", "P1", "https://jftagro.com/", "other Indian exporters"),
+    ("Q-COMP-05", "JFT Agro Overseas reviews", "trust", "medium", "P1", "https://jftagro.com/about.html", "review aggregators/directories"),
+    ("Q-COMP-06", "JFT Agro Overseas supplier", "trust", "high", "P1", "https://jftagro.com/products.html", "supplier databases"),
+    ("Q-COMP-07", "JFT Agro Overseas exporter", "trust", "high", "P1", "https://jftagro.com/", "export directories"),
+    ("Q-COMP-08", "JFT Agro Overseas company", "company", "medium", "P1", "https://jftagro.com/about.html", "company databases"),
+    ("Q-COMP-09", "is JFT Agro Overseas a rice exporter", "trust", "high", "P1", "https://jftagro.com/rice-exporter-india.html", "rice export directories"),
+    ("Q-RICE-01", "Indian rice exporters", "rice", "high", "P2", "https://jftagro.com/rice-exporter-india.html", "Tilda, KRBL, LT Foods, exporter directories"),
+    ("Q-RICE-02", "rice exporter India", "rice", "high", "P2", "https://jftagro.com/rice-exporter-india.html", "exporter directories"),
+    ("Q-RICE-03", "IR64 rice exporter India", "rice", "high", "P2", "https://jftagro.com/1121-white-sella-basmati-exporter.html", "bulk rice exporters"),
+    ("Q-RICE-04", "parboiled rice exporter India", "rice", "high", "P2", "https://jftagro.com/5-parboiled-rice-ir-64-exporter.html", "bulk rice exporters"),
+    ("Q-RICE-05", "1121 basmati rice exporter India", "rice", "high", "P2", "https://jftagro.com/1121-basmati-rice-exporter.html", "KRBL, LT Foods, basmati exporters"),
+    ("Q-RICE-06", "Indian non basmati rice supplier", "rice", "high", "P2", "https://jftagro.com/rice-exporter-india.html", "non-basmati exporters"),
+    ("Q-RICE-07", "Indian rice supplier for Vietnam", "rice", "high", "P2", "https://jftagro.com/rice-exporter-india.html", "Vietnam-facing exporters"),
+    ("Q-RICE-08", "broken rice exporter India", "rice", "high", "P2", "https://jftagro.com/100-broken-rice-exporter.html", "broken rice exporters"),
+    ("Q-RICE-09", "sella basmati rice exporter India", "rice", "high", "P2", "https://jftagro.com/1401-sella-basmati-rice-exporter.html", "sella basmati exporters"),
+    ("Q-RICE-10", "steam basmati rice exporter India", "rice", "high", "P2", "https://jftagro.com/1121-steam-basmati-rice-exporter.html", "steam basmati exporters"),
+    ("Q-RICE-11", "golden sella basmati exporter India", "rice", "high", "P2", "https://jftagro.com/1401-golden-sella-basmati-exporter.html", "golden sella exporters"),
+    ("Q-RICE-12", "raw basmati rice exporter India", "rice", "high", "P2", "https://jftagro.com/1121-raw-basmati-rice-exporter.html", "raw basmati exporters"),
+    ("Q-RICE-13", "white rice exporter India", "rice", "high", "P2", "https://jftagro.com/25-silky-sortex-white-exporter.html", "white rice exporters"),
+    ("Q-COMM-01", "Indian oilseeds exporter", "commodity", "high", "P3", "https://jftagro.com/oilseeds-exporter-india.html", "oilseed exporters"),
+    ("Q-COMM-02", "groundnut exporter India", "commodity", "high", "P3", "https://jftagro.com/groundnuts-peanuts-exporter.html", "groundnut exporters"),
+    ("Q-COMM-03", "safflower seeds exporter India", "commodity", "high", "P3", "https://jftagro.com/safflower-seeds-exporter.html", "safflower exporters"),
+    ("Q-COMM-04", "sunflower seeds exporter India", "commodity", "high", "P3", "https://jftagro.com/sunflower-seeds-exporter.html", "sunflower exporters"),
+    ("Q-COMM-05", "wheat flour exporter India", "commodity", "high", "P3", "https://jftagro.com/wheat-flour-chakki-fresh-atta-exporter.html", "wheat flour exporters"),
+    ("Q-COMM-06", "sugar exporter India", "commodity", "high", "P3", "https://jftagro.com/sugar-exporter-india.html", "sugar exporters"),
+    ("Q-COMM-07", "maize exporter India", "commodity", "high", "P3", "https://jftagro.com/yellow-maize-corn-exporter.html", "maize exporters"),
+    ("Q-COMM-08", "moringa exporter India", "commodity", "high", "P3", "https://jftagro.com/moringa-leaves-exporter.html", "moringa exporters"),
+    ("Q-COMM-09", "Indian herbs exporter", "commodity", "high", "P3", "https://jftagro.com/herbs-seeds-exporter-india.html", "herb exporters"),
+    ("Q-COMM-10", "animal feed exporter India", "commodity", "high", "P3", "https://jftagro.com/animal-feed-exporter-india.html", "feed exporters"),
+    ("Q-TRADE-01", "reliable Indian agro commodity exporter", "trade", "high", "P2", "https://jftagro.com/", "reliability-focused exporters"),
+    ("Q-TRADE-02", "verified Indian rice exporter", "trade", "high", "P2", "https://jftagro.com/certificates.html", "verified exporter directories"),
+    ("Q-TRADE-03", "Indian exporter for Vietnam", "trade", "high", "P2", "https://jftagro.com/rice-exporter-india.html", "Vietnam-facing exporters"),
+    ("Q-TRADE-04", "Indian rice supplier to Vietnam", "trade", "high", "P2", "https://jftagro.com/rice-exporter-india.html", "Vietnam-facing exporters"),
+    ("Q-TRADE-05", "Indian agro exporter Mumbai", "trade", "high", "P2", "https://jftagro.com/about.html", "Mumbai exporters"),
+    ("Q-TRADE-06", "Indian agricultural commodity supplier", "trade", "high", "P2", "https://jftagro.com/products.html", "commodity suppliers"),
+    ("Q-TRADE-07", "Indian rice exporter Navi Mumbai", "trade", "high", "P2", "https://jftagro.com/about.html", "Navi Mumbai exporters"),
+    ("Q-TRADE-08", "how to choose Indian agro exporter", "trade", "medium", "P3", "https://jftagro.com/blog-how-to-choose-indian-agro-exporter.html", "advisory/blog sites"),
+    ("Q-TRADE-09", "Indian basmati rice supplier UAE", "trade", "high", "P2", "https://jftagro.com/uae-trade.html", "UAE-facing exporters"),
+    ("Q-TRADE-10", "Indian rice exporter Africa", "trade", "high", "P2", "https://jftagro.com/africa-trade.html", "Africa-facing exporters"),
+    ("Q-TRADE-11", "Indian spice supplier UK", "trade", "high", "P2", "https://jftagro.com/europe-trade.html", "UK-facing spice exporters"),
+    ("Q-TRADE-12", "Indian agro exporter APEDA", "trade", "medium", "P3", "https://jftagro.com/certificates.html", "APEDA directory"),
+    ("Q-TRADE-13", "Indian rice FOB price", "trade", "high", "P3", "https://jftagro.com/quote-calculator.html", "price portals"),
+    ("Q-TRADE-14", "Indian rice CIF price", "trade", "high", "P3", "https://jftagro.com/quote-calculator.html", "price portals"),
+    ("Q-TRADE-15", "rice container packing calculator", "trade", "medium", "P3", "https://jftagro.com/packing-calculator.html", "calculator/tools sites"),
+    ("Q-CERT-01", "APEDA registered rice exporter India", "trust", "medium", "P3", "https://jftagro.com/certificates.html", "APEDA directory"),
+    ("Q-CERT-02", "Indian exporter with phytosanitary certificate", "trust", "medium", "P3", "https://jftagro.com/certificates.html", "certified exporters"),
+    ("Q-CERT-03", "SGS inspected Indian rice exporter", "trust", "medium", "P3", "https://jftagro.com/blog-sgs-inspection-indian-agro-exports.html", "inspection blogs"),
+    ("Q-CERT-04", "FIEO member Indian exporter", "trust", "medium", "P3", "https://jftagro.com/about.html", "FIEO directory"),
+    ("Q-TOP-01", "basmati vs non basmati rice", "topical", "low", "P4", "https://jftagro.com/blog-india-vs-thailand-rice-comparison.html", "advisory sites"),
+    ("Q-TOP-02", "how to import rice from India", "topical", "medium", "P4", "https://jftagro.com/blog-how-to-import-rice-nigeria-west-africa.html", "advisory sites"),
+    ("Q-TOP-03", "IR64 rice Africa market", "topical", "low", "P4", "https://jftagro.com/blog-ir64-africa.html", "market reports"),
+    ("Q-TOP-04", "Indian spice market outlook 2026", "topical", "low", "P4", "https://jftagro.com/blog-spice-trends-2026.html", "market reports"),
+    ("Q-TOP-05", "India export documentation", "topical", "low", "P4", "https://jftagro.com/export-documentation.html", "documentation guides"),
+    ("Q-TOP-06", "bill of lading explained importers", "topical", "low", "P4", "https://jftagro.com/blog-bill-of-lading-explained-importers.html", "logistics guides"),
+]
+
+
+def main() -> int:
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    lines = ["query_id,query,category,commercial_intent,priority,target_page,competitor_expected"]
+    for qid, q, cat, ci, pri, tp, comp in QUERIES:
+        lines.append(f'{qid},"{q}",{cat},{ci},{pri},{tp},"{comp}"')
+    OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"Wrote {len(QUERIES)} queries -> {OUT}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+
+
+    ("Q-RICE-14", "silky sortex rice exporter India", "rice", "high", "P2", "https://jftagro.com/25-silky-sortex-short-grain-exporter.html", "silky sortex exporters"),
+    ("Q-RICE-15", "Indian rice supplier to Africa", "rice", "high", "P2", "https://jftagro.com/africa-trade.html", "Africa-facing exporters"),
+    ("Q-RICE-16", "best basmati rice exporter India", "rice", "high", "P2", "https://jftagro.com/1121-basmati-rice-exporter.html", "basmati exporters"),

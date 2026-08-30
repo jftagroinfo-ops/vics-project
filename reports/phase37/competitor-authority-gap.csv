@@ -1,0 +1,11 @@
+authoritative_source,type,category,relevance,authority,replicability,recommended_approach,opportunity_score,evidence_class,notes
+APEDA (apeda.gov.in),Government export promotion,Institutional,high,high,medium,List jftagro as an exporter / cite APEDA commodity data,82,OBSERVED/INFERRED,Phase36: site 404 (not listed) — gap to close
+FIEO (fieo.org),Federation of export orgs,Institutional,high,high,medium,Membership + directory listing,80,OBSERVED/INFERRED,Phase36: timeout — verify membership eligibility
+Spices Board (spicesboard.gov.in),Commodity board,Commodity,high,high,medium,Citation in spice export resources,80,INFERRED,relevant if spice products offered
+Coffee Board / Tea Board / Commodity boards,Gov commodity boards,Commodity,medium,high,medium,Commodity data citations,72,INFERRED,relevant per product mix
+DGFT (dgft.gov.in),Policy/regulatory,Govt,medium,high,low,Citation of export policy/HS codes,68,OBSERVED/INFERRED,Phase36: generic only
+Trade publications (agri/commodity biz press),Industry media,Media,medium,medium,medium,Earned coverage of real export activity,70,INFERRED,requires real news hook; no fabricated news
+B2B directories (verified),Business directory,Directory,medium,medium,high,Complete accurate profile on legitimate B2B portals,66,INFERRED,avoid spammy/paid-link networks
+Logistics/port authorities,Industry,Industry,medium,medium,medium,Resource citations for shipping/transit,64,INFERRED,port/transit authority resources
+Chambers of commerce (local/regional),Institutional,Institutional,medium,medium,medium,Membership + local directory,62,INFERRED,regional chamber listings
+University/extension agronomy,Academic,Research,low,high,low,Citation in commodity research/resources,58,INFERRED,long-term; original research angle

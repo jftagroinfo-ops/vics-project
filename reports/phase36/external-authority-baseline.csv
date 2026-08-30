@@ -1,0 +1,15 @@
+category,source,url,status,reachable,brand_mention_observed,evidence_class,note
+institutional,APEDA directory (public search landing),https://apeda.gov.in/apedawebsite/directory_of_exporters.htm,404,False,,UNKNOWN,PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN
+institutional,FIEO member directory (public landing),https://www.fieo.in/,0,False,,INACCESSIBLE,"REQUEST FAILED: HTTPSConnectionPool(host='www.fieo.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.fieo.in', port=443) at 0x1b278aa2450>, 'Connection to www.fieo.in timed out. (connect timeout=8)'))"
+institutional,DGFT (public landing),https://dgft.gov.in/,200,True,False,OBSERVED,
+business,LinkedIn company page,https://www.linkedin.com/company/jft-agro-overseas,404,False,,UNKNOWN,PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN
+business,LinkedIn (public people search),https://www.linkedin.com/search/results/companies/?keywords=JFT%20Agro%20Overseas,200,True,False,OBSERVED,
+business,Facebook (sameAs in JSON-LD),https://www.facebook.com/jftagro,200,True,True,OBSERVED,
+business,Instagram (sameAs in JSON-LD),https://www.instagram.com/jftagro,200,True,True,OBSERVED,
+directory,ExportHub listing,https://www.exporthub.com/jft-agro-overseas,403,False,,INACCESSIBLE,ACCESS BLOCKED / AUTH REQUIRED - treat brand presence as UNKNOWN
+directory,IndiaMART (brand search),https://www.indiamart.com/jft-agro/,404,False,,UNKNOWN,PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN
+directory,TradeIndia (brand search),https://www.tradeindia.com/search?keyword=JFT+Agro+Overseas,404,False,,UNKNOWN,PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN
+directory,Go4WorldBusiness (brand search),https://www.go4worldbusiness.com/search.html?kw=JFT+Agro+Overseas,404,False,,UNKNOWN,PAGE NOT RETURNED (HTTP error) - brand presence UNKNOWN
+directory,Kompass (brand search),https://www.kompass.com/searchCompanies?text=JFT%20Agro%20Overseas,403,False,,INACCESSIBLE,ACCESS BLOCKED / AUTH REQUIRED - treat brand presence as UNKNOWN
+publication,"Google web index (brand query, read-only SERP)",https://www.google.com/search?q=%22JFT+Agro+Overseas%22,200,True,False,OBSERVED,
+publication,"Bing web index (brand query, read-only SERP)",https://www.bing.com/search?q=%22JFT+Agro+Overseas%22,200,True,True,OBSERVED,

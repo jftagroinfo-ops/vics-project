@@ -1,0 +1,15 @@
+{
+  "total_pages": 1788,
+  "pages_with_inlined_header": 945,
+  "pages_with_loader_tag": 0,
+  "pages_with_fetch_header": 0,
+  "duplicate_header_count": 0,
+  "gated_preloader_pages": 83,
+  "gated_with_event": 83,
+  "pages_with_multiple_skiplinks": 0,
+  "missing_invariant_totals": {},
+  "worker_locale_410_intact": true,
+  "expected_header_bytes": 64989,
+  "changed_file_count": 940,
+  "failure_count": 0
+}

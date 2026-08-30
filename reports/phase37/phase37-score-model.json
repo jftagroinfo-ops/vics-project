@@ -1,0 +1,131 @@
+{
+  "model": "phase37-authority-priority",
+  "weights_percent": {
+    "topical_relevance": 25,
+    "authority": 20,
+    "editorial_legitimacy": 20,
+    "business_relevance": 15,
+    "ai_entity_value": 10,
+    "feasibility": 10
+  },
+  "scale": "each dimension 1-5; composite 0-100",
+  "bands": {
+    "P1": ">=75",
+    "P2": "65-74",
+    "P3": "55-64",
+    "DEPRIORITIZE": "<55"
+  },
+  "backlink_profile_status": "UNKNOWN (no local export; see backlink-data-requirements.md)",
+  "ai_platforms_status": "UNKNOWN/INACCESSIBLE (Phase 36)",
+  "disclaimer": "All scores are MODELED/INFERRED — NOT GUARANTEED. No backlink/credential fabricated.",
+  "scored_opportunities": [
+    {
+      "category": "A",
+      "opportunity": "Government export-promotion listings (APEDA/FIEO)",
+      "composite_score": 89.0,
+      "model_priority": "P1",
+      "csv_priority": "P1",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Verify exporter registration; cite APEDA commodity data"
+    },
+    {
+      "category": "B",
+      "opportunity": "Commodity boards (Spices/Coffee/Tea/etc.)",
+      "composite_score": 89.0,
+      "model_priority": "P1",
+      "csv_priority": "P1",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Confirm product mix; use official board resources"
+    },
+    {
+      "category": "C",
+      "opportunity": "Legitimate B2B trade directories",
+      "composite_score": 70.0,
+      "model_priority": "P2",
+      "csv_priority": "P2",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Accurate company profile; no paid-link networks"
+    },
+    {
+      "category": "D",
+      "opportunity": "Trade/business press coverage",
+      "composite_score": 72.0,
+      "model_priority": "P2",
+      "csv_priority": "P2",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Real export milestone/news hook (no fabrication)"
+    },
+    {
+      "category": "E",
+      "opportunity": "Logistics/port authority resources",
+      "composite_score": 70.0,
+      "model_priority": "P2",
+      "csv_priority": "P2",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Cite real shipping/transit data"
+    },
+    {
+      "category": "F",
+      "opportunity": "Chambers of commerce (local/regional)",
+      "composite_score": 64.0,
+      "model_priority": "P3",
+      "csv_priority": "P2",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Membership + directory listing"
+    },
+    {
+      "category": "G",
+      "opportunity": "Industry associations (rice/spice/pulses)",
+      "composite_score": 84.0,
+      "model_priority": "P1",
+      "csv_priority": "P1",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Confirm relevant associations; genuine membership"
+    },
+    {
+      "category": "H",
+      "opportunity": "Original commodity research/guides",
+      "composite_score": 86.0,
+      "model_priority": "P1",
+      "csv_priority": "P1",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Use REAL data only; no fabricated statistics"
+    },
+    {
+      "category": "I",
+      "opportunity": "Interactive calculators (packing/port-transit/quote)",
+      "composite_score": 88.0,
+      "model_priority": "P1",
+      "csv_priority": "P1",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Some calculators may already exist on-site; verify"
+    },
+    {
+      "category": "J",
+      "opportunity": "Buyer/supplier references (case studies)",
+      "composite_score": 79.0,
+      "model_priority": "P1",
+      "csv_priority": "P2",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Real, approved customer references only"
+    },
+    {
+      "category": "K",
+      "opportunity": "Certification/standards bodies citations",
+      "composite_score": 80.0,
+      "model_priority": "P1",
+      "csv_priority": "P1",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Cite real certs held by jftagro"
+    },
+    {
+      "category": "L",
+      "opportunity": "AI-search entity consistency (structured data)",
+      "composite_score": 69.0,
+      "model_priority": "P2",
+      "csv_priority": "P2",
+      "evidence_class": "INFERRED",
+      "required_evidence": "Align with Phase36 entity/monitor plan"
+    }
+  ]
+}

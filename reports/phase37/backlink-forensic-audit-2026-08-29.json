@@ -1,0 +1,39 @@
+{
+  "audit": "phase37-backlink-forensic",
+  "domain": "https://jftagro.com",
+  "date": "2026-08-29",
+  "baseline_sha": "4535656d",
+  "mode": "read-only-audit-strategy-plan",
+  "evidence_status": {
+    "repo_backlink_export_present": false,
+    "phase36_referring_domains": "UNKNOWN",
+    "brief_figures": "USER-PROVIDED/UNVERIFIED (61 backlinks, 44 referring domains, 2 dofollow)",
+    "fabrication_rule": "none — all absent data labeled UNKNOWN"
+  },
+  "live_probe": [
+    {"domain": "seo-tip.com", "http": 200, "mentions_jftagro": false, "title": "", "observed_type": "automated SEO-tool", "evidence_class": "OBSERVED"},
+    {"domain": "wants.cfd", "http": 200, "mentions_jftagro": false, "title": "seo domain research", "observed_type": "automated SEO-tool", "evidence_class": "OBSERVED"},
+    {"domain": "takes.sbs", "http": 200, "mentions_jftagro": false, "title": "seo domain research", "observed_type": "automated SEO-tool", "evidence_class": "OBSERVED"},
+    {"domain": "quero.party", "http": 200, "mentions_jftagro": false, "title": "quero.party | Keyword Rankingss", "observed_type": "SEO rank/backlink DB", "evidence_class": "OBSERVED"},
+    {"domain": "urls-shortener.eu", "http": null, "mentions_jftagro": null, "title": "", "observed_type": "shortener/SEO (blank/timeout)", "evidence_class": "OBSERVED"},
+    {"domain": "bye.fyi", "http": null, "mentions_jftagro": null, "title": "", "observed_type": "SEO-tool pattern (blank/timeout)", "evidence_class": "OBSERVED"},
+    {"domain": "domains.com.bz", "http": null, "mentions_jftagro": null, "title": "", "observed_type": "domain/SEO (blank/timeout)", "evidence_class": "OBSERVED"},
+    {"domain": "drjack.world", "http": null, "mentions_jftagro": null, "title": "", "observed_type": "SEO-tool pattern (blank/timeout)", "evidence_class": "OBSERVED"},
+    {"domain": "backlink.wiki", "http": 200, "mentions_jftagro": false, "title": "", "observed_type": "backlink DB/scraper", "evidence_class": "OBSERVED"},
+    {"domain": "atomizelink.icu", "http": 200, "mentions_jftagro": false, "title": "atomizelink.icu | Keyword Rankingss", "observed_type": "SEO rank/backlink DB", "evidence_class": "OBSERVED"}
+  ],
+  "link_to_jftagro_confirmed": false,
+  "classification_summary": {
+    "named_domains_count": 10,
+    "named_class": "D — automated SEO / backlink-database pages",
+    "named_action": "INVESTIGATE (no auto-disavow)",
+    "unlisted_domains": "DATA NOT PROVIDED / UNKNOWN (≈34 of 44)"
+  },
+  "authority_concentration": {
+    "brief_claim": "60 of 61 links to homepage",
+    "status": "UNVERIFIED",
+    "recommendation": "diversify future acquisition to commercial/commodity/content pages"
+  },
+  "toxicity_disavow": "No disavow recommended; monitor only.",
+  "phase36_unknown_footprint": ["APEDA 404", "FIEO timeout", "DGFT generic", "ExportHub/Kompass 403", "LinkedIn company page 404", "IndiaMART/TradeIndia/Go4WorldBusiness 404"]
+}
